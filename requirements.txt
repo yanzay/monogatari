@@ -1,0 +1,19 @@
+# Monogatari — pipeline runtime dependencies
+# (Install with: python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt)
+
+# Audio (stage 4d). Optional: only required if you use --tts-backend google.
+google-cloud-texttospeech>=2.16
+
+# Japanese NLP toolkit used by:
+#   pipeline/jp.py        unified helper module
+#   pipeline/precheck.py  inflection check, kana auto-derive, gloss quality
+#   pipeline/scaffold.py  auto-fill kana/reading/pos for new words
+#   pipeline/lookup.py    `jmdict` subcommand and morphology subcommand
+#
+# All three are pure-Python wheels with no system dependencies. Combined
+# install footprint: ~80 MB (jamdict-data is the heavy one at ~50 MB).
+fugashi>=1.3
+unidic-lite>=1.0.8
+jaconv>=0.4
+jamdict>=0.1.7
+jamdict-data>=1.5

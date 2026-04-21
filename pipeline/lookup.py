@@ -152,6 +152,8 @@ def main() -> None:
     p.add_argument("--next", action="store_true", help="Show next free word_id, grammar_id, story_id")
     p.add_argument("--grammar-usage", action="store_true", help="List all grammar points sorted by usage count")
     p.add_argument("--low-occ", action="store_true", help="List words with occurrences < 5 (engagement pool)")
+    p.add_argument("--jmdict", action="store_true", help="Query JMdict (English↔Japanese) for the term — useful for finding readings/POS for a candidate new word")
+    p.add_argument("--morph", action="store_true", help="Run morphological analysis (UniDic-Lite) on the term — useful for verifying inflected surfaces parse the way you expect")
     args = p.parse_args()
 
     vocab, grammar = load_state()
@@ -162,6 +164,10 @@ def main() -> None:
         grammar_usage()
     elif args.low_occ:
         low_occurrences()
+    elif args.jmdict and args.term:
+        jmdict_search(args.term)
+    elif args.morph and args.term:
+        morph_analyze(args.term)
     elif args.term:
         if args.term.startswith("W") or args.term.startswith("G"):
             show_record(args.term)
@@ -169,6 +175,46 @@ def main() -> None:
             search(args.term, vocab, grammar)
     else:
         p.print_help()
+
+
+def jmdict_search(term: str) -> None:
+    try:
+        from jp import jmdict_lookup, kana_to_romaji, JP_OK
+    except Exception as e:
+        print(f"jp.py unavailable: {e}")
+        return
+    if not JP_OK:
+        print("JP toolkit (jamdict) not installed — pip install -r requirements.txt")
+        return
+    hits = jmdict_lookup(term, max_results=5)
+    if not hits:
+        print(f"No JMdict entries for '{term}'.")
+        return
+    print(f"── JMdict ({len(hits)} entries) for '{term}' ──")
+    for i, e in enumerate(hits):
+        kanji = "/".join(e.kanji) if e.kanji else "(none)"
+        kana = "/".join(e.kana) if e.kana else "(none)"
+        romaji = kana_to_romaji(e.kana[0]) if e.kana else ""
+        print(f"\n[{i+1}] kanji={kanji}  kana={kana}  romaji={romaji}")
+        for p in e.pos[:3]:
+            print(f"    POS: {p}")
+        for s in e.senses[:3]:
+            print(f"    - {s}")
+
+
+def morph_analyze(text: str) -> None:
+    try:
+        from jp import tokenize, JP_OK
+    except Exception as e:
+        print(f"jp.py unavailable: {e}")
+        return
+    if not JP_OK:
+        print("JP toolkit (fugashi+unidic-lite) not installed — pip install -r requirements.txt")
+        return
+    print(f"── morphological analysis of '{text}' ──")
+    print(f"{'surface':10s}  {'lemma':10s}  {'kana':12s}  {'pos':12s}  {'pos2':14s}  cForm")
+    for t in tokenize(text):
+        print(f"{t.surface:10s}  {t.lemma:10s}  {t.reading:12s}  {t.pos1:12s}  {t.pos2:14s}  {t.inflection_form}")
 
 
 if __name__ == "__main__":

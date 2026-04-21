@@ -48,26 +48,81 @@ def load_state() -> tuple[dict, dict, int, str, str]:
     return vocab, grammar, next_story, next_word, next_grammar
 
 
+def _enrich_word_from_jmdict(surface: str | None) -> dict | None:
+    """If a surface is provided, look it up in JMdict and return a fully-populated
+    new_word_definition skeleton. Returns None if jp.py / JMdict not available."""
+    if not surface:
+        return None
+    try:
+        from jp import jmdict_lookup, derive_kana, kana_to_romaji, JP_OK, has_kanji
+    except Exception:
+        return None
+    if not JP_OK:
+        return None
+    hits = jmdict_lookup(surface, max_results=1)
+    if not hits:
+        return None
+    h = hits[0]
+    kana = (h.kana[0] if h.kana else (derive_kana(surface) or surface)) or surface
+    pos_label = (h.pos[0].lower() if h.pos else "")
+    if "verb" in pos_label and "ichidan" in pos_label:
+        pos, vclass = "verb", "ichidan"
+    elif "verb" in pos_label and "godan" in pos_label:
+        pos, vclass = "verb", "godan"
+    elif "verb" in pos_label:
+        pos, vclass = "verb", None
+    elif "adjective" in pos_label and ("i-" in pos_label or "(keiyoushi)" in pos_label):
+        pos, vclass = "adjective", None
+    elif "adjective" in pos_label or "na-adjective" in pos_label:
+        pos, vclass = "adjective", None
+    elif "noun" in pos_label or "名詞" in pos_label:
+        pos, vclass = "noun", None
+    else:
+        pos, vclass = "noun", None
+    return {
+        "surface": surface,
+        "kana": kana,
+        "reading": kana_to_romaji(kana),
+        "pos": pos,
+        "verb_class": vclass,
+        "adj_class": "i" if "i-" in pos_label else ("na" if "na-" in pos_label else None) if pos == "adjective" else None,
+        "meanings": [h.senses[0]] if h.senses else ["<primary English meaning>"],
+        "_jmdict_pos": pos_label,  # diagnostic; you can delete this before shipping
+    }
+
+
 def scaffold_plan(args) -> int:
     vocab, grammar, next_story, next_word, next_grammar = load_state()
     new_words = []
     new_word_defs = {}
     nw_int = int(next_word[1:])
+    surfaces = (args.new_word_surfaces or "").split(",") if args.new_word_surfaces else []
+    surfaces = [s.strip() for s in surfaces if s.strip()]
     for i in range(args.new_words):
         wid = f"W{nw_int + i:05d}"
         new_words.append(wid)
-        new_word_defs[wid] = {
-            "id": wid,
-            "surface": "<kanji or kana>",
-            "kana": "<hiragana>",
-            "reading": "<romaji>",
-            "pos": "<noun|verb|adjective|adverb|pronoun>",
-            "verb_class": None,
-            "adj_class": None,
-            "meanings": ["<primary English meaning>"],
-            "first_story": next_story,
-            "grammar_tags": []
-        }
+        surface = surfaces[i] if i < len(surfaces) else None
+        enriched = _enrich_word_from_jmdict(surface) if surface else None
+        if enriched:
+            new_word_defs[wid] = {
+                "id": wid,
+                "first_story": next_story,
+                "grammar_tags": [],
+                **enriched,
+            }
+        else:
+            new_word_defs[wid] = {
+                "id": wid,
+                "surface": surface or "<kanji or kana>",
+                "kana": "<hiragana>",
+                "reading": "<romaji>",
+                "pos": "<noun|verb|adjective|adverb|pronoun>",
+                "verb_class": None,
+                "adj_class": None,
+                "meanings": ["<primary English meaning>"],
+                "first_story": next_story,
+                "grammar_tags": []
+            }
 
     new_grammar = []
     new_grammar_defs = {}
@@ -181,6 +236,11 @@ def main() -> int:
     p_plan.add_argument("--subtitle-en")
     p_plan.add_argument("--new-words", type=int, default=3)
     p_plan.add_argument("--new-grammar", type=int, default=1)
+    p_plan.add_argument(
+        "--new-word-surfaces",
+        help="Comma-separated surfaces to auto-fill from JMdict (e.g. '猫,います'). "
+             "Each surface populates one new_word_definition with kana/reading/pos/meanings.",
+    )
 
     p_story = sub.add_parser("story", help="Scaffold pipeline/story_raw.json from current plan.json")
     p_story.add_argument("--sentences", type=int, default=6)

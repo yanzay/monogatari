@@ -528,3 +528,125 @@ is not currently the bottleneck.
 The current 6-story library uses ~9 distinct inflected forms total; the
 hand-authored `inflection` blocks remain easier than wiring a tokenizer.
 Re-evaluate when the library hits ~30 stories.
+
+---
+
+## Authoring tooling — v0.3 (Japanese NLP backed)
+
+As of v0.3 the authoring tools optionally use three Japanese NLP libraries
+when installed (one-time `pip install -r requirements.txt`):
+
+| Library | What it gives |
+|---------|---------------|
+| **fugashi + unidic-lite** | Morphological analysis: POS, lemma, reading, inflection form |
+| **jaconv** | kana ↔ romaji conversion |
+| **jamdict + jamdict-data** | JMdict lookup (English ↔ Japanese dictionary) |
+
+Combined install footprint is ~80 MB (jamdict-data is ~50 MB of that).
+All wrapped behind `pipeline/jp.py`, which falls back gracefully if any
+library is missing — so the rest of the pipeline keeps working.
+
+### What this unlocks in each tool
+
+**`pipeline/precheck.py`**
+- Real inflection check: `見ます` is now verified against
+  `expected_inflection('みる', 'polite_nonpast', 'ichidan') = みます`.
+  The validator's warning ("could not compute expected surface") becomes
+  a hard error when the precheck engine *can* compute it and the surfaces
+  disagree.
+- Auto-derive `r` reading for kanji-bearing tokens via fugashi (under `--fix`).
+- Detects "this looks like an inflected form but you forgot the
+  inflection block" by trying every supported form against fugashi's
+  output.
+
+**`pipeline/scaffold.py`**
+- New `--new-word-surfaces "猫,います"` flag auto-fills the
+  `new_word_definitions` block with `kana`, `reading`, `pos`,
+  `verb_class`, and primary English `meanings` from JMdict.
+- For words not in JMdict (e.g. inflected forms like `光ります`), it
+  leaves placeholders in place and the author fills them by hand.
+
+**`pipeline/lookup.py`** — two new subcommands:
+- `--jmdict <term>` — English↔Japanese dictionary search:
+  ```bash
+  python3 pipeline/lookup.py --jmdict cat
+  python3 pipeline/lookup.py --jmdict 光る
+  python3 pipeline/lookup.py --jmdict 帰る
+  ```
+- `--morph <text>` — morphological analysis (lemma / POS / reading /
+  inflection form for every token):
+  ```bash
+  python3 pipeline/lookup.py --morph 'そして、猫がいます。'
+  ```
+  Useful for verifying that an inflected surface parses the way you
+  expect before you commit to it in a story.
+
+### `pipeline/jp.py` — public surface
+
+If you write your own scripts:
+
+```python
+from jp import (
+    JP_OK, which,           # capability introspection
+    tokenize,               # fugashi morphological analysis
+    derive_kana,            # 'X' (kanji) -> 'X' (hiragana)
+    kana_to_romaji,         # 'ねこ' -> 'neko'
+    katakana_to_hiragana,   # 'ネコ' -> 'ねこ'
+    hiragana_to_katakana,
+    has_kanji,
+    expected_inflection,    # ('みる','polite_nonpast','ichidan') -> 'みます'
+    jmdict_lookup,          # 'cat' or '猫' -> [DictEntry, ...]
+)
+```
+
+Run `python3 pipeline/jp.py` for a self-test that prints capability
+status and exercises every helper.
+
+### Updated authoring loop
+
+```bash
+# 1. Plan — auto-fill new word fields from JMdict
+python3 pipeline/scaffold.py plan \
+    --title-jp 雪 --title-en "Snow" \
+    --new-words 2 --new-grammar 0 \
+    --new-word-surfaces "雪,降る"
+# (now plan.json has '雪' kana=ゆき pos=noun and '降る' kana=ふる pos=verb/godan)
+
+# 2. Fill in theme / setting / notes by hand, then validate
+python3 pipeline/run.py --step 2
+
+# 3. Story — scaffold inherits new_words from plan
+python3 pipeline/scaffold.py story --sentences 7
+
+# 4. Author tokens. When unsure of an inflection:
+python3 pipeline/lookup.py --morph '雪が降ります。'
+# (confirms 降り = 連用形-一般 of 降る godan; ます = 助動詞)
+
+# 5. Pre-flight + auto-fix the cheap things
+python3 pipeline/precheck.py --fix
+# Now: idx, all_words_used, is_new placement, AND missing 'r' readings
+# for any kanji-bearing token are all auto-filled.
+
+# 6. Full validate, engagement review, ship + audio
+python3 pipeline/run.py --step 3
+python3 pipeline/engagement_review.py --mode print  # then fill review.json
+python3 pipeline/engagement_review.py --mode finalize
+python3 pipeline/run.py --step 4 --tts-backend google --tts-encoding MP3
+```
+
+### When NOT to enrich automatically
+
+JMdict is comprehensive but not curated for graded-reader pedagogy. The
+scaffolder always inserts an `_jmdict_pos` diagnostic field next to
+auto-filled words — review it, then delete it before shipping. Common
+edits the author should still make by hand:
+
+- **Trim long meaning lists.** JMdict often returns 4-5 senses; pick
+  the one your story actually uses.
+- **Choose the right kanji.** Some words have multiple acceptable
+  surfaces (e.g. `見る / 観る / 看る`); pick the one your story uses.
+- **Verify verb_class.** Auto-detection from JMdict POS strings is
+  best-effort; double-check against `pipeline/lookup.py --morph`.
+- **Choose dictionary form.** JMdict almost always returns the
+  dictionary form; if you wrote `光ります` instead of `光る` in
+  `--new-word-surfaces`, expect a miss.

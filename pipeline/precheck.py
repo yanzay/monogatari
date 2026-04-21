@@ -187,7 +187,24 @@ def main() -> int:
                 if gid and gid not in known_grammar and gid not in declared_new_grammar:
                     errors.append(f"sentence[{sent.get('idx', '?')}] token[{j}] '{tok.get('t')}' references unknown grammar_id '{gid}'")
 
-    # ── 7. inflection-needed warning for masu/te/past content tokens ─────────
+    # ── 7. inflection sanity (uses pipeline/jp.py if available) ──────────────
+    try:
+        from jp import (
+            JP_OK as _JP_OK,
+            tokenize as _jp_tokenize,
+            derive_kana as _jp_derive_kana,
+            expected_inflection as _jp_expected_inflection,
+            kana_to_romaji as _jp_kana_to_romaji,
+            has_kanji as _jp_has_kanji,
+        )
+    except Exception:
+        _JP_OK = False
+        _jp_tokenize = lambda *a, **k: []
+        _jp_derive_kana = lambda s: None
+        _jp_expected_inflection = lambda *a, **k: None
+        _jp_kana_to_romaji = lambda s: s
+        _jp_has_kanji = lambda s: False
+
     for sent in story.get("sentences", []):
         for j, tok in enumerate(sent["tokens"]):
             wid = tok.get("word_id")
@@ -195,13 +212,47 @@ def main() -> int:
                 continue
             t = tok.get("t", "")
             inf = tok.get("inflection")
-            word = vocab["words"].get(wid)
+            word = vocab["words"].get(wid) or story.get("new_word_definitions", {}).get(wid)
+            sid = sent.get("idx", "?")
+
+            # Surface kanji needs an `r` reading
+            if _jp_has_kanji(t) and not tok.get("r"):
+                if args.fix and _JP_OK:
+                    derived = _jp_derive_kana(t)
+                    if derived:
+                        tok["r"] = derived
+                        fixes_applied.append(f"sentence[{sid}] token[{j}] '{t}': auto-derived r='{derived}' from fugashi")
+                else:
+                    errors.append(f"sentence[{sid}] token[{j}] '{t}' is kanji-bearing but missing 'r' reading")
+
+            # Real inflection-engine check (replaces the old heuristic)
             if word and word.get("pos") == "verb":
-                # heuristic: if surface != dictionary kana AND no inflection block, warn
-                if t.endswith("ます") and not inf:
-                    warnings.append(f"sentence[{sent.get('idx', '?')}] token[{j}] '{t}' looks like polite_nonpast but has no 'inflection' block")
-                if (t.endswith("て") or t.endswith("で")) and not inf:
-                    warnings.append(f"sentence[{sent.get('idx', '?')}] token[{j}] '{t}' looks like te-form but has no 'inflection' block")
+                base = (inf or {}).get("base") or word.get("surface")
+                base_kana = (inf or {}).get("base_r") or word.get("kana", "")
+                form = (inf or {}).get("form")
+                vclass = word.get("verb_class") or "ichidan"
+                tok_kana = tok.get("r") or t
+
+                if not inf:
+                    # Try every supported form to see if the surface IS an inflection
+                    for candidate_form in ("polite_nonpast", "polite_past", "polite_negative", "te", "past", "negative"):
+                        expected_kana = _jp_expected_inflection(base_kana, candidate_form, vclass) if _JP_OK else None
+                        if expected_kana and (tok_kana == expected_kana or t == expected_kana):
+                            warnings.append(
+                                f"sentence[{sid}] token[{j}] '{t}' looks like {candidate_form} of {base} "
+                                f"but has no 'inflection' block — author should add one"
+                            )
+                            break
+                    else:
+                        # surface == dictionary form is fine, no warning
+                        pass
+                elif form and base_kana and _JP_OK:
+                    expected_kana = _jp_expected_inflection(base_kana, form, vclass)
+                    if expected_kana and tok_kana != expected_kana and t != expected_kana:
+                        errors.append(
+                            f"sentence[{sid}] token[{j}] '{t}' (r='{tok_kana}') doesn't match expected "
+                            f"inflection of {base} ({form}, {vclass}): expected '{expected_kana}'"
+                        )
 
     # ── output + write back ──────────────────────────────────────────────────
     if args.fix and fixes_applied:
