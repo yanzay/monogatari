@@ -1,6 +1,6 @@
 # Monogatari — Story Writer Task
 
-You are writing story **7** for the Monogatari Japanese graded-reader.
+You are writing story **8** for the Monogatari Japanese graded-reader.
 Read the authoring rules and plan below, then produce the story JSON.
 Output **only** the JSON object — no prose, no markdown fences.
 
@@ -256,13 +256,13 @@ A clean refusal is better than a story that fails validation.
 
 ```json
 {
-  "story_id": 7,
-  "title_jp": "夜",
-  "title_en": "Night",
-  "subtitle_jp": "月と星",
-  "subtitle_en": "Moon and stars",
-  "theme": "A quiet bookend to the morning stories. After all the cats and walks and rain, the narrator settles by the window at night. The moon and stars are present but unreachable — a different kind of 'second presence' than the cat in story 6: silent and far rather than reciprocal.",
-  "setting": "Late evening at home. The narrator looks out the window; the moon, stars, and lingering rain are visible. No movement, only quiet observation.",
+  "story_id": 8,
+  "title_jp": "本と友達",
+  "title_en": "Books and Friends",
+  "subtitle_jp": "二人で読みます",
+  "subtitle_en": "We two read together",
+  "theme": "A small social moment: the narrator and a friend are reading indoors. Each has their own book; tea is between them; rain is outside. The point of the scene isn't drama — it's the parallel: 'I read; my friend also reads; tea is also there.' This makes も load-bearing in the way the textbook intends — as a partner-equivalence marker for parallel actions across people.",
+  "setting": "A quiet room. The narrator and a friend sit with two books and tea. Rain outside the window provides a still backdrop; no one moves except to turn pages.",
   "constraints": {
     "must_reuse_words": [
       "W00008",
@@ -281,51 +281,51 @@ A clean refusal is better than a story that fails validation.
   "target_word_count": 24,
   "max_sentences": 7,
   "new_words": [
-    "W00030",
-    "W00031",
-    "W00032"
+    "W00033",
+    "W00034",
+    "W00035"
   ],
   "new_word_definitions": {
-    "W00030": {
-      "id": "W00030",
-      "first_story": 7,
+    "W00033": {
+      "id": "W00033",
+      "first_story": 8,
       "grammar_tags": [],
-      "surface": "夜",
-      "kana": "よる",
-      "reading": "yoru",
+      "surface": "本",
+      "kana": "ほん",
+      "reading": "hon",
       "pos": "noun",
       "verb_class": null,
       "adj_class": null,
       "meanings": [
-        "night"
+        "book"
       ]
     },
-    "W00031": {
-      "id": "W00031",
-      "first_story": 7,
+    "W00034": {
+      "id": "W00034",
+      "first_story": 8,
       "grammar_tags": [],
-      "surface": "月",
-      "kana": "つき",
-      "reading": "tsuki",
-      "pos": "noun",
-      "verb_class": null,
+      "surface": "読む",
+      "kana": "よむ",
+      "reading": "yomu",
+      "pos": "verb",
+      "verb_class": "godan",
       "adj_class": null,
       "meanings": [
-        "moon"
+        "to read"
       ]
     },
-    "W00032": {
-      "id": "W00032",
-      "first_story": 7,
+    "W00035": {
+      "id": "W00035",
+      "first_story": 8,
       "grammar_tags": [],
-      "surface": "星",
-      "kana": "ほし",
-      "reading": "hoshi",
+      "surface": "二人",
+      "kana": "ふたり",
+      "reading": "futari",
       "pos": "noun",
       "verb_class": null,
       "adj_class": null,
       "meanings": [
-        "star"
+        "two people"
       ]
     }
   },
@@ -338,7 +338,7 @@ A clean refusal is better than a story that fails validation.
     "W00021",
     "W00025"
   ],
-  "notes": "Hook: time-of-day + comma + image (variant of stories 1/5/6 — but the 'image' is the moon, not weather, which is itself a small originality move). Underused-grammar move: G011_ya_partial (や — partial list) gets two real semantic uses ('the moon and stars and other things'); や has been in state since story 4 but only used twice. This is the same 'give underused grammar real work' pattern that elevated story 6 with G002. Echo of story 6's reciprocal gaze: in s4 the moon 'looks at the rain' — but where the cat looked back at the narrator, the moon looks past, at something else. Different shape of attention. Closer: motif-list pattern (月 + 夜 + feeling), consistent with stories 4/5/6."
+  "notes": "Hook: time-of-day + image (proven pattern). Underused-grammar move: G009_mo_also gets at least 3 semantic uses doing real comparison work — previously も has been used atmospherically ('cat too', 'night too'); story 8 makes it about people doing the same thing in parallel, which is its textbook strongest use. First multi-person scene with parallel actions in the library. Closer pulls 本 + 友達 into one observation, mirroring stories 4/5/6/7."
 }
 ```
 
@@ -347,19 +347,19 @@ A clean refusal is better than a story that fails validation.
 ## Allowed vocabulary (ALL words you may use — no others)
 
 - `W00001`: **今朝** (けさ) [noun] — this morning [occ:2]
-- `W00002`: **雨** (あめ) [noun] — rain [occ:4]
-- `W00003`: **私** (わたし) [pronoun] — I, me [occ:8]
-- `W00004`: **窓** (まど) [noun] — window [occ:3]
-- `W00005`: **外** (そと) [noun] — outside [occ:5]
-- `W00006`: **見ます** (みます) [verb] — to see, to look [occ:7]
+- `W00002`: **雨** (あめ) [noun] — rain [occ:5]
+- `W00003`: **私** (わたし) [pronoun] — I, me [occ:9]
+- `W00004`: **窓** (まど) [noun] — window [occ:4]
+- `W00005`: **外** (そと) [noun] — outside [occ:6]
+- `W00006`: **見ます** (みます) [verb] — to see, to look [occ:8]
 - `W00007`: **木** (き) [noun] — tree [occ:5]
 - `W00008`: **濡れる** (ぬれる) [verb] — to get wet [occ:1]
 - `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:5]
 - `W00010`: **飲みます** (のみます) [verb] — to drink [occ:3]
-- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:7]
+- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:8]
 - `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:5]
-- `W00013`: **いい** (いい) [adjective] — good, nice [occ:7]
-- `W00014`: **気分** (きぶん) [noun] — feeling, mood [occ:5]
+- `W00013`: **いい** (いい) [adjective] — good, nice [occ:8]
+- `W00014`: **気分** (きぶん) [noun] — feeling, mood [occ:6]
 - `W00015`: **朝** (あさ) [noun] — morning [occ:4]
 - `W00016`: **公園** (こうえん) [noun] — park [occ:4]
 - `W00017`: **歩きます** (あるきます) [verb] — to walk [occ:4]
@@ -375,9 +375,12 @@ A clean refusal is better than a story that fails validation.
 - `W00027`: **風** (かぜ) [noun] — wind [occ:1]
 - `W00028`: **猫** (ねこ) [noun] — cat [occ:1]
 - `W00029`: **います** (います) [verb] — to be (animate); to exist (animate) [occ:1]
-- `W00030`: **夜** (よる) [noun] — night **[NEW]**
-- `W00031`: **月** (つき) [noun] — moon **[NEW]**
-- `W00032`: **星** (ほし) [noun] — star **[NEW]**
+- `W00030`: **夜** (よる) [noun] — night [occ:1]
+- `W00031`: **月** (つき) [noun] — moon [occ:1]
+- `W00032`: **星** (ほし) [noun] — star [occ:1]
+- `W00033`: **本** (ほん) [noun] — book **[NEW]**
+- `W00034`: **読む** (よむ) [verb] — to read **[NEW]**
+- `W00035`: **二人** (ふたり) [noun] — two people **[NEW]**
 
 ---
 
@@ -400,19 +403,19 @@ A clean refusal is better than a story that fails validation.
 
 ## New word definitions (introduce these in the story)
 
-- `W00030`: **夜** (よる) [noun] — night
-- `W00031`: **月** (つき) [noun] — moon
-- `W00032`: **星** (ほし) [noun] — star
+- `W00033`: **本** (ほん) [noun] — book
+- `W00034`: **読む** (よむ) [verb · godan] — to read
+- `W00035`: **二人** (ふたり) [noun] — two people
 
 ---
 
 ## Output schema
 
-Produce a `story_7.json` object with this structure:
+Produce a `story_8.json` object with this structure:
 
 ```json
 {
-  "story_id": 7,
+  "story_id": 8,
   "title": {
     "jp": "<kanji/kana title>",
     "en": "<English title>",
@@ -426,7 +429,7 @@ Produce a `story_7.json` object with this structure:
     "tokens": [ ... ]
   },
   "plan_ref": "plan.json",
-  "new_words": ["W00030", "W00031", "W00032"],
+  "new_words": ["W00033", "W00034", "W00035"],
   "new_grammar": [],
   "all_words_used": ["<every word_id used, in order of first appearance>"],
   "sentences": [

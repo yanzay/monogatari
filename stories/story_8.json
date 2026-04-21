@@ -1,0 +1,377 @@
+{
+  "story_id": 8,
+  "title": {
+    "jp": "本と友達",
+    "en": "Books and Friends",
+    "tokens": [
+      {
+        "t": "本",
+        "r": "ほん",
+        "role": "content",
+        "word_id": "W00033"
+      },
+      {
+        "t": "と",
+        "role": "particle",
+        "grammar_id": "G010_to_and"
+      },
+      {
+        "t": "友達",
+        "r": "ともだち",
+        "role": "content",
+        "word_id": "W00022"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "二人で読みます",
+    "en": "We two read together",
+    "tokens": [
+      {
+        "t": "二人",
+        "r": "ふたり",
+        "role": "content",
+        "word_id": "W00035"
+      },
+      {
+        "t": "で",
+        "role": "particle",
+        "grammar_id": "G004_ni_location"
+      },
+      {
+        "t": "読みます",
+        "r": "よみます",
+        "role": "content",
+        "word_id": "W00034",
+        "inflection": {
+          "base": "読む",
+          "base_r": "よむ",
+          "form": "polite_nonpast",
+          "word_id": "W00034"
+        }
+      }
+    ]
+  },
+  "new_words": [
+    "W00033",
+    "W00034",
+    "W00035"
+  ],
+  "new_grammar": [],
+  "all_words_used": [
+    "W00033",
+    "W00022",
+    "W00035",
+    "W00034",
+    "W00015",
+    "W00002",
+    "W00003",
+    "W00011",
+    "W00009",
+    "W00013"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "gloss_en": "Morning — it is raining.",
+      "tokens": [
+        {
+          "t": "朝",
+          "r": "あさ",
+          "role": "content",
+          "word_id": "W00015"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "雨",
+          "r": "あめ",
+          "role": "content",
+          "word_id": "W00002"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_8/s0.mp3"
+    },
+    {
+      "idx": 1,
+      "gloss_en": "I read a book.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "読みます",
+          "r": "よみます",
+          "role": "content",
+          "word_id": "W00034",
+          "is_new": true,
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_nonpast",
+            "word_id": "W00034"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_8/s1.mp3"
+    },
+    {
+      "idx": 2,
+      "gloss_en": "My friend, too, reads a book.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "読みます",
+          "r": "よみます",
+          "role": "content",
+          "word_id": "W00034",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_nonpast",
+            "word_id": "W00034"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_8/s2.mp3"
+    },
+    {
+      "idx": 3,
+      "gloss_en": "The book in my hands is quiet.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "role": "content",
+          "word_id": "W00011"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_8/s3.mp3"
+    },
+    {
+      "idx": 4,
+      "gloss_en": "My friend's book, too, is quiet.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "role": "content",
+          "word_id": "W00011"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_8/s4.mp3"
+    },
+    {
+      "idx": 5,
+      "gloss_en": "And then, there is also tea.",
+      "tokens": [
+        {
+          "t": "そして",
+          "role": "aux",
+          "grammar_id": "G012_soshite_then"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "role": "content",
+          "word_id": "W00009"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "あります",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_8/s5.mp3"
+    },
+    {
+      "idx": 6,
+      "gloss_en": "The two of us and our books — a good morning.",
+      "tokens": [
+        {
+          "t": "二人",
+          "r": "ふたり",
+          "role": "content",
+          "word_id": "W00035",
+          "is_new": true
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "いい",
+          "role": "content",
+          "word_id": "W00013"
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "role": "content",
+          "word_id": "W00015"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_8/s6.mp3"
+    }
+  ],
+  "word_audio": {
+    "W00033": "audio/story_8/w_W00033.mp3",
+    "W00034": "audio/story_8/w_W00034.mp3",
+    "W00035": "audio/story_8/w_W00035.mp3"
+  }
+}

@@ -18,7 +18,7 @@
  *  Bump CACHE_VERSION to force clients to throw away the old cache on
  *  activation. Old caches are removed in `activate`.
  */
-const CACHE_VERSION = 'v1-2026-04-21-231811';
+const CACHE_VERSION = 'v1-2026-04-21-232840';
 const SHELL_CACHE   = `monogatari-shell-${CACHE_VERSION}`;
 const STORY_CACHE   = `monogatari-stories-${CACHE_VERSION}`;
 const AUDIO_CACHE   = `monogatari-audio-${CACHE_VERSION}`;

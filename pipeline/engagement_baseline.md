@@ -1,4 +1,4 @@
-# Engagement Baseline — stories 1–7
+# Engagement Baseline — stories 1–8
 
 > Reviewer: **rovo-dev** · first reviewed 2026-04-22T01:22:00Z, last revised 2026-04-22T01:31:00Z.
 
@@ -13,17 +13,19 @@
 - 2026-04-22 — story 6 (猫) authored end-to-end; first story with a non-human character (cat as new presence). Cleared the bar on first pass (avg 4.6, ties story 5 for #1). G002_ga_subject (in state since story 1 but barely used) gets two real textual uses presenting the cat as new information.
 - 2026-04-22 — JP NLP toolkit installed (fugashi + jaconv + jamdict-data) and wired into precheck/scaffold/lookup. Real inflection-engine validation, JMdict auto-fill of new word definitions, English↔JP dictionary lookup CLI, morphological-analysis CLI.
 - 2026-04-22 — story 7 (夜) authored end-to-end with the new tooling (scaffold --new-word-surfaces auto-filled 夜/月/星 from JMdict; precheck --fix auto-computed all_words_used). First night-set story; gives G011_ya_partial real semantic work (was in state since story 4, only used twice). Cleared the bar on first pass (avg 4.4).
+- 2026-04-22 — story 8 (本と友達) authored end-to-end. First multi-person scene with parallel actions in the library. Gives G009_mo_also (formerly 4 spread-thin uses) 3 fresh load-bearing semantic uses in one tight a/b/a/b/c construction. Cleared the bar on first pass (avg 4.6, ties stories 5 and 6 for #1).
 
 ## Leaderboard
 | Rank | Story | Avg | Verdict |
 |------|-------|-----|---------|
 | 1 | story 5 | **4.6** | Tied for #1 — first story authored with rubric in writer prompt; cleared the bar on first pass. |
 | 1 | story 6 | **4.6** | Tied for #1 — first story with a non-human character; cat arrives as a real surprise. Originality 5/5. |
-| 3 | story 4 | **4.4** | Strong; small refinements possible. |
-| 3 | story 7 | **4.4** | First night-set story; gives G011_ya_partial real work. Doubles the underused-grammar pattern that elevated story 6. |
-| 5 | story 2 | **4.2** | Revised — strong; only a deferred 'we sit' beat is missing. |
-| 6 | story 3 | **4.0** | Revised — strongest closer of stories 1-4; originality tough within constraint. |
-| 7 | story 1 | **3.8** | Strong given the bootstrap constraint; ship as-is. |
+| 1 | story 8 | **4.6** | Tied for #1 — first multi-person parallel scene; gives G009_mo_also 3 fresh load-bearing uses. Most architecturally distinctive story. |
+| 4 | story 4 | **4.4** | Strong; small refinements possible. |
+| 4 | story 7 | **4.4** | First night-set story; gives G011_ya_partial real work. Doubles the underused-grammar pattern that elevated story 6. |
+| 6 | story 2 | **4.2** | Revised — strong; only a deferred 'we sit' beat is missing. |
+| 7 | story 3 | **4.0** | Revised — strongest closer of stories 1-4; originality tough within constraint. |
+| 8 | story 1 | **3.8** | Strong given the bootstrap constraint; ship as-is. |
 
 
 ## Story 1 — 雨 *(Rain)*
@@ -97,6 +99,29 @@ _Previous score: 3.4 (before revision)_
 - Split breakfast definition into a real beat (s2) — now arrives after the sensory frame is set.
 - Removed redundant s5 (was duplicate of s1 with English 'after that' that didn't exist in JP); replaced with a separate 食べます beat that actually advances the action.
 - Rewrote the closer to merge weather + time + feeling into one image.
+
+
+## Story 8 — 本と友達 *(Books and Friends)*
+**Average:** 4.6  ·  **Approved:** ✓
+
+| hook | voice | originality | coherence | closure |
+|------|-------|-------------|-----------|---------|
+| 4 | 4 | 5 | 5 | 5 |
+
+**Highlights**
+- First multi-person scene with parallel actions in the library — every prior story had a single observer (with one cameo friend in story 4 as a reciprocal partner, not a parallel one).
+- Structure IS the originality: an a/b/a/b/c pattern where each も does real semantic work as a partner-equivalence marker.
+- G009_mo_also was at 4 spread-thin uses across 4 stories before this; story 8 adds 3 fresh uses all doing real comparison work in one tight construction (s2 'friend ALSO reads', s4 'friend's book ALSO is quiet', s5 'tea TOO is there').
+- Closer 「二人と本、いい朝です。」 collapses the parallel into 二人 as a unit — the word from the subtitle finally lands as the synthesis.
+- Notable absence: no そして's. The story doesn't need chronological connectors because every beat is in the same continuous moment — different from stories 5/7's chronological structure.
+
+**Weaknesses**
+- Hook (4 not 5): time + weather is the proven anchor but doesn't itself carry originality — the originality lives in the parallel structure that follows.
+- Voice (4 not 5): narrator-as-observer is consistent but the parallel symmetry is so even it could read slightly mechanical; a small asymmetry in the future would deepen it.
+
+**Suggestions**
+- *(voice / setting (deferred))* — When 隣 ('next to') enters vocab, add a position-grounding line between s0 and s1 — '友達は私の隣にいます' — to anchor the spatial relationship before the parallel begins.
+- *(originality (deferred))* — When 違う ('different') enters vocab, replace s4 with '友達の本は私の本と違います' to make the parallel slightly less perfectly symmetric, adding a small tension under the surface calm.
 
 
 ## Story 7 — 夜 *(Night)*
@@ -189,12 +214,13 @@ _Previous score: 3.4 (before revision)_
 
 ## Next actions
 
-- All seven stories now pass the engagement bar (avg ≥ 3.5; every dimension ≥ 3).
-- Story 7 demonstrates the JP-NLP-backed authoring loop end-to-end: scaffold --new-word-surfaces auto-filled 3 new word definitions from JMdict (no hand typing of kana/reading/pos); precheck --fix auto-computed all_words_used. Time-to-shipped was visibly faster than stories 5 and 6.
-- Story 7 also continues the 'give underused grammar real work' pattern (G011_ya_partial, formerly 2 uses, now 4 with two new semantic uses). G009_mo_also is still under-utilised at only 4 uses spread thinly — a candidate for the next story.
-- Stories 5/6/7 set the new bar: a small narrative turn in the middle, not a flat sequence of observations.
+- All eight stories now pass the engagement bar (avg ≥ 3.5; every dimension ≥ 3).
+- Story 8 completes the 'give every underused grammar real work' campaign: G002_ga_subject (story 6), G011_ya_partial (story 7), G009_mo_also (story 8) all now have load-bearing semantic uses. The remaining underused points are G004_ni_location (atmospheric only) and G006_kara_from (only used in subtitle 'morning kitchen' once) — candidates for stories 9-10.
+- Stories 5/6/7/8 set the new bar: a small narrative turn (or in story 8's case, a parallel structure) in the middle, not a flat sequence of observations.
 - Future stories should aim for the proven hook patterns: 'time-of-day + comma + action OR weather OR image'.
+- Story 8 introduces an authoring move not seen before: parallel-rhyme structure (a/b/a/b/c). Worth retaining as a 'shape option' alongside the chronological そして-structure (stories 5, 7) and the turn-structure (story 6).
 - When 座ります / 休みます enter vocab, revisit stories 2 and 4 to add the implied 'we sit' beat between the walking and the tea.
 - When 音 (sound) enters vocab, revisit story 5's wind sentence for an auditory upgrade.
 - When 中 (inside) enters vocab, revisit story 6's s4 for a settled-inside relocation; when 降ります enters vocab, upgrade story 6's hook to a sensory action.
 - When 遠く ('far away') enters vocab, revisit story 7's s4 to land the contrast with story 6's reciprocal cat.
+- When 隣 ('next to') and 違う ('different') enter vocab, revisit story 8 to add the position-grounding line and the small asymmetry suggested in its review.
