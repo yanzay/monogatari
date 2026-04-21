@@ -20,10 +20,11 @@ offline.
 
 ## Author a new story
 
-The pipeline runs in five stages, orchestrated by `pipeline/run.py`:
+The pipeline runs in five stages plus a deliberate quality gate, orchestrated
+by `pipeline/run.py`:
 
 ```
-plan → write → validate → ship (state updater) → audio
+plan → write → validate → engagement review → ship (state updater) → audio
 ```
 
 ```bash
@@ -37,11 +38,26 @@ python3 pipeline/run.py --step 2
 #          then validate it
 python3 pipeline/run.py --step 3
 
-# Step 4 — ship (validate state → update state → audio build)
+# Step 3.5 — engagement review (the validator only proves the story is
+#            *legal* — this stage asks whether it's *worth reading*).
+#            Score 1–5 on hook / voice / originality / coherence / closure.
+#            Approval requires average ≥ 3.5 and every dimension ≥ 3.
+python3 pipeline/engagement_review.py --mode print     # writes review template
+# (edit pipeline/review.json — set scores, suggestions, approved:true)
+python3 pipeline/engagement_review.py --mode finalize  # validates the review
+
+# Step 4 — ship (validate state → check engagement-review approval →
+#                update state → manifest rebuild → audio build)
 python3 pipeline/run.py --step 4
 #   - default: synth backend (offline tones, deterministic)
 #   - real TTS: --tts-backend google --tts-encoding MP3
+#   - bypass review (emergencies only): --skip-engagement-review
 ```
+
+The engagement-review prompt + rubric live in
+`pipeline/engagement_review_prompt.md`. An LLM mode (`--mode llm`) is
+wired but currently uses a conservative stub that refuses approval —
+swap in a real model call when ready.
 
 ## Audio: synth vs Google TTS
 

@@ -55,6 +55,8 @@ def main() -> None:
                         help="Google TTS audio encoding (when --tts-backend=google)")
     parser.add_argument("--step",          type=int, default=1,
                         help="Start from step (1=plan, 2=write, 3=validate, 4=ship)")
+    parser.add_argument("--skip-engagement-review", action="store_true",
+                        help="Bypass the stage-3.5 engagement review (emergency only)")
     args = parser.parse_args()
 
     print("\n" + "═"*60)
@@ -140,8 +142,21 @@ def main() -> None:
             sys.exit(1)
 
         print("\n✓ Story valid!")
-        print("\nTo ship the story, run:")
-        print("  python3 pipeline/run.py --step 4")
+        print("\n" + "─"*60)
+        print("  ► NEXT — Stage 3.5: engagement review")
+        print("─"*60)
+        print("  The validator only proves the story is legal. The next step")
+        print("  asks whether it's worth reading. To open the review template:")
+        print()
+        print("    python3 pipeline/engagement_review.py --mode print")
+        print()
+        print("  Then edit pipeline/review.json (set scores + approved:true)")
+        print("  and finalize:")
+        print()
+        print("    python3 pipeline/engagement_review.py --mode finalize")
+        print()
+        print("  Once review.json shows approved:true, ship with:")
+        print("    python3 pipeline/run.py --step 4")
         return
 
     # ── Step 4: Ship (update state) ───────────────────────────────────────────
@@ -172,6 +187,39 @@ def main() -> None:
         if rc != 0:
             print("Story failed final validation. Fix before shipping.")
             sys.exit(1)
+
+        # Engagement-review gate. The story must have an approved review
+        # before it can ship. The reviewer can be a human (--mode finalize),
+        # an LLM (--mode llm), or skipped via --skip-engagement-review for
+        # emergencies. Skipping leaves a visible 'reviewer: skip' in the
+        # shipped JSON so audits can find it later.
+        print("\n[Step 4a.5] Checking engagement review…")
+        review_path = Path("pipeline/review.json")
+        if args.skip_engagement_review:
+            print("  ⚠  --skip-engagement-review passed; bypassing the gate.")
+            run([sys.executable, "pipeline/engagement_review.py",
+                 "--story", str(raw_path), "--mode", "skip"])
+        elif not review_path.exists():
+            print("✗ pipeline/review.json not found.")
+            print("  Run `python3 pipeline/engagement_review.py --mode print`")
+            print("  to draft a review, then `--mode finalize` to confirm.")
+            print("  Or pass --skip-engagement-review to bypass (not recommended).")
+            sys.exit(1)
+        else:
+            review = load_json(review_path) or {}
+            if not review.get("approved"):
+                print("✗ Engagement review is not approved.")
+                print(f"  Current scores: {review.get('scores')}")
+                print(f"  Average:        {review.get('average')}")
+                print("  Edit pipeline/story_raw.json (or pipeline/review.json) and re-run")
+                print("  `python3 pipeline/engagement_review.py --mode finalize` until approved:true.")
+                sys.exit(1)
+            if review.get("story_id") != (load_json(raw_path) or {}).get("story_id"):
+                print("✗ review.json.story_id does not match story_raw.json.story_id.")
+                print("  Re-draft the review for the current story.")
+                sys.exit(1)
+            print(f"  ✓ Approved by {review.get('reviewer','?')} "
+                  f"(avg {review.get('average','?')}).")
 
         print("\n[Step 4b] Updating state and shipping story…")
         updater_args = [sys.executable, "pipeline/state_updater.py", str(raw_path),
