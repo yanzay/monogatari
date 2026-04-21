@@ -8,7 +8,7 @@ How to generate new stories using the Rovo Dev pipeline.
 
 ## Overview
 
-Stories are authored collaboratively: the pipeline scripts prepare structured prompts, and Rovo Dev (the AI coding assistant) executes them directly — no external LLM API keys required.
+Stories are authored by **Rovo Dev** (the AI coding agent in the active conversation). The pipeline scripts prepare structured prompts and validators; Rovo Dev produces the JSON files. No external LLM API keys are required, and no third-party model is ever called.
 
 ```
 pipeline/run.py --step 1   →  generates planner_prompt.md

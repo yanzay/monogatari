@@ -1,8 +1,8 @@
 # Monogatari — System Specification
 
-A graded-reader application for learning Japanese through LLM-authored short stories, with guaranteed vocabulary control, click-to-lookup reading, and an integrated SRS reviewer.
+A graded-reader application for learning Japanese through Rovo-Dev-authored short stories, with guaranteed vocabulary control, click-to-lookup reading, and an integrated SRS reviewer.
 
-**Version 0.1** · Target reader: one developer + one author LLM
+**Version 0.1** · Target reader: one developer · Author: Rovo Dev (in-conversation)
 
 ## 1. Goals and non-goals
 
@@ -26,7 +26,7 @@ A graded-reader application for learning Japanese through LLM-authored short sto
 
 ### 1.3 Explicit design bets
 
-- **Pre-tokenized, not runtime-tokenized.** The author LLM emits tokens already segmented and linked to dictionary IDs. The reader never tokenizes. This avoids kuromoji/sudachi in the browser and makes rendering trivial.
+- **Pre-tokenized, not runtime-tokenized.** Rovo Dev emits tokens already segmented and linked to dictionary IDs. The reader never tokenizes. This avoids kuromoji/sudachi in the browser and makes rendering trivial.
 - **Vocabulary is a closed set per story.** The generator cannot invent words; it picks from an allowed list the pipeline constructs.
 - **Grammar is tracked as discrete IDs, not inferred.** Each grammar point (e.g. `G001_wa_topic`, `G014_te_form`) is introduced explicitly, with a note displayed on its first appearance.
 - **The learner's SRS is fully self-contained.** Progress lives in the browser's localStorage; there is no integration with external SRS systems.
@@ -38,13 +38,13 @@ A graded-reader application for learning Japanese through LLM-authored short sto
 │  AUTHORING PIPELINE (offline, run by developer)              │
 │                                                              │
 │  vocab_state.json ──┐                                        │
-│                     ├──► 1. STORY PLANNER (LLM)              │
+│                     ├──► 1. STORY PLANNER (Rovo Dev)        │
 │  grammar_state.json ┤        emits: plan.json                │
 │                     │                                        │
 │  authoring_rules.md ┘                                        │
 │                               │                              │
 │                               ▼                              │
-│                      2. STORY WRITER (LLM)                   │
+│                      2. STORY WRITER (Rovo Dev)             │
 │                         emits: story_raw.json                │
 │                               │                              │
 │                               ▼                              │
@@ -237,13 +237,13 @@ This is the contract between authoring and the reader app. Validator checks ever
 
 ## 4. The authoring pipeline in detail
 
-### 4.1 Stage 1 — Story Planner (LLM)
+### 4.1 Stage 1 — Story Planner (Rovo Dev)
 
 **Input:** `vocab_state.json`, `grammar_state.json`, `authoring_rules.md`, a difficulty step config.
 
 **Output:** `plan.json`.
 
-**LLM prompt skeleton:**
+**Prompt skeleton (handed to Rovo Dev):**
 
 ```text
 You are the planner for a Japanese graded-reader system. Your job is to
@@ -272,7 +272,7 @@ Produce plan.json. Explain your word choices in a "rationale" field
 
 **Determinism:** the Planner is seeded. We log its output and the developer can edit `plan.json` by hand before proceeding.
 
-### 4.2 Stage 2 — Story Writer (LLM)
+### 4.2 Stage 2 — Story Writer (Rovo Dev)
 
 **Input:** `plan.json`, `vocab_state.json`, `grammar_state.json`, `authoring_rules.md`.
 
@@ -290,7 +290,7 @@ The Writer is given the full `authoring_rules.md` (see Section 5).
 
 ### 4.3 Stage 3 — Validator (deterministic)
 
-This is code, not an LLM. It is the guardrail that makes the whole system trustworthy.
+This is code, not Rovo Dev. It is the guardrail that makes the whole system trustworthy.
 
 **Checks performed on `story_raw.json`:**
 
@@ -303,7 +303,7 @@ This is code, not an LLM. It is the guardrail that makes the whole system trustw
 5. **Surface ↔ ID consistency.** The `t` (surface text) matches the dictionary surface for the referenced word, OR the inflection block correctly derives it (we apply a small deterministic conjugation check for ichidan, godan, and irregular verbs + i-adjectives; see Section 6).
 6. **Reuse quota.** ≥ 60% of content tokens reference words with occurrences < 5 in current state (reinforcement check).
 7. **Length.** Sentence count 5–8, total content tokens in target range.
-8. **No forbidden topics.** A small classifier (or an LLM call with a tight yes/no prompt) flags the `gloss_en` for disallowed content.
+8. **No forbidden topics.** A keyword heuristic flags the `gloss_en` for disallowed content (violence, romance, politics, etc.).
 9. **Gloss sanity.** The English gloss is non-empty and roughly as long as expected (heuristic: 0.8×–3.0× token count in words).
 10. **Round-trip.** Re-joining all `t` values should produce a clean Japanese sentence (no double spaces, no stray fragments).
 
@@ -337,7 +337,7 @@ Writes atomically. Keeps a dated backup of the previous state in `/state_backups
 
 ## 5. Authoring rules (`authoring_rules.md`)
 
-This is the document given to the Writer LLM in-context. It is also the style bible the developer reviews. The rules below are what must be in it.
+This is the document handed to Rovo Dev in-context for stage 2 (Story Writer). It is also the style bible the developer reviews. The rules below are what must be in it.
 
 ### 5.1 Vocabulary rules
 
@@ -398,7 +398,7 @@ The Validator needs to check that みがいて is really the te-form of みが�
 
 Validator takes `inflection.base`, `inflection.form`, and the surface `t`; recomputes the expected surface; rejects if mismatch.
 
-This is strict enough to catch LLM fabrications without requiring heavy NLP.
+This is strict enough to catch authoring fabrications without requiring heavy NLP.
 
 ## 7. Reader app spec
 
@@ -476,12 +476,12 @@ New words enter the SRS the first time the user finishes a sentence containing t
 - **M1** — Manual story 1 + reader skeleton. No pipeline. Hand-author story 1 in the JSON schema. Build the Read view and popup. Confirm the schema feels right in practice.
 - **M2** — SRS reviewer + Vocab view. Add the review loop and the vocab list. Ship to yourself. Use it daily for a week.
 - **M3** — Validator. Write and test the deterministic validator against hand-authored stories and deliberately-broken stories. This is the keystone.
-- **M4** — Writer prompt + Planner prompt. Once the validator is trustworthy, wire up the LLM stages. Generate stories 2–5 under close review.
+- **M4** — Writer prompt + Planner prompt. Once the validator is trustworthy, wire up the Rovo Dev authoring stages. Generate stories 2–5 under close review.
 - **M5** — Audio. Add TTS stage. Integrate playback in the reader.
 - **M6** — Grammar view + polish. Quality-of-life.
 - **M7** — Offline support. Service worker caches app shell, stories, and audio so the reader works fully offline once a story has been opened.
 
-Ship M1–M2 before touching the LLM pipeline. The reader has to be good first, or no amount of generation quality helps.
+Ship M1–M2 before touching the authoring pipeline. The reader has to be good first, or no amount of generation quality helps.
 
 ## 9. Open questions
 
@@ -493,7 +493,7 @@ Ship M1–M2 before touching the LLM pipeline. The reader has to be good first, 
 
 ## 10. What this spec does not pin down
 
-- The exact LLM used at each stage (any frontier model that can follow JSON constraints works).
+- The exact prompts handed to Rovo Dev at each stage (the in-repo prompt files are the canonical version; this spec only describes their intent).
 - The exact prompt text (skeletons given; iteration expected).
 - UI copy, colors beyond the current palette, and animation timing.
 - TTS voice choice.

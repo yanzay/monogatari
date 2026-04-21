@@ -1,6 +1,6 @@
 # Monogatari
 
-A graded-reader for learning Japanese through LLM-authored short stories,
+A graded-reader for learning Japanese through Rovo-Dev-authored short stories,
 with guaranteed vocabulary control, click-to-lookup reading, audio playback,
 an integrated SRS reviewer, and offline support.
 
@@ -28,14 +28,16 @@ plan → write → validate → engagement review → ship (state updater) → a
 ```
 
 ```bash
-# Step 1 — generate plan.json (LLM-driven; or hand-author for now)
+# Step 1 — generate the planner prompt (Rovo Dev then writes plan.json
+#          in the active conversation)
 python3 pipeline/run.py --step 1 --n-new-words 3 --n-new-grammar 1 --theme "..."
 
 # Step 2 — validate the plan
 python3 pipeline/run.py --step 2
 
-# Step 3 — write story_raw.json (LLM-driven; or hand-author)
-#          then validate it
+# Step 3 — Rovo Dev authors story_raw.json based on the writer prompt;
+#          then this command validates it
+
 python3 pipeline/run.py --step 3
 
 # Step 3.5 — engagement review (the validator only proves the story is
@@ -55,9 +57,11 @@ python3 pipeline/run.py --step 4
 ```
 
 The engagement-review prompt + rubric live in
-`pipeline/engagement_review_prompt.md`. An LLM mode (`--mode llm`) is
-wired but currently uses a conservative stub that refuses approval —
-swap in a real model call when ready.
+`pipeline/engagement_review_prompt.md`. The reviewer is Rovo Dev — the
+same agent that authored the story. There is no external LLM call:
+the script renders the rubric, Rovo Dev fills in the review honestly
+in the active conversation, and `--mode finalize` validates the result
+and enforces the bar (avg ≥ 3.5, every dimension ≥ 3).
 
 ## Audio: synth vs Google TTS
 

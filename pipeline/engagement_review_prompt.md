@@ -1,11 +1,14 @@
-# Engagement Review — prompt for the human (or LLM) reviewer
+# Engagement Review — prompt for Rovo Dev
 
-You are reviewing a Monogatari story **after** the strict validator has
-accepted it. The validator only proves the story is *legal* (vocabulary,
-grammar, length, etc.). Your job is to ask whether the story is
-**worth reading** — whether it has voice, originality, and a small
-emotional truth — within the brutally narrow vocabulary the learner
-currently has.
+You (Rovo Dev) are reviewing the Monogatari story you just authored,
+**after** the strict validator has accepted it. The validator only
+proves the story is *legal* (vocabulary, grammar, length, etc.).
+Your job here is to ask whether the story is **worth reading** —
+whether it has voice, originality, and a small emotional truth —
+within the brutally narrow vocabulary the learner currently has.
+
+You author and you review. Be honest. If a sentence is filler or the
+arc is flat, score it accordingly and rewrite before approving.
 
 This stage is the last gate before the story ships. If you would not
 re-read this story tomorrow, send it back.
@@ -75,7 +78,7 @@ Write your review to `pipeline/review.json` with this shape:
     { "what": "drop the explicit 私は in s5 — clear from context", "why": "voice" }
   ],
   "notes": "Optional free-form prose. Anything you want a future reviewer to know.",
-  "reviewer": "human:yanzay" or "llm:gpt-5",
+  "reviewer": "rovo-dev",
   "reviewed_at": "2026-04-22T01:13:00Z"
 }
 ```

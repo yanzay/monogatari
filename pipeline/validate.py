@@ -715,7 +715,7 @@ def validate(
         if n_sentences > max_sentences:
             result.add_error(7, f"Sentence count {n_sentences} exceeds plan max {max_sentences}")
 
-    # ── Check 8: Forbidden topics (heuristic, no LLM) ────────────────────────
+    # ── Check 8: Forbidden topics (keyword heuristic) ────────────────────────
     FORBIDDEN_KEYWORDS = {
         "violence", "kill", "murder", "war", "gun", "weapon", "bomb",
         "romance", "love", "kiss", "sex", "naked",

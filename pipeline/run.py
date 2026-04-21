@@ -3,7 +3,8 @@
 Monogatari — Pipeline Runner (Rovo Dev mode)
 
 Prints step-by-step instructions for generating a new story with Rovo Dev.
-Does not call any external LLM API.
+Authoring is performed by Rovo Dev (the AI coding agent in the
+active conversation). No external model APIs are called.
 
 Usage:
     python3 pipeline/run.py [--n-new-words 3] [--theme "evening walk"]
@@ -189,10 +190,11 @@ def main() -> None:
             sys.exit(1)
 
         # Engagement-review gate. The story must have an approved review
-        # before it can ship. The reviewer can be a human (--mode finalize),
-        # an LLM (--mode llm), or skipped via --skip-engagement-review for
-        # emergencies. Skipping leaves a visible 'reviewer: skip' in the
-        # shipped JSON so audits can find it later.
+        # before it can ship. The reviewer is Rovo Dev (the same agent
+        # that authored the story), running --mode finalize. The
+        # --skip-engagement-review flag bypasses the gate for emergencies
+        # and leaves a visible 'reviewer: skip' in review.json so audits
+        # can find it later.
         print("\n[Step 4a.5] Checking engagement review…")
         review_path = Path("pipeline/review.json")
         if args.skip_engagement_review:
@@ -201,9 +203,10 @@ def main() -> None:
                  "--story", str(raw_path), "--mode", "skip"])
         elif not review_path.exists():
             print("✗ pipeline/review.json not found.")
-            print("  Run `python3 pipeline/engagement_review.py --mode print`")
-            print("  to draft a review, then `--mode finalize` to confirm.")
-            print("  Or pass --skip-engagement-review to bypass (not recommended).")
+            print("  Rovo Dev: run `python3 pipeline/engagement_review.py --mode print`")
+            print("  to render the rubric, then fill in pipeline/review.json honestly")
+            print("  and run `--mode finalize`.")
+            print("  Pass --skip-engagement-review to bypass (not recommended).")
             sys.exit(1)
         else:
             review = load_json(review_path) or {}

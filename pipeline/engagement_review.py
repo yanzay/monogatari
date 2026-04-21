@@ -6,29 +6,30 @@ Runs *after* the validator has accepted the story and *before* the state
 updater ships it. The validator proves the story is legal; this stage
 asks whether it is **worth reading**.
 
-The output is `pipeline/review.json` plus a human-readable
-`pipeline/review.md`. The state updater (called by `pipeline/run.py
---step 4`) refuses to ship unless `review.json.approved == true`, so
-this gate is enforced.
+The reviewer is **Rovo Dev** (the AI coding agent that's already authoring
+the story in the same conversation). There is no external LLM call: the
+script renders the story + rubric, Rovo Dev produces a structured review
+inside the same conversation and writes it to `pipeline/review.json`,
+and a separate `--mode finalize` step validates the file and computes
+the average. The state updater (`pipeline/run.py --step 4`) then refuses
+to ship unless `review.json.approved == true`.
 
 Two modes:
 
-  --mode print   (default) Prints the story and the rubric to stdout
-                 and asks you to fill in `pipeline/review.json` by hand
-                 (template emitted automatically). No network, no cost.
-                 Encourages deliberate human judgment.
+  --mode print     (default) Renders the story + rubric and writes a blank
+                   `pipeline/review.json` template. Rovo Dev fills it in.
 
-  --mode llm     Calls an LLM to do the review. Requires no extra Python
-                 dependencies; ships with a stub that produces a
-                 conservative all-3 review and refuses approval. Replace
-                 `_llm_review()` with a real API call when ready.
+  --mode finalize  Reads the filled-in review.json, validates the scores
+                   are 1..5, computes the average, enforces the bar
+                   (avg ≥ 3.5 and every dimension ≥ 3), and exits 0 only
+                   if approved.
 
 Bypass:
 
-  --skip         Writes a `review.json` with `approved: true` and
-                 `reviewer: "skip"` — for hot-fixes only. The CI script
-                 should reject any shipped story that has reviewer ==
-                 "skip" if you ever want to make this strict.
+  --skip           Writes a `review.json` with `approved: true` and
+                   `reviewer: "skip"` — for hot-fixes only. Auditing
+                   shipped stories for `reviewer == "skip"` is the right
+                   way to make this strict over time.
 """
 from __future__ import annotations
 
@@ -123,45 +124,26 @@ def _meets_bar(scores: dict) -> bool:
     return _compute_average(scores) >= APPROVE_AVG and min(scores[d] for d in DIMENSIONS) >= APPROVE_MIN
 
 
-# ── LLM stub ────────────────────────────────────────────────────────────────
-def _llm_review(story: dict) -> dict:
-    """Conservative stub: scores everything 3, refuses approval. Replace
-    this with a real API call (OpenAI / Anthropic / Gemini) when ready.
-    The shape of the returned dict must match the human review schema.
-    """
-    return {
-        "story_id": story["story_id"],
-        "scores": {d: 3 for d in DIMENSIONS},
-        "average": 3.0,
-        "approved": False,
-        "suggestions": [
-            {"what": "Replace this stub with a real LLM call in pipeline/engagement_review.py:_llm_review",
-             "why":  "Currently returns identical 3s and refuses approval."},
-        ],
-        "notes": "LLM stub — no real model was called. Approval blocked on purpose.",
-        "reviewer": "llm:stub",
-        "reviewed_at": _dt.datetime.now(_dt.timezone.utc).isoformat(timespec="seconds"),
-    }
-
-
 # ── Main flows ──────────────────────────────────────────────────────────────
 def _print_mode(story: dict) -> int:
-    """Render the story + rubric to stdout, write a template review.json,
-    and exit with a non-zero status so the pipeline blocks until the
-    reviewer fills in real scores and re-runs."""
+    """Render the story + rubric to stdout, write a blank review.json
+    template, and exit non-zero so the pipeline blocks until Rovo Dev
+    fills in real scores and the reviewer re-runs --mode finalize."""
     print(_render_story_md(story))
     print()
     print(_render_rubric_md())
     print()
 
     template_path = DEFAULT_REVIEW_J
-    template = _empty_template(story["story_id"], mode="human")
+    template = _empty_template(story["story_id"], mode="rovo-dev")
     template_path.write_text(
         json.dumps(template, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
     print(f"Wrote review template to {template_path}.")
-    print("Edit it (set scores, suggestions, approved, reviewer), then re-run:")
+    print("Rovo Dev: read pipeline/engagement_review_prompt.md, score the")
+    print("story honestly, fill in pipeline/review.json (suggestions + approved),")
+    print("then run:")
     print("  python3 pipeline/engagement_review.py --mode finalize")
     return 1
 
@@ -202,23 +184,6 @@ def _finalize_mode(story: dict) -> int:
     return 0 if review.get("approved") else 1
 
 
-def _llm_mode(story: dict) -> int:
-    review = _llm_review(story)
-    review["average"] = _compute_average(review["scores"])
-    if _meets_bar(review["scores"]):
-        review["approved"] = True
-    DEFAULT_REVIEW_J.write_text(
-        json.dumps(review, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
-    DEFAULT_REVIEW_M.write_text(_render_story_md(story) + "\n\n" +
-                                "## LLM review\n\n```json\n" +
-                                json.dumps(review, ensure_ascii=False, indent=2) +
-                                "\n```\n", encoding="utf-8")
-    print(f"LLM review written to {DEFAULT_REVIEW_J}. Approved: {review.get('approved')}")
-    return 0 if review.get("approved") else 1
-
-
 def _skip_mode(story: dict) -> int:
     review = {
         "story_id": story["story_id"],
@@ -243,10 +208,9 @@ def main() -> None:
     ap.add_argument("--story",   default=str(DEFAULT_STORY),
                     help="Path to story_raw.json (default: pipeline/story_raw.json)")
     ap.add_argument("--mode",    default="print",
-                    choices=["print", "finalize", "llm", "skip"],
-                    help="print: render story+rubric and write template; "
-                         "finalize: read filled-in review.json and validate; "
-                         "llm: call the LLM stub; "
+                    choices=["print", "finalize", "skip"],
+                    help="print: render story+rubric and write blank review.json; "
+                         "finalize: read filled-in review.json and validate it; "
                          "skip: write an approved review (emergency only).")
     args = ap.parse_args()
 
@@ -260,8 +224,6 @@ def main() -> None:
         rc = _print_mode(story)
     elif args.mode == "finalize":
         rc = _finalize_mode(story)
-    elif args.mode == "llm":
-        rc = _llm_mode(story)
     elif args.mode == "skip":
         rc = _skip_mode(story)
     else:

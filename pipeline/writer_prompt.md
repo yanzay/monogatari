@@ -10,7 +10,7 @@ Output **only** the JSON object — no prose, no markdown fences.
 
 # Monogatari — Authoring Rules (Writer Context)
 
-This document is given to the Writer LLM in-context for every story generation.
+This document is the in-context brief for **Rovo Dev** when authoring `story_raw.json` (stage 2 of the pipeline).
 Read it completely before generating. These rules are non-negotiable.
 
 ---
