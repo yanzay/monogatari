@@ -126,6 +126,21 @@ async function loadStoryManifest() {
   return MANIFEST_CACHE.promise;
 }
 
+// Cache per-story JSON so repeated review lookups don't re-hit the network.
+// Service worker also caches these, but in-memory avoids the round trip.
+const STORY_CACHE = new Map();   // story_id → Promise<story-json>
+
+async function loadStoryById(id) {
+  if (!id) return null;
+  if (STORY_CACHE.has(id)) return STORY_CACHE.get(id);
+  const p = (async () => {
+    try { return await fetchJSON(`stories/story_${id}.json`); }
+    catch { return null; }
+  })();
+  STORY_CACHE.set(id, p);
+  return p;
+}
+
 async function fetchJSON(url) {
   const r = await fetch(url);
   if (!r.ok) throw new Error(`Failed to load ${url}: ${r.status}`);
@@ -957,7 +972,7 @@ function updateReviewBadge(count) {
   }
 }
 
-function renderReviewCard(queue, idx, container) {
+async function renderReviewCard(queue, idx, container) {
   if (idx >= queue.length) {
     container.innerHTML = '<p class="empty-state">Session complete! Come back later.</p>';
     updateReviewBadge(0);
@@ -968,9 +983,24 @@ function renderReviewCard(queue, idx, container) {
   const word = vocabState.words[card.word_id];
   if (!word) { renderReviewCard(queue, idx + 1, container); return; }
 
-  // Find the context sentence
-  const ctxStory = null; // we'd load story if needed; for M1 just show word
-  const sentence = findContextSentence(card);
+  // Backfill context_story for legacy cards saved before this fix landed.
+  // Old cards may have context_story === currentStoryId (whichever story
+  // was open when they were added), so for those we trust the vocab's
+  // first_story field instead.
+  if (!card.context_story || card.context_story === card.first_learned_story) {
+    if (word.first_story) {
+      card.context_story = word.first_story;
+    }
+  }
+
+  // Look up the context sentence in the *correct* story (not the
+  // currently-open one). The lookup is async because that story file
+  // may not be loaded yet — the in-memory STORY_CACHE makes the second
+  // call free.
+  const sentence = await findContextSentence(card);
+
+  // While we were awaiting, the user may have advanced past this card.
+  // We render unconditionally; the next click just renders the next one.
 
   container.innerHTML = '';
 
@@ -987,11 +1017,18 @@ function renderReviewCard(queue, idx, container) {
       return `<span>${tok.t}</span>`;
     }).join('');
   } else {
+    // No sentence available → show just the word large, but keep a hint
+    // so the missing context is visible (helps debugging).
     sentenceHtml = `<span class="review-highlight">${word.surface}</span>`;
   }
 
+  const sourceLabel = sentence
+    ? `<div class="review-source">— Story ${card.context_story}, sentence ${card.context_sentence_idx + 1}</div>`
+    : '';
+
   cardEl.innerHTML = `
     <div class="review-sentence">${sentenceHtml}</div>
+    ${sourceLabel}
     <div class="review-answer" id="review-answer">
       <div class="review-word-jp">${word.surface}</div>
       <div class="review-word-reading">${word.kana} / ${word.reading} /</div>
@@ -1034,12 +1071,36 @@ function renderReviewCard(queue, idx, container) {
   container.append(cardEl, revealBtn, gradeButtons);
 }
 
-function findContextSentence(card) {
-  if (!story) return null;
-  const s = story.sentences[card.context_sentence_idx];
-  if (s && s.tokens.some(t => t.word_id === card.word_id)) return s;
-  // Fallback: search all sentences in current story
-  return story.sentences.find(s => s.tokens.some(t => t.word_id === card.word_id)) ?? null;
+/**
+ * Look up the example sentence for an SRS card.
+ * Order:
+ *   1. The card's own context_story / context_sentence_idx (the story
+ *      this word was first introduced in).
+ *   2. Any sentence in that story that contains the word_id.
+ *   3. Any sentence in the currently-open story that contains it
+ *      (handy when the learner just opened a new story that re-uses it).
+ *   4. null — caller renders the bare headword.
+ */
+async function findContextSentence(card) {
+  // 1 + 2: load the card's own context story
+  const ctxStoryId = card.context_story;
+  if (ctxStoryId) {
+    const s = await loadStoryById(ctxStoryId);
+    if (s) {
+      const exact = s.sentences[card.context_sentence_idx];
+      if (exact && exact.tokens.some(t => t.word_id === card.word_id)) return exact;
+      const any = s.sentences.find(sent =>
+        sent.tokens.some(t => t.word_id === card.word_id));
+      if (any) return any;
+    }
+  }
+  // 3: fallback to the currently-loaded story (still useful for retention)
+  if (story) {
+    const inCurrent = story.sentences.find(sent =>
+      sent.tokens.some(t => t.word_id === card.word_id));
+    if (inCurrent) return inCurrent;
+  }
+  return null;
 }
 
 // ── SRS Scheduler ─────────────────────────────────────────────────
