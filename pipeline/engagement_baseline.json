@@ -1,0 +1,109 @@
+{
+  "_meta": {
+    "purpose": "Retroactive engagement-review scores for stories shipped before the stage-3.5 gate existed. Establishes a baseline for future authoring and a triage list for revisits.",
+    "rubric": "hook | voice | originality | coherence | closure (1-5 each)",
+    "approve_bar": "average >= 3.5 AND every dimension >= 3",
+    "reviewer": "rovo-dev",
+    "reviewed_at": "2026-04-22T01:22:00Z"
+  },
+  "reviews": [
+    {
+      "story_id": 1,
+      "title_jp": "雨",
+      "title_en": "Rain",
+      "scores":  { "hook": 4, "voice": 4, "originality": 3, "coherence": 4, "closure": 4 },
+      "average": 3.8,
+      "approved": true,
+      "highlights": [
+        "Opening line 「今朝は雨です。」 lands the reader in a specific time + weather in 7 syllables.",
+        "Sentence 2 「木が濡れています。」 is the only image line — quiet, concrete, earned.",
+        "Closing 「今朝はいい気分です」 returns to the time-stamped opener; symmetry feels intentional, not lazy."
+      ],
+      "weaknesses": [
+        "Sentences 3–5 alternate 私は + state descriptions; reads slightly listy.",
+        "Originality is constrained — this is the bootstrap story, 14 new words. Voice still emerges."
+      ],
+      "suggestions": [
+        { "what": "Consider swapping s3 ('I drink tea') and s4 ('the rain is quiet') to delay the I-action and let the world breathe first.", "why": "coherence + voice" },
+        { "what": "If a future revision pass adds it, replace 'いい気分です' with something more specific like '心が静かです' once 心 enters vocabulary.", "why": "closure (deferred)" }
+      ]
+    },
+    {
+      "story_id": 2,
+      "title_jp": "夕方の公園",
+      "title_en": "The Evening Park",
+      "scores":  { "hook": 3, "voice": 3, "originality": 2, "coherence": 3, "closure": 3 },
+      "average": 2.8,
+      "approved": false,
+      "highlights": [
+        "Title 「夕方の公園」 is good — establishes time + place efficiently.",
+        "Sentence 6 「夕方の公園を歩きます。」 echoes the title; small structural beat that works."
+      ],
+      "weaknesses": [
+        "Subtitle 「静かな外」 is grammatically defensible but tonally awkward — 'outside' used bare as a noun.",
+        "「静か」 appears 5 times across 8 sentences. By s3 it stops being an observation and becomes a tic.",
+        "「公園も外も温かいです」 (s5) is tonally off — 'warm' at evening reads inconsistent — and the line is pure inventory.",
+        "Closing 「気分もいいです」 leans on も as decoration; the feeling isn't earned by anything specific in the prior line."
+      ],
+      "suggestions": [
+        { "what": "Drop one of the 静か repetitions — e.g. rewrite s3 'The trees are also quiet' into a sensory detail using 木 + a different particle that's already known.", "why": "voice + originality" },
+        { "what": "Replace 'warm' (温かい) in s2 and s5 with a different observable; the temperature claim conflicts with the evening setting.", "why": "coherence" },
+        { "what": "Rewrite the closer to anchor the feeling on a thing — e.g. 「夕方の公園はいい気分です」 instead of the orphan 「気分もいいです」.", "why": "closure" }
+      ]
+    },
+    {
+      "story_id": 3,
+      "title_jp": "朝ごはん",
+      "title_en": "Breakfast",
+      "scores":  { "hook": 3, "voice": 3, "originality": 3, "coherence": 4, "closure": 4 },
+      "average": 3.4,
+      "approved": false,
+      "highlights": [
+        "Sentence 4 「朝ごはんと温かいお茶はいい気分です。」 ties the two motifs into a single felt observation — best line in the story.",
+        "Closing 「静かな朝です」 is a quiet callback to story 1; the world feels continuous."
+      ],
+      "weaknesses": [
+        "Opening 「朝ごはんは卵とお茶です。」 is functional, not a hook — pure 'X is Y' identification.",
+        "Sentence 5 「私は朝ごはんを食べます」 is essentially a redundancy with s1 「私は卵を食べます」 — the gloss adds 'After that' but no それから token exists in the JP. Either add the connector or remove the duplication.",
+        "Originality scores middle; this is a graded-reader textbook scene, not a fresh observation."
+      ],
+      "suggestions": [
+        { "what": "Replace s0 with a sensory opener — e.g. 「窓から朝の光を見ます。」 (uses already-known 窓・見る・朝)", "why": "hook" },
+        { "what": "Either insert それから (new connector — would be a planned new_grammar) at the start of s5, or delete s5 entirely and let s4 close into s6.", "why": "coherence" },
+        { "what": "Swap s2 and s3 so the warm-tea image precedes the window-look — gives an 'I sip, then I look out' rhythm.", "why": "voice + coherence" }
+      ]
+    },
+    {
+      "story_id": 4,
+      "title_jp": "散歩",
+      "title_en": "A Walk",
+      "scores":  { "hook": 5, "voice": 4, "originality": 4, "coherence": 4, "closure": 5 },
+      "average": 4.4,
+      "approved": true,
+      "highlights": [
+        "Opening 「夕方、私は友達と公園を歩きます。」 is the strongest hook in the set: time-of-day comma, action verb, companion in one breath.",
+        "Sentence 5 「友達も飲みます。」 is the most specific human gesture in the four stories — a real, small, observed reciprocity.",
+        "Closing 「散歩と友達はいい気分です」 lifts the two motifs into a single line of feeling that feels earned, not decorated."
+      ],
+      "weaknesses": [
+        "Mid-story scene transition is implied: the friend and narrator are walking, then suddenly drinking tea (s4). One linking sentence (or a different verb than 歩きます after the tea) would help.",
+        "「いい気分」 appears in s3 AND s6. The closer would land harder if s3's feeling were swapped for a sensory observation."
+      ],
+      "suggestions": [
+        { "what": "Insert a one-line 'we sit' or 'we rest' beat between s3 and s4 — needs a new word like 座ります, plan it for a future story.", "why": "coherence (deferred)" },
+        { "what": "Replace s3 「散歩はいい気分です」 with a sensory line so 'いい気分' lands only once, in the closer.", "why": "closure + voice" }
+      ]
+    }
+  ],
+  "leaderboard": [
+    { "rank": 1, "story_id": 4, "average": 4.4, "verdict": "Best of the set; small refinements possible." },
+    { "rank": 2, "story_id": 1, "average": 3.8, "verdict": "Strong given the bootstrap constraint; ship as-is." },
+    { "rank": 3, "story_id": 3, "average": 3.4, "verdict": "Just under the bar (3.4 vs 3.5); revise s0 + s5 in the next pass." },
+    { "rank": 4, "story_id": 2, "average": 2.8, "verdict": "Below the bar; 静か is over-used and the closer is weak. Revise before the next library scan." }
+  ],
+  "next_actions": [
+    "Stories 1 and 4 meet the bar — keep as the canonical examples in pipeline/writer_prompt.md.",
+    "Story 3 is one revision away from passing — see suggestions[2] for the specific edits.",
+    "Story 2 needs a real rewrite — the 静か over-use and the orphaned closer pull every dimension down."
+  ]
+}
