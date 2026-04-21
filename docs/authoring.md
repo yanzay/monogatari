@@ -283,3 +283,248 @@ Add it to `grammar_state.json → points` and include `G010_to_quote` in `plan.n
 
 **`Check 3: grammar_id not in grammar_state or plan`**
 → A particle or aux uses a grammar_id not yet defined. Add it to `plan.new_grammar` and `plan.new_grammar_definitions`, or use an already-known grammar_id.
+
+---
+
+## Authoring tooling (new in v0.2)
+
+Three small CLI helpers were added after authoring stories 5 and 6 to remove
+the most common sources of friction. They are all standalone Python scripts
+with no extra dependencies — `python3 path/to/tool.py --help` lists options.
+
+### `pipeline/lookup.py` — fast vocab + grammar search
+
+Avoid the "is 朝 W00015 or W00016?" stall.
+
+```bash
+python3 pipeline/lookup.py 朝          # search by surface
+python3 pipeline/lookup.py morning     # search by English meaning
+python3 pipeline/lookup.py asa         # search by romaji
+python3 pipeline/lookup.py W00015      # dump full record
+python3 pipeline/lookup.py G002_ga_subject
+
+python3 pipeline/lookup.py --next            # next free word_id, grammar_id, story_id
+python3 pipeline/lookup.py --grammar-usage   # ascending — surfaces underused grammar
+python3 pipeline/lookup.py --low-occ         # words with occurrences<5 (engagement reuse pool)
+```
+
+The `--grammar-usage` view is especially useful for the **"give underused grammar
+real work"** authoring move (see Engagement & voice section in
+`pipeline/authoring_rules.md`). Story 6 used it to elevate `G002_ga_subject`
+from "registered, barely used" to "doing the central semantic move."
+
+### `pipeline/scaffold.py` — generate `plan.json` and `story_raw.json` skeletons
+
+Eliminates the field-name-drift class of mistakes (kana vs reading, meaning_en
+vs meanings, constraints as list vs dict, etc.).
+
+```bash
+# Stage 1 — fresh plan with all required fields, ids pre-filled
+python3 pipeline/scaffold.py plan \
+    --title-jp 猫 --title-en "The Cat" \
+    --new-words 2 --new-grammar 0
+
+# Stage 2 — story_raw skeleton aligned with the current plan.json
+python3 pipeline/scaffold.py story --sentences 7
+```
+
+The plan skeleton auto-populates `must_reuse_words` with the 5 lowest-occurrence
+words from vocab, which is the engagement reuse pool. The story skeleton seeds
+`new_words` and `new_grammar` from the plan so they cannot drift out of sync.
+
+### `pipeline/precheck.py` — fast pre-flight before the full validator
+
+Catches the cheap mistakes (idx, all_words_used, is_new placement, gloss-length
+ratio) and can auto-fix many of them.
+
+```bash
+python3 pipeline/precheck.py            # report only
+python3 pipeline/precheck.py --fix      # auto-fix and write back (keeps a .bak)
+```
+
+Auto-fix handles:
+- missing `idx` on sentences,
+- stale or wrong-order `all_words_used`,
+- missing `is_new: true` on first sentence-token of a new word,
+- stray `is_new: true` on a title/subtitle token,
+- missing top-level `new_words` / `new_grammar` arrays.
+
+What it cannot auto-fix (must report):
+- gloss out of `[0.8, 3.0]` ratio — needs human edit,
+- unknown word_ids or grammar_ids — needs author intervention.
+
+A typical authoring loop becomes:
+```bash
+python3 pipeline/scaffold.py plan ...        # stage 1 skeleton
+# ...fill in plan...
+python3 pipeline/run.py --step 2             # validate plan
+python3 pipeline/scaffold.py story --sentences 7
+# ...fill in tokens + glosses...
+python3 pipeline/precheck.py --fix           # cheap fixes + report
+python3 pipeline/run.py --step 3             # full validate
+python3 pipeline/engagement_review.py --mode print
+# ...fill review.json...
+python3 pipeline/engagement_review.py --mode finalize
+python3 pipeline/run.py --step 4 --tts-backend google --tts-encoding MP3
+```
+
+---
+
+## Gotchas (compiled from real authoring sessions)
+
+### G1. Plan schema field names — no synonyms
+
+| ✗ Wrong            | ✓ Correct      |
+|--------------------|----------------|
+| `kana` (in plan)   | `kana` ← fine, but you also need `reading` |
+| `meaning_en`       | `meanings` (array) |
+| `verb_class: ichidan` | `verb_class: "ichidan"` (string, may be `null`) |
+| `constraints: [...]` | `constraints: { must_reuse_words, forbidden_words, avoid_topics }` (object) |
+| `new_grammar` lists already-shipped points | Only list grammar that is NOT already in `data/grammar_state.json` |
+
+The scaffold tool enforces the canonical names. Use it.
+
+### G2. `is_new` belongs on the first **sentence**-token
+
+Title/subtitle tokens **do not** count as the first occurrence for the
+`is_new` flag. Even if the title introduces the word visually, the validator
+requires the first occurrence inside `sentences[]` to carry `is_new: true`.
+
+```jsonc
+// ✗ wrong — fails Check 4
+"title":   { "tokens": [{ "t": "猫", "word_id": "W00028", "is_new": true }] },
+"sentences": [
+    { "idx": 0, "tokens": [{ "t": "猫", "word_id": "W00028" }] }
+]
+
+// ✓ correct
+"title":   { "tokens": [{ "t": "猫", "word_id": "W00028" }] },
+"sentences": [
+    { "idx": 0, "tokens": [{ "t": "猫", "word_id": "W00028", "is_new": true }] }
+]
+```
+
+`precheck.py --fix` will move it for you.
+
+### G3. `all_words_used` is in **first-seen order across title→subtitle→sentences**
+
+Not alphabetical. Not by id. Not the order of `new_words`. The exact
+order in which each `word_id` is first encountered across the whole
+serialized story.
+
+The engagement quota and reuse rules are downstream of this order, so
+recompute it whenever you edit tokens. `precheck.py --fix` does this for
+you and preserves the canonical order.
+
+### G4. Glosses must satisfy `0.8 ≤ EN_words / JP_tokens ≤ 3.0`
+
+Punct tokens don't count toward JP. A 7-token sentence needs **6–21**
+English words. Examples:
+
+```
+JP tokens=7  →  6 ≤ EN ≤ 21
+JP tokens=8  →  7 ≤ EN ≤ 24
+JP tokens=5  →  4 ≤ EN ≤ 15
+```
+
+If you write `"I look outside."` (3 words) for a 7-token sentence,
+the validator will flag it. Either expand the gloss or tighten the JP.
+
+### G5. Verb forms need `inflection`
+
+`見ます`, `濡れて`, `食べた` etc. are not dictionary surfaces. The validator
+checks the surface against `inflection.base + inflection.form`.
+
+```jsonc
+// for 見ます (polite_nonpast of 見る, ichidan)
+{
+  "t": "見ます",
+  "r": "みます",
+  "role": "content",
+  "word_id": "W00006",
+  "inflection": {
+    "base": "見る",
+    "base_r": "みる",
+    "form": "polite_nonpast",
+    "word_id": "W00006"
+  }
+}
+
+// for 濡れて (te-form of 濡れる, ichidan) — also marks the new grammar
+{
+  "t": "濡れて",
+  "r": "ぬれて",
+  "role": "content",
+  "word_id": "W00008",
+  "is_new_grammar": true,
+  "inflection": {
+    "base": "濡れる",
+    "base_r": "ぬれる",
+    "form": "te",
+    "word_id": "W00008",
+    "grammar_id": "G007_te_form"
+  }
+}
+```
+
+The full inflection-form vocabulary (`polite_nonpast`, `te`, `past`, …) lives
+in `pipeline/authoring_rules.md` Section 5.
+
+### G6. Existing grammar can be re-introduced into authoring
+
+If a grammar point is in `data/grammar_state.json` already (because an earlier
+story shipped with it), you cannot list it in `plan.new_grammar`. But you
+**should** still use it in the story whenever it's the right grammatical move.
+
+The "give underused grammar real work" pattern (story 6 with `G002_ga_subject`)
+is now a documented authoring move. Use `pipeline/lookup.py --grammar-usage`
+to find candidates.
+
+### G7. `new_grammar: []` is acceptable
+
+Not every story needs to introduce a new grammar point. Story 6 introduced 2
+new words and 0 new grammar — that earned more engagement budget for the cat
+as the surprise. The validator does not require non-empty `new_grammar`.
+
+### G8. `そして` (and other discourse connectors) belong in the JP, not just the gloss
+
+If your English gloss for sentence N starts with "and then..." or "after
+that...", the JP must contain the matching connector (そして, それから, etc.).
+Otherwise you have **gloss inflation**: the English carries information the
+Japanese does not. Story 3's first version had this; story 5 fixed the pattern
+by introducing そして as a real textual chronology marker.
+
+### G9. The reuse-quota rule is exempted only for the bootstrap story
+
+`Check 6` requires ≥60% of content tokens to be drawn from words with
+`occurrences < 5`. Story 1 (the bootstrap) is exempt because every word in
+it is brand new. From story 2 onward, plan ahead: include enough lower-
+occurrence reinforcement words to hit the threshold. `pipeline/lookup.py
+--low-occ` lists the current pool.
+
+### G10. The state updater is non-idempotent
+
+Re-running `pipeline/run.py --step 4` on the same story will double-count
+occurrences. The runner now refuses to update state if the story has already
+shipped (it detects this by `story_id` in `vocab_state.first_story` /
+`grammar_state.first_story`), but if you ever need to re-ship deliberately,
+revert the state files from `state_backups/` first.
+
+---
+
+## When to consider adding a Japanese NLP library
+
+These are intentionally NOT installed today. The friction they would solve
+is not currently the bottleneck.
+
+| Library                        | What it gives                                 | When to add it |
+|--------------------------------|-----------------------------------------------|----------------|
+| `fugashi` + `unidic-lite`      | Morphological analysis, auto-inflection      | When stories regularly use 5+ inflected forms per sentence |
+| `jaconv`                       | kana ↔ romaji conversion                      | When the `reading` field becomes a frequent typo source |
+| `pyopenjtalk`                  | Kana → mora-level pronunciation              | If we ever do per-mora audio alignment |
+| `cutlet`                       | Romanization (Hepburn/Kunrei)                | If we expose romaji to learners |
+| `sudachipy`                    | Tokenizer (alternative to fugashi)           | If fugashi's MIT-licensed dict is a problem |
+
+The current 6-story library uses ~9 distinct inflected forms total; the
+hand-authored `inflection` blocks remain easier than wiring a tokenizer.
+Re-evaluate when the library hits ~30 stories.
