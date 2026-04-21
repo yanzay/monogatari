@@ -11,6 +11,40 @@ let learnerState = loadLearnerState();
 let currentStoryId = learnerState.current_story ?? 1;
 
 // ── Boot ─────────────────────────────────────────────────────────
+const VALID_VIEWS = ['read', 'library', 'review', 'vocab', 'grammar'];
+
+/**
+ * Parse window.location.hash into { view, story }.
+ * Format: `#view` or `#view?story=N` (e.g. `#vocab`, `#read?story=3`).
+ * Falls back gracefully when the hash is empty or malformed.
+ */
+function parseHash() {
+  const raw = (location.hash || '').replace(/^#/, '');
+  if (!raw) return { view: null, story: null };
+  const [viewPart, query] = raw.split('?');
+  const view = VALID_VIEWS.includes(viewPart) ? viewPart : null;
+  let story = null;
+  if (query) {
+    const params = new URLSearchParams(query);
+    const s = parseInt(params.get('story') || '', 10);
+    if (Number.isFinite(s) && s > 0) story = s;
+  }
+  return { view, story };
+}
+
+/**
+ * Write `{ view, story }` into the URL hash without adding history entries
+ * (we use replaceState so refresh picks up the same view but Back doesn't
+ * step through every nav click).
+ */
+function setHash({ view, story }, { replace = true } = {}) {
+  const next = `#${view}${(view === 'read' && story) ? `?story=${story}` : ''}`;
+  if (location.hash === next) return;
+  const url = location.pathname + location.search + next;
+  if (replace) history.replaceState(null, '', url);
+  else         history.pushState(null, '', url);
+}
+
 async function boot() {
   // Wire up popup close handlers now that DOM is ready
   document.getElementById('popup-close').addEventListener('click', closePopup);
@@ -22,13 +56,33 @@ async function boot() {
       fetchJSON('data/vocab_state.json'),
       fetchJSON('data/grammar_state.json'),
     ]);
-    await loadStory(currentStoryId);
+
+    // Initial view + story come from URL hash if present, else from
+    // persisted learner state, else defaults.
+    const fromHash = parseHash();
+    const initialStory = fromHash.story ?? currentStoryId;
+    const initialView  = fromHash.view  ?? 'read';
+
+    await loadStory(initialStory);
     setupNav();
     setupExportImport();
     renderVocabView();
     renderGrammarView();
     renderReviewView();
     renderLibraryView();
+
+    // Apply initial view (without re-pushing history)
+    switchView(initialView, { updateHash: true, replace: true });
+
+    // React to browser back/forward — keep view in sync with URL.
+    window.addEventListener('popstate', async () => {
+      const h = parseHash();
+      if (h.story && h.story !== currentStoryId) {
+        await loadStory(h.story);
+        renderLibraryView();
+      }
+      switchView(h.view ?? 'read', { updateHash: false });
+    });
   } catch (e) {
     console.error('Boot failed:', e);
     document.getElementById('sentences-container').textContent =
@@ -85,6 +139,13 @@ async function loadStory(id) {
     learnerState.current_story = id;
     saveLearnerState();
     renderReadView();
+    // Keep the URL hash in sync so a refresh re-opens this exact story.
+    // Only update if we're on the read view (the hash for other views
+    // should not silently change to read).
+    const currentView = parseHash().view;
+    if (currentView === null || currentView === 'read') {
+      setHash({ view: 'read', story: id }, { replace: true });
+    }
   } catch (e) {
     console.error(e);
   }
@@ -95,9 +156,7 @@ function setupNav() {
   document.querySelectorAll('.nav-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const view = btn.dataset.view;
-      switchView(view);
-      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      switchView(view, { updateHash: true });
     });
   });
 }
@@ -143,7 +202,7 @@ async function renderLibraryView() {
     `;
     card.addEventListener('click', async () => {
       await loadStory(id);
-      switchView('read');
+      switchView('read', { updateHash: true });
     });
     grid.appendChild(card);
   }
@@ -156,9 +215,17 @@ function estimateReadingMinutes(entry) {
   return Math.max(1, Math.round(tokens / 25));
 }
 
-function switchView(name) {
+function switchView(name, { updateHash = true, replace = true } = {}) {
+  if (!VALID_VIEWS.includes(name)) name = 'read';
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-  document.getElementById(`view-${name}`).classList.add('active');
+  const target = document.getElementById(`view-${name}`);
+  if (target) target.classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.view === name);
+  });
+  if (updateHash) {
+    setHash({ view: name, story: name === 'read' ? currentStoryId : null }, { replace });
+  }
 }
 
 // ── Read View ─────────────────────────────────────────────────────
