@@ -1,0 +1,358 @@
+{
+  "story_id": 5,
+  "title": {
+    "jp": "朝の散歩",
+    "en": "A Morning Walk",
+    "tokens": [
+      {
+        "t": "朝",
+        "r": "あさ",
+        "word_id": "W00015",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G001_wa_topic",
+        "role": "particle"
+      },
+      {
+        "t": "散歩",
+        "r": "さんぽ",
+        "word_id": "W00023",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "帰ります",
+    "en": "Coming home",
+    "tokens": [
+      {
+        "t": "帰ります",
+        "r": "かえります",
+        "word_id": "W00026",
+        "role": "content"
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00025",
+    "W00026",
+    "W00027"
+  ],
+  "new_grammar": [
+    "G012_soshite_then"
+  ],
+  "all_words_used": [
+    "W00015",
+    "W00023",
+    "W00026",
+    "W00003",
+    "W00016",
+    "W00017",
+    "W00007",
+    "W00024",
+    "W00011",
+    "W00025",
+    "W00006",
+    "W00005",
+    "W00002",
+    "W00027",
+    "W00013"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "朝",
+          "r": "あさ",
+          "word_id": "W00015",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "公園",
+          "r": "こうえん",
+          "word_id": "W00016",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "歩きます",
+          "r": "あるきます",
+          "word_id": "W00017",
+          "role": "content"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Morning — I walk through the park.",
+      "audio": "audio/story_5/s0.mp3"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "木",
+          "r": "き",
+          "word_id": "W00007",
+          "role": "content"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G010_to_and",
+          "role": "particle"
+        },
+        {
+          "t": "花",
+          "r": "はな",
+          "word_id": "W00024",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "word_id": "W00011",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The trees and flowers are quiet.",
+      "audio": "audio/story_5/s1.mp3"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "そして",
+          "grammar_id": "G012_soshite_then",
+          "role": "particle",
+          "is_new_grammar": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "帰ります",
+          "r": "かえります",
+          "word_id": "W00026",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "And then I head home.",
+      "audio": "audio/story_5/s2.mp3"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "ドア",
+          "r": "ドア",
+          "word_id": "W00025",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "見ます",
+          "r": "みます",
+          "word_id": "W00006",
+          "role": "content"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I see the door.",
+      "audio": "audio/story_5/s3.mp3"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "ドア",
+          "r": "ドア",
+          "word_id": "W00025",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "外",
+          "r": "そと",
+          "word_id": "W00005",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "雨",
+          "r": "あめ",
+          "word_id": "W00002",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Outside the door, it's raining.",
+      "audio": "audio/story_5/s4.mp3"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "そして",
+          "grammar_id": "G012_soshite_then",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "風",
+          "r": "かぜ",
+          "word_id": "W00027",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "And then — wind.",
+      "audio": "audio/story_5/s5.mp3"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "風",
+          "r": "かぜ",
+          "word_id": "W00027",
+          "role": "content"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G010_to_and",
+          "role": "particle"
+        },
+        {
+          "t": "雨",
+          "r": "あめ",
+          "word_id": "W00002",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "いい",
+          "r": "いい",
+          "word_id": "W00013",
+          "role": "content"
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "word_id": "W00015",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Wind and rain — a good morning.",
+      "audio": "audio/story_5/s6.mp3"
+    }
+  ],
+  "word_audio": {
+    "W00025": "audio/story_5/w_W00025.mp3",
+    "W00026": "audio/story_5/w_W00026.mp3",
+    "W00027": "audio/story_5/w_W00027.mp3"
+  },
+  "checksum": null
+}

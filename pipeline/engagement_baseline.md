@@ -1,4 +1,4 @@
-# Engagement Baseline — stories 1–4
+# Engagement Baseline — stories 1–5
 
 > Reviewer: **rovo-dev** · first reviewed 2026-04-22T01:22:00Z, last revised 2026-04-22T01:31:00Z.
 

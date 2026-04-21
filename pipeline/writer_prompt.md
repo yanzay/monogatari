@@ -1,6 +1,6 @@
 # Monogatari — Story Writer Task
 
-You are writing story **4** for the Monogatari Japanese graded-reader.
+You are writing story **5** for the Monogatari Japanese graded-reader.
 Read the authoring rules and plan below, then produce the story JSON.
 Output **only** the JSON object — no prose, no markdown fences.
 
@@ -10,7 +10,7 @@ Output **only** the JSON object — no prose, no markdown fences.
 
 # Monogatari — Authoring Rules (Writer Context)
 
-This document is the in-context brief for **Rovo Dev** when authoring `story_raw.json` (stage 2 of the pipeline).
+This document is the in-context spec for **Rovo Dev** when authoring `story_raw.json` (stage 2 of the pipeline).
 Read it completely before generating. These rules are non-negotiable.
 
 ---
@@ -144,7 +144,95 @@ rejection and retry.
 
 ---
 
-## 6. When to refuse
+## 6. Engagement & voice (the bar that comes after the validator)
+
+The validator only proves the story is *legal*. The next pipeline stage —
+the engagement review (`pipeline/engagement_review.py`) — asks whether
+it is **worth reading**. Write with the rubric in mind so you can
+approve your own story honestly afterwards.
+
+The rubric scores 1–5 across **hook · voice · originality · coherence ·
+closure**. Approval requires **average ≥ 3.5 AND every dimension ≥ 3**.
+Full prompt: `pipeline/engagement_review_prompt.md`.
+
+### What the five dimensions actually mean
+
+- **Hook** — does the first sentence drop the reader into a specific,
+  sensory moment? `今朝は雨です。` works because it gives time + weather
+  in one breath. `私はXです。` doesn't — it's an identification, not an
+  observation.
+- **Voice** — does a small "I" emerge with consistent tone? Subject-drop
+  helps; relentless `私は…` flattens the narrator into a worksheet.
+- **Originality** — within the brutally narrow vocabulary, can you find
+  one small surprise? A fresh juxtaposition (`雨は静かです`), an
+  unexpected pairing (`卵とお茶`), a personification of weather. Aim for
+  one such moment per story.
+- **Coherence** — does each sentence pull forward from the last? A list
+  of independent flashcards reads as a worksheet. Even a 6-sentence
+  story should have a tiny arc: setup → small turn → small landing.
+- **Closure** — does the last line linger? End on an image or a felt
+  observation, not a flat statement. The strongest closers in the
+  current library tie two motifs from earlier in the story into one
+  line.
+
+### Positive examples (from stories already shipped)
+
+The four shipped stories all pass the bar. Lean on these patterns.
+
+**Hooks that work:**
+
+```
+夕方、私と友達は公園を歩きます。       (story 2 — time-comma + companion + verb)
+夕方、私は友達と公園を歩きます。       (story 4 — same pattern, slightly different framing)
+今朝は雨です。                          (story 1 — minimal time + weather)
+朝、雨です。                            (story 3 — four-syllable sensory poem)
+```
+
+The pattern that recurs: **time-of-day → comma → concrete observation
+or action**. The comma after the time word does a lot of work — it
+slows the line down and makes the rest land as observation rather
+than identification.
+
+**Closers that work:**
+
+```
+雨と夕方と公園を歩きます。              (story 2 — return to opening verb with three motifs as object)
+雨の外と静かな朝、いい気分です。        (story 3 — weather + time + feeling in one line)
+散歩と友達はいい気分です。              (story 4 — pulls two motifs into one felt observation)
+今朝はいい気分です。                    (story 1 — symmetry with opener; small but earned)
+```
+
+The pattern that recurs: **named motifs from the body, then a single
+short evaluation**. The closer is not the place to introduce a new
+image — it's where the existing images settle.
+
+### Anti-patterns (what to avoid)
+
+These pulled past stories under the bar and forced revisions:
+
+- **Particle as decoration.** `気分もいいです` ends a story by
+  attaching `も` to a feeling that was never set up — the particle
+  decorates instead of meaning. Anchor `も` to a real reciprocity
+  (`友達もお茶を飲みます。`).
+- **Refrain becomes a tic.** Repeating the same evaluative adjective
+  (`静か`) more than twice in a 7-sentence story stops being
+  observation and becomes verbal wallpaper.
+- **Inconsistent claims.** Saying "warm at evening" / "warm outside"
+  reads as careless. Anchor temperature claims to a thing (the tea,
+  the eggs), not the air.
+- **Definition as opener.** `XはYとZです` is a useful sentence but a
+  weak hook. If you want the definition, place it second; lead with
+  a sensory beat.
+- **Gloss inflation.** Don't write `gloss_en` "After that, I eat my
+  breakfast." if the JP has no それから. Glosses must reflect what is
+  actually in the JP.
+- **Subject-grind.** Five `私は…` openers in a row. Drop the subject
+  when context allows — Japanese is generous about this and the
+  narrator immediately sounds less like a worksheet.
+
+---
+
+## 7. When to refuse
 
 If the constraints cannot be satisfied — vocabulary too sparse, planned new
 words incoherent, grammar prerequisites missing — return this object and stop:
@@ -168,89 +256,75 @@ A clean refusal is better than a story that fails validation.
 
 ```json
 {
-  "story_id": 4,
-  "target_word_count": 24,
-  "max_sentences": 8,
+  "story_id": 5,
+  "theme": "morning rain after a walk",
+  "setting": "the narrator returns home from an early-morning walk in the park; rain and wind start as they reach the door",
+  "constraints": {
+    "min_sentences": 6,
+    "max_sentences": 8
+  },
   "new_words": [
-    "W00022",
-    "W00023",
-    "W00024"
+    "W00025",
+    "W00026",
+    "W00027"
   ],
   "new_grammar": [
-    "G011_ya_partial"
+    "G012_soshite_then"
   ],
-  "theme": "evening park walk with a friend",
-  "setting": "An unhurried walk through the local park at dusk; the narrator and a friend pause to look at trees and flowers, then warm up with tea.",
-  "constraints": {
-    "must_reuse_words": [
-      "W00007",
-      "W00009",
-      "W00010",
-      "W00011",
-      "W00012",
-      "W00016",
-      "W00017",
-      "W00018"
-    ],
-    "forbidden_words": [],
-    "avoid_topics": [
-      "violence",
-      "romance",
-      "politics"
-    ]
-  },
+  "target_word_count": 24,
+  "max_sentences": 8,
   "new_word_definitions": {
-    "W00022": {
-      "surface": "友達",
-      "kana": "ともだち",
-      "reading": "tomodachi",
+    "W00025": {
+      "surface": "ドア",
+      "kana": "ドア",
+      "reading": "doa",
       "pos": "noun",
       "verb_class": null,
       "adj_class": null,
       "meanings": [
-        "friend"
+        "door"
       ],
       "grammar_tags": []
     },
-    "W00023": {
-      "surface": "散歩",
-      "kana": "さんぽ",
-      "reading": "sanpo",
-      "pos": "noun",
-      "verb_class": null,
+    "W00026": {
+      "surface": "帰ります",
+      "kana": "かえります",
+      "reading": "kaerimasu",
+      "pos": "verb",
+      "verb_class": "godan",
       "adj_class": null,
       "meanings": [
-        "walk",
-        "stroll"
+        "to return home",
+        "to go back"
       ],
       "grammar_tags": []
     },
-    "W00024": {
-      "surface": "木",
-      "kana": "き",
-      "reading": "ki",
+    "W00027": {
+      "surface": "風",
+      "kana": "かぜ",
+      "reading": "kaze",
       "pos": "noun",
       "verb_class": null,
       "adj_class": null,
       "meanings": [
-        "tree"
+        "wind"
       ],
       "grammar_tags": []
     }
   },
   "new_grammar_definitions": {
-    "G011_ya_partial": {
-      "title": "や — and (partial / non-exhaustive list)",
-      "short": "Lists nouns as a non-exhaustive 'A, B, and so on'.",
-      "long": "The particle や connects nouns in a non-exhaustive list, implying 'and others'. 'AやB' means 'A, B, and similar things'. Distinct from と (exhaustive 'and only'). Often closed with 'など' for emphasis. Comes between nouns; not used between verbs or full clauses.",
-      "genki_ref": "L8",
+    "G012_soshite_then": {
+      "title": "そして — and then",
+      "short": "Sentence-initial connector meaning 'and then', linking sequential clauses.",
+      "long": "そして is an adverb-style connector placed at the start of a new sentence to mean 'and then' or 'after that'. It chains events or observations together temporally and is more formal/literary than a comma alone. Unlike 'and' (と) which joins nouns, そして joins entire sentences. Always followed by a comma in modern writing.",
+      "genki_ref": "L4",
       "prerequisites": [
-        "G010_to_and"
+        "G003_desu"
       ]
     }
   },
-  "rationale": "Story 4 keeps the cozy domestic register and pivots from indoor scenes (stories 1–3) to a quiet outdoor walk. It introduces a small social-life cluster (友達, 散歩) plus 木 to set up future nature-themed stories. や is a natural fit for listing things observed in a park (trees, flowers, etc.), and contrasts cleanly with the previously-introduced と (exhaustive 'and'). Heavy reuse of weak vocab (花, お茶, 温かい, 静か, 公園, 夕方) targets the planner's 'occurrences < 5' priority list.",
-  "seed": 40422
+  "rationale": "Story 5 closes a small narrative loop the library has been waiting for: the narrator returns home. The three new words (ドア, 帰ります, 風) all serve the homecoming arc — the first interior object, the first verb of motion-with-direction, and a fresh sensory motif that contrasts beautifully with the established 雨/静か weather palette. The new grammar (そして) is the connector we lacked when story 3 needed 'after that' but had no textual support — fixing the same kind of bug at the source. Theme follows the cozy domestic register of stories 1–4 (morning, walk, weather, feeling) and reuses heavily under-practiced words (公園, 散歩, 花, 朝). The intended hook follows the proven pattern (time-of-day → comma → action: 朝、私は公園を歩きます), and the closer pulls 風 + 雨 motifs into one final felt observation.",
+  "seed": 50421
 }
 ```
 
@@ -260,28 +334,31 @@ A clean refusal is better than a story that fails validation.
 
 - `W00001`: **今朝** (けさ) [noun] — this morning [occ:2]
 - `W00002`: **雨** (あめ) [noun] — rain [occ:2]
-- `W00003`: **私** (わたし) [pronoun] — I, me [occ:4]
+- `W00003`: **私** (わたし) [pronoun] — I, me [occ:6]
 - `W00004`: **窓** (まど) [noun] — window [occ:2]
 - `W00005`: **外** (そと) [noun] — outside [occ:3]
-- `W00006`: **見ます** (みます) [verb] — to see, to look [occ:3]
-- `W00007`: **木** (き) [noun] — tree [occ:2]
+- `W00006`: **見ます** (みます) [verb] — to see, to look [occ:5]
+- `W00007`: **木** (き) [noun] — tree [occ:4]
 - `W00008`: **濡れる** (ぬれる) [verb] — to get wet [occ:1]
-- `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:3]
-- `W00010`: **飲みます** (のみます) [verb] — to drink [occ:1]
-- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:3]
-- `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:3]
-- `W00013`: **いい** (いい) [adjective] — good, nice [occ:3]
-- `W00014`: **気分** (きぶん) [noun] — feeling, mood [occ:3]
+- `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:5]
+- `W00010`: **飲みます** (のみます) [verb] — to drink [occ:3]
+- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:5]
+- `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:5]
+- `W00013`: **いい** (いい) [adjective] — good, nice [occ:5]
+- `W00014`: **気分** (きぶん) [noun] — feeling, mood [occ:5]
 - `W00015`: **朝** (あさ) [noun] — morning [occ:2]
-- `W00016`: **公園** (こうえん) [noun] — park [occ:1]
-- `W00017`: **歩きます** (あるきます) [verb] — to walk [occ:1]
-- `W00018`: **夕方** (ゆうがた) [noun] — evening, late afternoon [occ:1]
+- `W00016`: **公園** (こうえん) [noun] — park [occ:3]
+- `W00017`: **歩きます** (あるきます) [verb] — to walk [occ:3]
+- `W00018`: **夕方** (ゆうがた) [noun] — evening, late afternoon [occ:3]
 - `W00019`: **朝ごはん** (あさごはん) [noun] — breakfast [occ:1]
 - `W00020`: **食べます** (たべます) [verb] — to eat [occ:1]
 - `W00021`: **卵** (たまご) [noun] — egg [occ:1]
-- `W00022`: **友達** (ともだち) [noun] — friend **[NEW]**
-- `W00023`: **散歩** (さんぽ) [noun] — walk, stroll **[NEW]**
-- `W00024`: **木** (き) [noun] — tree **[NEW]**
+- `W00022`: **友達** (ともだち) [noun] — friend [occ:2]
+- `W00023`: **散歩** (さんぽ) [noun] — walk, stroll [occ:2]
+- `W00024`: **花** (はな) [noun] — flower [occ:2]
+- `W00025`: **ドア** (ドア) [noun] — door **[NEW]**
+- `W00026`: **帰ります** (かえります) [verb] — to return home, to go back **[NEW]**
+- `W00027`: **風** (かぜ) [noun] — wind **[NEW]**
 
 ---
 
@@ -297,25 +374,26 @@ A clean refusal is better than a story that fails validation.
 - `G008_te_iru`: 〜ています — ongoing state / action in progress — Expresses an action in progress or a resulting state.
 - `G009_mo_also`: も — also / too — Marks something as additional. Replaces は or が when 'X too / X also' is meant.
 - `G010_to_and`: と — and (exhaustive list) — Connects two or more nouns into a complete list ('A and B').
-- `G011_ya_partial`: **[NEW grammar point — define in story]**
+- `G011_ya_partial`: や — and (partial / non-exhaustive list) — Lists nouns as a non-exhaustive 'A, B, and so on'.
+- `G012_soshite_then`: **[NEW grammar point — define in story]**
 
 ---
 
 ## New word definitions (introduce these in the story)
 
-- `W00022`: **友達** (ともだち) [noun] — friend
-- `W00023`: **散歩** (さんぽ) [noun] — walk, stroll
-- `W00024`: **木** (き) [noun] — tree
+- `W00025`: **ドア** (ドア) [noun] — door
+- `W00026`: **帰ります** (かえります) [verb · godan] — to return home, to go back
+- `W00027`: **風** (かぜ) [noun] — wind
 
 ---
 
 ## Output schema
 
-Produce a `story_4.json` object with this structure:
+Produce a `story_5.json` object with this structure:
 
 ```json
 {
-  "story_id": 4,
+  "story_id": 5,
   "title": {
     "jp": "<kanji/kana title>",
     "en": "<English title>",
@@ -329,8 +407,8 @@ Produce a `story_4.json` object with this structure:
     "tokens": [ ... ]
   },
   "plan_ref": "plan.json",
-  "new_words": ["W00022", "W00023", "W00024"],
-  "new_grammar": ["G011_ya_partial"],
+  "new_words": ["W00025", "W00026", "W00027"],
+  "new_grammar": ["G012_soshite_then"],
   "all_words_used": ["<every word_id used, in order of first appearance>"],
   "sentences": [
     {
