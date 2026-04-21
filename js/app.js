@@ -259,6 +259,8 @@ function playWordAudio(wordId) {
   if (!a) return;
   try { a.currentTime = 0; a.play(); } catch {}
 }
+// Expose to inline handlers (the popup HTML uses onclick="playWordAudio(...)")
+window.playWordAudio = playWordAudio;
 
 function setupAudioControls() {
   const playBtn  = document.getElementById('btn-play-story');
