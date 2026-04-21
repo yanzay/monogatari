@@ -10,7 +10,9 @@
       "2026-04-22 — initial baseline established (stories 1-4)",
       "2026-04-22 — stories 2 and 3 revised after baseline put them under the bar (2.8 and 3.4)",
       "2026-04-22 — story 5 (朝の散歩) authored end-to-end through the tightened pipeline (planner → writer with engagement guidance → validate → engagement-review → ship); cleared the bar on first pass (avg 4.6)",
-      "2026-04-22 — story 6 (猫) authored end-to-end; first story with a non-human character (cat as new presence). Cleared the bar on first pass (avg 4.6, ties story 5 for #1). G002_ga_subject (in state since story 1 but barely used) gets two real textual uses presenting the cat as new information."
+      "2026-04-22 — story 6 (猫) authored end-to-end; first story with a non-human character (cat as new presence). Cleared the bar on first pass (avg 4.6, ties story 5 for #1). G002_ga_subject (in state since story 1 but barely used) gets two real textual uses presenting the cat as new information.",
+      "2026-04-22 — JP NLP toolkit installed (fugashi + jaconv + jamdict-data) and wired into precheck/scaffold/lookup. Real inflection-engine validation, JMdict auto-fill of new word definitions, English↔JP dictionary lookup CLI, morphological-analysis CLI.",
+      "2026-04-22 — story 7 (夜) authored end-to-end with the new tooling (scaffold --new-word-surfaces auto-filled 夜/月/星 from JMdict; precheck --fix auto-computed all_words_used). First night-set story; gives G011_ya_partial real semantic work (was in state since story 4, only used twice). Cleared the bar on first pass (avg 4.4)."
     ]
   },
   "reviews": [
@@ -92,6 +94,30 @@
       ]
     },
     {
+      "story_id": 7,
+      "title_jp": "夜",
+      "title_en": "Night",
+      "scores":  { "hook": 4, "voice": 4, "originality": 4, "coherence": 5, "closure": 5 },
+      "average": 4.4,
+      "approved": true,
+      "highlights": [
+        "First night-set story in the library — fills the obvious gap (5 morning + 1 evening before this).",
+        "Doubles down on the engagement playbook stories 5 and 6 established: そして for textual chronology (×2), が for new-information presentation, and the 'give underused grammar real work' move applied to G011_ya_partial.",
+        "や was in state since story 4 but used only twice; story 7 gives it two new semantic uses ('and other things'), establishing it as a real unit.",
+        "Two も's tie the moon and the night ('also...') into the narrator's stillness.",
+        "Sentence 4 「月も雨を見ます」 is the most original beat: where story 6's cat looked back at the narrator, the moon's gaze passes through the narrator entirely toward the rain — a different shape of attention.",
+        "Closer 「月と夜、いい気分です。」 ties heavenly body + time-of-day."
+      ],
+      "weaknesses": [
+        "Hook (4 not 5): time + image (the moon) is stative — 月です reads slightly flat. Could become a sensory action when a verb of appearance enters vocab.",
+        "Originality (4 not 5): the imagery (moon/stars/rain/quiet) is conventional Japanese poetic stock. The grammar choreography (や/と/も interplay) is what carries the freshness."
+      ],
+      "suggestions": [
+        { "what": "When 遠く ('far away') enters vocab, replace s4's 雨 with 遠く: 「月も遠くを見ます」 lands the contrast with story 6's reciprocal cat more strongly.", "why": "originality (deferred)" },
+        { "what": "When a verb of appearance (e.g. 出る 'to come out') enters vocab, change s0 to 「月が出ます」 to make the hook a sensory action rather than stative.", "why": "hook (deferred)" }
+      ]
+    },
+    {
       "story_id": 6,
       "title_jp": "猫",
       "title_en": "The Cat",
@@ -160,17 +186,20 @@
     { "rank": 1, "story_id": 5, "average": 4.6, "verdict": "Tied for #1 — first story authored with rubric in writer prompt; cleared the bar on first pass." },
     { "rank": 1, "story_id": 6, "average": 4.6, "verdict": "Tied for #1 — first story with a non-human character; cat arrives as a real surprise. Originality 5/5." },
     { "rank": 3, "story_id": 4, "average": 4.4, "verdict": "Strong; small refinements possible." },
-    { "rank": 4, "story_id": 2, "average": 4.2, "verdict": "Revised — strong; only a deferred 'we sit' beat is missing." },
-    { "rank": 5, "story_id": 3, "average": 4.0, "verdict": "Revised — strongest closer of stories 1-4; originality tough within constraint." },
-    { "rank": 6, "story_id": 1, "average": 3.8, "verdict": "Strong given the bootstrap constraint; ship as-is." }
+    { "rank": 3, "story_id": 7, "average": 4.4, "verdict": "First night-set story; gives G011_ya_partial real work. Doubles the underused-grammar pattern that elevated story 6." },
+    { "rank": 5, "story_id": 2, "average": 4.2, "verdict": "Revised — strong; only a deferred 'we sit' beat is missing." },
+    { "rank": 6, "story_id": 3, "average": 4.0, "verdict": "Revised — strongest closer of stories 1-4; originality tough within constraint." },
+    { "rank": 7, "story_id": 1, "average": 3.8, "verdict": "Strong given the bootstrap constraint; ship as-is." }
   ],
   "next_actions": [
-    "All six stories now pass the engagement bar (avg ≥ 3.5; every dimension ≥ 3).",
-    "Story 6 demonstrates how an existing-but-underused grammar point can earn full status by being given real textual work — G002_ga_subject went from 'introduced in story 1, barely used' to 'doing the central semantic move'. Worth checking the grammar state for other underused points (e.g. G011_ya_partial, G009_mo_also has only one use).",
-    "Stories 5 and 6 set the new bar: a small narrative turn in the middle (cat appears / outside is rain), not a flat sequence of observations.",
-    "Future stories should aim for the story-5 / story-4 / story-6 hook pattern: 'time-of-day + comma + action OR weather'.",
+    "All seven stories now pass the engagement bar (avg ≥ 3.5; every dimension ≥ 3).",
+    "Story 7 demonstrates the JP-NLP-backed authoring loop end-to-end: scaffold --new-word-surfaces auto-filled 3 new word definitions from JMdict (no hand typing of kana/reading/pos); precheck --fix auto-computed all_words_used. Time-to-shipped was visibly faster than stories 5 and 6.",
+    "Story 7 also continues the 'give underused grammar real work' pattern (G011_ya_partial, formerly 2 uses, now 4 with two new semantic uses). G009_mo_also is still under-utilised at only 4 uses spread thinly — a candidate for the next story.",
+    "Stories 5/6/7 set the new bar: a small narrative turn in the middle, not a flat sequence of observations.",
+    "Future stories should aim for the proven hook patterns: 'time-of-day + comma + action OR weather OR image'.",
     "When 座ります / 休みます enter vocab, revisit stories 2 and 4 to add the implied 'we sit' beat between the walking and the tea.",
     "When 音 (sound) enters vocab, revisit story 5's wind sentence for an auditory upgrade.",
-    "When 中 (inside) enters vocab, revisit story 6's s4 for a settled-inside relocation; when 降ります enters vocab, upgrade story 6's hook to a sensory action."
+    "When 中 (inside) enters vocab, revisit story 6's s4 for a settled-inside relocation; when 降ります enters vocab, upgrade story 6's hook to a sensory action.",
+    "When 遠く ('far away') enters vocab, revisit story 7's s4 to land the contrast with story 6's reciprocal cat."
   ]
 }

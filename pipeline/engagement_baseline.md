@@ -1,4 +1,4 @@
-# Engagement Baseline — stories 1–6
+# Engagement Baseline — stories 1–7
 
 > Reviewer: **rovo-dev** · first reviewed 2026-04-22T01:22:00Z, last revised 2026-04-22T01:31:00Z.
 
@@ -10,16 +10,20 @@
 - 2026-04-22 — initial baseline established (stories 1-4)
 - 2026-04-22 — stories 2 and 3 revised after baseline put them under the bar (2.8 and 3.4)
 - 2026-04-22 — story 5 (朝の散歩) authored end-to-end through the tightened pipeline (planner → writer with engagement guidance → validate → engagement-review → ship); cleared the bar on first pass (avg 4.6)
+- 2026-04-22 — story 6 (猫) authored end-to-end; first story with a non-human character (cat as new presence). Cleared the bar on first pass (avg 4.6, ties story 5 for #1). G002_ga_subject (in state since story 1 but barely used) gets two real textual uses presenting the cat as new information.
+- 2026-04-22 — JP NLP toolkit installed (fugashi + jaconv + jamdict-data) and wired into precheck/scaffold/lookup. Real inflection-engine validation, JMdict auto-fill of new word definitions, English↔JP dictionary lookup CLI, morphological-analysis CLI.
+- 2026-04-22 — story 7 (夜) authored end-to-end with the new tooling (scaffold --new-word-surfaces auto-filled 夜/月/星 from JMdict; precheck --fix auto-computed all_words_used). First night-set story; gives G011_ya_partial real semantic work (was in state since story 4, only used twice). Cleared the bar on first pass (avg 4.4).
 
 ## Leaderboard
-
 | Rank | Story | Avg | Verdict |
 |------|-------|-----|---------|
-| 1 | story 5 | **4.6** | Best in the library — first story authored with rubric in writer prompt; cleared the bar on first pass. |
-| 2 | story 4 | **4.4** | Strong; small refinements possible. |
-| 3 | story 2 | **4.2** | Revised — strong; only a deferred 'we sit' beat is missing. |
-| 4 | story 3 | **4.0** | Revised — strongest closer of stories 1-4; originality tough within constraint. |
-| 5 | story 1 | **3.8** | Strong given the bootstrap constraint; ship as-is. |
+| 1 | story 5 | **4.6** | Tied for #1 — first story authored with rubric in writer prompt; cleared the bar on first pass. |
+| 1 | story 6 | **4.6** | Tied for #1 — first story with a non-human character; cat arrives as a real surprise. Originality 5/5. |
+| 3 | story 4 | **4.4** | Strong; small refinements possible. |
+| 3 | story 7 | **4.4** | First night-set story; gives G011_ya_partial real work. Doubles the underused-grammar pattern that elevated story 6. |
+| 5 | story 2 | **4.2** | Revised — strong; only a deferred 'we sit' beat is missing. |
+| 6 | story 3 | **4.0** | Revised — strongest closer of stories 1-4; originality tough within constraint. |
+| 7 | story 1 | **3.8** | Strong given the bootstrap constraint; ship as-is. |
 
 
 ## Story 1 — 雨 *(Rain)*
@@ -95,6 +99,52 @@ _Previous score: 3.4 (before revision)_
 - Rewrote the closer to merge weather + time + feeling into one image.
 
 
+## Story 7 — 夜 *(Night)*
+**Average:** 4.4  ·  **Approved:** ✓
+
+| hook | voice | originality | coherence | closure |
+|------|-------|-------------|-----------|---------|
+| 4 | 4 | 4 | 5 | 5 |
+
+**Highlights**
+- First night-set story in the library — fills the obvious gap (5 morning + 1 evening before this).
+- Doubles down on the engagement playbook stories 5 and 6 established: そして for textual chronology (×2), が for new-information presentation, and the 'give underused grammar real work' move applied to G011_ya_partial.
+- や was in state since story 4 but used only twice; story 7 gives it two new semantic uses ('and other things'), establishing it as a real unit.
+- Two も's tie the moon and the night ('also...') into the narrator's stillness.
+- Sentence 4 「月も雨を見ます」 is the most original beat: where story 6's cat looked back at the narrator, the moon's gaze passes through the narrator entirely toward the rain — a different shape of attention.
+- Closer 「月と夜、いい気分です。」 ties heavenly body + time-of-day.
+
+**Weaknesses**
+- Hook (4 not 5): time + image (the moon) is stative — 月です reads slightly flat. Could become a sensory action when a verb of appearance enters vocab.
+- Originality (4 not 5): the imagery (moon/stars/rain/quiet) is conventional Japanese poetic stock. The grammar choreography (や/と/も interplay) is what carries the freshness.
+
+**Suggestions**
+- *(originality (deferred))* — When 遠く ('far away') enters vocab, replace s4's 雨 with 遠く: 「月も遠くを見ます」 lands the contrast with story 6's reciprocal cat more strongly.
+- *(hook (deferred))* — When a verb of appearance (e.g. 出る 'to come out') enters vocab, change s0 to 「月が出ます」 to make the hook a sensory action rather than stative.
+
+
+## Story 6 — 猫 *(The Cat)*
+**Average:** 4.6  ·  **Approved:** ✓
+
+| hook | voice | originality | coherence | closure |
+|------|-------|-------------|-----------|---------|
+| 4 | 4 | 5 | 5 | 5 |
+
+**Highlights**
+- First story in the library with a non-human character — the cat is a real arrival; every prior story had only the narrator (and once a friend).
+- G002_ga_subject (in state since story 1 but barely used) finally gets real textual work: が presents the cat as new information in s2 and s4, then は picks it up as the topic in s3 and s5 — the textbook contrast made concrete.
+- Two そして's continue the textual-chronology pattern story 5 established (no gloss inflation).
+- Sentence 5 「そして、猫は私を見ます。」 is the best moment — the reciprocal gaze gives the narrator a second presence to react to.
+- Closer 「猫と私、いい朝です。」 mirrors story 4/5's 'A and B, feeling' shape with felt content shift: the 'and' is across species.
+
+**Weaknesses**
+- Hook (4 not 5): time + weather without an action — story 5's 「朝、私は公園を歩きます」 sets a stronger sensory stage. Acceptable trade because the cat itself is the surprise.
+
+**Suggestions**
+- *(originality (deferred))* — When 中 (inside) enters vocab, swap s4 to 「猫は中にいます」 and free a sentence for a third specific gesture.
+- *(hook (deferred))* — When 降ります (to fall, of rain) enters vocab, change s0 to 「雨が降ります」 to make the hook a sensory action rather than a stative.
+
+
 ## Story 5 — 朝の散歩 *(A Morning Walk)*
 **Average:** 4.6  ·  **Approved:** ✓
 
@@ -139,8 +189,12 @@ _Previous score: 3.4 (before revision)_
 
 ## Next actions
 
-- All five stories now pass the engagement bar (avg ≥ 3.5; every dimension ≥ 3).
-- Story 5 is the new canonical example: hook → quiet observation → そして transition → return → outside is rain → そして wind → motif-list closer. The two そして's are the textual proof that an English 'and then' connector belongs in the JP, not just the gloss.
-- Future stories should aim for the story-5 / story-4 hook pattern: 'time-of-day, comma, action.'
+- All seven stories now pass the engagement bar (avg ≥ 3.5; every dimension ≥ 3).
+- Story 7 demonstrates the JP-NLP-backed authoring loop end-to-end: scaffold --new-word-surfaces auto-filled 3 new word definitions from JMdict (no hand typing of kana/reading/pos); precheck --fix auto-computed all_words_used. Time-to-shipped was visibly faster than stories 5 and 6.
+- Story 7 also continues the 'give underused grammar real work' pattern (G011_ya_partial, formerly 2 uses, now 4 with two new semantic uses). G009_mo_also is still under-utilised at only 4 uses spread thinly — a candidate for the next story.
+- Stories 5/6/7 set the new bar: a small narrative turn in the middle, not a flat sequence of observations.
+- Future stories should aim for the proven hook patterns: 'time-of-day + comma + action OR weather OR image'.
 - When 座ります / 休みます enter vocab, revisit stories 2 and 4 to add the implied 'we sit' beat between the walking and the tea.
 - When 音 (sound) enters vocab, revisit story 5's wind sentence for an auditory upgrade.
+- When 中 (inside) enters vocab, revisit story 6's s4 for a settled-inside relocation; when 降ります enters vocab, upgrade story 6's hook to a sensory action.
+- When 遠く ('far away') enters vocab, revisit story 7's s4 to land the contrast with story 6's reciprocal cat.
