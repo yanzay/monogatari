@@ -678,16 +678,19 @@ def validate(
                     )
 
     # ── Check 6: Reuse quota ──────────────────────────────────────────────────
-    reinforcement_count = 0
-    for tok in content_tokens:
-        wid = tok.get("word_id")
-        if wid:
-            word = words_dict.get(wid)
-            occ  = word.get("occurrences", 0) if word else 0
-            if occ < 5:
-                reinforcement_count += 1
-
-    if content_tokens:
+    # The reuse rule says ≥ 60% of content tokens must reference words with
+    # occurrences < 5 — i.e. the story should be doing real reinforcement of
+    # under-practiced vocabulary. Bootstrap stories (lots of new words at once)
+    # are exempt because they're introducing words, not reinforcing them.
+    if content_tokens and not bootstrap_story:
+        reinforcement_count = 0
+        for tok in content_tokens:
+            wid = tok.get("word_id")
+            if wid:
+                word = words_dict.get(wid)
+                occ  = word.get("occurrences", 0) if word else 0
+                if occ < 5:
+                    reinforcement_count += 1
         ratio = reinforcement_count / len(content_tokens)
         if ratio < REUSE_QUOTA:
             result.add_error(
