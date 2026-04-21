@@ -1,0 +1,22 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
+
+# Pipeline scratch — these files are written by individual run.py steps
+# and rebuilt per story. Shipped artifacts live under stories/ and audio/.
+pipeline/plan.json
+pipeline/story_raw.json
+
+# Service worker / browser caches (none here, but reserve)
+*.log
+
+# Credentials — never commit these
+.gcp-key.json
+*.gcp-key.json

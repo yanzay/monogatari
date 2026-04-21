@@ -1,0 +1,390 @@
+{
+  "story_id": 2,
+  "title": {
+    "jp": "夕方の公園",
+    "en": "The Evening Park",
+    "tokens": [
+      {
+        "t": "夕方",
+        "r": "ゆうがた",
+        "word_id": "W00018",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G001_wa_topic",
+        "role": "particle"
+      },
+      {
+        "t": "公園",
+        "r": "こうえん",
+        "word_id": "W00016",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "静かな外",
+    "en": "A quiet outside",
+    "tokens": [
+      {
+        "t": "静か",
+        "r": "しずか",
+        "word_id": "W00011",
+        "role": "content"
+      },
+      {
+        "t": "な",
+        "grammar_id": "G001_wa_topic",
+        "role": "particle"
+      },
+      {
+        "t": "外",
+        "r": "そと",
+        "word_id": "W00005",
+        "role": "content"
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00016",
+    "W00017",
+    "W00018"
+  ],
+  "new_grammar": [
+    "G009_mo_also"
+  ],
+  "all_words_used": [
+    "W00018",
+    "W00016",
+    "W00011",
+    "W00005",
+    "W00003",
+    "W00017",
+    "W00012",
+    "W00007",
+    "W00006",
+    "W00014",
+    "W00013"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "夕方",
+          "r": "ゆうがた",
+          "word_id": "W00018",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "word_id": "W00011",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The evening is quiet.",
+      "audio": "audio/story_2/s0.mp3"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "公園",
+          "r": "こうえん",
+          "word_id": "W00016",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "歩きます",
+          "r": "あるきます",
+          "word_id": "W00017",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I walk through the park.",
+      "audio": "audio/story_2/s1.mp3"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "外",
+          "r": "そと",
+          "word_id": "W00005",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "word_id": "W00011",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G007_te_form",
+          "role": "aux"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "word_id": "W00012",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is quiet and warm outside.",
+      "audio": "audio/story_2/s2.mp3"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "木",
+          "r": "き",
+          "word_id": "W00007",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle",
+          "is_new_grammar": true
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "word_id": "W00011",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The trees are also quiet.",
+      "audio": "audio/story_2/s3.mp3"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "木",
+          "r": "き",
+          "word_id": "W00007",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "見ます",
+          "r": "みます",
+          "word_id": "W00006",
+          "role": "content"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I look at the trees.",
+      "audio": "audio/story_2/s4.mp3"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "公園",
+          "r": "こうえん",
+          "word_id": "W00016",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "外",
+          "r": "そと",
+          "word_id": "W00005",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "word_id": "W00012",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Both the park and outside are warm.",
+      "audio": "audio/story_2/s5.mp3"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "夕方",
+          "r": "ゆうがた",
+          "word_id": "W00018",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "公園",
+          "r": "こうえん",
+          "word_id": "W00016",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "歩きます",
+          "r": "あるきます",
+          "word_id": "W00017",
+          "role": "content"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I walk through the evening park.",
+      "audio": "audio/story_2/s6.mp3"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "気分",
+          "r": "きぶん",
+          "word_id": "W00014",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "いい",
+          "word_id": "W00013",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My mood is good too.",
+      "audio": "audio/story_2/s7.mp3"
+    }
+  ],
+  "word_audio": {
+    "W00016": "audio/story_2/w_W00016.mp3",
+    "W00017": "audio/story_2/w_W00017.mp3",
+    "W00018": "audio/story_2/w_W00018.mp3"
+  },
+  "checksum": null
+}

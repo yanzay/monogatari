@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monogatari</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Fraunces:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <span class="nav-logo">物語</span>
+    <div class="nav-links">
+      <button class="nav-btn active" data-view="read">Read</button>
+      <button class="nav-btn" data-view="review">Review <span class="review-badge" id="review-count" hidden>0</span></button>
+      <button class="nav-btn" data-view="vocab">Vocab</button>
+      <button class="nav-btn" data-view="grammar">Grammar</button>
+    </div>
+    <div class="nav-actions">
+      <button class="nav-action-btn" id="btn-export" title="Export progress">↑ Export</button>
+      <label class="nav-action-btn" title="Import progress">↓ Import<input type="file" id="input-import" accept=".json" hidden /></label>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main id="app">
+    <!-- Read View -->
+    <div id="view-read" class="view active">
+      <div class="story-header">
+        <h1 class="story-title" id="story-title-jp"></h1>
+        <p class="story-subtitle" id="story-subtitle-jp"></p>
+        <p class="story-title-en" id="story-title-en"></p>
+        <div class="story-ornament">❧</div>
+      </div>
+
+      <div class="story-gloss-bar">
+        <button class="btn-gloss-all" id="btn-gloss-all">Show English</button>
+      </div>
+
+      <div id="progress-dots" class="progress-dots" aria-label="Sentence progress"></div>
+
+      <div class="audio-controls" role="group" aria-label="Audio">
+        <button id="btn-play-story" class="btn-audio" title="Play whole story">▶ Play story</button>
+        <label class="autoplay-toggle">
+          <input type="checkbox" id="chk-autoplay" />
+          <span>Autoplay next sentence</span>
+        </label>
+      </div>
+
+      <div id="sentences-container" class="story-body"></div>
+      <div id="gloss-panel" class="gloss-panel" hidden></div>
+
+      <div class="new-words-panel" id="new-words-panel">
+        <h3 class="panel-label">New words</h3>
+        <div class="new-words-chips" id="new-words-chips"></div>
+      </div>
+
+      <div class="story-nav">
+        <button class="story-nav-btn" id="btn-prev-story" disabled>← Previous</button>
+        <span class="story-id-label" id="story-id-label"></span>
+        <button class="story-nav-btn" id="btn-next-story">Next →</button>
+      </div>
+    </div>
+
+    <!-- Review View -->
+    <div id="view-review" class="view">
+      <div class="review-container" id="review-container">
+        <p class="empty-state">Nothing due. Read the next story or come back later.</p>
+      </div>
+    </div>
+
+    <!-- Vocab View -->
+    <div id="view-vocab" class="view">
+      <div class="vocab-stats" id="vocab-stats"></div>
+      <div class="vocab-filters">
+        <input type="search" id="vocab-search" placeholder="Search…" class="vocab-search" />
+        <select id="vocab-status-filter" class="vocab-select">
+          <option value="all">All statuses</option>
+          <option value="new">New</option>
+          <option value="learning">Learning</option>
+          <option value="young">Young</option>
+          <option value="mature">Mature</option>
+          <option value="leech">Leech</option>
+        </select>
+        <select id="vocab-story-filter" class="vocab-select">
+          <option value="all">All stories</option>
+        </select>
+      </div>
+      <div class="vocab-list" id="vocab-list"></div>
+    </div>
+
+    <!-- Grammar View -->
+    <div id="view-grammar" class="view">
+      <div class="grammar-list" id="grammar-list"></div>
+    </div>
+  </main>
+
+  <!-- POPUP / BOTTOM SHEET -->
+  <div id="popup-overlay" class="popup-overlay" hidden></div>
+  <div id="popup" class="popup" hidden role="dialog" aria-modal="true">
+    <button class="popup-close" id="popup-close" aria-label="Close">✕</button>
+    <div class="popup-content" id="popup-content"></div>
+  </div>
+
+  <script src="js/app.js" type="module"></script>
+</body>
+</html>
