@@ -134,7 +134,95 @@ rejection and retry.
 
 ---
 
-## 6. When to refuse
+## 6. Engagement & voice (the bar that comes after the validator)
+
+The validator only proves the story is *legal*. The next pipeline stage —
+the engagement review (`pipeline/engagement_review.py`) — asks whether
+it is **worth reading**. Write with the rubric in mind so you can
+approve your own story honestly afterwards.
+
+The rubric scores 1–5 across **hook · voice · originality · coherence ·
+closure**. Approval requires **average ≥ 3.5 AND every dimension ≥ 3**.
+Full prompt: `pipeline/engagement_review_prompt.md`.
+
+### What the five dimensions actually mean
+
+- **Hook** — does the first sentence drop the reader into a specific,
+  sensory moment? `今朝は雨です。` works because it gives time + weather
+  in one breath. `私はXです。` doesn't — it's an identification, not an
+  observation.
+- **Voice** — does a small "I" emerge with consistent tone? Subject-drop
+  helps; relentless `私は…` flattens the narrator into a worksheet.
+- **Originality** — within the brutally narrow vocabulary, can you find
+  one small surprise? A fresh juxtaposition (`雨は静かです`), an
+  unexpected pairing (`卵とお茶`), a personification of weather. Aim for
+  one such moment per story.
+- **Coherence** — does each sentence pull forward from the last? A list
+  of independent flashcards reads as a worksheet. Even a 6-sentence
+  story should have a tiny arc: setup → small turn → small landing.
+- **Closure** — does the last line linger? End on an image or a felt
+  observation, not a flat statement. The strongest closers in the
+  current library tie two motifs from earlier in the story into one
+  line.
+
+### Positive examples (from stories already shipped)
+
+The four shipped stories all pass the bar. Lean on these patterns.
+
+**Hooks that work:**
+
+```
+夕方、私と友達は公園を歩きます。       (story 2 — time-comma + companion + verb)
+夕方、私は友達と公園を歩きます。       (story 4 — same pattern, slightly different framing)
+今朝は雨です。                          (story 1 — minimal time + weather)
+朝、雨です。                            (story 3 — four-syllable sensory poem)
+```
+
+The pattern that recurs: **time-of-day → comma → concrete observation
+or action**. The comma after the time word does a lot of work — it
+slows the line down and makes the rest land as observation rather
+than identification.
+
+**Closers that work:**
+
+```
+雨と夕方と公園を歩きます。              (story 2 — return to opening verb with three motifs as object)
+雨の外と静かな朝、いい気分です。        (story 3 — weather + time + feeling in one line)
+散歩と友達はいい気分です。              (story 4 — pulls two motifs into one felt observation)
+今朝はいい気分です。                    (story 1 — symmetry with opener; small but earned)
+```
+
+The pattern that recurs: **named motifs from the body, then a single
+short evaluation**. The closer is not the place to introduce a new
+image — it's where the existing images settle.
+
+### Anti-patterns (what to avoid)
+
+These pulled past stories under the bar and forced revisions:
+
+- **Particle as decoration.** `気分もいいです` ends a story by
+  attaching `も` to a feeling that was never set up — the particle
+  decorates instead of meaning. Anchor `も` to a real reciprocity
+  (`友達もお茶を飲みます。`).
+- **Refrain becomes a tic.** Repeating the same evaluative adjective
+  (`静か`) more than twice in a 7-sentence story stops being
+  observation and becomes verbal wallpaper.
+- **Inconsistent claims.** Saying "warm at evening" / "warm outside"
+  reads as careless. Anchor temperature claims to a thing (the tea,
+  the eggs), not the air.
+- **Definition as opener.** `XはYとZです` is a useful sentence but a
+  weak hook. If you want the definition, place it second; lead with
+  a sensory beat.
+- **Gloss inflation.** Don't write `gloss_en` "After that, I eat my
+  breakfast." if the JP has no それから. Glosses must reflect what is
+  actually in the JP.
+- **Subject-grind.** Five `私は…` openers in a row. Drop the subject
+  when context allows — Japanese is generous about this and the
+  narrator immediately sounds less like a worksheet.
+
+---
+
+## 7. When to refuse
 
 If the constraints cannot be satisfied — vocabulary too sparse, planned new
 words incoherent, grammar prerequisites missing — return this object and stop:
