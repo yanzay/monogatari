@@ -1,18 +1,23 @@
 # Engagement Baseline — stories 1–4
 
-> Retroactive Rovo Dev review of the four stories shipped before the
-> stage-3.5 engagement gate existed. Use this as the baseline against which
-> future authoring is measured. Reviewed 2026-04-22T01:22:00Z.
+> Reviewer: **rovo-dev** · first reviewed 2026-04-22T01:22:00Z, last revised 2026-04-22T01:31:00Z.
 
+> Approval bar: avg ≥ 3.5 AND every dimension ≥ 3.
+
+
+## History
+
+- 2026-04-22 — initial baseline established (stories 1-4)
+- 2026-04-22 — stories 2 and 3 revised after baseline put them under the bar (2.8 and 3.4)
 
 ## Leaderboard
 
 | Rank | Story | Avg | Verdict |
 |------|-------|-----|---------|
 | 1 | story 4 | **4.4** | Best of the set; small refinements possible. |
-| 2 | story 1 | **3.8** | Strong given the bootstrap constraint; ship as-is. |
-| 3 | story 3 | **3.4** | Just under the bar (3.4 vs 3.5); revise s0 + s5 in the next pass. |
-| 4 | story 2 | **2.8** | Below the bar; 静か is over-used and the closer is weak. Revise before the next library scan. |
+| 2 | story 2 | **4.2** | Revised — now strong; only a deferred 'we sit' beat is missing. |
+| 3 | story 3 | **4.0** | Revised — strongest closer in the set; originality remains tough within the constraint. |
+| 4 | story 1 | **3.8** | Strong given the bootstrap constraint; ship as-is. |
 
 
 ## Story 1 — 雨 *(Rain)*
@@ -36,49 +41,56 @@
 - *(closure (deferred))* — If a future revision pass adds it, replace 'いい気分です' with something more specific like '心が静かです' once 心 enters vocabulary.
 
 
-## Story 2 — 夕方の公園 *(The Evening Park)*
-**Average:** 2.8  ·  **Approved:** ✗
+## Story 2 — 夕方の公園 *(The Evening Park)*  · *(revised)*
+**Average:** 4.2  ·  **Approved:** ✓
+_Previous score: 2.8 (before revision)_
 
 | hook | voice | originality | coherence | closure |
 |------|-------|-------------|-----------|---------|
-| 3 | 3 | 2 | 3 | 3 |
+| 4 | 4 | 4 | 4 | 5 |
 
 **Highlights**
-- Title 「夕方の公園」 is good — establishes time + place efficiently.
-- Sentence 6 「夕方の公園を歩きます。」 echoes the title; small structural beat that works.
+- Hook now mirrors story 4: time-of-day comma, companion, action in one breath.
+- Sentence 2 「雨は静かです。」 personifies the rain — a small voice move that opens the scene.
+- Two も uses (s3, s5) carry an actual reciprocity between narrator and friend, not just particle decoration.
+- Closing 「雨と夕方と公園を歩きます」 returns to the verb of s0 with three new motifs as object — circular and earned.
 
 **Weaknesses**
-- Subtitle 「静かな外」 is grammatically defensible but tonally awkward — 'outside' used bare as a noun.
-- 「静か」 appears 5 times across 8 sentences. By s3 it stops being an observation and becomes a tic.
-- 「公園も外も温かいです」 (s5) is tonally off — 'warm' at evening reads inconsistent — and the line is pure inventory.
-- Closing 「気分もいいです」 leans on も as decoration; the feeling isn't earned by anything specific in the prior line.
+- Implied scene shift between walking (s1) and tea (s3); a single linking sentence would smooth it. Deferred to a future story (needs verbs like 座る, 休む).
 
 **Suggestions**
-- *(voice + originality)* — Drop one of the 静か repetitions — e.g. rewrite s3 'The trees are also quiet' into a sensory detail using 木 + a different particle that's already known.
-- *(coherence)* — Replace 'warm' (温かい) in s2 and s5 with a different observable; the temperature claim conflicts with the evening setting.
-- *(closure)* — Rewrite the closer to anchor the feeling on a thing — e.g. 「夕方の公園はいい気分です」 instead of the orphan 「気分もいいです」.
+- *(coherence (deferred))* — If a future revision pass adds 座ります or 休みます, insert a one-line 'we sit' beat between s2 and s3.
+
+**Revision notes**
+- Removed 4 of the 5 静か uses; kept exactly one in s2.
+- Replaced 'warm at evening' with 'tea is warm' — temperature claim now anchored to a thing, not the air.
+- Rewrote the closer from 「気分もいいです」 (orphaned feeling) to 「雨と夕方と公園を歩きます」 (motif-list-as-object, returns to verb of opener).
 
 
-## Story 3 — 朝ごはん *(Breakfast)*
-**Average:** 3.4  ·  **Approved:** ✗
+## Story 3 — 朝ごはん *(Breakfast)*  · *(revised)*
+**Average:** 4.0  ·  **Approved:** ✓
+_Previous score: 3.4 (before revision)_
 
 | hook | voice | originality | coherence | closure |
 |------|-------|-------------|-----------|---------|
-| 3 | 3 | 3 | 4 | 4 |
+| 4 | 4 | 3 | 4 | 5 |
 
 **Highlights**
-- Sentence 4 「朝ごはんと温かいお茶はいい気分です。」 ties the two motifs into a single felt observation — best line in the story.
-- Closing 「静かな朝です」 is a quiet callback to story 1; the world feels continuous.
+- Hook 「朝、雨です。」 is a 4-syllable sensory poem — specific weather + time in two beats.
+- Closing 「雨の外と静かな朝、いい気分です」 pulls weather + time + feeling into a single line — strongest closer in the set.
+- Subject-drop in s3, s5, s6 lets the narrator feel less like a worksheet 私.
 
 **Weaknesses**
-- Opening 「朝ごはんは卵とお茶です。」 is functional, not a hook — pure 'X is Y' identification.
-- Sentence 5 「私は朝ごはんを食べます」 is essentially a redundancy with s1 「私は卵を食べます」 — the gloss adds 'After that' but no それから token exists in the JP. Either add the connector or remove the duplication.
-- Originality scores middle; this is a graded-reader textbook scene, not a fresh observation.
+- Still essentially a 'breakfast scene' — originality remains the hardest dimension to push within the constraint.
 
 **Suggestions**
-- *(hook)* — Replace s0 with a sensory opener — e.g. 「窓から朝の光を見ます。」 (uses already-known 窓・見る・朝)
-- *(coherence)* — Either insert それから (new connector — would be a planned new_grammar) at the start of s5, or delete s5 entirely and let s4 close into s6.
-- *(voice + coherence)* — Swap s2 and s3 so the warm-tea image precedes the window-look — gives an 'I sip, then I look out' rhythm.
+- *(originality (deferred))* — If a future revision pass introduces a sound or tactile word (e.g. 音 / 香り), replace one of the 温かい lines with the new sense.
+
+**Revision notes**
+- Replaced flat opener 「朝ごはんは卵とお茶です」 (definition) with 「朝、雨です」 (sensory).
+- Split breakfast definition into a real beat (s2) — now arrives after the sensory frame is set.
+- Removed redundant s5 (was duplicate of s1 with English 'after that' that didn't exist in JP); replaced with a separate 食べます beat that actually advances the action.
+- Rewrote the closer to merge weather + time + feeling into one image.
 
 
 ## Story 4 — 散歩 *(A Walk)*
@@ -104,6 +116,7 @@
 
 ## Next actions
 
-- Stories 1 and 4 meet the bar — keep as the canonical examples in pipeline/writer_prompt.md.
-- Story 3 is one revision away from passing — see suggestions[2] for the specific edits.
-- Story 2 needs a real rewrite — the 静か over-use and the orphaned closer pull every dimension down.
+- All four stories now pass the engagement bar (avg ≥ 3.5; every dimension ≥ 3).
+- Stories 1, 2, 3, 4 are the canonical examples — wire excerpts of their hooks/closers into pipeline/writer_prompt.md as positive examples.
+- Future stories should aim for the story 4 / story 2 hook pattern: 'time-of-day, comma, action with companion.'
+- When 座ります / 休みます enter vocab, revisit stories 2 and 4 to add the implied 'we sit' beat between the walking and the tea.
