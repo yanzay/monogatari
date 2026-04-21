@@ -195,6 +195,12 @@ def main() -> None:
         story = load_json(raw_path)
         story_id = story.get("story_id", "?") if story else "?"
 
+        # ── Step 4c.5: Rebuild stories manifest ──
+        print("\n[Step 4c.5] Rebuilding stories/index.json…")
+        rc = run([sys.executable, "pipeline/build_manifest.py"])
+        if rc != 0:
+            print("Manifest rebuild failed; reader will fall back to discovery probe.")
+
         # ── Step 4d: Audio (optional, on by default) ──
         if not getattr(args, "no_audio", False):
             backend = getattr(args, "tts_backend", "synth")
@@ -214,6 +220,10 @@ def main() -> None:
             rc = run(audio_cmd)
             if rc != 0:
                 print("Audio step failed — story shipped but has no audio yet.")
+            else:
+                # Audio paths just landed in the story JSON — rebuild manifest
+                # so its `has_audio` flag reflects reality.
+                run([sys.executable, "pipeline/build_manifest.py"])
 
         print(f"\n{'═'*60}")
         print(f"  ✓ Story {story_id} shipped to stories/story_{story_id}.json")

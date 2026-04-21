@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# Monogatari pre-commit hook.
+#
+# Bumps CACHE_VERSION inside sw.js whenever any of the front-end files
+# (index.html, js/, css/, stories/, audio/, data/) is part of the commit,
+# so existing visitors immediately see the "update available" toast next
+# time they open the page.
+#
+# Install:
+#   git config core.hooksPath .githooks
+#
+# (also run automatically by `make hooks` or by anyone who follows the
+# README setup instructions).
+
+set -euo pipefail
+
+watched_re='^(index\.html|sw\.js|js/|css/|stories/|audio/|data/)'
+if ! git diff --cached --name-only | grep -qE "$watched_re"; then
+  exit 0
+fi
+
+# Compose a fresh version label: v1-YYYY-MM-DD-HHMMSS
+new_version="v1-$(date -u +%Y-%m-%d-%H%M%S)"
+file="sw.js"
+
+if [ ! -f "$file" ]; then
+  exit 0
+fi
+
+# Replace the existing CACHE_VERSION line with the new value.
+# Works on macOS BSD sed and GNU sed (in-place edit with .bak then remove).
+sed -i.bak -E "s|^const CACHE_VERSION[[:space:]]*=[[:space:]]*'[^']*';|const CACHE_VERSION = '${new_version}';|" "$file"
+rm -f "${file}.bak"
+
+git add "$file"
+echo "[pre-commit] Bumped CACHE_VERSION → ${new_version}"

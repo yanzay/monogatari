@@ -16,6 +16,7 @@
     <span class="nav-logo">物語</span>
     <div class="nav-links">
       <button class="nav-btn active" data-view="read">Read</button>
+      <button class="nav-btn" data-view="library">Library</button>
       <button class="nav-btn" data-view="review">Review <span class="review-badge" id="review-count" hidden>0</span></button>
       <button class="nav-btn" data-view="vocab">Vocab</button>
       <button class="nav-btn" data-view="grammar">Grammar</button>
@@ -64,6 +65,13 @@
         <span class="story-id-label" id="story-id-label"></span>
         <button class="story-nav-btn" id="btn-next-story">Next →</button>
       </div>
+    </div>
+
+    <!-- Library View -->
+    <div id="view-library" class="view">
+      <h2 class="library-heading">Library</h2>
+      <p class="library-sub">Pick a story to read. Each card shows the title, an estimated reading time, and your progress.</p>
+      <div id="library-grid" class="library-grid"></div>
     </div>
 
     <!-- Review View -->

@@ -161,6 +161,90 @@ body {
   margin-bottom: 1.25rem;
 }
 
+/* ── Library view ─────────────────────────────────────────────── */
+.library-heading {
+  font-family: var(--font-en);
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 0 0 0.25rem 0;
+}
+.library-sub {
+  color: var(--text-muted);
+  margin: 0 0 1.5rem 0;
+  font-style: italic;
+}
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.story-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  transition: transform 0.12s, border-color 0.12s, box-shadow 0.12s;
+}
+.story-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+}
+.story-card.current { border-color: var(--gold); }
+.story-card-id {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+.story-card-title-jp {
+  font-family: var(--font-jp);
+  font-size: 1.4rem;
+  line-height: 1.3;
+  color: var(--text);
+}
+.story-card-title-en {
+  font-family: var(--font-en);
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+.story-card-meta {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+.story-card-progress {
+  height: 4px;
+  background: var(--bg);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.story-card-progress > span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+.story-card-badge {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.65rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+.story-card-badge.done { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
+
 /* Service-worker update toast */
 .sw-update-toast {
   position: fixed;

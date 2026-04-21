@@ -1,0 +1,384 @@
+{
+  "story_id": 4,
+  "title": {
+    "jp": "散歩",
+    "en": "A Walk",
+    "tokens": [
+      {
+        "t": "散歩",
+        "r": "さんぽ",
+        "word_id": "W00023",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "友達と",
+    "en": "With a friend",
+    "tokens": [
+      {
+        "t": "友達",
+        "r": "ともだち",
+        "word_id": "W00022",
+        "role": "content"
+      },
+      {
+        "t": "と",
+        "grammar_id": "G010_to_and",
+        "role": "particle"
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00022",
+    "W00023",
+    "W00024"
+  ],
+  "new_grammar": [
+    "G011_ya_partial"
+  ],
+  "all_words_used": [
+    "W00023",
+    "W00022",
+    "W00018",
+    "W00003",
+    "W00016",
+    "W00017",
+    "W00007",
+    "W00024",
+    "W00006",
+    "W00011",
+    "W00013",
+    "W00014",
+    "W00012",
+    "W00009",
+    "W00010"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "夕方",
+          "r": "ゆうがた",
+          "word_id": "W00018",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "と",
+          "grammar_id": "G010_to_and",
+          "role": "particle"
+        },
+        {
+          "t": "公園",
+          "r": "こうえん",
+          "word_id": "W00016",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "歩きます",
+          "r": "あるきます",
+          "word_id": "W00017",
+          "role": "content"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the evening, I walk in the park with a friend.",
+      "audio": "audio/story_4/s0.mp3"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G010_to_and",
+          "role": "particle"
+        },
+        {
+          "t": "木",
+          "r": "き",
+          "word_id": "W00007",
+          "role": "content"
+        },
+        {
+          "t": "や",
+          "grammar_id": "G011_ya_partial",
+          "role": "particle",
+          "is_new_grammar": true
+        },
+        {
+          "t": "花",
+          "r": "はな",
+          "word_id": "W00024",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "見ます",
+          "r": "みます",
+          "word_id": "W00006",
+          "role": "content"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "With my friend, I look at trees, flowers, and so on.",
+      "audio": "audio/story_4/s1.mp3"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "木",
+          "r": "き",
+          "word_id": "W00007",
+          "role": "content"
+        },
+        {
+          "t": "や",
+          "grammar_id": "G011_ya_partial",
+          "role": "particle"
+        },
+        {
+          "t": "花",
+          "r": "はな",
+          "word_id": "W00024",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "word_id": "W00011",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The trees, flowers, and the like are quiet.",
+      "audio": "audio/story_4/s2.mp3"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "散歩",
+          "r": "さんぽ",
+          "word_id": "W00023",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "いい",
+          "word_id": "W00013",
+          "role": "content"
+        },
+        {
+          "t": "気分",
+          "r": "きぶん",
+          "word_id": "W00014",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The walk feels good.",
+      "audio": "audio/story_4/s3.mp3"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "word_id": "W00012",
+          "role": "content"
+        },
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "word_id": "W00009",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "飲みます",
+          "r": "のみます",
+          "word_id": "W00010",
+          "role": "content"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I drink some warm tea.",
+      "audio": "audio/story_4/s4.mp3"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "飲みます",
+          "r": "のみます",
+          "word_id": "W00010",
+          "role": "content"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend drinks some too.",
+      "audio": "audio/story_4/s5.mp3"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "散歩",
+          "r": "さんぽ",
+          "word_id": "W00023",
+          "role": "content"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G010_to_and",
+          "role": "particle"
+        },
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "いい",
+          "word_id": "W00013",
+          "role": "content"
+        },
+        {
+          "t": "気分",
+          "r": "きぶん",
+          "word_id": "W00014",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Walks and friends — both make for a good feeling.",
+      "audio": "audio/story_4/s6.mp3"
+    }
+  ],
+  "word_audio": {
+    "W00022": "audio/story_4/w_W00022.mp3",
+    "W00023": "audio/story_4/w_W00023.mp3",
+    "W00024": "audio/story_4/w_W00024.mp3"
+  },
+  "checksum": null
+}

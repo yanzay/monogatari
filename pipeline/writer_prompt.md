@@ -1,6 +1,6 @@
 # Monogatari — Story Writer Task
 
-You are writing story **3** for the Monogatari Japanese graded-reader.
+You are writing story **4** for the Monogatari Japanese graded-reader.
 Read the authoring rules and plan below, then produce the story JSON.
 Output **only** the JSON object — no prose, no markdown fences.
 
@@ -168,26 +168,29 @@ A clean refusal is better than a story that fails validation.
 
 ```json
 {
-  "story_id": 3,
-  "target_word_count": 42,
+  "story_id": 4,
+  "target_word_count": 24,
   "max_sentences": 8,
   "new_words": [
-    "W00019",
-    "W00020",
-    "W00021"
+    "W00022",
+    "W00023",
+    "W00024"
   ],
   "new_grammar": [
-    "G010_to_and"
+    "G011_ya_partial"
   ],
-  "theme": "morning kitchen",
-  "setting": "A quiet weekend morning at home; the narrator prepares and eats breakfast and looks outside.",
+  "theme": "evening park walk with a friend",
+  "setting": "An unhurried walk through the local park at dusk; the narrator and a friend pause to look at trees and flowers, then warm up with tea.",
   "constraints": {
     "must_reuse_words": [
-      "W00004",
-      "W00005",
+      "W00007",
+      "W00009",
       "W00010",
       "W00011",
-      "W00012"
+      "W00012",
+      "W00016",
+      "W00017",
+      "W00018"
     ],
     "forbidden_words": [],
     "avoid_topics": [
@@ -197,56 +200,57 @@ A clean refusal is better than a story that fails validation.
     ]
   },
   "new_word_definitions": {
-    "W00019": {
-      "surface": "朝ごはん",
-      "kana": "あさごはん",
-      "reading": "asagohan",
+    "W00022": {
+      "surface": "友達",
+      "kana": "ともだち",
+      "reading": "tomodachi",
       "pos": "noun",
       "verb_class": null,
       "adj_class": null,
       "meanings": [
-        "breakfast"
+        "friend"
       ],
       "grammar_tags": []
     },
-    "W00020": {
-      "surface": "食べます",
-      "kana": "たべます",
-      "reading": "tabemasu",
-      "pos": "verb",
-      "verb_class": "ichidan",
-      "adj_class": null,
-      "meanings": [
-        "to eat"
-      ],
-      "grammar_tags": []
-    },
-    "W00021": {
-      "surface": "卵",
-      "kana": "たまご",
-      "reading": "tamago",
+    "W00023": {
+      "surface": "散歩",
+      "kana": "さんぽ",
+      "reading": "sanpo",
       "pos": "noun",
       "verb_class": null,
       "adj_class": null,
       "meanings": [
-        "egg"
+        "walk",
+        "stroll"
+      ],
+      "grammar_tags": []
+    },
+    "W00024": {
+      "surface": "木",
+      "kana": "き",
+      "reading": "ki",
+      "pos": "noun",
+      "verb_class": null,
+      "adj_class": null,
+      "meanings": [
+        "tree"
       ],
       "grammar_tags": []
     }
   },
   "new_grammar_definitions": {
-    "G010_to_and": {
-      "title": "と — and (exhaustive list)",
-      "short": "Connects two or more nouns into a complete list ('A and B').",
-      "long": "The particle と links nouns to form an exhaustive 'and' list: 'AとB' means 'A and B (and only those)'. It is used between every pair, e.g. 'AとBとC'. Distinct from や, which gives a non-exhaustive 'A, B, etc.' Pronounced 'to'. Comes between nouns; it is not used between verbs or full clauses.",
-      "genki_ref": "L4",
+    "G011_ya_partial": {
+      "title": "や — and (partial / non-exhaustive list)",
+      "short": "Lists nouns as a non-exhaustive 'A, B, and so on'.",
+      "long": "The particle や connects nouns in a non-exhaustive list, implying 'and others'. 'AやB' means 'A, B, and similar things'. Distinct from と (exhaustive 'and only'). Often closed with 'など' for emphasis. Comes between nouns; not used between verbs or full clauses.",
+      "genki_ref": "L8",
       "prerequisites": [
-        "G001_wa_topic"
+        "G010_to_and"
       ]
     }
   },
-  "rationale": "Story 3 keeps the cozy domestic register established in stories 1 and 2 and turns to breakfast, which lets us reinforce 飲みます/温かい/お茶 (already weak) while introducing a small, high-frequency food cluster (朝ごはん, 食べます, 卵). と is introduced as the natural way to list breakfast items, and it has no inflection, so it is safe alongside the new ichidan verb 食べます. The setting (kitchen + window glance) deliberately reuses 窓/外/静か to push their occurrence counts up.",
-  "seed": 30421
+  "rationale": "Story 4 keeps the cozy domestic register and pivots from indoor scenes (stories 1–3) to a quiet outdoor walk. It introduces a small social-life cluster (友達, 散歩) plus 木 to set up future nature-themed stories. や is a natural fit for listing things observed in a park (trees, flowers, etc.), and contrasts cleanly with the previously-introduced と (exhaustive 'and'). Heavy reuse of weak vocab (花, お茶, 温かい, 静か, 公園, 夕方) targets the planner's 'occurrences < 5' priority list.",
+  "seed": 40422
 }
 ```
 
@@ -256,25 +260,28 @@ A clean refusal is better than a story that fails validation.
 
 - `W00001`: **今朝** (けさ) [noun] — this morning [occ:2]
 - `W00002`: **雨** (あめ) [noun] — rain [occ:2]
-- `W00003`: **私** (わたし) [pronoun] — I, me [occ:3]
-- `W00004`: **窓** (まど) [noun] — window [occ:1]
-- `W00005`: **外** (そと) [noun] — outside [occ:2]
-- `W00006`: **見ます** (みます) [verb] — to see, to look [occ:2]
+- `W00003`: **私** (わたし) [pronoun] — I, me [occ:4]
+- `W00004`: **窓** (まど) [noun] — window [occ:2]
+- `W00005`: **外** (そと) [noun] — outside [occ:3]
+- `W00006`: **見ます** (みます) [verb] — to see, to look [occ:3]
 - `W00007`: **木** (き) [noun] — tree [occ:2]
 - `W00008`: **濡れる** (ぬれる) [verb] — to get wet [occ:1]
-- `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:2]
+- `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:3]
 - `W00010`: **飲みます** (のみます) [verb] — to drink [occ:1]
-- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:2]
-- `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:2]
-- `W00013`: **いい** (いい) [adjective] — good, nice [occ:2]
-- `W00014`: **気分** (きぶん) [noun] — feeling, mood [occ:2]
-- `W00015`: **朝** (あさ) [noun] — morning [occ:1]
+- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:3]
+- `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:3]
+- `W00013`: **いい** (いい) [adjective] — good, nice [occ:3]
+- `W00014`: **気分** (きぶん) [noun] — feeling, mood [occ:3]
+- `W00015`: **朝** (あさ) [noun] — morning [occ:2]
 - `W00016`: **公園** (こうえん) [noun] — park [occ:1]
 - `W00017`: **歩きます** (あるきます) [verb] — to walk [occ:1]
 - `W00018`: **夕方** (ゆうがた) [noun] — evening, late afternoon [occ:1]
-- `W00019`: **朝ごはん** (あさごはん) [noun] — breakfast **[NEW]**
-- `W00020`: **食べます** (たべます) [verb] — to eat **[NEW]**
-- `W00021`: **卵** (たまご) [noun] — egg **[NEW]**
+- `W00019`: **朝ごはん** (あさごはん) [noun] — breakfast [occ:1]
+- `W00020`: **食べます** (たべます) [verb] — to eat [occ:1]
+- `W00021`: **卵** (たまご) [noun] — egg [occ:1]
+- `W00022`: **友達** (ともだち) [noun] — friend **[NEW]**
+- `W00023`: **散歩** (さんぽ) [noun] — walk, stroll **[NEW]**
+- `W00024`: **木** (き) [noun] — tree **[NEW]**
 
 ---
 
@@ -289,25 +296,26 @@ A clean refusal is better than a story that fails validation.
 - `G007_te_form`: て-form — connective verb form — Connects clauses or acts as a base for compound forms like て-います.
 - `G008_te_iru`: 〜ています — ongoing state / action in progress — Expresses an action in progress or a resulting state.
 - `G009_mo_also`: も — also / too — Marks something as additional. Replaces は or が when 'X too / X also' is meant.
-- `G010_to_and`: **[NEW grammar point — define in story]**
+- `G010_to_and`: と — and (exhaustive list) — Connects two or more nouns into a complete list ('A and B').
+- `G011_ya_partial`: **[NEW grammar point — define in story]**
 
 ---
 
 ## New word definitions (introduce these in the story)
 
-- `W00019`: **朝ごはん** (あさごはん) [noun] — breakfast
-- `W00020`: **食べます** (たべます) [verb · ichidan] — to eat
-- `W00021`: **卵** (たまご) [noun] — egg
+- `W00022`: **友達** (ともだち) [noun] — friend
+- `W00023`: **散歩** (さんぽ) [noun] — walk, stroll
+- `W00024`: **木** (き) [noun] — tree
 
 ---
 
 ## Output schema
 
-Produce a `story_3.json` object with this structure:
+Produce a `story_4.json` object with this structure:
 
 ```json
 {
-  "story_id": 3,
+  "story_id": 4,
   "title": {
     "jp": "<kanji/kana title>",
     "en": "<English title>",
@@ -321,8 +329,8 @@ Produce a `story_3.json` object with this structure:
     "tokens": [ ... ]
   },
   "plan_ref": "plan.json",
-  "new_words": ["W00019", "W00020", "W00021"],
-  "new_grammar": ["G010_to_and"],
+  "new_words": ["W00022", "W00023", "W00024"],
+  "new_grammar": ["G011_ya_partial"],
   "all_words_used": ["<every word_id used, in order of first appearance>"],
   "sentences": [
     {

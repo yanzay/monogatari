@@ -28,6 +28,7 @@ async function boot() {
     renderVocabView();
     renderGrammarView();
     renderReviewView();
+    renderLibraryView();
   } catch (e) {
     console.error('Boot failed:', e);
     document.getElementById('sentences-container').textContent =
@@ -36,6 +37,41 @@ async function boot() {
 }
 
 // ── Data loading ─────────────────────────────────────────────────
+const MANIFEST_CACHE = { promise: null, value: null };
+
+/**
+ * Load `stories/index.json`. The pipeline regenerates it on every ship.
+ * If the manifest is missing (older deploy), we transparently fall back
+ * to a small HEAD-probe so the reader keeps working.
+ */
+async function loadStoryManifest() {
+  if (MANIFEST_CACHE.value) return MANIFEST_CACHE.value;
+  if (MANIFEST_CACHE.promise) return MANIFEST_CACHE.promise;
+  MANIFEST_CACHE.promise = (async () => {
+    try {
+      const res = await fetch('stories/index.json');
+      if (res.ok) {
+        const data = await res.json();
+        MANIFEST_CACHE.value = data;
+        return data;
+      }
+    } catch { /* fall through to probe */ }
+    // Fallback: HEAD-probe up to 50 stories.
+    const stories = [];
+    for (let n = 1; n <= 50; n++) {
+      try {
+        const r = await fetch(`stories/story_${n}.json`, { method: 'HEAD' });
+        if (!r.ok) break;
+        stories.push({ story_id: n, path: `stories/story_${n}.json` });
+      } catch { break; }
+    }
+    const data = { version: 0, stories };
+    MANIFEST_CACHE.value = data;
+    return data;
+  })();
+  return MANIFEST_CACHE.promise;
+}
+
 async function fetchJSON(url) {
   const r = await fetch(url);
   if (!r.ok) throw new Error(`Failed to load ${url}: ${r.status}`);
@@ -64,6 +100,60 @@ function setupNav() {
       btn.classList.add('active');
     });
   });
+}
+
+// ── Library view ──────────────────────────────────────────────────
+async function renderLibraryView() {
+  const grid = document.getElementById('library-grid');
+  if (!grid) return;
+  grid.innerHTML = '<p class="empty-state">Loading library…</p>';
+  let manifest;
+  try {
+    manifest = await loadStoryManifest();
+  } catch {
+    grid.innerHTML = '<p class="empty-state">Could not load library.</p>';
+    return;
+  }
+  if (!manifest.stories.length) {
+    grid.innerHTML = '<p class="empty-state">No stories yet.</p>';
+    return;
+  }
+  grid.innerHTML = '';
+  for (const entry of manifest.stories) {
+    const id        = entry.story_id;
+    const isCurrent = id === currentStoryId;
+    const progress  = learnerState.story_progress?.[id] ?? {};
+    const sentencesRead = (progress.sentences_read ?? []).length;
+    const totalSentences = entry.n_sentences ?? 0;
+    const completed = !!progress.completed;
+    const readingMin = estimateReadingMinutes(entry);
+    const pct = totalSentences ? Math.round((sentencesRead / totalSentences) * 100) : 0;
+
+    const card = document.createElement('div');
+    card.className = 'story-card' + (isCurrent ? ' current' : '');
+    card.innerHTML = `
+      <span class="story-card-id">Story ${id}</span>
+      <div class="story-card-title-jp">${entry.title_jp || `Story ${id}`}</div>
+      <div class="story-card-title-en">${entry.title_en || ''}</div>
+      <div class="story-card-progress" title="${sentencesRead}/${totalSentences} sentences"><span style="width:${pct}%"></span></div>
+      <div class="story-card-meta">
+        <span>${totalSentences} sentences · ~${readingMin} min</span>
+        <span class="story-card-badge${completed ? ' done' : ''}">${completed ? '✓ done' : isCurrent ? 'reading' : 'unread'}</span>
+      </div>
+    `;
+    card.addEventListener('click', async () => {
+      await loadStory(id);
+      switchView('read');
+    });
+    grid.appendChild(card);
+  }
+}
+
+/** Reading-time heuristic for graded readers: ~25 content tokens per minute,
+ *  with a 0.5-min floor so very short stories don't say "0 min". */
+function estimateReadingMinutes(entry) {
+  const tokens = entry.n_content_tokens ?? entry.n_sentences * 6 ?? 0;
+  return Math.max(1, Math.round(tokens / 25));
 }
 
 function switchView(name) {
@@ -689,14 +779,14 @@ const GRAMMAR_EXAMPLES_CACHE = { byId: null };
 async function buildGrammarExamplesIndex() {
   if (GRAMMAR_EXAMPLES_CACHE.byId) return GRAMMAR_EXAMPLES_CACHE.byId;
   const byId = {};
-  // Probe stories sequentially. The reader is small so this is acceptable.
-  for (let n = 1; n <= 50; n++) {
+  const manifest = await loadStoryManifest();
+  for (const entry of manifest.stories) {
     let s;
     try {
-      const res = await fetch(`stories/story_${n}.json`);
-      if (!res.ok) break;
+      const res = await fetch(entry.path);
+      if (!res.ok) continue;
       s = await res.json();
-    } catch { break; }
+    } catch { continue; }
     s.sentences.forEach((sent, idx) => {
       const grammarHere = new Set();
       sent.tokens.forEach(tok => {
