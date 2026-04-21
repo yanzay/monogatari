@@ -1,4 +1,4 @@
-# Engagement Baseline — stories 1–5
+# Engagement Baseline — stories 1–6
 
 > Reviewer: **rovo-dev** · first reviewed 2026-04-22T01:22:00Z, last revised 2026-04-22T01:31:00Z.
 
@@ -9,15 +9,17 @@
 
 - 2026-04-22 — initial baseline established (stories 1-4)
 - 2026-04-22 — stories 2 and 3 revised after baseline put them under the bar (2.8 and 3.4)
+- 2026-04-22 — story 5 (朝の散歩) authored end-to-end through the tightened pipeline (planner → writer with engagement guidance → validate → engagement-review → ship); cleared the bar on first pass (avg 4.6)
 
 ## Leaderboard
 
 | Rank | Story | Avg | Verdict |
 |------|-------|-----|---------|
-| 1 | story 4 | **4.4** | Best of the set; small refinements possible. |
-| 2 | story 2 | **4.2** | Revised — now strong; only a deferred 'we sit' beat is missing. |
-| 3 | story 3 | **4.0** | Revised — strongest closer in the set; originality remains tough within the constraint. |
-| 4 | story 1 | **3.8** | Strong given the bootstrap constraint; ship as-is. |
+| 1 | story 5 | **4.6** | Best in the library — first story authored with rubric in writer prompt; cleared the bar on first pass. |
+| 2 | story 4 | **4.4** | Strong; small refinements possible. |
+| 3 | story 2 | **4.2** | Revised — strong; only a deferred 'we sit' beat is missing. |
+| 4 | story 3 | **4.0** | Revised — strongest closer of stories 1-4; originality tough within constraint. |
+| 5 | story 1 | **3.8** | Strong given the bootstrap constraint; ship as-is. |
 
 
 ## Story 1 — 雨 *(Rain)*
@@ -93,6 +95,27 @@ _Previous score: 3.4 (before revision)_
 - Rewrote the closer to merge weather + time + feeling into one image.
 
 
+## Story 5 — 朝の散歩 *(A Morning Walk)*
+**Average:** 4.6  ·  **Approved:** ✓
+
+| hook | voice | originality | coherence | closure |
+|------|-------|-------------|-----------|---------|
+| 5 | 4 | 4 | 5 | 5 |
+
+**Highlights**
+- First story authored end-to-end with the engagement rubric in the writer prompt — cleared the bar on first pass (no revision cycle).
+- Hook 「朝、私は公園を歩きます。」 follows the proven time-comma + action pattern.
+- Sentence 5 「そして、風です。」 — one-word weather sentence after the door observation; the wind arrives almost as a character. Most surprising line in the library.
+- Two そして's deliver real chronological structure (no gloss inflation — they exist in the JP, not just the English).
+- Closing 「風と雨、いい朝です。」 ties the two new sensory motifs (風 from s5, 雨 from s4) back to the opening 朝.
+
+**Weaknesses**
+- Optional: 私は in the hook could be dropped for an even tighter opener — but the explicit subject also reads naturally.
+
+**Suggestions**
+- *(originality (deferred))* — If 音 (sound) enters vocab in a future story, revisit s5 to add an auditory note about the wind.
+
+
 ## Story 4 — 散歩 *(A Walk)*
 **Average:** 4.4  ·  **Approved:** ✓
 
@@ -116,7 +139,8 @@ _Previous score: 3.4 (before revision)_
 
 ## Next actions
 
-- All four stories now pass the engagement bar (avg ≥ 3.5; every dimension ≥ 3).
-- Stories 1, 2, 3, 4 are the canonical examples — wire excerpts of their hooks/closers into pipeline/writer_prompt.md as positive examples.
-- Future stories should aim for the story 4 / story 2 hook pattern: 'time-of-day, comma, action with companion.'
+- All five stories now pass the engagement bar (avg ≥ 3.5; every dimension ≥ 3).
+- Story 5 is the new canonical example: hook → quiet observation → そして transition → return → outside is rain → そして wind → motif-list closer. The two そして's are the textual proof that an English 'and then' connector belongs in the JP, not just the gloss.
+- Future stories should aim for the story-5 / story-4 hook pattern: 'time-of-day, comma, action.'
 - When 座ります / 休みます enter vocab, revisit stories 2 and 4 to add the implied 'we sit' beat between the walking and the tea.
+- When 音 (sound) enters vocab, revisit story 5's wind sentence for an auditory upgrade.

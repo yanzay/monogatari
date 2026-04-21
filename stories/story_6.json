@@ -1,0 +1,371 @@
+{
+  "story_id": 6,
+  "title": {
+    "jp": "猫",
+    "en": "The Cat",
+    "tokens": [
+      {
+        "t": "猫",
+        "r": "ねこ",
+        "role": "content",
+        "word_id": "W00028"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "雨の窓",
+    "en": "The rainy window",
+    "tokens": [
+      {
+        "t": "雨",
+        "r": "あめ",
+        "role": "content",
+        "word_id": "W00002"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "G001_wa_topic"
+      },
+      {
+        "t": "窓",
+        "r": "まど",
+        "role": "content",
+        "word_id": "W00004"
+      }
+    ]
+  },
+  "new_words": [
+    "W00028",
+    "W00029"
+  ],
+  "new_grammar": [],
+  "all_words_used": [
+    "W00028",
+    "W00002",
+    "W00004",
+    "W00015",
+    "W00003",
+    "W00005",
+    "W00006",
+    "W00029",
+    "W00011",
+    "W00013"
+  ],
+  "sentences": [
+    {
+      "gloss_en": "Morning — it is raining.",
+      "tokens": [
+        {
+          "t": "朝",
+          "r": "あさ",
+          "role": "content",
+          "word_id": "W00015"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "雨",
+          "r": "あめ",
+          "role": "content",
+          "word_id": "W00002"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "idx": 0,
+      "audio": "audio/story_6/s0.mp3"
+    },
+    {
+      "gloss_en": "I look outside through the window.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "窓",
+          "r": "まど",
+          "role": "content",
+          "word_id": "W00004"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "外",
+          "r": "そと",
+          "role": "content",
+          "word_id": "W00005"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "r": "みます",
+          "role": "content",
+          "word_id": "W00006",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "word_id": "W00006"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "idx": 1,
+      "audio": "audio/story_6/s1.mp3"
+    },
+    {
+      "gloss_en": "And then — a cat is there.",
+      "tokens": [
+        {
+          "t": "そして",
+          "role": "aux",
+          "grammar_id": "G012_soshite_then"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "猫",
+          "r": "ねこ",
+          "role": "content",
+          "word_id": "W00028",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "います",
+          "role": "content",
+          "word_id": "W00029",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "idx": 2,
+      "audio": "audio/story_6/s2.mp3"
+    },
+    {
+      "gloss_en": "The cat is quiet.",
+      "tokens": [
+        {
+          "t": "猫",
+          "r": "ねこ",
+          "role": "content",
+          "word_id": "W00028"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "role": "content",
+          "word_id": "W00011"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "idx": 3,
+      "audio": "audio/story_6/s3.mp3"
+    },
+    {
+      "gloss_en": "In the rainy window, a cat is there.",
+      "tokens": [
+        {
+          "t": "雨",
+          "r": "あめ",
+          "role": "content",
+          "word_id": "W00002"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "窓",
+          "r": "まど",
+          "role": "content",
+          "word_id": "W00004"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "猫",
+          "r": "ねこ",
+          "role": "content",
+          "word_id": "W00028"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "います",
+          "role": "content",
+          "word_id": "W00029"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "idx": 4,
+      "audio": "audio/story_6/s4.mp3"
+    },
+    {
+      "gloss_en": "And then, the cat looks at me.",
+      "tokens": [
+        {
+          "t": "そして",
+          "role": "aux",
+          "grammar_id": "G012_soshite_then"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "猫",
+          "r": "ねこ",
+          "role": "content",
+          "word_id": "W00028"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "r": "みます",
+          "role": "content",
+          "word_id": "W00006",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "word_id": "W00006"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "idx": 5,
+      "audio": "audio/story_6/s5.mp3"
+    },
+    {
+      "gloss_en": "The cat and I — a good morning.",
+      "tokens": [
+        {
+          "t": "猫",
+          "r": "ねこ",
+          "role": "content",
+          "word_id": "W00028"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "いい",
+          "role": "content",
+          "word_id": "W00013"
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "role": "content",
+          "word_id": "W00015"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "idx": 6,
+      "audio": "audio/story_6/s6.mp3"
+    }
+  ],
+  "word_audio": {
+    "W00028": "audio/story_6/w_W00028.mp3",
+    "W00029": "audio/story_6/w_W00029.mp3"
+  }
+}

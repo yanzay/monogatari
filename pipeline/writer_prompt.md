@@ -1,6 +1,6 @@
 # Monogatari — Story Writer Task
 
-You are writing story **5** for the Monogatari Japanese graded-reader.
+You are writing story **6** for the Monogatari Japanese graded-reader.
 Read the authoring rules and plan below, then produce the story JSON.
 Output **only** the JSON object — no prose, no markdown fences.
 
@@ -256,75 +256,72 @@ A clean refusal is better than a story that fails validation.
 
 ```json
 {
-  "story_id": 5,
-  "theme": "morning rain after a walk",
-  "setting": "the narrator returns home from an early-morning walk in the park; rain and wind start as they reach the door",
+  "story_id": 6,
+  "title_jp": "猫",
+  "title_en": "The Cat",
+  "subtitle_jp": "雨の窓",
+  "subtitle_en": "The rainy window",
+  "theme": "A small surprise — a cat appears at the rainy window. The narrator's quiet morning gains a second presence; the closer pulls cat + narrator into one observation.",
+  "setting": "A rainy morning at home. The narrator looks out a window; a cat is suddenly there in the rain, then stays — a quiet reciprocal moment between two presences.",
   "constraints": {
-    "min_sentences": 6,
-    "max_sentences": 8
+    "must_reuse_words": [
+      "W00002",
+      "W00004",
+      "W00006",
+      "W00011",
+      "W00015"
+    ],
+    "forbidden_words": [],
+    "avoid_topics": [
+      "violence",
+      "romance",
+      "politics"
+    ]
   },
-  "new_words": [
-    "W00025",
-    "W00026",
-    "W00027"
-  ],
-  "new_grammar": [
-    "G012_soshite_then"
-  ],
   "target_word_count": 24,
-  "max_sentences": 8,
+  "max_sentences": 7,
+  "new_words": [
+    "W00028",
+    "W00029"
+  ],
   "new_word_definitions": {
-    "W00025": {
-      "surface": "ドア",
-      "kana": "ドア",
-      "reading": "doa",
+    "W00028": {
+      "id": "W00028",
+      "surface": "猫",
+      "kana": "ねこ",
+      "reading": "neko",
       "pos": "noun",
-      "verb_class": null,
-      "adj_class": null,
       "meanings": [
-        "door"
+        "cat"
       ],
-      "grammar_tags": []
+      "first_story": 6
     },
-    "W00026": {
-      "surface": "帰ります",
-      "kana": "かえります",
-      "reading": "kaerimasu",
+    "W00029": {
+      "id": "W00029",
+      "surface": "います",
+      "kana": "います",
+      "reading": "imasu",
       "pos": "verb",
-      "verb_class": "godan",
-      "adj_class": null,
+      "verb_class": "ichidan",
       "meanings": [
-        "to return home",
-        "to go back"
+        "to be (animate); to exist (animate)"
       ],
-      "grammar_tags": []
-    },
-    "W00027": {
-      "surface": "風",
-      "kana": "かぜ",
-      "reading": "kaze",
-      "pos": "noun",
-      "verb_class": null,
-      "adj_class": null,
-      "meanings": [
-        "wind"
-      ],
-      "grammar_tags": []
+      "first_story": 6
     }
   },
-  "new_grammar_definitions": {
-    "G012_soshite_then": {
-      "title": "そして — and then",
-      "short": "Sentence-initial connector meaning 'and then', linking sequential clauses.",
-      "long": "そして is an adverb-style connector placed at the start of a new sentence to mean 'and then' or 'after that'. It chains events or observations together temporally and is more formal/literary than a comma alone. Unlike 'and' (と) which joins nouns, そして joins entire sentences. Always followed by a comma in modern writing.",
-      "genki_ref": "L4",
-      "prerequisites": [
-        "G003_desu"
-      ]
-    }
-  },
-  "rationale": "Story 5 closes a small narrative loop the library has been waiting for: the narrator returns home. The three new words (ドア, 帰ります, 風) all serve the homecoming arc — the first interior object, the first verb of motion-with-direction, and a fresh sensory motif that contrasts beautifully with the established 雨/静か weather palette. The new grammar (そして) is the connector we lacked when story 3 needed 'after that' but had no textual support — fixing the same kind of bug at the source. Theme follows the cozy domestic register of stories 1–4 (morning, walk, weather, feeling) and reuses heavily under-practiced words (公園, 散歩, 花, 朝). The intended hook follows the proven pattern (time-of-day → comma → action: 朝、私は公園を歩きます), and the closer pulls 風 + 雨 motifs into one final felt observation.",
-  "seed": 50421
+  "new_grammar": [],
+  "new_grammar_definitions": {},
+  "context_words_to_reuse": [
+    "W00002",
+    "W00004",
+    "W00005",
+    "W00006",
+    "W00011",
+    "W00013",
+    "W00015",
+    "W00016"
+  ],
+  "notes": "Hook follows the proven 'time-of-day, comma, weather' pattern (story 5 / story 1). Sentence 2 is the turn line: そして anchors chronology in the JP, が presents the cat as new information (textbook use of が vs. は; G002_ga_subject was introduced in story 1 but barely used since — story 6 cements it). Sentence 4 reuses が for 'in the rainy window, a cat is there' — second pass on the new-information construction. Sentence 5 is the reciprocal moment (cat looks at me) — the small specific gesture the engagement rules ask for. Closer follows the 'A and B, feeling' pattern (stories 4, 5). No new grammar — the engagement budget goes to the cat as the surprise."
 }
 ```
 
@@ -333,32 +330,34 @@ A clean refusal is better than a story that fails validation.
 ## Allowed vocabulary (ALL words you may use — no others)
 
 - `W00001`: **今朝** (けさ) [noun] — this morning [occ:2]
-- `W00002`: **雨** (あめ) [noun] — rain [occ:2]
-- `W00003`: **私** (わたし) [pronoun] — I, me [occ:6]
+- `W00002`: **雨** (あめ) [noun] — rain [occ:3]
+- `W00003`: **私** (わたし) [pronoun] — I, me [occ:7]
 - `W00004`: **窓** (まど) [noun] — window [occ:2]
-- `W00005`: **外** (そと) [noun] — outside [occ:3]
-- `W00006`: **見ます** (みます) [verb] — to see, to look [occ:5]
-- `W00007`: **木** (き) [noun] — tree [occ:4]
+- `W00005`: **外** (そと) [noun] — outside [occ:4]
+- `W00006`: **見ます** (みます) [verb] — to see, to look [occ:6]
+- `W00007`: **木** (き) [noun] — tree [occ:5]
 - `W00008`: **濡れる** (ぬれる) [verb] — to get wet [occ:1]
 - `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:5]
 - `W00010`: **飲みます** (のみます) [verb] — to drink [occ:3]
-- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:5]
+- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:6]
 - `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:5]
-- `W00013`: **いい** (いい) [adjective] — good, nice [occ:5]
+- `W00013`: **いい** (いい) [adjective] — good, nice [occ:6]
 - `W00014`: **気分** (きぶん) [noun] — feeling, mood [occ:5]
-- `W00015`: **朝** (あさ) [noun] — morning [occ:2]
-- `W00016`: **公園** (こうえん) [noun] — park [occ:3]
-- `W00017`: **歩きます** (あるきます) [verb] — to walk [occ:3]
+- `W00015`: **朝** (あさ) [noun] — morning [occ:3]
+- `W00016`: **公園** (こうえん) [noun] — park [occ:4]
+- `W00017`: **歩きます** (あるきます) [verb] — to walk [occ:4]
 - `W00018`: **夕方** (ゆうがた) [noun] — evening, late afternoon [occ:3]
 - `W00019`: **朝ごはん** (あさごはん) [noun] — breakfast [occ:1]
 - `W00020`: **食べます** (たべます) [verb] — to eat [occ:1]
 - `W00021`: **卵** (たまご) [noun] — egg [occ:1]
 - `W00022`: **友達** (ともだち) [noun] — friend [occ:2]
 - `W00023`: **散歩** (さんぽ) [noun] — walk, stroll [occ:2]
-- `W00024`: **花** (はな) [noun] — flower [occ:2]
-- `W00025`: **ドア** (ドア) [noun] — door **[NEW]**
-- `W00026`: **帰ります** (かえります) [verb] — to return home, to go back **[NEW]**
-- `W00027`: **風** (かぜ) [noun] — wind **[NEW]**
+- `W00024`: **花** (はな) [noun] — flower [occ:3]
+- `W00025`: **ドア** (ドア) [noun] — door [occ:1]
+- `W00026`: **帰ります** (かえります) [verb] — to return home, to go back [occ:1]
+- `W00027`: **風** (かぜ) [noun] — wind [occ:1]
+- `W00028`: **猫** (ねこ) [noun] — cat **[NEW]**
+- `W00029`: **います** (います) [verb] — to be (animate); to exist (animate) **[NEW]**
 
 ---
 
@@ -375,25 +374,24 @@ A clean refusal is better than a story that fails validation.
 - `G009_mo_also`: も — also / too — Marks something as additional. Replaces は or が when 'X too / X also' is meant.
 - `G010_to_and`: と — and (exhaustive list) — Connects two or more nouns into a complete list ('A and B').
 - `G011_ya_partial`: や — and (partial / non-exhaustive list) — Lists nouns as a non-exhaustive 'A, B, and so on'.
-- `G012_soshite_then`: **[NEW grammar point — define in story]**
+- `G012_soshite_then`: そして — and then — Sentence-initial connector meaning 'and then', linking sequential clauses.
 
 ---
 
 ## New word definitions (introduce these in the story)
 
-- `W00025`: **ドア** (ドア) [noun] — door
-- `W00026`: **帰ります** (かえります) [verb · godan] — to return home, to go back
-- `W00027`: **風** (かぜ) [noun] — wind
+- `W00028`: **猫** (ねこ) [noun] — cat
+- `W00029`: **います** (います) [verb · ichidan] — to be (animate); to exist (animate)
 
 ---
 
 ## Output schema
 
-Produce a `story_5.json` object with this structure:
+Produce a `story_6.json` object with this structure:
 
 ```json
 {
-  "story_id": 5,
+  "story_id": 6,
   "title": {
     "jp": "<kanji/kana title>",
     "en": "<English title>",
@@ -407,8 +405,8 @@ Produce a `story_5.json` object with this structure:
     "tokens": [ ... ]
   },
   "plan_ref": "plan.json",
-  "new_words": ["W00025", "W00026", "W00027"],
-  "new_grammar": ["G012_soshite_then"],
+  "new_words": ["W00028", "W00029"],
+  "new_grammar": [],
   "all_words_used": ["<every word_id used, in order of first appearance>"],
   "sentences": [
     {
