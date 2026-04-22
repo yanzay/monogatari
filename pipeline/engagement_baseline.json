@@ -19,7 +19,7 @@
     ],
     "last_regenerated": "2026-04-22 15:30",
     "stories_covered": 12,
-    "n_stories": 38
+    "n_stories": 39
   },
   "reviews": [
     {
@@ -1306,6 +1306,41 @@
           "why": "voice — the cozy register collapses if the romance escalates faster than the vocabulary supports"
         }
       ]
+    },
+    {
+      "story_id": 39,
+      "title_jp": "雨と傘",
+      "title_en": "Rain and Umbrella",
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 5,
+        "coherence": 5,
+        "closure": 4
+      },
+      "average": 4.4,
+      "approved": true,
+      "highlights": [
+        "Romance arc progresses from sighting (38) to first interaction. The umbrella exchange (s6: 人は傘を私に渡します — the person hands me the umbrella) is the library's first physical-contact-adjacent moment. Until now characters have only spoken; now they hand things across.",
+        "The stranger's second line is one word: 「一緒に」 (s7 — together). Chosen deliberately because together is what the moment requires — no greeting, no name introduction, just permission to share the umbrella. The library now has a speaker whose register is brevity itself: father gave a full sentence (32), child gave a noun (34), friend gave an adjective (36), stranger gave 'together'.",
+        "Reuses the bookstore from story 38 as the destination (s10) — turns a one-off setting into a recurring location. The umbrella becomes the second recurring prop after the friend's letter (across 10/20/26/35).",
+        "Reinforces three earlier grammar points without introducing any new: G031_tai (s11 話したい — same shape but new verb), G030_kara_reason (s9 強いですから歩きます), kute (no kute this story actually — that's a small loss to flag)."
+      ],
+      "weaknesses": [
+        "No G029_kute use this story — kute has now appeared in 33, 34, 35, 36, 37 but slips in 39. Should reappear in story 40.",
+        "S11 ('I want to talk with the person') escalates the longing register slightly past the restraint of story 38. The sentence works because it's still a private interior wish (〜たい is first-person desire), but it does name a more concrete desire than 'I want to see' — a small but meaningful step. Approved as a deliberate progression beat, not as escalation.",
+        "人 still appears 4× — the stranger remains anonymous longer than is comfortable. Story 40 must give them at least one specific marker (a name they're called by, a returning gesture), or the romance starts to feel abstract."
+      ],
+      "suggestions": [
+        {
+          "what": "Story 40 (the longing/letter story) should give the stranger a NAME. Not introduced as 'my name is X' (that's too direct), but used in a と言います line — perhaps the friend mentions them by name, or the stranger leaves a note signed.",
+          "why": "originality — anonymous longing has a short shelf life"
+        },
+        {
+          "what": "Story 40 must use 〜くて at least once.",
+          "why": "coherence — the kute shape is the library's signature adj-link and shouldn't lapse"
+        }
+      ]
     }
   ],
   "leaderboard": [
@@ -1385,119 +1420,124 @@
       "rank": 10
     },
     {
+      "story_id": 39,
+      "average": 4.4,
+      "rank": 10
+    },
+    {
       "story_id": 2,
       "average": 4.2,
-      "rank": 16
+      "rank": 17
     },
     {
       "story_id": 12,
       "average": 4.2,
-      "rank": 16
+      "rank": 17
     },
     {
       "story_id": 19,
       "average": 4.2,
-      "rank": 16
+      "rank": 17
     },
     {
       "story_id": 20,
       "average": 4.2,
-      "rank": 16
+      "rank": 17
     },
     {
       "story_id": 22,
       "average": 4.2,
-      "rank": 16
+      "rank": 17
     },
     {
       "story_id": 24,
       "average": 4.2,
-      "rank": 16
+      "rank": 17
     },
     {
       "story_id": 26,
       "average": 4.2,
-      "rank": 16
+      "rank": 17
     },
     {
       "story_id": 27,
       "average": 4.2,
-      "rank": 16
+      "rank": 17
     },
     {
       "story_id": 28,
       "average": 4.2,
-      "rank": 16
+      "rank": 17
     },
     {
       "story_id": 33,
       "average": 4.2,
-      "rank": 16
+      "rank": 17
     },
     {
       "story_id": 34,
       "average": 4.2,
-      "rank": 16
+      "rank": 17
     },
     {
       "story_id": 3,
       "average": 4.0,
-      "rank": 27
+      "rank": 28
     },
     {
       "story_id": 14,
       "average": 4.0,
-      "rank": 27
+      "rank": 28
     },
     {
       "story_id": 15,
       "average": 4.0,
-      "rank": 27
+      "rank": 28
     },
     {
       "story_id": 16,
       "average": 4.0,
-      "rank": 27
+      "rank": 28
     },
     {
       "story_id": 21,
       "average": 4.0,
-      "rank": 27
+      "rank": 28
     },
     {
       "story_id": 23,
       "average": 4.0,
-      "rank": 27
+      "rank": 28
     },
     {
       "story_id": 32,
       "average": 4.0,
-      "rank": 27
+      "rank": 28
     },
     {
       "story_id": 1,
       "average": 3.8,
-      "rank": 34
+      "rank": 35
     },
     {
       "story_id": 13,
       "average": 3.8,
-      "rank": 34
+      "rank": 35
     },
     {
       "story_id": 17,
       "average": 3.8,
-      "rank": 34
+      "rank": 35
     },
     {
       "story_id": 18,
       "average": 3.8,
-      "rank": 34
+      "rank": 35
     },
     {
       "story_id": 31,
       "average": 3.6,
-      "rank": 38
+      "rank": 39
     }
   ],
   "next_actions": [

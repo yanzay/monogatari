@@ -1,0 +1,694 @@
+{
+  "story_id": 39,
+  "title": {
+    "jp": "雨と傘",
+    "en": "Rain and Umbrella",
+    "tokens": [
+      {
+        "t": "雨",
+        "r": "あめ",
+        "word_id": "W00002",
+        "role": "content"
+      },
+      {
+        "t": "と",
+        "grammar_id": "G010_to_and",
+        "role": "particle"
+      },
+      {
+        "t": "傘",
+        "r": "かさ",
+        "word_id": "W00116",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "一緒に歩きます",
+    "en": "We walk together",
+    "tokens": [
+      {
+        "t": "一緒に",
+        "r": "いっしょに",
+        "word_id": "W00050",
+        "role": "content"
+      },
+      {
+        "t": "歩きます",
+        "r": "あるきます",
+        "word_id": "W00017",
+        "role": "content",
+        "inflection": {
+          "base": "歩く",
+          "base_r": "あるく",
+          "form": "polite_nonpast",
+          "verb_class": "godan"
+        }
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00116",
+    "W00117",
+    "W00118"
+  ],
+  "new_grammar": [],
+  "all_words_used": [
+    "W00002",
+    "W00116",
+    "W00050",
+    "W00017",
+    "W00069",
+    "W00029",
+    "W00107",
+    "W00118",
+    "W00003",
+    "W00078",
+    "W00044",
+    "W00045",
+    "W00113",
+    "W00033",
+    "W00084",
+    "W00115",
+    "W00117",
+    "W00097",
+    "W00035",
+    "W00040",
+    "W00094",
+    "W00056"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "駅",
+          "r": "えき",
+          "word_id": "W00069",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "word_id": "W00029",
+          "role": "content",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I am at the station.",
+      "audio": "audio/story_39/s0.wav",
+      "audio_hash": "7e6975ba1bf6"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "雨",
+          "r": "あめ",
+          "word_id": "W00002",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "降ります",
+          "r": "ふります",
+          "word_id": "W00107",
+          "role": "content",
+          "inflection": {
+            "base": "降る",
+            "base_r": "ふる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Rain falls.",
+      "audio": "audio/story_39/s1.wav",
+      "audio_hash": "ab3864b4899e"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "強い",
+          "r": "つよい",
+          "word_id": "W00118",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "雨",
+          "r": "あめ",
+          "word_id": "W00002",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is strong rain.",
+      "audio": "audio/story_39/s2.wav",
+      "audio_hash": "0e50c0a86f02"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "傘",
+          "r": "かさ",
+          "word_id": "W00116",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "家",
+          "r": "いえ",
+          "word_id": "W00078",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "あります",
+          "r": "あります",
+          "word_id": "W00044",
+          "role": "content",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My umbrella is at home.",
+      "audio": "audio/story_39/s3.wav",
+      "audio_hash": "6998acb126dc"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "そば",
+          "r": "そば",
+          "word_id": "W00045",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "人",
+          "r": "ひと",
+          "word_id": "W00113",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "word_id": "W00029",
+          "role": "content",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Beside me, there is a person.",
+      "audio": "audio/story_39/s4.wav",
+      "audio_hash": "5d45e14740a2"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "本",
+          "r": "ほん",
+          "word_id": "W00033",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "店",
+          "r": "みせ",
+          "word_id": "W00084",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "優しい",
+          "r": "やさしい",
+          "word_id": "W00115",
+          "role": "content"
+        },
+        {
+          "t": "人",
+          "r": "ひと",
+          "word_id": "W00113",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is the kind person from the bookstore.",
+      "audio": "audio/story_39/s5.wav",
+      "audio_hash": "7b7e89e4dd65"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "人",
+          "r": "ひと",
+          "word_id": "W00113",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "傘",
+          "r": "かさ",
+          "word_id": "W00116",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "渡します",
+          "r": "わたします",
+          "word_id": "W00117",
+          "role": "content",
+          "is_new": true,
+          "inflection": {
+            "base": "渡す",
+            "base_r": "わたす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The person hands me the umbrella.",
+      "audio": "audio/story_39/s6.wav",
+      "audio_hash": "827b1f2a8472"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "一緒に",
+          "r": "いっしょに",
+          "word_id": "W00050",
+          "role": "content"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G028_to_iimasu",
+          "role": "particle"
+        },
+        {
+          "t": "言います",
+          "r": "いいます",
+          "word_id": "W00097",
+          "role": "content",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Together,\" the person says.",
+      "audio": "audio/story_39/s7.wav",
+      "audio_hash": "240aa7b2804d"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "二人",
+          "r": "ふたり",
+          "word_id": "W00035",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "傘",
+          "r": "かさ",
+          "word_id": "W00116",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "そば",
+          "r": "そば",
+          "word_id": "W00045",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "word_id": "W00029",
+          "role": "content",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The two of us are beside the umbrella.",
+      "audio": "audio/story_39/s8.wav",
+      "audio_hash": "7122be94e93c"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "雨",
+          "r": "あめ",
+          "word_id": "W00002",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "強い",
+          "r": "つよい",
+          "word_id": "W00118",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "から",
+          "grammar_id": "G030_kara_reason",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "歩きます",
+          "r": "あるきます",
+          "word_id": "W00017",
+          "role": "content",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Because the rain is strong, we walk.",
+      "audio": "audio/story_39/s9.wav",
+      "audio_hash": "f3f219472793"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "本",
+          "r": "ほん",
+          "word_id": "W00033",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "店",
+          "r": "みせ",
+          "word_id": "W00084",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "一緒に",
+          "r": "いっしょに",
+          "word_id": "W00050",
+          "role": "content"
+        },
+        {
+          "t": "来ます",
+          "r": "きます",
+          "word_id": "W00040",
+          "role": "content",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Together we come to the bookstore.",
+      "audio": "audio/story_39/s10.wav",
+      "audio_hash": "cbcce53e263d"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "人",
+          "r": "ひと",
+          "word_id": "W00113",
+          "role": "content"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G010_to_and",
+          "role": "particle"
+        },
+        {
+          "t": "話したい",
+          "r": "はなしたい",
+          "word_id": "W00094",
+          "role": "content",
+          "inflection": {
+            "base": "話す",
+            "base_r": "はなす",
+            "form": "tai",
+            "grammar_id": "G031_tai"
+          }
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I want to talk with the person.",
+      "audio": "audio/story_39/s11.wav",
+      "audio_hash": "2333605c7746"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "嬉しい",
+          "r": "うれしい",
+          "word_id": "W00056",
+          "role": "content"
+        },
+        {
+          "t": "雨",
+          "r": "あめ",
+          "word_id": "W00002",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is a happy rain.",
+      "audio": "audio/story_39/s12.wav",
+      "audio_hash": "f02d01a9b448"
+    }
+  ],
+  "word_audio": {
+    "W00116": "audio/story_39/w_W00116.wav",
+    "W00117": "audio/story_39/w_W00117.wav",
+    "W00118": "audio/story_39/w_W00118.wav"
+  },
+  "checksum": null,
+  "word_audio_hash": {
+    "W00116": "bbb6574d7029",
+    "W00117": "9161ce554796",
+    "W00118": "165551d7f28e"
+  }
+}
