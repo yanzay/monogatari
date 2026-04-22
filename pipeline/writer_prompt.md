@@ -1,6 +1,6 @@
 # Monogatari — Story Writer Task
 
-You are writing story **29** for the Monogatari Japanese graded-reader.
+You are writing story **30** for the Monogatari Japanese graded-reader.
 Read the authoring rules and plan below, then produce the story JSON.
 Output **only** the JSON object — no prose, no markdown fences.
 
@@ -448,68 +448,69 @@ A clean refusal is better than a story that fails validation.
 
 ```json
 {
-  "story_id": 29,
+  "story_id": 30,
   "target_word_count": 29,
   "max_sentences": 12,
   "new_words": [
-    "W00087",
-    "W00088",
-    "W00089"
+    "W00090",
+    "W00091",
+    "W00092"
   ],
   "new_grammar": [],
-  "theme": "An old friend, a family photo on a bench in spring",
-  "setting": "A spring morning in the park. The narrator and the friend (the same one from stories 20/26/28) sit on a bench together, look at a photo of the friend's family — including the friend's mother. After tea and the photo, they stand and the scene ends.",
+  "theme": "Autumn returns: a walk with the friend, leaves on the road, thinking of the friend's family",
+  "setting": "Autumn morning. The narrator and the friend (whom we have followed since story 20) walk together through the park. Leaves on the road, big clouds in the sky. They sit briefly on the same bench from story 29, the narrator thinks of the friend's family (mother included), they stand, and walk home together. Story 30 closes the 11-story arc that began with story 20 and the four-season quartet (春 24, 夏 27, 秋 30, with winter implicit across 20+21).",
   "constraints": {
     "must_reuse_words": [
+      "W00022",
+      "W00088",
+      "W00089",
       "W00052",
-      "W00067",
-      "W00068",
-      "W00083",
+      "W00043",
       "W00058",
-      "W00043"
+      "W00026"
     ]
   },
   "new_word_definitions": {
-    "W00087": {
-      "surface": "立ちます",
-      "kana": "たちます",
-      "reading": "tachimasu",
-      "pos": "verb",
-      "verb_class": "godan",
-      "adj_class": null,
-      "meanings": [
-        "to stand"
-      ],
-      "grammar_tags": []
-    },
-    "W00088": {
-      "surface": "家族",
-      "kana": "かぞく",
-      "reading": "kazoku",
+    "W00090": {
+      "surface": "秋",
+      "kana": "あき",
+      "reading": "aki",
       "pos": "noun",
       "verb_class": null,
       "adj_class": null,
       "meanings": [
-        "family"
+        "autumn, fall"
       ],
       "grammar_tags": []
     },
-    "W00089": {
-      "surface": "母",
-      "kana": "はは",
-      "reading": "haha",
+    "W00091": {
+      "surface": "葉",
+      "kana": "は",
+      "reading": "ha",
       "pos": "noun",
       "verb_class": null,
       "adj_class": null,
       "meanings": [
-        "mother (one's own family)"
+        "leaf"
+      ],
+      "grammar_tags": []
+    },
+    "W00092": {
+      "surface": "雲",
+      "kana": "くも",
+      "reading": "kumo",
+      "pos": "noun",
+      "verb_class": null,
+      "adj_class": null,
+      "meanings": [
+        "cloud"
       ],
       "grammar_tags": []
     }
   },
   "new_grammar_definitions": {},
-  "rationale": "Story 29 finally pairs 立ちます with 座ります (introduced together in story 28's plan-but-deferred set; 座ります landed there, 立ちます lands here) so the sit/stand pair is complete two stories apart — the pair will let future scenes show transitions explicitly. 家族 + 母 introduce the kinship register the library has lacked across 28 stories; the friend-character we have been following since story 20 finally has a wider world (a mother, a family). The closer 'I also stand' is a verbal closer chosen specifically to break the Adj+Noun, Adj+Noun list-closer pattern flagged in story 28's review.",
-  "seed": 142570
+  "rationale": "Story 30 is the milestone closer of the 20-30 arc. Three concrete-noun additions complete the seasonal quartet (秋), the autumn vegetation register (葉), and the sky-element register (雲, complementing 月/星/空 already in vocab). No new verbs and no new grammar — by story 30 the library has 21 grammar points and 89 vocabulary words; the milestone calls for tapestry not expansion. Reuses cluster: every prop in this story has a prior-story attachment (友達 from 20, ベンチ from 17, 家族+母 from 29, 思います via the literary を-construction from 19, 元気 from 19, 美しい from 27, 大きい from 19, 立ちます from 29, 帰ります from story 2 onward, 道 from 21). The closer 'the autumn road, the two of us return' is a forward-motion two-clause closer that ties story 21 (walking home alone in snow) to story 30 (walking home together in autumn) — the same physical action, opposite emotional weight, ten stories apart.",
+  "seed": 142571
 }
 ```
 
@@ -519,39 +520,39 @@ A clean refusal is better than a story that fails validation.
 
 - `W00001`: **今朝** (けさ) [noun] — this morning [occ:10]
 - `W00002`: **雨** (あめ) [noun] — rain [occ:9]
-- `W00003`: **私** (わたし) [pronoun] — I, me [occ:27]
+- `W00003`: **私** (わたし) [pronoun] — I, me [occ:28]
 - `W00004`: **窓** (まど) [noun] — window [occ:9]
 - `W00005`: **外** (そと) [noun] — outside [occ:10]
-- `W00006`: **見ます** (みます) [verb] — to see, to look [occ:16]
+- `W00006`: **見ます** (みます) [verb] — to see, to look [occ:17]
 - `W00007`: **木** (き) [noun] — tree [occ:6]
 - `W00008`: **濡れる** (ぬれる) [verb] — to get wet [occ:3]
-- `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:12]
-- `W00010`: **飲みます** (のみます) [verb] — to drink [occ:8]
+- `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:13]
+- `W00010`: **飲みます** (のみます) [verb] — to drink [occ:9]
 - `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:19]
 - `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:12]
 - `W00013`: **いい** (いい) [adjective] — good, nice [occ:9]
 - `W00014`: **気分** (きぶん) [noun] — feeling, mood [occ:5]
-- `W00015`: **朝** (あさ) [noun] — morning [occ:15]
-- `W00016`: **公園** (こうえん) [noun] — park [occ:5]
-- `W00017`: **歩きます** (あるきます) [verb] — to walk [occ:5]
+- `W00015`: **朝** (あさ) [noun] — morning [occ:16]
+- `W00016`: **公園** (こうえん) [noun] — park [occ:6]
+- `W00017`: **歩きます** (あるきます) [verb] — to walk [occ:6]
 - `W00018`: **夕方** (ゆうがた) [noun] — evening, late afternoon [occ:5]
 - `W00019`: **朝ごはん** (あさごはん) [noun] — breakfast [occ:4]
 - `W00020`: **食べます** (たべます) [verb] — to eat [occ:4]
 - `W00021`: **卵** (たまご) [noun] — egg [occ:3]
-- `W00022`: **友達** (ともだち) [noun] — friend [occ:16]
+- `W00022`: **友達** (ともだち) [noun] — friend [occ:17]
 - `W00023`: **散歩** (さんぽ) [noun] — walk, stroll [occ:2]
 - `W00024`: **花** (はな) [noun] — flower [occ:5]
 - `W00025`: **ドア** (ドア) [noun] — door [occ:4]
 - `W00026`: **帰ります** (かえります) [verb] — to return home, to go back [occ:5]
 - `W00027`: **風** (かぜ) [noun] — wind [occ:5]
 - `W00028`: **猫** (ねこ) [noun] — cat [occ:6]
-- `W00029`: **います** (います) [verb] — to be (animate), to exist [occ:8]
+- `W00029`: **います** (います) [verb] — to be (animate), to exist [occ:9]
 - `W00030`: **夜** (よる) [noun] — night [occ:5]
 - `W00031`: **月** (つき) [noun] — moon [occ:5]
 - `W00032`: **星** (ほし) [noun] — star [occ:3]
 - `W00033`: **本** (ほん) [noun] — book [occ:6]
 - `W00034`: **読みます** (よみます) [verb] — to read [occ:8]
-- `W00035`: **二人** (ふたり) [noun] — two people [occ:5]
+- `W00035`: **二人** (ふたり) [noun] — two people [occ:6]
 - `W00036`: **椅子** (いす) [noun] — chair [occ:5]
 - `W00037`: **机** (つくえ) [noun] — desk [occ:8]
 - `W00038`: **寝ます** (ねます) [verb] — to sleep [occ:4]
@@ -559,7 +560,7 @@ A clean refusal is better than a story that fails validation.
 - `W00040`: **来ます** (きます) [verb] — to come, to arrive [occ:10]
 - `W00041`: **待ちます** (まちます) [verb] — to wait [occ:5]
 - `W00042`: **昨日** (きのう) [noun] — yesterday [occ:5]
-- `W00043`: **思います** (おもいます) [verb] — to think [occ:5]
+- `W00043`: **思います** (おもいます) [verb] — to think [occ:6]
 - `W00044`: **あります** (あります) [verb] — to exist (inanimate), to be (inanimate) [occ:13]
 - `W00045`: **そば** (そば) [noun] — side, near [occ:4]
 - `W00046`: **明日** (あした) [noun] — tomorrow [occ:3]
@@ -568,13 +569,13 @@ A clean refusal is better than a story that fails validation.
 - `W00049`: **パン** (パン) [noun] — bread [occ:4]
 - `W00050`: **一緒に** (いっしょに) [adverb] — together [occ:4]
 - `W00051`: **子供** (こども) [noun] — child [occ:2]
-- `W00052`: **ベンチ** (ベンチ) [noun] — bench [occ:1]
+- `W00052`: **ベンチ** (ベンチ) [noun] — bench [occ:2]
 - `W00053`: **笑います** (わらいます) [verb] — to smile, to laugh [occ:4]
 - `W00054`: **鳥** (とり) [noun] — bird [occ:3]
 - `W00055`: **小さい** (ちいさい) [adjective] — small, little [occ:6]
-- `W00056`: **嬉しい** (うれしい) [adjective] — happy, glad [occ:4]
+- `W00056`: **嬉しい** (うれしい) [adjective] — happy, glad [occ:5]
 - `W00057`: **大きい** (おおきい) [adjective] — big, large [occ:3]
-- `W00058`: **元気** (げんき) [adjective] — lively, energetic, healthy [occ:1]
+- `W00058`: **元気** (げんき) [adjective] — lively, energetic, healthy [occ:2]
 - `W00059`: **庭** (にわ) [noun] — garden, yard [occ:3]
 - `W00060`: **書きます** (かきます) [verb] — to write [occ:1]
 - `W00061`: **名前** (なまえ) [noun] — name [occ:1]
@@ -583,12 +584,12 @@ A clean refusal is better than a story that fails validation.
 - `W00064`: **道** (みち) [noun] — road, path [occ:3]
 - `W00065`: **一人** (ひとり) [noun] — one person, alone [occ:2]
 - `W00066`: **新しい** (あたらしい) [adjective] — new [occ:1]
-- `W00067`: **古い** (ふるい) [adjective] — old (of objects) [occ:2]
-- `W00068`: **写真** (しゃしん) [noun] — photograph, photo [occ:2]
+- `W00067`: **古い** (ふるい) [adjective] — old (of objects) [occ:3]
+- `W00068`: **写真** (しゃしん) [noun] — photograph, photo [occ:3]
 - `W00069`: **駅** (えき) [noun] — train station [occ:2]
 - `W00070`: **電車** (でんしゃ) [noun] — train [occ:1]
 - `W00071`: **時計** (とけい) [noun] — clock, watch [occ:1]
-- `W00072`: **春** (はる) [noun] — spring (season) [occ:1]
+- `W00072`: **春** (はる) [noun] — spring (season) [occ:2]
 - `W00073`: **開けます** (あけます) [verb] — to open [occ:2]
 - `W00074`: **長い** (ながい) [adjective] — long [occ:1]
 - `W00075`: **部屋** (へや) [noun] — room [occ:2]
@@ -599,13 +600,16 @@ A clean refusal is better than a story that fails validation.
 - `W00080`: **入ります** (はいります) [verb] — to enter, to go in [occ:2]
 - `W00081`: **夏** (なつ) [noun] — summer [occ:1]
 - `W00082`: **暑い** (あつい) [adjective] — hot (weather) [occ:1]
-- `W00083`: **美しい** (うつくしい) [adjective] — beautiful [occ:1]
+- `W00083`: **美しい** (うつくしい) [adjective] — beautiful [occ:2]
 - `W00084`: **店** (みせ) [noun] — shop, store [occ:1]
-- `W00085`: **座ります** (すわります) [verb] — to sit [occ:1]
+- `W00085`: **座ります** (すわります) [verb] — to sit [occ:2]
 - `W00086`: **買います** (かいます) [verb] — to buy [occ:1]
-- `W00087`: **立ちます** (たちます) [verb] — to stand **[NEW]**
-- `W00088`: **家族** (かぞく) [noun] — family **[NEW]**
-- `W00089`: **母** (はは) [noun] — mother (one's own family) **[NEW]**
+- `W00087`: **立ちます** (たちます) [verb] — to stand [occ:1]
+- `W00088`: **家族** (かぞく) [noun] — family [occ:1]
+- `W00089`: **母** (はは) [noun] — mother (one's own family) [occ:1]
+- `W00090`: **秋** (あき) [noun] — autumn, fall **[NEW]**
+- `W00091`: **葉** (は) [noun] — leaf **[NEW]**
+- `W00092`: **雲** (くも) [noun] — cloud **[NEW]**
 
 ---
 
@@ -636,19 +640,19 @@ A clean refusal is better than a story that fails validation.
 
 ## New word definitions (introduce these in the story)
 
-- `W00087`: **立ちます** (たちます) [verb · godan] — to stand
-- `W00088`: **家族** (かぞく) [noun] — family
-- `W00089`: **母** (はは) [noun] — mother (one's own family)
+- `W00090`: **秋** (あき) [noun] — autumn, fall
+- `W00091`: **葉** (は) [noun] — leaf
+- `W00092`: **雲** (くも) [noun] — cloud
 
 ---
 
 ## Output schema
 
-Produce a `story_29.json` object with this structure:
+Produce a `story_30.json` object with this structure:
 
 ```json
 {
-  "story_id": 29,
+  "story_id": 30,
   "title": {
     "jp": "<kanji/kana title>",
     "en": "<English title>",
@@ -662,7 +666,7 @@ Produce a `story_29.json` object with this structure:
     "tokens": [ ... ]
   },
   "plan_ref": "plan.json",
-  "new_words": ["W00087", "W00088", "W00089"],
+  "new_words": ["W00090", "W00091", "W00092"],
   "new_grammar": [],
   "all_words_used": ["<every word_id used, in order of first appearance>"],
   "sentences": [

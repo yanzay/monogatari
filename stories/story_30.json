@@ -1,0 +1,648 @@
+{
+  "story_id": 30,
+  "title": {
+    "jp": "秋の道",
+    "en": "The Autumn Road",
+    "tokens": [
+      {
+        "t": "秋",
+        "r": "あき",
+        "word_id": "W00090",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "道",
+        "r": "みち",
+        "word_id": "W00064",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "葉と雲と二人",
+    "en": "Leaves, clouds, the two of us",
+    "tokens": [
+      {
+        "t": "葉",
+        "r": "は",
+        "word_id": "W00091",
+        "role": "content"
+      },
+      {
+        "t": "と",
+        "grammar_id": "G010_to_and",
+        "role": "particle"
+      },
+      {
+        "t": "雲",
+        "r": "くも",
+        "word_id": "W00092",
+        "role": "content"
+      },
+      {
+        "t": "と",
+        "grammar_id": "G010_to_and",
+        "role": "particle"
+      },
+      {
+        "t": "二人",
+        "r": "ふたり",
+        "word_id": "W00035",
+        "role": "content"
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00090",
+    "W00091",
+    "W00092"
+  ],
+  "new_grammar": [],
+  "all_words_used": [
+    "W00090",
+    "W00064",
+    "W00091",
+    "W00092",
+    "W00035",
+    "W00040",
+    "W00016",
+    "W00044",
+    "W00083",
+    "W00022",
+    "W00017",
+    "W00047",
+    "W00057",
+    "W00052",
+    "W00085",
+    "W00088",
+    "W00043",
+    "W00089",
+    "W00058",
+    "W00087",
+    "W00026"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "gloss_en": "Autumn comes.",
+      "tokens": [
+        {
+          "t": "秋",
+          "r": "あき",
+          "word_id": "W00090",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "来ます",
+          "r": "きます",
+          "word_id": "W00040",
+          "role": "content",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_30/s0.wav",
+      "audio_hash": "0b1853b40c32"
+    },
+    {
+      "idx": 1,
+      "gloss_en": "On the park road, there are leaves.",
+      "tokens": [
+        {
+          "t": "公園",
+          "r": "こうえん",
+          "word_id": "W00016",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "道",
+          "r": "みち",
+          "word_id": "W00064",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "葉",
+          "r": "は",
+          "word_id": "W00091",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "あります",
+          "word_id": "W00044",
+          "role": "content",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_30/s1.wav",
+      "audio_hash": "291aaa803421"
+    },
+    {
+      "idx": 2,
+      "gloss_en": "The leaves are beautiful.",
+      "tokens": [
+        {
+          "t": "葉",
+          "r": "は",
+          "word_id": "W00091",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "美しい",
+          "r": "うつくしい",
+          "word_id": "W00083",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_30/s2.wav",
+      "audio_hash": "4130af7e661e"
+    },
+    {
+      "idx": 3,
+      "gloss_en": "Together with my friend, we walk down the road.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G010_to_and",
+          "role": "particle"
+        },
+        {
+          "t": "二人",
+          "r": "ふたり",
+          "word_id": "W00035",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "道",
+          "r": "みち",
+          "word_id": "W00064",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "歩きます",
+          "r": "あるきます",
+          "word_id": "W00017",
+          "role": "content",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_30/s3.wav",
+      "audio_hash": "1f11540eda1d"
+    },
+    {
+      "idx": 4,
+      "gloss_en": "In the sky, there are clouds.",
+      "tokens": [
+        {
+          "t": "空",
+          "r": "そら",
+          "word_id": "W00047",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "雲",
+          "r": "くも",
+          "word_id": "W00092",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "あります",
+          "word_id": "W00044",
+          "role": "content",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_30/s4.wav",
+      "audio_hash": "d4c612e4dffb"
+    },
+    {
+      "idx": 5,
+      "gloss_en": "The sky's clouds are big.",
+      "tokens": [
+        {
+          "t": "空",
+          "r": "そら",
+          "word_id": "W00047",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "雲",
+          "r": "くも",
+          "word_id": "W00092",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "大きい",
+          "r": "おおきい",
+          "word_id": "W00057",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_30/s5.wav",
+      "audio_hash": "1f48c6ccd18d"
+    },
+    {
+      "idx": 6,
+      "gloss_en": "We sit on the bench.",
+      "tokens": [
+        {
+          "t": "ベンチ",
+          "r": "ベンチ",
+          "word_id": "W00052",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "座ります",
+          "r": "すわります",
+          "word_id": "W00085",
+          "role": "content",
+          "inflection": {
+            "base": "座る",
+            "base_r": "すわる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_30/s6.wav",
+      "audio_hash": "4477424a7e62"
+    },
+    {
+      "idx": 7,
+      "gloss_en": "I think of my friend's family.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "家族",
+          "r": "かぞく",
+          "word_id": "W00088",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "思います",
+          "r": "おもいます",
+          "word_id": "W00043",
+          "role": "content",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_30/s7.wav",
+      "audio_hash": "92b598733e8a"
+    },
+    {
+      "idx": 8,
+      "gloss_en": "I think my friend's mother is also well.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "母",
+          "r": "はは",
+          "word_id": "W00089",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "元気",
+          "r": "げんき",
+          "word_id": "W00058",
+          "role": "content"
+        },
+        {
+          "t": "だ",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G014_to_omoimasu",
+          "role": "particle"
+        },
+        {
+          "t": "思います",
+          "r": "おもいます",
+          "word_id": "W00043",
+          "role": "content",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_30/s8.wav",
+      "audio_hash": "68d88dcd7481"
+    },
+    {
+      "idx": 9,
+      "gloss_en": "We stand together.",
+      "tokens": [
+        {
+          "t": "二人",
+          "r": "ふたり",
+          "word_id": "W00035",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "立ちます",
+          "r": "たちます",
+          "word_id": "W00087",
+          "role": "content",
+          "inflection": {
+            "base": "立つ",
+            "base_r": "たつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_30/s9.wav",
+      "audio_hash": "c495afde05f8"
+    },
+    {
+      "idx": 10,
+      "gloss_en": "On the autumn road, the two of us return home.",
+      "tokens": [
+        {
+          "t": "秋",
+          "r": "あき",
+          "word_id": "W00090",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "道",
+          "r": "みち",
+          "word_id": "W00064",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "二人",
+          "r": "ふたり",
+          "word_id": "W00035",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "帰ります",
+          "r": "かえります",
+          "word_id": "W00026",
+          "role": "content",
+          "inflection": {
+            "base": "帰る",
+            "base_r": "かえる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_30/s10.wav",
+      "audio_hash": "3484759db0e9"
+    }
+  ],
+  "word_audio": {
+    "W00090": "audio/story_30/w_W00090.wav",
+    "W00091": "audio/story_30/w_W00091.wav",
+    "W00092": "audio/story_30/w_W00092.wav"
+  },
+  "checksum": null,
+  "word_audio_hash": {
+    "W00090": "5a2e5e4b12a4",
+    "W00091": "bde3fe444e2e",
+    "W00092": "1d67795a2e07"
+  }
+}
