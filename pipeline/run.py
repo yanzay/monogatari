@@ -60,6 +60,12 @@ def main() -> None:
                         help="Start from step (1=plan, 2=write, 3=validate, 4=ship)")
     parser.add_argument("--skip-engagement-review", action="store_true",
                         help="Bypass the stage-3.5 engagement review (emergency only)")
+    parser.add_argument("--force-reship", action="store_true",
+                        help="Allow step 4 to re-ship a story whose stories/story_N.json "
+                             "already exists. Without this flag, step 4 refuses to run a "
+                             "second time on the same story_id because state_updater.py is "
+                             "non-idempotent and a re-ship double-increments occurrence "
+                             "counts (and breaks the lifetime-occurrence pytest).")
     args = parser.parse_args()
 
     print("\n" + "═"*60)
@@ -185,6 +191,45 @@ def main() -> None:
         if not raw_path.exists():
             print("ERROR: pipeline/story_raw.json not found.", file=sys.stderr)
             sys.exit(1)
+
+        # ── Ship-once guard ─────────────────────────────────────────────────
+        # state_updater.py is non-idempotent — a second run will double-
+        # increment every word's occurrence count and break the lifetime-
+        # occurrence pytest. The shipped story file is the canonical
+        # 'has-this-already-shipped?' marker. Authors who genuinely need
+        # to re-ship (e.g. after a post-ship JP token edit) must pass
+        # --force-reship AND restore the pre-ship vocab/grammar state from
+        # state_backups/ before running so the increment is applied to a
+        # clean baseline. See docs/authoring.md G_STATE.
+        try:
+            raw_story = load_json(raw_path) or {}
+            raw_sid = raw_story.get("story_id")
+            if isinstance(raw_sid, int):
+                shipped_path = Path("stories") / f"story_{raw_sid}.json"
+                if shipped_path.exists() and not args.force_reship:
+                    print(f"\n✗ stories/story_{raw_sid}.json already exists.")
+                    print(f"  Step 4 refuses to re-ship the same story_id because")
+                    print(f"  state_updater.py is non-idempotent and a re-run would")
+                    print(f"  double-increment vocab occurrence counts.")
+                    print(f"")
+                    print(f"  If you really need to re-ship (e.g. you edited JP")
+                    print(f"  tokens post-ship and need fresh audio + state):")
+                    print(f"    1. Restore data/vocab_state.json and data/grammar_state.json")
+                    print(f"       from the most recent state_backups/*.json taken BEFORE")
+                    print(f"       the original ship of story {raw_sid}.")
+                    print(f"    2. Re-run with --force-reship.")
+                    print(f"")
+                    print(f"  See docs/authoring.md § G_STATE for the recipe.")
+                    sys.exit(1)
+                if shipped_path.exists() and args.force_reship:
+                    print(f"\n⚠  --force-reship: re-shipping over existing "
+                          f"stories/story_{raw_sid}.json. Make sure you restored "
+                          f"vocab/grammar state to the pre-ship baseline first.")
+        except Exception as e:
+            # Defensive: never let the guard itself break the ship of a
+            # legitimate first-time story. If we can't read the raw file
+            # cleanly, the validate step below will surface the real issue.
+            print(f"  (ship-once guard skipped: {e})")
 
         # Final validation before shipping
         print("\n[Step 4a] Final validation…")
