@@ -1,0 +1,720 @@
+{
+  "story_id": 45,
+  "title": {
+    "jp": "これは何ですか",
+    "en": "What Is This?",
+    "tokens": [
+      {
+        "t": "これ",
+        "r": "kore",
+        "role": "content",
+        "word_id": "W00134"
+      },
+      {
+        "t": "は",
+        "role": "particle",
+        "grammar_id": "G001_wa_topic"
+      },
+      {
+        "t": "何",
+        "r": "nani",
+        "role": "content",
+        "word_id": "W00135"
+      },
+      {
+        "t": "です",
+        "role": "aux",
+        "grammar_id": "G003_desu"
+      },
+      {
+        "t": "か",
+        "role": "particle",
+        "grammar_id": "G037_ka_question"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "祖母の古い箱。",
+    "en": "Grandmother's old box.",
+    "tokens": [
+      {
+        "t": "祖母",
+        "r": "sobo",
+        "role": "content",
+        "word_id": "W00098"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
+      },
+      {
+        "t": "古い",
+        "r": "furui",
+        "role": "content",
+        "word_id": "W00067",
+        "inflection": {
+          "form": "plain_nonpast",
+          "grammar_id": "G022_i_adj"
+        }
+      },
+      {
+        "t": "箱",
+        "r": "hako",
+        "role": "content",
+        "word_id": "W00136"
+      },
+      {
+        "t": "。",
+        "role": "punct"
+      }
+    ]
+  },
+  "new_words": [
+    "W00134",
+    "W00135",
+    "W00136"
+  ],
+  "new_grammar": [
+    "G037_ka_question"
+  ],
+  "all_words_used": [
+    "W00134",
+    "W00135",
+    "W00098",
+    "W00067",
+    "W00136",
+    "W00075",
+    "W00011",
+    "W00003",
+    "W00006",
+    "W00099",
+    "W00097",
+    "W00100",
+    "W00056",
+    "W00071",
+    "W00044",
+    "W00043",
+    "W00129",
+    "W00083"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "祖母",
+          "r": "sobo",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "部屋",
+          "r": "heya",
+          "role": "content",
+          "word_id": "W00075"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "r": "shizuka",
+          "role": "content",
+          "word_id": "W00011"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother's room is quiet.",
+      "audio": "audio/story_45/s0.wav",
+      "audio_hash": "9175dd0cc807"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "古い",
+          "r": "furui",
+          "role": "content",
+          "word_id": "W00067",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "箱",
+          "r": "hako",
+          "role": "content",
+          "word_id": "W00136",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "r": "mimasu",
+          "role": "content",
+          "word_id": "W00006"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I look at an old box.",
+      "audio": "audio/story_45/s1.wav",
+      "audio_hash": "67b1c4abd55d"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "これ",
+          "r": "kore",
+          "role": "content",
+          "word_id": "W00134",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "何",
+          "r": "nani",
+          "role": "content",
+          "word_id": "W00135",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question",
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "What is this?",
+      "audio": "audio/story_45/s2.wav",
+      "audio_hash": "ed653e5bdda5"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "祖母",
+          "r": "sobo",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "r": "mimasu",
+          "role": "content",
+          "word_id": "W00006"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I look at grandmother.",
+      "audio": "audio/story_45/s3.wav",
+      "audio_hash": "2b15ac5193ef"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "思い出",
+          "r": "omoide",
+          "role": "content",
+          "word_id": "W00099"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "言います",
+          "r": "iimasu",
+          "role": "content",
+          "word_id": "W00097"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "She says, 'It is a memory.'",
+      "audio": "audio/story_45/s4.wav",
+      "audio_hash": "3ef6d8ae0da5"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "箱",
+          "r": "hako",
+          "role": "content",
+          "word_id": "W00136"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "大切",
+          "r": "taisetsu",
+          "role": "content",
+          "word_id": "W00100"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Is the box precious?",
+      "audio": "audio/story_45/s5.wav",
+      "audio_hash": "522a18461e71"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "祖母",
+          "r": "sobo",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "嬉しい",
+          "r": "ureshii",
+          "role": "content",
+          "word_id": "W00056",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother is happy.",
+      "audio": "audio/story_45/s6.wav",
+      "audio_hash": "c118b8c70c68"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "大切な",
+          "r": "taisetsu",
+          "role": "content",
+          "word_id": "W00100",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "箱",
+          "r": "hako",
+          "role": "content",
+          "word_id": "W00136"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "言います",
+          "r": "iimasu",
+          "role": "content",
+          "word_id": "W00097"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "She says, 'It is a precious box.'",
+      "audio": "audio/story_45/s7.wav",
+      "audio_hash": "6359efe2410f"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "箱",
+          "r": "hako",
+          "role": "content",
+          "word_id": "W00136"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "古い",
+          "r": "furui",
+          "role": "content",
+          "word_id": "W00067",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "時計",
+          "r": "tokei",
+          "role": "content",
+          "word_id": "W00071"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "r": "arimasu",
+          "role": "content",
+          "word_id": "W00044"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the box, there is an old clock.",
+      "audio": "audio/story_45/s8.wav",
+      "audio_hash": "512562b9b336"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "祖母",
+          "r": "sobo",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "思い出",
+          "r": "omoide",
+          "role": "content",
+          "word_id": "W00099"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "思います",
+          "r": "omoimasu",
+          "role": "content",
+          "word_id": "W00043"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I think of grandmother's memories.",
+      "audio": "audio/story_45/s9.wav",
+      "audio_hash": "3ca066e3f856"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "でも",
+          "role": "aux",
+          "grammar_id": "G032_demo"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "困りません",
+          "r": "komarimasen",
+          "role": "content",
+          "word_id": "W00129",
+          "inflection": {
+            "form": "masen",
+            "grammar_id": "G036_masen"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But I am not troubled.",
+      "audio": "audio/story_45/s10.wav",
+      "audio_hash": "25b61994292f"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "思い出",
+          "r": "omoide",
+          "role": "content",
+          "word_id": "W00099"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "美しい",
+          "r": "utsukushii",
+          "role": "content",
+          "word_id": "W00083",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G030_kara_reason"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "嬉しい",
+          "r": "ureshii",
+          "role": "content",
+          "word_id": "W00056",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Because the memories are beautiful, I am happy.",
+      "audio": "audio/story_45/s11.wav",
+      "audio_hash": "5c49bc22b017"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "古い",
+          "r": "furui",
+          "role": "content",
+          "word_id": "W00067",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "箱",
+          "r": "hako",
+          "role": "content",
+          "word_id": "W00136"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "大切な",
+          "r": "taisetsu",
+          "role": "content",
+          "word_id": "W00100",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "思い出",
+          "r": "omoide",
+          "role": "content",
+          "word_id": "W00099"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "An old box, a precious memory.",
+      "audio": "audio/story_45/s12.wav",
+      "audio_hash": "bdd1f3bb1b69"
+    }
+  ],
+  "word_audio": {
+    "W00134": "audio/story_45/w_W00134.wav",
+    "W00135": "audio/story_45/w_W00135.wav",
+    "W00136": "audio/story_45/w_W00136.wav"
+  },
+  "word_audio_hash": {
+    "W00134": "f0b5ecd06b9a",
+    "W00135": "3265cdd08afe",
+    "W00136": "702dff992262"
+  }
+}
