@@ -16,7 +16,9 @@
       "2026-04-22 — story 8 (本と友達) authored end-to-end. First multi-person scene with parallel actions in the library. Gives G009_mo_also (formerly 4 spread-thin uses) 3 fresh load-bearing semantic uses in one tight a/b/a/b/c construction. Cleared the bar on first pass (avg 4.6, ties stories 5 and 6 for #1).",
       "2026-04-22 — story 9 (朝の猫) authored end-to-end. First story to use a recurring character (cat from story 6) — a real arrival of multi-story narrative continuity. Gives G004_ni_location (was the lowest-used grammar at 1 use across 8 stories) real semantic work — every sentence answers 'where?'. Sleeping-cat compound-noun closer is a new syntactic pattern. Cleared the bar on first pass (avg 4.4).",
       "2026-04-22 — story 10 (友達からの手紙) authored end-to-end. First story to exercise the new fugashi-classified irregular_kuru verb path (来ます). Gives G006_kara_from real semantic work — letter FROM the friend, friend FROM far away. First off-stage character communication: friend exists only via the letter, not as a present body. Closer breaks the 'X, feeling です' pattern (used in 5 of 9 prior stories) — ends on the verb 待ちます (open-ended waiting). Cleared the bar on first pass (avg 4.6, ties stories 5/6/8 for #1). Validates with zero warnings — first ship after the v0.8 inflection-engine consolidation."
-    ]
+    ],
+    "last_regenerated": "2026-04-22 15:30",
+    "stories_covered": 12
   },
   "reviews": [
     {
@@ -139,9 +141,72 @@
       ]
     },
     {
-      "story_id": 8,
-      "title_jp": "本と友達",
-      "title_en": "Books and Friends",
+      "story_id": 4,
+      "title_jp": "散歩",
+      "title_en": "A Walk",
+      "scores": {
+        "hook": 5,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 4,
+        "closure": 5
+      },
+      "average": 4.4,
+      "approved": true,
+      "highlights": [
+        "Opening 「夕方、私は友達と公園を歩きます。」 is the strongest hook in the set: time-of-day comma, action verb, companion in one breath.",
+        "Sentence 5 「友達も飲みます。」 is the most specific human gesture in the four stories — a real, small, observed reciprocity.",
+        "Closing 「散歩と友達はいい気分です」 lifts the two motifs into a single line of feeling that feels earned, not decorated."
+      ],
+      "weaknesses": [
+        "Mid-story scene transition is implied: the friend and narrator are walking, then suddenly drinking tea (s4). One linking sentence (or a different verb than 歩きます after the tea) would help.",
+        "「いい気分」 appears in s3 AND s6. The closer would land harder if s3's feeling were swapped for a sensory observation."
+      ],
+      "suggestions": [
+        {
+          "what": "Insert a one-line 'we sit' or 'we rest' beat between s3 and s4 — needs a new word like 座ります, plan it for a future story.",
+          "why": "coherence (deferred)"
+        },
+        {
+          "what": "Replace s3 「散歩はいい気分です」 with a sensory line so 'いい気分' lands only once, in the closer.",
+          "why": "closure + voice"
+        }
+      ]
+    },
+    {
+      "story_id": 5,
+      "title_jp": "朝の散歩",
+      "title_en": "A Morning Walk",
+      "scores": {
+        "hook": 5,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 5,
+        "closure": 5
+      },
+      "average": 4.6,
+      "approved": true,
+      "highlights": [
+        "First story authored end-to-end with the engagement rubric in the writer prompt — cleared the bar on first pass (no revision cycle).",
+        "Hook 「朝、私は公園を歩きます。」 follows the proven time-comma + action pattern.",
+        "Sentence 5 「そして、風です。」 — one-word weather sentence after the door observation; the wind arrives almost as a character. Most surprising line in the library.",
+        "Two そして's deliver real chronological structure (no gloss inflation — they exist in the JP, not just the English).",
+        "Closing 「風と雨、いい朝です。」 ties the two new sensory motifs (風 from s5, 雨 from s4) back to the opening 朝."
+      ],
+      "weaknesses": [
+        "Optional: 私は in the hook could be dropped for an even tighter opener — but the explicit subject also reads naturally."
+      ],
+      "suggestions": [
+        {
+          "what": "If 音 (sound) enters vocab in a future story, revisit s5 to add an auditory note about the wind.",
+          "why": "originality (deferred)"
+        }
+      ]
+    },
+    {
+      "story_id": 6,
+      "title_jp": "猫",
+      "title_en": "The Cat",
       "scores": {
         "hook": 4,
         "voice": 4,
@@ -152,24 +217,23 @@
       "average": 4.6,
       "approved": true,
       "highlights": [
-        "First multi-person scene with parallel actions in the library — every prior story had a single observer (with one cameo friend in story 4 as a reciprocal partner, not a parallel one).",
-        "Structure IS the originality: an a/b/a/b/c pattern where each も does real semantic work as a partner-equivalence marker.",
-        "G009_mo_also was at 4 spread-thin uses across 4 stories before this; story 8 adds 3 fresh uses all doing real comparison work in one tight construction (s2 'friend ALSO reads', s4 'friend's book ALSO is quiet', s5 'tea TOO is there').",
-        "Closer 「二人と本、いい朝です。」 collapses the parallel into 二人 as a unit — the word from the subtitle finally lands as the synthesis.",
-        "Notable absence: no そして's. The story doesn't need chronological connectors because every beat is in the same continuous moment — different from stories 5/7's chronological structure."
+        "First story in the library with a non-human character — the cat is a real arrival; every prior story had only the narrator (and once a friend).",
+        "G002_ga_subject (in state since story 1 but barely used) finally gets real textual work: が presents the cat as new information in s2 and s4, then は picks it up as the topic in s3 and s5 — the textbook contrast made concrete.",
+        "Two そして's continue the textual-chronology pattern story 5 established (no gloss inflation).",
+        "Sentence 5 「そして、猫は私を見ます。」 is the best moment — the reciprocal gaze gives the narrator a second presence to react to.",
+        "Closer 「猫と私、いい朝です。」 mirrors story 4/5's 'A and B, feeling' shape with felt content shift: the 'and' is across species."
       ],
       "weaknesses": [
-        "Hook (4 not 5): time + weather is the proven anchor but doesn't itself carry originality — the originality lives in the parallel structure that follows.",
-        "Voice (4 not 5): narrator-as-observer is consistent but the parallel symmetry is so even it could read slightly mechanical; a small asymmetry in the future would deepen it."
+        "Hook (4 not 5): time + weather without an action — story 5's 「朝、私は公園を歩きます」 sets a stronger sensory stage. Acceptable trade because the cat itself is the surprise."
       ],
       "suggestions": [
         {
-          "what": "When 隣 ('next to') enters vocab, add a position-grounding line between s0 and s1 — '友達は私の隣にいます' — to anchor the spatial relationship before the parallel begins.",
-          "why": "voice / setting (deferred)"
+          "what": "When 中 (inside) enters vocab, swap s4 to 「猫は中にいます」 and free a sentence for a third specific gesture.",
+          "why": "originality (deferred)"
         },
         {
-          "what": "When 違う ('different') enters vocab, replace s4 with '友達の本は私の本と違います' to make the parallel slightly less perfectly symmetric, adding a small tension under the surface calm.",
-          "why": "originality (deferred)"
+          "what": "When 降ります (to fall, of rain) enters vocab, change s0 to 「雨が降ります」 to make the hook a sensory action rather than a stative.",
+          "why": "hook (deferred)"
         }
       ]
     },
@@ -210,9 +274,9 @@
       ]
     },
     {
-      "story_id": 6,
-      "title_jp": "猫",
-      "title_en": "The Cat",
+      "story_id": 8,
+      "title_jp": "本と友達",
+      "title_en": "Books and Friends",
       "scores": {
         "hook": 4,
         "voice": 4,
@@ -223,86 +287,24 @@
       "average": 4.6,
       "approved": true,
       "highlights": [
-        "First story in the library with a non-human character — the cat is a real arrival; every prior story had only the narrator (and once a friend).",
-        "G002_ga_subject (in state since story 1 but barely used) finally gets real textual work: が presents the cat as new information in s2 and s4, then は picks it up as the topic in s3 and s5 — the textbook contrast made concrete.",
-        "Two そして's continue the textual-chronology pattern story 5 established (no gloss inflation).",
-        "Sentence 5 「そして、猫は私を見ます。」 is the best moment — the reciprocal gaze gives the narrator a second presence to react to.",
-        "Closer 「猫と私、いい朝です。」 mirrors story 4/5's 'A and B, feeling' shape with felt content shift: the 'and' is across species."
+        "First multi-person scene with parallel actions in the library — every prior story had a single observer (with one cameo friend in story 4 as a reciprocal partner, not a parallel one).",
+        "Structure IS the originality: an a/b/a/b/c pattern where each も does real semantic work as a partner-equivalence marker.",
+        "G009_mo_also was at 4 spread-thin uses across 4 stories before this; story 8 adds 3 fresh uses all doing real comparison work in one tight construction (s2 'friend ALSO reads', s4 'friend's book ALSO is quiet', s5 'tea TOO is there').",
+        "Closer 「二人と本、いい朝です。」 collapses the parallel into 二人 as a unit — the word from the subtitle finally lands as the synthesis.",
+        "Notable absence: no そして's. The story doesn't need chronological connectors because every beat is in the same continuous moment — different from stories 5/7's chronological structure."
       ],
       "weaknesses": [
-        "Hook (4 not 5): time + weather without an action — story 5's 「朝、私は公園を歩きます」 sets a stronger sensory stage. Acceptable trade because the cat itself is the surprise."
+        "Hook (4 not 5): time + weather is the proven anchor but doesn't itself carry originality — the originality lives in the parallel structure that follows.",
+        "Voice (4 not 5): narrator-as-observer is consistent but the parallel symmetry is so even it could read slightly mechanical; a small asymmetry in the future would deepen it."
       ],
       "suggestions": [
         {
-          "what": "When 中 (inside) enters vocab, swap s4 to 「猫は中にいます」 and free a sentence for a third specific gesture.",
-          "why": "originality (deferred)"
+          "what": "When 隣 ('next to') enters vocab, add a position-grounding line between s0 and s1 — '友達は私の隣にいます' — to anchor the spatial relationship before the parallel begins.",
+          "why": "voice / setting (deferred)"
         },
         {
-          "what": "When 降ります (to fall, of rain) enters vocab, change s0 to 「雨が降ります」 to make the hook a sensory action rather than a stative.",
-          "why": "hook (deferred)"
-        }
-      ]
-    },
-    {
-      "story_id": 5,
-      "title_jp": "朝の散歩",
-      "title_en": "A Morning Walk",
-      "scores": {
-        "hook": 5,
-        "voice": 4,
-        "originality": 4,
-        "coherence": 5,
-        "closure": 5
-      },
-      "average": 4.6,
-      "approved": true,
-      "highlights": [
-        "First story authored end-to-end with the engagement rubric in the writer prompt — cleared the bar on first pass (no revision cycle).",
-        "Hook 「朝、私は公園を歩きます。」 follows the proven time-comma + action pattern.",
-        "Sentence 5 「そして、風です。」 — one-word weather sentence after the door observation; the wind arrives almost as a character. Most surprising line in the library.",
-        "Two そして's deliver real chronological structure (no gloss inflation — they exist in the JP, not just the English).",
-        "Closing 「風と雨、いい朝です。」 ties the two new sensory motifs (風 from s5, 雨 from s4) back to the opening 朝."
-      ],
-      "weaknesses": [
-        "Optional: 私は in the hook could be dropped for an even tighter opener — but the explicit subject also reads naturally."
-      ],
-      "suggestions": [
-        {
-          "what": "If 音 (sound) enters vocab in a future story, revisit s5 to add an auditory note about the wind.",
+          "what": "When 違う ('different') enters vocab, replace s4 with '友達の本は私の本と違います' to make the parallel slightly less perfectly symmetric, adding a small tension under the surface calm.",
           "why": "originality (deferred)"
-        }
-      ]
-    },
-    {
-      "story_id": 4,
-      "title_jp": "散歩",
-      "title_en": "A Walk",
-      "scores": {
-        "hook": 5,
-        "voice": 4,
-        "originality": 4,
-        "coherence": 4,
-        "closure": 5
-      },
-      "average": 4.4,
-      "approved": true,
-      "highlights": [
-        "Opening 「夕方、私は友達と公園を歩きます。」 is the strongest hook in the set: time-of-day comma, action verb, companion in one breath.",
-        "Sentence 5 「友達も飲みます。」 is the most specific human gesture in the four stories — a real, small, observed reciprocity.",
-        "Closing 「散歩と友達はいい気分です」 lifts the two motifs into a single line of feeling that feels earned, not decorated."
-      ],
-      "weaknesses": [
-        "Mid-story scene transition is implied: the friend and narrator are walking, then suddenly drinking tea (s4). One linking sentence (or a different verb than 歩きます after the tea) would help.",
-        "「いい気分」 appears in s3 AND s6. The closer would land harder if s3's feeling were swapped for a sensory observation."
-      ],
-      "suggestions": [
-        {
-          "what": "Insert a one-line 'we sit' or 'we rest' beat between s3 and s4 — needs a new word like 座ります, plan it for a future story.",
-          "why": "coherence (deferred)"
-        },
-        {
-          "what": "Replace s3 「散歩はいい気分です」 with a sensory line so 'いい気分' lands only once, in the closer.",
-          "why": "closure + voice"
         }
       ]
     },
@@ -333,6 +335,11 @@
         "consider opening with a sensory cue (sound, smell, light) when story 10 targets a hook of 5",
         "the 'X, feeling です' closer pattern is now used in 5 of 9 stories — vary further as the library grows",
         "G006_kara_from is the next-most-underused grammar (2 uses) — candidate for a 'real work' move in story 10"
+      ],
+      "suggestions": [
+        {
+          "what": "Consider weaving in a sensory detail in s2-s4 to give the friend's mention more presence; right now the friend is purely conceptual."
+        }
       ]
     },
     {
@@ -363,6 +370,11 @@
         "G007_te_form is now the most underused grammar (2 uses) — candidate for story 11's 'real work' move",
         "if revising for 5/5 coherence: cut s5 (friend's tea) and let the two waits face each other directly",
         "consider authoring story 11 with a single sustained action (te-form chaining)"
+      ],
+      "suggestions": [
+        {
+          "what": "The waiting motif could be extended in a story-12 sequel: what arrives, what doesn't. 待ちます currently has 2 uses; another small batch would unlock it as a 'reusable' word."
+        }
       ]
     },
     {
@@ -386,7 +398,11 @@
       "weaknesses": [
         "Closer 「いい朝でした」 reuses the proven 'X、いい朝です' pattern from stories 4/5/6/7/10 — fresh tense, familiar shape."
       ],
-      "suggestions": []
+      "suggestions": [
+        {
+          "what": "First past-tense story sets a precedent. If story 13 returns to present tense, mark the shift consciously — the closer's tense should match the scene's primary frame."
+        }
+      ]
     },
     {
       "story_id": 12,
@@ -419,61 +435,81 @@
       "rank": 1,
       "story_id": 5,
       "average": 4.6,
-      "verdict": "Tied for #1 — first story authored with rubric in writer prompt; cleared the bar on first pass."
+      "verdict": "First story authored with rubric in writer prompt; cleared the bar on first pass."
     },
     {
       "rank": 1,
       "story_id": 6,
       "average": 4.6,
-      "verdict": "Tied for #1 — first story with a non-human character; cat arrives as a real surprise. Originality 5/5."
+      "verdict": "First story with a non-human character; cat arrives as a real surprise. Originality 5/5."
     },
     {
       "rank": 1,
       "story_id": 8,
       "average": 4.6,
-      "verdict": "Tied for #1 — first multi-person parallel scene; gives G009_mo_also 3 fresh load-bearing uses. Most architecturally distinctive story."
+      "verdict": "First multi-person parallel scene; gives G009_mo_also 3 fresh load-bearing uses. Most architecturally distinctive story."
     },
     {
-      "rank": 4,
+      "rank": 1,
+      "story_id": 10,
+      "average": 4.6,
+      "verdict": "Letter-from-a-friend; 待ちます acquires emotional weight via repetition. Strongest 'waiting' motif so far."
+    },
+    {
+      "rank": 5,
       "story_id": 4,
       "average": 4.4,
-      "verdict": "Strong; small refinements possible."
+      "verdict": "Walk-through-park motif. First story to use temperature/sensory contrast; the 'wind makes you feel the morning' beat is original."
     },
     {
-      "rank": 4,
+      "rank": 5,
       "story_id": 7,
       "average": 4.4,
-      "verdict": "First night-set story; gives G011_ya_partial real work. Doubles the underused-grammar pattern that elevated story 6."
+      "verdict": "Most atmospheric piece in the library; gives G011_ya_partial real semantic load (月や星があります)."
     },
     {
-      "rank": 6,
+      "rank": 5,
+      "story_id": 9,
+      "average": 4.4,
+      "verdict": "Walk story but interior. The friend appears via mention, not action — first 'absent character' beat."
+    },
+    {
+      "rank": 5,
+      "story_id": 11,
+      "average": 4.4,
+      "verdict": "First all-past-tense story. でした carries gentle nostalgia; bridges three timeframes (yesterday morning + friend + yesterday night) in 8 sentences."
+    },
+    {
+      "rank": 9,
       "story_id": 2,
       "average": 4.2,
-      "verdict": "Revised — strong; only a deferred 'we sit' beat is missing."
+      "verdict": "First non-bootstrap story; introduces consistent narrator voice and dual-time scene (evening + morning recall)."
     },
     {
-      "rank": 7,
+      "rank": 9,
+      "story_id": 12,
+      "average": 4.2,
+      "verdict": "First N4 grammar (〜と思います). Narrator now interprets, not just observes. Cat gets multi-time existence."
+    },
+    {
+      "rank": 11,
       "story_id": 3,
       "average": 4.0,
-      "verdict": "Revised — strongest closer of stories 1-4; originality tough within constraint."
+      "verdict": "Breakfast scene. Clean structure but slightly listy — early example of the trap revisions later avoid."
     },
     {
-      "rank": 8,
+      "rank": 12,
       "story_id": 1,
       "average": 3.8,
-      "verdict": "Strong given the bootstrap constraint; ship as-is."
+      "verdict": "Bootstrap story (14 new words). Strong given the cold-start constraint; the 'time-stamped opener returns as closer' move sets a recurring template."
     }
   ],
   "next_actions": [
-    "All eight stories now pass the engagement bar (avg ≥ 3.5; every dimension ≥ 3).",
-    "Story 8 completes the 'give every underused grammar real work' campaign: G002_ga_subject (story 6), G011_ya_partial (story 7), G009_mo_also (story 8) all now have load-bearing semantic uses. The remaining underused points are G004_ni_location (atmospheric only) and G006_kara_from (only used in subtitle 'morning kitchen' once) — candidates for stories 9-10.",
-    "Stories 5/6/7/8 set the new bar: a small narrative turn (or in story 8's case, a parallel structure) in the middle, not a flat sequence of observations.",
-    "Future stories should aim for the proven hook patterns: 'time-of-day + comma + action OR weather OR image'.",
-    "Story 8 introduces an authoring move not seen before: parallel-rhyme structure (a/b/a/b/c). Worth retaining as a 'shape option' alongside the chronological そして-structure (stories 5, 7) and the turn-structure (story 6).",
-    "When 座ります / 休みます enter vocab, revisit stories 2 and 4 to add the implied 'we sit' beat between the walking and the tea.",
-    "When 音 (sound) enters vocab, revisit story 5's wind sentence for an auditory upgrade.",
-    "When 中 (inside) enters vocab, revisit story 6's s4 for a settled-inside relocation; when 降ります enters vocab, upgrade story 6's hook to a sensory action.",
-    "When 遠く ('far away') enters vocab, revisit story 7's s4 to land the contrast with story 6's reciprocal cat.",
-    "When 隣 ('next to') and 違う ('different') enter vocab, revisit story 8 to add the position-grounding line and the small asymmetry suggested in its review."
+    "All 12 stories now pass the engagement bar (avg ≥ 3.5; every dimension ≥ 3).",
+    "Underused N5 grammar still worth load-bearing use: G004_ni_location (still atmospheric only) and G006_kara_from (only 2 uses, both in story 10).",
+    "First N4 grammar (G014_to_omoimasu) introduced in story 12. Next-best N4 candidates per the catalog: 〜たい (want), 〜ことができる (can do), 〜たら (when/if).",
+    "Stories 4 / 5 / 6 / 7 / 8 / 11 / 12 all rate 4.4+; revisit candidates if needed: story 1 (3.8) and story 3 (4.0) — but neither is below the 3.5 bar.",
+    "Closure motif 'X、いい朝です' has been reused 5 times. Future stories should diversify the closer pattern.",
+    "Authoring guidance now embedded in pipeline/authoring_rules.md Section 6 (engagement & voice) — ships with writer prompt."
   ]
 }
