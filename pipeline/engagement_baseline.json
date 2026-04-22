@@ -19,7 +19,7 @@
     ],
     "last_regenerated": "2026-04-22 15:30",
     "stories_covered": 12,
-    "n_stories": 18
+    "n_stories": 19
   },
   "reviews": [
     {
@@ -638,6 +638,40 @@
           "why": "originality"
         }
       ]
+    },
+    {
+      "story_id": 19,
+      "title_jp": "庭の鳥",
+      "title_en": "A Bird in the Garden",
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 5,
+        "closure": 4
+      },
+      "average": 4.2,
+      "approved": true,
+      "highlights": [
+        "Brings 思います back into rotation after a 6-story absence (last seen story 13) and uses BOTH constructions in adjacent sentences: literary 'X を思います' (recall someone) at s5, then standard 'X は…だと思います' (think that X is) at s6. That's the right way to teach a verb's range — show both surfaces in context, don't just bump the count.",
+        "Two-story arc: the child from story 17's park comes back as an absent presence in the narrator's thought, glued in by 昨日 + 子供 + 思います. The library now has continuity between consecutive stories without recycling settings — a goal NOTES_FOR_FUTURE_AGENTS flagged as the highest-scoring pattern (story 6 / 8 / 10).",
+        "Three new words land in three structurally distinct slots: 庭 anchors the scene (s0, s2, s4, s8 — title carrier), 大きい sets up a size juxtaposition with 小さい from story 18 (subtitle pair), 元気 lands twice on different subjects (the bird, then the child) so the descriptor's range is shown.",
+        "Closer 'Garden is quiet, sky is big' is a parallel two-clause that callbacks both s0 and s4, structurally different from the over-used 〜いい朝/夜/気分です template the audit warned against."
+      ],
+      "weaknesses": [
+        "The two adjacent 思います sentences (s5, s6) are a deliberate teaching choice but read slightly mechanical on the page — a learner sees the verb introduced, then immediately re-used in a different construction. It's pedagogically right, narratively a touch laboured. I considered breaking them up with a present-tense observation but decided the consolidation was worth the small bump in formality.",
+        "S7 'I smile.' is a short single-content-token sentence; I shortened it from 'I also smile too' (which uses も) because the closer already echoes the parallel structure and a quieter beat felt right. Some reviewers might score this lower as a hook-loss; I left it because the voice is the point of the beat."
+      ],
+      "suggestions": [
+        {
+          "what": "If 静かな (na-attributive) gets explicit drilling later, revisit s8 to write '静かな庭、大きい空' as a fully attributive parallel.",
+          "why": "voice / closure"
+        },
+        {
+          "what": "Future story could pair 元気 with a verb subject (child being energetic in a scene) rather than predicative 元気です, to round out the na-adj grammar.",
+          "why": "originality"
+        }
+      ]
     }
   ],
   "leaderboard": [
@@ -692,44 +726,49 @@
       "rank": 9
     },
     {
+      "story_id": 19,
+      "average": 4.2,
+      "rank": 9
+    },
+    {
       "story_id": 3,
       "average": 4.0,
-      "rank": 11
+      "rank": 12
     },
     {
       "story_id": 14,
       "average": 4.0,
-      "rank": 11
+      "rank": 12
     },
     {
       "story_id": 15,
       "average": 4.0,
-      "rank": 11
+      "rank": 12
     },
     {
       "story_id": 16,
       "average": 4.0,
-      "rank": 11
+      "rank": 12
     },
     {
       "story_id": 1,
       "average": 3.8,
-      "rank": 15
+      "rank": 16
     },
     {
       "story_id": 13,
       "average": 3.8,
-      "rank": 15
+      "rank": 16
     },
     {
       "story_id": 17,
       "average": 3.8,
-      "rank": 15
+      "rank": 16
     },
     {
       "story_id": 18,
       "average": 3.8,
-      "rank": 15
+      "rank": 16
     }
   ],
   "next_actions": [

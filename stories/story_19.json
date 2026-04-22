@@ -1,0 +1,547 @@
+{
+  "story_id": 19,
+  "title": {
+    "jp": "庭の鳥",
+    "en": "A Bird in the Garden",
+    "tokens": [
+      {
+        "t": "庭",
+        "r": "にわ",
+        "word_id": "W00059",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "鳥",
+        "r": "とり",
+        "word_id": "W00054",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "大きい空、小さい鳥",
+    "en": "Big sky, small bird",
+    "tokens": [
+      {
+        "t": "大きい",
+        "r": "おおきい",
+        "word_id": "W00057",
+        "role": "content"
+      },
+      {
+        "t": "空",
+        "r": "そら",
+        "word_id": "W00047",
+        "role": "content"
+      },
+      {
+        "t": "、",
+        "role": "punct"
+      },
+      {
+        "t": "小さい",
+        "r": "ちいさい",
+        "word_id": "W00055",
+        "role": "content"
+      },
+      {
+        "t": "鳥",
+        "r": "とり",
+        "word_id": "W00054",
+        "role": "content"
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00057",
+    "W00058",
+    "W00059"
+  ],
+  "new_grammar": [],
+  "all_words_used": [
+    "W00059",
+    "W00054",
+    "W00057",
+    "W00047",
+    "W00055",
+    "W00001",
+    "W00011",
+    "W00003",
+    "W00012",
+    "W00049",
+    "W00048",
+    "W00040",
+    "W00058",
+    "W00042",
+    "W00051",
+    "W00043",
+    "W00053"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "gloss_en": "This morning, the garden is quiet.",
+      "tokens": [
+        {
+          "t": "今朝",
+          "r": "けさ",
+          "word_id": "W00001",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "庭",
+          "r": "にわ",
+          "word_id": "W00059",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "word_id": "W00011",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_19/s0.wav",
+      "audio_hash": "e82dad427f17"
+    },
+    {
+      "idx": 1,
+      "gloss_en": "I make warm bread.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "word_id": "W00012",
+          "role": "content"
+        },
+        {
+          "t": "パン",
+          "r": "パン",
+          "word_id": "W00049",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "作ります",
+          "r": "つくります",
+          "word_id": "W00048",
+          "role": "content",
+          "inflection": {
+            "base": "作る",
+            "base_r": "つくる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_19/s1.wav",
+      "audio_hash": "29a8ded1e6de"
+    },
+    {
+      "idx": 2,
+      "gloss_en": "A small bird comes to the garden.",
+      "tokens": [
+        {
+          "t": "庭",
+          "r": "にわ",
+          "word_id": "W00059",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "小さい",
+          "r": "ちいさい",
+          "word_id": "W00055",
+          "role": "content"
+        },
+        {
+          "t": "鳥",
+          "r": "とり",
+          "word_id": "W00054",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "来ます",
+          "r": "きます",
+          "word_id": "W00040",
+          "role": "content",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_19/s2.wav",
+      "audio_hash": "45809573df75"
+    },
+    {
+      "idx": 3,
+      "gloss_en": "The bird is lively.",
+      "tokens": [
+        {
+          "t": "鳥",
+          "r": "とり",
+          "word_id": "W00054",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "元気",
+          "r": "げんき",
+          "word_id": "W00058",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_19/s3.wav",
+      "audio_hash": "f2f09b8ced27"
+    },
+    {
+      "idx": 4,
+      "gloss_en": "The garden's sky is big.",
+      "tokens": [
+        {
+          "t": "庭",
+          "r": "にわ",
+          "word_id": "W00059",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "空",
+          "r": "そら",
+          "word_id": "W00047",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "大きい",
+          "r": "おおきい",
+          "word_id": "W00057",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_19/s4.wav",
+      "audio_hash": "de84de19a6bf"
+    },
+    {
+      "idx": 5,
+      "gloss_en": "I think of yesterday's child.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "昨日",
+          "r": "きのう",
+          "word_id": "W00042",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "子供",
+          "r": "こども",
+          "word_id": "W00051",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "思います",
+          "r": "おもいます",
+          "word_id": "W00043",
+          "role": "content",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_19/s5.wav",
+      "audio_hash": "dadae2f1406d"
+    },
+    {
+      "idx": 6,
+      "gloss_en": "I think the child is also lively.",
+      "tokens": [
+        {
+          "t": "子供",
+          "r": "こども",
+          "word_id": "W00051",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "元気",
+          "r": "げんき",
+          "word_id": "W00058",
+          "role": "content"
+        },
+        {
+          "t": "だ",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G014_to_omoimasu",
+          "role": "particle"
+        },
+        {
+          "t": "思います",
+          "r": "おもいます",
+          "word_id": "W00043",
+          "role": "content",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_19/s6.wav",
+      "audio_hash": "2ea65582d39d"
+    },
+    {
+      "idx": 7,
+      "gloss_en": "I smile.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "笑います",
+          "r": "わらいます",
+          "word_id": "W00053",
+          "role": "content",
+          "inflection": {
+            "base": "笑う",
+            "base_r": "わらう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_19/s7.wav",
+      "audio_hash": "4a183623e622"
+    },
+    {
+      "idx": 8,
+      "gloss_en": "The garden is quiet, the sky is big.",
+      "tokens": [
+        {
+          "t": "庭",
+          "r": "にわ",
+          "word_id": "W00059",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "word_id": "W00011",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "空",
+          "r": "そら",
+          "word_id": "W00047",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "大きい",
+          "r": "おおきい",
+          "word_id": "W00057",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_19/s8.wav",
+      "audio_hash": "b3137ce1d186"
+    }
+  ],
+  "word_audio": {
+    "W00057": "audio/story_19/w_W00057.wav",
+    "W00058": "audio/story_19/w_W00058.wav",
+    "W00059": "audio/story_19/w_W00059.wav"
+  },
+  "checksum": null,
+  "word_audio_hash": {
+    "W00057": "f4d626e791cd",
+    "W00058": "7fc6e83611c6",
+    "W00059": "81b3ed91bd5c"
+  }
+}
