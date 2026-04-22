@@ -1,19 +1,19 @@
 # Monogatari — Story Planner Task
 
-You are producing `plan.json` for story 17 of the Monogatari graded-reader.
+You are producing `plan.json` for story 18 of the Monogatari graded-reader.
 Read everything below carefully. Output **only** the JSON object — no prose.
 
 ---
 
-## Learner's current vocabulary (50 words)
+## Learner's current vocabulary (53 words)
 
 - `W00001`: **今朝** (けさ) — this morning [occ:4, story:story_1]
 - `W00002`: **雨** (あめ) — rain [occ:6, story:story_1]
-- `W00003`: **私** (わたし) — I, me [occ:15, story:story_1]
+- `W00003`: **私** (わたし) — I, me [occ:16, story:story_1]
 - `W00004`: **窓** (まど) — window [occ:7, story:story_1]
 - `W00005`: **外** (そと) — outside [occ:5, story:story_1]
-- `W00006`: **見ます** (みます) — to see, to look [occ:12, story:story_1]
-- `W00007`: **木** (き) — tree [occ:4, story:story_1]
+- `W00006`: **見ます** (みます) — to see, to look [occ:13, story:story_1]
+- `W00007`: **木** (き) — tree [occ:5, story:story_1]
 - `W00008`: **濡れる** (ぬれる) — to get wet [occ:2, story:story_1]
 - `W00009`: **お茶** (おちゃ) — tea, green tea [occ:8, story:story_1]
 - `W00010`: **飲みます** (のみます) — to drink [occ:5, story:story_1]
@@ -22,41 +22,44 @@ Read everything below carefully. Output **only** the JSON object — no prose.
 - `W00013`: **いい** (いい) — good, nice [occ:9, story:story_1]
 - `W00014`: **気分** (きぶん) — feeling, mood [occ:5, story:story_1]
 - `W00015`: **朝** (あさ) — morning [occ:9, story:story_1]
-- `W00016`: **公園** (こうえん) — park [occ:4, story:story_2]
-- `W00017`: **歩きます** (あるきます) — to walk [occ:4, story:story_2]
-- `W00018`: **夕方** (ゆうがた) — evening, late afternoon [occ:2, story:story_2]
+- `W00016`: **公園** (こうえん) — park [occ:5, story:story_2]
+- `W00017`: **歩きます** (あるきます) — to walk [occ:5, story:story_2]
+- `W00018`: **夕方** (ゆうがた) — evening, late afternoon [occ:3, story:story_2]
 - `W00019`: **朝ごはん** (あさごはん) — breakfast [occ:3, story:story_3]
 - `W00020`: **食べます** (たべます) — to eat [occ:3, story:story_3]
 - `W00021`: **卵** (たまご) — egg [occ:2, story:story_3]
-- `W00022`: **友達** (ともだち) — friend [occ:9, story:story_2]
+- `W00022`: **友達** (ともだち) — friend [occ:10, story:story_2]
 - `W00023`: **散歩** (さんぽ) — walk, stroll [occ:1, story:story_4]
 - `W00024`: **花** (はな) — flower [occ:2, story:story_4]
 - `W00025`: **ドア** (ドア) — door [occ:2, story:story_5]
 - `W00026`: **帰ります** (かえります) — to return home, to go back [occ:2, story:story_5]
 - `W00027`: **風** (かぜ) — wind [occ:5, story:story_5]
 - `W00028`: **猫** (ねこ) — cat [occ:4, story:story_6]
-- `W00029`: **います** (います) — to be (animate), to exist [occ:5, story:story_6]
+- `W00029`: **います** (います) — to be (animate), to exist [occ:6, story:story_6]
 - `W00030`: **夜** (よる) — night [occ:4, story:story_7]
 - `W00031`: **月** (つき) — moon [occ:4, story:story_7]
 - `W00032`: **星** (ほし) — star [occ:2, story:story_7]
-- `W00033`: **本** (ほん) — book [occ:4, story:story_8]
-- `W00034`: **読みます** (よみます) — to read [occ:5, story:story_8]
+- `W00033`: **本** (ほん) — book [occ:5, story:story_8]
+- `W00034`: **読みます** (よみます) — to read [occ:6, story:story_8]
 - `W00035`: **二人** (ふたり) — two people [occ:2, story:story_8]
 - `W00036`: **椅子** (いす) — chair [occ:2, story:story_9]
 - `W00037`: **机** (つくえ) — desk [occ:3, story:story_9]
 - `W00038`: **寝ます** (ねます) — to sleep [occ:2, story:story_9]
 - `W00039`: **手紙** (てがみ) — letter, note [occ:3, story:story_10]
-- `W00040`: **来ます** (きます) — to come, to arrive [occ:4, story:story_10]
+- `W00040`: **来ます** (きます) — to come, to arrive [occ:5, story:story_10]
 - `W00041`: **待ちます** (まちます) — to wait [occ:3, story:story_10]
 - `W00042`: **昨日** (きのう) — yesterday [occ:3, story:story_11]
 - `W00043`: **思います** (おもいます) — to think [occ:2, story:story_12]
-- `W00044`: **あります** (あります) — to exist (inanimate), to be (inanimate) [occ:4, story:story_7]
-- `W00045`: **そば** (そば) — side, near [occ:1, story:story_13]
+- `W00044`: **あります** (あります) — to exist (inanimate), to be (inanimate) [occ:5, story:story_7]
+- `W00045`: **そば** (そば) — side, near [occ:2, story:story_13]
 - `W00046`: **明日** (あした) — tomorrow [occ:2, story:story_14]
 - `W00047`: **空** (そら) — sky [occ:1, story:story_15]
 - `W00048`: **作ります** (つくります) — to make, to prepare [occ:1, story:story_16]
 - `W00049`: **パン** (パン) — bread [occ:1, story:story_16]
-- `W00050`: **一緒に** (いっしょに) — together [occ:1, story:story_16]
+- `W00050`: **一緒に** (いっしょに) — together [occ:2, story:story_16]
+- `W00051`: **子供** (こども) — child [occ:1, story:story_17]
+- `W00052`: **ベンチ** (ベンチ) — bench [occ:1, story:story_17]
+- `W00053`: **笑います** (わらいます) — to smile, to laugh [occ:1, story:story_17]
 
 ## Learner's current grammar (20 points)
 
@@ -84,17 +87,17 @@ Read everything below carefully. Output **only** the JSON object — no prose.
 ## Words most in need of reinforcement (occurrences < 5)
 
 - `W00023`: **散歩** (さんぽ) — walk [occ:1]
-- `W00045`: **そば** (そば) — side [occ:1]
 - `W00047`: **空** (そら) — sky [occ:1]
 - `W00049`: **パン** (パン) — bread [occ:1]
 - `W00048`: **作ります** (つくります) — to make, to prepare [occ:1]
-- `W00050`: **一緒に** (いっしょに) — together [occ:1]
+- `W00051`: **子供** (こども) — child [occ:1]
+- `W00052`: **ベンチ** (ベンチ) — bench [occ:1]
+- `W00053`: **笑います** (わらいます) — to smile, to laugh [occ:1]
 - `W00008`: **濡れる** (ぬれる) — to get wet [occ:2]
-- `W00018`: **夕方** (ゆうがた) — evening [occ:2]
 
 ---
 
-## Difficulty policy for story 17
+## Difficulty policy for story 18
 
 - Introduce exactly **3** new words.
 - Optionally introduce at most **1** new grammar point(s). Zero is fine.
@@ -119,8 +122,8 @@ Read everything below carefully. Output **only** the JSON object — no prose.
 
 ## Next available word ID
 
-The next sequential word ID is: **W00051**
-(assign new IDs from here upward: W00051, W00052, W00053, …)
+The next sequential word ID is: **W00054**
+(assign new IDs from here upward: W00054, W00055, W00056, …)
 
 ---
 
@@ -130,7 +133,7 @@ Produce this exact JSON object:
 
 ```json
 {
-  "story_id": 17,
+  "story_id": 18,
   "target_word_count": 23,
   "max_sentences": 10,
   "new_words": ["<id1>", "<id2>", "<id3>"],
