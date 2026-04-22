@@ -8,7 +8,8 @@
         "t": "古い",
         "r": "ふるい",
         "word_id": "W00067",
-        "role": "content"
+        "role": "content",
+        "grammar_id": "G023_attributive"
       },
       {
         "t": "本",
@@ -37,7 +38,8 @@
         "t": "新しい",
         "r": "あたらしい",
         "word_id": "W00066",
-        "role": "content"
+        "role": "content",
+        "grammar_id": "G023_attributive"
       },
       {
         "t": "朝",
@@ -53,7 +55,8 @@
         "t": "二人",
         "r": "ふたり",
         "word_id": "W00035",
-        "role": "content"
+        "role": "content",
+        "grammar_id": "G025_counters"
       },
       {
         "t": "で",
@@ -68,7 +71,9 @@
     "W00067",
     "W00068"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G023_attributive"
+  ],
   "all_words_used": [
     "W00067",
     "W00033",
@@ -117,7 +122,9 @@
           "r": "ふるい",
           "word_id": "W00067",
           "role": "content",
-          "is_new": true
+          "is_new": true,
+          "grammar_id": "G023_attributive",
+          "is_new_grammar": true
         },
         {
           "t": "本",
@@ -139,7 +146,8 @@
             "base_r": "ある",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -168,7 +176,8 @@
           "t": "二人",
           "r": "ふたり",
           "word_id": "W00035",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G025_counters"
         },
         {
           "t": "で",
@@ -200,7 +209,8 @@
             "base_r": "よむ",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -218,7 +228,8 @@
           "t": "古い",
           "r": "ふるい",
           "word_id": "W00067",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "本",
@@ -256,7 +267,8 @@
             "base_r": "ある",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -367,7 +379,8 @@
             "base_r": "わらう",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -386,7 +399,8 @@
           "r": "あたらしい",
           "word_id": "W00066",
           "role": "content",
-          "is_new": true
+          "is_new": true,
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "本",
@@ -423,7 +437,8 @@
             "base_r": "ある",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -441,7 +456,8 @@
           "t": "二人",
           "r": "ふたり",
           "word_id": "W00035",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G025_counters"
         },
         {
           "t": "で",
@@ -456,7 +472,8 @@
           "t": "新しい",
           "r": "あたらしい",
           "word_id": "W00066",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "本",
@@ -479,7 +496,8 @@
             "base_r": "よむ",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -497,7 +515,8 @@
           "t": "古い",
           "r": "ふるい",
           "word_id": "W00067",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "写真",
@@ -513,7 +532,8 @@
           "t": "新しい",
           "r": "あたらしい",
           "word_id": "W00066",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "本",
@@ -537,7 +557,8 @@
           "t": "二人",
           "r": "ふたり",
           "word_id": "W00035",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G025_counters"
         },
         {
           "t": "の",
@@ -563,7 +584,8 @@
           "t": "温かい",
           "r": "あたたかい",
           "word_id": "W00012",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",

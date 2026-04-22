@@ -8,7 +8,8 @@
         "t": "一人",
         "r": "ひとり",
         "word_id": "W00065",
-        "role": "content"
+        "role": "content",
+        "grammar_id": "G025_counters"
       },
       {
         "t": "の",
@@ -31,7 +32,8 @@
         "t": "悲しい",
         "r": "かなしい",
         "word_id": "W00076",
-        "role": "content"
+        "role": "content",
+        "grammar_id": "G023_attributive"
       },
       {
         "t": "朝",
@@ -68,7 +70,9 @@
     "W00076",
     "W00077"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G025_counters"
+  ],
   "all_words_used": [
     "W00065",
     "W00075",
@@ -174,7 +178,8 @@
             "base_r": "でる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -207,7 +212,9 @@
           "t": "一人",
           "r": "ひとり",
           "word_id": "W00065",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G025_counters",
+          "is_new_grammar": true
         },
         {
           "t": "です",
@@ -245,7 +252,8 @@
           "t": "古い",
           "r": "ふるい",
           "word_id": "W00067",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "写真",
@@ -267,7 +275,8 @@
             "base_r": "ある",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -356,7 +365,8 @@
           "r": "かなしい",
           "word_id": "W00076",
           "role": "content",
-          "is_new": true
+          "is_new": true,
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -449,7 +459,8 @@
             "base_r": "でる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -467,7 +478,8 @@
           "t": "悲しい",
           "r": "かなしい",
           "word_id": "W00076",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "朝",

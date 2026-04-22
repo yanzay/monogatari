@@ -1,0 +1,604 @@
+{
+  "story_id": 31,
+  "title": {
+    "jp": "友達の電話",
+    "en": "The Friend's Phone Call",
+    "tokens": [
+      {
+        "t": "友達",
+        "r": "ともだち",
+        "word_id": "W00022",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "電話",
+        "r": "でんわ",
+        "word_id": "W00093",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "家族について話します",
+    "en": "Talking about family",
+    "tokens": [
+      {
+        "t": "家族",
+        "r": "かぞく",
+        "word_id": "W00088",
+        "role": "content"
+      },
+      {
+        "t": "について",
+        "grammar_id": "G027_ni_tsuite",
+        "role": "particle"
+      },
+      {
+        "t": "話します",
+        "r": "はなします",
+        "word_id": "W00094",
+        "role": "content",
+        "inflection": {
+          "base": "話す",
+          "base_r": "はなす",
+          "form": "polite_nonpast",
+          "verb_class": "godan"
+        },
+        "grammar_id": "G026_masu_nonpast"
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00093",
+    "W00094"
+  ],
+  "new_grammar": [
+    "G027_ni_tsuite"
+  ],
+  "all_words_used": [
+    "W00022",
+    "W00093",
+    "W00088",
+    "W00094",
+    "W00001",
+    "W00040",
+    "W00003",
+    "W00009",
+    "W00010",
+    "W00089",
+    "W00058",
+    "W00090",
+    "W00059",
+    "W00091",
+    "W00044",
+    "W00043",
+    "W00046",
+    "W00039",
+    "W00060",
+    "W00011",
+    "W00015",
+    "W00012"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "gloss_en": "This morning, the phone rings.",
+      "tokens": [
+        {
+          "t": "今朝",
+          "r": "けさ",
+          "word_id": "W00001",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "電話",
+          "r": "でんわ",
+          "word_id": "W00093",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "来ます",
+          "r": "きます",
+          "word_id": "W00040",
+          "role": "content",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_31/s0.wav",
+      "audio_hash": "23cf2bc904cc"
+    },
+    {
+      "idx": 1,
+      "gloss_en": "It's the friend.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_31/s1.wav",
+      "audio_hash": "4399b0bf373f"
+    },
+    {
+      "idx": 2,
+      "gloss_en": "I drink tea, and I talk with the friend.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "word_id": "W00009",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "飲みます",
+          "r": "のみます",
+          "word_id": "W00010",
+          "role": "content",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_31/s2.wav",
+      "audio_hash": "27b769a8aec7"
+    },
+    {
+      "idx": 3,
+      "gloss_en": "The friend talks.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "話します",
+          "r": "はなします",
+          "word_id": "W00094",
+          "role": "content",
+          "is_new": true,
+          "inflection": {
+            "base": "話す",
+            "base_r": "はなす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_31/s3.wav",
+      "audio_hash": "f17dfc90dd52"
+    },
+    {
+      "idx": 4,
+      "gloss_en": "[She] talks about [her] mother.",
+      "tokens": [
+        {
+          "t": "母",
+          "r": "はは",
+          "word_id": "W00089",
+          "role": "content"
+        },
+        {
+          "t": "について",
+          "grammar_id": "G027_ni_tsuite",
+          "role": "particle",
+          "is_new_grammar": true
+        },
+        {
+          "t": "話します",
+          "r": "はなします",
+          "word_id": "W00094",
+          "role": "content",
+          "inflection": {
+            "base": "話す",
+            "base_r": "はなす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_31/s4.wav",
+      "audio_hash": "752a691bc8aa"
+    },
+    {
+      "idx": 5,
+      "gloss_en": "Mother is well.",
+      "tokens": [
+        {
+          "t": "母",
+          "r": "はは",
+          "word_id": "W00089",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "元気",
+          "r": "げんき",
+          "word_id": "W00058",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_31/s5.wav",
+      "audio_hash": "5b2893dad27c"
+    },
+    {
+      "idx": 6,
+      "gloss_en": "I talk about the autumn garden.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "秋",
+          "r": "あき",
+          "word_id": "W00090",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "庭",
+          "r": "にわ",
+          "word_id": "W00059",
+          "role": "content"
+        },
+        {
+          "t": "について",
+          "grammar_id": "G027_ni_tsuite",
+          "role": "particle"
+        },
+        {
+          "t": "話します",
+          "r": "はなします",
+          "word_id": "W00094",
+          "role": "content",
+          "inflection": {
+            "base": "話す",
+            "base_r": "はなす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_31/s6.wav",
+      "audio_hash": "f7ddb2ab7216"
+    },
+    {
+      "idx": 7,
+      "gloss_en": "There are leaves in the garden.",
+      "tokens": [
+        {
+          "t": "庭",
+          "r": "にわ",
+          "word_id": "W00059",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "葉",
+          "r": "は",
+          "word_id": "W00091",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "あります",
+          "r": "あります",
+          "word_id": "W00044",
+          "role": "content",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_31/s7.wav",
+      "audio_hash": "d394bc015ddd"
+    },
+    {
+      "idx": 8,
+      "gloss_en": "I think the friend is well.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "元気",
+          "r": "げんき",
+          "word_id": "W00058",
+          "role": "content"
+        },
+        {
+          "t": "だ",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G014_to_omoimasu",
+          "role": "particle"
+        },
+        {
+          "t": "思います",
+          "r": "おもいます",
+          "word_id": "W00043",
+          "role": "content",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_31/s8.wav",
+      "audio_hash": "7e44153ac1fd"
+    },
+    {
+      "idx": 9,
+      "gloss_en": "Tomorrow, I'll write a letter.",
+      "tokens": [
+        {
+          "t": "明日",
+          "r": "あした",
+          "word_id": "W00046",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "手紙",
+          "r": "てがみ",
+          "word_id": "W00039",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "書きます",
+          "r": "かきます",
+          "word_id": "W00060",
+          "role": "content",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_31/s9.wav",
+      "audio_hash": "d557f79e4045"
+    },
+    {
+      "idx": 10,
+      "gloss_en": "It's a quiet morning.",
+      "tokens": [
+        {
+          "t": "静か",
+          "r": "しずか",
+          "word_id": "W00011",
+          "role": "content"
+        },
+        {
+          "t": "な",
+          "grammar_id": "G016_na_adjective",
+          "role": "particle"
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "word_id": "W00015",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_31/s10.wav",
+      "audio_hash": "c645bc0d361b"
+    },
+    {
+      "idx": 11,
+      "gloss_en": "I drink the warm tea.",
+      "tokens": [
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "word_id": "W00012",
+          "role": "content",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "word_id": "W00009",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "飲みます",
+          "r": "のみます",
+          "word_id": "W00010",
+          "role": "content",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_31/s11.wav",
+      "audio_hash": "1c92227ea006"
+    }
+  ],
+  "word_audio": {
+    "W00093": "audio/story_31/w_W00093.wav",
+    "W00094": "audio/story_31/w_W00094.wav"
+  },
+  "checksum": null,
+  "word_audio_hash": {
+    "W00093": "5154b7cf78ed",
+    "W00094": "bcaa051f1894"
+  }
+}

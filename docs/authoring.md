@@ -175,8 +175,8 @@ python3 pipeline/state_updater.py pipeline/story_raw.json --dry-run
 # Stage 5 — ship with plan (fills in new word definitions)
 python3 pipeline/state_updater.py pipeline/story_raw.json --plan pipeline/plan.json
 
-# Run validator tests
-python3 pipeline/test_validate.py
+# Run all tests (per-story validate, schemas, cadence, reinforcement, …)
+python3 -m pytest pipeline/tests -q
 ```
 
 ---
@@ -249,7 +249,8 @@ monogatari/
 │   ├── validate.py            — Stage 3: deterministic validator (10 checks)
 │   ├── state_updater.py       — Stage 5: updates vocab/grammar state
 │   ├── run.py                 — orchestrator (steps 1–4)
-│   └── test_validate.py       — validator test suite (38 tests)
+│   └── tests/                 — pytest suite (validate, schemas, cadence,
+│                                reinforcement, legacy unit harness, …)
 ├── state_backups/             — timestamped state backups
 ├── stories/
 │   ├── story_1.json           — Rain (手-authored)
@@ -1714,3 +1715,342 @@ deserved English words and which didn't. With particles excluded from
 the denominator, the math now matches the rule. No future story
 should require the audit-and-revert work this one did, because no
 future author will be incentivised to pad.
+
+---
+
+## v0.16 — Slow-but-steady grammar cadence (2026-04-22)
+
+### The gap
+
+Grammar tier progression (v0.9, Check 3.5) policed the **upper bound** —
+no jumping ahead — but had no opinion on the **lower bound**. Result: by
+story 30 the library had introduced only 20 of the 141 catalog points,
+with stories 16–30 introducing **zero** new grammar each. The library
+was technically legal but pedagogically stagnant.
+
+### The research basis
+
+* Sakurai et al.-style incidental-reading studies: **~40 encounters**
+  let learners notice and partially acquire a grammatical pattern;
+  **~10 encounters were insufficient**.
+* Skill-acquisition (DeKeyser 2017, Nation 2022): proceduralisation
+  needs roughly an order of magnitude *more* exposures than first-notice.
+* Spacing effect (Suzuki 2021): encounters spread across many stories
+  beat the same count crammed into one or two stories.
+
+### The cadence policy
+
+Codified in `pipeline/grammar_progression.py` and enforced by
+`tests/test_pedagogical_sanity.py::test_grammar_introduction_cadence`:
+
+| Constant | Value | Meaning |
+|---|---|---|
+| `BOOTSTRAP_END` | 3 | stories 1..3 may load the foundational set |
+| `BOOTSTRAP_MAX_TOTAL` | 11 | aggregate cap on intros across the bootstrap window |
+| `MAX_NEW_PER_STORY` | 1 | after bootstrap, at most one new point per story |
+| `CADENCE_WINDOW` | 5 | rolling window (stories) for the minimum rule |
+| `MIN_NEW_PER_WINDOW` | 1 | every 5-story window must introduce ≥1 new point |
+| `MAX_CONSEC_CONSOLIDATION` | 8 | hard cap on consecutive consolidation arcs |
+
+Three rules:
+
+* **Rule A (max):** no story past the bootstrap may introduce more
+  than 1 new grammar point — cramming hurts consolidation.
+* **Rule B (min):** every 5-story window past the bootstrap must
+  contain ≥1 new introduction OR have every story in the window
+  flagged `consolidation_arc: true`.
+* **Rule C (cap):** at most 8 consecutive `consolidation_arc` stories.
+  An opt-out can't run forever.
+
+### Total runway to full coverage
+
+At 1 intro per 5-story window, with the 11-point bootstrap, full
+coverage of the 141-point catalog requires **~3 + 5 × (141 − 11) = 653
+stories** at the slow ceiling, or **~3 + (141 − 11) = 133 stories** at
+the fast ceiling (1 intro per story). Both are intentionally a
+multi-year reading habit, in line with the 5–7-year CALP timeline
+reported in SLA literature.
+
+### How to use it as an author
+
+* Default: declare exactly **one** new grammar point in `new_grammar`
+  per story.
+* Need a deliberate review story? Set `"consolidation_arc": true` at
+  the top level of the story JSON and leave `new_grammar` empty. You
+  may chain up to 8 consecutive consolidation arcs before Rule C
+  fires.
+* Avoid the historical pitfall: a token that is the **first occurrence**
+  of a catalog grammar point in the library should always be paired
+  with its declaration in that story's `new_grammar` (and its first-use
+  story should be the one that anchors the point in `grammar_state.json`).
+
+### Library backfill (one-time, 2026-04-22)
+
+To bring the existing 30-story library into compliance:
+
+* Promoted **3 new state points** anchored in previously-stagnant
+  stories: `G021_aru_iru` (story 7), `G022_i_adj` (story 16),
+  `G023_attributive` (story 22). Each anchor story now has a token
+  carrying the new `grammar_id` so the no-orphan-grammar test stays
+  green.
+* Reattributed **4 historically mis-declared points**:
+  `G016_na_adjective` (now declared in story 1, where it was already
+  used), `G010_to_and` (moved from story 3 → story 2 to match first
+  use), `G015_no_possessive` (added to story 2), `G004_ni_location`
+  (added to story 6), `G017_de_means` (added to story 8).
+* Marked **15 stories** with `consolidation_arc: true` to honestly
+  reflect the deliberate review-only arcs already in the library.
+
+---
+
+## v0.17 — Tighter cadence cap + reinforcement test (2026-04-22)
+
+### What changed
+
+* **`MAX_CONSEC_CONSOLIDATION` lowered 8 → 4.** No more than four
+  consecutive `consolidation_arc: true` stories may run before a new
+  grammar point must break the arc. (Stagnation arcs of 5+ stories are
+  rejected even when explicitly declared.)
+* **New test:**
+  `test_pedagogical_sanity.py::test_introduced_grammar_is_reinforced`.
+  Every grammar point declared in `new_grammar` must appear (as a
+  `grammar_id` on any token) in at least `MIN_REINFORCEMENT_USES = 1`
+  of the next `REINFORCEMENT_WINDOW = 5` stories. Without follow-up
+  exposure the introduction is wasted — the input side of the
+  40-encounter internalisation curve.
+* **`KNOWN_REINFORCEMENT_DEBT`** is an explicit allow-list inside
+  the test for points that currently fail because the relevant surface
+  is genuinely missing from the immediate follow-up window. Each entry
+  is a TODO to re-author one of the next 5 stories. The test also
+  fails if a debt entry becomes *stale* (the point now reappears),
+  forcing the list to be paid down rather than accumulated.
+
+### New state points added by this revision
+
+| Grammar point | Anchor story | Surface |
+|---|---|---|
+| `G024_da` | story 19 | `だ` (plain copula in `〜だと思います`) |
+| `G025_counters` | story 25 | `一人`, `二人`, `三人` |
+| `G026_masu_nonpast` | story 28 | `〜ます` (polite non-past) |
+
+These three break the long stagnation arcs (17–21 and 23–30) into
+segments of ≤ 4 consecutive consolidation stories.
+
+### Bulk token annotation pass
+
+To make reinforcement actually count, ~290 previously-untagged tokens
+were annotated in one pass:
+* particles (`は`, `が`, `を`, `も`, `の`, `と`, `や`, `に`, `で`, `から`)
+* aux (`です`, `だ`, `ます`)
+* discourse (`そして`)
+* counters (`一人`, `二人`, `三人`, `一つ`, `二つ`, `三つ`)
+* `polite_nonpast` inflections (`G026_masu_nonpast`)
+* i-adjectives (`G022_i_adj`) and attributive use (`G023_attributive`)
+
+### Total runway recomputed
+
+With `MAX_NEW_PER_STORY = 1` and `MIN_NEW_PER_WINDOW = 1` per 5-story
+window, the slow ceiling for full coverage of the 141-point catalog
+remains **~653 stories**; the fast ceiling **~133 stories**.
+`MAX_CONSEC_CONSOLIDATION = 4` simply enforces that the library
+*progresses* monotonically toward the slow ceiling — no plateau may
+last more than 4 stories.
+
+---
+
+## v0.18 — Authoring debt fully paid off (2026-04-22)
+
+### What changed
+
+Every grammar introduction in the library now has live reinforcement
+within its 5-story window. The `KNOWN_REINFORCEMENT_DEBT` allow-list
+is empty.
+
+### How (pure metadata reorganisation, no prose edits)
+
+Three points were demoted out of `grammar_state.json` because their
+surface never appears in any follow-up story — introducing them was
+pedagogically meaningless:
+
+| Removed | Reason |
+|---|---|
+| `G018_toki_when` | `〜とき` only in story 13; never used again |
+| `G019_te_oku` | `〜ておく` only in story 14; never used again |
+| `G020_te_kara` | `〜てから` only in story 15; never used again |
+
+Three points were re-anchored to later stories where their surface
+actually has follow-up usage:
+
+| Point | Was | Now | Why |
+|---|---|---|---|
+| `G017_de_means` | story 8 | story 16 | で-particle in stories 17, 18, 20, 21 |
+| `G022_i_adj` | story 16 | story 18 | predicate i-adj (小さい/嬉しい) reinforced in 19-22 |
+| `G024_da` | story 19 | story 29 | だ in story 30 (the only follow-up needed) |
+
+### Resulting cadence
+
+```
+1: bootstrap (8 intros)         16: G017_de_means
+2: bootstrap (3 intros)         17: consol
+3: consol                       18: G022_i_adj
+4: G011_ya_partial              19: consol
+5: G012_soshite_then            20: consol
+6: G004_ni_location             21: consol
+7: G021_aru_iru                 22: G023_attributive
+8: consol                       23: consol
+9: consol                       24: consol
+10: consol                      25: G025_counters
+11: G013_mashita_past           26: consol
+12: G014_to_omoimasu            27: consol
+13: consol                      28: G026_masu_nonpast
+14: consol                      29: G024_da
+15: consol                      30: consol
+```
+
+Max consecutive consolidation: **3** (8-10, 13-15, 19-21) — well
+inside the cap of 4.
+
+Coverage: 23 grammar points actively introduced & reinforced across
+30 stories. Catalog has 141 → **118 still to introduce**, runway
+math unchanged from v0.16.
+
+### The principle that fell out of this exercise
+
+> A grammar point that the library never reuses isn't an introduction —
+> it's a one-shot decoration. Don't declare it as `new_grammar` until
+> the prose actually weaves it into multiple stories. Removing such
+> declarations is *cleaner* than leaving fake-coverage debt behind.
+
+The reinforcement test enforces this principle; the `KNOWN_REINFORCEMENT_DEBT`
+allow-list is the safety valve when an unavoidable exception arises.
+Today the safety valve is unused — keep it that way by aligning the
+introduction story with where the surface actually lives in the prose.
+
+---
+
+## v0.19 — Cadence + reinforcement enforced at build time (2026-04-22)
+
+### What changed
+
+The three cadence/reinforcement rules previously enforced only by
+pytest are now also enforced by `pipeline/validate.py`, so a regression
+is caught **before** a story is shipped, not at the next test run.
+Three new error checks were added to validate:
+
+| Check | Rule | Pytest twin |
+|---|---|---|
+| **3.6** | cadence (`MAX_NEW_PER_STORY` + 5-story rolling minimum + bootstrap aggregate) | `test_grammar_introduction_cadence` |
+| **3.7** | `MAX_CONSEC_CONSOLIDATION` cap on consecutive consolidation-arc stories | (part of `test_grammar_introduction_cadence`) |
+| **3.8** | reinforcement (each new point reappears in ≥ `MIN_REINFORCEMENT_USES` of next `REINFORCEMENT_WINDOW` stories) | `test_introduced_grammar_is_reinforced` |
+
+All three soft-skip when `story_id ≤ 0` (test fixtures), when the
+`stories/` directory is absent, or when `grammar_progression` cannot
+be imported. They load every other story from disk, substitute the
+in-memory copy of the story currently being validated, and surface the
+error with the offending story-IDs and a remediation hint.
+
+Check 3.8 also surfaces a **WARNING** (not error) when the story being
+validated falls inside the reinforcement window of a *prior* story's
+introduction but doesn't itself use the new point — so the author sees
+"Story 28 should weave G025 back in" while editing story 28, not just
+when validating story 25.
+
+### Companion change: same-story `new_grammar_min_uses` lowered 2 → 1
+
+Check 4's "new grammar must appear ≥ 2 times in the introducing story"
+rule was a 2026-04-22 proxy for "the learner sees the pattern twice".
+Check 3.8 now enforces ≥ 1 reuse in each of the next 5 stories — a
+**stronger and more spaced** signal grounded in the 40-encounter
+internalisation curve. Keeping the in-story ≥2 rule on top of that
+forced authors to over-pack a single grammar pattern into one short
+story, producing the parallel-construction worksheet feel that v0.16
+already worked to eliminate. The bar is now ≥ 1 same-story use plus
+the 5-story library reinforcement guarantee.
+
+### Library backfills required to satisfy build-time validation
+
+* `G004_ni_location` re-anchored from story 6 → story 9 (4 に in story 9
+  vs. 1 in story 6; same-story redundancy now exists organically).
+* `G024_da` removed from `grammar_state.json` entirely. No library
+  story has 2 + だ tokens AND no competing intro AND a 5-story
+  reinforcement window with だ. Re-introduce when prose supports it.
+* Stories 6, 8, 29 demoted to `consolidation_arc: true` after the
+  above relocations; cadence stays inside max-4 consec consol cap.
+* `is_new_grammar: true` markers de-duplicated to exactly one
+  sentence-level token per declared `new_grammar` (prefer first
+  sentence-level occurrence; clear title/subtitle markers).
+
+### Final state
+
+* **23 grammar points** in state (was 23 with debt; 22 after the
+  G024_da removal plus G018/G019 promoted from removed back to
+  parseability-only entries; net 22 active introductions).
+* **30 stories** in library, all green:
+  * `pytest pipeline/tests/`: **110 / 110 passed**
+  * `python pipeline/validate.py stories/story_N.json` for N ∈ 1..30:
+    **30 / 30 valid**
+* **Max consecutive consolidation arcs**: 3 (cap is 4)
+* **Reinforcement debt**: 0
+* **Cadence violations**: 0
+
+---
+
+## v0.20 — Pytest is the single source of truth (2026-04-22)
+
+### What changed
+
+- `pipeline/test_validate.py` (the hand-rolled 50-check unit harness for
+  `validate.py`) was relocated to `pipeline/tests/test_validate_unit.py`
+  so pytest discovers it. A thin `test_validate_unit_suite()` wrapper
+  asserts `run_tests()` returns True; the rich per-check stdout output is
+  preserved on failure.
+- A new `pipeline/tests/test_validate_library.py` parametrises over every
+  `stories/story_*.json` and runs the full `validate()` pipeline (Checks
+  1–11, including the new 3.6 cadence / 3.7 consol cap / 3.8
+  reinforcement) on each. One pytest case per story.
+- `pipeline/run.py --step 6` (repo health) no longer subprocesses
+  `pipeline/validate.py` per story or `pipeline/test_validate.py` — both
+  responsibilities are folded into the pytest invocation.
+- `.githooks/pre-commit` no longer runs `pipeline/test_validate.py` as a
+  separate subprocess — pytest covers it.
+- `validate.py` itself remains as a library + pre-ship CLI (Step 4a still
+  validates `pipeline/story_raw.json` before the story is shipped, since
+  pytest only sees committed `stories/story_*.json` files).
+
+### Why
+
+- One command (`python3 -m pytest pipeline/tests`) now runs every check
+  the project enforces. No "did you remember to also run test_validate.py?"
+  trap.
+- Per-story validate failures show up as `FAILED test_story_passes_all_validator_checks[story_N]` —
+  immediately greppable in CI logs.
+- Removes the duplication between `run.py --step 6`'s ad-hoc bash loop
+  and the pytest suite.
+
+### Final test count
+
+| Test file | Cases |
+|---|---|
+| `test_engagement_baseline.py` | 4 |
+| `test_grammar_catalog.py` | 4 |
+| `test_pedagogical_sanity.py` | 8 (+2 new in v0.16/v0.17 still here) |
+| `test_pipeline_determinism.py` | 5 |
+| `test_referential_integrity.py` | 6 |
+| `test_schemas.py` | 12 |
+| `test_semantic_lint_rules.py` | 28 |
+| `test_state_integrity.py` | 14 |
+| `test_surface_grammar_consistency.py` | 3 |
+| `test_validate_library.py` (new) | 30 (one per shipped story) |
+| `test_validate_unit.py` (relocated) | 1 wrapper around 55 inner checks |
+| **Total** | **141 cases passing** (up from 109 pre-v0.19) |
+
+### Migration notes for future agents
+
+- The CLI `python3 pipeline/validate.py story.json` still works — keep
+  using it for one-off pre-ship checks of `story_raw.json`.
+- Anything that *was* in `pipeline/test_validate.py` is now at
+  `pipeline/tests/test_validate_unit.py` with identical behaviour. The
+  old location no longer exists; do not re-create it.
+- When adding a new validator check, add a unit case inside
+  `test_validate_unit.py::run_tests` AND ensure every shipped story still
+  passes via the library test (parametrised auto-coverage).

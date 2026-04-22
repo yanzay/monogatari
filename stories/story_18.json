@@ -42,7 +42,8 @@
         "t": "小さい",
         "r": "ちいさい",
         "word_id": "W00055",
-        "role": "content"
+        "role": "content",
+        "grammar_id": "G023_attributive"
       },
       {
         "t": "鳥",
@@ -58,7 +59,9 @@
     "W00055",
     "W00056"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G022_i_adj"
+  ],
   "all_words_used": [
     "W00002",
     "W00054",
@@ -170,7 +173,8 @@
             "base_r": "みる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -204,7 +208,8 @@
           "r": "ちいさい",
           "word_id": "W00055",
           "role": "content",
-          "is_new": true
+          "is_new": true,
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "鳥",
@@ -227,7 +232,8 @@
             "base_r": "いる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -245,7 +251,8 @@
           "t": "小さい",
           "r": "ちいさい",
           "word_id": "W00055",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "鳥",
@@ -403,7 +410,8 @@
             "base_r": "ある",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -421,7 +429,8 @@
           "t": "温かい",
           "r": "あたたかい",
           "word_id": "W00012",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "お茶",
@@ -444,7 +453,8 @@
             "base_r": "のむ",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -474,7 +484,9 @@
           "r": "うれしい",
           "word_id": "W00056",
           "role": "content",
-          "is_new": true
+          "is_new": true,
+          "grammar_id": "G022_i_adj",
+          "is_new_grammar": true
         },
         {
           "t": "です",
@@ -497,7 +509,8 @@
           "t": "嬉しい",
           "r": "うれしい",
           "word_id": "W00056",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "、",

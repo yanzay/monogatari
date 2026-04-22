@@ -116,7 +116,8 @@
             "base_r": "くる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -167,7 +168,8 @@
             "base_r": "あける",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -211,7 +213,8 @@
           "t": "温かい",
           "r": "あたたかい",
           "word_id": "W00012",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -265,7 +268,8 @@
             "base_r": "ある",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -315,7 +319,8 @@
             "base_r": "あける",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -365,7 +370,8 @@
             "base_r": "たべる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -444,7 +450,8 @@
           "r": "ながい",
           "word_id": "W00074",
           "role": "content",
-          "is_new": true
+          "is_new": true,
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -467,7 +474,8 @@
           "t": "長い",
           "r": "ながい",
           "word_id": "W00074",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "春",
@@ -494,7 +502,8 @@
           "t": "温かい",
           "r": "あたたかい",
           "word_id": "W00012",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "朝",
@@ -521,5 +530,6 @@
     "W00072": "b3c33b7abaf0",
     "W00073": "02d2300d4ce0",
     "W00074": "e0d1f089aa4c"
-  }
+  },
+  "consolidation_arc": true
 }

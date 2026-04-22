@@ -98,7 +98,8 @@
           "t": "います",
           "r": "います",
           "role": "content",
-          "word_id": "W00029"
+          "word_id": "W00029",
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -138,7 +139,8 @@
           "t": "あります",
           "r": "あります",
           "role": "content",
-          "word_id": "W00044"
+          "word_id": "W00044",
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -184,7 +186,8 @@
             "base_r": "よむ",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -224,8 +227,7 @@
         {
           "t": "とき",
           "role": "particle",
-          "grammar_id": "G018_toki_when",
-          "is_new_grammar": true
+          "grammar_id": "G018_toki_when"
         },
         {
           "t": "、",
@@ -302,7 +304,8 @@
           "t": "います",
           "r": "います",
           "role": "content",
-          "word_id": "W00029"
+          "word_id": "W00029",
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -357,7 +360,8 @@
             "base_r": "みる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -385,7 +389,8 @@
         {
           "t": "いい",
           "role": "content",
-          "word_id": "W00013"
+          "word_id": "W00013",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "友達",
@@ -413,7 +418,8 @@
             "base_r": "おもう",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -501,13 +507,12 @@
   "new_words": [
     "W00045"
   ],
-  "new_grammar": [
-    "G018_toki_when"
-  ],
+  "new_grammar": [],
   "word_audio": {
     "W00045": "audio/story_13/w_W00045.mp3"
   },
   "word_audio_hash": {
     "W00045": "a7dbc110c61b"
-  }
+  },
+  "consolidation_arc": true
 }

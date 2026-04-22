@@ -95,16 +95,25 @@ calls without billing.
 
 ## Validation
 
-```bash
-# Story validator (per shipped story file)
-python3 pipeline/validate.py stories/story_3.json \
-  --vocab data/vocab_state.json --grammar data/grammar_state.json
+As of v0.20 (2026-04-22), pytest is the **single source of truth** for all
+checks (per-story validate, schemas, state integrity, surface↔grammar
+consistency, semantic-lint, pedagogical cadence + reinforcement, the legacy
+unit harness for `validate.py`, and more).
 
-# State validator (catches placeholder / scaffold entries)
+```bash
+# All checks (~141 tests, runs the full validate.py per shipped story plus
+# every other invariant the project enforces).
+python3 -m pytest pipeline/tests -q
+
+# State validator (still a separate one-shot CLI; operates on raw vocab/
+# grammar state files outside the story corpus).
 python3 pipeline/validate_state.py
 
-# Internal test suite (44 tests covering all 10 validator checks)
-python3 pipeline/test_validate.py
+# Single-story validator (still useful for pre-ship of an in-progress
+# story_raw.json that pytest has not yet seen on disk; pytest only
+# discovers shipped stories).
+python3 pipeline/validate.py pipeline/story_raw.json \
+  --vocab data/vocab_state.json --grammar data/grammar_state.json
 ```
 
 ## Repository layout
@@ -125,7 +134,10 @@ state_backups/                automatic backup before each ship
 pipeline/
   planner.py / planner_prompt.md
   writer.py  / writer_prompt.md
-  validate.py / validate_state.py / test_validate.py
+  validate.py                 — single-story validator (used pre-ship and by pytest)
+  validate_state.py           — vocab/grammar state-file validator (CLI only)
+  tests/                      — pytest suite (per-story validate, schemas,
+                                cadence/reinforcement, legacy unit harness, …)
   state_updater.py
   audio_builder.py
   run.py                      orchestrator (steps 1–4)

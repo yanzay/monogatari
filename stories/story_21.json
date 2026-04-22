@@ -31,7 +31,8 @@
         "t": "一人",
         "r": "ひとり",
         "word_id": "W00065",
-        "role": "content"
+        "role": "content",
+        "grammar_id": "G025_counters"
       },
       {
         "t": "の",
@@ -138,7 +139,8 @@
           "r": "ひとり",
           "word_id": "W00065",
           "role": "content",
-          "is_new": true
+          "is_new": true,
+          "grammar_id": "G025_counters"
         },
         {
           "t": "で",
@@ -155,7 +157,8 @@
             "base_r": "かえる",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -239,7 +242,8 @@
             "base_r": "ある",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -288,7 +292,8 @@
             "base_r": "ある",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -317,7 +322,8 @@
           "t": "大きい",
           "r": "おおきい",
           "word_id": "W00057",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -351,7 +357,8 @@
           "t": "小さい",
           "r": "ちいさい",
           "word_id": "W00055",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -424,7 +431,8 @@
           "t": "一人",
           "r": "ひとり",
           "word_id": "W00065",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G025_counters"
         },
         {
           "t": "の",
@@ -476,5 +484,6 @@
     "W00063": "53058fe2e03c",
     "W00064": "00a9d5bd97c2",
     "W00065": "45b3f27e3a97"
-  }
+  },
+  "consolidation_arc": true
 }

@@ -31,7 +31,8 @@
         "t": "二人",
         "r": "ふたり",
         "role": "content",
-        "word_id": "W00035"
+        "word_id": "W00035",
+        "grammar_id": "G025_counters"
       },
       {
         "t": "で",
@@ -48,7 +49,8 @@
           "base_r": "よむ",
           "form": "polite_nonpast",
           "word_id": "W00034"
-        }
+        },
+        "grammar_id": "G026_masu_nonpast"
       }
     ]
   },
@@ -92,7 +94,8 @@
           "r": "ふたり",
           "role": "content",
           "word_id": "W00035",
-          "is_new": true
+          "is_new": true,
+          "grammar_id": "G025_counters"
         },
         {
           "t": "は",
@@ -114,7 +117,8 @@
           "t": "います",
           "r": "います",
           "role": "content",
-          "word_id": "W00029"
+          "word_id": "W00029",
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -162,7 +166,8 @@
             "base_r": "よむ",
             "form": "polite_nonpast",
             "word_id": "W00034"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -208,7 +213,8 @@
             "base_r": "よむ",
             "form": "polite_nonpast",
             "word_id": "W00034"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -281,7 +287,8 @@
         {
           "t": "いい",
           "role": "content",
-          "word_id": "W00013"
+          "word_id": "W00013",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -324,7 +331,8 @@
           "t": "あります",
           "role": "content",
           "word_id": "W00044",
-          "r": "あります"
+          "r": "あります",
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -342,7 +350,8 @@
           "t": "二人",
           "r": "ふたり",
           "role": "content",
-          "word_id": "W00035"
+          "word_id": "W00035",
+          "grammar_id": "G025_counters"
         },
         {
           "t": "で",
@@ -384,5 +393,6 @@
     "W00033": "83831c3f910c",
     "W00034": "56c0478444db",
     "W00035": "8981f8b72b35"
-  }
+  },
+  "consolidation_arc": true
 }

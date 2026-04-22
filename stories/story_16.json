@@ -8,7 +8,8 @@
         "t": "二人",
         "r": "ふたり",
         "role": "content",
-        "word_id": "W00035"
+        "word_id": "W00035",
+        "grammar_id": "G025_counters"
       },
       {
         "t": "の",
@@ -51,7 +52,9 @@
     "W00049",
     "W00050"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G017_de_means"
+  ],
   "all_words_used": [
     "W00035",
     "W00019",
@@ -106,7 +109,8 @@
             "base_r": "くる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -129,7 +133,8 @@
         {
           "t": "で",
           "role": "particle",
-          "grammar_id": "G017_de_means"
+          "grammar_id": "G017_de_means",
+          "is_new_grammar": true
         },
         {
           "t": "友達",
@@ -152,7 +157,8 @@
             "base_r": "まつ",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -211,7 +217,8 @@
             "base_r": "つくる",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -240,7 +247,8 @@
           "t": "温かい",
           "r": "あたたかい",
           "role": "content",
-          "word_id": "W00012"
+          "word_id": "W00012",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "お茶",
@@ -263,7 +271,8 @@
             "base_r": "つくる",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -281,7 +290,8 @@
           "t": "二人",
           "r": "ふたり",
           "role": "content",
-          "word_id": "W00035"
+          "word_id": "W00035",
+          "grammar_id": "G025_counters"
         },
         {
           "t": "で",
@@ -331,7 +341,8 @@
             "base_r": "たべる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -360,7 +371,8 @@
           "t": "温かい",
           "r": "あたたかい",
           "role": "content",
-          "word_id": "W00012"
+          "word_id": "W00012",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -394,7 +406,8 @@
           "t": "温かい",
           "r": "あたたかい",
           "role": "content",
-          "word_id": "W00012"
+          "word_id": "W00012",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -445,7 +458,8 @@
             "base_r": "たべる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -499,7 +513,8 @@
           "t": "温かい",
           "r": "あたたかい",
           "role": "content",
-          "word_id": "W00012"
+          "word_id": "W00012",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "朝",

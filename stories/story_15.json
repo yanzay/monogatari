@@ -49,9 +49,7 @@
   "new_words": [
     "W00047"
   ],
-  "new_grammar": [
-    "G020_te_kara"
-  ],
+  "new_grammar": [],
   "all_words_used": [
     "W00030",
     "W00047",
@@ -115,7 +113,8 @@
             "base_r": "あるく",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -139,9 +138,7 @@
             "base_r": "あるく",
             "form": "te",
             "verb_class": "godan"
-          },
-          "grammar_id": "G020_te_kara",
-          "is_new_grammar": true
+          }
         },
         {
           "t": "から",
@@ -174,7 +171,8 @@
             "base_r": "みる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -214,7 +212,8 @@
           "t": "あります",
           "r": "あります",
           "role": "content",
-          "word_id": "W00044"
+          "word_id": "W00044",
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -254,7 +253,8 @@
           "t": "あります",
           "r": "あります",
           "role": "content",
-          "word_id": "W00044"
+          "word_id": "W00044",
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -289,8 +289,7 @@
             "base_r": "みる",
             "form": "te",
             "verb_class": "ichidan"
-          },
-          "grammar_id": "G020_te_kara"
+          }
         },
         {
           "t": "から",
@@ -322,7 +321,8 @@
             "base_r": "かえる",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -395,7 +395,8 @@
         {
           "t": "いい",
           "role": "content",
-          "word_id": "W00013"
+          "word_id": "W00013",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -438,7 +439,8 @@
         {
           "t": "いい",
           "role": "content",
-          "word_id": "W00013"
+          "word_id": "W00013",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "気分",
@@ -465,5 +467,6 @@
   },
   "word_audio_hash": {
     "W00047": "2f8267a89ad5"
-  }
+  },
+  "consolidation_arc": true
 }

@@ -31,7 +31,8 @@
         "t": "二人",
         "r": "ふたり",
         "word_id": "W00035",
-        "role": "content"
+        "role": "content",
+        "grammar_id": "G025_counters"
       },
       {
         "t": "の",
@@ -52,7 +53,9 @@
     "W00085",
     "W00086"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G026_masu_nonpast"
+  ],
   "all_words_used": [
     "W00002",
     "W00084",
@@ -111,7 +114,9 @@
             "base_r": "くる",
             "form": "polite_nonpast",
             "verb_class": "irregular"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new_grammar": true
         },
         {
           "t": "。",
@@ -173,7 +178,8 @@
             "base_r": "はいる",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -206,7 +212,8 @@
           "t": "小さい",
           "r": "ちいさい",
           "word_id": "W00055",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -244,7 +251,8 @@
           "t": "温かい",
           "r": "あたたかい",
           "word_id": "W00012",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "パン",
@@ -268,7 +276,8 @@
             "base_r": "かう",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -308,7 +317,8 @@
             "base_r": "すわる",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -347,7 +357,8 @@
             "base_r": "まつ",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -435,7 +446,8 @@
             "base_r": "くる",
             "form": "polite_nonpast",
             "verb_class": "irregular"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -485,7 +497,8 @@
             "base_r": "すわる",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -535,7 +548,8 @@
             "base_r": "かう",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -553,7 +567,8 @@
           "t": "二人",
           "r": "ふたり",
           "word_id": "W00035",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G025_counters"
         },
         {
           "t": "で",
@@ -591,7 +606,8 @@
             "base_r": "のむ",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -630,7 +646,8 @@
           "t": "温かい",
           "r": "あたたかい",
           "word_id": "W00012",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "店",

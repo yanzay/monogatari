@@ -82,13 +82,15 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "G004_ni_location",
+          "is_new_grammar": true
         },
         {
           "t": "います",
           "r": "います",
           "role": "content",
-          "word_id": "W00029"
+          "word_id": "W00029",
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -134,7 +136,8 @@
             "base": "見る",
             "base_r": "みる",
             "form": "polite_nonpast"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -185,7 +188,8 @@
           "t": "います",
           "r": "います",
           "role": "content",
-          "word_id": "W00029"
+          "word_id": "W00029",
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -265,7 +269,8 @@
             "base": "見る",
             "base_r": "みる",
             "form": "polite_nonpast"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -322,7 +327,8 @@
             "base": "寝る",
             "base_r": "ねる",
             "form": "polite_nonpast"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -362,7 +368,8 @@
           "t": "います",
           "r": "います",
           "role": "content",
-          "word_id": "W00029"
+          "word_id": "W00029",
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -378,7 +385,9 @@
     "W00037",
     "W00038"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G004_ni_location"
+  ],
   "all_words_used": [
     "W00015",
     "W00028",

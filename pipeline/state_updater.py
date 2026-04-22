@@ -157,17 +157,24 @@ def update_state(
                 " Add it to plan.new_grammar_definitions (title/short/long required)."
             )
 
-        new_grammar["points"][gid] = {
+        entry = {
             "id":            gid,
             "title":         defn["title"],
             "short":         defn["short"],
             "long":          defn["long"],
-            "genki_ref":     defn.get("genki_ref"),
             "jlpt":          defn.get("jlpt"),
             "catalog_id":    defn.get("catalog_id"),
             "first_story":   first_story_label,
             "prerequisites": list(defn.get("prerequisites", []) or []),
         }
+        # Optional reference fields — only emit when present and non-null;
+        # the JSON schema requires them to be strings, so a `None` from a
+        # missing plan field would break the post-ship schema test.
+        for ref_key in ("genki_ref", "bunpro_ref", "jlpt_sensei_ref", "notes"):
+            ref_val = defn.get(ref_key)
+            if isinstance(ref_val, str) and ref_val:
+                entry[ref_key] = ref_val
+        new_grammar["points"][gid] = entry
         added_grammar.append(gid)
 
     # ── 3. Update metadata ────────────────────────────────────────────────────

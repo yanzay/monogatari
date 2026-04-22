@@ -41,9 +41,7 @@
     "W00020",
     "W00021"
   ],
-  "new_grammar": [
-    "G010_to_and"
-  ],
+  "new_grammar": [],
   "all_words_used": [
     "W00019",
     "W00021",
@@ -112,7 +110,8 @@
           "t": "温かい",
           "r": "あたたかい",
           "word_id": "W00012",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -152,8 +151,7 @@
         {
           "t": "と",
           "grammar_id": "G010_to_and",
-          "role": "particle",
-          "is_new_grammar": true
+          "role": "particle"
         },
         {
           "t": "お茶",
@@ -223,7 +221,8 @@
           "t": "温かい",
           "r": "あたたかい",
           "word_id": "W00012",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -358,7 +357,8 @@
           "t": "いい",
           "r": "いい",
           "word_id": "W00013",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "気分",
@@ -391,5 +391,6 @@
     "W00019": "76693670fecf",
     "W00020": "2fae54ba949d",
     "W00021": "d9ac2c62ddd7"
-  }
+  },
+  "consolidation_arc": true
 }

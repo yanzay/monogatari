@@ -31,7 +31,8 @@
         "t": "大きい",
         "r": "おおきい",
         "word_id": "W00057",
-        "role": "content"
+        "role": "content",
+        "grammar_id": "G023_attributive"
       },
       {
         "t": "空",
@@ -47,7 +48,8 @@
         "t": "小さい",
         "r": "ちいさい",
         "word_id": "W00055",
-        "role": "content"
+        "role": "content",
+        "grammar_id": "G023_attributive"
       },
       {
         "t": "鳥",
@@ -152,7 +154,8 @@
           "t": "温かい",
           "r": "あたたかい",
           "word_id": "W00012",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "パン",
@@ -175,7 +178,8 @@
             "base_r": "つくる",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -208,7 +212,8 @@
           "t": "小さい",
           "r": "ちいさい",
           "word_id": "W00055",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "鳥",
@@ -231,7 +236,8 @@
             "base_r": "くる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -311,7 +317,8 @@
           "r": "おおきい",
           "word_id": "W00057",
           "role": "content",
-          "is_new": true
+          "is_new": true,
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -377,7 +384,8 @@
             "base_r": "おもう",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -428,7 +436,8 @@
             "base_r": "おもう",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -467,7 +476,8 @@
             "base_r": "わらう",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -517,7 +527,8 @@
           "t": "大きい",
           "r": "おおきい",
           "word_id": "W00057",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -543,5 +554,6 @@
     "W00057": "f4d626e791cd",
     "W00058": "7fc6e83611c6",
     "W00059": "81b3ed91bd5c"
-  }
+  },
+  "consolidation_arc": true
 }

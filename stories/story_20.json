@@ -8,7 +8,8 @@
         "t": "寒い",
         "r": "さむい",
         "word_id": "W00062",
-        "role": "content"
+        "role": "content",
+        "grammar_id": "G023_attributive"
       },
       {
         "t": "朝",
@@ -109,7 +110,8 @@
           "r": "さむい",
           "word_id": "W00062",
           "role": "content",
-          "is_new": true
+          "is_new": true,
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -176,7 +178,8 @@
             "base_r": "かく",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -209,7 +212,8 @@
           "t": "温かい",
           "r": "あたたかい",
           "word_id": "W00012",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "手紙",
@@ -232,7 +236,8 @@
             "base_r": "かく",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -294,7 +299,8 @@
             "base_r": "かく",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -344,7 +350,8 @@
             "base_r": "かく",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -373,7 +380,8 @@
           "t": "寒い",
           "r": "さむい",
           "word_id": "W00062",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "、",
@@ -394,7 +402,8 @@
           "t": "温かい",
           "r": "あたたかい",
           "word_id": "W00012",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -464,7 +473,8 @@
             "base_r": "ある",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -493,7 +503,8 @@
           "t": "嬉しい",
           "r": "うれしい",
           "word_id": "W00056",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "と",
@@ -510,7 +521,8 @@
             "base_r": "おもう",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -528,7 +540,8 @@
           "t": "寒い",
           "r": "さむい",
           "word_id": "W00062",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "朝",
@@ -544,7 +557,8 @@
           "t": "温かい",
           "r": "あたたかい",
           "word_id": "W00012",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "手紙",
@@ -576,5 +590,6 @@
     "W00060": "4fa915ccc337",
     "W00061": "7ec26292414b",
     "W00062": "de5aa095ecbe"
-  }
+  },
+  "consolidation_arc": true
 }

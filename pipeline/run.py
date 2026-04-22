@@ -360,35 +360,30 @@ def main() -> None:
     # ── Step 6: Standalone repo-health check ─────────────────────────────────
     if args.step == 6:
         print("\n[Step 6] Repo health check (without authoring a story)…")
+        # v0.20 (2026-04-22) — single source of truth: pytest.
+        # The pytest suite now subsumes:
+        #   * per-story validate.py (test_validate_library.py runs validate()
+        #     on every story_*.json)
+        #   * legacy validate.py unit harness (test_validate_unit.py wraps
+        #     run_tests() into a pytest assertion)
+        #   * cadence + reinforcement (test_pedagogical_sanity.py)
+        #   * schema, state, semantic-lint, surface-grammar, etc.
+        # validate_state.py is still a separate one-shot CLI (it operates on
+        # raw state files outside the story corpus); keep that invocation.
 
         print("\n  • State validator:")
         rc = run([sys.executable, "pipeline/validate_state.py",
                   "--vocab", args.vocab, "--grammar", args.grammar])
         state_ok = (rc == 0)
 
-        print("\n  • Per-story validate (all shipped):")
-        story_failures = []
-        for p in sorted(Path("stories").glob("story_*.json"),
-                        key=lambda p: int(p.stem.split("_")[1])):
-            print(f"      {p.name}…", end=" ", flush=True)
-            res = run([sys.executable, "pipeline/validate.py", str(p),
-                       "--vocab", args.vocab, "--grammar", args.grammar])
-            print("✓" if res == 0 else "✗")
-            if res != 0:
-                story_failures.append(p.name)
-
-        print("\n  • Legacy validator unit tests:")
-        legacy_rc = run([sys.executable, "pipeline/test_validate.py"])
-
-        print("\n  • Repo-health pytest suite:")
+        print("\n  • Full pytest suite (subsumes per-story validate, "
+              "legacy unit harness, cadence, reinforcement, schemas, …):")
         pytest_rc = run([sys.executable, "-m", "pytest", "pipeline/tests", "-q", "--tb=line"])
 
-        if state_ok and not story_failures and legacy_rc == 0 and pytest_rc == 0:
+        if state_ok and pytest_rc == 0:
             print("\n✓ All checks pass. Repo is healthy.")
         else:
             print("\n✗ One or more checks failed. See output above.")
-            if story_failures:
-                print(f"  Failed stories: {story_failures}")
             sys.exit(1)
         return
 

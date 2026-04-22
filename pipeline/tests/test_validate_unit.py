@@ -1,17 +1,22 @@
 #!/usr/bin/env python3
 """
-Tests for pipeline/validate.py
+Unit tests for pipeline/validate.py
 
-Run with:  python3 pipeline/test_validate.py
-           (or: python3 -m pytest pipeline/test_validate.py -v)
+Run with:  python3 -m pytest pipeline/tests/test_validate_unit.py -v
+           (or:  python3 pipeline/tests/test_validate_unit.py     — direct mode)
+
+This file was relocated from pipeline/test_validate.py in v0.20 (2026-04-22)
+when all per-check validation was consolidated into the pytest suite. The
+hand-rolled run_tests() harness is preserved verbatim and wrapped by a single
+pytest entrypoint (test_validate_unit_suite) for collection.
 """
 import copy
 import sys
 import json
 from pathlib import Path
 
-# Make sure we can import the validator
-sys.path.insert(0, str(Path(__file__).parent))
+# Make sure we can import the validator (parent dir is pipeline/)
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from validate import validate, conjugate
 
 # ── Fixtures ──────────────────────────────────────────────────────────────────
@@ -643,6 +648,11 @@ def run_tests():
     r = validate(s, VOCAB, GRAMMAR)
     check("New word appearing once → check 4 error", errors_for_check(r, 4))
 
+    # v0.19: same-story new_grammar reuse minimum lowered from 2 → 1.
+    # The library-wide reinforcement test (Check 3.8) now provides the
+    # spaced-repetition guarantee. So a single in-story occurrence of a
+    # new grammar point is now legal at the per-story level — Check 4 must
+    # NOT flag it.
     s = make_valid_story()
     s["new_grammar"] = ["G006_kara_from"]
     s["sentences"] = s["sentences"][:5]
@@ -650,7 +660,7 @@ def run_tests():
         sent["tokens"] = [tok for tok in sent["tokens"] if tok.get("grammar_id") != "G006_kara_from"]
     s["sentences"][0]["tokens"].insert(2, {"t": "から", "grammar_id": "G006_kara_from", "role": "particle", "is_new_grammar": True})
     r = validate(s, VOCAB, GRAMMAR)
-    check("New grammar fewer than 3 uses → check 4 error", errors_for_check(r, 4))
+    check("New grammar with single use → no check 4 error (v0.19 rule)", not errors_for_check(r, 4))
 
     print("\n── Check 5: Surface ↔ ID consistency ─────────────────────────────")
     # Correct inflection (ぬれて = te-form of ぬれる, ichidan)
@@ -897,6 +907,20 @@ def run_tests():
     print(f"\n{'─'*60}")
     print(f"Results: {passed}/{total} passed" + (f", {failed} FAILED" if failed else " ✓"))
     return failed == 0
+
+
+def test_validate_unit_suite() -> None:
+    """Pytest wrapper around run_tests().
+
+    The 50+ hand-rolled per-check assertions live inside run_tests() (a
+    legacy single-function harness from before this project used pytest).
+    Rather than rewrite each as its own pytest function, we wrap the
+    whole thing: pytest collects this single test, run_tests() prints
+    its rich per-check output to stdout, and the wrapper fails the test
+    if any inner assertion failed.
+    """
+    ok = run_tests()
+    assert ok, "validate.py unit-test harness reported one or more failures (see stdout above)"
 
 
 if __name__ == "__main__":

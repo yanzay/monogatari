@@ -53,7 +53,9 @@
     "W00018"
   ],
   "new_grammar": [
-    "G009_mo_also"
+    "G009_mo_also",
+    "G010_to_and",
+    "G015_no_possessive"
   ],
   "all_words_used": [
     "W00018",
@@ -95,7 +97,8 @@
         {
           "t": "と",
           "grammar_id": "G010_to_and",
-          "role": "particle"
+          "role": "particle",
+          "is_new_grammar": true
         },
         {
           "t": "友達",
@@ -270,7 +273,8 @@
           "t": "温かい",
           "r": "あたたかい",
           "word_id": "W00012",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -304,7 +308,8 @@
           "t": "いい",
           "r": "いい",
           "word_id": "W00013",
-          "role": "content"
+          "role": "content",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "気分",
@@ -338,7 +343,8 @@
         {
           "t": "の",
           "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "is_new_grammar": true
         },
         {
           "t": "公園",

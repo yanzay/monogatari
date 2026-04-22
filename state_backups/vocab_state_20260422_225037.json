@@ -1,0 +1,1314 @@
+{
+  "version": 1,
+  "updated_at": "2026-04-22T19:45:28.453824+00:00",
+  "last_story_id": 31,
+  "words": {
+    "W00001": {
+      "id": "W00001",
+      "surface": "今朝",
+      "kana": "けさ",
+      "reading": "kesa",
+      "pos": "noun",
+      "meanings": [
+        "this morning"
+      ],
+      "first_story": "story_1",
+      "occurrences": 11,
+      "last_seen_story": 31,
+      "notes": "Compound noun (this morning). Special reading けさ (NOT いまあさ). Member of a small set of irregular-reading time words: 今日 (きょう), 今夜 (こんや), 今晩 (こんばん), 昨日 (きのう), 明日 (あした)."
+    },
+    "W00002": {
+      "id": "W00002",
+      "surface": "雨",
+      "kana": "あめ",
+      "reading": "ame",
+      "pos": "noun",
+      "meanings": [
+        "rain"
+      ],
+      "first_story": "story_1",
+      "occurrences": 9,
+      "last_seen_story": 28
+    },
+    "W00003": {
+      "id": "W00003",
+      "surface": "私",
+      "kana": "わたし",
+      "reading": "watashi",
+      "pos": "pronoun",
+      "meanings": [
+        "I",
+        "me"
+      ],
+      "first_story": "story_1",
+      "occurrences": 29,
+      "last_seen_story": 31
+    },
+    "W00004": {
+      "id": "W00004",
+      "surface": "窓",
+      "kana": "まど",
+      "reading": "mado",
+      "pos": "noun",
+      "meanings": [
+        "window"
+      ],
+      "first_story": "story_1",
+      "occurrences": 9,
+      "last_seen_story": 24
+    },
+    "W00005": {
+      "id": "W00005",
+      "surface": "外",
+      "kana": "そと",
+      "reading": "soto",
+      "pos": "noun",
+      "meanings": [
+        "outside"
+      ],
+      "first_story": "story_1",
+      "occurrences": 10,
+      "last_seen_story": 28
+    },
+    "W00006": {
+      "id": "W00006",
+      "surface": "見ます",
+      "kana": "みます",
+      "reading": "mimasu",
+      "pos": "verb",
+      "verb_class": "ichidan",
+      "meanings": [
+        "to see",
+        "to look",
+        "to watch"
+      ],
+      "first_story": "story_1",
+      "occurrences": 17,
+      "last_seen_story": 29,
+      "notes": "Ichidan verb. Dictionary form 見る. Te-form 見て. Past 見た / 見ました. Used 11+ times — heaviest verb in library."
+    },
+    "W00007": {
+      "id": "W00007",
+      "surface": "木",
+      "kana": "き",
+      "reading": "ki",
+      "pos": "noun",
+      "meanings": [
+        "tree"
+      ],
+      "first_story": "story_1",
+      "occurrences": 6,
+      "last_seen_story": 27,
+      "notes": "Noun (tree). Reading き. Same kanji 木 also reads もく in some compounds (木曜日 = Thursday)."
+    },
+    "W00008": {
+      "id": "W00008",
+      "surface": "濡れる",
+      "kana": "ぬれる",
+      "reading": "nureru",
+      "pos": "verb",
+      "verb_class": "ichidan",
+      "meanings": [
+        "to get wet"
+      ],
+      "first_story": "story_1",
+      "occurrences": 3,
+      "last_seen_story": 18,
+      "notes": "Stored in dictionary form (濡れる) rather than polite -ます form because this verb is only ever used in te-form across stories so far (濡れて). Most other verbs are stored in -ます form for consistency."
+    },
+    "W00009": {
+      "id": "W00009",
+      "surface": "お茶",
+      "kana": "おちゃ",
+      "reading": "ocha",
+      "pos": "noun",
+      "meanings": [
+        "tea",
+        "green tea"
+      ],
+      "first_story": "story_1",
+      "occurrences": 14,
+      "last_seen_story": 31
+    },
+    "W00010": {
+      "id": "W00010",
+      "surface": "飲みます",
+      "kana": "のみます",
+      "reading": "nomimasu",
+      "pos": "verb",
+      "verb_class": "godan",
+      "meanings": [
+        "to drink"
+      ],
+      "first_story": "story_1",
+      "occurrences": 10,
+      "last_seen_story": 31,
+      "notes": "Godan verb (drink). Dict form 飲む. Polite past 飲みました. Honorific お飲みになる (out of scope)."
+    },
+    "W00011": {
+      "id": "W00011",
+      "surface": "静か",
+      "kana": "しずか",
+      "reading": "shizuka",
+      "pos": "adjective",
+      "adj_class": "na",
+      "meanings": [
+        "quiet",
+        "calm",
+        "peaceful"
+      ],
+      "first_story": "story_1",
+      "occurrences": 20,
+      "last_seen_story": 31,
+      "notes": "na-adjective (quiet). Pairs with です directly (静かです), but requires な before a noun (静かな猫). Most-used adjective in library."
+    },
+    "W00012": {
+      "id": "W00012",
+      "surface": "温かい",
+      "kana": "あたたかい",
+      "reading": "atatakai",
+      "pos": "adjective",
+      "adj_class": "i",
+      "meanings": [
+        "warm"
+      ],
+      "first_story": "story_1",
+      "occurrences": 13,
+      "last_seen_story": 31,
+      "notes": "i-adjective (warm). Ends in い, conjugates: 温かい/温かくない/温かかった. Distinct from 暖かい (also \"warm\", but for weather rather than objects/feelings)."
+    },
+    "W00013": {
+      "id": "W00013",
+      "surface": "いい",
+      "kana": "いい",
+      "reading": "ii",
+      "pos": "adjective",
+      "adj_class": "i",
+      "meanings": [
+        "good",
+        "nice"
+      ],
+      "first_story": "story_1",
+      "occurrences": 9,
+      "last_seen_story": 15,
+      "notes": "i-adjective (good). Irregular: 良い/良くない/良かった (the \"i\" reverts to \"yo\" in non-present forms). Use いい (informal) in predicate position; 良い (formal/written) attributively."
+    },
+    "W00014": {
+      "id": "W00014",
+      "surface": "気分",
+      "kana": "きぶん",
+      "reading": "kibun",
+      "pos": "noun",
+      "meanings": [
+        "feeling",
+        "mood"
+      ],
+      "first_story": "story_1",
+      "occurrences": 5,
+      "last_seen_story": 15
+    },
+    "W00015": {
+      "id": "W00015",
+      "surface": "朝",
+      "kana": "あさ",
+      "reading": "asa",
+      "pos": "noun",
+      "meanings": [
+        "morning"
+      ],
+      "first_story": "story_1",
+      "occurrences": 17,
+      "last_seen_story": 31
+    },
+    "W00017": {
+      "id": "W00017",
+      "surface": "歩きます",
+      "kana": "あるきます",
+      "reading": "arukimasu",
+      "pos": "verb",
+      "meanings": [
+        "to walk"
+      ],
+      "first_story": "story_2",
+      "occurrences": 7,
+      "last_seen_story": 30,
+      "verb_class": "godan",
+      "notes": "Godan verb (walk). Dict form 歩く. Te-form 歩いて. Compound 歩き出す (start walking) is N3."
+    },
+    "W00018": {
+      "id": "W00018",
+      "surface": "夕方",
+      "kana": "ゆうがた",
+      "reading": "yuugata",
+      "pos": "noun",
+      "meanings": [
+        "evening",
+        "late afternoon"
+      ],
+      "first_story": "story_2",
+      "occurrences": 5,
+      "last_seen_story": 26
+    },
+    "W00016": {
+      "id": "W00016",
+      "surface": "公園",
+      "kana": "こうえん",
+      "reading": "kouen",
+      "pos": "noun",
+      "meanings": [
+        "park"
+      ],
+      "first_story": "story_2",
+      "occurrences": 7,
+      "last_seen_story": 30
+    },
+    "W00020": {
+      "id": "W00020",
+      "surface": "食べます",
+      "kana": "たべます",
+      "reading": "tabemasu",
+      "pos": "verb",
+      "meanings": [
+        "to eat"
+      ],
+      "first_story": "story_3",
+      "occurrences": 4,
+      "last_seen_story": 24,
+      "verb_class": "ichidan",
+      "notes": "Ichidan verb (eat). Dict form 食べる. Te-form 食べて. Past 食べた / 食べました. Polite negative 食べません."
+    },
+    "W00019": {
+      "id": "W00019",
+      "surface": "朝ごはん",
+      "kana": "あさごはん",
+      "reading": "asagohan",
+      "pos": "noun",
+      "meanings": [
+        "breakfast"
+      ],
+      "first_story": "story_3",
+      "occurrences": 4,
+      "last_seen_story": 24
+    },
+    "W00021": {
+      "id": "W00021",
+      "surface": "卵",
+      "kana": "たまご",
+      "reading": "tamago",
+      "pos": "noun",
+      "meanings": [
+        "egg"
+      ],
+      "first_story": "story_3",
+      "occurrences": 3,
+      "last_seen_story": 24
+    },
+    "W00022": {
+      "id": "W00022",
+      "surface": "友達",
+      "kana": "ともだち",
+      "reading": "tomodachi",
+      "pos": "noun",
+      "meanings": [
+        "friend"
+      ],
+      "first_story": "story_2",
+      "occurrences": 19,
+      "last_seen_story": 31
+    },
+    "W00023": {
+      "id": "W00023",
+      "surface": "散歩",
+      "kana": "さんぽ",
+      "reading": "sanpo",
+      "pos": "noun",
+      "meanings": [
+        "walk",
+        "stroll"
+      ],
+      "first_story": "story_4",
+      "occurrences": 2,
+      "last_seen_story": 18,
+      "notes": "Noun (a walk). Forms a verb with します: 散歩します (to take a walk). In our stories so far it appears as a noun. The verb form would need a separate W-id and verb_class=irregular_suru."
+    },
+    "W00024": {
+      "id": "W00024",
+      "surface": "花",
+      "kana": "はな",
+      "reading": "hana",
+      "pos": "noun",
+      "meanings": [
+        "flower"
+      ],
+      "first_story": "story_4",
+      "occurrences": 5,
+      "last_seen_story": 27
+    },
+    "W00027": {
+      "id": "W00027",
+      "surface": "風",
+      "kana": "かぜ",
+      "reading": "kaze",
+      "pos": "noun",
+      "meanings": [
+        "wind"
+      ],
+      "first_story": "story_5",
+      "occurrences": 5,
+      "last_seen_story": 12,
+      "notes": "Noun (wind). Reading かぜ. Same kanji 風 also reads ふう meaning \"style/manner\" (洋風 = Western style)."
+    },
+    "W00026": {
+      "id": "W00026",
+      "surface": "帰ります",
+      "kana": "かえります",
+      "reading": "kaerimasu",
+      "pos": "verb",
+      "meanings": [
+        "to return home",
+        "to go back"
+      ],
+      "first_story": "story_5",
+      "occurrences": 6,
+      "last_seen_story": 30,
+      "verb_class": "godan",
+      "notes": "Godan verb (return home/go back). Dict form 帰る. Te-form 帰って. Distinct from 返る (to be returned, intransitive)."
+    },
+    "W00025": {
+      "id": "W00025",
+      "surface": "ドア",
+      "kana": "ドア",
+      "reading": "doa",
+      "pos": "noun",
+      "meanings": [
+        "door"
+      ],
+      "first_story": "story_5",
+      "occurrences": 4,
+      "last_seen_story": 26,
+      "notes": "Loanword (door, from English). Always written in katakana. Refers to Western-style doors (hinged); a Japanese sliding door is 戸 (と) or 障子 (しょうじ)."
+    },
+    "W00029": {
+      "id": "W00029",
+      "surface": "います",
+      "kana": "います",
+      "reading": "imasu",
+      "pos": "verb",
+      "meanings": [
+        "to be (animate)",
+        "to exist"
+      ],
+      "first_story": "story_6",
+      "occurrences": 9,
+      "last_seen_story": 29,
+      "verb_class": "ichidan",
+      "notes": "Ichidan verb of EXISTENCE for ANIMATE things (people, animals). Inanimate counterpart is あります W00044. Use いる/います for what can move; ある/あります for what cannot. Common pairing: subject + が + います."
+    },
+    "W00028": {
+      "id": "W00028",
+      "surface": "猫",
+      "kana": "ねこ",
+      "reading": "neko",
+      "pos": "noun",
+      "meanings": [
+        "cat"
+      ],
+      "first_story": "story_6",
+      "occurrences": 6,
+      "last_seen_story": 27
+    },
+    "W00030": {
+      "id": "W00030",
+      "surface": "夜",
+      "kana": "よる",
+      "reading": "yoru",
+      "pos": "noun",
+      "meanings": [
+        "night"
+      ],
+      "first_story": "story_7",
+      "occurrences": 5,
+      "last_seen_story": 21
+    },
+    "W00031": {
+      "id": "W00031",
+      "surface": "月",
+      "kana": "つき",
+      "reading": "tsuki",
+      "pos": "noun",
+      "meanings": [
+        "moon"
+      ],
+      "first_story": "story_7",
+      "occurrences": 5,
+      "last_seen_story": 21,
+      "notes": "Noun (moon). Reading つき. Same kanji 月 also reads がつ (counter for months: 一月 ichigatsu = January) and げつ (Monday: 月曜日 getsuyoubi). Context disambiguates."
+    },
+    "W00032": {
+      "id": "W00032",
+      "surface": "星",
+      "kana": "ほし",
+      "reading": "hoshi",
+      "pos": "noun",
+      "meanings": [
+        "star"
+      ],
+      "first_story": "story_7",
+      "occurrences": 3,
+      "last_seen_story": 23
+    },
+    "W00035": {
+      "id": "W00035",
+      "surface": "二人",
+      "kana": "ふたり",
+      "reading": "futari",
+      "pos": "noun",
+      "meanings": [
+        "two people"
+      ],
+      "first_story": "story_8",
+      "occurrences": 7,
+      "last_seen_story": 30,
+      "notes": "Counter for people (two people). Special reading ふたり (NOT にひと). Same irregular pattern as 一人 (ひとり). For 3+ people, use the regular counter -人 with にん reading: 三人 (さんにん)."
+    },
+    "W00033": {
+      "id": "W00033",
+      "surface": "本",
+      "kana": "ほん",
+      "reading": "hon",
+      "pos": "noun",
+      "meanings": [
+        "book"
+      ],
+      "first_story": "story_8",
+      "occurrences": 6,
+      "last_seen_story": 22,
+      "notes": "Noun (book). Reading ほん. Distinct from 本 (もと) meaning \"origin\" — same kanji, totally different word."
+    },
+    "W00034": {
+      "id": "W00034",
+      "surface": "読みます",
+      "kana": "よみます",
+      "reading": "yomimasu",
+      "pos": "verb",
+      "meanings": [
+        "to read"
+      ],
+      "first_story": "story_8",
+      "occurrences": 8,
+      "last_seen_story": 26,
+      "verb_class": "godan",
+      "notes": "Godan verb (read). Dict form 読む. Stored in polite -ます form (読みます) matching all other -ます-headword verbs. Te-form 読んで."
+    },
+    "W00038": {
+      "id": "W00038",
+      "surface": "寝ます",
+      "kana": "ねます",
+      "reading": "nemasu",
+      "pos": "verb",
+      "meanings": [
+        "to sleep"
+      ],
+      "first_story": "story_9",
+      "occurrences": 4,
+      "last_seen_story": 27,
+      "verb_class": "ichidan",
+      "notes": "Ichidan verb (sleep). Dict form 寝る. Te-form 寝て. Distinct from 眠る (to fall asleep, more poetic)."
+    },
+    "W00036": {
+      "id": "W00036",
+      "surface": "椅子",
+      "kana": "いす",
+      "reading": "isu",
+      "pos": "noun",
+      "meanings": [
+        "chair"
+      ],
+      "first_story": "story_9",
+      "occurrences": 5,
+      "last_seen_story": 28,
+      "notes": "Noun (chair). Reading いす. Often written in hiragana too: いす. Both are correct."
+    },
+    "W00037": {
+      "id": "W00037",
+      "surface": "机",
+      "kana": "つくえ",
+      "reading": "tsukue",
+      "pos": "noun",
+      "meanings": [
+        "desk"
+      ],
+      "first_story": "story_9",
+      "occurrences": 8,
+      "last_seen_story": 26,
+      "notes": "Noun (desk). Reading つくえ. Compare 卓 (たく, table) — same general category, different word."
+    },
+    "W00040": {
+      "id": "W00040",
+      "surface": "来ます",
+      "kana": "きます",
+      "reading": "kimasu",
+      "pos": "verb",
+      "meanings": [
+        "to come",
+        "to arrive"
+      ],
+      "first_story": "story_10",
+      "occurrences": 12,
+      "last_seen_story": 31,
+      "verb_class": "irregular_kuru",
+      "notes": "Irregular verb (来る kuru = \"to come\"). Conjugates as: 来ます (come), 来ました (came), 来て (te-form), 来ない (negative). The kanji reading changes by form: 来る (くる), 来ます (きます), 来ない (こない). Test cases for the verb engine."
+    },
+    "W00041": {
+      "id": "W00041",
+      "surface": "待ちます",
+      "kana": "まちます",
+      "reading": "machimasu",
+      "pos": "verb",
+      "meanings": [
+        "to wait"
+      ],
+      "first_story": "story_10",
+      "occurrences": 5,
+      "last_seen_story": 28,
+      "verb_class": "godan",
+      "notes": "Godan verb (wait). Dict form 待つ. Te-form 待って. Past 待ちました."
+    },
+    "W00039": {
+      "id": "W00039",
+      "surface": "手紙",
+      "kana": "てがみ",
+      "reading": "tegami",
+      "pos": "noun",
+      "meanings": [
+        "letter",
+        "note"
+      ],
+      "first_story": "story_10",
+      "occurrences": 6,
+      "last_seen_story": 31
+    },
+    "W00042": {
+      "id": "W00042",
+      "surface": "昨日",
+      "kana": "きのう",
+      "reading": "kinou",
+      "pos": "noun",
+      "meanings": [
+        "yesterday"
+      ],
+      "first_story": "story_11",
+      "occurrences": 5,
+      "last_seen_story": 19,
+      "notes": "Time noun (yesterday). Special reading きのう (NOT さくじつ in conversation, though 昨日 (さくじつ) exists in formal/written contexts). Member of the same irregular-reading time-words set as W00001."
+    },
+    "W00043": {
+      "id": "W00043",
+      "surface": "思います",
+      "kana": "おもいます",
+      "reading": "omoimasu",
+      "pos": "verb",
+      "meanings": [
+        "to think"
+      ],
+      "first_story": "story_12",
+      "occurrences": 8,
+      "last_seen_story": 31,
+      "verb_class": "godan",
+      "notes": "Godan verb (think). Dict form 思う. Used almost exclusively in と思います construction (G014) — quoted-thought reporting. Plain と思う (less polite) is identical in meaning."
+    },
+    "W00044": {
+      "id": "W00044",
+      "surface": "あります",
+      "kana": "あります",
+      "reading": "arimasu",
+      "pos": "verb",
+      "verb_class": "irregular_aru",
+      "meanings": [
+        "to exist (inanimate)",
+        "to be (inanimate)",
+        "to have"
+      ],
+      "first_story": "story_7",
+      "occurrences": 15,
+      "notes": "Irregular verb of EXISTENCE for INANIMATE things (objects, plants, abstract). Animate counterpart is います W00029. The \"irregularity\" is in the negative (ありません, NOT あらない) and plain past (あった, NOT あらった). Stored as verb_class=irregular_aru.",
+      "last_seen_story": 31
+    },
+    "W00045": {
+      "id": "W00045",
+      "surface": "そば",
+      "kana": "そば",
+      "reading": "soba",
+      "pos": "noun",
+      "meanings": [
+        "side",
+        "near",
+        "nearby"
+      ],
+      "first_story": "story_13",
+      "occurrences": 4,
+      "last_seen_story": 27
+    },
+    "W00046": {
+      "id": "W00046",
+      "surface": "明日",
+      "kana": "あした",
+      "reading": "ashita",
+      "pos": "noun",
+      "meanings": [
+        "tomorrow"
+      ],
+      "first_story": "story_14",
+      "occurrences": 4,
+      "last_seen_story": 31
+    },
+    "W00047": {
+      "id": "W00047",
+      "surface": "空",
+      "kana": "そら",
+      "reading": "sora",
+      "pos": "noun",
+      "meanings": [
+        "sky"
+      ],
+      "first_story": "story_15",
+      "occurrences": 4,
+      "last_seen_story": 30
+    },
+    "W00049": {
+      "id": "W00049",
+      "surface": "パン",
+      "kana": "パン",
+      "reading": "pan",
+      "pos": "noun",
+      "meanings": [
+        "bread"
+      ],
+      "first_story": "story_16",
+      "occurrences": 4,
+      "last_seen_story": 28
+    },
+    "W00048": {
+      "id": "W00048",
+      "surface": "作ります",
+      "kana": "つくります",
+      "reading": "tsukurimasu",
+      "pos": "verb",
+      "meanings": [
+        "to make, to prepare"
+      ],
+      "first_story": "story_16",
+      "occurrences": 2,
+      "last_seen_story": 19,
+      "verb_class": "godan"
+    },
+    "W00050": {
+      "id": "W00050",
+      "surface": "一緒に",
+      "kana": "いっしょに",
+      "reading": "isshoni",
+      "pos": "adverb",
+      "meanings": [
+        "together"
+      ],
+      "first_story": "story_16",
+      "occurrences": 4,
+      "last_seen_story": 28
+    },
+    "W00051": {
+      "id": "W00051",
+      "surface": "子供",
+      "kana": "こども",
+      "reading": "kodomo",
+      "pos": "noun",
+      "meanings": [
+        "child"
+      ],
+      "first_story": "story_17",
+      "occurrences": 2,
+      "last_seen_story": 19
+    },
+    "W00052": {
+      "id": "W00052",
+      "surface": "ベンチ",
+      "kana": "ベンチ",
+      "reading": "benchi",
+      "pos": "noun",
+      "meanings": [
+        "bench"
+      ],
+      "first_story": "story_17",
+      "occurrences": 3,
+      "last_seen_story": 30
+    },
+    "W00053": {
+      "id": "W00053",
+      "surface": "笑います",
+      "kana": "わらいます",
+      "reading": "waraimasu",
+      "pos": "verb",
+      "meanings": [
+        "to smile, to laugh"
+      ],
+      "first_story": "story_17",
+      "occurrences": 4,
+      "last_seen_story": 25,
+      "verb_class": "godan"
+    },
+    "W00054": {
+      "id": "W00054",
+      "surface": "鳥",
+      "kana": "とり",
+      "reading": "tori",
+      "pos": "noun",
+      "meanings": [
+        "bird"
+      ],
+      "first_story": "story_18",
+      "occurrences": 3,
+      "last_seen_story": 27
+    },
+    "W00055": {
+      "id": "W00055",
+      "surface": "小さい",
+      "kana": "ちいさい",
+      "reading": "chiisai",
+      "pos": "adjective",
+      "meanings": [
+        "small, little"
+      ],
+      "first_story": "story_18",
+      "occurrences": 6,
+      "last_seen_story": 28,
+      "adj_class": "i"
+    },
+    "W00056": {
+      "id": "W00056",
+      "surface": "嬉しい",
+      "kana": "うれしい",
+      "reading": "ureshii",
+      "pos": "adjective",
+      "meanings": [
+        "happy, glad"
+      ],
+      "first_story": "story_18",
+      "occurrences": 5,
+      "last_seen_story": 29,
+      "adj_class": "i"
+    },
+    "W00057": {
+      "id": "W00057",
+      "surface": "大きい",
+      "kana": "おおきい",
+      "reading": "ookii",
+      "pos": "adjective",
+      "meanings": [
+        "big, large"
+      ],
+      "first_story": "story_19",
+      "occurrences": 4,
+      "last_seen_story": 30,
+      "adj_class": "i"
+    },
+    "W00059": {
+      "id": "W00059",
+      "surface": "庭",
+      "kana": "にわ",
+      "reading": "niwa",
+      "pos": "noun",
+      "meanings": [
+        "garden, yard"
+      ],
+      "first_story": "story_19",
+      "occurrences": 4,
+      "last_seen_story": 31
+    },
+    "W00058": {
+      "id": "W00058",
+      "surface": "元気",
+      "kana": "げんき",
+      "reading": "genki",
+      "pos": "adjective",
+      "meanings": [
+        "lively, energetic, healthy"
+      ],
+      "first_story": "story_19",
+      "occurrences": 4,
+      "last_seen_story": 31,
+      "adj_class": "na"
+    },
+    "W00060": {
+      "id": "W00060",
+      "surface": "書きます",
+      "kana": "かきます",
+      "reading": "kakimasu",
+      "pos": "verb",
+      "meanings": [
+        "to write"
+      ],
+      "first_story": "story_20",
+      "occurrences": 2,
+      "last_seen_story": 31,
+      "verb_class": "godan"
+    },
+    "W00062": {
+      "id": "W00062",
+      "surface": "寒い",
+      "kana": "さむい",
+      "reading": "samui",
+      "pos": "adjective",
+      "meanings": [
+        "cold (weather)"
+      ],
+      "first_story": "story_20",
+      "occurrences": 1,
+      "last_seen_story": 20,
+      "adj_class": "i"
+    },
+    "W00061": {
+      "id": "W00061",
+      "surface": "名前",
+      "kana": "なまえ",
+      "reading": "namae",
+      "pos": "noun",
+      "meanings": [
+        "name"
+      ],
+      "first_story": "story_20",
+      "occurrences": 1,
+      "last_seen_story": 20
+    },
+    "W00065": {
+      "id": "W00065",
+      "surface": "一人",
+      "kana": "ひとり",
+      "reading": "hitori",
+      "pos": "noun",
+      "meanings": [
+        "one person, alone"
+      ],
+      "first_story": "story_21",
+      "occurrences": 2,
+      "last_seen_story": 25
+    },
+    "W00064": {
+      "id": "W00064",
+      "surface": "道",
+      "kana": "みち",
+      "reading": "michi",
+      "pos": "noun",
+      "meanings": [
+        "road, path"
+      ],
+      "first_story": "story_21",
+      "occurrences": 4,
+      "last_seen_story": 30
+    },
+    "W00063": {
+      "id": "W00063",
+      "surface": "雪",
+      "kana": "ゆき",
+      "reading": "yuki",
+      "pos": "noun",
+      "meanings": [
+        "snow"
+      ],
+      "first_story": "story_21",
+      "occurrences": 2,
+      "last_seen_story": 23
+    },
+    "W00067": {
+      "id": "W00067",
+      "surface": "古い",
+      "kana": "ふるい",
+      "reading": "furui",
+      "pos": "adjective",
+      "meanings": [
+        "old (of objects)"
+      ],
+      "first_story": "story_22",
+      "occurrences": 3,
+      "last_seen_story": 29,
+      "adj_class": "i"
+    },
+    "W00066": {
+      "id": "W00066",
+      "surface": "新しい",
+      "kana": "あたらしい",
+      "reading": "atarashii",
+      "pos": "adjective",
+      "meanings": [
+        "new"
+      ],
+      "first_story": "story_22",
+      "occurrences": 1,
+      "last_seen_story": 22,
+      "adj_class": "i"
+    },
+    "W00068": {
+      "id": "W00068",
+      "surface": "写真",
+      "kana": "しゃしん",
+      "reading": "shashin",
+      "pos": "noun",
+      "meanings": [
+        "photograph, photo"
+      ],
+      "first_story": "story_22",
+      "occurrences": 3,
+      "last_seen_story": 29
+    },
+    "W00071": {
+      "id": "W00071",
+      "surface": "時計",
+      "kana": "とけい",
+      "reading": "tokei",
+      "pos": "noun",
+      "meanings": [
+        "clock, watch"
+      ],
+      "first_story": "story_23",
+      "occurrences": 1,
+      "last_seen_story": 23
+    },
+    "W00069": {
+      "id": "W00069",
+      "surface": "駅",
+      "kana": "えき",
+      "reading": "eki",
+      "pos": "noun",
+      "meanings": [
+        "train station"
+      ],
+      "first_story": "story_23",
+      "occurrences": 2,
+      "last_seen_story": 28
+    },
+    "W00070": {
+      "id": "W00070",
+      "surface": "電車",
+      "kana": "でんしゃ",
+      "reading": "densha",
+      "pos": "noun",
+      "meanings": [
+        "train"
+      ],
+      "first_story": "story_23",
+      "occurrences": 1,
+      "last_seen_story": 23
+    },
+    "W00073": {
+      "id": "W00073",
+      "surface": "開けます",
+      "kana": "あけます",
+      "reading": "akemasu",
+      "pos": "verb",
+      "meanings": [
+        "to open"
+      ],
+      "first_story": "story_24",
+      "occurrences": 2,
+      "last_seen_story": 26,
+      "verb_class": "ichidan"
+    },
+    "W00072": {
+      "id": "W00072",
+      "surface": "春",
+      "kana": "はる",
+      "reading": "haru",
+      "pos": "noun",
+      "meanings": [
+        "spring (season)"
+      ],
+      "first_story": "story_24",
+      "occurrences": 2,
+      "last_seen_story": 29
+    },
+    "W00074": {
+      "id": "W00074",
+      "surface": "長い",
+      "kana": "ながい",
+      "reading": "nagai",
+      "pos": "adjective",
+      "meanings": [
+        "long"
+      ],
+      "first_story": "story_24",
+      "occurrences": 1,
+      "last_seen_story": 24,
+      "adj_class": "i"
+    },
+    "W00075": {
+      "id": "W00075",
+      "surface": "部屋",
+      "kana": "へや",
+      "reading": "heya",
+      "pos": "noun",
+      "meanings": [
+        "room"
+      ],
+      "first_story": "story_25",
+      "occurrences": 2,
+      "last_seen_story": 26
+    },
+    "W00076": {
+      "id": "W00076",
+      "surface": "悲しい",
+      "kana": "かなしい",
+      "reading": "kanashii",
+      "pos": "adjective",
+      "meanings": [
+        "sad"
+      ],
+      "first_story": "story_25",
+      "occurrences": 1,
+      "last_seen_story": 25,
+      "adj_class": "i"
+    },
+    "W00077": {
+      "id": "W00077",
+      "surface": "出ます",
+      "kana": "でます",
+      "reading": "demasu",
+      "pos": "verb",
+      "meanings": [
+        "to go out, to leave"
+      ],
+      "first_story": "story_25",
+      "occurrences": 1,
+      "last_seen_story": 25,
+      "verb_class": "ichidan"
+    },
+    "W00080": {
+      "id": "W00080",
+      "surface": "入ります",
+      "kana": "はいります",
+      "reading": "hairimasu",
+      "pos": "verb",
+      "meanings": [
+        "to enter, to go in"
+      ],
+      "first_story": "story_26",
+      "occurrences": 2,
+      "last_seen_story": 28,
+      "verb_class": "godan"
+    },
+    "W00078": {
+      "id": "W00078",
+      "surface": "家",
+      "kana": "いえ",
+      "reading": "ie",
+      "pos": "noun",
+      "meanings": [
+        "house, home"
+      ],
+      "first_story": "story_26",
+      "occurrences": 1,
+      "last_seen_story": 26
+    },
+    "W00079": {
+      "id": "W00079",
+      "surface": "鍵",
+      "kana": "かぎ",
+      "reading": "kagi",
+      "pos": "noun",
+      "meanings": [
+        "key"
+      ],
+      "first_story": "story_26",
+      "occurrences": 1,
+      "last_seen_story": 26
+    },
+    "W00083": {
+      "id": "W00083",
+      "surface": "美しい",
+      "kana": "うつくしい",
+      "reading": "utsukushii",
+      "pos": "adjective",
+      "meanings": [
+        "beautiful"
+      ],
+      "first_story": "story_27",
+      "occurrences": 3,
+      "last_seen_story": 30,
+      "adj_class": "i"
+    },
+    "W00081": {
+      "id": "W00081",
+      "surface": "夏",
+      "kana": "なつ",
+      "reading": "natsu",
+      "pos": "noun",
+      "meanings": [
+        "summer"
+      ],
+      "first_story": "story_27",
+      "occurrences": 1,
+      "last_seen_story": 27
+    },
+    "W00082": {
+      "id": "W00082",
+      "surface": "暑い",
+      "kana": "あつい",
+      "reading": "atsui",
+      "pos": "adjective",
+      "meanings": [
+        "hot (weather)"
+      ],
+      "first_story": "story_27",
+      "occurrences": 1,
+      "last_seen_story": 27,
+      "adj_class": "i"
+    },
+    "W00086": {
+      "id": "W00086",
+      "surface": "買います",
+      "kana": "かいます",
+      "reading": "kaimasu",
+      "pos": "verb",
+      "meanings": [
+        "to buy"
+      ],
+      "first_story": "story_28",
+      "occurrences": 1,
+      "last_seen_story": 28,
+      "verb_class": "godan"
+    },
+    "W00085": {
+      "id": "W00085",
+      "surface": "座ります",
+      "kana": "すわります",
+      "reading": "suwarimasu",
+      "pos": "verb",
+      "meanings": [
+        "to sit"
+      ],
+      "first_story": "story_28",
+      "occurrences": 3,
+      "last_seen_story": 30,
+      "verb_class": "godan"
+    },
+    "W00084": {
+      "id": "W00084",
+      "surface": "店",
+      "kana": "みせ",
+      "reading": "mise",
+      "pos": "noun",
+      "meanings": [
+        "shop, store"
+      ],
+      "first_story": "story_28",
+      "occurrences": 1,
+      "last_seen_story": 28
+    },
+    "W00087": {
+      "id": "W00087",
+      "surface": "立ちます",
+      "kana": "たちます",
+      "reading": "tachimasu",
+      "pos": "verb",
+      "meanings": [
+        "to stand"
+      ],
+      "first_story": "story_29",
+      "occurrences": 2,
+      "last_seen_story": 30,
+      "verb_class": "godan"
+    },
+    "W00089": {
+      "id": "W00089",
+      "surface": "母",
+      "kana": "はは",
+      "reading": "haha",
+      "pos": "noun",
+      "meanings": [
+        "mother (one's own family)"
+      ],
+      "first_story": "story_29",
+      "occurrences": 3,
+      "last_seen_story": 31
+    },
+    "W00088": {
+      "id": "W00088",
+      "surface": "家族",
+      "kana": "かぞく",
+      "reading": "kazoku",
+      "pos": "noun",
+      "meanings": [
+        "family"
+      ],
+      "first_story": "story_29",
+      "occurrences": 2,
+      "last_seen_story": 31
+    },
+    "W00092": {
+      "id": "W00092",
+      "surface": "雲",
+      "kana": "くも",
+      "reading": "kumo",
+      "pos": "noun",
+      "meanings": [
+        "cloud"
+      ],
+      "first_story": "story_30",
+      "occurrences": 1,
+      "last_seen_story": 30
+    },
+    "W00091": {
+      "id": "W00091",
+      "surface": "葉",
+      "kana": "は",
+      "reading": "ha",
+      "pos": "noun",
+      "meanings": [
+        "leaf"
+      ],
+      "first_story": "story_30",
+      "occurrences": 2,
+      "last_seen_story": 31
+    },
+    "W00090": {
+      "id": "W00090",
+      "surface": "秋",
+      "kana": "あき",
+      "reading": "aki",
+      "pos": "noun",
+      "meanings": [
+        "autumn, fall"
+      ],
+      "first_story": "story_30",
+      "occurrences": 2,
+      "last_seen_story": 31
+    },
+    "W00093": {
+      "id": "W00093",
+      "surface": "電話",
+      "kana": "でんわ",
+      "reading": "denwa",
+      "pos": "noun",
+      "meanings": [
+        "phone",
+        "telephone"
+      ],
+      "first_story": "story_31",
+      "occurrences": 1,
+      "last_seen_story": 31
+    },
+    "W00094": {
+      "id": "W00094",
+      "surface": "話します",
+      "kana": "はなします",
+      "reading": "hanashimasu",
+      "pos": "verb",
+      "meanings": [
+        "to talk",
+        "to speak"
+      ],
+      "first_story": "story_31",
+      "occurrences": 1,
+      "last_seen_story": 31,
+      "verb_class": "godan"
+    }
+  },
+  "next_word_id": "W00095"
+}

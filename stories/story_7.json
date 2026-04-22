@@ -40,7 +40,9 @@
     "W00031",
     "W00032"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G021_aru_iru"
+  ],
   "all_words_used": [
     "W00030",
     "W00031",
@@ -130,7 +132,9 @@
           "t": "あります",
           "r": "あります",
           "role": "content",
-          "word_id": "W00044"
+          "word_id": "W00044",
+          "grammar_id": "G021_aru_iru",
+          "is_new_grammar": true
         },
         {
           "t": "。",
@@ -180,7 +184,8 @@
           "t": "あります",
           "role": "content",
           "word_id": "W00044",
-          "r": "あります"
+          "r": "あります",
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -282,7 +287,8 @@
             "base_r": "みる",
             "form": "polite_nonpast",
             "word_id": "W00006"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",

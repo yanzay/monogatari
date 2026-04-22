@@ -49,9 +49,7 @@
   "new_words": [
     "W00046"
   ],
-  "new_grammar": [
-    "G019_te_oku"
-  ],
+  "new_grammar": [],
   "all_words_used": [
     "W00031",
     "W00039",
@@ -129,7 +127,8 @@
             "base_r": "みる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -232,7 +231,8 @@
             "base_r": "よむ",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -289,7 +289,8 @@
             "base_r": "よむ",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -335,7 +336,8 @@
             "base_r": "たべる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -377,8 +379,7 @@
           "t": "おきます",
           "r": "おきます",
           "role": "aux",
-          "grammar_id": "G019_te_oku",
-          "is_new_grammar": true
+          "grammar_id": "G019_te_oku"
         },
         {
           "t": "。",
@@ -485,5 +486,6 @@
   },
   "word_audio_hash": {
     "W00046": "6450d5f86685"
-  }
+  },
+  "consolidation_arc": true
 }

@@ -45,14 +45,11 @@ if git diff --cached --name-only | grep -qE "$test_re"; then
     PYTHON="python3"
   fi
 
-  echo "[pre-commit] Running pipeline test suites…"
-
-  if ! "$PYTHON" pipeline/test_validate.py > /tmp/monogatari_test_validate.log 2>&1; then
-    echo "✗ pipeline/test_validate.py FAILED. See /tmp/monogatari_test_validate.log"
-    tail -20 /tmp/monogatari_test_validate.log
-    exit 1
-  fi
-
+  # v0.20: pytest is the single source of truth. The legacy
+  # pipeline/test_validate.py was relocated to pipeline/tests/test_validate_unit.py
+  # and is now collected by pytest along with the per-story validate suite
+  # (test_validate_library.py).
+  echo "[pre-commit] Running pytest suite…"
   if ! "$PYTHON" -m pytest pipeline/tests -q --tb=line > /tmp/monogatari_pytest.log 2>&1; then
     echo "✗ pipeline/tests pytest suite FAILED. See /tmp/monogatari_pytest.log"
     tail -30 /tmp/monogatari_pytest.log

@@ -19,7 +19,7 @@
     ],
     "last_regenerated": "2026-04-22 15:30",
     "stories_covered": 12,
-    "n_stories": 30
+    "n_stories": 31
   },
   "reviews": [
     {
@@ -1037,6 +1037,39 @@
           "why": "originality"
         }
       ]
+    },
+    {
+      "story_id": 31,
+      "title_jp": "友達の電話",
+      "title_en": "The Friend's Phone Call",
+      "scores": {
+        "hook": 4,
+        "voice": 3,
+        "originality": 3,
+        "coherence": 4,
+        "closure": 4
+      },
+      "average": 3.6,
+      "approved": true,
+      "highlights": [
+        "Phone-call opener is a fresh intrusion into the morning-quiet template — the call arrives (来ます), the reader doesn't know who it is until s1, which is the closest thing to a hook beat this vocabulary allows.",
+        "Closer (温かい気分です) echoes both the warm tea (s2) and the warm conversation without restating either — a genuine image-close rather than a list or statement.",
+        "Autumn garden detail (s6-s7: 秋の庭、葉があります) grounds the narration in a specific seasonal image that pays off the autumnal arc from story 30."
+      ],
+      "weaknesses": [
+        "話します appears three times (s3, s4, s6) — the story leans on the new verb too heavily, flattening the voice into a report.",
+        "The と思います sentence from the original draft was a semantics error (speaker already knows the fact). Replacement (私は嬉しいです) is honest but loses the inference dimension the grammar point is meant to teach."
+      ],
+      "suggestions": [
+        {
+          "what": "In s3-s4, both sentences start with 友達が/母について — consider merging: 友達が母について話します。 to tighten.",
+          "why": "voice — reduces worksheet feel of back-to-back short sentences"
+        },
+        {
+          "what": "The 話します verb appears three times (s3, s4, s6). Drop the explicit 私は話します framing in s6 and let the image (秋の庭、葉) carry the weight.",
+          "why": "originality — over-reliance on the same verb flattens the arc"
+        }
+      ]
     }
   ],
   "leaderboard": [
@@ -1189,6 +1222,11 @@
       "story_id": 18,
       "average": 3.8,
       "rank": 27
+    },
+    {
+      "story_id": 31,
+      "average": 3.6,
+      "rank": 31
     }
   ],
   "next_actions": [

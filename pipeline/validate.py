@@ -694,6 +694,209 @@ def validate(
             # grammar_progression module missing — soft-skip (back-compat)
             pass
 
+    # ── Check 3.6 / 3.7 / 3.8: library-wide cadence + reinforcement ─────────
+    # These three checks are the build-time twin of the pytest suite's
+    # test_grammar_introduction_cadence and test_introduced_grammar_is_reinforced.
+    # Running them at validate-time means a regression is caught BEFORE the
+    # story is shipped, not at next pytest run.
+    #
+    #   Check 3.6 — cadence (max-per-story + 5-story rolling minimum)
+    #   Check 3.7 — consolidation_arc consecutive cap
+    #   Check 3.8 — reinforcement (each new point reappears in next 5 stories)
+    #
+    # Like the pytest, all three rules are LIBRARY-WIDE: they need every
+    # story_*.json on disk, not just the one being validated. Soft-skip on:
+    #   * test fixtures (story_id <= 0)
+    #   * missing stories/ directory
+    #   * missing grammar_progression module
+    if sid_for_tier and sid_for_tier > 0:
+        try:
+            from grammar_progression import (
+                BOOTSTRAP_END,
+                BOOTSTRAP_MAX_TOTAL,
+                MAX_NEW_PER_STORY,
+                CADENCE_WINDOW,
+                MIN_NEW_PER_WINDOW,
+                MAX_CONSEC_CONSOLIDATION,
+                REINFORCEMENT_WINDOW,
+                MIN_REINFORCEMENT_USES,
+            )
+            from pathlib import Path as _Path
+            stories_dir = _Path(__file__).resolve().parent.parent / "stories"
+            if stories_dir.is_dir():
+                # Load every story on disk; substitute the in-memory copy for
+                # the story currently being validated so unsaved edits are
+                # reflected in the cadence/reinforcement counts.
+                library: dict[int, dict] = {}
+                for path in stories_dir.glob("story_*.json"):
+                    try:
+                        n = int(path.stem.split("_")[1])
+                    except (ValueError, IndexError):
+                        continue
+                    if n == sid_for_tier:
+                        library[n] = story
+                    else:
+                        try:
+                            library[n] = json.loads(path.read_text(encoding="utf-8"))
+                        except Exception:
+                            continue
+                if sid_for_tier not in library:
+                    library[sid_for_tier] = story
+
+                def _intros_of(d: dict) -> list[str]:
+                    out: list[str] = []
+                    for x in d.get("new_grammar") or []:
+                        if isinstance(x, str):
+                            out.append(x)
+                        elif isinstance(x, dict):
+                            for k in ("id", "grammar_id", "catalog_id"):
+                                if k in x:
+                                    out.append(x[k])
+                                    break
+                    return out
+
+                def _grammar_used(d: dict) -> set[str]:
+                    u: set[str] = set()
+                    for sec in ("title", "subtitle"):
+                        for tok in (d.get(sec) or {}).get("tokens", []):
+                            for gid in (tok.get("grammar_id"),
+                                        (tok.get("inflection") or {}).get("grammar_id")):
+                                if gid:
+                                    u.add(gid)
+                    for sent in d.get("sentences", []):
+                        for tok in sent.get("tokens", []):
+                            for gid in (tok.get("grammar_id"),
+                                        (tok.get("inflection") or {}).get("grammar_id")):
+                                if gid:
+                                    u.add(gid)
+                    return u
+
+                intros_by_n: dict[int, list[str]] = {n: _intros_of(d) for n, d in library.items()}
+                consol_by_n: dict[int, bool]      = {n: bool(d.get("consolidation_arc")) for n, d in library.items()}
+                used_by_n:   dict[int, set[str]]  = {n: _grammar_used(d) for n, d in library.items()}
+
+                # ── Check 3.6: cadence (Rules A + B from the pytest) ──────
+                # Rule A: max-per-story + bootstrap aggregate
+                bootstrap_total = sum(len(intros_by_n.get(i, [])) for i in range(1, BOOTSTRAP_END + 1))
+                if bootstrap_total > BOOTSTRAP_MAX_TOTAL:
+                    result.add_error(
+                        "3.6",
+                        f"bootstrap stories 1..{BOOTSTRAP_END} introduce "
+                        f"{bootstrap_total} grammar points (cap {BOOTSTRAP_MAX_TOTAL})"
+                    )
+                if sid_for_tier > BOOTSTRAP_END and len(intros_by_n.get(sid_for_tier, [])) > MAX_NEW_PER_STORY:
+                    result.add_error(
+                        "3.6",
+                        f"story {sid_for_tier} introduces "
+                        f"{len(intros_by_n[sid_for_tier])} new grammar points "
+                        f"(max {MAX_NEW_PER_STORY} after bootstrap): "
+                        f"{intros_by_n[sid_for_tier]}. Cramming hurts consolidation; "
+                        f"defer the extras to later stories."
+                    )
+                # A consolidation_arc story must declare zero new grammar
+                if consol_by_n.get(sid_for_tier) and intros_by_n.get(sid_for_tier):
+                    result.add_error(
+                        "3.6",
+                        f"story {sid_for_tier} marked consolidation_arc=true but "
+                        f"declares new_grammar {intros_by_n[sid_for_tier]} — a "
+                        f"consolidation arc must introduce no new points."
+                    )
+                # Rule B: rolling-window minimum cadence
+                # Only check windows that *include* the current story to keep
+                # the validator's blame focused on what this story changed.
+                max_n = max(library)
+                lo_first = max(BOOTSTRAP_END + 1, sid_for_tier - CADENCE_WINDOW + 1)
+                hi_last  = min(max_n, sid_for_tier + CADENCE_WINDOW - 1)
+                for hi in range(max(lo_first + CADENCE_WINDOW - 1, BOOTSTRAP_END + CADENCE_WINDOW),
+                                hi_last + 1):
+                    lo = hi - CADENCE_WINDOW + 1
+                    if lo > sid_for_tier or hi < sid_for_tier:
+                        continue  # window doesn't include this story
+                    count = sum(len(intros_by_n.get(i, [])) for i in range(lo, hi + 1))
+                    window_all_consol = all(consol_by_n.get(i, False) for i in range(lo, hi + 1))
+                    if count < MIN_NEW_PER_WINDOW and not window_all_consol:
+                        result.add_error(
+                            "3.6",
+                            f"stories {lo}..{hi}: only {count} new grammar points "
+                            f"introduced (minimum {MIN_NEW_PER_WINDOW} per "
+                            f"{CADENCE_WINDOW}-story window) — the library has "
+                            f"stagnated. Either declare a new_grammar in this "
+                            f"story or set consolidation_arc=true on every "
+                            f"story in the window."
+                        )
+
+                # ── Check 3.7: consecutive consolidation_arc cap ───────────
+                # Walk the library once and find the run that contains this story.
+                if consol_by_n.get(sid_for_tier):
+                    # Find run extending around sid_for_tier
+                    run_lo = sid_for_tier
+                    while run_lo - 1 in consol_by_n and consol_by_n.get(run_lo - 1):
+                        run_lo -= 1
+                    run_hi = sid_for_tier
+                    while run_hi + 1 in consol_by_n and consol_by_n.get(run_hi + 1):
+                        run_hi += 1
+                    run = run_hi - run_lo + 1
+                    if run > MAX_CONSEC_CONSOLIDATION:
+                        result.add_error(
+                            "3.7",
+                            f"stories {run_lo}..{run_hi}: {run} consecutive "
+                            f"consolidation_arc=true stories exceeds cap of "
+                            f"{MAX_CONSEC_CONSOLIDATION}. Break the arc with at "
+                            f"least one new grammar introduction."
+                        )
+
+                # ── Check 3.8: reinforcement of new grammar in next stories ─
+                # For each grammar point introduced in this story, verify it
+                # reappears in at least MIN_REINFORCEMENT_USES of the next
+                # REINFORCEMENT_WINDOW stories. Because validate may run on a
+                # not-yet-shipped story whose followups don't exist yet, only
+                # require what's present.
+                my_intros = intros_by_n.get(sid_for_tier, [])
+                if my_intros:
+                    followups = [i for i in range(sid_for_tier + 1,
+                                                  sid_for_tier + 1 + REINFORCEMENT_WINDOW)
+                                 if i in library]
+                    if followups:
+                        required = min(MIN_REINFORCEMENT_USES, len(followups))
+                        for gid in my_intros:
+                            hits = [i for i in followups if gid in used_by_n.get(i, set())]
+                            if len(hits) < required:
+                                result.add_error(
+                                    "3.8",
+                                    f"new_grammar '{gid}' introduced here is not "
+                                    f"reinforced: it reappears in only {len(hits)} "
+                                    f"of the next {len(followups)} stories "
+                                    f"(stories {hits or 'none'}); needs ≥ {required}. "
+                                    f"Either add a token using {gid} in one of "
+                                    f"stories {followups[0]}..{followups[-1]}, or "
+                                    f"defer this introduction to a later story "
+                                    f"where the surface is already present."
+                                )
+                # Also flag REVERSE: if a *prior* story introduced a point that
+                # this story was expected to reinforce but didn't, blame this
+                # story too — it's the followup that missed its job.
+                for prior in range(max(1, sid_for_tier - REINFORCEMENT_WINDOW), sid_for_tier):
+                    prior_intros = intros_by_n.get(prior, [])
+                    if not prior_intros:
+                        continue
+                    followups = [i for i in range(prior + 1, prior + 1 + REINFORCEMENT_WINDOW)
+                                 if i in library]
+                    if not followups:
+                        continue
+                    required = min(MIN_REINFORCEMENT_USES, len(followups))
+                    for gid in prior_intros:
+                        hits = [i for i in followups if gid in used_by_n.get(i, set())]
+                        if len(hits) < required and sid_for_tier in followups:
+                            result.add_warning(
+                                f"[Check 3.8] story {prior} introduced '{gid}' but "
+                                f"this story (in its reinforcement window) doesn't "
+                                f"use it. Consider weaving the surface back in "
+                                f"({len(hits)}/{required} reinforcement uses so far)."
+                            )
+        except ImportError:
+            # grammar_progression module missing — soft-skip (back-compat)
+            pass
+
     # ── Check 4: Budget ───────────────────────────────────────────────────────
     story_new_words   = declared_new_words
     story_new_grammar = declared_new_grammar
@@ -732,7 +935,14 @@ def validate(
     #     starvation alarm and by the next planner's --weak word suggestions.
     bootstrap_story = len(story_new_words) >= 8 or len(story_new_grammar) >= 4
     new_word_min_uses    = 1                 # always 1 (new vocab) — see above.
-    new_grammar_min_uses = 1 if bootstrap_story else 2
+    # Same-story new-grammar redundancy lowered to 1 on 2026-04-22 with the
+    # introduction of Check 3.8 (library-wide reinforcement). The old "≥2 in
+    # introducing story" rule was a proxy for "the learner sees the pattern
+    # twice"; now Check 3.8 enforces ≥1 reuse in each of the next 5 stories,
+    # which is a stronger and more spaced signal. Keeping ≥2 here would force
+    # the introducing story to over-pack a single sentence-pattern, working
+    # against natural prose. Bootstrap stories also use ≥1 (unchanged).
+    new_grammar_min_uses = 1
 
     repeated_new_words = words_repeated_twice(story, story_new_words)
     for wid, count in repeated_new_words.items():
