@@ -44,7 +44,7 @@ EXPECTED_PAIRS: dict[tuple[str, str], str] = {
 
 # ── Surfaces that may legitimately have multiple grammar_ids ─────────────
 POLYSEMOUS: dict[tuple[str, str], set[str]] = {
-    ("particle", "と"): {"G010_to_and", "G014_to_omoimasu"},  # and-list vs quote
+    ("particle", "と"): {"G010_to_and", "G014_to_omoimasu", "G028_to_iimasu"},  # and-list vs quote / says
     ("aux", "です"): {"G003_desu"},
     ("aux", "だ"): {"G003_desu", "G024_da"},  # plain copula (G024 added v0.16)
     ("aux", "でした"): {"G003_desu", "G013_mashita_past"},  # past copula

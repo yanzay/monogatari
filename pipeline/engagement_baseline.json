@@ -19,7 +19,7 @@
     ],
     "last_regenerated": "2026-04-22 15:30",
     "stories_covered": 12,
-    "n_stories": 31
+    "n_stories": 32
   },
   "reviews": [
     {
@@ -1070,6 +1070,39 @@
           "why": "originality — over-reliance on the same verb flattens the arc"
         }
       ]
+    },
+    {
+      "story_id": 32,
+      "title_jp": "冬の朝ごはん",
+      "title_en": "Winter Breakfast",
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 4,
+        "closure": 4
+      },
+      "average": 4.0,
+      "approved": true,
+      "highlights": [
+        "Father speaking for the first time in the library (s5: 「寒い朝ごはんですね」と言います) is a genuine milestone — 31 stories have described characters but never let them speak. The dialogue makes s5-s8 feel like a scene rather than a report.",
+        "と言います is introduced three times as direct-speech framing (s5, s7) and once as name-saying (s6, s8) — all four uses are semantically distinct enough that the learner sees the grammar from multiple angles in a single story.",
+        "冬 closes the four-season quartet (春→夏→秋→冬 across stories 24, 27, 30, 32). The closer 嬉しい冬です lands the season with an emotional stamp rather than a weather description."
+      ],
+      "weaknesses": [
+        "S8 (家族について、名前を言います) is the weakest sentence — it is not entirely clear whose name is being said or why. A future author should either name the referent explicitly or drop 名前 here and let s6 carry the only name-saying beat.",
+        "Two consecutive tea sentences (s3 お茶も飲みます, s10 温かいお茶を飲みます) bracket the scene. The second is more vivid (温かい) but the pattern echoes story 31's weakness. One tea sentence per story is usually enough."
+      ],
+      "suggestions": [
+        {
+          "what": "Merge s0 and s1 into 寒い冬の朝です。 — removes a redundant sentence and tightens the opener.",
+          "why": "voice — two nearly identical 〜朝です sentences dilute the hook"
+        },
+        {
+          "what": "Replace s3 (お茶も飲みます) with something that advances the scene — e.g. 父を待ちます (I wait for father), which foreshadows s4.",
+          "why": "coherence — tea in s3 is static filler; a wait-beat would build anticipation"
+        }
+      ]
     }
   ],
   "leaderboard": [
@@ -1204,29 +1237,34 @@
       "rank": 21
     },
     {
+      "story_id": 32,
+      "average": 4.0,
+      "rank": 21
+    },
+    {
       "story_id": 1,
       "average": 3.8,
-      "rank": 27
+      "rank": 28
     },
     {
       "story_id": 13,
       "average": 3.8,
-      "rank": 27
+      "rank": 28
     },
     {
       "story_id": 17,
       "average": 3.8,
-      "rank": 27
+      "rank": 28
     },
     {
       "story_id": 18,
       "average": 3.8,
-      "rank": 27
+      "rank": 28
     },
     {
       "story_id": 31,
       "average": 3.6,
-      "rank": 31
+      "rank": 32
     }
   ],
   "next_actions": [
