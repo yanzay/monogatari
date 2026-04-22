@@ -1,0 +1,489 @@
+{
+  "story_id": 14,
+  "title": {
+    "jp": "月の手紙",
+    "en": "A Letter by Moonlight",
+    "tokens": [
+      {
+        "t": "月",
+        "r": "つき",
+        "role": "content",
+        "word_id": "W00031"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
+      },
+      {
+        "t": "手紙",
+        "r": "てがみ",
+        "role": "content",
+        "word_id": "W00039"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "月と窓",
+    "en": "The moon and the window",
+    "tokens": [
+      {
+        "t": "月",
+        "r": "つき",
+        "role": "content",
+        "word_id": "W00031"
+      },
+      {
+        "t": "と",
+        "role": "particle",
+        "grammar_id": "G010_to_and"
+      },
+      {
+        "t": "窓",
+        "r": "まど",
+        "role": "content",
+        "word_id": "W00004"
+      }
+    ]
+  },
+  "new_words": [
+    "W00046"
+  ],
+  "new_grammar": [
+    "G019_te_oku"
+  ],
+  "all_words_used": [
+    "W00031",
+    "W00039",
+    "W00004",
+    "W00030",
+    "W00003",
+    "W00006",
+    "W00042",
+    "W00022",
+    "W00040",
+    "W00034",
+    "W00046",
+    "W00033",
+    "W00019",
+    "W00020",
+    "W00009",
+    "W00010",
+    "W00011"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "gloss_en": "At night, I look at the moon from the window.",
+      "tokens": [
+        {
+          "t": "夜",
+          "r": "よる",
+          "role": "content",
+          "word_id": "W00030"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "窓",
+          "r": "まど",
+          "role": "content",
+          "word_id": "W00004"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "月",
+          "r": "つき",
+          "role": "content",
+          "word_id": "W00031"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "r": "みます",
+          "role": "content",
+          "word_id": "W00006",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_14/s0.wav"
+    },
+    {
+      "idx": 1,
+      "gloss_en": "Yesterday, a letter came from my friend.",
+      "tokens": [
+        {
+          "t": "昨日",
+          "r": "きのう",
+          "role": "content",
+          "word_id": "W00042"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "手紙",
+          "r": "てがみ",
+          "role": "content",
+          "word_id": "W00039"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ました",
+          "r": "きました",
+          "role": "content",
+          "word_id": "W00040",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_past",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_14/s1.wav"
+    },
+    {
+      "idx": 2,
+      "gloss_en": "I read the letter.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "手紙",
+          "r": "てがみ",
+          "role": "content",
+          "word_id": "W00039"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "読みます",
+          "r": "よみます",
+          "role": "content",
+          "word_id": "W00034",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_14/s2.wav"
+    },
+    {
+      "idx": 3,
+      "gloss_en": "Tomorrow, I will read the book too.",
+      "tokens": [
+        {
+          "t": "明日",
+          "r": "あした",
+          "role": "content",
+          "word_id": "W00046",
+          "is_new": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "読みます",
+          "r": "よみます",
+          "role": "content",
+          "word_id": "W00034",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_14/s3.wav"
+    },
+    {
+      "idx": 4,
+      "gloss_en": "For tomorrow morning, I will prepare breakfast too.",
+      "tokens": [
+        {
+          "t": "明日",
+          "r": "あした",
+          "role": "content",
+          "word_id": "W00046"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "朝ごはん",
+          "r": "あさごはん",
+          "role": "content",
+          "word_id": "W00019"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "食べます",
+          "r": "たべます",
+          "role": "content",
+          "word_id": "W00020",
+          "inflection": {
+            "base": "食べる",
+            "base_r": "たべる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_14/s4.wav"
+    },
+    {
+      "idx": 5,
+      "gloss_en": "I will leave the tea ready for tomorrow.",
+      "tokens": [
+        {
+          "t": "明日",
+          "r": "あした",
+          "role": "content",
+          "word_id": "W00046"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "role": "content",
+          "word_id": "W00009"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "飲んで",
+          "r": "のんで",
+          "role": "content",
+          "word_id": "W00010",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "おきます",
+          "r": "おきます",
+          "role": "aux",
+          "grammar_id": "G019_te_oku",
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_14/s5.wav"
+    },
+    {
+      "idx": 6,
+      "gloss_en": "I will leave the letter ready too.",
+      "tokens": [
+        {
+          "t": "手紙",
+          "r": "てがみ",
+          "role": "content",
+          "word_id": "W00039"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "見て",
+          "r": "みて",
+          "role": "content",
+          "word_id": "W00006",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "おきます",
+          "r": "おきます",
+          "role": "aux",
+          "grammar_id": "G019_te_oku"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_14/s6.wav"
+    },
+    {
+      "idx": 7,
+      "gloss_en": "Tonight too, the moon is quiet.",
+      "tokens": [
+        {
+          "t": "夜",
+          "r": "よる",
+          "role": "content",
+          "word_id": "W00030"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "月",
+          "r": "つき",
+          "role": "content",
+          "word_id": "W00031"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "role": "content",
+          "word_id": "W00011"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_14/s7.wav"
+    }
+  ],
+  "word_audio": {
+    "W00046": "audio/story_14/w_W00046.wav"
+  }
+}

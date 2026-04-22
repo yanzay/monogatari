@@ -428,84 +428,191 @@
       "suggestions": [
         "When 思います gets occ ≥ 3, consider 思う (plain) for variety in nested thoughts."
       ]
+    },
+    {
+      "story_id": 13,
+      "hook": 3,
+      "voice": 3,
+      "originality": 3,
+      "coherence": 4,
+      "closure": 3,
+      "approved": true,
+      "highlights": [
+        "The reading-morning setup is immediately legible and pedagogically clean.",
+        "〜とき is introduced in a concrete, repeatable context the learner can reuse.",
+        "The cat beat gives the quiet room a small emotional lift without adding vocabulary burden."
+      ],
+      "weaknesses": [
+        "The scene stays intentionally modest, so originality is lower than the strongest recent entries.",
+        "The closing lands gently rather than with a particularly sharp final image."
+      ],
+      "suggestions": [
+        {
+          "what": "If the story is revised later, consider a slightly more vivid final visual detail near the window.",
+          "why": "closure"
+        },
+        {
+          "what": "A tiny contrast beat before the ending could make the calmness feel more earned.",
+          "why": "hook + originality"
+        }
+      ],
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 3,
+        "coherence": 4,
+        "closure": 4
+      },
+      "average": 3.8,
+      "title_jp": "本の朝",
+      "title_en": "A Morning with a Book"
+    },
+    {
+      "story_id": 14,
+      "title_jp": "月の手紙",
+      "title_en": "A Letter by Moonlight",
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 4,
+        "closure": 4
+      },
+      "average": 4.0,
+      "approved": true,
+      "highlights": [
+        "The moon/window opening is immediate and concrete.",
+        "The letter motif now survives into the preparation phase, which makes the story feel less list-like.",
+        "The final line returns to the moon and gives the piece a cleaner circular close."
+      ],
+      "weaknesses": [
+        "The voice remains intentionally restrained, so the story is more elegant than surprising.",
+        "The emotional movement is subtle and may feel slight compared with the strongest recent entries."
+      ],
+      "suggestions": [
+        {
+          "what": "In a future revision, consider one more sensory detail from the room to deepen atmosphere.",
+          "why": "voice"
+        },
+        {
+          "what": "A slightly more specific relation between the friend and tomorrow morning could sharpen originality further.",
+          "why": "originality"
+        }
+      ]
+    },
+    {
+      "story_id": 15,
+      "title_jp": "明日の本",
+      "title_en": "Tomorrow's Book",
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 4,
+        "closure": 4
+      },
+      "average": 4.0,
+      "approved": true,
+      "highlights": [
+        "The door-to-sky turn gives the story a small but clear change of focus.",
+        "〜てから appears twice in an easy-to-feel action sequence.",
+        "The final image of the quiet sky gives the story a gentle close."
+      ],
+      "weaknesses": [
+        "The voice is restrained and therefore less characterful than the strongest stories in the set.",
+        "Some predicate lines remain very simple, prioritizing clarity over vividness."
+      ],
+      "suggestions": [
+        {
+          "what": "In a future revision, one more sensory detail outside the door could strengthen atmosphere.",
+          "why": "voice"
+        },
+        {
+          "what": "A slightly more specific reason for going out could sharpen the story's individuality.",
+          "why": "originality"
+        }
+      ]
     }
   ],
   "leaderboard": [
     {
-      "rank": 1,
       "story_id": 5,
       "average": 4.6,
-      "verdict": "First story authored with rubric in writer prompt; cleared the bar on first pass."
+      "rank": 1
     },
     {
-      "rank": 1,
       "story_id": 6,
       "average": 4.6,
-      "verdict": "First story with a non-human character; cat arrives as a real surprise. Originality 5/5."
+      "rank": 1
     },
     {
-      "rank": 1,
       "story_id": 8,
       "average": 4.6,
-      "verdict": "First multi-person parallel scene; gives G009_mo_also 3 fresh load-bearing uses. Most architecturally distinctive story."
+      "rank": 1
     },
     {
-      "rank": 1,
       "story_id": 10,
       "average": 4.6,
-      "verdict": "Letter-from-a-friend; 待ちます acquires emotional weight via repetition. Strongest 'waiting' motif so far."
+      "rank": 1
     },
     {
-      "rank": 5,
       "story_id": 4,
       "average": 4.4,
-      "verdict": "Walk-through-park motif. First story to use temperature/sensory contrast; the 'wind makes you feel the morning' beat is original."
+      "rank": 5
     },
     {
-      "rank": 5,
       "story_id": 7,
       "average": 4.4,
-      "verdict": "Most atmospheric piece in the library; gives G011_ya_partial real semantic load (月や星があります)."
+      "rank": 5
     },
     {
-      "rank": 5,
       "story_id": 9,
       "average": 4.4,
-      "verdict": "Walk story but interior. The friend appears via mention, not action — first 'absent character' beat."
+      "rank": 5
     },
     {
-      "rank": 5,
       "story_id": 11,
       "average": 4.4,
-      "verdict": "First all-past-tense story. でした carries gentle nostalgia; bridges three timeframes (yesterday morning + friend + yesterday night) in 8 sentences."
+      "rank": 5
     },
     {
-      "rank": 9,
       "story_id": 2,
       "average": 4.2,
-      "verdict": "First non-bootstrap story; introduces consistent narrator voice and dual-time scene (evening + morning recall)."
+      "rank": 9
     },
     {
-      "rank": 9,
       "story_id": 12,
       "average": 4.2,
-      "verdict": "First N4 grammar (〜と思います). Narrator now interprets, not just observes. Cat gets multi-time existence."
+      "rank": 9
     },
     {
-      "rank": 11,
       "story_id": 3,
       "average": 4.0,
-      "verdict": "Breakfast scene. Clean structure but slightly listy — early example of the trap revisions later avoid."
+      "rank": 11
     },
     {
-      "rank": 12,
+      "story_id": 14,
+      "average": 4.0,
+      "rank": 11
+    },
+    {
+      "story_id": 15,
+      "average": 4.0,
+      "rank": 11
+    },
+    {
       "story_id": 1,
       "average": 3.8,
-      "verdict": "Bootstrap story (14 new words). Strong given the cold-start constraint; the 'time-stamped opener returns as closer' move sets a recurring template."
+      "rank": 14
+    },
+    {
+      "story_id": 13,
+      "average": 3.8,
+      "rank": 14
     }
   ],
   "next_actions": [
-    "All 12 stories now pass the engagement bar (avg ≥ 3.5; every dimension ≥ 3).",
+    "All 15 stories now pass the engagement bar (avg ≥ 3.5; every dimension ≥ 3).",
     "Underused N5 grammar still worth load-bearing use: G004_ni_location (still atmospheric only) and G006_kara_from (only 2 uses, both in story 10).",
     "First N4 grammar (G014_to_omoimasu) introduced in story 12. Next-best N4 candidates per the catalog: 〜たい (want), 〜ことができる (can do), 〜たら (when/if).",
     "Stories 4 / 5 / 6 / 7 / 8 / 11 / 12 all rate 4.4+; revisit candidates if needed: story 1 (3.8) and story 3 (4.0) — but neither is below the 3.5 bar.",

@@ -350,6 +350,43 @@
       ],
       "notes": "Authoring tip: when the verb is one of motion or activity (歩きます, 寝ます, 飲みます, 読みます), the location particle is で, not に. We had 1 token in story 9 mistagged as G004; fixed retroactively.",
       "first_story": "story_8"
+    },
+    "G018_toki_when": {
+      "id": "G018_toki_when",
+      "title": "〜とき — when",
+      "short": "temporal subordinate clause",
+      "long": "Attaches to a clause to mean 'when' or 'at the time of doing'. In this story it appears after the plain nonpast verb 読む in 本を読むとき.",
+      "genki_ref": "L13",
+      "jlpt": "N4",
+      "catalog_id": "N4_toki",
+      "first_story": "story_13",
+      "prerequisites": []
+    },
+    "G019_te_oku": {
+      "id": "G019_te_oku",
+      "title": "〜ておく — do in advance",
+      "short": "Marks an action done beforehand in preparation for a later time or situation.",
+      "long": "〜ておく combines the te-form of a verb with おく to show that something is done in advance, often because it will be useful later. It is common for preparation, arranging, or leaving something in a ready state. In this story it is used for a simple household preparation linked to tomorrow morning, so the learner can feel the forward-looking nuance clearly.",
+      "genki_ref": "L13",
+      "jlpt": "N4",
+      "catalog_id": "N4_te_oku",
+      "first_story": "story_14",
+      "prerequisites": [
+        "G007_te_form"
+      ]
+    },
+    "G020_te_kara": {
+      "id": "G020_te_kara",
+      "title": "〜てから — after doing",
+      "short": "Connects two actions in sequence: do A, then do B.",
+      "long": "〜てから attaches to the te-form of a verb and marks that one action happens after another. It is useful when the speaker wants to emphasize order, especially in routines, plans, or small sequences of behavior. In this story it marks a concrete chain of actions before the narrator pauses to look at the sky, so the learner can feel the “after doing X, then Y” meaning clearly.",
+      "genki_ref": "L13",
+      "jlpt": "N4",
+      "catalog_id": "N4_te_kara",
+      "first_story": "story_15",
+      "prerequisites": [
+        "G007_te_form"
+      ]
     }
   }
 }

@@ -1,0 +1,502 @@
+{
+  "story_id": 13,
+  "title": {
+    "jp": "本の朝",
+    "tokens": [
+      {
+        "t": "本",
+        "r": "ほん",
+        "role": "content",
+        "word_id": "W00033"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
+      },
+      {
+        "t": "朝",
+        "r": "あさ",
+        "role": "content",
+        "word_id": "W00015"
+      }
+    ],
+    "en": "A Morning with a Book"
+  },
+  "subtitle": {
+    "jp": "窓のそば",
+    "tokens": [
+      {
+        "t": "窓",
+        "r": "まど",
+        "role": "content",
+        "word_id": "W00004"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
+      },
+      {
+        "t": "そば",
+        "r": "そば",
+        "role": "content",
+        "word_id": "W00045"
+      }
+    ],
+    "en": "By the Window"
+  },
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "今朝",
+          "r": "けさ",
+          "role": "content",
+          "word_id": "W00001"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "窓",
+          "r": "まど",
+          "role": "content",
+          "word_id": "W00004"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "そば",
+          "r": "そば",
+          "role": "content",
+          "word_id": "W00045",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "role": "content",
+          "word_id": "W00029"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "This morning, I am by the window.",
+      "audio": "audio/story_13/s0.mp3"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "机",
+          "r": "つくえ",
+          "role": "content",
+          "word_id": "W00037"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "r": "あります",
+          "role": "content",
+          "word_id": "W00044"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is a book on the desk.",
+      "audio": "audio/story_13/s1.mp3"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "読みます",
+          "r": "よみます",
+          "role": "content",
+          "word_id": "W00034",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I read the book.",
+      "audio": "audio/story_13/s2.mp3"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "読む",
+          "r": "よむ",
+          "role": "content",
+          "word_id": "W00034",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "plain_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "とき",
+          "role": "particle",
+          "grammar_id": "G018_toki_when",
+          "is_new_grammar": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "role": "content",
+          "word_id": "W00011"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "When I read a book, I am quiet.",
+      "audio": "audio/story_13/s3.mp3"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "猫",
+          "r": "ねこ",
+          "role": "content",
+          "word_id": "W00028"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "窓",
+          "r": "まど",
+          "role": "content",
+          "word_id": "W00004"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "そば",
+          "r": "そば",
+          "role": "content",
+          "word_id": "W00045"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "role": "content",
+          "word_id": "W00029"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The cat is by the window too.",
+      "audio": "audio/story_13/s4.mp3"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "そして",
+          "role": "aux",
+          "grammar_id": "G012_soshite_then"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "猫",
+          "r": "ねこ",
+          "role": "content",
+          "word_id": "W00028"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "r": "みます",
+          "role": "content",
+          "word_id": "W00006",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "And then, I look at the cat.",
+      "audio": "audio/story_13/s5.mp3"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "猫",
+          "r": "ねこ",
+          "role": "content",
+          "word_id": "W00028"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "いい",
+          "role": "content",
+          "word_id": "W00013"
+        },
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "だ",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G014_to_omoimasu"
+        },
+        {
+          "t": "思います",
+          "r": "おもいます",
+          "role": "content",
+          "word_id": "W00043",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I think the cat is a good friend.",
+      "audio": "audio/story_13/s6.mp3"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "読む",
+          "r": "よむ",
+          "role": "content",
+          "word_id": "W00034",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "plain_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "とき",
+          "role": "particle",
+          "grammar_id": "G018_toki_when"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "role": "content",
+          "word_id": "W00011"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "When I read a book, it is quiet.",
+      "audio": "audio/story_13/s7.mp3"
+    }
+  ],
+  "all_words_used": [
+    "W00033",
+    "W00015",
+    "W00004",
+    "W00045",
+    "W00001",
+    "W00003",
+    "W00029",
+    "W00037",
+    "W00044",
+    "W00034",
+    "W00011",
+    "W00028",
+    "W00006",
+    "W00013",
+    "W00022",
+    "W00043"
+  ],
+  "new_words": [
+    "W00045"
+  ],
+  "new_grammar": [
+    "G018_toki_when"
+  ],
+  "word_audio": {
+    "W00045": "audio/story_13/w_W00045.mp3"
+  }
+}

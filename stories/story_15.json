@@ -1,0 +1,467 @@
+{
+  "story_id": 15,
+  "title": {
+    "jp": "明日の本",
+    "en": "Tomorrow's Book",
+    "tokens": [
+      {
+        "t": "明日",
+        "r": "あした",
+        "role": "content",
+        "word_id": "W00046"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
+      },
+      {
+        "t": "本",
+        "r": "ほん",
+        "role": "content",
+        "word_id": "W00033"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "星とドア",
+    "en": "The star and the door",
+    "tokens": [
+      {
+        "t": "星",
+        "r": "ほし",
+        "role": "content",
+        "word_id": "W00032"
+      },
+      {
+        "t": "と",
+        "role": "particle",
+        "grammar_id": "G010_to_and"
+      },
+      {
+        "t": "ドア",
+        "r": "ドア",
+        "role": "content",
+        "word_id": "W00025"
+      }
+    ]
+  },
+  "new_words": [
+    "W00047"
+  ],
+  "new_grammar": [
+    "G020_te_kara"
+  ],
+  "all_words_used": [
+    "W00046",
+    "W00033",
+    "W00032",
+    "W00025",
+    "W00030",
+    "W00003",
+    "W00047",
+    "W00006",
+    "W00044",
+    "W00023",
+    "W00026",
+    "W00017",
+    "W00004",
+    "W00031",
+    "W00013",
+    "W00011"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "gloss_en": "Tomorrow night, I go to the door.",
+      "tokens": [
+        {
+          "t": "明日",
+          "r": "あした",
+          "role": "content",
+          "word_id": "W00046"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夜",
+          "r": "よる",
+          "role": "content",
+          "word_id": "W00030"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "ドア",
+          "r": "ドア",
+          "role": "content",
+          "word_id": "W00025"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "行きます",
+          "r": "いきます",
+          "role": "content",
+          "word_id": "W00047",
+          "is_new": true,
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_15/s0.wav"
+    },
+    {
+      "idx": 1,
+      "gloss_en": "After I open the door, I look at the sky.",
+      "tokens": [
+        {
+          "t": "ドア",
+          "r": "ドア",
+          "role": "content",
+          "word_id": "W00025"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見て",
+          "r": "みて",
+          "role": "content",
+          "word_id": "W00006",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G020_te_kara",
+          "is_new_grammar": true
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from",
+          "is_new_grammar": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "空",
+          "r": "そら",
+          "role": "content",
+          "word_id": "W00047"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "r": "みます",
+          "role": "content",
+          "word_id": "W00006",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_15/s1.wav"
+    },
+    {
+      "idx": 2,
+      "gloss_en": "There is a star in the sky.",
+      "tokens": [
+        {
+          "t": "空",
+          "r": "そら",
+          "role": "content",
+          "word_id": "W00047"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "星",
+          "r": "ほし",
+          "role": "content",
+          "word_id": "W00032"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "r": "あります",
+          "role": "content",
+          "word_id": "W00044"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_15/s2.wav"
+    },
+    {
+      "idx": 3,
+      "gloss_en": "I take a walk and then go home.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "散歩",
+          "r": "さんぽ",
+          "role": "content",
+          "word_id": "W00023"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "帰ります",
+          "r": "かえります",
+          "role": "content",
+          "word_id": "W00026",
+          "inflection": {
+            "base": "帰る",
+            "base_r": "かえる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_15/s3.wav"
+    },
+    {
+      "idx": 4,
+      "gloss_en": "After I walk, I look at the window.",
+      "tokens": [
+        {
+          "t": "歩いて",
+          "r": "あるいて",
+          "role": "content",
+          "word_id": "W00017",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G020_te_kara"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "窓",
+          "r": "まど",
+          "role": "content",
+          "word_id": "W00004"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "r": "みます",
+          "role": "content",
+          "word_id": "W00006",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_15/s4.wav"
+    },
+    {
+      "idx": 5,
+      "gloss_en": "The moon is in the sky too.",
+      "tokens": [
+        {
+          "t": "月",
+          "r": "つき",
+          "role": "content",
+          "word_id": "W00031"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "空",
+          "r": "そら",
+          "role": "content",
+          "word_id": "W00047"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "あります",
+          "r": "あります",
+          "role": "content",
+          "word_id": "W00044"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_15/s5.wav"
+    },
+    {
+      "idx": 6,
+      "gloss_en": "The star is good too.",
+      "tokens": [
+        {
+          "t": "星",
+          "r": "ほし",
+          "role": "content",
+          "word_id": "W00032"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "いい",
+          "role": "content",
+          "word_id": "W00013"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_15/s6.wav"
+    },
+    {
+      "idx": 7,
+      "gloss_en": "The quiet sky is good too.",
+      "tokens": [
+        {
+          "t": "静か",
+          "r": "しずか",
+          "role": "content",
+          "word_id": "W00011"
+        },
+        {
+          "t": "な",
+          "role": "particle",
+          "grammar_id": "G016_na_adjective"
+        },
+        {
+          "t": "空",
+          "r": "そら",
+          "role": "content",
+          "word_id": "W00047"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "いい",
+          "role": "content",
+          "word_id": "W00013"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_15/s7.wav"
+    }
+  ],
+  "word_audio": {
+    "W00047": "audio/story_15/w_W00047.wav"
+  }
+}
