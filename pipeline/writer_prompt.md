@@ -1,6 +1,6 @@
 # Monogatari — Story Writer Task
 
-You are writing story **18** for the Monogatari Japanese graded-reader.
+You are writing story **19** for the Monogatari Japanese graded-reader.
 Read the authoring rules and plan below, then produce the story JSON.
 Output **only** the JSON object — no prose, no markdown fences.
 
@@ -157,6 +157,16 @@ Read it completely before generating. These rules are non-negotiable.
 - **`gloss_en`** must be natural English — how a native speaker would express
   the meaning, not a word-for-word calque. It is for comprehension checking,
   not translation practice. Aim for 1–2 short sentences.
+
+  **Never pad or stretch the gloss to satisfy Check 9's length ratio.**
+  Check 9 measures `EN_words / (content + aux JP tokens)` — particles
+  are excluded from the denominator (since they don't surface in
+  English) so a natural short gloss like "I am happy." for 私は嬉しい
+  です passes. If a faithful gloss still trips the warning band, the
+  fix is to revisit the JP (is it actually saying what you mean?), not
+  to inflate the English with filler ("As for me, I am happy" is a
+  validator hack, not an honest translation). See docs/authoring.md
+  G4 / v0.15 for the bands and rationale.
 
 - **Title and subtitle JP fields** must use only words from the allowed vocab
   set and should be tokenised in the same format as sentence tokens.
@@ -438,67 +448,67 @@ A clean refusal is better than a story that fails validation.
 
 ```json
 {
-  "story_id": 18,
+  "story_id": 19,
   "target_word_count": 23,
   "max_sentences": 10,
   "new_words": [
-    "W00054",
-    "W00055",
-    "W00056"
+    "W00057",
+    "W00058",
+    "W00059"
   ],
   "new_grammar": [],
-  "theme": "Rainy afternoon, sleeping cat, small bird",
-  "setting": "A sudden rain catches the narrator at the window. A small bird has taken shelter on the windowsill; the cat is asleep on the chair beside the desk; yesterday's flowers from the park are still on the desk and now look happy in the rain-light.",
+  "theme": "Quiet morning in the garden",
+  "setting": "Morning. The narrator is making bread; a small bird returns to the garden, lively in the cool air; the narrator looks at the big sky over the garden, thinks about yesterday's child at the park, and smiles.",
   "constraints": {
     "must_reuse_words": [
-      "W00038",
-      "W00036",
-      "W00024",
-      "W00008",
-      "W00023"
+      "W00043",
+      "W00054",
+      "W00051",
+      "W00053",
+      "W00048"
     ]
   },
   "new_word_definitions": {
-    "W00054": {
-      "surface": "鳥",
-      "kana": "とり",
-      "reading": "tori",
+    "W00057": {
+      "surface": "大きい",
+      "kana": "おおきい",
+      "reading": "ookii",
+      "pos": "adjective",
+      "verb_class": null,
+      "adj_class": "i",
+      "meanings": [
+        "big, large"
+      ],
+      "grammar_tags": []
+    },
+    "W00058": {
+      "surface": "元気",
+      "kana": "げんき",
+      "reading": "genki",
+      "pos": "adjective",
+      "verb_class": null,
+      "adj_class": "na",
+      "meanings": [
+        "lively, energetic, healthy"
+      ],
+      "grammar_tags": []
+    },
+    "W00059": {
+      "surface": "庭",
+      "kana": "にわ",
+      "reading": "niwa",
       "pos": "noun",
       "verb_class": null,
       "adj_class": null,
       "meanings": [
-        "bird"
-      ],
-      "grammar_tags": []
-    },
-    "W00055": {
-      "surface": "小さい",
-      "kana": "ちいさい",
-      "reading": "chiisai",
-      "pos": "adjective",
-      "verb_class": null,
-      "adj_class": "i",
-      "meanings": [
-        "small, little"
-      ],
-      "grammar_tags": []
-    },
-    "W00056": {
-      "surface": "嬉しい",
-      "kana": "うれしい",
-      "reading": "ureshii",
-      "pos": "adjective",
-      "verb_class": null,
-      "adj_class": "i",
-      "meanings": [
-        "happy, glad"
+        "garden, yard"
       ],
       "grammar_tags": []
     }
   },
   "new_grammar_definitions": {},
-  "rationale": "Story 18 deliberately revives the five starvation-alarmed words (寝ます W00038, 椅子 W00036, 花 W00024, 濡れる W00008, 散歩 W00023) inside a single coherent rainy-afternoon scene, so we restore reinforcement without contriving a grab-bag. The three new words fill long-standing palette gaps: 鳥 is the first non-mammal animal in the library and shares a windowsill setting with the existing 雨 / 窓 motif without competing with the cat; 小さい is the library's first size adjective (we have 温かい hot, いい good, 静か quiet — no shape/size descriptor at all); 嬉しい is the second emotion word after the new 笑います from story 17, broadening the inner-life vocabulary the catalog has been missing. No new grammar — story 17 was already grammar-light and story 18 doubles down on noun/adjective consolidation before story 19 picks up grammar again.",
-  "seed": 53891
+  "rationale": "Story 19 brings back the deferred starvation-alarmed verb 思います (W00043, last seen story 13) and reinforces five occ-1 words from the immediately previous stories — 鳥 (story 18), 子供 (story 17), 笑います (story 17), 作ります (story 16), and the new 庭 anchors an outdoor scene without competing with 公園. The three new words deliberately diversify the descriptor palette without inventing motion: 大きい is the natural complement to last story's 小さい (size pair complete in two stories rather than scattered), 元気 is the library's first wellness/state na-adjective (we have 静か quiet, 嬉しい happy, but no energetic/healthy register), and 庭 is the first private outdoor space (we had 公園 public and 窓/外 indoor-looking-out, but no own-yard middle ground). No new grammar — story 19 stays vocabulary-only so the learner consolidates the i-adjective + na-adjective expansion before story 20 picks grammar back up.",
+  "seed": 67219
 }
 ```
 
@@ -506,21 +516,21 @@ A clean refusal is better than a story that fails validation.
 
 ## Allowed vocabulary (ALL words you may use — no others)
 
-- `W00001`: **今朝** (けさ) [noun] — this morning [occ:4]
-- `W00002`: **雨** (あめ) [noun] — rain [occ:6]
-- `W00003`: **私** (わたし) [pronoun] — I, me [occ:16]
-- `W00004`: **窓** (まど) [noun] — window [occ:7]
-- `W00005`: **外** (そと) [noun] — outside [occ:5]
-- `W00006`: **見ます** (みます) [verb] — to see, to look [occ:13]
+- `W00001`: **今朝** (けさ) [noun] — this morning [occ:5]
+- `W00002`: **雨** (あめ) [noun] — rain [occ:7]
+- `W00003`: **私** (わたし) [pronoun] — I, me [occ:17]
+- `W00004`: **窓** (まど) [noun] — window [occ:8]
+- `W00005`: **外** (そと) [noun] — outside [occ:6]
+- `W00006`: **見ます** (みます) [verb] — to see, to look [occ:14]
 - `W00007`: **木** (き) [noun] — tree [occ:5]
-- `W00008`: **濡れる** (ぬれる) [verb] — to get wet [occ:2]
-- `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:8]
-- `W00010`: **飲みます** (のみます) [verb] — to drink [occ:5]
-- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:14]
-- `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:5]
+- `W00008`: **濡れる** (ぬれる) [verb] — to get wet [occ:3]
+- `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:9]
+- `W00010`: **飲みます** (のみます) [verb] — to drink [occ:6]
+- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:15]
+- `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:6]
 - `W00013`: **いい** (いい) [adjective] — good, nice [occ:9]
 - `W00014`: **気分** (きぶん) [noun] — feeling, mood [occ:5]
-- `W00015`: **朝** (あさ) [noun] — morning [occ:9]
+- `W00015`: **朝** (あさ) [noun] — morning [occ:10]
 - `W00016`: **公園** (こうえん) [noun] — park [occ:5]
 - `W00017`: **歩きます** (あるきます) [verb] — to walk [occ:5]
 - `W00018`: **夕方** (ゆうがた) [noun] — evening, late afternoon [occ:3]
@@ -528,28 +538,28 @@ A clean refusal is better than a story that fails validation.
 - `W00020`: **食べます** (たべます) [verb] — to eat [occ:3]
 - `W00021`: **卵** (たまご) [noun] — egg [occ:2]
 - `W00022`: **友達** (ともだち) [noun] — friend [occ:10]
-- `W00023`: **散歩** (さんぽ) [noun] — walk, stroll [occ:1]
-- `W00024`: **花** (はな) [noun] — flower [occ:2]
+- `W00023`: **散歩** (さんぽ) [noun] — walk, stroll [occ:2]
+- `W00024`: **花** (はな) [noun] — flower [occ:3]
 - `W00025`: **ドア** (ドア) [noun] — door [occ:2]
 - `W00026`: **帰ります** (かえります) [verb] — to return home, to go back [occ:2]
 - `W00027`: **風** (かぜ) [noun] — wind [occ:5]
-- `W00028`: **猫** (ねこ) [noun] — cat [occ:4]
-- `W00029`: **います** (います) [verb] — to be (animate), to exist [occ:6]
+- `W00028`: **猫** (ねこ) [noun] — cat [occ:5]
+- `W00029`: **います** (います) [verb] — to be (animate), to exist [occ:7]
 - `W00030`: **夜** (よる) [noun] — night [occ:4]
 - `W00031`: **月** (つき) [noun] — moon [occ:4]
 - `W00032`: **星** (ほし) [noun] — star [occ:2]
 - `W00033`: **本** (ほん) [noun] — book [occ:5]
 - `W00034`: **読みます** (よみます) [verb] — to read [occ:6]
 - `W00035`: **二人** (ふたり) [noun] — two people [occ:2]
-- `W00036`: **椅子** (いす) [noun] — chair [occ:2]
-- `W00037`: **机** (つくえ) [noun] — desk [occ:3]
-- `W00038`: **寝ます** (ねます) [verb] — to sleep [occ:2]
+- `W00036`: **椅子** (いす) [noun] — chair [occ:3]
+- `W00037`: **机** (つくえ) [noun] — desk [occ:4]
+- `W00038`: **寝ます** (ねます) [verb] — to sleep [occ:3]
 - `W00039`: **手紙** (てがみ) [noun] — letter, note [occ:3]
 - `W00040`: **来ます** (きます) [verb] — to come, to arrive [occ:5]
 - `W00041`: **待ちます** (まちます) [verb] — to wait [occ:3]
-- `W00042`: **昨日** (きのう) [noun] — yesterday [occ:3]
+- `W00042`: **昨日** (きのう) [noun] — yesterday [occ:4]
 - `W00043`: **思います** (おもいます) [verb] — to think [occ:2]
-- `W00044`: **あります** (あります) [verb] — to exist (inanimate), to be (inanimate) [occ:5]
+- `W00044`: **あります** (あります) [verb] — to exist (inanimate), to be (inanimate) [occ:6]
 - `W00045`: **そば** (そば) [noun] — side, near [occ:2]
 - `W00046`: **明日** (あした) [noun] — tomorrow [occ:2]
 - `W00047`: **空** (そら) [noun] — sky [occ:1]
@@ -559,9 +569,12 @@ A clean refusal is better than a story that fails validation.
 - `W00051`: **子供** (こども) [noun] — child [occ:1]
 - `W00052`: **ベンチ** (ベンチ) [noun] — bench [occ:1]
 - `W00053`: **笑います** (わらいます) [verb] — to smile, to laugh [occ:1]
-- `W00054`: **鳥** (とり) [noun] — bird **[NEW]**
-- `W00055`: **小さい** (ちいさい) [adjective] — small, little **[NEW]**
-- `W00056`: **嬉しい** (うれしい) [adjective] — happy, glad **[NEW]**
+- `W00054`: **鳥** (とり) [noun] — bird [occ:1]
+- `W00055`: **小さい** (ちいさい) [adjective] — small, little [occ:1]
+- `W00056`: **嬉しい** (うれしい) [adjective] — happy, glad [occ:1]
+- `W00057`: **大きい** (おおきい) [adjective] — big, large **[NEW]**
+- `W00058`: **元気** (げんき) [adjective] — lively, energetic, healthy **[NEW]**
+- `W00059`: **庭** (にわ) [noun] — garden, yard **[NEW]**
 
 ---
 
@@ -592,19 +605,19 @@ A clean refusal is better than a story that fails validation.
 
 ## New word definitions (introduce these in the story)
 
-- `W00054`: **鳥** (とり) [noun] — bird
-- `W00055`: **小さい** (ちいさい) [adjective · i-adj] — small, little
-- `W00056`: **嬉しい** (うれしい) [adjective · i-adj] — happy, glad
+- `W00057`: **大きい** (おおきい) [adjective · i-adj] — big, large
+- `W00058`: **元気** (げんき) [adjective · na-adj] — lively, energetic, healthy
+- `W00059`: **庭** (にわ) [noun] — garden, yard
 
 ---
 
 ## Output schema
 
-Produce a `story_18.json` object with this structure:
+Produce a `story_19.json` object with this structure:
 
 ```json
 {
-  "story_id": 18,
+  "story_id": 19,
   "title": {
     "jp": "<kanji/kana title>",
     "en": "<English title>",
@@ -618,7 +631,7 @@ Produce a `story_18.json` object with this structure:
     "tokens": [ ... ]
   },
   "plan_ref": "plan.json",
-  "new_words": ["W00054", "W00055", "W00056"],
+  "new_words": ["W00057", "W00058", "W00059"],
   "new_grammar": [],
   "all_words_used": ["<every word_id used, in order of first appearance>"],
   "sentences": [
