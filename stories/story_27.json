@@ -1,0 +1,634 @@
+{
+  "story_id": 27,
+  "title": {
+    "jp": "夏の庭",
+    "en": "The Summer Garden",
+    "tokens": [
+      {
+        "t": "夏",
+        "r": "なつ",
+        "word_id": "W00081",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "庭",
+        "r": "にわ",
+        "word_id": "W00059",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "美しい花、暑い朝",
+    "en": "Beautiful flowers, a hot morning",
+    "tokens": [
+      {
+        "t": "美しい",
+        "r": "うつくしい",
+        "word_id": "W00083",
+        "role": "content"
+      },
+      {
+        "t": "花",
+        "r": "はな",
+        "word_id": "W00024",
+        "role": "content"
+      },
+      {
+        "t": "、",
+        "role": "punct"
+      },
+      {
+        "t": "暑い",
+        "r": "あつい",
+        "word_id": "W00082",
+        "role": "content"
+      },
+      {
+        "t": "朝",
+        "r": "あさ",
+        "word_id": "W00015",
+        "role": "content"
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00081",
+    "W00082",
+    "W00083"
+  ],
+  "new_grammar": [],
+  "all_words_used": [
+    "W00081",
+    "W00059",
+    "W00083",
+    "W00024",
+    "W00082",
+    "W00015",
+    "W00040",
+    "W00044",
+    "W00007",
+    "W00045",
+    "W00036",
+    "W00003",
+    "W00009",
+    "W00010",
+    "W00028",
+    "W00038",
+    "W00055",
+    "W00054",
+    "W00029",
+    "W00043",
+    "W00056"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "gloss_en": "Summer comes.",
+      "tokens": [
+        {
+          "t": "夏",
+          "r": "なつ",
+          "word_id": "W00081",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "来ます",
+          "r": "きます",
+          "word_id": "W00040",
+          "role": "content",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_27/s0.wav",
+      "audio_hash": "8fcbd14128ca"
+    },
+    {
+      "idx": 1,
+      "gloss_en": "The garden is hot.",
+      "tokens": [
+        {
+          "t": "庭",
+          "r": "にわ",
+          "word_id": "W00059",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "暑い",
+          "r": "あつい",
+          "word_id": "W00082",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_27/s1.wav",
+      "audio_hash": "037a2035bae1"
+    },
+    {
+      "idx": 2,
+      "gloss_en": "In the garden, there are beautiful flowers.",
+      "tokens": [
+        {
+          "t": "庭",
+          "r": "にわ",
+          "word_id": "W00059",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "美しい",
+          "r": "うつくしい",
+          "word_id": "W00083",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "花",
+          "r": "はな",
+          "word_id": "W00024",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "あります",
+          "word_id": "W00044",
+          "role": "content",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_27/s2.wav",
+      "audio_hash": "283f1cac02d4"
+    },
+    {
+      "idx": 3,
+      "gloss_en": "There is a chair near the tree.",
+      "tokens": [
+        {
+          "t": "木",
+          "r": "き",
+          "word_id": "W00007",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "そば",
+          "r": "そば",
+          "word_id": "W00045",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "椅子",
+          "r": "いす",
+          "word_id": "W00036",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "あります",
+          "word_id": "W00044",
+          "role": "content",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_27/s3.wav",
+      "audio_hash": "1849f90107b0"
+    },
+    {
+      "idx": 4,
+      "gloss_en": "I drink tea on the chair.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "椅子",
+          "r": "いす",
+          "word_id": "W00036",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "word_id": "W00009",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "飲みます",
+          "r": "のみます",
+          "word_id": "W00010",
+          "role": "content",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_27/s4.wav",
+      "audio_hash": "bf57d94a7f01"
+    },
+    {
+      "idx": 5,
+      "gloss_en": "The cat is sleeping in the garden.",
+      "tokens": [
+        {
+          "t": "猫",
+          "r": "ねこ",
+          "word_id": "W00028",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "庭",
+          "r": "にわ",
+          "word_id": "W00059",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "寝て",
+          "r": "ねて",
+          "word_id": "W00038",
+          "role": "content",
+          "inflection": {
+            "base": "寝る",
+            "base_r": "ねる",
+            "form": "te_form",
+            "grammar_id": "G007_te_form"
+          }
+        },
+        {
+          "t": "います",
+          "grammar_id": "G008_te_iru",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_27/s5.wav",
+      "audio_hash": "992b2afa0820"
+    },
+    {
+      "idx": 6,
+      "gloss_en": "A small bird also comes.",
+      "tokens": [
+        {
+          "t": "小さい",
+          "r": "ちいさい",
+          "word_id": "W00055",
+          "role": "content"
+        },
+        {
+          "t": "鳥",
+          "r": "とり",
+          "word_id": "W00054",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "来ます",
+          "r": "きます",
+          "word_id": "W00040",
+          "role": "content",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_27/s6.wav",
+      "audio_hash": "c011035aea57"
+    },
+    {
+      "idx": 7,
+      "gloss_en": "The bird is near the flowers.",
+      "tokens": [
+        {
+          "t": "鳥",
+          "r": "とり",
+          "word_id": "W00054",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "花",
+          "r": "はな",
+          "word_id": "W00024",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "そば",
+          "r": "そば",
+          "word_id": "W00045",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "います",
+          "word_id": "W00029",
+          "role": "content"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_27/s7.wav",
+      "audio_hash": "3f100b99c646"
+    },
+    {
+      "idx": 8,
+      "gloss_en": "I think the garden is beautiful.",
+      "tokens": [
+        {
+          "t": "庭",
+          "r": "にわ",
+          "word_id": "W00059",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "美しい",
+          "r": "うつくしい",
+          "word_id": "W00083",
+          "role": "content"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G014_to_omoimasu",
+          "role": "particle"
+        },
+        {
+          "t": "思います",
+          "r": "おもいます",
+          "word_id": "W00043",
+          "role": "content",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_27/s8.wav",
+      "audio_hash": "a28317efbedf"
+    },
+    {
+      "idx": 9,
+      "gloss_en": "I am happy too.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "嬉しい",
+          "r": "うれしい",
+          "word_id": "W00056",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_27/s9.wav",
+      "audio_hash": "20b17f72b4c2"
+    },
+    {
+      "idx": 10,
+      "gloss_en": "A hot summer, a beautiful garden.",
+      "tokens": [
+        {
+          "t": "暑い",
+          "r": "あつい",
+          "word_id": "W00082",
+          "role": "content"
+        },
+        {
+          "t": "夏",
+          "r": "なつ",
+          "word_id": "W00081",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "美しい",
+          "r": "うつくしい",
+          "word_id": "W00083",
+          "role": "content"
+        },
+        {
+          "t": "庭",
+          "r": "にわ",
+          "word_id": "W00059",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_27/s10.wav",
+      "audio_hash": "0a13d7352b12"
+    }
+  ],
+  "word_audio": {
+    "W00081": "audio/story_27/w_W00081.wav",
+    "W00082": "audio/story_27/w_W00082.wav",
+    "W00083": "audio/story_27/w_W00083.wav"
+  },
+  "checksum": null,
+  "word_audio_hash": {
+    "W00081": "8482432c0274",
+    "W00082": "6236e6c9aee4",
+    "W00083": "5b3f69361d46"
+  }
+}

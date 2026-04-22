@@ -50,22 +50,34 @@ def update_state(
     added_words   = []
     updated_words = []
 
-    # Collect all word_ids used in this story (title + subtitle + sentences).
-    # Including title/subtitle is important: a word that first appears in the
-    # title genuinely makes its debut there, so first_story should reflect
-    # that. Lifetime occurrence still increments once per story regardless.
-    sections = []
-    if story.get("title"):
-        sections.append(story["title"])
-    if story.get("subtitle"):
-        sections.append(story["subtitle"])
-    sections.extend(story.get("sentences", []))
-    all_word_ids = {
+    # Collect all word_ids used in this story.
+    #
+    # `first_story` and `last_seen_story` are computed from title + subtitle +
+    # sentences (a word that debuts in the title genuinely debuts there, and
+    # the same for "last seen" — a learner reads the subtitle when revisiting
+    # a story).
+    #
+    # `occurrences` (the lifetime practice counter) is computed from
+    # **sentences only**. The repo's permanent integrity test
+    # (`test_lifetime_occurrences_match_state_updater_semantics`) defines this
+    # as the contract — title and subtitle are headers, not body beats, and
+    # counting them inflated the per-word practice count for words that
+    # appeared as headline-only motifs (this drift was caught after story 27,
+    # which had 朝 in the subtitle but not in any sentence). See v0.16 in
+    # docs/authoring.md for the full rationale.
+    header_word_ids = {
         tok["word_id"]
-        for sec in sections
-        for tok in sec.get("tokens", [])
+        for sec_name in ("title", "subtitle")
+        for tok in (story.get(sec_name) or {}).get("tokens", [])
         if tok.get("word_id")
     }
+    body_word_ids = {
+        tok["word_id"]
+        for sent in story.get("sentences", [])
+        for tok in sent.get("tokens", [])
+        if tok.get("word_id")
+    }
+    all_word_ids = header_word_ids | body_word_ids
 
     # The repo convention is `first_story = "story_<N>"` (string), while
     # `last_seen_story = <N>` (int). State_updater used to emit the int for
@@ -74,11 +86,16 @@ def update_state(
     first_story_label = f"story_{story_id}"
 
     for wid in all_word_ids:
+        # Practice counter only counts sentence-level appearances; headers
+        # (title/subtitle) are tracked for first_story/last_seen_story but
+        # don't bump occurrences.
+        in_body = wid in body_word_ids
         if wid in story_new_words:
             # Brand-new word — add to vocab
             if wid in new_vocab["words"]:
                 # Already present (shouldn't happen in normal flow, but safe)
-                new_vocab["words"][wid]["occurrences"] += 1
+                if in_body:
+                    new_vocab["words"][wid]["occurrences"] += 1
                 new_vocab["words"][wid]["last_seen_story"] = story_id
                 updated_words.append(wid)
             else:
@@ -100,7 +117,7 @@ def update_state(
                     "pos":             defn.get("pos", "noun"),
                     "meanings":        defn.get("meanings", []),
                     "first_story":     first_story_label,
-                    "occurrences":     1,
+                    "occurrences":     1 if in_body else 0,
                     "last_seen_story": story_id,
                 }
                 if defn.get("verb_class"):
@@ -110,9 +127,10 @@ def update_state(
                 new_vocab["words"][wid] = entry
                 added_words.append(wid)
         else:
-            # Existing word — increment occurrence counter
+            # Existing word — increment occurrence counter (sentences only)
             if wid in new_vocab["words"]:
-                new_vocab["words"][wid]["occurrences"] += 1
+                if in_body:
+                    new_vocab["words"][wid]["occurrences"] += 1
                 new_vocab["words"][wid]["last_seen_story"] = story_id
                 updated_words.append(wid)
 
