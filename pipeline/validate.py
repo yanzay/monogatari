@@ -701,10 +701,9 @@ def validate(
     # story is shipped, not at next pytest run.
     #
     #   Check 3.6 — cadence (max-per-story + 5-story rolling minimum)
-    #   Check 3.7 — consolidation_arc consecutive cap
     #   Check 3.8 — reinforcement (each new point reappears in next 5 stories)
     #
-    # Like the pytest, all three rules are LIBRARY-WIDE: they need every
+    # Like the pytest, both rules are LIBRARY-WIDE: they need every
     # story_*.json on disk, not just the one being validated. Soft-skip on:
     #   * test fixtures (story_id <= 0)
     #   * missing stories/ directory
@@ -717,7 +716,6 @@ def validate(
                 MAX_NEW_PER_STORY,
                 CADENCE_WINDOW,
                 MIN_NEW_PER_WINDOW,
-                MAX_CONSEC_CONSOLIDATION,
                 REINFORCEMENT_WINDOW,
                 MIN_REINFORCEMENT_USES,
             )
@@ -772,7 +770,6 @@ def validate(
                     return u
 
                 intros_by_n: dict[int, list[str]] = {n: _intros_of(d) for n, d in library.items()}
-                consol_by_n: dict[int, bool]      = {n: bool(d.get("consolidation_arc")) for n, d in library.items()}
                 used_by_n:   dict[int, set[str]]  = {n: _grammar_used(d) for n, d in library.items()}
 
                 # ── Check 3.6: cadence (Rules A + B from the pytest) ──────
@@ -793,14 +790,6 @@ def validate(
                         f"{intros_by_n[sid_for_tier]}. Cramming hurts consolidation; "
                         f"defer the extras to later stories."
                     )
-                # A consolidation_arc story must declare zero new grammar
-                if consol_by_n.get(sid_for_tier) and intros_by_n.get(sid_for_tier):
-                    result.add_error(
-                        "3.6",
-                        f"story {sid_for_tier} marked consolidation_arc=true but "
-                        f"declares new_grammar {intros_by_n[sid_for_tier]} — a "
-                        f"consolidation arc must introduce no new points."
-                    )
                 # Rule B: rolling-window minimum cadence
                 # Only check windows that *include* the current story to keep
                 # the validator's blame focused on what this story changed.
@@ -813,36 +802,14 @@ def validate(
                     if lo > sid_for_tier or hi < sid_for_tier:
                         continue  # window doesn't include this story
                     count = sum(len(intros_by_n.get(i, [])) for i in range(lo, hi + 1))
-                    window_all_consol = all(consol_by_n.get(i, False) for i in range(lo, hi + 1))
-                    if count < MIN_NEW_PER_WINDOW and not window_all_consol:
+                    if count < MIN_NEW_PER_WINDOW:
                         result.add_error(
                             "3.6",
                             f"stories {lo}..{hi}: only {count} new grammar points "
                             f"introduced (minimum {MIN_NEW_PER_WINDOW} per "
                             f"{CADENCE_WINDOW}-story window) — the library has "
-                            f"stagnated. Either declare a new_grammar in this "
-                            f"story or set consolidation_arc=true on every "
-                            f"story in the window."
-                        )
-
-                # ── Check 3.7: consecutive consolidation_arc cap ───────────
-                # Walk the library once and find the run that contains this story.
-                if consol_by_n.get(sid_for_tier):
-                    # Find run extending around sid_for_tier
-                    run_lo = sid_for_tier
-                    while run_lo - 1 in consol_by_n and consol_by_n.get(run_lo - 1):
-                        run_lo -= 1
-                    run_hi = sid_for_tier
-                    while run_hi + 1 in consol_by_n and consol_by_n.get(run_hi + 1):
-                        run_hi += 1
-                    run = run_hi - run_lo + 1
-                    if run > MAX_CONSEC_CONSOLIDATION:
-                        result.add_error(
-                            "3.7",
-                            f"stories {run_lo}..{run_hi}: {run} consecutive "
-                            f"consolidation_arc=true stories exceeds cap of "
-                            f"{MAX_CONSEC_CONSOLIDATION}. Break the arc with at "
-                            f"least one new grammar introduction."
+                            f"stagnated. Declare at least one new_grammar in a "
+                            f"story within this window."
                         )
 
                 # ── Check 3.8: reinforcement of new grammar in next stories ─

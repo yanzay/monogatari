@@ -158,11 +158,6 @@ BOOTSTRAP_MAX_TOTAL = 11     # aggregate cap for the bootstrap window
 MAX_NEW_PER_STORY = 1        # after bootstrap: at most one introduction per story
 CADENCE_WINDOW = 5           # rolling window (stories) for the minimum rule
 MIN_NEW_PER_WINDOW = 1       # at least this many introductions per window
-MAX_CONSEC_CONSOLIDATION = 4 # max consecutive stories that may opt out via
-                             # consolidation_arc=true. Caps "stagnation arcs"
-                             # tightly: at this rate every grammar point gets
-                             # several reinforcement stories before another
-                             # competing intro arrives.
 
 # Reinforcement window: a freshly-introduced grammar point must be re-used
 # (i.e. appear in at least one token) in at least MIN_REINFORCEMENT_USES of

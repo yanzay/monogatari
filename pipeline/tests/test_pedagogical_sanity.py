@@ -115,11 +115,9 @@ def test_grammar_introduction_cadence(stories, root):
         MAX_NEW_PER_STORY,
         CADENCE_WINDOW,
         MIN_NEW_PER_WINDOW,
-        MAX_CONSEC_CONSOLIDATION,
     )
 
     intros: dict[int, list[str]] = {}
-    consolidation: dict[int, bool] = {}
     for story in stories:
         n = int(story["_id"].split("_")[1])
         ng = story.get("new_grammar") or []
@@ -134,7 +132,6 @@ def test_grammar_introduction_cadence(stories, root):
                         ids.append(x[k])
                         break
         intros[n] = ids
-        consolidation[n] = bool(story.get("consolidation_arc"))
 
     bad: list[str] = []
 
@@ -154,55 +151,19 @@ def test_grammar_introduction_cadence(stories, root):
                 f"(max {MAX_NEW_PER_STORY} after bootstrap): {ids}"
             )
 
-    # A consolidation_arc story must declare zero new grammar (the whole point).
-    for n, flagged in consolidation.items():
-        if flagged and intros.get(n):
-            bad.append(
-                f"story_{n}: marked consolidation_arc=true but declares new grammar {intros[n]} — "
-                f"a consolidation arc must introduce no new points"
-            )
-
     # ── Rule B: rolling-window min cadence ────────────────────────────────
-    # A story counts as satisfying the window if it introduces a new point
-    # OR is explicitly flagged consolidation_arc=true (an opt-out).
     if intros:
         max_sid = max(intros)
         for hi in range(BOOTSTRAP_END + CADENCE_WINDOW, max_sid + 1):
             lo = hi - CADENCE_WINDOW + 1
             count = sum(len(intros.get(i, [])) for i in range(lo, hi + 1))
-            window_all_consol = all(consolidation.get(i, False) for i in range(lo, hi + 1))
-            if count < MIN_NEW_PER_WINDOW and not window_all_consol:
+            if count < MIN_NEW_PER_WINDOW:
                 bad.append(
                     f"stories {lo}..{hi}: only {count} new grammar points introduced "
                     f"(minimum {MIN_NEW_PER_WINDOW} per {CADENCE_WINDOW}-story window) — "
                     f"library has stagnated, no forward progress on grammar coverage. "
-                    f"To allow this gap explicitly, set consolidation_arc=true on every "
-                    f"story in the window."
+                    f"Declare at least one new_grammar in a story within this window."
                 )
-
-    # ── Rule C: cap on consecutive consolidation stories ───────────────────
-    # An opt-out can't run forever. Long stagnation arcs are forbidden even
-    # when explicitly declared.
-    if consolidation:
-        max_sid = max(consolidation)
-        run = 0
-        run_start = None
-        for n in range(1, max_sid + 1):
-            if consolidation.get(n):
-                run += 1
-                if run_start is None:
-                    run_start = n
-                if run > MAX_CONSEC_CONSOLIDATION:
-                    bad.append(
-                        f"stories {run_start}..{n}: {run} consecutive consolidation_arc=true "
-                        f"stories exceeds cap of {MAX_CONSEC_CONSOLIDATION}. "
-                        f"Break the arc with at least one new grammar introduction."
-                    )
-                    # avoid spamming the same arc
-                    break
-            else:
-                run = 0
-                run_start = None
 
     assert not bad, "Grammar cadence violations:\n  " + "\n  ".join(bad)
 

@@ -1750,17 +1750,13 @@ Codified in `pipeline/grammar_progression.py` and enforced by
 | `MAX_NEW_PER_STORY` | 1 | after bootstrap, at most one new point per story |
 | `CADENCE_WINDOW` | 5 | rolling window (stories) for the minimum rule |
 | `MIN_NEW_PER_WINDOW` | 1 | every 5-story window must introduce ≥1 new point |
-| `MAX_CONSEC_CONSOLIDATION` | 8 | hard cap on consecutive consolidation arcs |
 
-Three rules:
+Two rules:
 
 * **Rule A (max):** no story past the bootstrap may introduce more
   than 1 new grammar point — cramming hurts consolidation.
 * **Rule B (min):** every 5-story window past the bootstrap must
-  contain ≥1 new introduction OR have every story in the window
-  flagged `consolidation_arc: true`.
-* **Rule C (cap):** at most 8 consecutive `consolidation_arc` stories.
-  An opt-out can't run forever.
+  contain ≥1 new introduction. The library must keep moving forward.
 
 ### Total runway to full coverage
 
@@ -1775,10 +1771,9 @@ reported in SLA literature.
 
 * Default: declare exactly **one** new grammar point in `new_grammar`
   per story.
-* Need a deliberate review story? Set `"consolidation_arc": true` at
-  the top level of the story JSON and leave `new_grammar` empty. You
-  may chain up to 8 consecutive consolidation arcs before Rule C
-  fires.
+* Need a deliberate review story? Just leave `new_grammar` empty. As
+  long as the rolling 5-story window contains at least one new
+  introduction somewhere, Rule B is satisfied.
 * Avoid the historical pitfall: a token that is the **first occurrence**
   of a catalog grammar point in the library should always be paired
   with its declaration in that story's `new_grammar` (and its first-use
@@ -1798,8 +1793,10 @@ To bring the existing 30-story library into compliance:
   used), `G010_to_and` (moved from story 3 → story 2 to match first
   use), `G015_no_possessive` (added to story 2), `G004_ni_location`
   (added to story 6), `G017_de_means` (added to story 8).
-* Marked **15 stories** with `consolidation_arc: true` to honestly
-  reflect the deliberate review-only arcs already in the library.
+* Marked **15 stories** as deliberate review-only arcs already in the
+  library (this used a `consolidation_arc: true` flag at the time;
+  the flag has since been removed in favour of the rolling-window rule
+  alone — see v0.21).
 
 ---
 
@@ -1810,7 +1807,9 @@ To bring the existing 30-story library into compliance:
 * **`MAX_CONSEC_CONSOLIDATION` lowered 8 → 4.** No more than four
   consecutive `consolidation_arc: true` stories may run before a new
   grammar point must break the arc. (Stagnation arcs of 5+ stories are
-  rejected even when explicitly declared.)
+  rejected even when explicitly declared.) **Note:** both the constant
+  and the `consolidation_arc` flag were later removed in v0.21 — only
+  the rolling-window minimum (Rule B) remains.
 * **New test:**
   `test_pedagogical_sanity.py::test_introduced_grammar_is_reinforced`.
   Every grammar point declared in `new_grammar` must appear (as a
@@ -1852,9 +1851,9 @@ were annotated in one pass:
 With `MAX_NEW_PER_STORY = 1` and `MIN_NEW_PER_WINDOW = 1` per 5-story
 window, the slow ceiling for full coverage of the 141-point catalog
 remains **~653 stories**; the fast ceiling **~133 stories**.
-`MAX_CONSEC_CONSOLIDATION = 4` simply enforces that the library
-*progresses* monotonically toward the slow ceiling — no plateau may
-last more than 4 stories.
+The rolling-window minimum (Rule B) ensures the library *progresses*
+monotonically toward the slow ceiling — no 5-story window may pass
+without at least one new grammar introduction.
 
 ---
 
@@ -1940,8 +1939,11 @@ Three new error checks were added to validate:
 | Check | Rule | Pytest twin |
 |---|---|---|
 | **3.6** | cadence (`MAX_NEW_PER_STORY` + 5-story rolling minimum + bootstrap aggregate) | `test_grammar_introduction_cadence` |
-| **3.7** | `MAX_CONSEC_CONSOLIDATION` cap on consecutive consolidation-arc stories | (part of `test_grammar_introduction_cadence`) |
 | **3.8** | reinforcement (each new point reappears in ≥ `MIN_REINFORCEMENT_USES` of next `REINFORCEMENT_WINDOW` stories) | `test_introduced_grammar_is_reinforced` |
+
+(Check 3.7 — `MAX_CONSEC_CONSOLIDATION` cap on consecutive
+consolidation-arc stories — was removed in v0.21 along with the
+`consolidation_arc` flag itself.)
 
 All three soft-skip when `story_id ≤ 0` (test fixtures), when the
 `stories/` directory is absent, or when `grammar_progression` cannot
@@ -1974,8 +1976,9 @@ the 5-story library reinforcement guarantee.
 * `G024_da` removed from `grammar_state.json` entirely. No library
   story has 2 + だ tokens AND no competing intro AND a 5-story
   reinforcement window with だ. Re-introduce when prose supports it.
-* Stories 6, 8, 29 demoted to `consolidation_arc: true` after the
-  above relocations; cadence stays inside max-4 consec consol cap.
+* Stories 6, 8, 29 carried no new grammar after the above relocations
+  (this was tracked at the time with a `consolidation_arc: true` flag,
+  later removed in v0.21).
 * `is_new_grammar: true` markers de-duplicated to exactly one
   sentence-level token per declared `new_grammar` (prefer first
   sentence-level occurrence; clear title/subtitle markers).
@@ -2054,3 +2057,52 @@ the 5-story library reinforcement guarantee.
 - When adding a new validator check, add a unit case inside
   `test_validate_unit.py::run_tests` AND ensure every shipped story still
   passes via the library test (parametrised auto-coverage).
+
+---
+
+## v0.21 — `consolidation_arc` flag removed (2026-04-22)
+
+### What changed
+
+The `consolidation_arc` story-level flag and the
+`MAX_CONSEC_CONSOLIDATION` constant are gone. With them go:
+
+* **Validator Check 3.7** (consecutive consolidation-arc cap)
+* The "consolidation_arc story must declare zero new grammar" sub-rule
+  inside Check 3.6
+* Rule C from `test_grammar_introduction_cadence` (consecutive cap)
+* The "all-window-consolidated" opt-out from Rule B
+
+### Why
+
+The flag duplicated information already implicit in `new_grammar`:
+a story that doesn't introduce a new point IS a consolidation story,
+regardless of whether the flag was set. Maintaining the flag added
+authoring friction (15+ stories had to be retroactively flagged in
+v0.16) and a parallel bookkeeping system that could disagree with
+the actual `new_grammar` field.
+
+The remaining cadence policy — **Rule A** (max 1 new per story after
+bootstrap) and **Rule B** (≥1 new in every 5-story rolling window) —
+is sufficient on its own. Rule B already prevents stagnation; the
+old `MAX_CONSEC_CONSOLIDATION` cap was only meaningful when the
+`consolidation_arc` flag let authors opt out of Rule B, and that
+opt-out is also gone.
+
+### Migration
+
+* All 17 stories that carried `consolidation_arc: true` had the field
+  stripped — their `new_grammar` arrays already correctly described
+  whether they introduce anything.
+* `MAX_CONSEC_CONSOLIDATION` removed from `pipeline/grammar_progression.py`.
+* All references to the constant and the flag removed from
+  `pipeline/validate.py` and `pipeline/tests/test_pedagogical_sanity.py`.
+* Doc references retained as historical context with explicit
+  v0.21-removed annotations.
+
+### What this means for authors
+
+Nothing changes about how stories are written. Default: declare one
+new grammar point per story. Need a review-only story? Just leave
+`new_grammar: []` — Rule B will catch any 5-story window that doesn't
+move forward.
