@@ -1,0 +1,593 @@
+{
+  "story_id": 22,
+  "title": {
+    "jp": "古い本の写真",
+    "en": "A Photo in the Old Book",
+    "tokens": [
+      {
+        "t": "古い",
+        "r": "ふるい",
+        "word_id": "W00067",
+        "role": "content"
+      },
+      {
+        "t": "本",
+        "r": "ほん",
+        "word_id": "W00033",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "写真",
+        "r": "しゃしん",
+        "word_id": "W00068",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "新しい朝、二人で",
+    "en": "A new morning, the two of us",
+    "tokens": [
+      {
+        "t": "新しい",
+        "r": "あたらしい",
+        "word_id": "W00066",
+        "role": "content"
+      },
+      {
+        "t": "朝",
+        "r": "あさ",
+        "word_id": "W00015",
+        "role": "content"
+      },
+      {
+        "t": "、",
+        "role": "punct"
+      },
+      {
+        "t": "二人",
+        "r": "ふたり",
+        "word_id": "W00035",
+        "role": "content"
+      },
+      {
+        "t": "で",
+        "grammar_id": "G017_de_means",
+        "role": "particle"
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00066",
+    "W00067",
+    "W00068"
+  ],
+  "new_grammar": [],
+  "all_words_used": [
+    "W00067",
+    "W00033",
+    "W00068",
+    "W00066",
+    "W00015",
+    "W00035",
+    "W00001",
+    "W00037",
+    "W00044",
+    "W00022",
+    "W00034",
+    "W00003",
+    "W00006",
+    "W00053",
+    "W00012"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "gloss_en": "This morning, an old book is on the desk.",
+      "tokens": [
+        {
+          "t": "今朝",
+          "r": "けさ",
+          "word_id": "W00001",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "机",
+          "r": "つくえ",
+          "word_id": "W00037",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "古い",
+          "r": "ふるい",
+          "word_id": "W00067",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "word_id": "W00033",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "あります",
+          "word_id": "W00044",
+          "role": "content",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_22/s0.wav",
+      "audio_hash": "8d17449d00b2"
+    },
+    {
+      "idx": 1,
+      "gloss_en": "I read the book with my friend, the two of us.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G010_to_and",
+          "role": "particle"
+        },
+        {
+          "t": "二人",
+          "r": "ふたり",
+          "word_id": "W00035",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "word_id": "W00033",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "読みます",
+          "r": "よみます",
+          "word_id": "W00034",
+          "role": "content",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_22/s1.wav",
+      "audio_hash": "680e3e7c097e"
+    },
+    {
+      "idx": 2,
+      "gloss_en": "Inside the old book, there is a photo.",
+      "tokens": [
+        {
+          "t": "古い",
+          "r": "ふるい",
+          "word_id": "W00067",
+          "role": "content"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "word_id": "W00033",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "写真",
+          "r": "しゃしん",
+          "word_id": "W00068",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "あります",
+          "word_id": "W00044",
+          "role": "content",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_22/s2.wav",
+      "audio_hash": "b19b25a22531"
+    },
+    {
+      "idx": 3,
+      "gloss_en": "The photo is of me and my friend.",
+      "tokens": [
+        {
+          "t": "写真",
+          "r": "しゃしん",
+          "word_id": "W00068",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G010_to_and",
+          "role": "particle"
+        },
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_22/s3.wav",
+      "audio_hash": "17359f6c0bd3"
+    },
+    {
+      "idx": 4,
+      "gloss_en": "My friend looks at the photo and smiles.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "写真",
+          "r": "しゃしん",
+          "word_id": "W00068",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "見て",
+          "r": "みて",
+          "word_id": "W00006",
+          "role": "content",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "te_form",
+            "grammar_id": "G007_te_form"
+          }
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "笑います",
+          "r": "わらいます",
+          "word_id": "W00053",
+          "role": "content",
+          "inflection": {
+            "base": "笑う",
+            "base_r": "わらう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_22/s4.wav",
+      "audio_hash": "f7982801c9e8"
+    },
+    {
+      "idx": 5,
+      "gloss_en": "A new book is also on the desk.",
+      "tokens": [
+        {
+          "t": "新しい",
+          "r": "あたらしい",
+          "word_id": "W00066",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "word_id": "W00033",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "机",
+          "r": "つくえ",
+          "word_id": "W00037",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "あります",
+          "word_id": "W00044",
+          "role": "content",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_22/s5.wav",
+      "audio_hash": "2aa5a7a9a389"
+    },
+    {
+      "idx": 6,
+      "gloss_en": "The two of us read the new book.",
+      "tokens": [
+        {
+          "t": "二人",
+          "r": "ふたり",
+          "word_id": "W00035",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "新しい",
+          "r": "あたらしい",
+          "word_id": "W00066",
+          "role": "content"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "word_id": "W00033",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "読みます",
+          "r": "よみます",
+          "word_id": "W00034",
+          "role": "content",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_22/s6.wav",
+      "audio_hash": "115336b17eb6"
+    },
+    {
+      "idx": 7,
+      "gloss_en": "An old photo, a new book.",
+      "tokens": [
+        {
+          "t": "古い",
+          "r": "ふるい",
+          "word_id": "W00067",
+          "role": "content"
+        },
+        {
+          "t": "写真",
+          "r": "しゃしん",
+          "word_id": "W00068",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "新しい",
+          "r": "あたらしい",
+          "word_id": "W00066",
+          "role": "content"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "word_id": "W00033",
+          "role": "content"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_22/s7.wav",
+      "audio_hash": "a614196477b1"
+    },
+    {
+      "idx": 8,
+      "gloss_en": "The morning of the two of us is warm.",
+      "tokens": [
+        {
+          "t": "二人",
+          "r": "ふたり",
+          "word_id": "W00035",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "word_id": "W00015",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "word_id": "W00012",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_22/s8.wav",
+      "audio_hash": "9fb199e9ed90"
+    }
+  ],
+  "word_audio": {
+    "W00066": "audio/story_22/w_W00066.wav",
+    "W00067": "audio/story_22/w_W00067.wav",
+    "W00068": "audio/story_22/w_W00068.wav"
+  },
+  "checksum": null,
+  "word_audio_hash": {
+    "W00066": "08468ea02e6f",
+    "W00067": "4f0311747e23",
+    "W00068": "9c3250ff63e1"
+  }
+}

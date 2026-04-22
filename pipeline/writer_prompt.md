@@ -1,6 +1,6 @@
 # Monogatari — Story Writer Task
 
-You are writing story **21** for the Monogatari Japanese graded-reader.
+You are writing story **22** for the Monogatari Japanese graded-reader.
 Read the authoring rules and plan below, then produce the story JSON.
 Output **only** the JSON object — no prose, no markdown fences.
 
@@ -448,67 +448,67 @@ A clean refusal is better than a story that fails validation.
 
 ```json
 {
-  "story_id": 21,
+  "story_id": 22,
   "target_word_count": 23,
   "max_sentences": 10,
   "new_words": [
-    "W00063",
-    "W00064",
-    "W00065"
+    "W00066",
+    "W00067",
+    "W00068"
   ],
   "new_grammar": [],
-  "theme": "Walking home alone in the snow",
-  "setting": "A snowy night. The narrator walks home alone down a quiet road. Snow on the road, a big moon in the sky, small snowflakes — a solitary night that is not unhappy, only quiet.",
+  "theme": "An old book, a new book, an old photo",
+  "setting": "Morning. Two people sit at the desk reading. Inside an old book they find a small photo of themselves; the friend smiles. A new book waits beside the old one.",
   "constraints": {
     "must_reuse_words": [
-      "W00026",
-      "W00030",
-      "W00031",
-      "W00032",
-      "W00027"
+      "W00035",
+      "W00033",
+      "W00034",
+      "W00037",
+      "W00022"
     ]
   },
   "new_word_definitions": {
-    "W00063": {
-      "surface": "雪",
-      "kana": "ゆき",
-      "reading": "yuki",
-      "pos": "noun",
+    "W00066": {
+      "surface": "新しい",
+      "kana": "あたらしい",
+      "reading": "atarashii",
+      "pos": "adjective",
       "verb_class": null,
-      "adj_class": null,
+      "adj_class": "i",
       "meanings": [
-        "snow"
+        "new"
       ],
       "grammar_tags": []
     },
-    "W00064": {
-      "surface": "道",
-      "kana": "みち",
-      "reading": "michi",
-      "pos": "noun",
+    "W00067": {
+      "surface": "古い",
+      "kana": "ふるい",
+      "reading": "furui",
+      "pos": "adjective",
       "verb_class": null,
-      "adj_class": null,
+      "adj_class": "i",
       "meanings": [
-        "road, path"
+        "old (of objects)"
       ],
       "grammar_tags": []
     },
-    "W00065": {
-      "surface": "一人",
-      "kana": "ひとり",
-      "reading": "hitori",
+    "W00068": {
+      "surface": "写真",
+      "kana": "しゃしん",
+      "reading": "shashin",
       "pos": "noun",
       "verb_class": null,
       "adj_class": null,
       "meanings": [
-        "one person, alone"
+        "photograph, photo"
       ],
       "grammar_tags": []
     }
   },
   "new_grammar_definitions": {},
-  "rationale": "Story 21 attacks the story-15 starvation cluster (帰ります, 夜, 月 — all unseen since story 15) by walking the narrator home through a snowy night. New words push three different palette gaps: 雪 is the first new weather noun since 雨 in story 1; 道 is the first walking-surface noun (we had 公園 / 庭 / 外 but no path); 一人 is the first human-count noun (we had 二人 since story 8 but no singular). The closer 'a solitary night is quiet' uses 一人 attributively and intentionally avoids the 〜いい〜です template by ending on the noun-modifying form.",
-  "seed": 81927
+  "rationale": "Story 22 brings 二人 back from story 16 and introduces a new descriptor pair (新しい / 古い) plus a memory-bearing concrete prop (写真). The pair is taught contrastively in adjacent sentences so the learner sees both halves immediately. 写真 unlocks 'memory inside an object' — a story shape the library has only handled abstractly through 思います / と思います before. The new closer ('the morning of two is warm') is a quiet emotional payoff that depends on 二人 having actually been present in the scene, not just named.",
+  "seed": 91337
 }
 ```
 
@@ -518,15 +518,15 @@ A clean refusal is better than a story that fails validation.
 
 - `W00001`: **今朝** (けさ) [noun] — this morning [occ:7]
 - `W00002`: **雨** (あめ) [noun] — rain [occ:7]
-- `W00003`: **私** (わたし) [pronoun] — I, me [occ:19]
+- `W00003`: **私** (わたし) [pronoun] — I, me [occ:20]
 - `W00004`: **窓** (まど) [noun] — window [occ:8]
-- `W00005`: **外** (そと) [noun] — outside [occ:7]
+- `W00005`: **外** (そと) [noun] — outside [occ:8]
 - `W00006`: **見ます** (みます) [verb] — to see, to look [occ:14]
 - `W00007`: **木** (き) [noun] — tree [occ:5]
 - `W00008`: **濡れる** (ぬれる) [verb] — to get wet [occ:3]
 - `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:10]
 - `W00010`: **飲みます** (のみます) [verb] — to drink [occ:6]
-- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:16]
+- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:17]
 - `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:8]
 - `W00013`: **いい** (いい) [adjective] — good, nice [occ:9]
 - `W00014`: **気分** (きぶん) [noun] — feeling, mood [occ:5]
@@ -541,12 +541,12 @@ A clean refusal is better than a story that fails validation.
 - `W00023`: **散歩** (さんぽ) [noun] — walk, stroll [occ:2]
 - `W00024`: **花** (はな) [noun] — flower [occ:3]
 - `W00025`: **ドア** (ドア) [noun] — door [occ:2]
-- `W00026`: **帰ります** (かえります) [verb] — to return home, to go back [occ:2]
+- `W00026`: **帰ります** (かえります) [verb] — to return home, to go back [occ:3]
 - `W00027`: **風** (かぜ) [noun] — wind [occ:5]
 - `W00028`: **猫** (ねこ) [noun] — cat [occ:5]
 - `W00029`: **います** (います) [verb] — to be (animate), to exist [occ:7]
-- `W00030`: **夜** (よる) [noun] — night [occ:4]
-- `W00031`: **月** (つき) [noun] — moon [occ:4]
+- `W00030`: **夜** (よる) [noun] — night [occ:5]
+- `W00031`: **月** (つき) [noun] — moon [occ:5]
 - `W00032`: **星** (ほし) [noun] — star [occ:2]
 - `W00033`: **本** (ほん) [noun] — book [occ:5]
 - `W00034`: **読みます** (よみます) [verb] — to read [occ:6]
@@ -559,10 +559,10 @@ A clean refusal is better than a story that fails validation.
 - `W00041`: **待ちます** (まちます) [verb] — to wait [occ:3]
 - `W00042`: **昨日** (きのう) [noun] — yesterday [occ:5]
 - `W00043`: **思います** (おもいます) [verb] — to think [occ:4]
-- `W00044`: **あります** (あります) [verb] — to exist (inanimate), to be (inanimate) [occ:7]
+- `W00044`: **あります** (あります) [verb] — to exist (inanimate), to be (inanimate) [occ:8]
 - `W00045`: **そば** (そば) [noun] — side, near [occ:3]
 - `W00046`: **明日** (あした) [noun] — tomorrow [occ:3]
-- `W00047`: **空** (そら) [noun] — sky [occ:2]
+- `W00047`: **空** (そら) [noun] — sky [occ:3]
 - `W00048`: **作ります** (つくります) [verb] — to make, to prepare [occ:2]
 - `W00049`: **パン** (パン) [noun] — bread [occ:2]
 - `W00050`: **一緒に** (いっしょに) [adverb] — together [occ:2]
@@ -570,17 +570,20 @@ A clean refusal is better than a story that fails validation.
 - `W00052`: **ベンチ** (ベンチ) [noun] — bench [occ:1]
 - `W00053`: **笑います** (わらいます) [verb] — to smile, to laugh [occ:2]
 - `W00054`: **鳥** (とり) [noun] — bird [occ:2]
-- `W00055`: **小さい** (ちいさい) [adjective] — small, little [occ:2]
+- `W00055`: **小さい** (ちいさい) [adjective] — small, little [occ:3]
 - `W00056`: **嬉しい** (うれしい) [adjective] — happy, glad [occ:2]
-- `W00057`: **大きい** (おおきい) [adjective] — big, large [occ:1]
+- `W00057`: **大きい** (おおきい) [adjective] — big, large [occ:2]
 - `W00058`: **元気** (げんき) [adjective] — lively, energetic, healthy [occ:1]
 - `W00059`: **庭** (にわ) [noun] — garden, yard [occ:1]
 - `W00060`: **書きます** (かきます) [verb] — to write [occ:1]
 - `W00061`: **名前** (なまえ) [noun] — name [occ:1]
 - `W00062`: **寒い** (さむい) [adjective] — cold (weather) [occ:1]
-- `W00063`: **雪** (ゆき) [noun] — snow **[NEW]**
-- `W00064`: **道** (みち) [noun] — road, path **[NEW]**
-- `W00065`: **一人** (ひとり) [noun] — one person, alone **[NEW]**
+- `W00063`: **雪** (ゆき) [noun] — snow [occ:1]
+- `W00064`: **道** (みち) [noun] — road, path [occ:1]
+- `W00065`: **一人** (ひとり) [noun] — one person, alone [occ:1]
+- `W00066`: **新しい** (あたらしい) [adjective] — new **[NEW]**
+- `W00067`: **古い** (ふるい) [adjective] — old (of objects) **[NEW]**
+- `W00068`: **写真** (しゃしん) [noun] — photograph, photo **[NEW]**
 
 ---
 
@@ -611,19 +614,19 @@ A clean refusal is better than a story that fails validation.
 
 ## New word definitions (introduce these in the story)
 
-- `W00063`: **雪** (ゆき) [noun] — snow
-- `W00064`: **道** (みち) [noun] — road, path
-- `W00065`: **一人** (ひとり) [noun] — one person, alone
+- `W00066`: **新しい** (あたらしい) [adjective · i-adj] — new
+- `W00067`: **古い** (ふるい) [adjective · i-adj] — old (of objects)
+- `W00068`: **写真** (しゃしん) [noun] — photograph, photo
 
 ---
 
 ## Output schema
 
-Produce a `story_21.json` object with this structure:
+Produce a `story_22.json` object with this structure:
 
 ```json
 {
-  "story_id": 21,
+  "story_id": 22,
   "title": {
     "jp": "<kanji/kana title>",
     "en": "<English title>",
@@ -637,7 +640,7 @@ Produce a `story_21.json` object with this structure:
     "tokens": [ ... ]
   },
   "plan_ref": "plan.json",
-  "new_words": ["W00063", "W00064", "W00065"],
+  "new_words": ["W00066", "W00067", "W00068"],
   "new_grammar": [],
   "all_words_used": ["<every word_id used, in order of first appearance>"],
   "sentences": [

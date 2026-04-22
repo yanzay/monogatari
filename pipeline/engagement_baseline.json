@@ -19,7 +19,7 @@
     ],
     "last_regenerated": "2026-04-22 15:30",
     "stories_covered": 12,
-    "n_stories": 21
+    "n_stories": 22
   },
   "reviews": [
     {
@@ -738,6 +738,39 @@
           "why": "originality"
         }
       ]
+    },
+    {
+      "story_id": 22,
+      "title_jp": "古い本の写真",
+      "title_en": "A Photo in the Old Book",
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 5,
+        "closure": 4
+      },
+      "average": 4.2,
+      "approved": true,
+      "highlights": [
+        "Brings 二人 back from story 16 (3-occ since) and pairs it with a memory-bearing concrete prop (写真) that the library has never had before — the photo is the bridge between past (s2/s3) and present (s4/s6) without the story needing past tense.",
+        "New descriptor pair (新しい / 古い) is taught contrastively in the same scene rather than scattered: 古い anchors s0/s2/s7 (the book / the photo), 新しい answers in s5/s6/s7 (the new book on the same desk). The closer s7 'old photo, new book' is the structural payoff.",
+        "S4 'My friend looks at the photo and smiles' — first time in 22 stories that a non-narrator character does an observable emotional action (笑います) directly, not via a と思います inference. That's a small but important voice expansion."
+      ],
+      "weaknesses": [
+        "Three あります sentences (s0, s2, s5) are stylistically homogeneous — the descriptor sits before the noun in each, the predicate is identical. Reads slightly catalogue-like; I considered swapping one for an active verb but every alternative needed a verb the library doesn't have (置く / 置いてある / 写る). Decision: ship the three あります and let story 23+ vary the existence-predicate shapes.",
+        "Closer 'the morning of the two of us is warm' attributes 温かい to a morning, which is well-attested literary usage but borderline relative to the audit's 'inanimate-thing-is-X' rule. Justified here because the previous sentences have built the warmth concretely (two people, shared book, smile)."
+      ],
+      "suggestions": [
+        {
+          "what": "When 撮ります (to photograph) enters vocab, future story could pair 写真 with a verb of taking, not just existing.",
+          "why": "originality"
+        },
+        {
+          "what": "Pair 古い with 椅子 in a future story — old chair, new sit.",
+          "why": "voice"
+        }
+      ]
     }
   ],
   "leaderboard": [
@@ -802,49 +835,54 @@
       "rank": 9
     },
     {
+      "story_id": 22,
+      "average": 4.2,
+      "rank": 9
+    },
+    {
       "story_id": 3,
       "average": 4.0,
-      "rank": 13
+      "rank": 14
     },
     {
       "story_id": 14,
       "average": 4.0,
-      "rank": 13
+      "rank": 14
     },
     {
       "story_id": 15,
       "average": 4.0,
-      "rank": 13
+      "rank": 14
     },
     {
       "story_id": 16,
       "average": 4.0,
-      "rank": 13
+      "rank": 14
     },
     {
       "story_id": 21,
       "average": 4.0,
-      "rank": 13
+      "rank": 14
     },
     {
       "story_id": 1,
       "average": 3.8,
-      "rank": 18
+      "rank": 19
     },
     {
       "story_id": 13,
       "average": 3.8,
-      "rank": 18
+      "rank": 19
     },
     {
       "story_id": 17,
       "average": 3.8,
-      "rank": 18
+      "rank": 19
     },
     {
       "story_id": 18,
       "average": 3.8,
-      "rank": 18
+      "rank": 19
     }
   ],
   "next_actions": [
