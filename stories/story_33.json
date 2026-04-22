@@ -1,0 +1,604 @@
+{
+  "story_id": 33,
+  "title": {
+    "jp": "古い時計",
+    "en": "The Old Clock",
+    "tokens": [
+      {
+        "t": "古い",
+        "r": "ふるい",
+        "word_id": "W00067",
+        "role": "content"
+      },
+      {
+        "t": "時計",
+        "r": "とけい",
+        "word_id": "W00071",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "祖母の思い出",
+    "en": "Grandmother's memory",
+    "tokens": [
+      {
+        "t": "祖母",
+        "r": "そぼ",
+        "word_id": "W00098",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "思い出",
+        "r": "おもいで",
+        "word_id": "W00099",
+        "role": "content"
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00098",
+    "W00099",
+    "W00100"
+  ],
+  "new_grammar": [
+    "G029_kute"
+  ],
+  "all_words_used": [
+    "W00067",
+    "W00071",
+    "W00098",
+    "W00099",
+    "W00018",
+    "W00003",
+    "W00075",
+    "W00029",
+    "W00037",
+    "W00044",
+    "W00011",
+    "W00100",
+    "W00097",
+    "W00078",
+    "W00055",
+    "W00012",
+    "W00059",
+    "W00024",
+    "W00083"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "夕方",
+          "r": "ゆうがた",
+          "word_id": "W00018",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is evening.",
+      "audio": "audio/story_33/s0.wav",
+      "audio_hash": "804912fc0867"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "部屋",
+          "r": "へや",
+          "word_id": "W00075",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "word_id": "W00029",
+          "role": "content",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I am in the room.",
+      "audio": "audio/story_33/s1.wav",
+      "audio_hash": "8777e980fc99"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "机",
+          "r": "つくえ",
+          "word_id": "W00037",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "古い",
+          "r": "ふるい",
+          "word_id": "W00067",
+          "role": "content"
+        },
+        {
+          "t": "時計",
+          "r": "とけい",
+          "word_id": "W00071",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "あります",
+          "r": "あります",
+          "word_id": "W00044",
+          "role": "content",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "On the desk, there is an old clock.",
+      "audio": "audio/story_33/s2.wav",
+      "audio_hash": "fd06b9cfa960"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "word_id": "W00098",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "時計",
+          "r": "とけい",
+          "word_id": "W00071",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is grandmother's clock.",
+      "audio": "audio/story_33/s3.wav",
+      "audio_hash": "a5f5235d37d4"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "古くて",
+          "r": "ふるくて",
+          "word_id": "W00067",
+          "role": "content",
+          "is_new_grammar": true,
+          "inflection": {
+            "base": "古い",
+            "base_r": "ふるい",
+            "form": "te_form",
+            "grammar_id": "G029_kute"
+          }
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "word_id": "W00011",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is old and quiet.",
+      "audio": "audio/story_33/s4.wav",
+      "audio_hash": "2bc2f2b7ca24"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "word_id": "W00098",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "大切",
+          "r": "たいせつ",
+          "word_id": "W00100",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G028_to_iimasu",
+          "role": "particle"
+        },
+        {
+          "t": "言います",
+          "r": "いいます",
+          "word_id": "W00097",
+          "role": "content",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother says, \"it is precious.\"",
+      "audio": "audio/story_33/s5.wav",
+      "audio_hash": "6baa97b6163d"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "word_id": "W00098",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "家",
+          "r": "いえ",
+          "word_id": "W00078",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "小さくて",
+          "r": "ちいさくて",
+          "word_id": "W00055",
+          "role": "content",
+          "inflection": {
+            "base": "小さい",
+            "base_r": "ちいさい",
+            "form": "te_form",
+            "grammar_id": "G029_kute"
+          }
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "word_id": "W00012",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother's house is small and warm.",
+      "audio": "audio/story_33/s6.wav",
+      "audio_hash": "5aed0558fbfd"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "庭",
+          "r": "にわ",
+          "word_id": "W00059",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "花",
+          "r": "はな",
+          "word_id": "W00024",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "あります",
+          "r": "あります",
+          "word_id": "W00044",
+          "role": "content",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There are flowers in the garden.",
+      "audio": "audio/story_33/s7.wav",
+      "audio_hash": "1030083adc0d"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "美しくて",
+          "r": "うつくしくて",
+          "word_id": "W00083",
+          "role": "content",
+          "inflection": {
+            "base": "美しい",
+            "base_r": "うつくしい",
+            "form": "te_form",
+            "grammar_id": "G029_kute"
+          }
+        },
+        {
+          "t": "静かな",
+          "r": "しずかな",
+          "word_id": "W00011",
+          "role": "content",
+          "inflection": {
+            "base": "静か",
+            "base_r": "しずか",
+            "form": "attributive",
+            "grammar_id": "G016_na_adjective"
+          }
+        },
+        {
+          "t": "庭",
+          "r": "にわ",
+          "word_id": "W00059",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A beautiful and quiet garden.",
+      "audio": "audio/story_33/s8.wav",
+      "audio_hash": "19e032155c2a"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "時計",
+          "r": "とけい",
+          "word_id": "W00071",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "思い出",
+          "r": "おもいで",
+          "word_id": "W00099",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The clock is a memory.",
+      "audio": "audio/story_33/s9.wav",
+      "audio_hash": "c75764105559"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "大切",
+          "r": "たいせつ",
+          "word_id": "W00100",
+          "role": "content"
+        },
+        {
+          "t": "な",
+          "grammar_id": "G016_na_adjective",
+          "role": "particle"
+        },
+        {
+          "t": "思い出",
+          "r": "おもいで",
+          "word_id": "W00099",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A precious memory.",
+      "audio": "audio/story_33/s10.wav",
+      "audio_hash": "1b3a2c1b9722"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "古くて",
+          "r": "ふるくて",
+          "word_id": "W00067",
+          "role": "content",
+          "inflection": {
+            "base": "古い",
+            "base_r": "ふるい",
+            "form": "te_form",
+            "grammar_id": "G029_kute"
+          }
+        },
+        {
+          "t": "大切",
+          "r": "たいせつ",
+          "word_id": "W00100",
+          "role": "content"
+        },
+        {
+          "t": "な",
+          "grammar_id": "G016_na_adjective",
+          "role": "particle"
+        },
+        {
+          "t": "時計",
+          "r": "とけい",
+          "word_id": "W00071",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "An old, precious clock.",
+      "audio": "audio/story_33/s11.wav",
+      "audio_hash": "8e8f71d84f26"
+    }
+  ],
+  "word_audio": {
+    "W00098": "audio/story_33/w_W00098.wav",
+    "W00099": "audio/story_33/w_W00099.wav",
+    "W00100": "audio/story_33/w_W00100.wav"
+  },
+  "checksum": null,
+  "word_audio_hash": {
+    "W00098": "1fb2101ff72a",
+    "W00099": "36a157ce4bee",
+    "W00100": "bec6d2630605"
+  }
+}

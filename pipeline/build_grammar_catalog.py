@@ -111,6 +111,8 @@ N5_POINTS += [
      "い-adjective negative",                          "jlpt_sensei,bunpro_n5,genki_L5", "i_adj"),
     ("i_adj_past",   "〜かった", "N5", "adjective", "〜かった — i-adj past",
      "い-adjective past",                              "jlpt_sensei,bunpro_n5,genki_L5", "i_adj"),
+    ("i_adj_te",     "〜くて",   "N5", "adjective", "〜くて — i-adj te-form (linking)",
+     "links i-adjectives ('old and quiet')",          "jlpt_sensei,bunpro_n5,genki_L7", "i_adj"),
     ("na_adj_neg",   "〜じゃない","N5","adjective","〜じゃない — na-adj/noun negative",
      "な-adjective / noun negative",                   "jlpt_sensei,bunpro_n5,genki_L5", "na_adj"),
 

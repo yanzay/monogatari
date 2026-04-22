@@ -19,7 +19,7 @@
     ],
     "last_regenerated": "2026-04-22 15:30",
     "stories_covered": 12,
-    "n_stories": 32
+    "n_stories": 33
   },
   "reviews": [
     {
@@ -1103,6 +1103,39 @@
           "why": "coherence — tea in s3 is static filler; a wait-beat would build anticipation"
         }
       ]
+    },
+    {
+      "story_id": 33,
+      "title_jp": "古い時計",
+      "title_en": "The Old Clock",
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 5,
+        "coherence": 4,
+        "closure": 4
+      },
+      "average": 4.2,
+      "approved": true,
+      "highlights": [
+        "First abstract emotional vocabulary in the library: 思い出 (memory) and 大切 (precious) are the first words the narrator can use to talk about *significance* rather than just describing surfaces. After 32 stories of 'I see X, X is warm/quiet', this is the move that lets the library start to mean things to people.",
+        "G029_kute (i-adjective te-form) used 4× across the story (s4, s6, s8, s11) as a deliberate shape: short adjective-stack sentences (古くて静か, 小さくて温かい, 美しくて静かな, 古くて大切な) replace the worksheet 'X です。Y です。' pattern that has dominated the library since story 1. Closer is also a kute construction — the shape lands in the closing image.",
+        "祖母 expands the family register (now 母, 父, 家族, 祖母 across stories 29-33) but unlike father in 32, grandmother is offstage. The story is about her *absence* — the clock and the remembered house carry her presence. That is the first absent-character story since the friend's letter in 10."
+      ],
+      "weaknesses": [
+        "Sentence 7 (庭に花があります) is the structurally weakest beat — it sets up s8's adjective stack (美しくて静かな庭) but reads as an existence assertion rather than something the narrator is *remembering*. Could be rewritten as 庭に花がありました (past tense, attributing to grandmother's house) once 〜ました is part of every adjective scene.",
+        "三 successive sentences (s9, s10, s11) all end in です with similar shapes (時計は思い出です。大切な思い出です。古くて大切な時計です。). The chain works as a triple-beat closer, but a verbal closer (e.g. 私は時計を見ます — I look at the clock) would have given the ending more motion."
+      ],
+      "suggestions": [
+        {
+          "what": "Story 34 should consolidate G029_kute (use it 1-2× without introducing a new grammar). The shape will only become a learner reflex if it appears in the next story too.",
+          "why": "coherence — new grammar needs reinforcement in N+1, not just N"
+        },
+        {
+          "what": "Story 35 or 36 should let the grandmother actually do something past-tense (祖母は花を作りました — grandmother grew flowers). Right now she exists only as a noun + a clock; the next family-arc story should give her a verb.",
+          "why": "originality — absent characters earn weight by accumulating concrete memory-actions, not just objects"
+        }
+      ]
     }
   ],
   "leaderboard": [
@@ -1207,64 +1240,69 @@
       "rank": 12
     },
     {
+      "story_id": 33,
+      "average": 4.2,
+      "rank": 12
+    },
+    {
       "story_id": 3,
       "average": 4.0,
-      "rank": 21
+      "rank": 22
     },
     {
       "story_id": 14,
       "average": 4.0,
-      "rank": 21
+      "rank": 22
     },
     {
       "story_id": 15,
       "average": 4.0,
-      "rank": 21
+      "rank": 22
     },
     {
       "story_id": 16,
       "average": 4.0,
-      "rank": 21
+      "rank": 22
     },
     {
       "story_id": 21,
       "average": 4.0,
-      "rank": 21
+      "rank": 22
     },
     {
       "story_id": 23,
       "average": 4.0,
-      "rank": 21
+      "rank": 22
     },
     {
       "story_id": 32,
       "average": 4.0,
-      "rank": 21
+      "rank": 22
     },
     {
       "story_id": 1,
       "average": 3.8,
-      "rank": 28
+      "rank": 29
     },
     {
       "story_id": 13,
       "average": 3.8,
-      "rank": 28
+      "rank": 29
     },
     {
       "story_id": 17,
       "average": 3.8,
-      "rank": 28
+      "rank": 29
     },
     {
       "story_id": 18,
       "average": 3.8,
-      "rank": 28
+      "rank": 29
     },
     {
       "story_id": 31,
       "average": 3.6,
-      "rank": 32
+      "rank": 33
     }
   ],
   "next_actions": [
