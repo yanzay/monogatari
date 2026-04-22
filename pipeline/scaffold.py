@@ -166,6 +166,24 @@ def _enrich_word_from_jmdict(surface: str | None) -> dict | None:
     }
 
 
+def _suggested_jlpt_for_next_story() -> str:
+    """Pre-fill the jlpt field on a new grammar point with the level
+    that's currently active for the next story.
+
+    Authoring is welcome to override (e.g. introduce an N5 point even
+    in story 30) — but this default makes the common case zero-friction.
+    """
+    try:
+        from grammar_progression import active_jlpt
+        # Determine next story_id by counting existing stories
+        from pathlib import Path
+        story_dir = Path(__file__).parent.parent / "stories"
+        next_sid = 1 + sum(1 for p in story_dir.glob("story_*.json"))
+        return active_jlpt(next_sid)
+    except Exception:
+        return "N5"
+
+
 def scaffold_plan(args) -> int:
     vocab, grammar, next_story, next_word, next_grammar = load_state()
     new_words = []
@@ -211,6 +229,7 @@ def scaffold_plan(args) -> int:
             "short": "<one-sentence rule>",
             "long": "<paragraph: when to use, how it contrasts with related grammar, common pitfalls>",
             "genki_ref": "L?",
+            "jlpt": _suggested_jlpt_for_next_story(),
             "prerequisites": []
         }
 

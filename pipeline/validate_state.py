@@ -31,7 +31,8 @@ GRAMMAR_PLACEHOLDER_SHORTS = {
     "",
 }
 
-REQUIRED_GRAMMAR_FIELDS = ("id", "title", "short", "long", "first_story", "prerequisites")
+REQUIRED_GRAMMAR_FIELDS = ("id", "title", "short", "long", "first_story", "prerequisites", "jlpt")
+VALID_JLPT_LABELS       = {"N5", "N4", "N3", "N2", "N1"}
 REQUIRED_WORD_FIELDS    = ("id", "surface", "kana", "reading", "pos", "meanings",
                            "first_story", "occurrences")
 
@@ -82,6 +83,14 @@ def validate_grammar_state(grammar: dict) -> list[str]:
         for p in gp.get("prerequisites", []) or []:
             if p not in known_ids:
                 errors.append(f"{gid}: prerequisite '{p}' is not a known grammar id")
+
+        # jlpt must be a valid label so Check 3.5 can use it
+        jlpt = gp.get("jlpt")
+        if jlpt is not None and jlpt not in VALID_JLPT_LABELS:
+            errors.append(
+                f"{gid}: 'jlpt' must be one of {sorted(VALID_JLPT_LABELS)} "
+                f"(got {jlpt!r})"
+            )
 
     return errors
 

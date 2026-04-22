@@ -1025,3 +1025,52 @@ find them. Now that gap is closed.
 - `conjugate` and `expected_inflection` agree on all 11 test cases
   including all 4 irregular forms and one suru-compound
 - All 9 stories ✓ VALID, 0 warnings each
+
+---
+
+## v0.9 — Grammar tier progression (JLPT-aligned)
+
+### What changed
+
+A new pacing dimension joins length progression: **grammar tier progression**.
+Where `pipeline/progression.py` governs *how long* a story may be at story_id N,
+the new `pipeline/grammar_progression.py` governs *which grammar points may be
+introduced*.
+
+### The tier ladder
+
+| Tier | JLPT | Story window | Meaning |
+|------|------|--------------|---------|
+| 1    | N5   | 1–10         | Foundation: copula, particles, te-form, te-iru, basic connectives |
+| 2    | N4   | 11–25        | Tense + negation: past, negatives, ~たい (want), ~から (because), simple adverbs |
+| 3    | N3   | 26–50        | Intent + conditionals: ~ましょう, ~たら, ~ば, ~つもり, comparison, time clauses |
+| 4    | N2+  | 51+          | Embedded clauses, passive/causative, honorifics, advanced connectives |
+
+JLPT is used as a **reference framework only** — we don't claim to teach the
+exam. It's the closest commonly-understood ladder, and it eliminates the
+"is this beginner or intermediate?" judgment call.
+
+### The rule (Check 3.5)
+
+A story's `new_grammar` may come from the **current tier or earlier**.
+Cross-tier introductions (jumping ahead) are blocked at validation time —
+hard block, consistent with how Check 7 length progression works.
+
+Earlier-tier grammar is always legal: story 50 may absolutely introduce a
+previously-skipped N5 particle if the right narrative context arises. The
+block is one-directional (no jumping ahead, never backward).
+
+### How to use it
+
+- `python3 pipeline/lookup.py --next` now prints the next story's tier and
+  flags JLPT tier transitions.
+- `python3 pipeline/lookup.py --grammar-progression` prints the full ladder.
+- `pipeline/scaffold.py plan` pre-fills the `jlpt:` field on any new
+  grammar definition with the level currently active for the next story.
+- `pipeline/validate_state.py` now requires `jlpt` on every grammar point
+  (must be one of N5/N4/N3/N2/N1).
+
+### Migration
+
+All 12 existing grammar points were tagged `jlpt: "N5"` (they fit cleanly
+into Tier 1). Story 11 will be the first to draw from N4.

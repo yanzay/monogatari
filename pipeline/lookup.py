@@ -120,8 +120,23 @@ def show_next(vocab: dict, grammar: dict) -> None:
             prev_sent = _tgt_sent(next_story - 1)
             this_sent = _tgt_sent(next_story)
             if this_sent != prev_sent:
-                print(f"Tier transition:      story {next_story} adds +{this_sent - prev_sent} "
+                print(f"Length tier change:   story {next_story} adds +{this_sent - prev_sent} "
                       f"sentence(s) vs story {next_story - 1} (was {prev_sent})")
+    except Exception:
+        pass
+
+    # Grammar tier (JLPT-aligned) for the next story
+    try:
+        from grammar_progression import active_tier, active_jlpt, tier_label
+        gtier = active_tier(next_story)
+        gjlpt = active_jlpt(next_story)
+        print(f"Grammar tier:         {tier_label(gtier)} (introduce only ≤ {gjlpt} grammar)")
+        # Flag JLPT tier transition between previous and current story
+        if next_story > 1:
+            prev_tier = active_tier(next_story - 1)
+            if gtier != prev_tier:
+                print(f"Grammar tier change:  story {next_story} steps up to JLPT {gjlpt} "
+                      f"(was {active_jlpt(next_story - 1)})")
     except Exception:
         pass
 
@@ -196,6 +211,7 @@ def main() -> None:
     p.add_argument("--jmdict", action="store_true", help="Query JMdict (English↔Japanese) for the term — useful for finding readings/POS for a candidate new word")
     p.add_argument("--morph", action="store_true", help="Run morphological analysis (UniDic-Lite) on the term — useful for verifying inflected surfaces parse the way you expect")
     p.add_argument("--progression", action="store_true", help="Print the length-progression curve up to story 35")
+    p.add_argument("--grammar-progression", action="store_true", help="Print the JLPT-aligned grammar tier ladder")
     args = p.parse_args()
 
     vocab, grammar = load_state()
@@ -204,6 +220,9 @@ def main() -> None:
         show_next(vocab, grammar)
     elif args.progression:
         show_progression()
+    elif args.grammar_progression:
+        from grammar_progression import show_curve
+        show_curve()
     elif args.grammar_usage:
         grammar_usage()
     elif args.low_occ:

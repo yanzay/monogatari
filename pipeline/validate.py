@@ -583,6 +583,48 @@ def validate(
         if missing_prereqs:
             result.add_error(3, f"grammar_id '{gid}' missing prerequisites: {missing_prereqs}")
 
+    # ── Check 3.5: Grammar tier progression (JLPT-aligned) ───────────────────
+    # A story may only INTRODUCE grammar from its current tier or earlier.
+    # Re-using an already-existing point (regardless of tier) is always fine;
+    # only declared new_grammar is gated. Story_id 0 is the test-fixture
+    # sentinel — skip the check there to keep unit-test fixtures simple.
+    sid_for_tier = story.get("story_id", 0)
+    if sid_for_tier and sid_for_tier > 0:
+        try:
+            from grammar_progression import (
+                is_grammar_legal_for_story,
+                active_tier,
+                grammar_tier,
+                tier_label,
+            )
+            for gid in declared_new_grammar:
+                # Look up jlpt label — prefer plan's new_grammar_definitions
+                # (so a story being authored can declare its own jlpt before
+                # the point has been written into grammar_state.json), then
+                # fall back to grammar_state.
+                jlpt = None
+                if plan:
+                    new_defs = plan.get("new_grammar_definitions", {}) or {}
+                    if gid in new_defs:
+                        jlpt = new_defs[gid].get("jlpt")
+                if jlpt is None:
+                    gp = grammar_points.get(gid, {})
+                    jlpt = gp.get("jlpt")
+                if not is_grammar_legal_for_story(jlpt, sid_for_tier):
+                    g_tier = grammar_tier(jlpt)
+                    s_tier = active_tier(sid_for_tier)
+                    result.add_error(
+                        "3.5",
+                        f"grammar_id '{gid}' (jlpt={jlpt}, tier {g_tier}) cannot be "
+                        f"introduced in story {sid_for_tier} which is in {tier_label(s_tier)}. "
+                        f"Cross-tier introductions are blocked — wait until story "
+                        f"{[lo for t, lo, _, _ in __import__('grammar_progression').TIER_WINDOWS if t == g_tier][0]}+ "
+                        f"or pick an earlier-tier alternative."
+                    )
+        except ImportError:
+            # grammar_progression module missing — soft-skip (back-compat)
+            pass
+
     # ── Check 4: Budget ───────────────────────────────────────────────────────
     story_new_words   = declared_new_words
     story_new_grammar = declared_new_grammar

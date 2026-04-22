@@ -790,6 +790,70 @@ def run_tests():
     check("story_id=0 fixture (5 sentences) → no check 7 error (absolute range used)",
           not errors_for_check(r, 7))
 
+    print("\n── Check 3.5: Grammar tier progression ──────────────────────────")
+    # Build a grammar fixture with one N5 point and one N4 point.
+    GRAMMAR_TIERED = copy.deepcopy(GRAMMAR)
+    GRAMMAR_TIERED["points"]["G_N5_test"] = {
+        "id": "G_N5_test", "title": "test N5", "short": "x", "long": "x",
+        "first_story": 1, "prerequisites": [], "jlpt": "N5",
+    }
+    GRAMMAR_TIERED["points"]["G_N4_test"] = {
+        "id": "G_N4_test", "title": "test N4", "short": "x", "long": "x",
+        "first_story": 11, "prerequisites": [], "jlpt": "N4",
+    }
+    GRAMMAR_TIERED["points"]["G_N3_test"] = {
+        "id": "G_N3_test", "title": "test N3", "short": "x", "long": "x",
+        "first_story": 26, "prerequisites": [], "jlpt": "N3",
+    }
+
+    # Story 5 (Tier 1, N5) introducing an N5 point → legal
+    s = make_valid_story()
+    s["story_id"] = 5
+    s["new_grammar"] = ["G_N5_test"]
+    r = validate(s, VOCAB, GRAMMAR_TIERED)
+    check("story 5 introducing N5 grammar → no check 3.5 error",
+          not errors_for_check(r, "3.5"))
+
+    # Story 5 (Tier 1) introducing an N4 point → BLOCKED
+    s = make_valid_story()
+    s["story_id"] = 5
+    s["new_grammar"] = ["G_N4_test"]
+    r = validate(s, VOCAB, GRAMMAR_TIERED)
+    check("story 5 introducing N4 grammar → check 3.5 error (cross-tier blocked)",
+          errors_for_check(r, "3.5"))
+
+    # Story 11 (Tier 2, N4) introducing an N4 point → legal
+    s = make_valid_story()
+    s["story_id"] = 11
+    s["new_grammar"] = ["G_N4_test"]
+    r = validate(s, VOCAB, GRAMMAR_TIERED)
+    check("story 11 introducing N4 grammar → no check 3.5 error",
+          not errors_for_check(r, "3.5"))
+
+    # Story 11 (Tier 2) introducing an N3 point → BLOCKED
+    s = make_valid_story()
+    s["story_id"] = 11
+    s["new_grammar"] = ["G_N3_test"]
+    r = validate(s, VOCAB, GRAMMAR_TIERED)
+    check("story 11 introducing N3 grammar → check 3.5 error (cross-tier blocked)",
+          errors_for_check(r, "3.5"))
+
+    # Story 30 (Tier 3) introducing an earlier N5 point → legal (no jumping back is fine)
+    s = make_valid_story()
+    s["story_id"] = 30
+    s["new_grammar"] = ["G_N5_test"]
+    r = validate(s, VOCAB, GRAMMAR_TIERED)
+    check("story 30 introducing N5 grammar → no check 3.5 error (earlier tier always OK)",
+          not errors_for_check(r, "3.5"))
+
+    # Story_id 0 (test fixture) bypasses Check 3.5 (back-compat)
+    s = make_valid_story()
+    s["story_id"] = 0
+    s["new_grammar"] = ["G_N3_test"]
+    r = validate(s, VOCAB, GRAMMAR_TIERED)
+    check("story_id=0 fixture introducing N3 → no check 3.5 error (sentinel bypass)",
+          not errors_for_check(r, "3.5"))
+
     print("\n── Check 8: Forbidden topics ─────────────────────────────────────")
     s = make_valid_story()
     s["sentences"][0]["gloss_en"] = "I want to kill the dragon."
