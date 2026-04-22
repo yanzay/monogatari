@@ -1,15 +1,15 @@
 # Monogatari — Story Planner Task
 
-You are producing `plan.json` for story 19 of the Monogatari graded-reader.
+You are producing `plan.json` for story 20 of the Monogatari graded-reader.
 Read everything below carefully. Output **only** the JSON object — no prose.
 
 ---
 
-## Learner's current vocabulary (56 words)
+## Learner's current vocabulary (59 words)
 
-- `W00001`: **今朝** (けさ) — this morning [occ:5, story:story_1]
+- `W00001`: **今朝** (けさ) — this morning [occ:6, story:story_1]
 - `W00002`: **雨** (あめ) — rain [occ:7, story:story_1]
-- `W00003`: **私** (わたし) — I, me [occ:17, story:story_1]
+- `W00003`: **私** (わたし) — I, me [occ:18, story:story_1]
 - `W00004`: **窓** (まど) — window [occ:8, story:story_1]
 - `W00005`: **外** (そと) — outside [occ:6, story:story_1]
 - `W00006`: **見ます** (みます) — to see, to look [occ:14, story:story_1]
@@ -17,8 +17,8 @@ Read everything below carefully. Output **only** the JSON object — no prose.
 - `W00008`: **濡れる** (ぬれる) — to get wet [occ:3, story:story_1]
 - `W00009`: **お茶** (おちゃ) — tea, green tea [occ:9, story:story_1]
 - `W00010`: **飲みます** (のみます) — to drink [occ:6, story:story_1]
-- `W00011`: **静か** (しずか) — quiet, calm [occ:15, story:story_1]
-- `W00012`: **温かい** (あたたかい) — warm [occ:6, story:story_1]
+- `W00011`: **静か** (しずか) — quiet, calm [occ:16, story:story_1]
+- `W00012`: **温かい** (あたたかい) — warm [occ:7, story:story_1]
 - `W00013`: **いい** (いい) — good, nice [occ:9, story:story_1]
 - `W00014`: **気分** (きぶん) — feeling, mood [occ:5, story:story_1]
 - `W00015`: **朝** (あさ) — morning [occ:10, story:story_1]
@@ -46,23 +46,26 @@ Read everything below carefully. Output **only** the JSON object — no prose.
 - `W00037`: **机** (つくえ) — desk [occ:4, story:story_9]
 - `W00038`: **寝ます** (ねます) — to sleep [occ:3, story:story_9]
 - `W00039`: **手紙** (てがみ) — letter, note [occ:3, story:story_10]
-- `W00040`: **来ます** (きます) — to come, to arrive [occ:5, story:story_10]
+- `W00040`: **来ます** (きます) — to come, to arrive [occ:6, story:story_10]
 - `W00041`: **待ちます** (まちます) — to wait [occ:3, story:story_10]
-- `W00042`: **昨日** (きのう) — yesterday [occ:4, story:story_11]
-- `W00043`: **思います** (おもいます) — to think [occ:2, story:story_12]
+- `W00042`: **昨日** (きのう) — yesterday [occ:5, story:story_11]
+- `W00043`: **思います** (おもいます) — to think [occ:3, story:story_12]
 - `W00044`: **あります** (あります) — to exist (inanimate), to be (inanimate) [occ:6, story:story_7]
 - `W00045`: **そば** (そば) — side, near [occ:2, story:story_13]
 - `W00046`: **明日** (あした) — tomorrow [occ:2, story:story_14]
-- `W00047`: **空** (そら) — sky [occ:1, story:story_15]
-- `W00048`: **作ります** (つくります) — to make, to prepare [occ:1, story:story_16]
-- `W00049`: **パン** (パン) — bread [occ:1, story:story_16]
+- `W00047`: **空** (そら) — sky [occ:2, story:story_15]
+- `W00048`: **作ります** (つくります) — to make, to prepare [occ:2, story:story_16]
+- `W00049`: **パン** (パン) — bread [occ:2, story:story_16]
 - `W00050`: **一緒に** (いっしょに) — together [occ:2, story:story_16]
-- `W00051`: **子供** (こども) — child [occ:1, story:story_17]
+- `W00051`: **子供** (こども) — child [occ:2, story:story_17]
 - `W00052`: **ベンチ** (ベンチ) — bench [occ:1, story:story_17]
-- `W00053`: **笑います** (わらいます) — to smile, to laugh [occ:1, story:story_17]
-- `W00054`: **鳥** (とり) — bird [occ:1, story:story_18]
-- `W00055`: **小さい** (ちいさい) — small, little [occ:1, story:story_18]
+- `W00053`: **笑います** (わらいます) — to smile, to laugh [occ:2, story:story_17]
+- `W00054`: **鳥** (とり) — bird [occ:2, story:story_18]
+- `W00055`: **小さい** (ちいさい) — small, little [occ:2, story:story_18]
 - `W00056`: **嬉しい** (うれしい) — happy, glad [occ:1, story:story_18]
+- `W00057`: **大きい** (おおきい) — big, large [occ:1, story:story_19]
+- `W00058`: **元気** (げんき) — lively, energetic, healthy [occ:1, story:story_19]
+- `W00059`: **庭** (にわ) — garden, yard [occ:1, story:story_19]
 
 ## Learner's current grammar (20 points)
 
@@ -89,18 +92,18 @@ Read everything below carefully. Output **only** the JSON object — no prose.
 
 ## Words most in need of reinforcement (occurrences < 5)
 
-- `W00047`: **空** (そら) — sky [occ:1]
-- `W00049`: **パン** (パン) — bread [occ:1]
-- `W00048`: **作ります** (つくります) — to make, to prepare [occ:1]
-- `W00051`: **子供** (こども) — child [occ:1]
 - `W00052`: **ベンチ** (ベンチ) — bench [occ:1]
-- `W00053`: **笑います** (わらいます) — to smile, to laugh [occ:1]
-- `W00054`: **鳥** (とり) — bird [occ:1]
-- `W00055`: **小さい** (ちいさい) — small, little [occ:1]
+- `W00056`: **嬉しい** (うれしい) — happy, glad [occ:1]
+- `W00057`: **大きい** (おおきい) — big, large [occ:1]
+- `W00059`: **庭** (にわ) — garden, yard [occ:1]
+- `W00058`: **元気** (げんき) — lively, energetic, healthy [occ:1]
+- `W00021`: **卵** (たまご) — egg [occ:2]
+- `W00023`: **散歩** (さんぽ) — walk [occ:2]
+- `W00026`: **帰ります** (かえります) — to return home [occ:2]
 
 ---
 
-## Difficulty policy for story 19
+## Difficulty policy for story 20
 
 - Introduce exactly **3** new words.
 - Optionally introduce at most **1** new grammar point(s). Zero is fine.
@@ -125,8 +128,8 @@ Read everything below carefully. Output **only** the JSON object — no prose.
 
 ## Next available word ID
 
-The next sequential word ID is: **W00057**
-(assign new IDs from here upward: W00057, W00058, W00059, …)
+The next sequential word ID is: **W00060**
+(assign new IDs from here upward: W00060, W00061, W00062, …)
 
 ---
 
@@ -136,7 +139,7 @@ Produce this exact JSON object:
 
 ```json
 {
-  "story_id": 19,
+  "story_id": 20,
   "target_word_count": 23,
   "max_sentences": 10,
   "new_words": ["<id1>", "<id2>", "<id3>"],

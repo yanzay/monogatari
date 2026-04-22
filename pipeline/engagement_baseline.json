@@ -19,7 +19,7 @@
     ],
     "last_regenerated": "2026-04-22 15:30",
     "stories_covered": 12,
-    "n_stories": 19
+    "n_stories": 20
   },
   "reviews": [
     {
@@ -672,6 +672,39 @@
           "why": "originality"
         }
       ]
+    },
+    {
+      "story_id": 20,
+      "title_jp": "寒い朝の手紙",
+      "title_en": "A Letter on a Cold Morning",
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 5,
+        "closure": 4
+      },
+      "average": 4.2,
+      "approved": true,
+      "highlights": [
+        "Brings 手紙 (W00039) back from the starvation list (last seen story 14) and uses it five times across five different syntactic positions: object of 書きます (s1, s2, s3), topic of あります (s6), title carrier (title, s8). That is the right way to retire a starvation alarm — not just hit the count, but exercise the word's range.",
+        "First time the library has a parallel cold/warm contrast inside a single story: 寒い lands on 外 (s0, s5) and 朝 (s8); 温かい lands on 手紙 (s2), お茶 (s5), 手紙 again (s8). The closer 'cold morning, warm letter' uses the new descriptor pair structurally — emotional warmth shipped as physical warmth.",
+        "Continuity beat: the friend (story 16, 17) is again offstage, and the letter (story 10/11/14) is the bridge — but the framing is fresh because we're at the writer's end of the letter, not the reader's. Different camera angle on a familiar prop."
+      ],
+      "weaknesses": [
+        "S4 'I write my name too' is structurally the lightest sentence in the story (3 content tokens, no descriptor) — it earns its place pedagogically (pushes 名前 to occ=2) but reads slightly utilitarian on the page. I considered cutting it but the alternative was to let 名前 ship with occ=1, which is the exact pattern that triggered the recent starvation cascade.",
+        "The 'tomorrow the letter will be by my friend' construction (s6) uses あります for a future state — technically correct but slightly stiff in English; the gloss leans on 'will be' to convey the implicit future. I left it because 明日 + あります is a legitimate N5 pattern."
+      ],
+      "suggestions": [
+        {
+          "what": "When 出します (mail/send) enters vocab, revise s6 to '明日、手紙を出します' for a more active future.",
+          "why": "voice / originality"
+        },
+        {
+          "what": "Future story could pair 寒い with 雪 (snow) for the next seasonal beat.",
+          "why": "originality"
+        }
+      ]
     }
   ],
   "leaderboard": [
@@ -731,44 +764,49 @@
       "rank": 9
     },
     {
+      "story_id": 20,
+      "average": 4.2,
+      "rank": 9
+    },
+    {
       "story_id": 3,
       "average": 4.0,
-      "rank": 12
+      "rank": 13
     },
     {
       "story_id": 14,
       "average": 4.0,
-      "rank": 12
+      "rank": 13
     },
     {
       "story_id": 15,
       "average": 4.0,
-      "rank": 12
+      "rank": 13
     },
     {
       "story_id": 16,
       "average": 4.0,
-      "rank": 12
+      "rank": 13
     },
     {
       "story_id": 1,
       "average": 3.8,
-      "rank": 16
+      "rank": 17
     },
     {
       "story_id": 13,
       "average": 3.8,
-      "rank": 16
+      "rank": 17
     },
     {
       "story_id": 17,
       "average": 3.8,
-      "rank": 16
+      "rank": 17
     },
     {
       "story_id": 18,
       "average": 3.8,
-      "rank": 16
+      "rank": 17
     }
   ],
   "next_actions": [

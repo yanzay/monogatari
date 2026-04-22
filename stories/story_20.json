@@ -1,0 +1,580 @@
+{
+  "story_id": 20,
+  "title": {
+    "jp": "寒い朝の手紙",
+    "en": "A Letter on a Cold Morning",
+    "tokens": [
+      {
+        "t": "寒い",
+        "r": "さむい",
+        "word_id": "W00062",
+        "role": "content"
+      },
+      {
+        "t": "朝",
+        "r": "あさ",
+        "word_id": "W00015",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "手紙",
+        "r": "てがみ",
+        "word_id": "W00039",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "友達の名前",
+    "en": "A friend's name",
+    "tokens": [
+      {
+        "t": "友達",
+        "r": "ともだち",
+        "word_id": "W00022",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "名前",
+        "r": "なまえ",
+        "word_id": "W00061",
+        "role": "content"
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00060",
+    "W00061",
+    "W00062"
+  ],
+  "new_grammar": [],
+  "all_words_used": [
+    "W00062",
+    "W00015",
+    "W00039",
+    "W00022",
+    "W00061",
+    "W00001",
+    "W00005",
+    "W00003",
+    "W00037",
+    "W00060",
+    "W00012",
+    "W00009",
+    "W00046",
+    "W00045",
+    "W00044",
+    "W00056",
+    "W00043"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "gloss_en": "This morning, outside is cold.",
+      "tokens": [
+        {
+          "t": "今朝",
+          "r": "けさ",
+          "word_id": "W00001",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "外",
+          "r": "そと",
+          "word_id": "W00005",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "寒い",
+          "r": "さむい",
+          "word_id": "W00062",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_20/s0.wav",
+      "audio_hash": "43a845d7468b"
+    },
+    {
+      "idx": 1,
+      "gloss_en": "I write a letter at the desk.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "机",
+          "r": "つくえ",
+          "word_id": "W00037",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "手紙",
+          "r": "てがみ",
+          "word_id": "W00039",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "書きます",
+          "r": "かきます",
+          "word_id": "W00060",
+          "role": "content",
+          "is_new": true,
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_20/s1.wav",
+      "audio_hash": "760832f221d7"
+    },
+    {
+      "idx": 2,
+      "gloss_en": "I write a warm letter to my friend.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "word_id": "W00012",
+          "role": "content"
+        },
+        {
+          "t": "手紙",
+          "r": "てがみ",
+          "word_id": "W00039",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "書きます",
+          "r": "かきます",
+          "word_id": "W00060",
+          "role": "content",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_20/s2.wav",
+      "audio_hash": "8672108b3ad3"
+    },
+    {
+      "idx": 3,
+      "gloss_en": "On the letter, I write my friend's name.",
+      "tokens": [
+        {
+          "t": "手紙",
+          "r": "てがみ",
+          "word_id": "W00039",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "名前",
+          "r": "なまえ",
+          "word_id": "W00061",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "書きます",
+          "r": "かきます",
+          "word_id": "W00060",
+          "role": "content",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_20/s3.wav",
+      "audio_hash": "8efd23168f7d"
+    },
+    {
+      "idx": 4,
+      "gloss_en": "I write my name too.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "名前",
+          "r": "なまえ",
+          "word_id": "W00061",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "書きます",
+          "r": "かきます",
+          "word_id": "W00060",
+          "role": "content",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_20/s4.wav",
+      "audio_hash": "bf041d72fb53"
+    },
+    {
+      "idx": 5,
+      "gloss_en": "Outside is cold; the tea is warm.",
+      "tokens": [
+        {
+          "t": "外",
+          "r": "そと",
+          "word_id": "W00005",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "寒い",
+          "r": "さむい",
+          "word_id": "W00062",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "word_id": "W00009",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "word_id": "W00012",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_20/s5.wav",
+      "audio_hash": "99b2919fd67e"
+    },
+    {
+      "idx": 6,
+      "gloss_en": "Tomorrow, the letter will be by my friend.",
+      "tokens": [
+        {
+          "t": "明日",
+          "r": "あした",
+          "word_id": "W00046",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "手紙",
+          "r": "てがみ",
+          "word_id": "W00039",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "そば",
+          "word_id": "W00045",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "あります",
+          "word_id": "W00044",
+          "role": "content",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_20/s6.wav",
+      "audio_hash": "8433f6c718c8"
+    },
+    {
+      "idx": 7,
+      "gloss_en": "I think my friend will be happy.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "嬉しい",
+          "r": "うれしい",
+          "word_id": "W00056",
+          "role": "content"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G014_to_omoimasu",
+          "role": "particle"
+        },
+        {
+          "t": "思います",
+          "r": "おもいます",
+          "word_id": "W00043",
+          "role": "content",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_20/s7.wav",
+      "audio_hash": "54ac479322b3"
+    },
+    {
+      "idx": 8,
+      "gloss_en": "A cold morning, a warm letter.",
+      "tokens": [
+        {
+          "t": "寒い",
+          "r": "さむい",
+          "word_id": "W00062",
+          "role": "content"
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "word_id": "W00015",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "word_id": "W00012",
+          "role": "content"
+        },
+        {
+          "t": "手紙",
+          "r": "てがみ",
+          "word_id": "W00039",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_20/s8.wav",
+      "audio_hash": "e99691d8471d"
+    }
+  ],
+  "word_audio": {
+    "W00060": "audio/story_20/w_W00060.wav",
+    "W00061": "audio/story_20/w_W00061.wav",
+    "W00062": "audio/story_20/w_W00062.wav"
+  },
+  "checksum": null,
+  "word_audio_hash": {
+    "W00060": "4fa915ccc337",
+    "W00061": "7ec26292414b",
+    "W00062": "de5aa095ecbe"
+  }
+}

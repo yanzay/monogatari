@@ -1,6 +1,6 @@
 # Monogatari — Story Writer Task
 
-You are writing story **19** for the Monogatari Japanese graded-reader.
+You are writing story **20** for the Monogatari Japanese graded-reader.
 Read the authoring rules and plan below, then produce the story JSON.
 Output **only** the JSON object — no prose, no markdown fences.
 
@@ -448,67 +448,67 @@ A clean refusal is better than a story that fails validation.
 
 ```json
 {
-  "story_id": 19,
+  "story_id": 20,
   "target_word_count": 23,
   "max_sentences": 10,
   "new_words": [
-    "W00057",
-    "W00058",
-    "W00059"
+    "W00060",
+    "W00061",
+    "W00062"
   ],
   "new_grammar": [],
-  "theme": "Quiet morning in the garden",
-  "setting": "Morning. The narrator is making bread; a small bird returns to the garden, lively in the cool air; the narrator looks at the big sky over the garden, thinks about yesterday's child at the park, and smiles.",
+  "theme": "Cold morning, writing a letter",
+  "setting": "A cold morning. The narrator sits at the desk and writes a letter to an absent friend, signing both names, while the tea stays warm and the outside is not.",
   "constraints": {
     "must_reuse_words": [
-      "W00043",
-      "W00054",
-      "W00051",
-      "W00053",
-      "W00048"
+      "W00039",
+      "W00022",
+      "W00009",
+      "W00012",
+      "W00043"
     ]
   },
   "new_word_definitions": {
-    "W00057": {
-      "surface": "大きい",
-      "kana": "おおきい",
-      "reading": "ookii",
-      "pos": "adjective",
-      "verb_class": null,
-      "adj_class": "i",
+    "W00060": {
+      "surface": "書きます",
+      "kana": "かきます",
+      "reading": "kakimasu",
+      "pos": "verb",
+      "verb_class": "godan",
+      "adj_class": null,
       "meanings": [
-        "big, large"
+        "to write"
       ],
       "grammar_tags": []
     },
-    "W00058": {
-      "surface": "元気",
-      "kana": "げんき",
-      "reading": "genki",
-      "pos": "adjective",
-      "verb_class": null,
-      "adj_class": "na",
-      "meanings": [
-        "lively, energetic, healthy"
-      ],
-      "grammar_tags": []
-    },
-    "W00059": {
-      "surface": "庭",
-      "kana": "にわ",
-      "reading": "niwa",
+    "W00061": {
+      "surface": "名前",
+      "kana": "なまえ",
+      "reading": "namae",
       "pos": "noun",
       "verb_class": null,
       "adj_class": null,
       "meanings": [
-        "garden, yard"
+        "name"
+      ],
+      "grammar_tags": []
+    },
+    "W00062": {
+      "surface": "寒い",
+      "kana": "さむい",
+      "reading": "samui",
+      "pos": "adjective",
+      "verb_class": null,
+      "adj_class": "i",
+      "meanings": [
+        "cold (weather)"
       ],
       "grammar_tags": []
     }
   },
   "new_grammar_definitions": {},
-  "rationale": "Story 19 brings back the deferred starvation-alarmed verb 思います (W00043, last seen story 13) and reinforces five occ-1 words from the immediately previous stories — 鳥 (story 18), 子供 (story 17), 笑います (story 17), 作ります (story 16), and the new 庭 anchors an outdoor scene without competing with 公園. The three new words deliberately diversify the descriptor palette without inventing motion: 大きい is the natural complement to last story's 小さい (size pair complete in two stories rather than scattered), 元気 is the library's first wellness/state na-adjective (we have 静か quiet, 嬉しい happy, but no energetic/healthy register), and 庭 is the first private outdoor space (we had 公園 public and 窓/外 indoor-looking-out, but no own-yard middle ground). No new grammar — story 19 stays vocabulary-only so the learner consolidates the i-adjective + na-adjective expansion before story 20 picks grammar back up.",
-  "seed": 67219
+  "rationale": "Story 20 brings back 手紙 (W00039, last seen story 14, the only remaining starvation-alarmed word) by anchoring the scene around the act of writing one. New words are deliberately practical: 書きます is the canonical 'write' verb (the library has read/think/say-by-laughing but no write); 名前 unlocks self-introduction patterns and signs concretely (the narrator writes both names); 寒い is the first cold-weather i-adj (palette had only 温かい), enabling parallel cold/warm contrast inside the same story. Closer 'cold morning, warm letter' uses the new descriptor pair structurally. No new grammar — vocabulary expansion still has runway after 17/18/19's grammar-light beats.",
+  "seed": 73841
 }
 ```
 
@@ -516,9 +516,9 @@ A clean refusal is better than a story that fails validation.
 
 ## Allowed vocabulary (ALL words you may use — no others)
 
-- `W00001`: **今朝** (けさ) [noun] — this morning [occ:5]
+- `W00001`: **今朝** (けさ) [noun] — this morning [occ:6]
 - `W00002`: **雨** (あめ) [noun] — rain [occ:7]
-- `W00003`: **私** (わたし) [pronoun] — I, me [occ:17]
+- `W00003`: **私** (わたし) [pronoun] — I, me [occ:18]
 - `W00004`: **窓** (まど) [noun] — window [occ:8]
 - `W00005`: **外** (そと) [noun] — outside [occ:6]
 - `W00006`: **見ます** (みます) [verb] — to see, to look [occ:14]
@@ -526,8 +526,8 @@ A clean refusal is better than a story that fails validation.
 - `W00008`: **濡れる** (ぬれる) [verb] — to get wet [occ:3]
 - `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:9]
 - `W00010`: **飲みます** (のみます) [verb] — to drink [occ:6]
-- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:15]
-- `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:6]
+- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:16]
+- `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:7]
 - `W00013`: **いい** (いい) [adjective] — good, nice [occ:9]
 - `W00014`: **気分** (きぶん) [noun] — feeling, mood [occ:5]
 - `W00015`: **朝** (あさ) [noun] — morning [occ:10]
@@ -555,26 +555,29 @@ A clean refusal is better than a story that fails validation.
 - `W00037`: **机** (つくえ) [noun] — desk [occ:4]
 - `W00038`: **寝ます** (ねます) [verb] — to sleep [occ:3]
 - `W00039`: **手紙** (てがみ) [noun] — letter, note [occ:3]
-- `W00040`: **来ます** (きます) [verb] — to come, to arrive [occ:5]
+- `W00040`: **来ます** (きます) [verb] — to come, to arrive [occ:6]
 - `W00041`: **待ちます** (まちます) [verb] — to wait [occ:3]
-- `W00042`: **昨日** (きのう) [noun] — yesterday [occ:4]
-- `W00043`: **思います** (おもいます) [verb] — to think [occ:2]
+- `W00042`: **昨日** (きのう) [noun] — yesterday [occ:5]
+- `W00043`: **思います** (おもいます) [verb] — to think [occ:3]
 - `W00044`: **あります** (あります) [verb] — to exist (inanimate), to be (inanimate) [occ:6]
 - `W00045`: **そば** (そば) [noun] — side, near [occ:2]
 - `W00046`: **明日** (あした) [noun] — tomorrow [occ:2]
-- `W00047`: **空** (そら) [noun] — sky [occ:1]
-- `W00048`: **作ります** (つくります) [verb] — to make, to prepare [occ:1]
-- `W00049`: **パン** (パン) [noun] — bread [occ:1]
+- `W00047`: **空** (そら) [noun] — sky [occ:2]
+- `W00048`: **作ります** (つくります) [verb] — to make, to prepare [occ:2]
+- `W00049`: **パン** (パン) [noun] — bread [occ:2]
 - `W00050`: **一緒に** (いっしょに) [adverb] — together [occ:2]
-- `W00051`: **子供** (こども) [noun] — child [occ:1]
+- `W00051`: **子供** (こども) [noun] — child [occ:2]
 - `W00052`: **ベンチ** (ベンチ) [noun] — bench [occ:1]
-- `W00053`: **笑います** (わらいます) [verb] — to smile, to laugh [occ:1]
-- `W00054`: **鳥** (とり) [noun] — bird [occ:1]
-- `W00055`: **小さい** (ちいさい) [adjective] — small, little [occ:1]
+- `W00053`: **笑います** (わらいます) [verb] — to smile, to laugh [occ:2]
+- `W00054`: **鳥** (とり) [noun] — bird [occ:2]
+- `W00055`: **小さい** (ちいさい) [adjective] — small, little [occ:2]
 - `W00056`: **嬉しい** (うれしい) [adjective] — happy, glad [occ:1]
-- `W00057`: **大きい** (おおきい) [adjective] — big, large **[NEW]**
-- `W00058`: **元気** (げんき) [adjective] — lively, energetic, healthy **[NEW]**
-- `W00059`: **庭** (にわ) [noun] — garden, yard **[NEW]**
+- `W00057`: **大きい** (おおきい) [adjective] — big, large [occ:1]
+- `W00058`: **元気** (げんき) [adjective] — lively, energetic, healthy [occ:1]
+- `W00059`: **庭** (にわ) [noun] — garden, yard [occ:1]
+- `W00060`: **書きます** (かきます) [verb] — to write **[NEW]**
+- `W00061`: **名前** (なまえ) [noun] — name **[NEW]**
+- `W00062`: **寒い** (さむい) [adjective] — cold (weather) **[NEW]**
 
 ---
 
@@ -605,19 +608,19 @@ A clean refusal is better than a story that fails validation.
 
 ## New word definitions (introduce these in the story)
 
-- `W00057`: **大きい** (おおきい) [adjective · i-adj] — big, large
-- `W00058`: **元気** (げんき) [adjective · na-adj] — lively, energetic, healthy
-- `W00059`: **庭** (にわ) [noun] — garden, yard
+- `W00060`: **書きます** (かきます) [verb · godan] — to write
+- `W00061`: **名前** (なまえ) [noun] — name
+- `W00062`: **寒い** (さむい) [adjective · i-adj] — cold (weather)
 
 ---
 
 ## Output schema
 
-Produce a `story_19.json` object with this structure:
+Produce a `story_20.json` object with this structure:
 
 ```json
 {
-  "story_id": 19,
+  "story_id": 20,
   "title": {
     "jp": "<kanji/kana title>",
     "en": "<English title>",
@@ -631,7 +634,7 @@ Produce a `story_19.json` object with this structure:
     "tokens": [ ... ]
   },
   "plan_ref": "plan.json",
-  "new_words": ["W00057", "W00058", "W00059"],
+  "new_words": ["W00060", "W00061", "W00062"],
   "new_grammar": [],
   "all_words_used": ["<every word_id used, in order of first appearance>"],
   "sentences": [
