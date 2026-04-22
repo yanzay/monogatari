@@ -1,6 +1,6 @@
 # Monogatari — Story Writer Task
 
-You are writing story **16** for the Monogatari Japanese graded-reader.
+You are writing story **17** for the Monogatari Japanese graded-reader.
 Read the authoring rules and plan below, then produce the story JSON.
 Output **only** the JSON object — no prose, no markdown fences.
 
@@ -438,67 +438,67 @@ A clean refusal is better than a story that fails validation.
 
 ```json
 {
-  "story_id": 16,
+  "story_id": 17,
   "target_word_count": 23,
   "max_sentences": 10,
   "new_words": [
-    "W00048",
-    "W00049",
-    "W00050"
+    "W00051",
+    "W00052",
+    "W00053"
   ],
   "new_grammar": [],
-  "theme": "kitchen breakfast for two",
-  "setting": "Two friends in a small kitchen at the desk: one waits, the other is making bread and tea, and they share the morning's first egg together.",
+  "theme": "A child at the park",
+  "setting": "Late afternoon at the neighborhood park: while taking a stroll, the narrator notices a small child sitting on a bench under a tree, smiling.",
   "constraints": {
     "must_reuse_words": [
-      "W00035",
-      "W00021",
-      "W00019",
-      "W00020",
-      "W00041"
+      "W00023",
+      "W00016",
+      "W00050",
+      "W00018",
+      "W00045"
     ]
   },
   "new_word_definitions": {
-    "W00048": {
-      "surface": "作ります",
-      "kana": "つくります",
-      "reading": "tsukurimasu",
-      "pos": "verb",
-      "verb_class": "godan",
-      "adj_class": null,
-      "meanings": [
-        "to make, to prepare"
-      ],
-      "grammar_tags": []
-    },
-    "W00049": {
-      "surface": "パン",
-      "kana": "パン",
-      "reading": "pan",
+    "W00051": {
+      "surface": "子供",
+      "kana": "こども",
+      "reading": "kodomo",
       "pos": "noun",
       "verb_class": null,
       "adj_class": null,
       "meanings": [
-        "bread"
+        "child"
       ],
       "grammar_tags": []
     },
-    "W00050": {
-      "surface": "一緒に",
-      "kana": "いっしょに",
-      "reading": "issho ni",
-      "pos": "adverb",
+    "W00052": {
+      "surface": "ベンチ",
+      "kana": "ベンチ",
+      "reading": "benchi",
+      "pos": "noun",
       "verb_class": null,
       "adj_class": null,
       "meanings": [
-        "together"
+        "bench"
+      ],
+      "grammar_tags": []
+    },
+    "W00053": {
+      "surface": "笑います",
+      "kana": "わらいます",
+      "reading": "waraimasu",
+      "pos": "verb",
+      "verb_class": "godan",
+      "adj_class": null,
+      "meanings": [
+        "to smile, to laugh"
       ],
       "grammar_tags": []
     }
   },
   "new_grammar_definitions": {},
-  "rationale": "Story 16 deliberately breaks the night/window/letter rotation that has dominated stories 11-15 by moving the camera into a kitchen at breakfast — a setting the library has barely used since story 3. The three new words are the minimal kit needed to make a kitchen scene feel real: 作ります (to make / to prepare) is a hugely high-frequency verb that unlocks cooking and similar acts of creation; パン rounds out the breakfast palette next to existing 卵 and お茶 so the table actually has food on it; 一緒に (together) is an adverb with enormous combinatorial value and finally lets a two-person scene feel like two-people-doing-one-thing rather than two-narrators-in-parallel. Reuse focuses on long-neglected words: 二人 (occ:1), 卵 (occ:1), 朝ごはん (occ:2), 食べます (occ:2), 待ちます (occ:2). No new grammar this round — instead the story gives G017_de_means (で as location-of-action) its very first real workout (currently 0 uses across the library) by anchoring actions to the desk and the kitchen, and lightly recycles G019_te_oku and G020_te_kara so the recently introduced grammar gets one more pass.",
-  "seed": 1604220222
+  "rationale": "Story 17 shifts the camera outdoors and adds a new on-stage human (a child) so the library stops orbiting the same indoor breakfast/window/cat motifs. 子供 is one of the highest-frequency human nouns in N5; pairing it with ベンチ (a concrete katakana prop) lets us re-exercise 公園 / 散歩 / 夕方 / そば / 一緒に, all of which are at occ:1-2. 笑います fills a real gap: every story so far has used physical-perception or motion verbs (見ます/飲みます/食べます/読みます/寝ます/帰ります/来ます/待ちます/歩きます/思います/作ります) but never an expressive emotional verb. No new grammar this round — 17 is a vocabulary-reinforcement beat after 14's 〜ておく and 16's te-form chain.",
+  "seed": 41723
 }
 ```
 
@@ -506,28 +506,28 @@ A clean refusal is better than a story that fails validation.
 
 ## Allowed vocabulary (ALL words you may use — no others)
 
-- `W00001`: **今朝** (けさ) [noun] — this morning [occ:3]
-- `W00002`: **雨** (あめ) [noun] — rain [occ:7]
-- `W00003`: **私** (わたし) [pronoun] — I, me [occ:14]
+- `W00001`: **今朝** (けさ) [noun] — this morning [occ:4]
+- `W00002`: **雨** (あめ) [noun] — rain [occ:6]
+- `W00003`: **私** (わたし) [pronoun] — I, me [occ:15]
 - `W00004`: **窓** (まど) [noun] — window [occ:7]
 - `W00005`: **外** (そと) [noun] — outside [occ:5]
 - `W00006`: **見ます** (みます) [verb] — to see, to look [occ:12]
 - `W00007`: **木** (き) [noun] — tree [occ:4]
 - `W00008`: **濡れる** (ぬれる) [verb] — to get wet [occ:2]
-- `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:7]
+- `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:8]
 - `W00010`: **飲みます** (のみます) [verb] — to drink [occ:5]
 - `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:14]
-- `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:4]
-- `W00013`: **いい** (いい) [adjective] — good, nice [occ:13]
-- `W00014`: **気分** (きぶん) [noun] — feeling, mood [occ:6]
-- `W00015`: **朝** (あさ) [noun] — morning [occ:8]
+- `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:5]
+- `W00013`: **いい** (いい) [adjective] — good, nice [occ:9]
+- `W00014`: **気分** (きぶん) [noun] — feeling, mood [occ:5]
+- `W00015`: **朝** (あさ) [noun] — morning [occ:9]
 - `W00016`: **公園** (こうえん) [noun] — park [occ:4]
 - `W00017`: **歩きます** (あるきます) [verb] — to walk [occ:4]
 - `W00018`: **夕方** (ゆうがた) [noun] — evening, late afternoon [occ:2]
-- `W00019`: **朝ごはん** (あさごはん) [noun] — breakfast [occ:2]
-- `W00020`: **食べます** (たべます) [verb] — to eat [occ:2]
-- `W00021`: **卵** (たまご) [noun] — egg [occ:1]
-- `W00022`: **友達** (ともだち) [noun] — friend [occ:8]
+- `W00019`: **朝ごはん** (あさごはん) [noun] — breakfast [occ:3]
+- `W00020`: **食べます** (たべます) [verb] — to eat [occ:3]
+- `W00021`: **卵** (たまご) [noun] — egg [occ:2]
+- `W00022`: **友達** (ともだち) [noun] — friend [occ:9]
 - `W00023`: **散歩** (さんぽ) [noun] — walk, stroll [occ:1]
 - `W00024`: **花** (はな) [noun] — flower [occ:2]
 - `W00025`: **ドア** (ドア) [noun] — door [occ:2]
@@ -540,22 +540,25 @@ A clean refusal is better than a story that fails validation.
 - `W00032`: **星** (ほし) [noun] — star [occ:2]
 - `W00033`: **本** (ほん) [noun] — book [occ:4]
 - `W00034`: **読みます** (よみます) [verb] — to read [occ:5]
-- `W00035`: **二人** (ふたり) [noun] — two people [occ:1]
+- `W00035`: **二人** (ふたり) [noun] — two people [occ:2]
 - `W00036`: **椅子** (いす) [noun] — chair [occ:2]
-- `W00037`: **机** (つくえ) [noun] — desk [occ:2]
+- `W00037`: **机** (つくえ) [noun] — desk [occ:3]
 - `W00038`: **寝ます** (ねます) [verb] — to sleep [occ:2]
 - `W00039`: **手紙** (てがみ) [noun] — letter, note [occ:3]
-- `W00040`: **来ます** (きます) [verb] — to come, to arrive [occ:3]
-- `W00041`: **待ちます** (まちます) [verb] — to wait [occ:2]
+- `W00040`: **来ます** (きます) [verb] — to come, to arrive [occ:4]
+- `W00041`: **待ちます** (まちます) [verb] — to wait [occ:3]
 - `W00042`: **昨日** (きのう) [noun] — yesterday [occ:3]
 - `W00043`: **思います** (おもいます) [verb] — to think [occ:2]
 - `W00044`: **あります** (あります) [verb] — to exist (inanimate), to be (inanimate) [occ:4]
 - `W00045`: **そば** (そば) [noun] — side, near [occ:1]
 - `W00046`: **明日** (あした) [noun] — tomorrow [occ:2]
 - `W00047`: **空** (そら) [noun] — sky [occ:1]
-- `W00048`: **作ります** (つくります) [verb] — to make, to prepare **[NEW]**
-- `W00049`: **パン** (パン) [noun] — bread **[NEW]**
-- `W00050`: **一緒に** (いっしょに) [adverb] — together **[NEW]**
+- `W00048`: **作ります** (つくります) [verb] — to make, to prepare [occ:1]
+- `W00049`: **パン** (パン) [noun] — bread [occ:1]
+- `W00050`: **一緒に** (いっしょに) [adverb] — together [occ:1]
+- `W00051`: **子供** (こども) [noun] — child **[NEW]**
+- `W00052`: **ベンチ** (ベンチ) [noun] — bench **[NEW]**
+- `W00053`: **笑います** (わらいます) [verb] — to smile, to laugh **[NEW]**
 
 ---
 
@@ -586,19 +589,19 @@ A clean refusal is better than a story that fails validation.
 
 ## New word definitions (introduce these in the story)
 
-- `W00048`: **作ります** (つくります) [verb · godan] — to make, to prepare
-- `W00049`: **パン** (パン) [noun] — bread
-- `W00050`: **一緒に** (いっしょに) [adverb] — together
+- `W00051`: **子供** (こども) [noun] — child
+- `W00052`: **ベンチ** (ベンチ) [noun] — bench
+- `W00053`: **笑います** (わらいます) [verb · godan] — to smile, to laugh
 
 ---
 
 ## Output schema
 
-Produce a `story_16.json` object with this structure:
+Produce a `story_17.json` object with this structure:
 
 ```json
 {
-  "story_id": 16,
+  "story_id": 17,
   "title": {
     "jp": "<kanji/kana title>",
     "en": "<English title>",
@@ -612,7 +615,7 @@ Produce a `story_16.json` object with this structure:
     "tokens": [ ... ]
   },
   "plan_ref": "plan.json",
-  "new_words": ["W00048", "W00049", "W00050"],
+  "new_words": ["W00051", "W00052", "W00053"],
   "new_grammar": [],
   "all_words_used": ["<every word_id used, in order of first appearance>"],
   "sentences": [

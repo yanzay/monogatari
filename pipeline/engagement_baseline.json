@@ -19,7 +19,7 @@
     ],
     "last_regenerated": "2026-04-22 15:30",
     "stories_covered": 12,
-    "n_stories": 16
+    "n_stories": 17
   },
   "reviews": [
     {
@@ -572,6 +572,39 @@
           "why": "voice"
         }
       ]
+    },
+    {
+      "story_id": 17,
+      "title_jp": "公園の子供",
+      "title_en": "A Child at the Park",
+      "scores": {
+        "hook": 3,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 4,
+        "closure": 4
+      },
+      "average": 3.8,
+      "approved": true,
+      "highlights": [
+        "Introduces the first child in the 17-story library and the first emotional/expressive verb (笑います), so the cast and the verb palette both get their first new register since story 6 (cat).",
+        "The arc has a small social pull-forward: the narrator walks past, the child notices and smiles, the narrator smiles back, the narrator stays, then a friend arrives — the bench accumulates company without anyone speaking. That is the kind of beat the closed vocabulary can actually carry.",
+        "Closer 'ベンチで、一緒に笑います' echoes the subtitle prop (ベンチ) and the new verb (笑います) without resorting to the overused 〜いい〜です template that 8 of the previous 15 stories defaulted to."
+      ],
+      "weaknesses": [
+        "Hook is functional but not sensory: '夕方、私は公園で歩きます' establishes time + place + action cleanly but does not give the reader a noticing moment the way story 1's rain or story 6's cat-in-the-window did. Within the vocabulary I had, I did not find a stronger first line.",
+        "The child has no description (no age, no posture, no clothing) because every relevant adjective — small, young, alone — is outside the closed vocabulary. The reader must do the imaginative lifting; I cannot fix this without breaking the vocabulary contract."
+      ],
+      "suggestions": [
+        {
+          "what": "When 小さい / 嬉しい / 元気 enter vocab, revisit s2 to give the child a single physical attribute.",
+          "why": "originality + voice"
+        },
+        {
+          "what": "Future story could pair 子供 with 寝ます (the child falling asleep on the bench) to reuse W00038, currently last seen in story 12.",
+          "why": "library reinforcement (Check 6 starvation alarm flagged W00038)"
+        }
+      ]
     }
   ],
   "leaderboard": [
@@ -652,6 +685,11 @@
     },
     {
       "story_id": 13,
+      "average": 3.8,
+      "rank": 15
+    },
+    {
+      "story_id": 17,
       "average": 3.8,
       "rank": 15
     }
