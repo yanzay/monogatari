@@ -303,10 +303,32 @@ def ensure_ordered_unique(items: list[str]) -> bool:
     return len(items) == len(dict.fromkeys(items))
 
 
+def _expand_grammar_closure(grammar_ids: set[str], grammar_points: dict) -> set[str]:
+    """Return the transitive closure of `grammar_ids` under the prerequisites
+    relation. A grammar id whose own prerequisite chain includes G_X effectively
+    means G_X is in play (e.g., using でした implies です is in play, since
+    G013_mashita_past lists G003_desu as a prerequisite). This avoids spurious
+    'missing prerequisite' errors for derived forms that don't surface the base
+    form directly in the story."""
+    closure: set[str] = set(grammar_ids)
+    pending = list(grammar_ids)
+    while pending:
+        gid = pending.pop()
+        point = grammar_points.get(gid, {})
+        if not isinstance(point, dict):
+            continue
+        for pre in point.get("prerequisites", []) or []:
+            if pre not in closure:
+                closure.add(pre)
+                pending.append(pre)
+    return closure
+
+
 def prerequisites_satisfied(grammar_ids: set[str], grammar_points: dict, grammar_id: str) -> list[str]:
     point = grammar_points.get(grammar_id, {})
     prereqs = point.get("prerequisites", []) if isinstance(point, dict) else []
-    return [gid for gid in prereqs if gid not in grammar_ids]
+    closure = _expand_grammar_closure(grammar_ids, grammar_points)
+    return [gid for gid in prereqs if gid not in closure]
 
 
 def content_word_ids(tokens: list[dict]) -> list[str]:
@@ -529,8 +551,17 @@ def validate(
     sentence_tokens = collect_sentence_tokens(story)
     content_tokens = [tok for tok in sentence_tokens if tok.get("role") == "content"]
     first_word_occurrence, first_grammar_occurrence = first_occurrence_map(story)
-    grammar_points = grammar.get("points", {})
-    words_dict = vocab.get("words", {})
+    # Merge any new grammar definitions from the plan so prerequisite
+    # checks see new points (which are not yet in grammar_state).
+    grammar_points = dict(grammar.get("points", {}))
+    if plan:
+        for gid, gdef in (plan.get("new_grammar_definitions", {}) or {}).items():
+            grammar_points.setdefault(gid, gdef)
+    # Same for new word definitions, used by surface/inflection consistency.
+    words_dict = dict(vocab.get("words", {}))
+    if plan:
+        for wid, wdef in (plan.get("new_word_definitions", {}) or {}).items():
+            words_dict.setdefault(wid, wdef)
     used_story_grammar = story_grammar_ids(story)
     used_word_ids_sequence = story_word_ids(story)
     used_grammar_sequence = story_grammar_ids_sequence(story)

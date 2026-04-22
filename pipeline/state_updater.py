@@ -116,6 +116,8 @@ def update_state(
             "short":         defn["short"],
             "long":          defn["long"],
             "genki_ref":     defn.get("genki_ref"),
+            "jlpt":          defn.get("jlpt"),
+            "catalog_id":    defn.get("catalog_id"),
             "first_story":   story_id,
             "prerequisites": list(defn.get("prerequisites", []) or []),
         }
