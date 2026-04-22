@@ -87,6 +87,63 @@ def test_vocab_meanings_non_empty(vocab):
     assert not bad, f"Words with empty meanings: {bad}"
 
 
+def test_vocab_meanings_no_jmdict_semicolons(vocab):
+    """Catches the JMdict bleed-through pattern (e.g. 'to come; to approach; to arrive').
+
+    Each meaning string should be a single concept; multiple meanings go in
+    separate array entries.
+    """
+    bad = []
+    for wid, w in vocab["words"].items():
+        for m in w.get("meanings", []):
+            if ";" in m:
+                bad.append(f"{wid} ({w.get('surface','?')}): {m!r}")
+    assert not bad, "JMdict semicolons in meanings:\n  " + "\n  ".join(bad)
+
+
+def test_vocab_reading_is_romaji(vocab):
+    """`reading` is the romaji helper for English-speaking learners.
+    Must be ASCII (lowercase letters only). Catches the bug where
+    `reading` was accidentally set to hiragana.
+    """
+    import re
+    bad = []
+    for wid, w in vocab["words"].items():
+        reading = w.get("reading", "")
+        # Must be lowercase ASCII (allow apostrophe for ん' separator and hyphen)
+        if not re.match(r"^[a-z\-']+$", reading):
+            bad.append(f"{wid} ({w.get('surface','?')}): reading={reading!r} (not ASCII romaji)")
+    assert not bad, "reading must be lowercase romaji ASCII:\n  " + "\n  ".join(bad)
+
+
+def test_vocab_reading_matches_kana(vocab):
+    """`reading` (romaji) should be derivable from `kana` via standard romanisation.
+
+    Catches divergence (e.g. someone updates kana but not reading).
+    """
+    try:
+        import jaconv
+    except ImportError:
+        import pytest
+        pytest.skip("jaconv not installed")
+    bad = []
+    for wid, w in vocab["words"].items():
+        kana = w.get("kana", "")
+        reading = w.get("reading", "")
+        derived = jaconv.kana2alphabet(jaconv.kata2hira(kana))
+        if reading != derived:
+            bad.append(f"{wid} ({w.get('surface','?')}): kana={kana!r}, reading={reading!r}, derived={derived!r}")
+    assert not bad, "reading does not match derived romaji from kana:\n  " + "\n  ".join(bad)
+
+
+def test_vocab_no_dead_grammar_tags_field(vocab):
+    """The grammar_tags field was removed (always empty, never populated).
+    Catches re-introduction of forever-empty schema fields.
+    """
+    bad = [wid for wid, w in vocab["words"].items() if "grammar_tags" in w]
+    assert not bad, f"grammar_tags field reintroduced on: {bad}"
+
+
 def test_vocab_occurrences_non_negative(vocab):
     bad = [(wid, w["occurrences"]) for wid, w in vocab["words"].items()
            if w.get("occurrences", 0) < 0]
