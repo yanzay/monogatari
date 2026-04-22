@@ -64,7 +64,6 @@
     "W00017",
     "W00007",
     "W00008",
-    "W00002",
     "W00011",
     "W00009",
     "W00010",
@@ -182,9 +181,9 @@
       "idx": 2,
       "tokens": [
         {
-          "t": "雨",
-          "r": "あめ",
-          "word_id": "W00002",
+          "t": "公園",
+          "r": "こうえん",
+          "word_id": "W00016",
           "role": "content"
         },
         {
@@ -208,9 +207,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The rain is quiet.",
+      "gloss_en": "The park is quiet.",
       "audio": "audio/story_2/s2.mp3",
-      "audio_hash": "b5e8bb2cc6da"
+      "audio_hash": "64deea2e4198"
     },
     {
       "idx": 3,
@@ -331,25 +330,14 @@
       "idx": 6,
       "tokens": [
         {
-          "t": "雨",
-          "r": "あめ",
-          "word_id": "W00002",
-          "role": "content"
-        },
-        {
-          "t": "と",
-          "grammar_id": "G010_to_and",
-          "role": "particle"
-        },
-        {
           "t": "夕方",
           "r": "ゆうがた",
           "word_id": "W00018",
           "role": "content"
         },
         {
-          "t": "と",
-          "grammar_id": "G010_to_and",
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
           "role": "particle"
         },
         {
@@ -374,9 +362,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "We walk through rain, evening, the park.",
+      "gloss_en": "We walk through the evening park.",
       "audio": "audio/story_2/s6.mp3",
-      "audio_hash": "8e6f887fc880"
+      "audio_hash": "5bf8794c41d6"
     }
   ],
   "word_audio": {
