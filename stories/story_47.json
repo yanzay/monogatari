@@ -1,0 +1,795 @@
+{
+  "story_id": 47,
+  "title": {
+    "jp": "誰の傘",
+    "en": "Whose Umbrella?",
+    "tokens": [
+      {
+        "t": "誰",
+        "r": "dare",
+        "role": "content",
+        "word_id": "W00140",
+        "grammar_id": "G039_dare_who"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
+      },
+      {
+        "t": "傘",
+        "r": "kasa",
+        "role": "content",
+        "word_id": "W00116"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "黒い傘です。",
+    "en": "A black umbrella.",
+    "tokens": [
+      {
+        "t": "黒い",
+        "r": "kuroi",
+        "role": "content",
+        "word_id": "W00141",
+        "inflection": {
+          "form": "plain_nonpast",
+          "grammar_id": "G022_i_adj"
+        }
+      },
+      {
+        "t": "傘",
+        "r": "kasa",
+        "role": "content",
+        "word_id": "W00116"
+      },
+      {
+        "t": "です",
+        "role": "aux",
+        "grammar_id": "G003_desu"
+      },
+      {
+        "t": "。",
+        "role": "punct"
+      }
+    ]
+  },
+  "new_words": [
+    "W00140",
+    "W00141",
+    "W00142"
+  ],
+  "new_grammar": [
+    "G039_dare_who"
+  ],
+  "all_words_used": [
+    "W00140",
+    "W00116",
+    "W00141",
+    "W00002",
+    "W00018",
+    "W00075",
+    "W00044",
+    "W00003",
+    "W00142",
+    "W00022",
+    "W00098",
+    "W00067",
+    "W00066",
+    "W00043",
+    "W00033",
+    "W00084",
+    "W00113",
+    "W00120",
+    "W00011",
+    "W00056",
+    "W00046",
+    "W00117"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "雨",
+          "r": "ame",
+          "role": "content",
+          "word_id": "W00002"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夕方",
+          "r": "yuugata",
+          "role": "content",
+          "word_id": "W00018"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is a rainy evening.",
+      "audio": "audio/story_47/s0.wav",
+      "audio_hash": "60c448a19dfc"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "部屋",
+          "r": "heya",
+          "role": "content",
+          "word_id": "W00075"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "黒い",
+          "r": "kuroi",
+          "role": "content",
+          "word_id": "W00141",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          },
+          "is_new": true
+        },
+        {
+          "t": "傘",
+          "r": "kasa",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "r": "arimasu",
+          "role": "content",
+          "word_id": "W00044"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is a black umbrella in the room.",
+      "audio": "audio/story_47/s1.wav",
+      "audio_hash": "169b242a2739"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "傘",
+          "r": "kasa",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "赤い",
+          "r": "akai",
+          "role": "content",
+          "word_id": "W00142",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          },
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My umbrella is red.",
+      "audio": "audio/story_47/s2.wav",
+      "audio_hash": "509f6e7660cf"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "黒い",
+          "r": "kuroi",
+          "role": "content",
+          "word_id": "W00141",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "傘",
+          "r": "kasa",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "誰",
+          "r": "dare",
+          "role": "content",
+          "word_id": "W00140",
+          "is_new": true,
+          "is_new_grammar": true,
+          "grammar_id": "G039_dare_who"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "傘",
+          "r": "kasa",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Whose umbrella is the black umbrella?",
+      "audio": "audio/story_47/s3.wav",
+      "audio_hash": "1755c322b532"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "tomodachi",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "傘",
+          "r": "kasa",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Is it the friend's umbrella?",
+      "audio": "audio/story_47/s4.wav",
+      "audio_hash": "97bd39d1f2c5"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "tomodachi",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "傘",
+          "r": "kasa",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "黒くない",
+          "r": "kuronai",
+          "role": "content",
+          "word_id": "W00141",
+          "inflection": {
+            "form": "kunai",
+            "grammar_id": "G038_kunai"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend's umbrella is not black.",
+      "audio": "audio/story_47/s5.wav",
+      "audio_hash": "1fcdecf3174b"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "祖母",
+          "r": "sobo",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "傘",
+          "r": "kasa",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Is it grandmother's umbrella?",
+      "audio": "audio/story_47/s6.wav",
+      "audio_hash": "a13413d80cd5"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "祖母",
+          "r": "sobo",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "傘",
+          "r": "kasa",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "古い",
+          "r": "furui",
+          "role": "content",
+          "word_id": "W00067",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother's umbrella is old.",
+      "audio": "audio/story_47/s7.wav",
+      "audio_hash": "f6017f5a8018"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "黒い",
+          "r": "kuroi",
+          "role": "content",
+          "word_id": "W00141",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "傘",
+          "r": "kasa",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "新しい",
+          "r": "atarashii",
+          "role": "content",
+          "word_id": "W00066",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The black umbrella is new.",
+      "audio": "audio/story_47/s8.wav",
+      "audio_hash": "4083a31c89d6"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "思います",
+          "r": "omoimasu",
+          "role": "content",
+          "word_id": "W00043"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I think.",
+      "audio": "audio/story_47/s9.wav",
+      "audio_hash": "7dabf3481d75"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "本",
+          "r": "hon",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "店",
+          "r": "mise",
+          "role": "content",
+          "word_id": "W00084"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "人",
+          "r": "hito",
+          "role": "content",
+          "word_id": "W00113"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is the bookstore person.",
+      "audio": "audio/story_47/s10.wav",
+      "audio_hash": "4e04f8d80ad1"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "心",
+          "r": "kokoro",
+          "role": "content",
+          "word_id": "W00120"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "r": "shizuka",
+          "role": "content",
+          "word_id": "W00011"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My heart is quiet.",
+      "audio": "audio/story_47/s11.wav",
+      "audio_hash": "14b8f12cc001"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "嬉しい",
+          "r": "ureshii",
+          "role": "content",
+          "word_id": "W00056",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I am happy.",
+      "audio": "audio/story_47/s12.wav",
+      "audio_hash": "5c29e5352c54"
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "黒い",
+          "r": "kuroi",
+          "role": "content",
+          "word_id": "W00141",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "傘",
+          "r": "kasa",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明日",
+          "r": "ashita",
+          "role": "content",
+          "word_id": "W00046"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "店",
+          "r": "mise",
+          "role": "content",
+          "word_id": "W00084"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "渡します",
+          "r": "watashimasu",
+          "role": "content",
+          "word_id": "W00117"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Tomorrow, I will hand the black umbrella to the shop.",
+      "audio": "audio/story_47/s13.wav",
+      "audio_hash": "ae41f774a829"
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "雨",
+          "r": "ame",
+          "role": "content",
+          "word_id": "W00002"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夕方",
+          "r": "yuugata",
+          "role": "content",
+          "word_id": "W00018"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "黒い",
+          "r": "kuroi",
+          "role": "content",
+          "word_id": "W00141",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "傘",
+          "r": "kasa",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A rainy evening, a black umbrella.",
+      "audio": "audio/story_47/s14.wav",
+      "audio_hash": "8823907e1e89"
+    }
+  ],
+  "word_audio": {
+    "W00140": "audio/story_47/w_W00140.wav",
+    "W00141": "audio/story_47/w_W00141.wav",
+    "W00142": "audio/story_47/w_W00142.wav"
+  },
+  "word_audio_hash": {
+    "W00140": "47c9a42683e9",
+    "W00141": "d75c4a717b1c",
+    "W00142": "8e4b46ee4106"
+  }
+}
