@@ -48,9 +48,48 @@ def load_state() -> tuple[dict, dict, int, str, str]:
     return vocab, grammar, next_story, next_word, next_grammar
 
 
+_GODAN_MASU_STEM_TO_BASE = {
+    # Each key is the kana that ends the masu-stem; each value is the final
+    # kana of the dictionary form. e.g. 読みます (yomimasu, stem ends in み)
+    # → 読む (yomu, ends in む). Covers all 9 godan endings:
+    "い": "う", "き": "く", "ぎ": "ぐ", "し": "す",
+    "ち": "つ", "に": "ぬ", "び": "ぶ", "み": "む", "り": "る",
+}
+
+
+def _derive_dictionary_candidates(surface: str) -> list[tuple[str, str]]:
+    """Given a polite verb surface ending in ます, return candidate
+    (dictionary_surface, verb_class) tuples to try in JMdict.
+
+    Ichidan: 寝ます → 寝る  | Godan: 読みます → 読む, 飲みます → 飲む.
+
+    Returns both ichidan AND godan candidates; the caller tries each in JMdict
+    and uses the first one that hits.
+    """
+    if not surface.endswith("ます") or len(surface) < 3:
+        return []
+    stem = surface[:-2]                 # 寝, 読み, 飲み, 帰り, 行き
+    last_kana = stem[-1] if stem else ""
+    candidates: list[tuple[str, str]] = []
+    # Ichidan: stem itself + る. e.g. 寝 + る → 寝る (rare for stems
+    # ending in i/e mora; cheap to try).
+    candidates.append((stem + "る", "ichidan"))
+    # Godan: replace the trailing i-mora of the stem with the matching
+    # u-row mora. Only applies when the stem ends in one of the 9 i-mora.
+    if last_kana in _GODAN_MASU_STEM_TO_BASE:
+        candidates.append((stem[:-1] + _GODAN_MASU_STEM_TO_BASE[last_kana], "godan"))
+    return candidates
+
+
 def _enrich_word_from_jmdict(surface: str | None) -> dict | None:
     """If a surface is provided, look it up in JMdict and return a fully-populated
-    new_word_definition skeleton. Returns None if jp.py / JMdict not available."""
+    new_word_definition skeleton. Returns None if jp.py / JMdict not available.
+
+    Special case: if `surface` ends in ます, JMdict won't have it directly
+    (JMdict indexes verbs in their dictionary form). We then try the
+    dictionary-form candidates (ichidan first, then godan) and synthesize
+    the masu-form definition from whichever one hits.
+    """
     if not surface:
         return None
     try:
@@ -59,7 +98,28 @@ def _enrich_word_from_jmdict(surface: str | None) -> dict | None:
         return None
     if not JP_OK:
         return None
+
     hits = jmdict_lookup(surface, max_results=1)
+    derived_from = None
+    if not hits and surface.endswith("ます"):
+        for cand_surface, cand_class in _derive_dictionary_candidates(surface):
+            cand_hits = jmdict_lookup(cand_surface, max_results=1)
+            if not cand_hits:
+                continue
+            cand_pos = (cand_hits[0].pos[0].lower() if cand_hits[0].pos else "")
+            # Only accept the candidate if JMdict agrees on the verb class.
+            if cand_class in cand_pos and "verb" in cand_pos:
+                hits = cand_hits
+                derived_from = (cand_surface, cand_class)
+                break
+            # Fallback: if the only hit is verb-but-class-unknown, accept the
+            # ichidan candidate (the safer transformation; gives 寝ます → 寝る
+            # without forcing a verb class we can't confirm).
+            if "verb" in cand_pos and cand_class == "ichidan" and derived_from is None:
+                hits = cand_hits
+                derived_from = (cand_surface, cand_class)
+                # Don't break — keep looking for a class-confirmed hit.
+
     if not hits:
         return None
     h = hits[0]
@@ -79,6 +139,27 @@ def _enrich_word_from_jmdict(surface: str | None) -> dict | None:
         pos, vclass = "noun", None
     else:
         pos, vclass = "noun", None
+    # ── Masu-form post-processing ─────────────────────────────────────────
+    # If we routed through a dictionary-form lookup (寝ます → 寝る), the kana
+    # we just pulled from JMdict is the dictionary-form kana (ねる). The
+    # learner-facing surface is the polite form (寝ます), so re-derive the
+    # polite-form kana from the dictionary-form kana, lock the verb_class
+    # we already validated against JMdict's POS, and tag for transparency.
+    if derived_from is not None:
+        dict_surface, dict_class = derived_from
+        dict_kana = kana                          # ねる / よむ / のむ ...
+        if dict_class == "ichidan" and dict_kana.endswith("る"):
+            kana = dict_kana[:-1] + "ます"          # ねる → ねます
+        elif dict_class == "godan" and dict_kana[-1:] in {
+            "う", "く", "ぐ", "す", "つ", "ぬ", "ぶ", "む", "る"
+        }:
+            # godan: last kana is the u-mora; map back to the matching i-mora.
+            inverse = {v: k for k, v in _GODAN_MASU_STEM_TO_BASE.items()}
+            kana = dict_kana[:-1] + inverse[dict_kana[-1]] + "ます"
+        # Otherwise leave kana as-is and let the author hand-fix.
+        pos, vclass = "verb", dict_class
+        pos_label = f"{pos_label} (derived via {dict_surface}/{dict_class})"
+
     return {
         "surface": surface,
         "kana": kana,

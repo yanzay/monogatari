@@ -786,3 +786,79 @@ correct semantics for unit tests.
 python pipeline/validate.py stories/story_5.json   # ✓ VALID (was ✗ INVALID before fix)
 python pipeline/test_validate.py                    # 50/50 ✓ (2 new tests for the drift fix)
 ```
+
+---
+
+## v0.6 — Masu-form auto-derivation in scaffold (2026-04-22)
+
+### The gap
+
+When authoring story 9 I had to hand-fill the `寝ます` definition because
+JMdict only indexes verbs in their dictionary form (`寝る`). The scaffold
+helper would return `None` for any masu-form input, defeating the
+auto-fill purpose for the most common shape of "new verb" in the
+authoring loop.
+
+### The fix
+
+`pipeline/scaffold.py` now does a two-stage lookup for any
+`--new-word-surface` ending in ます:
+
+1. Try direct JMdict lookup (works for nouns, adjectives, dictionary-form
+   verbs).
+2. If that misses and the surface ends in ます, derive **both** the
+   ichidan candidate (`寝ます → 寝る`) and the godan candidate
+   (`読みます → 読む`), look each up, and accept the first one whose
+   POS contains "verb" *and* matches the candidate's verb class.
+
+When the dictionary form hits, scaffold:
+- Pulls the dictionary-form kana from JMdict (`ねる` / `よむ`).
+- Re-derives the masu-form kana by inverting the same transformation
+  (`ねる → ねます`, `よむ → よみます`).
+- Locks the verb class (ichidan/godan) from the candidate that matched.
+- Tags `_jmdict_pos` with the derivation chain
+  (`"ichidan verb (derived via 寝る/ichidan)"`) so the diagnostic is
+  visible in the generated plan.json.
+
+### Coverage
+
+Confirmed working on:
+
+| Surface   | Class    | kana       | reading      |
+| --------- | -------- | ---------- | ------------ |
+| 寝ます     | ichidan  | ねます      | nemasu       |
+| 食べます   | ichidan  | たべます    | tabemasu     |
+| 見ます     | ichidan  | みます      | mimasu       |
+| 飲みます   | godan    | のみます    | nomimasu     |
+| 読みます   | godan    | よみます    | yomimasu     |
+| 歩きます   | godan    | あるきます  | arukimasu    |
+| 帰ります   | godan    | かえります  | kaerimasu    |
+| 行きます   | godan    | いきます    | ikimasu      |
+| 話します   | godan    | はなします  | hanashimasu  |
+| 立ちます   | godan    | たちます    | tachimasu    |
+
+All 9 godan endings (う/く/ぐ/す/つ/ぬ/ぶ/む/る) are mapped.
+
+### What this changes about the authoring loop
+
+Before story 9: any verb new-word required either hand-filling
+verb_class + kana, or feeding scaffold the dictionary form (and then
+re-typing the polite form into the story). Either way, a typo-prone
+manual step.
+
+From story 10 onward: `--new-word-surfaces "X,Y,寝ます"` works as a
+single drop-in command for any combination of nouns, adjectives,
+dictionary-form verbs, and polite-form verbs. The scaffold will
+classify and inflect each correctly without further intervention.
+
+### Limitations
+
+- Surface-form ます with no kanji at all (e.g. plain あります) is rare in
+  practice but would still hit the fallback path; outcome depends on
+  whether JMdict has a class-confirmed candidate.
+- 来ます (kuru, irregular) and します (suru, irregular) will be
+  ichidan-classified by the candidate generator, but JMdict marks them
+  as irregular — the verb class lock falls back to ichidan in that
+  case. If the library ever needs an irregular verb as a new word, that
+  one definition would still need a hand fix. (Not a blocker today; we
+  have no irregular verbs in the upcoming queue.)
