@@ -261,6 +261,38 @@ def google_word(text: str, kana: str, out_path: Path, *,
 # ── Pipeline driver ─────────────────────────────────────────────────────────
 _AUDIO_EXTENSION = {"LINEAR16": ".wav", "MP3": ".mp3", "OGG_OPUS": ".ogg"}
 
+# v0.13 (2026-04-22) — content-vs-audio drift detection.
+#
+# Each sentence and each shipped word audio gets an `audio_hash` field
+# derived from the exact string sent to the TTS backend (the concatenation
+# of token surfaces). The repo-health pytest suite recomputes the hash on
+# every run and fails the build if any stored hash no longer matches its
+# source — surfacing exactly the failure mode that cost us a silent audio
+# defect on stories 7/8/12 (the 2026-04-22 audit changed JP tokens but
+# nobody regenerated the matching mp3s).
+#
+# We deliberately use a short hex prefix (12 chars of SHA-256). It is long
+# enough that accidental collisions in a corpus of < 10⁴ sentences are
+# astronomically unlikely, and short enough that diffs of story_N.json
+# remain readable.
+import hashlib
+
+def _audio_hash(text: str) -> str:
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()[:12]
+
+
+def sentence_audio_text(sent: dict) -> str:
+    """The exact string the TTS backend speaks for a sentence — the same
+    concatenation `build_audio_for_story` uses. Exposed at module scope so
+    the pytest drift check can recompute it without re-importing the
+    private helper."""
+    return "".join(t["t"] for t in sent.get("tokens", []))
+
+
+def word_audio_text(word: dict) -> str:
+    """The exact string the TTS backend speaks for a new-word entry."""
+    return (word or {}).get("surface") or (word or {}).get("kana") or ""
+
 
 def build_audio_for_story(
     story_path: Path,
@@ -314,28 +346,34 @@ def build_audio_for_story(
         idx = sent["idx"]
         out_path = sub_dir / f"s{idx}{ext}"
         rel = out_path.as_posix()
-        text = "".join(t["t"] for t in sent["tokens"])
+        text = sentence_audio_text(sent)
         kana = "".join(t.get("r", t["t"]) for t in sent["tokens"] if t.get("role") != "punct")
         if force or not out_path.exists():
             sent_fn(text, kana, out_path, rate=rate, samplerate=samplerate, **extra)
         _write_mp3_companion(out_path)
         sent["audio"] = rel
+        # v0.13: drift hash. Always overwritten on a (re)build because the
+        # hash is meaningless without a matching audio file on disk.
+        sent["audio_hash"] = _audio_hash(text)
 
     # ── New-word audio (dictionary forms) ──
     word_audio = story.get("word_audio") or {}
+    word_audio_hash = story.get("word_audio_hash") or {}
     for wid in story.get("new_words", []):
         word = vocab.get("words", {}).get(wid)
         if not word:
             continue
         out_path = sub_dir / f"w_{wid}{ext}"
         rel = out_path.as_posix()
-        text = word.get("surface") or word.get("kana") or wid
+        text = word_audio_text(word) or wid
         kana = word.get("kana") or text
         if force or not out_path.exists():
             word_fn(text, kana, out_path, samplerate=samplerate, **extra)
         _write_mp3_companion(out_path)
         word_audio[wid] = rel
-    story["word_audio"] = word_audio
+        word_audio_hash[wid] = _audio_hash(text)
+    story["word_audio"]      = word_audio
+    story["word_audio_hash"] = word_audio_hash
 
     story_path.write_text(json.dumps(story, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return {

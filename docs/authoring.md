@@ -1488,3 +1488,79 @@ pass `--tts-backend google` instead of letting the default win. None
 of these are interesting work; all of them are mistakes waiting to
 happen at 1 a.m. As of v0.12 they are all the pipeline's job, and
 the post-ship pytest catches any regression.
+
+---
+
+## v0.13 — Content-vs-audio drift detection (2026-04-22)
+
+### Why
+
+Stories 7, 8, and 12 silently shipped with stale audio for several
+release cycles after the 2026-04-22 semantic-sanity audit rewrote
+their JP tokens — the manifest still said `has_audio: true`, the
+files were still on disk, but the spoken text no longer matched what
+the learner was reading. Story 13 separately shipped with 0-byte mp3s
+that no test caught. Both classes of failure now break the pre-commit
+suite.
+
+### What changed
+
+`pipeline/audio_builder.py` writes two new fields whenever it generates
+audio:
+
+```jsonc
+{
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [/* … */],
+      "audio":      "audio/story_16/s0.mp3",
+      "audio_hash": "d470741e829c"        // NEW: SHA-256[:12] of the TTS input
+    }
+  ],
+  "word_audio":      { "W00048": "audio/story_16/w_W00048.mp3" },
+  "word_audio_hash": { "W00048": "9c1a8f0b2d34" }   // NEW: parallel map
+}
+```
+
+The hash is the first 12 hex chars of `SHA-256(text)` where `text` is
+the exact concatenation of token surfaces sent to the TTS backend
+(sentence: `"".join(t["t"] for t in sent.tokens)`; word: the dictionary
+surface). 12 hex chars give 48 bits of entropy — collision-free for
+any plausible corpus size, short enough to keep diffs of `story_N.json`
+readable.
+
+### Three new pytests in `test_referential_integrity.py`
+
+| Test | Catches |
+|------|---------|
+| `test_audio_no_zero_byte_files` | The story-13 failure mode: `s*.mp3` exists but is empty. |
+| `test_sentence_audio_hash_matches_tokens` | The story-7/8/12 failure mode: tokens edited post-ship, audio still speaks the old version. |
+| `test_word_audio_hash_matches_vocab` | Same drift detection for the new-word audio (e.g. a typo fix in `vocab.surface`). |
+
+The sentence-hash test soft-skips stories that have no `audio_hash`
+yet (so v0.13 can land without first regenerating every audio file)
+but still hard-fails any story that *has* a hash and disagrees.
+
+### Backfill
+
+All 16 shipped stories were re-walked through the audio builder
+without `--force` (so existing audio is untouched) just to populate
+the new hash fields. After this commit every story has full hash
+coverage.
+
+### What this means in the authoring loop
+
+Nothing changes for the happy path: `python3 pipeline/run.py --step 4`
+already calls the audio builder, which now writes the hashes. The
+only situation in which a future agent will see these tests fire is:
+
+- They edited a sentence's tokens after the story shipped (typo fix,
+  particle swap, semantic-audit rewrite) and forgot to re-run the
+  audio builder. The test message tells them exactly what to do:
+  `pipeline/audio_builder.py … --backend google --force`.
+- They edited `vocab.<wid>.surface` for a word that already has audio
+  in some story. Same fix.
+- The TTS call failed silently mid-build and left a 0-byte file.
+  `--force` will re-attempt; if that still fails, they'll see the
+  Google credentials error and can fix it.

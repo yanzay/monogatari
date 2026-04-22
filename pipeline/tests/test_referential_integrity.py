@@ -165,3 +165,113 @@ def test_audio_word_files_only_for_known_words(root, stories, vocab):
             if wid not in known_words:
                 bad.append(f"{story_audio.name}/{f.name}: unknown word_id")
     assert not bad, "Audio files for unknown word_ids:\n  " + "\n  ".join(bad)
+
+
+# ── v0.13: content-vs-audio drift detection ──────────────────────────────────
+#
+# These tests catch the failure mode where JP tokens are edited post-ship
+# (e.g. a typo fix or the 2026-04-22 semantic-sanity audit) but the audio
+# files on disk still speak the old tokens. The audio_builder now writes a
+# 12-char SHA-256 prefix of the exact TTS-input string into every sentence
+# (`audio_hash`) and into a parallel map for word audio (`word_audio_hash`).
+# Recomputing the hash here and comparing flags any drift instantly.
+#
+# Companion check: any 0-byte audio file is also caught here, regardless of
+# whether the hash matches — that's how the broken story 13 ship slipped
+# through previously (manifest said has_audio:true; files were 0 bytes).
+import sys as _sys
+from pathlib import Path as _Path
+_sys.path.insert(0, str(_Path(__file__).resolve().parents[1]))
+
+
+def _recompute_sentence_hash(sent: dict) -> str:
+    from audio_builder import _audio_hash, sentence_audio_text
+    return _audio_hash(sentence_audio_text(sent))
+
+
+def _recompute_word_hash(surface_or_kana: str) -> str:
+    from audio_builder import _audio_hash
+    return _audio_hash(surface_or_kana)
+
+
+def test_audio_no_zero_byte_files(root, stories):
+    """Every shipped audio file must be > 0 bytes. Catches ship failures
+    where the TTS call returned an error but the empty file was still
+    created (story 13 lived in this state for a release)."""
+    audio_dir = root / "audio"
+    if not audio_dir.exists():
+        pytest.skip("no audio directory")
+    bad = []
+    for story in stories:
+        story_audio = audio_dir / story["_id"]
+        if not story_audio.exists():
+            continue
+        for f in sorted(story_audio.iterdir()):
+            if f.is_file() and f.suffix.lower() in (".mp3", ".wav", ".ogg"):
+                if f.stat().st_size == 0:
+                    bad.append(f"{story['_id']}/{f.name}: 0 bytes")
+    assert not bad, "Zero-byte audio files:\n  " + "\n  ".join(bad)
+
+
+def test_sentence_audio_hash_matches_tokens(stories):
+    """Each sentence's stored `audio_hash` (written by audio_builder when
+    the .mp3 was generated) must equal the recomputed hash of its current
+    JP tokens. Mismatch == audio drift, and the story must be regenerated
+    via `pipeline/audio_builder.py ... --backend google --force`.
+
+    Stories that have not yet been built with v0.13 (no `audio_hash` field
+    on any sentence) are skipped — the next backfill will populate them.
+    """
+    drifted = []
+    not_yet_hashed = []
+    for story in stories:
+        any_hash = any("audio_hash" in s for s in story.get("sentences", []))
+        if not any_hash:
+            not_yet_hashed.append(story["_id"])
+            continue
+        for sent in story.get("sentences", []):
+            stored = sent.get("audio_hash")
+            if not stored:
+                drifted.append(
+                    f"{story['_id']} s{sent.get('idx', '?')}: missing audio_hash"
+                )
+                continue
+            actual = _recompute_sentence_hash(sent)
+            if stored != actual:
+                drifted.append(
+                    f"{story['_id']} s{sent.get('idx', '?')}: "
+                    f"stored {stored} != current {actual} "
+                    f"— regenerate audio with --force"
+                )
+    if not_yet_hashed:
+        # Soft-skip individual stories, but still fail if any *hashed*
+        # story has drifted. This lets v0.13 land before backfilling all
+        # 16 stories at once.
+        print(f"\n  (audio_hash not yet present on: {not_yet_hashed})")
+    assert not drifted, "Audio drift detected:\n  " + "\n  ".join(drifted)
+
+
+def test_word_audio_hash_matches_vocab(stories, vocab):
+    """Each story's `word_audio_hash[wid]` must match the current vocab
+    surface for that word. Mismatch == the dictionary form of the word
+    was edited after the audio was built, and the word audio must be
+    regenerated."""
+    drifted = []
+    for story in stories:
+        wah = story.get("word_audio_hash") or {}
+        if not wah:
+            continue  # story not yet hashed under v0.13
+        for wid, stored in wah.items():
+            word = vocab["words"].get(wid)
+            if not word:
+                drifted.append(f"{story['_id']} {wid}: word not in vocab")
+                continue
+            text = word.get("surface") or word.get("kana") or ""
+            actual = _recompute_word_hash(text)
+            if stored != actual:
+                drifted.append(
+                    f"{story['_id']} word_audio[{wid}]: "
+                    f"stored {stored} != current {actual} "
+                    f"(surface now '{text}') — regenerate audio with --force"
+                )
+    assert not drifted, "Word audio drift detected:\n  " + "\n  ".join(drifted)
