@@ -19,7 +19,7 @@
     ],
     "last_regenerated": "2026-04-22 15:30",
     "stories_covered": 12,
-    "n_stories": 23
+    "n_stories": 24
   },
   "reviews": [
     {
@@ -804,6 +804,40 @@
           "why": "originality"
         }
       ]
+    },
+    {
+      "story_id": 24,
+      "title_jp": "春の朝",
+      "title_en": "A Spring Morning",
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 5,
+        "closure": 4
+      },
+      "average": 4.2,
+      "approved": true,
+      "highlights": [
+        "Clears five starvation entries in one cohesive scene: 朝ごはん / 食べます / 卵 / ドア (story 16 cluster) and reuses 花 / 庭 — none feels shoehorned because the scene is genuinely about a spring breakfast outdoors.",
+        "First seasonal vocabulary in the library — 春 lands three times in three different positions (subject of 来ます at s0, attributive 春の朝 at s2, attributive 春の道 at s8). The seasonal turn is shipped as content, not just announced.",
+        "開けます is taught on two different objects in adjacent sentences (s1 窓, s4 ドア) — the verb's range is shown in real grammar, not via flashcards.",
+        "Closer 'long spring road, warm morning' uses the new 長い + 春 plus existing 温かい + 朝 — every adjective is doing semantic work (the long road implies a journey ahead, the warm morning is the spring beat). Not a generic Adj+Noun list."
+      ],
+      "weaknesses": [
+        "S7 'The road is long.' is a single-content predicate beat that arrives a bit abruptly after the breakfast tableau — the road has no prior anchor in the scene. Considered cutting it but 長い needs two occurrences and this is the only natural slot.",
+        "Six predicate-です sentences across the story — that is the high-frequency shape the library leans on. Could vary more if the library had more verbs, but the verbs we have (来る / 開ける / ある / 食べる) are already used."
+      ],
+      "suggestions": [
+        {
+          "what": "When 出ます (to go out) enters vocab, revisit s4 to '庭に出ます' for an active going-out beat.",
+          "why": "voice"
+        },
+        {
+          "what": "Future story could pair 春 with 鳥 (returning birds) for a layered seasonal scene.",
+          "why": "originality"
+        }
+      ]
     }
   ],
   "leaderboard": [
@@ -815,17 +849,17 @@
     {
       "story_id": 6,
       "average": 4.6,
-      "rank": 2
+      "rank": 1
     },
     {
       "story_id": 8,
       "average": 4.6,
-      "rank": 3
+      "rank": 1
     },
     {
       "story_id": 10,
       "average": 4.6,
-      "rank": 4
+      "rank": 1
     },
     {
       "story_id": 4,
@@ -835,17 +869,17 @@
     {
       "story_id": 7,
       "average": 4.4,
-      "rank": 6
+      "rank": 5
     },
     {
       "story_id": 9,
       "average": 4.4,
-      "rank": 7
+      "rank": 5
     },
     {
       "story_id": 11,
       "average": 4.4,
-      "rank": 8
+      "rank": 5
     },
     {
       "story_id": 2,
@@ -855,27 +889,32 @@
     {
       "story_id": 12,
       "average": 4.2,
-      "rank": 10
+      "rank": 9
     },
     {
       "story_id": 19,
       "average": 4.2,
-      "rank": 11
+      "rank": 9
     },
     {
       "story_id": 20,
       "average": 4.2,
-      "rank": 12
+      "rank": 9
     },
     {
       "story_id": 22,
       "average": 4.2,
-      "rank": 13
+      "rank": 9
+    },
+    {
+      "story_id": 24,
+      "average": 4.2,
+      "rank": 9
     },
     {
       "story_id": 3,
       "average": 4.0,
-      "rank": 14
+      "rank": 15
     },
     {
       "story_id": 14,
@@ -885,27 +924,27 @@
     {
       "story_id": 15,
       "average": 4.0,
-      "rank": 16
+      "rank": 15
     },
     {
       "story_id": 16,
       "average": 4.0,
-      "rank": 17
+      "rank": 15
     },
     {
       "story_id": 21,
       "average": 4.0,
-      "rank": 18
+      "rank": 15
     },
     {
       "story_id": 23,
       "average": 4.0,
-      "rank": 19
+      "rank": 15
     },
     {
       "story_id": 1,
       "average": 3.8,
-      "rank": 20
+      "rank": 21
     },
     {
       "story_id": 13,
@@ -915,12 +954,12 @@
     {
       "story_id": 17,
       "average": 3.8,
-      "rank": 22
+      "rank": 21
     },
     {
       "story_id": 18,
       "average": 3.8,
-      "rank": 23
+      "rank": 21
     }
   ],
   "next_actions": [

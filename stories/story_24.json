@@ -1,0 +1,525 @@
+{
+  "story_id": 24,
+  "title": {
+    "jp": "春の朝",
+    "en": "A Spring Morning",
+    "tokens": [
+      {
+        "t": "春",
+        "r": "はる",
+        "word_id": "W00072",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "朝",
+        "r": "あさ",
+        "word_id": "W00015",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "窓を開けて",
+    "en": "Opening the window",
+    "tokens": [
+      {
+        "t": "窓",
+        "r": "まど",
+        "word_id": "W00004",
+        "role": "content"
+      },
+      {
+        "t": "を",
+        "grammar_id": "G005_wo_object",
+        "role": "particle"
+      },
+      {
+        "t": "開けて",
+        "r": "あけて",
+        "word_id": "W00073",
+        "role": "content",
+        "inflection": {
+          "base": "開ける",
+          "base_r": "あける",
+          "form": "te_form",
+          "grammar_id": "G007_te_form"
+        }
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00072",
+    "W00073",
+    "W00074"
+  ],
+  "new_grammar": [],
+  "all_words_used": [
+    "W00072",
+    "W00015",
+    "W00004",
+    "W00073",
+    "W00001",
+    "W00040",
+    "W00003",
+    "W00012",
+    "W00059",
+    "W00024",
+    "W00044",
+    "W00025",
+    "W00019",
+    "W00020",
+    "W00021",
+    "W00049",
+    "W00064",
+    "W00074"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "gloss_en": "This morning, spring comes.",
+      "tokens": [
+        {
+          "t": "今朝",
+          "r": "けさ",
+          "word_id": "W00001",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "春",
+          "r": "はる",
+          "word_id": "W00072",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "来ます",
+          "r": "きます",
+          "word_id": "W00040",
+          "role": "content",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_24/s0.wav",
+      "audio_hash": "d05f48ac769a"
+    },
+    {
+      "idx": 1,
+      "gloss_en": "I open the window.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "窓",
+          "r": "まど",
+          "word_id": "W00004",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "開けます",
+          "r": "あけます",
+          "word_id": "W00073",
+          "role": "content",
+          "is_new": true,
+          "inflection": {
+            "base": "開ける",
+            "base_r": "あける",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_24/s1.wav",
+      "audio_hash": "ff701435d0a3"
+    },
+    {
+      "idx": 2,
+      "gloss_en": "The spring morning is warm.",
+      "tokens": [
+        {
+          "t": "春",
+          "r": "はる",
+          "word_id": "W00072",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "word_id": "W00015",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "word_id": "W00012",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_24/s2.wav",
+      "audio_hash": "372af9336ced"
+    },
+    {
+      "idx": 3,
+      "gloss_en": "There are flowers in the garden.",
+      "tokens": [
+        {
+          "t": "庭",
+          "r": "にわ",
+          "word_id": "W00059",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "花",
+          "r": "はな",
+          "word_id": "W00024",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "あります",
+          "word_id": "W00044",
+          "role": "content",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_24/s3.wav",
+      "audio_hash": "7c91d23c2b8e"
+    },
+    {
+      "idx": 4,
+      "gloss_en": "I open the door, too.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "ドア",
+          "r": "ドア",
+          "word_id": "W00025",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "開けます",
+          "r": "あけます",
+          "word_id": "W00073",
+          "role": "content",
+          "inflection": {
+            "base": "開ける",
+            "base_r": "あける",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_24/s4.wav",
+      "audio_hash": "918bba1588c8"
+    },
+    {
+      "idx": 5,
+      "gloss_en": "I eat breakfast in the garden.",
+      "tokens": [
+        {
+          "t": "庭",
+          "r": "にわ",
+          "word_id": "W00059",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "朝ごはん",
+          "r": "あさごはん",
+          "word_id": "W00019",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "食べます",
+          "r": "たべます",
+          "word_id": "W00020",
+          "role": "content",
+          "inflection": {
+            "base": "食べる",
+            "base_r": "たべる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_24/s5.wav",
+      "audio_hash": "a410b99d9700"
+    },
+    {
+      "idx": 6,
+      "gloss_en": "Breakfast is an egg and bread.",
+      "tokens": [
+        {
+          "t": "朝ごはん",
+          "r": "あさごはん",
+          "word_id": "W00019",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "卵",
+          "r": "たまご",
+          "word_id": "W00021",
+          "role": "content"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G010_to_and",
+          "role": "particle"
+        },
+        {
+          "t": "パン",
+          "r": "パン",
+          "word_id": "W00049",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_24/s6.wav",
+      "audio_hash": "be480213e61b"
+    },
+    {
+      "idx": 7,
+      "gloss_en": "The road is long.",
+      "tokens": [
+        {
+          "t": "道",
+          "r": "みち",
+          "word_id": "W00064",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "長い",
+          "r": "ながい",
+          "word_id": "W00074",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_24/s7.wav",
+      "audio_hash": "7698e123240b"
+    },
+    {
+      "idx": 8,
+      "gloss_en": "A long spring road, a warm morning.",
+      "tokens": [
+        {
+          "t": "長い",
+          "r": "ながい",
+          "word_id": "W00074",
+          "role": "content"
+        },
+        {
+          "t": "春",
+          "r": "はる",
+          "word_id": "W00072",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "道",
+          "r": "みち",
+          "word_id": "W00064",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "word_id": "W00012",
+          "role": "content"
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "word_id": "W00015",
+          "role": "content"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_24/s8.wav",
+      "audio_hash": "6581ec66b239"
+    }
+  ],
+  "word_audio": {
+    "W00072": "audio/story_24/w_W00072.wav",
+    "W00073": "audio/story_24/w_W00073.wav",
+    "W00074": "audio/story_24/w_W00074.wav"
+  },
+  "checksum": null,
+  "word_audio_hash": {
+    "W00072": "b3c33b7abaf0",
+    "W00073": "02d2300d4ce0",
+    "W00074": "e0d1f089aa4c"
+  }
+}
