@@ -364,6 +364,54 @@
         "if revising for 5/5 coherence: cut s5 (friend's tea) and let the two waits face each other directly",
         "consider authoring story 11 with a single sustained action (te-form chaining)"
       ]
+    },
+    {
+      "story_id": 11,
+      "title_jp": "昨日の手紙",
+      "title_en": "Yesterday's Letter",
+      "scores": {
+        "hook": 4,
+        "voice": 5,
+        "originality": 5,
+        "coherence": 4,
+        "closure": 4
+      },
+      "average": 4.4,
+      "approved": true,
+      "highlights": [
+        "First all-past-tense story in the library — でした carries gentle nostalgia.",
+        "Hook 「昨日、雨でした。」 anchors time + weather + tense in three tokens.",
+        "Bridges yesterday morning, friend's morning, and yesterday night in 8 sentences."
+      ],
+      "weaknesses": [
+        "Closer 「いい朝でした」 reuses the proven 'X、いい朝です' pattern from stories 4/5/6/7/10 — fresh tense, familiar shape."
+      ],
+      "suggestions": []
+    },
+    {
+      "story_id": 12,
+      "title_jp": "雨の朝",
+      "title_en": "A Rainy Morning",
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 5,
+        "coherence": 4,
+        "closure": 4
+      },
+      "average": 4.2,
+      "approved": true,
+      "highlights": [
+        "First N4 grammar (〜と思います) introduced — narrator now interprets, not just observes.",
+        "Cat (sleeping on chair, yesterday too) gets multi-time existence — first temporal continuity for a non-human character.",
+        "Closer 「静かな月、夜だと思います」 feels like the story's own conclusion, not a tag."
+      ],
+      "weaknesses": [
+        "Two と思います uses are structurally similar (both noun-だ-と-思います); future stories should diversify the construction."
+      ],
+      "suggestions": [
+        "When 思います gets occ ≥ 3, consider 思う (plain) for variety in nested thoughts."
+      ]
     }
   ],
   "leaderboard": [

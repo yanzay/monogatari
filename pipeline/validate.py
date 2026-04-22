@@ -823,13 +823,24 @@ def validate(
         # 6 say if the words really are at this occurrence count?", which is
         # the correct question for that test).
         discount: dict[str, int] = {}
+        # Match the (simplified) semantics used by state_updater.py: lifetime
+        # occurrence is incremented ONCE per story that uses a word, regardless
+        # of how many tokens reference it within that story. Discount logic
+        # therefore counts STORIES, not tokens.
+        def stories_using(story_obj: dict) -> set[str]:
+            wids: set[str] = set()
+            for sent in story_obj.get("sentences", []):
+                for tok in sent.get("tokens", []):
+                    wid = tok.get("word_id")
+                    if wid:
+                        wids.add(wid)
+            return wids
+
         if sid > 0:
-            # 1. Subtract this story's own content-token uses.
-            for tok in content_tokens:
-                wid = tok.get("word_id")
-                if wid:
-                    discount[wid] = discount.get(wid, 0) + 1
-            # 2. Subtract uses from every story with story_id > this one.
+            # 1. Subtract this story (1 per word_id used).
+            for wid in stories_using(story):
+                discount[wid] = discount.get(wid, 0) + 1
+            # 2. Subtract every story with story_id > this one (1 each).
             try:
                 from pathlib import Path
                 stories_dir = Path(__file__).resolve().parent.parent / "stories"
@@ -844,12 +855,8 @@ def validate(
                         other = json.loads(path.read_text(encoding="utf-8"))
                     except Exception:
                         continue
-                    for sent in other.get("sentences", []):
-                        for tok in sent.get("tokens", []):
-                            if tok.get("role") == "content":
-                                wid = tok.get("word_id")
-                                if wid:
-                                    discount[wid] = discount.get(wid, 0) + 1
+                    for wid in stories_using(other):
+                        discount[wid] = discount.get(wid, 0) + 1
             except Exception:
                 pass  # Directory unreadable — fall back to lifetime counts.
 

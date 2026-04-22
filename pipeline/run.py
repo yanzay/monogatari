@@ -282,13 +282,60 @@ def main() -> None:
                 # so its `has_audio` flag reflects reality.
                 run([sys.executable, "pipeline/build_manifest.py"])
 
+        # ── Step 4e: Full repo-health test suite ──
+        # Catches state drift, surface-grammar mis-tagging, manifest
+        # gaps, audio orphans, etc. — anything the per-story validate
+        # missed because the bug spans multiple files.
+        print("\n[Step 4e] Running full repo-health test suite…")
+        rc = run([sys.executable, "-m", "pytest", "pipeline/tests", "-q", "--tb=line"])
+        if rc != 0:
+            print("⚠  Tests failed AFTER ship. Story is on disk but state has integrity issues.")
+            print("   Investigate before pushing. Common causes: stale lifetime occ, missing manifest entry,")
+            print("   missing audio for an older story, or a new surface→grammar mis-tag.")
+            sys.exit(1)
+
         print(f"\n{'═'*60}")
         print(f"  ✓ Story {story_id} shipped to stories/story_{story_id}.json")
         print(f"  Reload http://localhost:8000 and navigate to Story {story_id}")
         print(f"{'═'*60}\n")
         return
 
-    print(f"Unknown step: {args.step}. Use --step 1, 2, 3, or 4.")
+    # ── Step 6: Standalone repo-health check ─────────────────────────────────
+    if args.step == 6:
+        print("\n[Step 6] Repo health check (without authoring a story)…")
+
+        print("\n  • State validator:")
+        rc = run([sys.executable, "pipeline/validate_state.py",
+                  "--vocab", args.vocab, "--grammar", args.grammar])
+        state_ok = (rc == 0)
+
+        print("\n  • Per-story validate (all shipped):")
+        story_failures = []
+        for p in sorted(Path("stories").glob("story_*.json"),
+                        key=lambda p: int(p.stem.split("_")[1])):
+            print(f"      {p.name}…", end=" ", flush=True)
+            res = run([sys.executable, "pipeline/validate.py", str(p),
+                       "--vocab", args.vocab, "--grammar", args.grammar])
+            print("✓" if res == 0 else "✗")
+            if res != 0:
+                story_failures.append(p.name)
+
+        print("\n  • Legacy validator unit tests:")
+        legacy_rc = run([sys.executable, "pipeline/test_validate.py"])
+
+        print("\n  • Repo-health pytest suite:")
+        pytest_rc = run([sys.executable, "-m", "pytest", "pipeline/tests", "-q", "--tb=line"])
+
+        if state_ok and not story_failures and legacy_rc == 0 and pytest_rc == 0:
+            print("\n✓ All checks pass. Repo is healthy.")
+        else:
+            print("\n✗ One or more checks failed. See output above.")
+            if story_failures:
+                print(f"  Failed stories: {story_failures}")
+            sys.exit(1)
+        return
+
+    print(f"Unknown step: {args.step}. Use --step 1, 2, 3, 4, or 6.")
     sys.exit(1)
 
 

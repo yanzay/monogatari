@@ -34,3 +34,30 @@ rm -f "${file}.bak"
 
 git add "$file"
 echo "[pre-commit] Bumped CACHE_VERSION → ${new_version}"
+
+# ── Run validation test suites if any data/, stories/, or pipeline/ file is staged ──
+test_re='^(data/|stories/|pipeline/)'
+if git diff --cached --name-only | grep -qE "$test_re"; then
+  # Use the venv's python if available, otherwise fall back to system python3
+  if [ -x ".venv/bin/python3" ]; then
+    PYTHON=".venv/bin/python3"
+  else
+    PYTHON="python3"
+  fi
+
+  echo "[pre-commit] Running pipeline test suites…"
+
+  if ! "$PYTHON" pipeline/test_validate.py > /tmp/monogatari_test_validate.log 2>&1; then
+    echo "✗ pipeline/test_validate.py FAILED. See /tmp/monogatari_test_validate.log"
+    tail -20 /tmp/monogatari_test_validate.log
+    exit 1
+  fi
+
+  if ! "$PYTHON" -m pytest pipeline/tests -q --tb=line > /tmp/monogatari_pytest.log 2>&1; then
+    echo "✗ pipeline/tests pytest suite FAILED. See /tmp/monogatari_pytest.log"
+    tail -30 /tmp/monogatari_pytest.log
+    exit 1
+  fi
+
+  echo "[pre-commit] ✓ all tests pass"
+fi

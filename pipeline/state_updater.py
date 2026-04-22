@@ -50,11 +50,20 @@ def update_state(
     added_words   = []
     updated_words = []
 
-    # Collect all word_ids used in this story
+    # Collect all word_ids used in this story (title + subtitle + sentences).
+    # Including title/subtitle is important: a word that first appears in the
+    # title genuinely makes its debut there, so first_story should reflect
+    # that. Lifetime occurrence still increments once per story regardless.
+    sections = []
+    if story.get("title"):
+        sections.append(story["title"])
+    if story.get("subtitle"):
+        sections.append(story["subtitle"])
+    sections.extend(story.get("sentences", []))
     all_word_ids = {
         tok["word_id"]
-        for sent in story.get("sentences", [])
-        for tok in sent.get("tokens", [])
+        for sec in sections
+        for tok in sec.get("tokens", [])
         if tok.get("word_id")
     }
 

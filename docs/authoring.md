@@ -1263,3 +1263,69 @@ The `grammar_id` is what makes Check 3 see G013 as "used" in the story
 (important for first-occurrence + repetition counting). Autofix will add
 the grammar_id automatically when it sees `inflection.form ∈ {polite_past,
 plain_past}`. Don't omit it.
+
+---
+
+## Permanent automated tests (April 2026)
+
+The repository now ships with a comprehensive pytest suite at `pipeline/tests/`
+(56 tests across 5 modules) plus the legacy `pipeline/test_validate.py`
+(56 unit tests). Both run automatically:
+
+  - on every commit (via `.githooks/pre-commit`)
+  - at the end of `python3 pipeline/run.py --step 4` (post-ship)
+  - on demand: `python3 pipeline/run.py --step 6`
+
+### Test categories
+
+  Class A (test_surface_grammar_consistency.py)
+    Catches the kind of bug we hit with の-as-G001_wa_topic. Enumerates
+    every (role, surface, grammar_id) triple across the corpus and rejects
+    forbidden pairs + cross-story inconsistencies.
+
+  Class B (test_state_integrity.py)
+    Vocab/grammar internal consistency: ID format, required fields, valid
+    POS/JLPT/verb_class enums, no duplicate (surface, kana) pairs, no
+    placeholder titles or scaffold sentinels, prerequisite graph resolves
+    + acyclic, no orphan vocab/grammar entries, lifetime occurrences match
+    state_updater semantics (one increment per story), first_story actually
+    is the first story to use the word.
+
+  Class C (test_referential_integrity.py)
+    stories/index.json manifest matches stories on disk, engagement_baseline
+    has an entry per shipped story, audio/story_N folder per shipped story,
+    sentence audio file count matches sentence count, word audio files only
+    reference known word_ids.
+
+  Class D (test_pipeline_determinism.py)
+    autofix.py is idempotent on every shipped story (run twice = same).
+    validate.py is pure (same input → same output).
+
+  Class E (test_schemas.py)
+    Formal jsonschema validation of vocab_state, grammar_state, every
+    story, and every token.
+
+  Class F (test_pedagogical_sanity.py)
+    Length progression curve compliance, engagement baseline above 3.5,
+    no story uses grammar above its tier, every word marked is_new at
+    most once, all_words_used in first-seen order across title + subtitle
+    + sentences, sentence idx is sequential.
+
+### What this prevents in practice
+
+  - The 朝-first_story-says-3-but-actually-1 bug class
+    (state drift after post-ship edits)
+  - The の-tagged-as-G001_wa_topic bug class
+    (silent semantic mis-tagging undetected by Check 5)
+  - The story-10-has-zero-audio-files bug class
+    (audio missing for a shipped story)
+  - The placeholder-grammar-entry bug class
+    (G009_mo_also "fill in description")
+  - The stories-11-and-12-not-in-manifest bug class
+    (manifest drift)
+
+### Adding new tests
+
+Any time you spot a new bug class that wasn't caught automatically, add a
+test for it in the appropriate Class file. The cost is 5-10 lines of code;
+the benefit is the entire bug class never recurs.
