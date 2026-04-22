@@ -58,7 +58,9 @@
     "W00123",
     "W00124"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G034_ne_confirm"
+  ],
   "all_words_used": [
     "W00072",
     "W00033",
@@ -282,7 +284,9 @@
         },
         {
           "t": "ね",
-          "role": "punct"
+          "role": "particle",
+          "grammar_id": "G034_ne_confirm",
+          "is_new_grammar": true
         },
         {
           "t": "」",
@@ -464,7 +468,8 @@
         },
         {
           "t": "ね",
-          "role": "punct"
+          "role": "particle",
+          "grammar_id": "G034_ne_confirm"
         },
         {
           "t": "」",
