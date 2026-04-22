@@ -1,0 +1,655 @@
+{
+  "story_id": 44,
+  "title": {
+    "jp": "待ちません",
+    "en": "I Do Not Wait",
+    "tokens": [
+      {
+        "t": "待ちません",
+        "r": "machimasu",
+        "role": "content",
+        "word_id": "W00041",
+        "inflection": {
+          "form": "masen",
+          "grammar_id": "G036_masen"
+        }
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "友達がすぐに来ます。",
+    "en": "My friend comes right away.",
+    "tokens": [
+      {
+        "t": "友達",
+        "r": "tomodachi",
+        "role": "content",
+        "word_id": "W00022"
+      },
+      {
+        "t": "が",
+        "role": "particle",
+        "grammar_id": "G002_ga_subject"
+      },
+      {
+        "t": "すぐ",
+        "r": "sugu",
+        "role": "content",
+        "word_id": "W00133"
+      },
+      {
+        "t": "に",
+        "role": "particle",
+        "grammar_id": "G004_ni_location"
+      },
+      {
+        "t": "来ます",
+        "r": "kimasu",
+        "role": "content",
+        "word_id": "W00040"
+      },
+      {
+        "t": "。",
+        "role": "punct"
+      }
+    ]
+  },
+  "new_words": [
+    "W00131",
+    "W00132",
+    "W00133"
+  ],
+  "new_grammar": [
+    "G036_masen"
+  ],
+  "all_words_used": [
+    "W00041",
+    "W00022",
+    "W00133",
+    "W00040",
+    "W00072",
+    "W00018",
+    "W00003",
+    "W00004",
+    "W00045",
+    "W00087",
+    "W00132",
+    "W00044",
+    "W00131",
+    "W00093",
+    "W00024",
+    "W00058",
+    "W00097",
+    "W00056",
+    "W00035",
+    "W00050",
+    "W00094",
+    "W00083"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "haru",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夕方",
+          "r": "yuugata",
+          "role": "content",
+          "word_id": "W00018"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is a spring evening.",
+      "audio": "audio/story_44/s0.wav",
+      "audio_hash": "fdecbcf80e9f"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "窓",
+          "r": "mado",
+          "role": "content",
+          "word_id": "W00004"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "そば",
+          "r": "soba",
+          "role": "content",
+          "word_id": "W00045"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "立ちます",
+          "r": "tachimasu",
+          "role": "content",
+          "word_id": "W00087"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I stand by the window.",
+      "audio": "audio/story_44/s1.wav",
+      "audio_hash": "52f1f6b63528"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "tomodachi",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "約束",
+          "r": "yakusoku",
+          "role": "content",
+          "word_id": "W00132",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "r": "arimasu",
+          "role": "content",
+          "word_id": "W00044"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is a promise with the friend.",
+      "audio": "audio/story_44/s2.wav",
+      "audio_hash": "81ad0a2c97ad"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "時々",
+          "r": "tokidoki",
+          "role": "content",
+          "word_id": "W00131",
+          "is_new": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "電話",
+          "r": "denwa",
+          "role": "content",
+          "word_id": "W00093"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ます",
+          "r": "kimasu",
+          "role": "content",
+          "word_id": "W00040"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Sometimes, a phone call comes.",
+      "audio": "audio/story_44/s3.wav",
+      "audio_hash": "aaced43724ce"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "でも",
+          "role": "aux",
+          "grammar_id": "G032_demo"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "電話",
+          "r": "denwa",
+          "role": "content",
+          "word_id": "W00093"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "ありません",
+          "role": "aux",
+          "grammar_id": "G035_arimasen"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But there is no phone call.",
+      "audio": "audio/story_44/s4.wav",
+      "audio_hash": "47024a417974"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "待ちません",
+          "r": "machimasu",
+          "role": "content",
+          "word_id": "W00041",
+          "inflection": {
+            "form": "masen",
+            "grammar_id": "G036_masen"
+          },
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I do not wait.",
+      "audio": "audio/story_44/s5.wav",
+      "audio_hash": "528726c092ab"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "tomodachi",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "すぐ",
+          "r": "sugu",
+          "role": "content",
+          "word_id": "W00133",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "来ます",
+          "r": "kimasu",
+          "role": "content",
+          "word_id": "W00040"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend comes right away.",
+      "audio": "audio/story_44/s6.wav",
+      "audio_hash": "753008d569c4"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "tomodachi",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "花",
+          "r": "hana",
+          "role": "content",
+          "word_id": "W00024"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "来ます",
+          "r": "kimasu",
+          "role": "content",
+          "word_id": "W00040"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend comes with flowers.",
+      "audio": "audio/story_44/s7.wav",
+      "audio_hash": "82d79e27dd97"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "元気",
+          "r": "genki",
+          "role": "content",
+          "word_id": "W00058"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "ね",
+          "role": "particle",
+          "grammar_id": "G034_ne_confirm"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "言います",
+          "r": "iimasu",
+          "role": "content",
+          "word_id": "W00097"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "She says, 'You are well, aren't you.'",
+      "audio": "audio/story_44/s8.wav",
+      "audio_hash": "6e8d4eed19cd"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "嬉しい",
+          "r": "ureshii",
+          "role": "content",
+          "word_id": "W00056",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I am happy.",
+      "audio": "audio/story_44/s9.wav",
+      "audio_hash": "5c29e5352c54"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "二人",
+          "r": "futari",
+          "role": "content",
+          "word_id": "W00035"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "一緒に",
+          "r": "isshoni",
+          "role": "content",
+          "word_id": "W00050"
+        },
+        {
+          "t": "話します",
+          "r": "hanashimasu",
+          "role": "content",
+          "word_id": "W00094"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The two of us talk together.",
+      "audio": "audio/story_44/s10.wav",
+      "audio_hash": "ee83fdc80228"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "約束",
+          "r": "yakusoku",
+          "role": "content",
+          "word_id": "W00132"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "美しい",
+          "r": "utsukushii",
+          "role": "content",
+          "word_id": "W00083",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G030_kara_reason"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "嬉しい",
+          "r": "ureshii",
+          "role": "content",
+          "word_id": "W00056",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Because the promise is beautiful, I am happy.",
+      "audio": "audio/story_44/s11.wav",
+      "audio_hash": "b604e9ccdf42"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "haru",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夕方",
+          "r": "yuugata",
+          "role": "content",
+          "word_id": "W00018"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "待ちません",
+          "r": "machimasu",
+          "role": "content",
+          "word_id": "W00041",
+          "inflection": {
+            "form": "masen",
+            "grammar_id": "G036_masen"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A spring evening — I do not wait.",
+      "audio": "audio/story_44/s12.wav",
+      "audio_hash": "0f234278916b"
+    }
+  ],
+  "word_audio": {
+    "W00131": "audio/story_44/w_W00131.wav",
+    "W00132": "audio/story_44/w_W00132.wav",
+    "W00133": "audio/story_44/w_W00133.wav"
+  },
+  "word_audio_hash": {
+    "W00131": "ad44f001156a",
+    "W00132": "5c9caad4eb78",
+    "W00133": "d05c91f864ef"
+  }
+}
