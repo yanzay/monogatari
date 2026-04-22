@@ -19,7 +19,7 @@
     ],
     "last_regenerated": "2026-04-22 15:30",
     "stories_covered": 12,
-    "n_stories": 34
+    "n_stories": 35
   },
   "reviews": [
     {
@@ -1170,6 +1170,40 @@
           "why": "voice — less worksheet-y"
         }
       ]
+    },
+    {
+      "story_id": 35,
+      "title_jp": "母の手紙",
+      "title_en": "Mother's Letter",
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 5,
+        "coherence": 5,
+        "closure": 4
+      },
+      "average": 4.4,
+      "approved": true,
+      "highlights": [
+        "First story in the library to express *causation*. Until now every sentence has been observation or reaction; G030_kara_reason finally lets the narrator say WHY a feeling exists. Both kara uses (s5: 母は元気ですから嬉しいです / s7: 母の家は長い道ですから悲しいです) are emotional logic, not just sequence — the grammar earns its weight on the first appearance.",
+        "Mixed-emotion structure: happiness (s5) and sadness (s7) coexist in the same letter, both grounded in causal reasons. This is the most adult emotional shape the library has carried — until now stories have been monotonic (cozy / nostalgic / bright). Mother's letter is *both* and the structure shows it.",
+        "The narrator's reply (s9: 「嬉しい」と書きます) lets the speaker's interior become external — they choose to write only the happiness, suppressing the sadness from s7. That suppression is the story's quiet moral: love edits what it sends.",
+        "Reinforces three earlier grammar points: G028_to_iimasu (now 〜と書きます — same と but with 'write' instead of 'say', extending the quote-particle's range), G029_kute (s6: 新しくて大きい — keeps the kute-shape alive), G015_no_possessive throughout."
+      ],
+      "weaknesses": [
+        "S10 (手紙は大切です — The letter is precious) repeats 大切 from story 33 and reads as a textbook adjective application rather than the narrator's actual feeling. Could be replaced with a sentence that uses the new から one more time, or with a sensory image (the tea is cold by now, the lamp is warm).",
+        "母 appears 5 times and 手紙 4 times — the noun ratio is high. Some sentences could let pronouns or context carry the reference (e.g. s5 'she is well' rather than 'mother is well')."
+      ],
+      "suggestions": [
+        {
+          "what": "Replace s10 with a third から sentence — e.g. 母は大切ですから、手紙を書きます (because mother is precious, I write the letter).",
+          "why": "originality + grammar reinforcement — three kara uses lock the pattern in"
+        },
+        {
+          "what": "Story 36 (milestone) should let the FATHER reply to a letter, or the friend reply, so the library's two existing speakers (father, child) get a third voice.",
+          "why": "voice — a third speaker would establish dialogue as a library norm, not a one-off"
+        }
+      ]
     }
   ],
   "leaderboard": [
@@ -1229,119 +1263,124 @@
       "rank": 8
     },
     {
+      "story_id": 35,
+      "average": 4.4,
+      "rank": 8
+    },
+    {
       "story_id": 2,
       "average": 4.2,
-      "rank": 12
+      "rank": 13
     },
     {
       "story_id": 12,
       "average": 4.2,
-      "rank": 12
+      "rank": 13
     },
     {
       "story_id": 19,
       "average": 4.2,
-      "rank": 12
+      "rank": 13
     },
     {
       "story_id": 20,
       "average": 4.2,
-      "rank": 12
+      "rank": 13
     },
     {
       "story_id": 22,
       "average": 4.2,
-      "rank": 12
+      "rank": 13
     },
     {
       "story_id": 24,
       "average": 4.2,
-      "rank": 12
+      "rank": 13
     },
     {
       "story_id": 26,
       "average": 4.2,
-      "rank": 12
+      "rank": 13
     },
     {
       "story_id": 27,
       "average": 4.2,
-      "rank": 12
+      "rank": 13
     },
     {
       "story_id": 28,
       "average": 4.2,
-      "rank": 12
+      "rank": 13
     },
     {
       "story_id": 33,
       "average": 4.2,
-      "rank": 12
+      "rank": 13
     },
     {
       "story_id": 34,
       "average": 4.2,
-      "rank": 12
+      "rank": 13
     },
     {
       "story_id": 3,
       "average": 4.0,
-      "rank": 23
+      "rank": 24
     },
     {
       "story_id": 14,
       "average": 4.0,
-      "rank": 23
+      "rank": 24
     },
     {
       "story_id": 15,
       "average": 4.0,
-      "rank": 23
+      "rank": 24
     },
     {
       "story_id": 16,
       "average": 4.0,
-      "rank": 23
+      "rank": 24
     },
     {
       "story_id": 21,
       "average": 4.0,
-      "rank": 23
+      "rank": 24
     },
     {
       "story_id": 23,
       "average": 4.0,
-      "rank": 23
+      "rank": 24
     },
     {
       "story_id": 32,
       "average": 4.0,
-      "rank": 23
+      "rank": 24
     },
     {
       "story_id": 1,
       "average": 3.8,
-      "rank": 30
+      "rank": 31
     },
     {
       "story_id": 13,
       "average": 3.8,
-      "rank": 30
+      "rank": 31
     },
     {
       "story_id": 17,
       "average": 3.8,
-      "rank": 30
+      "rank": 31
     },
     {
       "story_id": 18,
       "average": 3.8,
-      "rank": 30
+      "rank": 31
     },
     {
       "story_id": 31,
       "average": 3.6,
-      "rank": 34
+      "rank": 35
     }
   ],
   "next_actions": [

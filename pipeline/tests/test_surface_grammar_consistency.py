@@ -33,7 +33,6 @@ EXPECTED_PAIRS: dict[tuple[str, str], str] = {
     ("particle", "は"): "G001_wa_topic",
     ("particle", "を"): "G005_wo_object",
     ("particle", "に"): "G004_ni_location",
-    ("particle", "から"): "G006_kara_from",
     ("particle", "も"): "G009_mo_also",
     ("particle", "や"): "G011_ya_partial",
     # と has TWO valid meanings (and-list G010, quote-particle G014) — handled separately
@@ -45,6 +44,7 @@ EXPECTED_PAIRS: dict[tuple[str, str], str] = {
 # ── Surfaces that may legitimately have multiple grammar_ids ─────────────
 POLYSEMOUS: dict[tuple[str, str], set[str]] = {
     ("particle", "と"): {"G010_to_and", "G014_to_omoimasu", "G028_to_iimasu"},  # and-list vs quote / says
+    ("particle", "から"): {"G006_kara_from", "G030_kara_reason"},  # noun-from vs clause-because
     ("aux", "です"): {"G003_desu"},
     ("aux", "だ"): {"G003_desu", "G024_da"},  # plain copula (G024 added v0.16)
     ("aux", "でした"): {"G003_desu", "G013_mashita_past"},  # past copula
