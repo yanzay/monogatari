@@ -191,3 +191,180 @@ move is:
    "Today, …", "in my hands", "leave X ready") to game the ratio.
 
 Full rationale and band table: `docs/authoring.md` § v0.15.
+
+## Batch-authoring tips (stories 20–30 session, 2026-04-22)
+
+These notes are written by the agent who just shipped 11 stories
+(20 → 30) in a single session. The pipeline can absolutely handle
+that volume, but the failure modes shift from per-story craft
+issues to session-level coordination issues. Read this before
+starting any batch of 4+ stories.
+
+### B1. Plan the *arc* before you plan story N+1
+
+Single-story authoring is local: you only need to clear starvation
+alarms and avoid the previous 1–2 stories' motifs. Batch authoring
+is global: the reader will read your 11 stories in order, and
+recurring characters / settings / objects can either build a
+tapestry (story 30 score 4.8 because it pays off setups from 20)
+or feel like the same scene in 11 hats (which is exactly the
+failure mode the 2026-04-22 audit was created to close).
+
+Before story N+1, sketch the **whole arc**:
+
+- Pick a through-line character or object that appears in 4+ of
+  the stories. The 20–30 arc used "the friend" — they wrote a
+  letter (20), arrived on a train (23), didn't show up (25), sent
+  a reply (26), met for tea (28), shared a family photo (29), and
+  walked home in autumn (30). The reader earns the closer because
+  they read the journey.
+- Pick a **structural inversion** to anchor the milestone. Story
+  21 was "walk home alone in snow"; story 30 is "two of us return
+  on the autumn road" — same physical action, opposite emotional
+  weight, ten stories apart. That kind of pair is the highest-
+  scoring pattern the leaderboard tracks.
+- Pre-allocate seasons / time-of-day / weather across the arc so
+  no two adjacent stories share an opener template. The 20–30
+  arc covered cold morning → snow night → indoor reading →
+  station evening → spring morning → sad room → home arrival
+  → summer garden → rainy shop → spring bench → autumn road. No
+  two consecutive stories repeated time-of-day + weather.
+
+### B2. Pre-allocate the new vocabulary 33 words at a time
+
+Each story adds 3 new words, so an 11-story arc adds 33. Before
+authoring story N, decide which 33 words you will introduce and
+in which story:
+
+- Pick **structural pairs** and put them in adjacent stories so
+  the second story can immediately exercise the first story's
+  word in a new context. Example from this arc:
+  - 出ます (story 25) ↔ 入ります (story 26): leave / enter
+  - 座ります (story 28) ↔ 立ちます (story 29): sit / stand
+  - 寒い (story 20) → 暑い (story 27): cold / hot
+  - 小さい (story 18) → 大きい (story 19): small / big
+  - 春 (24) → 夏 (27) → 秋 (30): season quartet, winter implicit
+- Group words that share a **register** in the same story. Don't
+  introduce 家族 in one story and 母 four stories later; ship
+  them together (story 29) so the kinship register lands once.
+- Reserve at least one new word per story to **clear a starvation
+  alarm**. The validator will tell you which word_ids are stale;
+  bake the answer into the plan, don't discover it after writing.
+
+### B3. The progression curve bumps at story 26 — plan for it
+
+`pipeline/progression.py` raises the sentence band from (9,11) to
+(10,12) starting at story 26. I shipped story 26 at 9 sentences
+and the validator rejected it with `Check 7: Sentence count 9
+outside progression band [10, 12]`. I had to:
+
+1. Add 2 sentences to bring the count to 11
+2. Update `plan.json`'s `max_sentences` from 10 → 12
+3. Re-run validate
+
+For batch authoring, **read `progression.py` once at the start**
+and write down the sentence band for every story you'll author.
+The bumps land at stories 11, 16, 21, 26, 31, 36 (every 5).
+Story 26 was the silent kill in this session.
+
+### B4. The state-updater is non-idempotent — accidentally
+re-running step 4 doubles occurrence counts
+
+This bit me at story 19. I ran `pipeline/run.py --step 4` once,
+saw the success message, and then ran it again to confirm. The
+second run silently re-incremented every word's `occurrences`
+counter and broke `test_lifetime_occurrences_match_state_updater_semantics`
+on the next ship.
+
+The session fix was to add `--force-reship` to `pipeline/run.py`
+(see commit b170ae4): step 4 now refuses to run if
+`stories/story_<N>.json` already exists, unless the flag is
+passed. **Use this guard.** If you genuinely need to re-ship a
+story (e.g. after an audit-rewrite), the recipe is:
+
+1. Restore vocab/grammar state from
+   `state_backups/*_<timestamp>.json` taken before the original
+   ship (the backup names are sortable and the timestamp matches
+   the ship moment).
+2. Run `pipeline/run.py --step 4 --force-reship ...`.
+3. Re-run pytest to confirm state integrity.
+
+### B5. Honest reviews — do NOT inflate originality with hindsight
+
+I shipped story 23 with originality 4 and notes that contained
+"same scene template" (referring to the deliberate emotional pair
+with story 21). The `pipeline/review_lint.py` honesty rule
+correctly caught this: a reviewer who acknowledges a recycled
+template cannot then score originality above 3, even when the
+recycling is intentional and the cross-story arc is the artistic
+point. I had to backfill the score to 3 (avg 4.0) in
+`engagement_baseline.json`.
+
+The lesson: **cross-story callbacks earn coherence and closure
+points, NOT originality points**. Originality measures whether
+the story brings *new* material; callbacks bring known material
+in a new arrangement. Score them under coherence/closure where
+they belong, and keep originality honest.
+
+### B6. Closer variety — alternate non-list closers across the batch
+
+The variety guard flags Adj+Noun, Adj+Noun list closers as a
+known silhouette. Across 11 stories you cannot use this shape
+every time; the engagement reviewer will (correctly) keep
+scoring closure 4 instead of 5. Plan to alternate:
+
+- **List closer** ("a cold morning, a warm letter") — used
+  selectively when the parallel pair lands the theme.
+- **Verbal closer** ("I stand up too.") — story 29's closer.
+  Forward-motion, leaves the scene mid-action.
+- **Forward-motion two-clause** ("on the autumn road, the two
+  of us return home") — story 30's closer. Combines the list
+  shape with movement.
+- **Single-image closer** ("an evening of stars") — story 23's
+  closer.
+
+Aim for ≤ 50% list-shape closers across any 5-story window.
+
+### B7. Push after every successful step, not at the end
+
+I pushed after each shipped story (~15 pushes in this session).
+The benefit: if the next story's audio build fails, only the
+in-progress story's diff is in the working tree. The 5-minute
+overhead of `git commit && git push` per story is much cheaper
+than untangling a multi-story diff after a partial failure.
+
+The only gotcha: `pipeline/plan.json`, `pipeline/story_raw.json`,
+and `pipeline/review.json` are gitignored as scratch files. The
+*shipped* artifacts (`stories/story_N.json`, `audio/story_N/*`,
+state files, baseline updates, manifest rebuild, state backups)
+are what each commit captures. Don't be confused that "raw" work
+isn't in `git log` — that's by design.
+
+### B8. The lonely-noun warning will fire on long sessions
+
+`Check 11` flags scene nouns that appear in exactly one sentence
+without echoing in title/subtitle. This fired on 4 of 11 stories
+in this session (空 in 23, 30; the fix was always to either echo
+the noun in another sentence or replace it with a noun already
+in the scene). **Plan for one more occurrence than you think
+you need** for any noun you put in a single sentence. The
+warning is correct: "moon also looks at the rain" was an audit
+finding precisely because the moon appeared once and didn't
+matter.
+
+### B9. Time budget: ~6–8 minutes per story when batching
+
+This session shipped 11 stories in roughly 90 minutes (story 20
+started at 19:33, story 30 finished at 20:07). Per story:
+
+- Plan design: 1–2 min (faster after the arc is sketched)
+- Plan + story_raw write: 2–3 min
+- Validate + fix any warnings: 1–2 min
+- Engagement review write: 1 min
+- Ship + audio + commit + push: 1 min
+
+Don't try to ship 11 stories in your first batch. Ship 3, then
+read the leaderboard, then ship 3 more. Engagement scores in
+this session ranged 4.0–4.8; the highest came after I had
+already shipped 5–6 in the arc and could write the milestone
+closer with confidence.
