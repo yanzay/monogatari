@@ -1,0 +1,706 @@
+{
+  "story_id": 41,
+  "title": {
+    "jp": "春の本の店",
+    "en": "The Bookstore in Spring",
+    "tokens": [
+      {
+        "t": "春",
+        "r": "はる",
+        "word_id": "W00072",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "本",
+        "r": "ほん",
+        "word_id": "W00033",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "店",
+        "r": "みせ",
+        "word_id": "W00084",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "同じ顔",
+    "en": "The same face",
+    "tokens": [
+      {
+        "t": "同じ",
+        "r": "おなじ",
+        "word_id": "W00124",
+        "role": "content"
+      },
+      {
+        "t": "顔",
+        "r": "かお",
+        "word_id": "W00122",
+        "role": "content"
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00122",
+    "W00123",
+    "W00124"
+  ],
+  "new_grammar": [],
+  "all_words_used": [
+    "W00072",
+    "W00033",
+    "W00084",
+    "W00124",
+    "W00122",
+    "W00003",
+    "W00040",
+    "W00055",
+    "W00011",
+    "W00022",
+    "W00029",
+    "W00115",
+    "W00113",
+    "W00097",
+    "W00123",
+    "W00120",
+    "W00056",
+    "W00013",
+    "W00121",
+    "W00100",
+    "W00034"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "はる",
+          "word_id": "W00072",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is spring.",
+      "audio": "audio/story_41/s0.wav",
+      "audio_hash": "732c4f6f1d5b"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "word_id": "W00033",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "店",
+          "r": "みせ",
+          "word_id": "W00084",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "来ました",
+          "r": "きました",
+          "word_id": "W00040",
+          "role": "content",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_past",
+            "verb_class": "irregular",
+            "grammar_id": "G013_mashita_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I came to the bookstore.",
+      "audio": "audio/story_41/s1.wav",
+      "audio_hash": "47350de49bd9"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "店",
+          "r": "みせ",
+          "word_id": "W00084",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "小さくて",
+          "r": "ちいさくて",
+          "word_id": "W00055",
+          "role": "content",
+          "inflection": {
+            "base": "小さい",
+            "base_r": "ちいさい",
+            "form": "te_form",
+            "grammar_id": "G029_kute"
+          }
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "word_id": "W00011",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The shop is small and quiet.",
+      "audio": "audio/story_41/s2.wav",
+      "audio_hash": "f64d120ffb19"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "word_id": "W00029",
+          "role": "content",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend is here too.",
+      "audio": "audio/story_41/s3.wav",
+      "audio_hash": "915c911775ce"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "優しい",
+          "r": "やさしい",
+          "word_id": "W00115",
+          "role": "content"
+        },
+        {
+          "t": "人",
+          "r": "ひと",
+          "word_id": "W00113",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "ね",
+          "role": "punct"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G028_to_iimasu",
+          "role": "particle"
+        },
+        {
+          "t": "言いました",
+          "r": "いいました",
+          "word_id": "W00097",
+          "role": "content",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan",
+            "grammar_id": "G013_mashita_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend said, \"a kind person, isn't it.\"",
+      "audio": "audio/story_41/s4.wav",
+      "audio_hash": "af76d75f7762"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "顔",
+          "r": "かお",
+          "word_id": "W00122",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "覚えます",
+          "r": "おぼえます",
+          "word_id": "W00123",
+          "role": "content",
+          "is_new": true,
+          "inflection": {
+            "base": "覚える",
+            "base_r": "おぼえる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I remember the face.",
+      "audio": "audio/story_41/s5.wav",
+      "audio_hash": "cdce57cd0a71"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "同じ",
+          "r": "おなじ",
+          "word_id": "W00124",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "顔",
+          "r": "かお",
+          "word_id": "W00122",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The same face.",
+      "audio": "audio/story_41/s6.wav",
+      "audio_hash": "c90c010a8cdd"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "心",
+          "r": "こころ",
+          "word_id": "W00120",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "嬉しい",
+          "r": "うれしい",
+          "word_id": "W00056",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My heart is happy.",
+      "audio": "audio/story_41/s7.wav",
+      "audio_hash": "87c10fd7ac2f"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "人",
+          "r": "ひと",
+          "word_id": "W00113",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "いい",
+          "r": "いい",
+          "word_id": "W00013",
+          "role": "content"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "word_id": "W00033",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "ね",
+          "role": "punct"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G028_to_iimasu",
+          "role": "particle"
+        },
+        {
+          "t": "言いました",
+          "r": "いいました",
+          "word_id": "W00097",
+          "role": "content",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan",
+            "grammar_id": "G013_mashita_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The person said, \"a good book, isn't it.\"",
+      "audio": "audio/story_41/s8.wav",
+      "audio_hash": "e053eb38633d"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "でも",
+          "r": "でも",
+          "grammar_id": "G032_demo",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "word_id": "W00011",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But I am quiet.",
+      "audio": "audio/story_41/s9.wav",
+      "audio_hash": "7bef40b60da9"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "言葉",
+          "r": "ことば",
+          "word_id": "W00121",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "小さい",
+          "r": "ちいさい",
+          "word_id": "W00055",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "から",
+          "grammar_id": "G030_kara_reason",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "大切",
+          "r": "たいせつ",
+          "word_id": "W00100",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Because the words are small, they are precious.",
+      "audio": "audio/story_41/s10.wav",
+      "audio_hash": "b9dd8be49712"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "word_id": "W00033",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "読みたい",
+          "r": "よみたい",
+          "word_id": "W00034",
+          "role": "content",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "tai",
+            "grammar_id": "G031_tai"
+          }
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I want to read a book.",
+      "audio": "audio/story_41/s11.wav",
+      "audio_hash": "ed3c64b35091"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "はる",
+          "word_id": "W00072",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "店",
+          "r": "みせ",
+          "word_id": "W00084",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "顔",
+          "r": "かお",
+          "word_id": "W00122",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The face of the spring shop.",
+      "audio": "audio/story_41/s12.wav",
+      "audio_hash": "ec7d94b818be"
+    }
+  ],
+  "word_audio": {
+    "W00122": "audio/story_41/w_W00122.wav",
+    "W00123": "audio/story_41/w_W00123.wav",
+    "W00124": "audio/story_41/w_W00124.wav"
+  },
+  "checksum": null,
+  "word_audio_hash": {
+    "W00122": "1021854feee3",
+    "W00123": "a75819d759da",
+    "W00124": "e6f3a3ce6a81"
+  }
+}
