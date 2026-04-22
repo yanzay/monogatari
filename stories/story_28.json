@@ -1,0 +1,666 @@
+{
+  "story_id": 28,
+  "title": {
+    "jp": "雨の店",
+    "en": "The Shop in the Rain",
+    "tokens": [
+      {
+        "t": "雨",
+        "r": "あめ",
+        "word_id": "W00002",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "店",
+        "r": "みせ",
+        "word_id": "W00084",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "二人のお茶",
+    "en": "Tea for two",
+    "tokens": [
+      {
+        "t": "二人",
+        "r": "ふたり",
+        "word_id": "W00035",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "お茶",
+        "r": "おちゃ",
+        "word_id": "W00009",
+        "role": "content"
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00084",
+    "W00085",
+    "W00086"
+  ],
+  "new_grammar": [],
+  "all_words_used": [
+    "W00002",
+    "W00084",
+    "W00035",
+    "W00009",
+    "W00015",
+    "W00040",
+    "W00003",
+    "W00069",
+    "W00080",
+    "W00055",
+    "W00012",
+    "W00049",
+    "W00086",
+    "W00036",
+    "W00085",
+    "W00022",
+    "W00041",
+    "W00005",
+    "W00050",
+    "W00010"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "gloss_en": "In the morning, rain comes.",
+      "tokens": [
+        {
+          "t": "朝",
+          "r": "あさ",
+          "word_id": "W00015",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "雨",
+          "r": "あめ",
+          "word_id": "W00002",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "来ます",
+          "r": "きます",
+          "word_id": "W00040",
+          "role": "content",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_28/s0.wav",
+      "audio_hash": "180bead7e6f3"
+    },
+    {
+      "idx": 1,
+      "gloss_en": "I enter the shop at the station.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "駅",
+          "r": "えき",
+          "word_id": "W00069",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "店",
+          "r": "みせ",
+          "word_id": "W00084",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "入ります",
+          "r": "はいります",
+          "word_id": "W00080",
+          "role": "content",
+          "inflection": {
+            "base": "入る",
+            "base_r": "はいる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_28/s1.wav",
+      "audio_hash": "7b36e794ba35"
+    },
+    {
+      "idx": 2,
+      "gloss_en": "The shop is small.",
+      "tokens": [
+        {
+          "t": "店",
+          "r": "みせ",
+          "word_id": "W00084",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "小さい",
+          "r": "ちいさい",
+          "word_id": "W00055",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_28/s2.wav",
+      "audio_hash": "f2eaaf4c6f46"
+    },
+    {
+      "idx": 3,
+      "gloss_en": "At the shop, I buy warm bread.",
+      "tokens": [
+        {
+          "t": "店",
+          "r": "みせ",
+          "word_id": "W00084",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "word_id": "W00012",
+          "role": "content"
+        },
+        {
+          "t": "パン",
+          "r": "パン",
+          "word_id": "W00049",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "買います",
+          "r": "かいます",
+          "word_id": "W00086",
+          "role": "content",
+          "is_new": true,
+          "inflection": {
+            "base": "買う",
+            "base_r": "かう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_28/s3.wav",
+      "audio_hash": "de219a379ad4"
+    },
+    {
+      "idx": 4,
+      "gloss_en": "I sit on a chair.",
+      "tokens": [
+        {
+          "t": "椅子",
+          "r": "いす",
+          "word_id": "W00036",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "座ります",
+          "r": "すわります",
+          "word_id": "W00085",
+          "role": "content",
+          "is_new": true,
+          "inflection": {
+            "base": "座る",
+            "base_r": "すわる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_28/s4.wav",
+      "audio_hash": "843c4f765e00"
+    },
+    {
+      "idx": 5,
+      "gloss_en": "I wait for my friend.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "待ちます",
+          "r": "まちます",
+          "word_id": "W00041",
+          "role": "content",
+          "inflection": {
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_28/s5.wav",
+      "audio_hash": "034e8042ac1f"
+    },
+    {
+      "idx": 6,
+      "gloss_en": "Outside, it is rain.",
+      "tokens": [
+        {
+          "t": "外",
+          "r": "そと",
+          "word_id": "W00005",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "雨",
+          "r": "あめ",
+          "word_id": "W00002",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_28/s6.wav",
+      "audio_hash": "ba9481b35d74"
+    },
+    {
+      "idx": 7,
+      "gloss_en": "My friend also comes to the shop.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "店",
+          "r": "みせ",
+          "word_id": "W00084",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "来ます",
+          "r": "きます",
+          "word_id": "W00040",
+          "role": "content",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_28/s7.wav",
+      "audio_hash": "0d1c73541992"
+    },
+    {
+      "idx": 8,
+      "gloss_en": "My friend also sits on a chair.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "椅子",
+          "r": "いす",
+          "word_id": "W00036",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "座ります",
+          "r": "すわります",
+          "word_id": "W00085",
+          "role": "content",
+          "inflection": {
+            "base": "座る",
+            "base_r": "すわる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_28/s8.wav",
+      "audio_hash": "74ea44b464fe"
+    },
+    {
+      "idx": 9,
+      "gloss_en": "My friend buys tea.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "word_id": "W00009",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "買います",
+          "r": "かいます",
+          "word_id": "W00086",
+          "role": "content",
+          "inflection": {
+            "base": "買う",
+            "base_r": "かう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_28/s9.wav",
+      "audio_hash": "10a55d75d8bc"
+    },
+    {
+      "idx": 10,
+      "gloss_en": "We drink tea together.",
+      "tokens": [
+        {
+          "t": "二人",
+          "r": "ふたり",
+          "word_id": "W00035",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "一緒に",
+          "r": "いっしょに",
+          "word_id": "W00050",
+          "role": "content"
+        },
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "word_id": "W00009",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "飲みます",
+          "r": "のみます",
+          "word_id": "W00010",
+          "role": "content",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_28/s10.wav",
+      "audio_hash": "db24e9e705ed"
+    },
+    {
+      "idx": 11,
+      "gloss_en": "A rainy morning, a warm shop.",
+      "tokens": [
+        {
+          "t": "雨",
+          "r": "あめ",
+          "word_id": "W00002",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "word_id": "W00015",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "word_id": "W00012",
+          "role": "content"
+        },
+        {
+          "t": "店",
+          "r": "みせ",
+          "word_id": "W00084",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_28/s11.wav",
+      "audio_hash": "18a6640e86c9"
+    }
+  ],
+  "word_audio": {
+    "W00084": "audio/story_28/w_W00084.wav",
+    "W00085": "audio/story_28/w_W00085.wav",
+    "W00086": "audio/story_28/w_W00086.wav"
+  },
+  "checksum": null,
+  "word_audio_hash": {
+    "W00084": "aaded36a8302",
+    "W00085": "f2c1e1c6a5fb",
+    "W00086": "04b8813cfd82"
+  }
+}
