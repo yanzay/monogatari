@@ -1,0 +1,750 @@
+{
+  "story_id": 42,
+  "title": {
+    "jp": "二人の道",
+    "en": "The Two Of Us, On the Road",
+    "tokens": [
+      {
+        "t": "二人",
+        "r": "ふたり",
+        "word_id": "W00035",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "道",
+        "r": "みち",
+        "word_id": "W00064",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "隣に歩いています",
+    "en": "Walking beside me",
+    "tokens": [
+      {
+        "t": "隣",
+        "r": "となり",
+        "word_id": "W00127",
+        "role": "content"
+      },
+      {
+        "t": "に",
+        "grammar_id": "G004_ni_location",
+        "role": "particle"
+      },
+      {
+        "t": "歩いて",
+        "r": "あるいて",
+        "word_id": "W00017",
+        "role": "content",
+        "inflection": {
+          "base": "歩く",
+          "base_r": "あるく",
+          "form": "te_form",
+          "grammar_id": "G007_te_form"
+        }
+      },
+      {
+        "t": "います",
+        "r": "います",
+        "word_id": "W00029",
+        "role": "content",
+        "inflection": {
+          "base": "いる",
+          "base_r": "いる",
+          "form": "polite_nonpast",
+          "verb_class": "ichidan",
+          "grammar_id": "G033_te_iru"
+        }
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00125",
+    "W00126",
+    "W00127"
+  ],
+  "new_grammar": [
+    "G033_te_iru"
+  ],
+  "all_words_used": [
+    "W00035",
+    "W00064",
+    "W00127",
+    "W00017",
+    "W00029",
+    "W00072",
+    "W00018",
+    "W00022",
+    "W00078",
+    "W00026",
+    "W00113",
+    "W00003",
+    "W00115",
+    "W00125",
+    "W00043",
+    "W00126",
+    "W00124",
+    "W00121",
+    "W00055",
+    "W00120",
+    "W00012",
+    "W00056",
+    "W00031",
+    "W00077",
+    "W00006",
+    "W00050",
+    "W00011"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "はる",
+          "word_id": "W00072",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "夕方",
+          "r": "ゆうがた",
+          "word_id": "W00018",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is a spring evening.",
+      "audio": "audio/story_42/s0.wav",
+      "audio_hash": "fdecbcf80e9f"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "家",
+          "r": "いえ",
+          "word_id": "W00078",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "帰りました",
+          "r": "かえりました",
+          "word_id": "W00026",
+          "role": "content",
+          "inflection": {
+            "base": "帰る",
+            "base_r": "かえる",
+            "form": "polite_past",
+            "verb_class": "godan",
+            "grammar_id": "G013_mashita_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend went home.",
+      "audio": "audio/story_42/s1.wav",
+      "audio_hash": "1d2ee1d0c26b"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "二人",
+          "r": "ふたり",
+          "word_id": "W00035",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "道",
+          "r": "みち",
+          "word_id": "W00064",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "歩いて",
+          "r": "あるいて",
+          "word_id": "W00017",
+          "role": "content",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "te_form",
+            "grammar_id": "G007_te_form"
+          }
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "word_id": "W00029",
+          "role": "content",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan",
+            "grammar_id": "G033_te_iru"
+          },
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The two of us are walking on the road.",
+      "audio": "audio/story_42/s2.wav",
+      "audio_hash": "3ea43c9bbfaa"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "人",
+          "r": "ひと",
+          "word_id": "W00113",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "隣",
+          "r": "となり",
+          "word_id": "W00127",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "word_id": "W00029",
+          "role": "content",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The person is beside me.",
+      "audio": "audio/story_42/s3.wav",
+      "audio_hash": "916f24a4025c"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "優しい",
+          "r": "やさしい",
+          "word_id": "W00115",
+          "role": "content"
+        },
+        {
+          "t": "人",
+          "r": "ひと",
+          "word_id": "W00113",
+          "role": "content"
+        },
+        {
+          "t": "さん",
+          "r": "さん",
+          "word_id": "W00125",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G028_to_iimasu",
+          "role": "particle"
+        },
+        {
+          "t": "思います",
+          "r": "おもいます",
+          "word_id": "W00043",
+          "role": "content",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I think, \"kind person-san.\"",
+      "audio": "audio/story_42/s4.wav",
+      "audio_hash": "090d6783ad24"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "人",
+          "r": "ひと",
+          "word_id": "W00113",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "知って",
+          "r": "しって",
+          "word_id": "W00126",
+          "role": "content",
+          "is_new": true,
+          "inflection": {
+            "base": "知る",
+            "base_r": "しる",
+            "form": "te_form",
+            "grammar_id": "G007_te_form"
+          }
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "word_id": "W00029",
+          "role": "content",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan",
+            "grammar_id": "G033_te_iru"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I know the person.",
+      "audio": "audio/story_42/s5.wav",
+      "audio_hash": "c609c76997f8"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "同じ",
+          "r": "おなじ",
+          "word_id": "W00124",
+          "role": "content"
+        },
+        {
+          "t": "道",
+          "r": "みち",
+          "word_id": "W00064",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The same road.",
+      "audio": "audio/story_42/s6.wav",
+      "audio_hash": "a7a92888b0a6"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "言葉",
+          "r": "ことば",
+          "word_id": "W00121",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "小さい",
+          "r": "ちいさい",
+          "word_id": "W00055",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The words are small.",
+      "audio": "audio/story_42/s7.wav",
+      "audio_hash": "f0de319a2055"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "でも",
+          "r": "でも",
+          "grammar_id": "G032_demo",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "心",
+          "r": "こころ",
+          "word_id": "W00120",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "温かくて",
+          "r": "あたたかくて",
+          "word_id": "W00012",
+          "role": "content",
+          "inflection": {
+            "base": "温かい",
+            "base_r": "あたたかい",
+            "form": "te_form",
+            "grammar_id": "G029_kute"
+          }
+        },
+        {
+          "t": "嬉しい",
+          "r": "うれしい",
+          "word_id": "W00056",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But the heart is warm and happy.",
+      "audio": "audio/story_42/s8.wav",
+      "audio_hash": "79e5914e5bc7"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "月",
+          "r": "つき",
+          "word_id": "W00031",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "出て",
+          "r": "でて",
+          "word_id": "W00077",
+          "role": "content",
+          "inflection": {
+            "base": "出る",
+            "base_r": "でる",
+            "form": "te_form",
+            "grammar_id": "G007_te_form"
+          }
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "word_id": "W00029",
+          "role": "content",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan",
+            "grammar_id": "G033_te_iru"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The moon is out.",
+      "audio": "audio/story_42/s9.wav",
+      "audio_hash": "3b82a69c09f1"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "二人",
+          "r": "ふたり",
+          "word_id": "W00035",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "月",
+          "r": "つき",
+          "word_id": "W00031",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "見ています",
+          "r": "みています",
+          "word_id": "W00006",
+          "role": "content",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "te_iru",
+            "verb_class": "ichidan",
+            "grammar_id": "G033_te_iru"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The two of us are looking at the moon.",
+      "audio": "audio/story_42/s10.wav",
+      "audio_hash": "cbe992e9cced"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "一緒に",
+          "r": "いっしょに",
+          "word_id": "W00050",
+          "role": "content"
+        },
+        {
+          "t": "歩きたい",
+          "r": "あるきたい",
+          "word_id": "W00017",
+          "role": "content",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "tai",
+            "grammar_id": "G031_tai"
+          }
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I want to walk together.",
+      "audio": "audio/story_42/s11.wav",
+      "audio_hash": "4e2e0c0894aa"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "静か",
+          "r": "しずか",
+          "word_id": "W00011",
+          "role": "content"
+        },
+        {
+          "t": "な",
+          "grammar_id": "G016_na_adjective",
+          "role": "particle"
+        },
+        {
+          "t": "二人",
+          "r": "ふたり",
+          "word_id": "W00035",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "道",
+          "r": "みち",
+          "word_id": "W00064",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A quiet road of two.",
+      "audio": "audio/story_42/s12.wav",
+      "audio_hash": "582ef0f89950"
+    }
+  ],
+  "word_audio": {
+    "W00125": "audio/story_42/w_W00125.wav",
+    "W00126": "audio/story_42/w_W00126.wav",
+    "W00127": "audio/story_42/w_W00127.wav"
+  },
+  "checksum": null,
+  "word_audio_hash": {
+    "W00125": "93663a351728",
+    "W00126": "eca82fe9a0fb",
+    "W00127": "face8e8973e0"
+  }
+}
