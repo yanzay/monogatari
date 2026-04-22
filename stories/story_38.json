@@ -1,0 +1,706 @@
+{
+  "story_id": 38,
+  "title": {
+    "jp": "本の店の人",
+    "en": "The Person at the Bookstore",
+    "tokens": [
+      {
+        "t": "本",
+        "r": "ほん",
+        "word_id": "W00033",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "店",
+        "r": "みせ",
+        "word_id": "W00084",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "人",
+        "r": "ひと",
+        "word_id": "W00113",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "人を見たいです",
+    "en": "I want to see them",
+    "tokens": [
+      {
+        "t": "人",
+        "r": "ひと",
+        "word_id": "W00113",
+        "role": "content"
+      },
+      {
+        "t": "を",
+        "grammar_id": "G005_wo_object",
+        "role": "particle"
+      },
+      {
+        "t": "見たい",
+        "r": "みたい",
+        "word_id": "W00006",
+        "role": "content",
+        "inflection": {
+          "base": "見る",
+          "base_r": "みる",
+          "form": "tai",
+          "grammar_id": "G031_tai"
+        }
+      },
+      {
+        "t": "です",
+        "grammar_id": "G003_desu",
+        "role": "aux"
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00113",
+    "W00114",
+    "W00115"
+  ],
+  "new_grammar": [
+    "G031_tai"
+  ],
+  "all_words_used": [
+    "W00033",
+    "W00084",
+    "W00113",
+    "W00006",
+    "W00029",
+    "W00055",
+    "W00011",
+    "W00003",
+    "W00114",
+    "W00045",
+    "W00034",
+    "W00013",
+    "W00097",
+    "W00115",
+    "W00043",
+    "W00041"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "本",
+          "r": "ほん",
+          "word_id": "W00033",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "店",
+          "r": "みせ",
+          "word_id": "W00084",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "word_id": "W00029",
+          "role": "content",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I am at the bookstore.",
+      "audio": "audio/story_38/s0.wav",
+      "audio_hash": "003a9601c32b"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "店",
+          "r": "みせ",
+          "word_id": "W00084",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "小さくて",
+          "r": "ちいさくて",
+          "word_id": "W00055",
+          "role": "content",
+          "inflection": {
+            "base": "小さい",
+            "base_r": "ちいさい",
+            "form": "te_form",
+            "grammar_id": "G029_kute"
+          }
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "word_id": "W00011",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The shop is small and quiet.",
+      "audio": "audio/story_38/s1.wav",
+      "audio_hash": "f64d120ffb19"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "店",
+          "r": "みせ",
+          "word_id": "W00084",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "好き",
+          "r": "すき",
+          "word_id": "W00114",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I like the shop.",
+      "audio": "audio/story_38/s2.wav",
+      "audio_hash": "21d1fa7dd76b"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "そば",
+          "r": "そば",
+          "word_id": "W00045",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "人",
+          "r": "ひと",
+          "word_id": "W00113",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "word_id": "W00029",
+          "role": "content",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Beside me, there is a person.",
+      "audio": "audio/story_38/s3.wav",
+      "audio_hash": "5d45e14740a2"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "人",
+          "r": "ひと",
+          "word_id": "W00113",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "word_id": "W00033",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "読みます",
+          "r": "よみます",
+          "word_id": "W00034",
+          "role": "content",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The person is reading a book.",
+      "audio": "audio/story_38/s4.wav",
+      "audio_hash": "150cc58b3cb6"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "静かな",
+          "r": "しずかな",
+          "word_id": "W00011",
+          "role": "content",
+          "inflection": {
+            "base": "静か",
+            "base_r": "しずか",
+            "form": "attributive",
+            "grammar_id": "G016_na_adjective"
+          }
+        },
+        {
+          "t": "人",
+          "r": "ひと",
+          "word_id": "W00113",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A quiet person.",
+      "audio": "audio/story_38/s5.wav",
+      "audio_hash": "bc5f60e055da"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "word_id": "W00033",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "読みます",
+          "r": "よみます",
+          "word_id": "W00034",
+          "role": "content",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I read a book too.",
+      "audio": "audio/story_38/s6.wav",
+      "audio_hash": "437a117e8950"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "人",
+          "r": "ひと",
+          "word_id": "W00113",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "いい",
+          "r": "いい",
+          "word_id": "W00013",
+          "role": "content"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "word_id": "W00033",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "ね",
+          "role": "punct"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G028_to_iimasu",
+          "role": "particle"
+        },
+        {
+          "t": "言います",
+          "r": "いいます",
+          "word_id": "W00097",
+          "role": "content",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The person says, \"It is a good book, isn't it.\"",
+      "audio": "audio/story_38/s7.wav",
+      "audio_hash": "76666ee49167"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "優しい",
+          "r": "やさしい",
+          "word_id": "W00115",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "人",
+          "r": "ひと",
+          "word_id": "W00113",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A kind person.",
+      "audio": "audio/story_38/s8.wav",
+      "audio_hash": "2a4e9c51c58d"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "人",
+          "r": "ひと",
+          "word_id": "W00113",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "思います",
+          "r": "おもいます",
+          "word_id": "W00043",
+          "role": "content",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I think of the person.",
+      "audio": "audio/story_38/s9.wav",
+      "audio_hash": "6527c8bd2d51"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "店",
+          "r": "みせ",
+          "word_id": "W00084",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "word_id": "W00033",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "読みたい",
+          "r": "よみたい",
+          "word_id": "W00034",
+          "role": "content",
+          "is_new_grammar": true,
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "tai",
+            "grammar_id": "G031_tai"
+          }
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I want to read books at the shop.",
+      "audio": "audio/story_38/s10.wav",
+      "audio_hash": "ceed00324498"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "人",
+          "r": "ひと",
+          "word_id": "W00113",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "見たい",
+          "r": "みたい",
+          "word_id": "W00006",
+          "role": "content",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "tai",
+            "grammar_id": "G031_tai"
+          }
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I want to see the person.",
+      "audio": "audio/story_38/s11.wav",
+      "audio_hash": "b3349e689d98"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "待ちます",
+          "r": "まちます",
+          "word_id": "W00041",
+          "role": "content",
+          "inflection": {
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I wait.",
+      "audio": "audio/story_38/s12.wav",
+      "audio_hash": "e1ea3d56bb3a"
+    }
+  ],
+  "word_audio": {
+    "W00113": "audio/story_38/w_W00113.wav",
+    "W00114": "audio/story_38/w_W00114.wav",
+    "W00115": "audio/story_38/w_W00115.wav"
+  },
+  "checksum": null,
+  "word_audio_hash": {
+    "W00113": "50f5d65d5729",
+    "W00114": "226fdde70280",
+    "W00115": "ca26432b9f04"
+  }
+}
