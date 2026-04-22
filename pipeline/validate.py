@@ -67,13 +67,32 @@ IRREGULAR: dict[str, dict[str, str]] = {
 
 def conjugate(base: str, form: str, verb_class: Optional[str]) -> Optional[str]:
     """Return the expected surface for a given base + form + class.
-    Returns None if the combination is unknown / unsupported."""
+    Returns None if the combination is unknown / unsupported.
 
-    # Irregular check first
-    if base in IRREGULAR and form in IRREGULAR[base]:
-        return IRREGULAR[base][form]
+    Single source of truth: delegates to jp.expected_inflection where
+    available (fugashi/UniDic-aware, irregular-aware), and only falls back
+    to the local tables when jp.py isn't loaded or the form isn't covered
+    there. This eliminates the "Could not compute expected surface for
+    base='見る' form='polite_nonpast' — skipping" warning that affected
+    every shipped story.
+    """
+    form_norm = form.lower().replace("-", "_")
 
-    form = form.lower().replace("-", "_")
+    # Try jp.expected_inflection first.
+    try:
+        from jp import expected_inflection as _jp_expected_inflection
+        primary = _jp_expected_inflection(base, form_norm, verb_class or "ichidan")
+        if primary is not None:
+            return primary
+    except Exception:
+        pass
+
+    # Local fallback: irregulars + extra forms not in jp.py (potential,
+    # volitional, etc.) handled below.
+    if base in IRREGULAR and form_norm in IRREGULAR[base]:
+        return IRREGULAR[base][form_norm]
+
+    form = form_norm
 
     if verb_class == "ichidan":
         if not base.endswith("る"):

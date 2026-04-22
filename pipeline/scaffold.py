@@ -79,6 +79,49 @@ def _enrich_word_from_jmdict(surface: str | None) -> dict | None:
         surface_hits = jmdict_lookup(surface, max_results=1) if not lemma_hits else []
         h = (lemma_hits or surface_hits or [None])[0]
         meaning = (h.senses[0] if (h and h.senses) else "<primary English meaning>")
+        # Suru-compound meaning synthesis: if analyze_verb returned
+        # irregular_suru with a non-trivial prefix (e.g. 勉強する), JMdict
+        # almost certainly has no entry for the compound — but it does for
+        # the noun half. JMdict tags suru-capable nouns with "vs" (短縮)
+        # POS; when we find one, synthesize "to <first_sense>" as the
+        # verb meaning. e.g. 勉強する → "to study", 散歩する → "to take a walk".
+        if verb_info["verb_class"] == "irregular_suru":
+            for tail in ("する", "為る"):
+                if verb_info["lemma"].endswith(tail):
+                    noun = verb_info["lemma"][: -len(tail)]
+                    break
+            else:
+                noun = ""
+            if noun and (not h or not h.senses):
+                noun_hits = jmdict_lookup(noun, max_results=1)
+                if noun_hits:
+                    nh = noun_hits[0]
+                    pos_str = " ".join(nh.pos).lower()
+                    is_vs = ("vs" in pos_str.split()) or ("takes the auxiliary verb suru" in pos_str)
+                    if nh.senses:
+                        # JMdict often packs multiple synonyms into a single
+                        # "sense" string separated by ";" — only prefix "to "
+                        # to the first synonym to avoid "to cooking; cookery;
+                        # cuisine; ...".
+                        first_sense = nh.senses[0]
+                        head, _, tail = first_sense.partition(";")
+                        head = head.strip()
+                        # Convert obvious -ing nominalizations to bare verbs:
+                        # "cooking" → "cook", "cleaning" → "clean".
+                        # Only do this when the noun pattern is single-word -ing
+                        # (multi-word phrases like "physical training" stay as-is).
+                        if head and " " not in head and head.lower().endswith("ing") and len(head) > 4:
+                            base_word = head[:-3]
+                            # Restore final 'e' for stems that look like they
+                            # need it (cleaning → clean, not "clean"; making → make).
+                            # We don't try to be clever — just emit both spellings
+                            # joined by " / " so the author can pick.
+                            head_verb = base_word
+                            head = head_verb
+                        if head.lower().startswith("to "):
+                            meaning = head
+                        else:
+                            meaning = f"to {head}"
         # For polite-form input use masu_kana; otherwise lemma_kana.
         kana_out = verb_info["masu_kana"] if verb_info["is_polite"] else verb_info["lemma_kana"]
         return {

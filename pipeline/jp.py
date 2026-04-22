@@ -193,8 +193,17 @@ def expected_inflection(base_kana: str, form: str, verb_class: str = "ichidan") 
     if not base_kana:
         return None
 
+    # Suru-compounds (勉強する, 散歩する, ...): strip the trailing する/為る
+    # and recurse for the irregular suru suffix. The prefix is preserved so
+    # 勉強する/polite_nonpast → 勉強します.
+    for tail in ("する", "為る"):
+        if base_kana.endswith(tail) and len(base_kana) > len(tail):
+            prefix = base_kana[: -len(tail)]
+            sub = expected_inflection(tail[0] + "る" if tail[0] == "す" else "する",
+                                       form, "irregular_suru")
+            return (prefix + sub) if sub else None
     # Special verbs
-    if base_kana in ("する",):
+    if base_kana in ("する", "為る"):
         table = {"polite_nonpast": "します", "polite_past": "しました", "polite_negative": "しません",
                  "te": "して", "past": "した", "negative": "しない"}
         return table.get(form)
@@ -202,6 +211,12 @@ def expected_inflection(base_kana: str, form: str, verb_class: str = "ichidan") 
         table = {"polite_nonpast": "きます", "polite_past": "きました", "polite_negative": "きません",
                  "te": "きて", "past": "きた", "negative": "こない"}
         return table.get(form)
+    # 行く is a special godan: te-form is 行って (not the regular 行いて) and
+    # past is 行った (not 行いた). Other forms follow the normal godan rules.
+    if base_kana in ("いく", "行く"):
+        if form in ("te", "te_form"):     return "いって" if base_kana == "いく" else "行って"
+        if form in ("past", "ta"):        return "いった" if base_kana == "いく" else "行った"
+        # Fall through to standard godan handling for masu/negative/etc.
 
     last = base_kana[-1]
     stem = base_kana[:-1]

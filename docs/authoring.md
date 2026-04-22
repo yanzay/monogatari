@@ -940,3 +940,88 @@ correctly. JMdict is the sole source of English meanings; if JMdict
 has no entry for a suru-compound (it usually only indexes the noun
 half), the meaning slot is left as a `<primary English meaning>`
 placeholder for the author to fill — the only remaining hand step.
+
+---
+
+## v0.8 — Pipeline consolidation: single inflection engine, suru-compound meaning synthesis
+
+### Two long-standing duplications resolved
+
+The codebase had **two inflection engines** quietly diverging:
+
+1. `pipeline/jp.py:expected_inflection` — fugashi/UniDic-aware, knew about
+   irregulars but mishandled `行く` (returned 行いて instead of 行って).
+2. `pipeline/validate.py:conjugate` — knew about `行く` (had a special case
+   table) but didn't accept the canonical `polite_nonpast` form name and
+   couldn't compute masu form for ichidan verbs at all.
+
+Result: **every shipped story emitted the same warning** —
+`Could not compute expected surface for base='見る' form='polite_nonpast' — skipping`.
+The Check 5 inflection check was effectively a no-op for masu-form verbs
+across all 9 stories.
+
+### What changed
+
+`pipeline/validate.py:conjugate` now **delegates to
+`jp.expected_inflection` first**, falling back to its local tables only
+for forms jp.py doesn't cover (potential, volitional, etc.). One source
+of truth, one place to fix bugs.
+
+`pipeline/jp.py:expected_inflection` now also handles:
+- **`行く` / `いく`** — special godan: te-form is 行って, past is 行った.
+- **Suru-compounds** — `勉強する` / `散歩する` / `為る` are routed by
+  stripping the trailing する/為る and recursing for the irregular suru
+  suffix. `expected_inflection("勉強する", "polite_nonpast", "irregular_suru")`
+  now returns `勉強します` directly.
+
+### Suru-compound meaning synthesis (the v0.7 follow-up)
+
+`pipeline/scaffold.py:_enrich_word_from_jmdict` now synthesizes a "to X"
+verb meaning when it encounters an irregular_suru with a non-trivial
+prefix (e.g. 勉強します). Process:
+
+1. Strip the trailing する/為る from the lemma → noun (勉強).
+2. Look up the noun in JMdict.
+3. Take the first synonym from the first sense (split on `;` to avoid
+   "to cooking; cookery; cuisine; ...").
+4. If the synonym is a single-word `-ing` nominalization (cooking,
+   cleaning, exercising), strip the suffix to get the bare verb.
+5. Prepend "to ".
+
+Confirmed end-to-end:
+
+| Surface       | Synthesized meaning   |
+| ------------- | --------------------- |
+| 勉強します    | to study              |
+| 散歩します    | to walk               |
+| 料理します    | to cook               |
+| 掃除します    | to clean              |
+| 運動します    | to exercise           |
+| 電話します    | to telephone call     |
+
+The last one ("to telephone call") is awkward but technically not wrong;
+authors can refine to "to make a phone call" post-hoc. The point of v0.8
+is that scaffold no longer leaves a `<primary English meaning>`
+placeholder for any common verb shape.
+
+### Side effect: warning-free shipping
+
+After this change, **every shipped story re-validates with zero warnings**:
+
+```
+story 1: ✓ VALID (warnings: 0)
+story 2: ✓ VALID (warnings: 0)
+…
+story 9: ✓ VALID (warnings: 0)
+```
+
+The Check 5 warning was structural, not content-driven — it was firing
+on correctly-authored verbs because the validator's lookup couldn't
+find them. Now that gap is closed.
+
+### Verification
+
+- 50/50 unit tests pass
+- `conjugate` and `expected_inflection` agree on all 11 test cases
+  including all 4 irregular forms and one suru-compound
+- All 9 stories ✓ VALID, 0 warnings each
