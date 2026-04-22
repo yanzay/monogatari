@@ -1,0 +1,548 @@
+{
+  "story_id": 18,
+  "title": {
+    "jp": "雨の鳥",
+    "en": "A Bird in the Rain",
+    "tokens": [
+      {
+        "t": "雨",
+        "r": "あめ",
+        "word_id": "W00002",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "鳥",
+        "r": "とり",
+        "word_id": "W00054",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "窓の小さい鳥",
+    "en": "A small bird at the window",
+    "tokens": [
+      {
+        "t": "窓",
+        "r": "まど",
+        "word_id": "W00004",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "小さい",
+        "r": "ちいさい",
+        "word_id": "W00055",
+        "role": "content"
+      },
+      {
+        "t": "鳥",
+        "r": "とり",
+        "word_id": "W00054",
+        "role": "content"
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00054",
+    "W00055",
+    "W00056"
+  ],
+  "new_grammar": [],
+  "all_words_used": [
+    "W00002",
+    "W00054",
+    "W00004",
+    "W00055",
+    "W00001",
+    "W00005",
+    "W00006",
+    "W00029",
+    "W00008",
+    "W00036",
+    "W00028",
+    "W00038",
+    "W00037",
+    "W00042",
+    "W00023",
+    "W00024",
+    "W00044",
+    "W00012",
+    "W00009",
+    "W00010",
+    "W00003",
+    "W00056",
+    "W00011",
+    "W00015"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "gloss_en": "This morning, outside is rain.",
+      "tokens": [
+        {
+          "t": "今朝",
+          "r": "けさ",
+          "word_id": "W00001",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "外",
+          "r": "そと",
+          "word_id": "W00005",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "雨",
+          "r": "あめ",
+          "word_id": "W00002",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_18/s0.wav",
+      "audio_hash": "16311c0eb8c7"
+    },
+    {
+      "idx": 1,
+      "gloss_en": "From the window, I look outside.",
+      "tokens": [
+        {
+          "t": "窓",
+          "r": "まど",
+          "word_id": "W00004",
+          "role": "content"
+        },
+        {
+          "t": "から",
+          "grammar_id": "G006_kara_from",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "外",
+          "r": "そと",
+          "word_id": "W00005",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "見ます",
+          "r": "みます",
+          "word_id": "W00006",
+          "role": "content",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_18/s1.wav",
+      "audio_hash": "3e04008f5302"
+    },
+    {
+      "idx": 2,
+      "gloss_en": "At the window, there is a small bird.",
+      "tokens": [
+        {
+          "t": "窓",
+          "r": "まど",
+          "word_id": "W00004",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "小さい",
+          "r": "ちいさい",
+          "word_id": "W00055",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "鳥",
+          "r": "とり",
+          "word_id": "W00054",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "います",
+          "word_id": "W00029",
+          "role": "content",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_18/s2.wav",
+      "audio_hash": "397aad596e8f"
+    },
+    {
+      "idx": 3,
+      "gloss_en": "The small bird is wet.",
+      "tokens": [
+        {
+          "t": "小さい",
+          "r": "ちいさい",
+          "word_id": "W00055",
+          "role": "content"
+        },
+        {
+          "t": "鳥",
+          "r": "とり",
+          "word_id": "W00054",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "濡れて",
+          "r": "ぬれて",
+          "word_id": "W00008",
+          "role": "content",
+          "inflection": {
+            "base": "濡れる",
+            "base_r": "ぬれる",
+            "form": "te_form",
+            "grammar_id": "G007_te_form"
+          }
+        },
+        {
+          "t": "います",
+          "grammar_id": "G008_te_iru",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_18/s3.wav",
+      "audio_hash": "9627c98a0f14"
+    },
+    {
+      "idx": 4,
+      "gloss_en": "On the chair, the cat is sleeping.",
+      "tokens": [
+        {
+          "t": "椅子",
+          "r": "いす",
+          "word_id": "W00036",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "猫",
+          "r": "ねこ",
+          "word_id": "W00028",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "寝て",
+          "r": "ねて",
+          "word_id": "W00038",
+          "role": "content",
+          "inflection": {
+            "base": "寝る",
+            "base_r": "ねる",
+            "form": "te_form",
+            "grammar_id": "G007_te_form"
+          }
+        },
+        {
+          "t": "います",
+          "grammar_id": "G008_te_iru",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_18/s4.wav",
+      "audio_hash": "ba0c2a2e602e"
+    },
+    {
+      "idx": 5,
+      "gloss_en": "On the desk, there are flowers from yesterday's walk.",
+      "tokens": [
+        {
+          "t": "机",
+          "r": "つくえ",
+          "word_id": "W00037",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "昨日",
+          "r": "きのう",
+          "word_id": "W00042",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "散歩",
+          "r": "さんぽ",
+          "word_id": "W00023",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "花",
+          "r": "はな",
+          "word_id": "W00024",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "あります",
+          "word_id": "W00044",
+          "role": "content",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_18/s5.wav",
+      "audio_hash": "ab21f154edb3"
+    },
+    {
+      "idx": 6,
+      "gloss_en": "I drink warm tea.",
+      "tokens": [
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "word_id": "W00012",
+          "role": "content"
+        },
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "word_id": "W00009",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "飲みます",
+          "r": "のみます",
+          "word_id": "W00010",
+          "role": "content",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_18/s6.wav",
+      "audio_hash": "1c92227ea006"
+    },
+    {
+      "idx": 7,
+      "gloss_en": "As for me, I am happy.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "嬉しい",
+          "r": "うれしい",
+          "word_id": "W00056",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_18/s7.wav",
+      "audio_hash": "5c29e5352c54"
+    },
+    {
+      "idx": 8,
+      "gloss_en": "A happy, quiet morning.",
+      "tokens": [
+        {
+          "t": "嬉しい",
+          "r": "うれしい",
+          "word_id": "W00056",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "word_id": "W00011",
+          "role": "content"
+        },
+        {
+          "t": "な",
+          "grammar_id": "G016_na_adjective",
+          "role": "particle"
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "word_id": "W00015",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_18/s8.wav",
+      "audio_hash": "5a24cce05ab9"
+    }
+  ],
+  "word_audio": {
+    "W00054": "audio/story_18/w_W00054.wav",
+    "W00055": "audio/story_18/w_W00055.wav",
+    "W00056": "audio/story_18/w_W00056.wav"
+  },
+  "checksum": null,
+  "word_audio_hash": {
+    "W00054": "8754cc62cbb1",
+    "W00055": "6c458331fdb8",
+    "W00056": "b0660d875cea"
+  }
+}

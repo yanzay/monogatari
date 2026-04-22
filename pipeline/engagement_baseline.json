@@ -19,7 +19,7 @@
     ],
     "last_regenerated": "2026-04-22 15:30",
     "stories_covered": 12,
-    "n_stories": 17
+    "n_stories": 18
   },
   "reviews": [
     {
@@ -605,6 +605,39 @@
           "why": "library reinforcement (Check 6 starvation alarm flagged W00038)"
         }
       ]
+    },
+    {
+      "story_id": 18,
+      "title_jp": "雨の鳥",
+      "title_en": "A Bird in the Rain",
+      "scores": {
+        "hook": 3,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 5,
+        "closure": 3
+      },
+      "average": 3.8,
+      "approved": true,
+      "highlights": [
+        "Five starvation-alarmed words (寝ます, 椅子, 花, 濡れる, 散歩) all land naturally inside one rainy-morning vignette rather than being scattered across paragraphs — the 'yesterday's walk's flowers on the desk' image alone reuses three of them in a single beat.",
+        "Brings the cat back from story 6 onto a specific piece of furniture (椅子) instead of just 'somewhere in the room', which is concrete enough to feel like a continuation of the same household instead of a generic motif.",
+        "Three structurally distinct new-word introductions: 鳥 anchors the scene (a stranger arrives), 小さい qualifies it twice in adjacent sentences so the descriptor sticks, and 嬉しい lands on the narrator (not on an inanimate object), keeping the inner-state attribution honest."
+      ],
+      "weaknesses": [
+        "Closer 'A happy, quiet morning' (嬉しい、静かな朝です) is structurally close to the over-used 〜、いい朝/夜/気分です template flagged in NOTES_FOR_FUTURE_AGENTS.md. It avoids the literal いい but the silhouette is the same Adj + Noun + です shape. I scored closure 3 to reflect this — the image (a happy, quiet morning) is fine, the form is well-trodden.",
+        "Hook 'This morning, outside is rain' is competent but conventional — three of the previous 17 stories also open on weather. I scored hook 3."
+      ],
+      "suggestions": [
+        {
+          "what": "When 降ります or a verb of weather-action enters vocab, revise s0 to '今朝、雨が降ります' so the opening is an action rather than a static state.",
+          "why": "hook"
+        },
+        {
+          "what": "Future story could pair 鳥 with 笑います (the bird sings, narrator smiles) to extend both the new vocabulary and the new emotional-verb register.",
+          "why": "originality"
+        }
+      ]
     }
   ],
   "leaderboard": [
@@ -690,6 +723,11 @@
     },
     {
       "story_id": 17,
+      "average": 3.8,
+      "rank": 15
+    },
+    {
+      "story_id": 18,
       "average": 3.8,
       "rank": 15
     }
