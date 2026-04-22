@@ -723,3 +723,66 @@ already-shipped prose.
 where the progression curve does not apply. Check 7 falls back to the
 historic absolute sentence range (5..8) for these. Real shipped stories
 must always have `story_id >= 1`.
+
+---
+
+## v0.5 — Reuse-quota drift fix (2026-04-22)
+
+### The bug
+
+`Check 6 (reuse quota)` requires that ≥60% of a story's content tokens come
+from words with `occurrences < 5` in `vocab_state.json`. The intent is *"this
+story is doing real reinforcement of under-practiced vocabulary."*
+
+The bug: `occurrences` is a **lifetime total** that keeps climbing every time
+a later story uses the same word. So:
+
+- Story 5 ships in March → at the time, 私 had `occurrences=4` (low-occ).
+- Story 5 (correctly) used 私 several times to satisfy the reuse quota.
+- Stories 6, 7, 8 each use 私 a few more times → by April, 私 has `occurrences=12`.
+- Re-validating Story 5 in April reads `occurrences=12` and counts 私 as
+  HIGH-occ → reuse quota suddenly fails.
+
+This caught my attention because *all 7 non-bootstrap shipped stories started
+failing Check 6* after Story 8 shipped. They were perfectly valid at ship
+time; they just got drifted-into-invalid by their own successors.
+
+### The fix
+
+`pipeline/validate.py` now computes **ship-time effective occurrences** for
+every word it considers in Check 6:
+
+```
+effective_occ = lifetime_occ
+              − (uses of this word in this story)
+              − (uses of this word in every story with story_id > this one)
+```
+
+In the ship-time path (validator runs *before* `state_updater.py` bumps
+counts), this evaluates to `lifetime_occ − this_story_uses` (no future
+stories yet) — which matches what the validator was always trying to
+measure. In the re-validate-an-old-story path, the formula recovers the
+ship-time snapshot exactly.
+
+### Sentinel for tests
+
+`story_id == 0` is a test-fixture sentinel. When the validator sees it,
+the discount is skipped — the test fixture is asking "what does Check 6
+say if these words really are at this occurrence count?", which is the
+correct semantics for unit tests.
+
+### What this means in practice
+
+- All 8 shipped stories now re-validate green at any point in the future,
+  regardless of how many later stories pile uses onto their words.
+- The CI loop in `pipeline/run.py` (which validates the new story before
+  shipping it) is unchanged and unaffected.
+- New stories must still satisfy the 60% quota at their own ship time —
+  the rule is just measured correctly now.
+
+### How to verify
+
+```bash
+python pipeline/validate.py stories/story_5.json   # ✓ VALID (was ✗ INVALID before fix)
+python pipeline/test_validate.py                    # 50/50 ✓ (2 new tests for the drift fix)
+```

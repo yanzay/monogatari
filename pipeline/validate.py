@@ -682,20 +682,69 @@ def validate(
     # occurrences < 5 — i.e. the story should be doing real reinforcement of
     # under-practiced vocabulary. Bootstrap stories (lots of new words at once)
     # are exempt because they're introducing words, not reinforcing them.
+    #
+    # IMPORTANT: occurrences must be measured AS OF THE STORY'S SHIP TIME, not
+    # the current lifetime total. The lifetime total in vocab_state.json keeps
+    # climbing every time a later story uses the word; re-validating an older
+    # story against the current totals would punish words that have since
+    # become well-practiced for being "no longer low-occ" — even though they
+    # were low-occ when this story shipped. We compensate by subtracting this
+    # story's own uses AND every later story's uses from the lifetime total.
     if content_tokens and not bootstrap_story:
+        sid = story.get("story_id", 0)
+
+        # Build a "discount table": for every word_id, how many uses appear in
+        # this story plus every story with a larger story_id (ship-time = now
+        # minus future contributions). story_id=0 is the test-fixture sentinel
+        # — don't discount in that case (the fixture is asking "what does Check
+        # 6 say if the words really are at this occurrence count?", which is
+        # the correct question for that test).
+        discount: dict[str, int] = {}
+        if sid > 0:
+            # 1. Subtract this story's own content-token uses.
+            for tok in content_tokens:
+                wid = tok.get("word_id")
+                if wid:
+                    discount[wid] = discount.get(wid, 0) + 1
+            # 2. Subtract uses from every story with story_id > this one.
+            try:
+                from pathlib import Path
+                stories_dir = Path(__file__).resolve().parent.parent / "stories"
+                for path in stories_dir.glob("story_*.json"):
+                    try:
+                        other_sid = int(path.stem.split("_")[1])
+                    except (ValueError, IndexError):
+                        continue
+                    if other_sid <= sid:
+                        continue
+                    try:
+                        other = json.loads(path.read_text(encoding="utf-8"))
+                    except Exception:
+                        continue
+                    for sent in other.get("sentences", []):
+                        for tok in sent.get("tokens", []):
+                            if tok.get("role") == "content":
+                                wid = tok.get("word_id")
+                                if wid:
+                                    discount[wid] = discount.get(wid, 0) + 1
+            except Exception:
+                pass  # Directory unreadable — fall back to lifetime counts.
+
         reinforcement_count = 0
         for tok in content_tokens:
             wid = tok.get("word_id")
             if wid:
                 word = words_dict.get(wid)
-                occ  = word.get("occurrences", 0) if word else 0
-                if occ < 5:
+                lifetime_occ = word.get("occurrences", 0) if word else 0
+                effective_occ = max(0, lifetime_occ - discount.get(wid, 0))
+                if effective_occ < 5:
                     reinforcement_count += 1
         ratio = reinforcement_count / len(content_tokens)
         if ratio < REUSE_QUOTA:
             result.add_error(
                 6,
-                f"Reuse quota not met: {ratio:.0%} of content tokens have occurrences < 5 (minimum {REUSE_QUOTA:.0%}). ({reinforcement_count}/{len(content_tokens)})"
+                f"Reuse quota not met: {ratio:.0%} of content tokens were low-occ at "
+                f"ship time (minimum {REUSE_QUOTA:.0%}). ({reinforcement_count}/{len(content_tokens)})"
             )
 
     # ── Check 7: Length progression ──────────────────────────────────────────

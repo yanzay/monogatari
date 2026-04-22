@@ -697,6 +697,42 @@ def run_tests():
     r = validate(s, VOCAB, GRAMMAR)
     check("Fresh vocab (occurrences=1) → no check 6 error", not errors_for_check(r, 6))
 
+    # ── Drift fix: occurrences must be measured AS OF SHIP TIME ─────────────
+    # When validating a real shipped story (story_id > 0), the validator
+    # should subtract this-story's contributions and any later stories'
+    # contributions from the lifetime occurrences. This way, re-validating an
+    # old story doesn't punish words that have since become well-practiced.
+    #
+    # Simulate: a word that NOW has occ=10 but will have only this-story's
+    # 3 uses contributing to that count → effective_occ = 7. With no later
+    # stories on disk for our story_id, the discount is just this-story's
+    # uses. We construct a story where one word repeats 3 times and rich_vocab
+    # gives it occ=7. Effective = 7 - 3 = 4 → counts as low-occ.
+    # Build a vocab where every word has lifetime occurrences of 5 (would
+    # be HIGH-occ under the old buggy check → reuse quota fail). With the
+    # ship-time discount, this story's own uses are subtracted: any word used
+    # at least once in this story drops to effective_occ=4 (low-occ). Most
+    # words in make_valid_story() appear once, so most fall below 5 and the
+    # quota is satisfied.
+    rich_vocab = copy.deepcopy(VOCAB)
+    for w in rich_vocab["words"].values():
+        w["occurrences"] = 5
+    s = make_valid_story()
+    s["story_id"] = 999  # real id, no future stories on disk
+    r = validate(s, rich_vocab, GRAMMAR)
+    check("ship-time discount: words with lifetime occ=5 used by this story → low-occ → passes",
+          not errors_for_check(r, 6))
+
+    # Sanity: the same scenario with story_id=0 (test fixture sentinel) does
+    # NOT subtract the discount, so the old strict semantics still apply.
+    rich_vocab = copy.deepcopy(VOCAB)
+    for w in rich_vocab["words"].values():
+        w["occurrences"] = 5
+    s = make_valid_story()  # story_id=0 by fixture
+    r = validate(s, rich_vocab, GRAMMAR)
+    check("ship-time discount: story_id=0 fixture sentinel skips discount → fails as before",
+          errors_for_check(r, 6))
+
     print("\n── Check 7: Length ───────────────────────────────────────────────")
     # Too few sentences (1)
     s = make_valid_story()
