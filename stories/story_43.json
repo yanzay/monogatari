@@ -1,0 +1,609 @@
+{
+  "story_id": 43,
+  "title": {
+    "jp": "鍵がありません",
+    "en": "There Is No Key",
+    "tokens": [
+      {
+        "t": "鍵",
+        "r": "kagi",
+        "role": "content",
+        "word_id": "W00079"
+      },
+      {
+        "t": "が",
+        "role": "particle",
+        "grammar_id": "G002_ga_subject"
+      },
+      {
+        "t": "ありません",
+        "role": "aux",
+        "grammar_id": "G035_arimasen"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "部屋を探します。",
+    "en": "I search the room.",
+    "tokens": [
+      {
+        "t": "部屋",
+        "r": "heya",
+        "role": "content",
+        "word_id": "W00075"
+      },
+      {
+        "t": "を",
+        "role": "particle",
+        "grammar_id": "G005_wo_object"
+      },
+      {
+        "t": "探します",
+        "r": "sagashimasu",
+        "role": "content",
+        "word_id": "W00128"
+      },
+      {
+        "t": "。",
+        "role": "punct"
+      }
+    ]
+  },
+  "new_words": [
+    "W00128",
+    "W00129",
+    "W00130"
+  ],
+  "new_grammar": [
+    "G035_arimasen"
+  ],
+  "all_words_used": [
+    "W00079",
+    "W00075",
+    "W00128",
+    "W00030",
+    "W00003",
+    "W00040",
+    "W00130",
+    "W00037",
+    "W00044",
+    "W00036",
+    "W00006",
+    "W00129",
+    "W00011",
+    "W00043",
+    "W00033",
+    "W00045",
+    "W00056",
+    "W00055"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "夜",
+          "r": "yoru",
+          "role": "content",
+          "word_id": "W00030"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is night.",
+      "audio": "audio/story_43/s0.wav",
+      "audio_hash": "e81d3b78f313"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "部屋",
+          "r": "heya",
+          "role": "content",
+          "word_id": "W00075"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "来ます",
+          "r": "kimasu",
+          "role": "content",
+          "word_id": "W00040"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I come to the room.",
+      "audio": "audio/story_43/s1.wav",
+      "audio_hash": "925f4858ffe4"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "カバン",
+          "r": "kaban",
+          "role": "content",
+          "word_id": "W00130",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "机",
+          "r": "tsukue",
+          "role": "content",
+          "word_id": "W00037"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "あります",
+          "r": "arimasu",
+          "role": "content",
+          "word_id": "W00044"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My bag is on the desk.",
+      "audio": "audio/story_43/s2.wav",
+      "audio_hash": "6a86a6dc4a8d"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "でも",
+          "role": "aux",
+          "grammar_id": "G032_demo"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "鍵",
+          "r": "kagi",
+          "role": "content",
+          "word_id": "W00079"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "ありません",
+          "role": "aux",
+          "grammar_id": "G035_arimasen",
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But the key is not here.",
+      "audio": "audio/story_43/s3.wav",
+      "audio_hash": "977165591018"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "カバン",
+          "r": "kaban",
+          "role": "content",
+          "word_id": "W00130"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "探します",
+          "r": "sagashimasu",
+          "role": "content",
+          "word_id": "W00128",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I search the bag.",
+      "audio": "audio/story_43/s4.wav",
+      "audio_hash": "6528cfbbeecd"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "カバン",
+          "r": "kaban",
+          "role": "content",
+          "word_id": "W00130"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "鍵",
+          "r": "kagi",
+          "role": "content",
+          "word_id": "W00079"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "ありません",
+          "role": "aux",
+          "grammar_id": "G035_arimasen"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The key is not in the bag.",
+      "audio": "audio/story_43/s5.wav",
+      "audio_hash": "efebda365dc5"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "椅子",
+          "r": "isu",
+          "role": "content",
+          "word_id": "W00036"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "机",
+          "r": "tsukue",
+          "role": "content",
+          "word_id": "W00037"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "r": "mimasu",
+          "role": "content",
+          "word_id": "W00006"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I look at the chair and the desk.",
+      "audio": "audio/story_43/s6.wav",
+      "audio_hash": "689313fb308a"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "困ります",
+          "r": "komarimasu",
+          "role": "content",
+          "word_id": "W00129",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I am troubled.",
+      "audio": "audio/story_43/s7.wav",
+      "audio_hash": "07f158ccd3f2"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "部屋",
+          "r": "heya",
+          "role": "content",
+          "word_id": "W00075"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "r": "shizuka",
+          "role": "content",
+          "word_id": "W00011"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The room is quiet.",
+      "audio": "audio/story_43/s8.wav",
+      "audio_hash": "ea653bf37d81"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "そして",
+          "role": "aux",
+          "grammar_id": "G012_soshite_then"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "思います",
+          "r": "omoimasu",
+          "role": "content",
+          "word_id": "W00043"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "And then, I think.",
+      "audio": "audio/story_43/s9.wav",
+      "audio_hash": "09ee8502eec5"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "鍵",
+          "r": "kagi",
+          "role": "content",
+          "word_id": "W00079"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "本",
+          "r": "hon",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "そば",
+          "r": "soba",
+          "role": "content",
+          "word_id": "W00045"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "あります",
+          "r": "arimasu",
+          "role": "content",
+          "word_id": "W00044"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The key is beside the book.",
+      "audio": "audio/story_43/s10.wav",
+      "audio_hash": "9b5bf01bc691"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "嬉しい",
+          "r": "ureshii",
+          "role": "content",
+          "word_id": "W00056",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I am happy.",
+      "audio": "audio/story_43/s11.wav",
+      "audio_hash": "5c29e5352c54"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "静かな",
+          "r": "shizuka",
+          "role": "content",
+          "word_id": "W00011",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "夜",
+          "r": "yoru",
+          "role": "content",
+          "word_id": "W00030"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "小さい",
+          "r": "chiisai",
+          "role": "content",
+          "word_id": "W00055",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "鍵",
+          "r": "kagi",
+          "role": "content",
+          "word_id": "W00079"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A quiet night, a small key.",
+      "audio": "audio/story_43/s12.wav",
+      "audio_hash": "6a3773376720"
+    }
+  ],
+  "word_audio": {
+    "W00128": "audio/story_43/w_W00128.wav",
+    "W00129": "audio/story_43/w_W00129.wav",
+    "W00130": "audio/story_43/w_W00130.wav"
+  },
+  "word_audio_hash": {
+    "W00128": "ad8dde210070",
+    "W00129": "8fc80163d735",
+    "W00130": "1982f1e01b1f"
+  }
+}
