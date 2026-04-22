@@ -1,0 +1,664 @@
+{
+  "story_id": 36,
+  "title": {
+    "jp": "雪の夜",
+    "en": "A Snowy Night",
+    "tokens": [
+      {
+        "t": "雪",
+        "r": "ゆき",
+        "word_id": "W00063",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "夜",
+        "r": "よる",
+        "word_id": "W00030",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "友達が来ます",
+    "en": "The friend comes",
+    "tokens": [
+      {
+        "t": "友達",
+        "r": "ともだち",
+        "word_id": "W00022",
+        "role": "content"
+      },
+      {
+        "t": "が",
+        "grammar_id": "G002_ga_subject",
+        "role": "particle"
+      },
+      {
+        "t": "来ます",
+        "r": "きます",
+        "word_id": "W00040",
+        "role": "content",
+        "inflection": {
+          "base": "来る",
+          "base_r": "くる",
+          "form": "polite_nonpast",
+          "verb_class": "irregular"
+        }
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00107",
+    "W00108",
+    "W00109"
+  ],
+  "new_grammar": [],
+  "all_words_used": [
+    "W00063",
+    "W00030",
+    "W00022",
+    "W00040",
+    "W00107",
+    "W00003",
+    "W00004",
+    "W00005",
+    "W00006",
+    "W00062",
+    "W00011",
+    "W00041",
+    "W00025",
+    "W00109",
+    "W00048",
+    "W00080",
+    "W00097",
+    "W00108",
+    "W00045",
+    "W00085",
+    "W00012",
+    "W00056",
+    "W00035",
+    "W00009",
+    "W00010",
+    "W00055"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "夜",
+          "r": "よる",
+          "word_id": "W00030",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is night.",
+      "audio": "audio/story_36/s0.wav",
+      "audio_hash": "e81d3b78f313"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "雪",
+          "r": "ゆき",
+          "word_id": "W00063",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "降ります",
+          "r": "ふります",
+          "word_id": "W00107",
+          "role": "content",
+          "is_new": true,
+          "inflection": {
+            "base": "降る",
+            "base_r": "ふる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Snow falls.",
+      "audio": "audio/story_36/s1.wav",
+      "audio_hash": "de5660a198f5"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "窓",
+          "r": "まど",
+          "word_id": "W00004",
+          "role": "content"
+        },
+        {
+          "t": "から",
+          "grammar_id": "G006_kara_from",
+          "role": "particle"
+        },
+        {
+          "t": "外",
+          "r": "そと",
+          "word_id": "W00005",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "見ます",
+          "r": "みます",
+          "word_id": "W00006",
+          "role": "content",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I look outside through the window.",
+      "audio": "audio/story_36/s2.wav",
+      "audio_hash": "55091ae6c5bf"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "寒くて",
+          "r": "さむくて",
+          "word_id": "W00062",
+          "role": "content",
+          "inflection": {
+            "base": "寒い",
+            "base_r": "さむい",
+            "form": "te_form",
+            "grammar_id": "G029_kute"
+          }
+        },
+        {
+          "t": "静かな",
+          "r": "しずかな",
+          "word_id": "W00011",
+          "role": "content",
+          "inflection": {
+            "base": "静か",
+            "base_r": "しずか",
+            "form": "attributive",
+            "grammar_id": "G016_na_adjective"
+          }
+        },
+        {
+          "t": "夜",
+          "r": "よる",
+          "word_id": "W00030",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A cold and quiet night.",
+      "audio": "audio/story_36/s3.wav",
+      "audio_hash": "85578c94682f"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "待ちます",
+          "r": "まちます",
+          "word_id": "W00041",
+          "role": "content",
+          "inflection": {
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I wait for the friend.",
+      "audio": "audio/story_36/s4.wav",
+      "audio_hash": "6331297514d9"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "ドア",
+          "r": "ドア",
+          "word_id": "W00025",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "音",
+          "r": "おと",
+          "word_id": "W00109",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "します",
+          "r": "します",
+          "word_id": "W00048",
+          "role": "content",
+          "inflection": {
+            "base": "する",
+            "base_r": "する",
+            "form": "polite_nonpast",
+            "verb_class": "irregular"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is the sound of the door.",
+      "audio": "audio/story_36/s5.wav",
+      "audio_hash": "2c72221c07c6"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "入ります",
+          "r": "はいります",
+          "word_id": "W00080",
+          "role": "content",
+          "inflection": {
+            "base": "入る",
+            "base_r": "はいる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend enters.",
+      "audio": "audio/story_36/s6.wav",
+      "audio_hash": "06c9177d85bb"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "寒い",
+          "r": "さむい",
+          "word_id": "W00062",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G028_to_iimasu",
+          "role": "particle"
+        },
+        {
+          "t": "言います",
+          "r": "いいます",
+          "word_id": "W00097",
+          "role": "content",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"It's cold,\" she says.",
+      "audio": "audio/story_36/s7.wav",
+      "audio_hash": "16a813a7092b"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "ストーブ",
+          "r": "ストーブ",
+          "word_id": "W00108",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "そば",
+          "r": "そば",
+          "word_id": "W00045",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "座ります",
+          "r": "すわります",
+          "word_id": "W00085",
+          "role": "content",
+          "inflection": {
+            "base": "座る",
+            "base_r": "すわる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "We sit beside the stove.",
+      "audio": "audio/story_36/s8.wav",
+      "audio_hash": "0655352fa61a"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "ストーブ",
+          "r": "ストーブ",
+          "word_id": "W00108",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "word_id": "W00012",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "から",
+          "grammar_id": "G030_kara_reason",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "嬉しい",
+          "r": "うれしい",
+          "word_id": "W00056",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Because the stove is warm, I am happy.",
+      "audio": "audio/story_36/s9.wav",
+      "audio_hash": "ee0c6f2b767d"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "二人",
+          "r": "ふたり",
+          "word_id": "W00035",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "word_id": "W00009",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "飲みます",
+          "r": "のみます",
+          "word_id": "W00010",
+          "role": "content",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The two of us drink tea.",
+      "audio": "audio/story_36/s10.wav",
+      "audio_hash": "cd11b9069002"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "ストーブ",
+          "r": "ストーブ",
+          "word_id": "W00108",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "音",
+          "r": "おと",
+          "word_id": "W00109",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "小さい",
+          "r": "ちいさい",
+          "word_id": "W00055",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The sound of the stove is small.",
+      "audio": "audio/story_36/s11.wav",
+      "audio_hash": "538a2cf32cfd"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "温かくて",
+          "r": "あたたかくて",
+          "word_id": "W00012",
+          "role": "content",
+          "inflection": {
+            "base": "温かい",
+            "base_r": "あたたかい",
+            "form": "te_form",
+            "grammar_id": "G029_kute"
+          }
+        },
+        {
+          "t": "嬉しい",
+          "r": "うれしい",
+          "word_id": "W00056",
+          "role": "content"
+        },
+        {
+          "t": "夜",
+          "r": "よる",
+          "word_id": "W00030",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A warm and happy night.",
+      "audio": "audio/story_36/s12.wav",
+      "audio_hash": "df79449f66c7"
+    }
+  ],
+  "word_audio": {
+    "W00107": "audio/story_36/w_W00107.wav",
+    "W00108": "audio/story_36/w_W00108.wav",
+    "W00109": "audio/story_36/w_W00109.wav"
+  },
+  "checksum": null,
+  "word_audio_hash": {
+    "W00107": "2842fb8c1ac4",
+    "W00108": "2829fb93ccdb",
+    "W00109": "bec69dd92eb8"
+  }
+}
