@@ -19,7 +19,7 @@
     ],
     "last_regenerated": "2026-04-22 15:30",
     "stories_covered": 12,
-    "n_stories": 33
+    "n_stories": 34
   },
   "reviews": [
     {
@@ -1136,6 +1136,40 @@
           "why": "originality — absent characters earn weight by accumulating concrete memory-actions, not just objects"
         }
       ]
+    },
+    {
+      "story_id": 34,
+      "title_jp": "犬と散歩",
+      "title_en": "A Walk with the Dog",
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 5,
+        "closure": 4
+      },
+      "average": 4.2,
+      "approved": true,
+      "highlights": [
+        "Tight three-act arc in 12 sentences: meet (s0-s2: park, dog, dog is small and lively), encounter (s3-s8: I walk, dog runs, pond, child laughs), exchange (s9-s11: child says 'dog', I laugh too, small happy walk). The motion verbs (歩きます, 走ります) carry the scene forward instead of the static です chain that has dominated since story 1.",
+        "Child's single-word dialogue 「犬」と言います (s9) is voice gold — the youngest possible utterance in the library, paired with との言いますthe same construction father used in story 32. The library now has TWO speakers, and they sound different: father's full polite sentence vs the child's single noun.",
+        "Consolidates G029_kute (introduced in story 33) twice across the story — s2 (小さくて元気) opens the dog's character, s11 (小さくて嬉しい) closes the walk. The closer mirrors the opener with a feeling-word swap. Earned echo, not lazy repetition.",
+        "Mood pivot from story 33's nostalgia: bright, kinetic, sunny. After the heavy clock-and-grandmother story, a dog-runs-to-pond scene resets the library's emotional register without losing the kute-shape gain."
+      ],
+      "weaknesses": [
+        "犬 appears 5 times (s1, s2, s4, s6, s9) — the new word lands but starts to dominate. One occurrence could be replaced with a pronoun-drop or restructured: e.g. s4 could be 池に走ります (drops the explicit subject since the previous clause established it).",
+        "池 only appears 3 times (s5, s6, s7) — that's enough for a new word but the noun feels under-painted. A future story should let the pond have water-action (reflection, ripple, splash) once vocabulary supports it."
+      ],
+      "suggestions": [
+        {
+          "what": "Story 35 should let an adult character speak — narrator says something to the friend, or mother says something. Two consecutive child/single-word dialogues would feel like a tic.",
+          "why": "voice — vary speaker register"
+        },
+        {
+          "what": "Drop subject 犬は in s4 (just 走ります) so the dog-runs beat lands without restating the subject from s2.",
+          "why": "voice — less worksheet-y"
+        }
+      ]
     }
   ],
   "leaderboard": [
@@ -1245,64 +1279,69 @@
       "rank": 12
     },
     {
+      "story_id": 34,
+      "average": 4.2,
+      "rank": 12
+    },
+    {
       "story_id": 3,
       "average": 4.0,
-      "rank": 22
+      "rank": 23
     },
     {
       "story_id": 14,
       "average": 4.0,
-      "rank": 22
+      "rank": 23
     },
     {
       "story_id": 15,
       "average": 4.0,
-      "rank": 22
+      "rank": 23
     },
     {
       "story_id": 16,
       "average": 4.0,
-      "rank": 22
+      "rank": 23
     },
     {
       "story_id": 21,
       "average": 4.0,
-      "rank": 22
+      "rank": 23
     },
     {
       "story_id": 23,
       "average": 4.0,
-      "rank": 22
+      "rank": 23
     },
     {
       "story_id": 32,
       "average": 4.0,
-      "rank": 22
+      "rank": 23
     },
     {
       "story_id": 1,
       "average": 3.8,
-      "rank": 29
+      "rank": 30
     },
     {
       "story_id": 13,
       "average": 3.8,
-      "rank": 29
+      "rank": 30
     },
     {
       "story_id": 17,
       "average": 3.8,
-      "rank": 29
+      "rank": 30
     },
     {
       "story_id": 18,
       "average": 3.8,
-      "rank": 29
+      "rank": 30
     },
     {
       "story_id": 31,
       "average": 3.6,
-      "rank": 33
+      "rank": 34
     }
   ],
   "next_actions": [

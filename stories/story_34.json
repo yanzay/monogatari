@@ -1,0 +1,595 @@
+{
+  "story_id": 34,
+  "title": {
+    "jp": "犬と散歩",
+    "en": "A Walk with the Dog",
+    "tokens": [
+      {
+        "t": "犬",
+        "r": "いぬ",
+        "word_id": "W00101",
+        "role": "content"
+      },
+      {
+        "t": "と",
+        "grammar_id": "G010_to_and",
+        "role": "particle"
+      },
+      {
+        "t": "散歩",
+        "r": "さんぽ",
+        "word_id": "W00023",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "公園の池で",
+    "en": "At the park's pond",
+    "tokens": [
+      {
+        "t": "公園",
+        "r": "こうえん",
+        "word_id": "W00016",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "池",
+        "r": "いけ",
+        "word_id": "W00103",
+        "role": "content"
+      },
+      {
+        "t": "で",
+        "grammar_id": "G017_de_means",
+        "role": "particle"
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00101",
+    "W00102",
+    "W00103"
+  ],
+  "new_grammar": [],
+  "all_words_used": [
+    "W00101",
+    "W00023",
+    "W00016",
+    "W00103",
+    "W00029",
+    "W00003",
+    "W00055",
+    "W00058",
+    "W00017",
+    "W00102",
+    "W00044",
+    "W00045",
+    "W00051",
+    "W00053",
+    "W00097",
+    "W00056"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "公園",
+          "r": "こうえん",
+          "word_id": "W00016",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "word_id": "W00029",
+          "role": "content",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I am at the park.",
+      "audio": "audio/story_34/s0.wav",
+      "audio_hash": "4b97d87c2bd1"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "犬",
+          "r": "いぬ",
+          "word_id": "W00101",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "word_id": "W00029",
+          "role": "content",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My dog is here too.",
+      "audio": "audio/story_34/s1.wav",
+      "audio_hash": "4185d9245def"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "犬",
+          "r": "いぬ",
+          "word_id": "W00101",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "小さくて",
+          "r": "ちいさくて",
+          "word_id": "W00055",
+          "role": "content",
+          "inflection": {
+            "base": "小さい",
+            "base_r": "ちいさい",
+            "form": "te_form",
+            "grammar_id": "G029_kute"
+          }
+        },
+        {
+          "t": "元気",
+          "r": "げんき",
+          "word_id": "W00058",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The dog is small and lively.",
+      "audio": "audio/story_34/s2.wav",
+      "audio_hash": "33eac9d37bb1"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "歩きます",
+          "r": "あるきます",
+          "word_id": "W00017",
+          "role": "content",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I walk.",
+      "audio": "audio/story_34/s3.wav",
+      "audio_hash": "3a71a138749a"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "犬",
+          "r": "いぬ",
+          "word_id": "W00101",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "走ります",
+          "r": "はしります",
+          "word_id": "W00102",
+          "role": "content",
+          "is_new": true,
+          "inflection": {
+            "base": "走る",
+            "base_r": "はしる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The dog runs.",
+      "audio": "audio/story_34/s4.wav",
+      "audio_hash": "038d6c0b4164"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "公園",
+          "r": "こうえん",
+          "word_id": "W00016",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "池",
+          "r": "いけ",
+          "word_id": "W00103",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "あります",
+          "r": "あります",
+          "word_id": "W00044",
+          "role": "content",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is a pond at the park.",
+      "audio": "audio/story_34/s5.wav",
+      "audio_hash": "b7aecbcba829"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "犬",
+          "r": "いぬ",
+          "word_id": "W00101",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "池",
+          "r": "いけ",
+          "word_id": "W00103",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "走ります",
+          "r": "はしります",
+          "word_id": "W00102",
+          "role": "content",
+          "inflection": {
+            "base": "走る",
+            "base_r": "はしる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The dog runs to the pond.",
+      "audio": "audio/story_34/s6.wav",
+      "audio_hash": "299c0634fc69"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "池",
+          "r": "いけ",
+          "word_id": "W00103",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "そば",
+          "r": "そば",
+          "word_id": "W00045",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "子供",
+          "r": "こども",
+          "word_id": "W00051",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "word_id": "W00029",
+          "role": "content",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Beside the pond, there is a child.",
+      "audio": "audio/story_34/s7.wav",
+      "audio_hash": "6fc3ef5dc42f"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "子供",
+          "r": "こども",
+          "word_id": "W00051",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "笑います",
+          "r": "わらいます",
+          "word_id": "W00053",
+          "role": "content",
+          "inflection": {
+            "base": "笑う",
+            "base_r": "わらう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The child laughs.",
+      "audio": "audio/story_34/s8.wav",
+      "audio_hash": "92ab89a873b7"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "犬",
+          "r": "いぬ",
+          "word_id": "W00101",
+          "role": "content"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G028_to_iimasu",
+          "role": "particle"
+        },
+        {
+          "t": "言います",
+          "r": "いいます",
+          "word_id": "W00097",
+          "role": "content",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Dog,\" the child says.",
+      "audio": "audio/story_34/s9.wav",
+      "audio_hash": "48f251ce1fdc"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "笑います",
+          "r": "わらいます",
+          "word_id": "W00053",
+          "role": "content",
+          "inflection": {
+            "base": "笑う",
+            "base_r": "わらう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I laugh too.",
+      "audio": "audio/story_34/s10.wav",
+      "audio_hash": "0e5bbf70022d"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "小さくて",
+          "r": "ちいさくて",
+          "word_id": "W00055",
+          "role": "content",
+          "inflection": {
+            "base": "小さい",
+            "base_r": "ちいさい",
+            "form": "te_form",
+            "grammar_id": "G029_kute"
+          }
+        },
+        {
+          "t": "嬉しい",
+          "r": "うれしい",
+          "word_id": "W00056",
+          "role": "content"
+        },
+        {
+          "t": "散歩",
+          "r": "さんぽ",
+          "word_id": "W00023",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A small, happy walk.",
+      "audio": "audio/story_34/s11.wav",
+      "audio_hash": "943f4ed86bdf"
+    }
+  ],
+  "word_audio": {
+    "W00101": "audio/story_34/w_W00101.wav",
+    "W00102": "audio/story_34/w_W00102.wav",
+    "W00103": "audio/story_34/w_W00103.wav"
+  },
+  "checksum": null,
+  "word_audio_hash": {
+    "W00101": "1e82f9b0b675",
+    "W00102": "24d5c7ca0c19",
+    "W00103": "3342f4fb437f"
+  }
+}
