@@ -42,7 +42,10 @@
         <button class="btn-gloss-all" id="btn-gloss-all">Show English</button>
       </div>
 
-      <div id="progress-dots" class="progress-dots" aria-label="Sentence progress"></div>
+      <!-- Per-sentence progress dots removed 2026-04-22: the reader no longer
+           tracks which sentences have been viewed. A story is "done" only
+           after the learner explicitly presses "Mark as read → add to SRS",
+           and that's the single thing that unlocks the Next button. -->
 
       <div class="audio-controls" role="group" aria-label="Audio">
         <button id="btn-play-story" class="btn-audio" title="Play whole story">▶ Play story</button>

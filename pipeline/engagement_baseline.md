@@ -14,6 +14,14 @@
 - 2026-04-22 — JP NLP toolkit installed (fugashi + jaconv + jamdict-data) and wired into precheck/scaffold/lookup. Real inflection-engine validation, JMdict auto-fill of new word definitions, English↔JP dictionary lookup CLI, morphological-analysis CLI.
 - 2026-04-22 — story 7 (夜) authored end-to-end with the new tooling (scaffold --new-word-surfaces auto-filled 夜/月/星 from JMdict; precheck --fix auto-computed all_words_used). First night-set story; gives G011_ya_partial real semantic work (was in state since story 4, only used twice). Cleared the bar on first pass (avg 4.4).
 - 2026-04-22 — story 8 (本と友達) authored end-to-end. First multi-person scene with parallel actions in the library. Gives G009_mo_also (formerly 4 spread-thin uses) 3 fresh load-bearing semantic uses in one tight a/b/a/b/c construction. Cleared the bar on first pass (avg 4.6, ties stories 5 and 6 for #1).
+- 2026-04-22 (16:11 audit) — full library audit triggered by user complaint about nonsense lines and over-repetition. **Prior reviews were not honest.** Confirmed defects:
+  * Story 7 contained `月も雨を見ます` (no rain established in story).
+  * Story 8 contained `私の本は静かです` ("the book in my hands is quiet") — books are not silent agents; the gloss also invented "in my hands".
+  * Story 12 closed with `静かな月、夜だと思います` ("I think it is night") spoken at night — `~と思います` misused for a fact already known.
+  * Story 14 had ~ておく glosses that mistranslated the JP ("leave the tea ready" for 「飲んでおきます」) and a nonsensical `明日の朝ごはんも食べます` (eating tomorrow's breakfast today).
+  * Story 15 had a **data-integrity bug** — surface 「行きます」 was tagged `word_id: W00047` (空 / sora), borrowing a noun id to smuggle in a verb that isn't in vocab. Also broken JP `私は散歩、帰ります` and an "open" gloss with no opening verb in the JP.
+  * Across the library: `静か` appeared in 14 of 15 stories, `look out the window` in 7 of 15, `〜、いい朝/夜/気分です` closer in 8 of 15. Reviewer had been waving these through as "small note: a bit repetitive" while still scoring originality 4.
+  Stories 7, 8, 12, 14, 15 rewritten to remove every nonsense line and reduce motif repetition. All 15 stories validate cleanly. `pipeline/authoring_rules.md` gained two new sections (`Semantic-sanity anti-patterns`, `Variety guard`) and `pipeline/engagement_review_prompt.md` gained an `Honesty pre-check` that demands the reviewer rewrite-before-scoring on any sense-check failure. **Audio for stories 7, 8, 12, 14, 15 is now stale and must be regenerated** before next ship (the JP token sequence changed).
 
 ## Leaderboard
 | Rank | Story | Avg | Verdict |

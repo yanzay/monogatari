@@ -683,54 +683,49 @@ def run_tests():
     r = validate(s, VOCAB, GRAMMAR)
     check("Surface mismatch (no inflection) → check 5 error", errors_for_check(r, 5))
 
-    print("\n── Check 6: Reuse quota ──────────────────────────────────────────")
-    # Make all words have occurrences >= 5
+    print("\n── Check 6: Reinforcement floor ─────────────────────────────────")
+    # The 2026-04-22 reform replaced the "≥ 60% of content tokens must be
+    # low-occ" percentage with an absolute floor of 6 low-occ tokens per
+    # story. Test fixture (story_id=0) skips the ship-time discount and
+    # reports against lifetime occurrences directly.
+
+    # All words have lifetime occ >= 10 → zero low-occ tokens → fails floor.
     rich_vocab = copy.deepcopy(VOCAB)
     for w in rich_vocab["words"].values():
         w["occurrences"] = 10
     s = make_valid_story()
     r = validate(s, rich_vocab, GRAMMAR)
-    check("All words occurrences>=5 → check 6 error", errors_for_check(r, 6))
+    check("All words occurrences>=10 → check 6 error (no reinforcement at all)",
+          errors_for_check(r, 6))
 
-    # Fresh vocab (occurrences=1) passes
+    # Fresh vocab (occurrences=1) → all low-occ → passes floor.
     s = make_valid_story()
     r = validate(s, VOCAB, GRAMMAR)
-    check("Fresh vocab (occurrences=1) → no check 6 error", not errors_for_check(r, 6))
+    check("Fresh vocab (occurrences=1) → no check 6 error",
+          not errors_for_check(r, 6))
 
-    # ── Drift fix: occurrences must be measured AS OF SHIP TIME ─────────────
-    # When validating a real shipped story (story_id > 0), the validator
-    # should subtract this-story's contributions and any later stories'
-    # contributions from the lifetime occurrences. This way, re-validating an
-    # old story doesn't punish words that have since become well-practiced.
-    #
-    # Simulate: a word that NOW has occ=10 but will have only this-story's
-    # 3 uses contributing to that count → effective_occ = 7. With no later
-    # stories on disk for our story_id, the discount is just this-story's
-    # uses. We construct a story where one word repeats 3 times and rich_vocab
-    # gives it occ=7. Effective = 7 - 3 = 4 → counts as low-occ.
-    # Build a vocab where every word has lifetime occurrences of 5 (would
-    # be HIGH-occ under the old buggy check → reuse quota fail). With the
-    # ship-time discount, this story's own uses are subtracted: any word used
-    # at least once in this story drops to effective_occ=4 (low-occ). Most
-    # words in make_valid_story() appear once, so most fall below 5 and the
-    # quota is satisfied.
+    # Ship-time discount still applies for real story_ids: with lifetime
+    # occ=5 + this-story discount=1, effective_occ=4 → low-occ → passes
+    # the floor.
     rich_vocab = copy.deepcopy(VOCAB)
     for w in rich_vocab["words"].values():
         w["occurrences"] = 5
     s = make_valid_story()
     s["story_id"] = 999  # real id, no future stories on disk
     r = validate(s, rich_vocab, GRAMMAR)
-    check("ship-time discount: words with lifetime occ=5 used by this story → low-occ → passes",
+    check("ship-time discount: lifetime occ=5 minus this-story's use=4 → low-occ → passes",
           not errors_for_check(r, 6))
 
-    # Sanity: the same scenario with story_id=0 (test fixture sentinel) does
-    # NOT subtract the discount, so the old strict semantics still apply.
+    # The fixture-sentinel (story_id=0) does NOT discount. With lifetime
+    # occ=5 and no discount, effective_occ stays at 5 (= LOW_OCCURRENCE_LIMIT,
+    # which is NOT counted as low-occ since the threshold is "< 5"). So
+    # nothing reinforces → floor not met → error.
     rich_vocab = copy.deepcopy(VOCAB)
     for w in rich_vocab["words"].values():
         w["occurrences"] = 5
     s = make_valid_story()  # story_id=0 by fixture
     r = validate(s, rich_vocab, GRAMMAR)
-    check("ship-time discount: story_id=0 fixture sentinel skips discount → fails as before",
+    check("ship-time discount: story_id=0 fixture sentinel skips discount → floor fails",
           errors_for_check(r, 6))
 
     print("\n── Check 7: Length ───────────────────────────────────────────────")
@@ -854,15 +849,16 @@ def run_tests():
     check("story_id=0 fixture introducing N3 → no check 3.5 error (sentinel bypass)",
           not errors_for_check(r, "3.5"))
 
-    print("\n── Check 8: Forbidden topics ─────────────────────────────────────")
+    print("\n── Check 8: Forbidden topics — REMOVED ───────────────────────────")
+    # Check 8 was removed entirely on 2026-04-22 (product decision: "remove
+    # all 'forbidden' words, phrases and themes checks, everything should be
+    # allowed"). The validator no longer imposes any topic restrictions, so
+    # we instead assert the inverse: previously-blocked content now passes.
     s = make_valid_story()
-    s["sentences"][0]["gloss_en"] = "I want to kill the dragon."
+    s["sentences"][0]["gloss_en"] = "He killed the dragon. I love you. The war."
     r = validate(s, VOCAB, GRAMMAR)
-    check("Forbidden keyword 'kill' → check 8 error", errors_for_check(r, 8))
-
-    s = make_valid_story()
-    r = validate(s, VOCAB, GRAMMAR)
-    check("Clean story → no check 8 error", not errors_for_check(r, 8))
+    check("Previously-forbidden phrases → no check 8 error (Check 8 deleted)",
+          not errors_for_check(r, 8))
 
     print("\n── Check 9: Gloss sanity ─────────────────────────────────────────")
     s = make_valid_story()

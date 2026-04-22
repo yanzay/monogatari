@@ -64,17 +64,18 @@
     "W00035",
     "W00034",
     "W00015",
-    "W00002",
+    "W00016",
+    "W00029",
     "W00003",
     "W00011",
+    "W00013",
     "W00009",
-    "W00044",
-    "W00013"
+    "W00044"
   ],
   "sentences": [
     {
       "idx": 0,
-      "gloss_en": "Morning — it is raining.",
+      "gloss_en": "Morning — the two of us are at the park.",
       "tokens": [
         {
           "t": "朝",
@@ -87,15 +88,33 @@
           "role": "punct"
         },
         {
-          "t": "雨",
-          "r": "あめ",
+          "t": "二人",
+          "r": "ふたり",
           "role": "content",
-          "word_id": "W00002"
+          "word_id": "W00035",
+          "is_new": true
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "公園",
+          "r": "こうえん",
+          "role": "content",
+          "word_id": "W00016"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "role": "content",
+          "word_id": "W00029"
         },
         {
           "t": "。",
@@ -198,24 +217,13 @@
     },
     {
       "idx": 3,
-      "gloss_en": "The book in my hands is quiet.",
+      "gloss_en": "The park is quiet.",
       "tokens": [
         {
-          "t": "私",
-          "r": "わたし",
+          "t": "公園",
+          "r": "こうえん",
           "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "本",
-          "r": "ほん",
-          "role": "content",
-          "word_id": "W00033"
+          "word_id": "W00016"
         },
         {
           "t": "は",
@@ -242,7 +250,7 @@
     },
     {
       "idx": 4,
-      "gloss_en": "My friend's book, too, is quiet.",
+      "gloss_en": "My friend's book is good.",
       "tokens": [
         {
           "t": "友達",
@@ -262,15 +270,14 @@
           "word_id": "W00033"
         },
         {
-          "t": "も",
+          "t": "は",
           "role": "particle",
-          "grammar_id": "G009_mo_also"
+          "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "静か",
-          "r": "しずか",
+          "t": "いい",
           "role": "content",
-          "word_id": "W00011"
+          "word_id": "W00013"
         },
         {
           "t": "です",
@@ -329,8 +336,7 @@
           "t": "二人",
           "r": "ふたり",
           "role": "content",
-          "word_id": "W00035",
-          "is_new": true
+          "word_id": "W00035"
         },
         {
           "t": "と",

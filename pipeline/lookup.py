@@ -267,12 +267,15 @@ def show_by_surface(surface: str) -> None:
 def show_reuse_preflight(spec: str) -> None:
     """
     Given a comma-separated list of word_ids (or 'wid:count' for multi-use),
-    predict the reuse-quota % using the same logic as Check 6.
+    predict whether Check 6's reinforcement floor is met.
+
+    The old percentage rule (≥ 60 % low-occ) was replaced 2026-04-22 by an
+    absolute floor (≥ 6 low-occ tokens per story, or 30% of target, smaller).
+    This preflight reports the count, not a percentage.
 
     Example:
       lookup --reuse-preflight 'W00003:3,W00028:4,W00031:2,W00043:3'
     """
-    from pathlib import Path
     vocab, _ = load_state()
     words = vocab.get("words", {})
 
@@ -302,7 +305,6 @@ def show_reuse_preflight(spec: str) -> None:
         w = words.get(wid)
         if not w:
             print(f"{wid:<10}{'?':<10}{'?':>10}{count:>11}{'?':>11}{'NEW':>8}")
-            # Treat unknowns (= new words to be added) as 0 lifetime → low
             low_count += count
             unknown_count += count
             continue
@@ -313,13 +315,15 @@ def show_reuse_preflight(spec: str) -> None:
             low_count += count
         print(f"{wid:<10}{w.get('surface',''):<10}{lifetime:>10}{count:>11}{effective:>11}{cls:>8}")
 
-    pct = low_count / total * 100
-    verdict = "✓ PASS" if pct >= 60 else "✗ FAIL"
+    # Report against the new absolute floor. We don't know which story id
+    # this preflight is for, so use a conservative default of 6.
+    FLOOR = 6
+    verdict = "✓ PASS" if low_count >= FLOOR else "✗ NEED MORE"
     print("─" * 60)
-    print(f"  Low-occ ratio: {low_count}/{total} = {pct:.0f}%  (need ≥ 60%)  {verdict}")
-    if pct < 60:
-        deficit = int((0.60 * total) - low_count + 0.999)
-        print(f"  → Need to convert {deficit} more high-occ token(s) to low-occ words.")
+    print(f"  Low-occ tokens: {low_count} (need ≥ {FLOOR} per story)  {verdict}")
+    if low_count < FLOOR:
+        deficit = FLOOR - low_count
+        print(f"  → Add {deficit} more low-occ token(s) to hit the reinforcement floor.")
         print(f"  → Run `lookup --low-occ` for candidates.")
     if unknown_count:
         print(f"  Note: {unknown_count} token(s) reference unknown word_id(s) — assumed new (low-occ).")

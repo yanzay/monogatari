@@ -45,13 +45,13 @@
     "W00030",
     "W00031",
     "W00032",
-    "W00003",
     "W00004",
     "W00005",
-    "W00006",
     "W00044",
     "W00011",
-    "W00002",
+    "W00003",
+    "W00006",
+    "W00027",
     "W00013",
     "W00014"
   ],
@@ -92,13 +92,13 @@
     },
     {
       "idx": 1,
-      "gloss_en": "I look out through the window.",
+      "gloss_en": "The moon is outside, beyond the window.",
       "tokens": [
         {
-          "t": "私",
-          "r": "わたし",
+          "t": "月",
+          "r": "つき",
           "role": "content",
-          "word_id": "W00003"
+          "word_id": "W00031"
         },
         {
           "t": "は",
@@ -123,21 +123,15 @@
           "word_id": "W00005"
         },
         {
-          "t": "を",
+          "t": "に",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "G004_ni_location"
         },
         {
-          "t": "見ます",
-          "r": "みます",
+          "t": "あります",
+          "r": "あります",
           "role": "content",
-          "word_id": "W00006",
-          "inflection": {
-            "base": "見る",
-            "base_r": "みる",
-            "form": "polite_nonpast",
-            "word_id": "W00006"
-          }
+          "word_id": "W00044"
         },
         {
           "t": "。",
@@ -241,24 +235,35 @@
     },
     {
       "idx": 4,
-      "gloss_en": "The moon, too, looks at the rain.",
+      "gloss_en": "I look at the moon from the window.",
       "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "窓",
+          "r": "まど",
+          "role": "content",
+          "word_id": "W00004"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
         {
           "t": "月",
           "r": "つき",
           "role": "content",
           "word_id": "W00031"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "雨",
-          "r": "あめ",
-          "role": "content",
-          "word_id": "W00002"
         },
         {
           "t": "を",
@@ -286,7 +291,7 @@
     },
     {
       "idx": 5,
-      "gloss_en": "And then, the night too is quiet.",
+      "gloss_en": "And outside, it is windy.",
       "tokens": [
         {
           "t": "そして",
@@ -298,21 +303,21 @@
           "role": "punct"
         },
         {
-          "t": "夜",
-          "r": "よる",
+          "t": "外",
+          "r": "そと",
           "role": "content",
-          "word_id": "W00030"
+          "word_id": "W00005"
         },
         {
-          "t": "も",
+          "t": "は",
           "role": "particle",
-          "grammar_id": "G009_mo_also"
+          "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "静か",
-          "r": "しずか",
+          "t": "風",
+          "r": "かぜ",
           "role": "content",
-          "word_id": "W00011"
+          "word_id": "W00027"
         },
         {
           "t": "です",

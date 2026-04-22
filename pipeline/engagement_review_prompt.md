@@ -19,9 +19,16 @@ re-read this story tomorrow, send it back.
   reach for richness; they must imply it.
 - Grammar is incremental. The same particle may appear five times.
 - Stories are short — usually 5–8 sentences.
-- Themes must be neutral / cozy / observational. No violence, romance,
-  politics. Stick to weather, food, animals, the apartment, the park,
-  small daily moments.
+- **No topic restrictions.** As of 2026-04-22 the validator no longer
+  blocks any subject matter — review the story on craft (hook, voice,
+  originality, coherence, closure) and on semantic sanity, not on
+  whether the theme is "appropriate". Any subject matter is allowed.
+  *Hint for originality scoring:* a brave thematic choice (loss,
+  grief, conflict, romance, death, war, addiction, real-world
+  specificity) handled with restraint should generally **score higher
+  on originality** than a fifteenth competent cozy-morning vignette.
+  The cozy-only library that grew under the old rules became
+  forgettable; do not penalise stories for reaching for stakes.
 
 These constraints are exactly why voice matters. A graded reader that
 sounds like a textbook (`私はXです。私はYを見ます。`) is forgettable.
@@ -62,6 +69,39 @@ After scoring, set `approved`:
 
 Refuse to approve a story you would not personally enjoy reading.
 "Good enough" is not the standard here; "small but alive" is.
+
+## Honesty pre-check (do this BEFORE scoring)
+
+Before you assign any number, run this checklist line-by-line on every
+sentence. If any answer is "no" or "uncertain", the corresponding
+dimension cannot score above 3, and probably should score 2.
+
+1. **Sense check.** Read the JP. Does the literal proposition make
+   sense in the world? (`本は静かです` — books don't have a faculty of
+   being silent. `月も雨を見ます` in a clear-sky story — there is no
+   rain to look at. Both fail this check.) If it fails, **rewrite
+   before reviewing**, do not approve and "leave a note".
+2. **Gloss faithfulness.** Cover the JP and read only the
+   `gloss_en`. Then uncover the JP. Does the gloss describe what is
+   actually written? Look for invented verbs ("open", "prepare",
+   "leave ready") that have no corresponding token. If the gloss
+   adds, drops, or changes meaning, **rewrite the gloss**.
+3. **Word_id integrity.** For every content token, the `word_id` must
+   identify the actual lemma the surface form derives from. If you
+   are tempted to "borrow" a nearby word_id to smuggle in a verb that
+   isn't in vocab, **stop**: refuse the story (Section 7) instead.
+4. **Continuity.** Time of day, weather, location, and props
+   established in s0–s2 must be respected by every later sentence.
+   No moon at breakfast, no rain in a stars-only story.
+5. **Repetition with the previous story.** If your draft repeats the
+   *previous* story's opener template, location, or closer
+   ("〜、いい朝です"), it is **not original** — score originality 2
+   regardless of how clean the prose is, and rewrite.
+
+A reviewer who waves a story through with "small note: a bit
+repetitive" while scoring 4s is **not doing the job**. The score
+must reflect the failures the prose actually has, even when the
+reviewer is also the author. Especially then.
 
 ## Output
 

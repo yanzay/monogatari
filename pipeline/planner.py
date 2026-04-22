@@ -60,10 +60,18 @@ Read everything below carefully. Output **only** the JSON object — no prose.
   - Acceptance band: {sentence_min}–{sentence_max} sentences, {content_min}–{content_max} content tokens.
   - The validator's Check 7 enforces these bands per story_id; the writer
     will be told the same target. Going outside the band fails the build.
-- At least 60% of content tokens must be previously-seen words with occurrences < 5.
+- The validator's Check 6 enforces a *reinforcement floor* of low-occ
+  tokens per story (replaces the old 60% percentage as of 2026-04-22).
+  Hit the floor and you're done — the rest of the prose is free.
 - New grammar prerequisites must all already exist in grammar_state.
 - New words must be i+1: high-frequency, concrete, combinable with existing vocab.
-- Avoid: violence, romance beyond friendship, politics, religion, graphic content.
+- **No topic restrictions.** As of 2026-04-22 the validator no longer
+  blocks any subject matter — choose whatever theme serves the story.
+  *Hint:* themes the old policy forbade (loss, grief, conflict,
+  romance, death, war, addiction, brand names, real people) are some
+  of the strongest engagement levers available — actively consider
+  them when planning. Cozy is fine but no longer the default. See
+  `pipeline/authoring_rules.md` § 3 for the full hint.
 {theme_hint}
 
 ## Next available word ID
@@ -87,9 +95,7 @@ Produce this exact JSON object:
   "theme": "<2-5 word theme>",
   "setting": "<one sentence describing the scene>",
   "constraints": {{
-    "must_reuse_words": ["<up to 5 word_ids most needing reinforcement>"],
-    "forbidden_words": [],
-    "avoid_topics": ["violence", "romance", "politics"]
+    "must_reuse_words": ["<up to 5 word_ids most needing reinforcement>"]
   }},
   "new_word_definitions": {{
     "<word_id>": {{

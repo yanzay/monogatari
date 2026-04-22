@@ -52,11 +52,14 @@ _CONTENT_PER_SENTENCE = 2.6
 
 SENTENCE_TOLERANCE = 1     # target ± this many sentences
 CONTENT_LOW = 0.7          # target × this is the minimum content-token count
-CONTENT_HIGH = 1.4         # target × this is the maximum content-token count
-                           # (1.4 chosen so story 4's 25 content tokens — the
-                           # densest in the existing library — fits the band
-                           # for an 18-token target story; tighter and we'd
-                           # retroactively reject already-shipped prose.)
+CONTENT_HIGH = 1.5         # target × this is the maximum content-token count
+                           # (raised from 1.4 → 1.5 on 2026-04-22 to give prose
+                           # breathing room after Check 6 was relaxed: under the
+                           # old reuse-quota regime the cap had to be tight to
+                           # stop padding-for-ratio; with Check 6 now an absolute
+                           # floor instead of a percentage, the agent no longer
+                           # has any incentive to pad, so the upper band can
+                           # widen without inviting bloat.)
 
 
 def target_sentences(story_id: int) -> int:

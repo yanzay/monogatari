@@ -147,9 +147,7 @@ Grammar points have prerequisites. The Planner cannot introduce a grammar point 
   "theme": "morning routine",
   "setting": "A student gets ready for school",
   "constraints": {
-    "must_reuse_words": ["W00042", "W00089"],
-    "forbidden_words": [],
-    "avoid_topics": ["violence", "romance", "politics"]
+    "must_reuse_words": ["W00042", "W00089"]
   },
   "seed": 847362
 }
@@ -262,9 +260,10 @@ Difficulty policy for this story:
 
 Constraints (hard):
 - New grammar prerequisites must all exist in grammar_state.
-- Avoid topics: violence, graphic content, politics, romance beyond friendship.
 - New words must be i+1: high-frequency, concrete, and combinable with
   existing vocab without needing additional unseen words to make sense.
+(No topic restrictions — the validator does not gate by subject matter
+ as of 2026-04-22; choose any theme that serves the story.)
 
 Produce plan.json. Explain your word choices in a "rationale" field
 (will not be shown to learner).
@@ -301,11 +300,13 @@ This is code, not Rovo Dev. It is the guardrail that makes the whole system trus
 3. **Closed grammar.** Every `grammar_id` exists in `grammar_state.json` OR in `plan.json.new_grammar`.
 4. **Budget.** Exactly the planned new words appear, each at least once. No extra new words. At most the planned new grammar.
 5. **Surface ↔ ID consistency.** The `t` (surface text) matches the dictionary surface for the referenced word, OR the inflection block correctly derives it (we apply a small deterministic conjugation check for ichidan, godan, and irregular verbs + i-adjectives; see Section 6).
-6. **Reuse quota.** ≥ 60% of content tokens reference words with occurrences < 5 in current state (reinforcement check).
-7. **Length.** Sentence count 5–8, total content tokens in target range.
-8. **No forbidden topics.** A keyword heuristic flags the `gloss_en` for disallowed content (violence, romance, politics, etc.).
-9. **Gloss sanity.** The English gloss is non-empty and roughly as long as expected (heuristic: 0.8×–3.0× token count in words).
+6. **Reinforcement floor.** Replaced the old "≥ 60 % of content tokens must be low-occ" percentage on 2026-04-22. The story must include at least 6 content tokens (or 30 % of the target_content_tokens, whichever is smaller) that point at words with effective occurrences < 5. Hit the floor and the rest of the prose is free. Library-level reinforcement is handled by a starvation-alarm warning that surfaces low-occ words unused in the last 5 stories.
+7. **Length.** Sentence count and content-token count within the progression band (see `pipeline/progression.py`).
+8. **REMOVED.** The "forbidden topics" check was deleted entirely on 2026-04-22 by explicit product decision — the validator no longer imposes any subject-matter restrictions on stories. Check number left intact so existing references stay stable.
+9. **Gloss sanity.** The English gloss is non-empty. Length ratios outside the warning band 0.8–3.0× (EN words / JP tokens) emit a warning; ratios outside the hard error band 0.5–4.0× emit an error (the latter is almost always a mistranslation).
 10. **Round-trip.** Re-joining all `t` values should produce a clean Japanese sentence (no double spaces, no stray fragments).
+11. **Semantic-sanity lint** (added 2026-04-22). A conservative pattern table that catches the nonsense the mechanical validators silently allow: inanimate-thing-is-quiet (`本は静かです`), tomorrow's-X-eaten-today (`明日のお茶を飲みます`), `〜と思います` for self-known facts (`夜だと思います` at night), word_id pointing at the wrong part of speech, and lonely scene nouns (warning). See `pipeline/semantic_lint.py`.
+12. **Motif rotation** (added 2026-04-22, warning only). Computes Jaccard overlap of content `word_id`s with the previous 3 stories; warns when overlap ≥ 55 % so the engagement reviewer can decide whether the continuation is justified.
 
 **Failure policy:** If validation fails, the pipeline feeds the errors back to the Writer (max 3 retry cycles). If still failing, the pipeline stops and the developer is notified with the diagnostic JSON.
 
@@ -356,9 +357,9 @@ This is the document handed to Rovo Dev in-context for stage 2 (Story Writer). I
 
 ### 5.3 Content rules
 
-- **Tone:** calm, slice-of-life, age-neutral. The learner is an adult reading for comprehension.
-- **Avoid:** graphic violence, sexual content, politics, religion, brand names, real people, medical/legal advice, anything that could be read as instruction for harm.
-- **Settings** that work well at beginner levels: home, school, train, park, café, kitchen, weather, routines, small emotions (tired, curious, happy, a little lonely).
+- **Tone:** the author chooses the tone the story needs. The defaults are calm and slice-of-life because they suit beginner-level vocab, but no tone or theme is required.
+- **No topic restrictions** (changed 2026-04-22). Any subject matter is allowed; the validator's old "Avoid" list and Check 8 were removed by explicit product decision.
+- **Settings** that work well at beginner levels (suggestions, not requirements): home, school, train, park, café, kitchen, weather, routines, small emotions (tired, curious, happy, a little lonely).
 - A story should have a tiny narrative shape: something changes, however small. Not just a list of facts. "I wake up. I brush my teeth. I go to school." is weaker than "I wake up. It is raining. I drink warm tea and feel better."
 
 ### 5.4 Output format rules

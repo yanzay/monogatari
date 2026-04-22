@@ -110,6 +110,16 @@ def _validate_review(review: dict) -> list[str]:
             errs.append(f"scores.{d} must be an int 1..5 (got {v!r})")
     if not isinstance(review.get("approved"), bool):
         errs.append("approved must be a boolean")
+    # Review-honesty gate (added 2026-04-22): if the reviewer's own free-text
+    # notes describe the prose as repetitive / awkward / nonsensical, the
+    # corresponding numeric score must reflect that. Catches the failure
+    # mode where reviewers were waving stories through with "small note: a
+    # bit repetitive" while still scoring originality 4.
+    try:
+        from review_lint import review_honesty_issues
+        errs.extend(review_honesty_issues(review))
+    except ImportError:
+        pass  # module missing — soft-skip (back-compat)
     return errs
 
 

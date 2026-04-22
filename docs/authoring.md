@@ -96,20 +96,23 @@ Rovo Dev will author the story following `pipeline/authoring_rules.md`:
 python3 pipeline/run.py --step 3
 ```
 
-Runs `pipeline/validate.py` — 10 deterministic checks:
+Runs `pipeline/validate.py` — 12 deterministic checks (10 mechanical + 2 content-quality, added 2026-04-22):
 
 | # | Check |
 |---|-------|
 | 1 | Schema validity |
 | 2 | Closed vocabulary (all word_ids known) |
 | 3 | Closed grammar (all grammar_ids known) |
-| 4 | Budget (exactly planned new words, all used) |
+| 3.5 | JLPT-tier progression (new grammar can't outrun the curve) |
+| 4 | Budget (exactly planned new words, all used; new vocab ≥ 1× / new grammar ≥ 2×) |
 | 5 | Surface ↔ ID consistency + inflection correctness |
-| 6 | Reuse quota (≥ 60% of content tokens have occ < 5) |
-| 7 | Length (5–8 sentences, within target token count) |
-| 8 | No forbidden topics in gloss_en |
-| 9 | Gloss sanity (non-empty, plausible length ratio) |
+| 6 | **Reinforcement floor** — at least 6 low-occ content tokens per story (replaces the old 60 % quota; see v0.11) |
+| 7 | Length (within the per-story progression band; see `pipeline/progression.py`) |
+| 8 | **REMOVED** (2026-04-22) — the forbidden-topic check was deleted entirely; the validator no longer imposes any subject-matter restrictions. Number left intact for stability. |
+| 9 | Gloss sanity — warning band 0.8–3.0×, hard error band 0.5–4.0× (the latter catches mistranslations) |
 | 10 | Round-trip (no double spaces, no stray ASCII, terminal punct) |
+| **11** | **Semantic-sanity lint** (added v0.11) — inanimate-thing-is-quiet, tomorrow's-X-eaten-today, `〜と思います` for self-known facts, word_id ↔ pos mismatch, lonely scene noun |
+| **12** | **Motif rotation** (added v0.11, warning only) — Jaccard ≥ 55 % overlap with any of the previous 3 stories surfaces a warning |
 
 If validation **fails**, ask Rovo Dev to fix `pipeline/story_raw.json` based on the error messages, then retry step 3.
 
@@ -186,11 +189,11 @@ Run `python3 pipeline/planner.py --validate pipeline/plan.json` after any edit.
 |-----------|-------|
 | New words per story | 3 (default), adjust with `--n-new-words` |
 | New grammar per story | 0 or 1 |
-| Sentence count | 5–8 |
-| Content token target | 28–65 (varies by story) |
-| Reuse quota | ≥ 60% of content tokens must have `occurrences < 5` |
-| New word repetition | Each new word must appear ≥ 2× |
-| New grammar repetition | New grammar must appear ≥ 3× |
+| Sentence count | per progression band (see `pipeline/progression.py`) |
+| Content tokens | per progression band (target × 0.7–1.5) |
+| Reinforcement floor | ≥ 6 low-occ content tokens per story (or 30% of target, whichever is smaller) — replaces the old 60% percentage |
+| New word repetition | Each new word must appear ≥ 1× (relaxed 2026-04-22; library-level reinforcement via starvation alarm) |
+| New grammar repetition | New grammar must appear ≥ 2× (a pattern needs to be visible twice to register) |
 
 ---
 
@@ -379,7 +382,7 @@ python3 pipeline/run.py --step 4 --tts-backend google --tts-encoding MP3
 | `kana` (in plan)   | `kana` ← fine, but you also need `reading` |
 | `meaning_en`       | `meanings` (array) |
 | `verb_class: ichidan` | `verb_class: "ichidan"` (string, may be `null`) |
-| `constraints: [...]` | `constraints: { must_reuse_words, forbidden_words, avoid_topics }` (object) |
+| `constraints: [...]` | `constraints: { must_reuse_words }` (object — `forbidden_words` / `avoid_topics` were removed 2026-04-22) |
 | `new_grammar` lists already-shipped points | Only list grammar that is NOT already in `data/grammar_state.json` |
 
 The scaffold tool enforces the canonical names. Use it.

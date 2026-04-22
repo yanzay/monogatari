@@ -1,0 +1,55 @@
+{
+  "story_id": 13,
+  "theme": "A quiet reading morning by the window",
+  "setting": "Home, by the window in the morning",
+  "target_jlpt": "N4",
+  "target_sentences": 8,
+  "max_sentences": 8,
+  "target_word_count": 21,
+  "reuse_words": [
+    "W00001",
+    "W00003",
+    "W00004",
+    "W00006",
+    "W00011",
+    "W00013",
+    "W00015",
+    "W00022",
+    "W00028",
+    "W00029",
+    "W00033",
+    "W00034",
+    "W00037",
+    "W00043",
+    "W00044"
+  ],
+  "new_words": [
+    "W00045"
+  ],
+  "new_word_definitions": {
+    "W00045": {
+      "surface": "そば",
+      "kana": "そば",
+      "reading": "soba",
+      "pos": "noun",
+      "meanings": [
+        "side",
+        "near",
+        "nearby"
+      ]
+    }
+  },
+  "new_grammar": [
+    "G018_toki_when"
+  ],
+  "new_grammar_definitions": {
+    "G018_toki_when": {
+      "title": "〜とき — when",
+      "short": "temporal subordinate clause",
+      "long": "Attaches to a clause to mean 'when' or 'at the time of doing'. In this story it appears after the plain nonpast verb 読む in 本を読むとき.",
+      "jlpt": "N4",
+      "catalog_id": "N4_toki",
+      "prerequisites": []
+    }
+  }
+}

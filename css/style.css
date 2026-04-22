@@ -222,18 +222,9 @@ body {
   font-size: 0.72rem;
   color: var(--text-muted);
 }
-.story-card-progress {
-  height: 4px;
-  background: var(--bg);
-  border-radius: 2px;
-  overflow: hidden;
-}
-.story-card-progress > span {
-  display: block;
-  height: 100%;
-  background: var(--accent);
-  transition: width 0.3s ease;
-}
+/* .story-card-progress styles removed 2026-04-22 — the per-sentence
+   progress bar on library cards was dropped along with sentence-level
+   progress tracking. */
 .story-card-badge {
   display: inline-block;
   padding: 0.1rem 0.4rem;
@@ -313,22 +304,11 @@ body {
 .token-audio-icon:hover, .sentence-audio-icon:hover { opacity: 1; }
 .sentence-wrap.playing { background: var(--accent-soft); border-radius: var(--radius-sm); }
 
-/* Sentence progress dots */
-.progress-dots {
-  display: flex;
-  gap: 0.4rem;
-  margin: 0.25rem 0 1rem 0;
-}
-.progress-dot {
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 50%;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  transition: background 0.15s, border-color 0.15s;
-}
-.progress-dot.read     { background: var(--accent); border-color: var(--accent); }
-.progress-dot.current  { background: var(--gold); border-color: var(--gold); }
+/* Sentence-progress-dot styles removed 2026-04-22 along with the
+   #progress-dots element in index.html and renderProgressDots() in
+   js/app.js. The product no longer tracks per-sentence progress; a
+   story is "done" only when the learner explicitly presses
+   "Mark as read → add to SRS". */
 
 /* Vocab filters row */
 .vocab-filters {

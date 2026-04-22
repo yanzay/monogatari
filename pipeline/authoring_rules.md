@@ -20,9 +20,16 @@ Read it completely before generating. These rules are non-negotiable.
   use its dictionary form when grammatically natural. Inflected introductions
   are allowed only for auxiliary verbs or words that are unnatural in isolation.
 
-- **Repeat new words.** Each new word must appear at least twice in the story.
-  Aim to introduce it early (sentence 1–3) and revisit it toward the end
-  (sentence 5–8) so the learner encounters it in two different contexts.
+- **New words need ≥ 1 occurrence in the introducing story.** A second
+  occurrence is welcome but no longer required (relaxed 2026-04-22). The
+  reason: the old "≥ 2x in this story" rule was the engine of the
+  worksheet-y `私は本を読みます。/友達も本を読みます。` parallel-pair
+  construction. Reinforcement is now a *library*-level concern: the
+  validator's Check 6 starvation alarm flags any low-occ word that has
+  not been seen in the last 5 stories, and the next planner's
+  `--weak` list will surface candidates for the next story to revisit.
+  If a second occurrence in the same story falls naturally out of the
+  prose, keep it; if it would force a parallel-pair, don't.
 
 - **Prefer concreteness.** When choosing new words, prefer physical and
   observable things (rain, window, tree, cup) over abstract nouns or adverbs.
@@ -62,19 +69,60 @@ Read it completely before generating. These rules are non-negotiable.
   Good: "It is raining. I drink warm tea. I feel calm."
   Weak: "I wake up. I eat. I go to school." (no emotional beat)
 
-- **Settings that work well at beginner levels:**
+- **Setting suggestions** (not requirements; pick whatever serves the
+  story you want to write):
   home, kitchen, garden, park, café, train, school, weather, morning/evening
   routines, small emotions (tired, calm, curious, a little lonely, content).
 
-- **Avoid absolutely:**
-  - graphic violence or injury
-  - sexual content or romantic content beyond platonic warmth
-  - politics, religion, elections, governments
-  - brand names, real people, celebrities
-  - medical or legal advice
-  - anything that could be read as instruction for harm
-  - drug or alcohol use
-  - death or suicide
+- **No topic restrictions.** As of 2026-04-22 the validator no longer
+  blocks any subject matter (the old "Avoid absolutely" list was
+  removed along with Check 8). Any theme is allowed — violence,
+  romance, politics, religion, death, drugs, brand names, real people,
+  any of the things the older draft of this document forbade. Choose
+  whatever subject matter the *story* needs. The other content rules
+  (concrete imagery, narrative arc, semantic sanity, faithful gloss)
+  still apply regardless of theme.
+
+- **Embrace high-stakes themes — they are usually engagement gold.**
+  The cozy-only library that grew under the old rules became
+  forgettable precisely because every story pulled back from anything
+  with stakes. The themes the old policy forbade are some of the
+  *best* engagement levers you have:
+  - **Loss & grief** — a missing cat, a friend who stopped writing,
+    an empty chair at the table. A six-sentence story about a small
+    grief lands harder than a six-sentence story about tea.
+  - **Conflict & quiet anger** — an argument with a friend, a
+    sibling who took your book, a neighbour playing music too loud.
+    Even at beginner vocab you can do "the friend doesn't speak. I
+    drink my tea. The tea is cold."
+  - **Romance & intimacy** — a first date, a remembered hand, a
+    letter that could be read two ways. Quiet eroticism doesn't need
+    explicit vocab; it needs implication.
+  - **Death, illness, mortality** — the cat is old. The grandmother
+    sleeps a lot now. A snowfall on the day of a funeral. These are
+    the universal subjects — graded readers that lean into them
+    feel like literature, not flashcards.
+  - **Politics, war, displacement** — refugee in a new country,
+    family separated by a border, a soldier writing home. The N5
+    vocab can absolutely carry a war story; what makes it a war
+    story is the *omissions*, not heavy vocabulary.
+  - **Drugs, alcohol, addiction** — a cup of sake at the end of a
+    long day, a friend who drinks too much, a morning of regret.
+  - **Brand names, real people, real places** — `スターバックス`,
+    `村上春樹`, `京都駅`. Specificity beats vagueness; "the café"
+    is forgettable, "Doutor at 7am on a Tuesday" is alive.
+
+  None of this requires graphic detail. Restraint at the *imagery*
+  level is what makes hard topics work in beginner prose: imply, do
+  not show. The most powerful sentence in a grief story is often
+  the one that doesn't mention the loss directly. *That* is the
+  craft you should be reaching for now that the topic gate is gone.
+
+- **Cozy is still allowed, just no longer the default.** A small
+  observational morning is a perfectly valid story. The point of
+  removing the gate is not "every story must be heavy" — it is "the
+  agent should pick the theme the story needs, and high-stakes
+  themes are now an option on equal footing with cozy ones".
 
 ---
 
@@ -213,12 +261,146 @@ These pulled past stories under the bar and forced revisions:
 - **Definition as opener.** `XはYとZです` is a useful sentence but a
   weak hook. If you want the definition, place it second; lead with
   a sensory beat.
-- **Gloss inflation.** Don't write `gloss_en` "After that, I eat my
-  breakfast." if the JP has no それから. Glosses must reflect what is
-  actually in the JP.
+- **Gloss inflation / mistranslation.** Don't write `gloss_en` "After
+  that, I eat my breakfast." if the JP has no それから. Glosses must
+  faithfully reflect *what is in the JP*. If the JP token sequence
+  doesn't say "open", the gloss may not say "open". If the JP says
+  「飲んでおきます」, the gloss must convey the ~ておく nuance ("go
+  ahead and drink in advance"), not invent "leave the tea ready".
 - **Subject-grind.** Five `私は…` openers in a row. Drop the subject
   when context allows — Japanese is generous about this and the
   narrator immediately sounds less like a worksheet.
+
+### Semantic-sanity anti-patterns (the "is this even a sentence?" bar)
+
+A sentence may pass closed-vocab + grammar validation and still be
+**nonsense**. These are the recurring failure modes seen in stories
+1–15. If you catch yourself writing one, stop and rewrite the line.
+
+- **Inanimate things ascribed observer/agent properties.**
+  `私の本は静かです` ("the book is quiet"). Books, letters, eggs do
+  not have a faculty of being silent. Quietness belongs to *people,
+  rooms, places, weather, animals* — never to objects. Same goes for
+  `お茶は温かいです` (fine — temperature) vs `お茶は静かです` (not fine).
+- **Imagery the story did not establish.** `月も雨を見ます` ("the moon
+  also looks at the rain") in a *night-and-stars* story that never
+  mentioned rain. Every image must be motivated by something earlier
+  in the same story. If you reach for a motif, check it appears in an
+  earlier sentence; if not, either add it earlier or pick a different
+  closer.
+- **`〜と思います` for facts the narrator already knows.**
+  `静かな月、夜だと思います` ("Quiet moon — I think it is night")
+  while the narrator is *already at night*. と思います is for
+  inferences, hypotheses, opinions. It is not a hedge to bolt onto a
+  fact. Use it for `猫はいい友達だと思います` (opinion) or
+  `猫も窓を見ると思います` (inference about another's behaviour).
+- **Future-tense actions whose completion happens before the present
+  time.** `明日のお茶を飲みます` ("I will drink tomorrow's tea") spoken
+  *today* is illogical — tomorrow's tea does not yet exist. Either
+  drop the 「明日の」 or change the verb to 〜ておく ("I'll go ahead
+  and drink some now") and let the gloss reflect the prep nuance.
+- **Calque English literalism.** `本は静かです` glossed as "the book in
+  my hands is quiet" inserts "in my hands" out of nowhere; the JP has
+  no such phrase. The gloss is for comprehension of the JP, not for
+  rescuing a sentence the JP does not actually convey.
+- **Word_id ≠ surface.** Tagging `行きます` with `word_id: W00047`
+  because there's no entry for 行く is a data crime. If a verb you
+  need is not in vocab, restructure the sentence. The word_id must
+  always identify the actual lemma the surface inflects from.
+- **Setting/time mismatch.** `今朝、月を見ます` ("This morning, I look
+  at the moon") — the moon is generally not visible in the morning.
+  Same for "stars at noon", "sun at midnight", "rain in the desert
+  apartment". Check that the time-of-day in s0/s1 is consistent with
+  every observation later in the story.
+
+### Variety guard (how to stop the library sounding the same)
+
+The library currently leans hard on a small palette: 窓 / 雨 / 静か /
+お茶 / look-out-the-window / "いい朝です" closer. Before authoring,
+glance at the recent 3–5 stories and *don't repeat* the most prominent
+motifs unless you are explicitly building on them.
+
+- **Window-and-look quota.** No more than one "look out the window"
+  scene every 4 stories. If your draft has the narrator at the window
+  and the previous story did too, change setting (porch, kitchen,
+  desk-side, café table, garden bench).
+- **Adjective rotation.** `静か` is a useful word but the library
+  reaches for it as a default. If the previous story already closed
+  on `静か`, pick `温かい`, `いい`, or describe the scene in nouns
+  (`月と星、夜の空。`) instead of adjectives.
+- **Closer rotation.** `〜、いい朝/夜/気分です` is a strong template
+  but it has been used in stories 1, 4, 6, 7, 8, 9, 11, 13. Find
+  another shape: a short sentence-fragment image
+  (`窓のそばの本。`), a question to nobody (`明日も雨かな。`), a
+  sensory verb beat (`星を見ます。`). Don't always cash out the story
+  on a feeling.
+- **Theme rotation.** Look at the last three stories' themes (weather,
+  cat, friend-letter, books, etc.) and pick something else. The
+  recent over-rotation on rain + cat + letter is exactly the failure
+  mode this guard exists to prevent.
+
+---
+
+## 6.5 Validator philosophy: content first, math second
+
+The validator (`pipeline/validate.py`) was reformed on 2026-04-22 to stop
+fighting natural prose. The old regime had three rules that were quietly
+*causing* the nonsense and repetition the audit caught:
+
+1. **Old Check 6** demanded ≥ 60 % of content tokens be "low-occ" — which
+   forced authors to pad with weird-noun-heavy sentences once natural
+   verbs/adjectives crossed the lifetime threshold. **Replaced** with
+   an absolute floor (≥ 6 low-occ tokens, or ≤ 30 % of target — whichever
+   is smaller). Once you've hit the floor, the rest of the prose is free.
+2. **Old Check 4** required every new noun to appear ≥ 2× in the same
+   story — the engine of the parallel-pair worksheet feel. **Relaxed**
+   to ≥ 1× for vocabulary; new *grammar* still requires ≥ 2× because a
+   pattern needs to be visible twice to register as a pattern.
+3. **Old Check 8** was bag-of-words on the English gloss, so "I love
+   rain" tripped it. **Replaced** with a small phrase blacklist that
+   targets actual unsafe content.
+
+Two new content-quality checks were added:
+
+- **Check 11 — Semantic-sanity lint** (errors and warnings). A
+  conservative pattern table that catches the actual nonsense the audit
+  found: inanimate-thing-is-quiet (`本は静かです`), tomorrow's-X-eaten-
+  today (`明日のお茶を飲みます`), `〜と思います` for self-known
+  facts (`夜だと思います` at night), word_id-points-at-wrong-pos, and
+  lonely scene nouns. Rules are deliberately narrow — they only fire on
+  patterns we have direct audit evidence cause defects, and they
+  exclude common JP idioms (静かな月, 静かな朝, 静かな部屋 are all fine).
+- **Check 12 — Motif rotation** (warning only). Surfaces high
+  vocabulary overlap (Jaccard ≥ 55 %) with any of the previous 3
+  stories. Never blocks ship; the engagement reviewer decides whether
+  the continuation is justified.
+
+A **review-honesty gate** (`pipeline/review_lint.py`) was added to
+the engagement review. If the reviewer's free-text notes contain
+"repetitive", "calque", "awkward", "nonsense", etc. and the
+corresponding numeric score is > 3, the review is rejected. This
+forces the score to reflect the prose-level criticism the reviewer
+already wrote down.
+
+### What this means for the author
+
+- **Don't twist the prose to satisfy a percentage.** There is no
+  percentage anymore. Hit the absolute floor of 6 low-occ tokens and
+  the math is done. Pick the next sentence for what the *story* needs.
+- **Don't repeat a noun "for reinforcement".** A second occurrence
+  that falls naturally out of the scene is welcome; one wedged in to
+  satisfy a counter is what made stories 1–10 sound like worksheets.
+- **Trust the starvation alarm.** When validate.py warns "W00018 has
+  not appeared in the last 5 stories", that is the system telling
+  the *next* planner to use 卵 — not telling *you* to wedge it into
+  this story.
+- **Treat Check 11 errors as content bugs.** They are not arbitrary;
+  every rule comes from a real shipped defect. If a Check 11 error
+  fires on your draft, the JP literally doesn't make sense — fix the
+  prose, don't disable the rule.
+- **Treat Check 12 warnings as a planning prompt.** A 60 % overlap
+  with the previous story is a sign you're recycling the setting;
+  rotate the theme.
 
 ---
 

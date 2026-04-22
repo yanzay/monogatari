@@ -139,21 +139,6 @@
       "idx": 2,
       "tokens": [
         {
-          "t": "私",
-          "r": "わたし",
-          "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
           "t": "猫",
           "r": "ねこ",
           "role": "content",
@@ -165,10 +150,10 @@
           "grammar_id": "G009_mo_also"
         },
         {
-          "t": "雨",
-          "r": "あめ",
+          "t": "窓",
+          "r": "まど",
           "role": "content",
-          "word_id": "W00002"
+          "word_id": "W00004"
         },
         {
           "t": "を",
@@ -211,7 +196,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think the cat, too, looks at the rain.",
+      "gloss_en": "I think the cat is looking at the window too.",
       "audio": "audio/story_12/s2.mp3"
     },
     {
@@ -399,24 +384,24 @@
           "role": "punct"
         },
         {
-          "t": "月",
-          "r": "つき",
+          "t": "猫",
+          "r": "ねこ",
           "role": "content",
-          "word_id": "W00031"
+          "word_id": "W00028"
         },
         {
-          "t": "を",
+          "t": "は",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "見ます",
-          "r": "みます",
+          "t": "寝ます",
+          "r": "ねます",
           "role": "content",
-          "word_id": "W00006",
+          "word_id": "W00038",
           "inflection": {
-            "base": "見る",
-            "base_r": "みる",
+            "base": "寝る",
+            "base_r": "ねる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           }
@@ -426,38 +411,28 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "And then — I look at the moon.",
+      "gloss_en": "And then the cat sleeps.",
       "audio": "audio/story_12/s6.mp3"
     },
     {
       "idx": 7,
       "tokens": [
         {
-          "t": "静か",
-          "r": "しずか",
+          "t": "風",
+          "r": "かぜ",
           "role": "content",
-          "word_id": "W00011"
+          "word_id": "W00027"
         },
         {
-          "t": "な",
+          "t": "の",
           "role": "particle",
-          "grammar_id": "G016_na_adjective"
+          "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "月",
-          "r": "つき",
+          "t": "朝",
+          "r": "あさ",
           "role": "content",
-          "word_id": "W00031"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "夜",
-          "r": "よる",
-          "role": "content",
-          "word_id": "W00030"
+          "word_id": "W00015"
         },
         {
           "t": "だ",
@@ -486,7 +461,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Quiet moon — I think, it is night.",
+      "gloss_en": "I think — it is a windy morning.",
       "audio": "audio/story_12/s7.mp3"
     }
   ],
@@ -505,9 +480,7 @@
     "W00042",
     "W00013",
     "W00022",
-    "W00031",
-    "W00011",
-    "W00030"
+    "W00038"
   ],
   "new_words": [
     "W00043"

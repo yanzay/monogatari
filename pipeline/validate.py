@@ -228,9 +228,38 @@ REQUIRED_SENTENCE_FIELDS       = {"idx", "tokens", "gloss_en"}
 
 SENTENCE_MIN = 5
 SENTENCE_MAX = 8
-REUSE_QUOTA  = 0.60   # ≥ 60% of content tokens must be words with occurrences < 5
+
+# ── Check 6 (reuse) tunables ──────────────────────────────────────────────────
+# Replaces the old REUSE_QUOTA percentage (0.60) on 2026-04-22.
+#
+# Why we changed it: the percentage rule punished any story containing natural
+# prose (the very common verbs/adjectives like 見る・いい・私 cross the
+# under-practiced threshold by story 8, after which every additional natural
+# sentence makes the percentage worse). It rewarded weird-noun padding and was
+# the single biggest source of "the book in my hands is quiet"-style nonsense
+# in the audit. The new rule asks for an absolute reinforcement floor instead:
+# every story must include at least N tokens that point at under-practiced
+# words, but the rest of the prose is free to be natural.
+REUSE_FLOOR_TOKENS    = 6     # at least this many low-occ tokens per story
+REUSE_FLOOR_FRACTION  = 0.30  # …or 30% of target_content_tokens, whichever is
+                              # SMALLER (i.e. shorter stories get a smaller
+                              # absolute requirement). Never below 3.
+LOW_OCCURRENCE_LIMIT  = 5     # what counts as "under-practiced"
+
+# Library-level starvation: warn if a low-occ word hasn't been seen in this
+# many stories. This pushes the reinforcement decision to the next story's
+# planner instead of forcing it on the current author's word arithmetic.
+STARVATION_GAP_STORIES = 5
+
+# ── Check 9 (gloss) tunables ──────────────────────────────────────────────────
+# Warning band: ratios outside this trigger a warning (advisory).
 GLOSS_MIN_RATIO = 0.8
 GLOSS_MAX_RATIO = 3.0
+# Error band: ratios outside this trigger a hard error (almost always means
+# the gloss is mistranslated — see the audit's "open the door" / "leave the
+# tea ready" cases). Promoted from warning-only on 2026-04-22.
+GLOSS_ERROR_MIN_RATIO = 0.5
+GLOSS_ERROR_MAX_RATIO = 4.0
 
 
 def has_kanji(text: str) -> bool:
@@ -677,12 +706,23 @@ def validate(
         if wid not in word_ids_used:
             result.add_error(4, f"new_word '{wid}' declared but never used in tokens")
 
-    # Reuse minima: in a normal story we expect each new word/grammar
-    # to appear at least twice for reinforcement. Bootstrap/intro stories
-    # introduce many new items and can't always meet that — so the rule
-    # is relaxed when the story carries an unusually large new-word budget.
+    # Reuse minima — relaxed for new vocabulary on 2026-04-22.
+    #
+    # Old rule: every new word AND every new grammar point had to appear ≥ 2x
+    # in the same story. That was the engine of the "私は本を読みます。
+    # 友達も本を読みます。" parallel-construction worksheet feel — the agent
+    # had no choice but to repeat the noun in the next sentence, even when the
+    # natural flow would have introduced it once and then moved on.
+    #
+    # New rule:
+    #   * new GRAMMAR still requires ≥ 2 occurrences per story (a structural
+    #     pattern needs to be visible twice for the learner to recognise it
+    #     as a pattern rather than a one-off).
+    #   * new VOCABULARY needs only ≥ 1 occurrence in the introducing story.
+    #     Reinforcement is now a LIBRARY-level concern handled by Check 6's
+    #     starvation alarm and by the next planner's --weak word suggestions.
     bootstrap_story = len(story_new_words) >= 8 or len(story_new_grammar) >= 4
-    new_word_min_uses    = 1 if bootstrap_story else 2
+    new_word_min_uses    = 1                 # always 1 (new vocab) — see above.
     new_grammar_min_uses = 1 if bootstrap_story else 2
 
     repeated_new_words = words_repeated_twice(story, story_new_words)
@@ -800,33 +840,31 @@ def validate(
                         loc,
                     )
 
-    # ── Check 6: Reuse quota ──────────────────────────────────────────────────
-    # The reuse rule says ≥ 60% of content tokens must reference words with
-    # occurrences < 5 — i.e. the story should be doing real reinforcement of
-    # under-practiced vocabulary. Bootstrap stories (lots of new words at once)
-    # are exempt because they're introducing words, not reinforcing them.
+    # ── Check 6: Reinforcement floor (replaces old reuse-quota percentage) ───
+    # The library still wants every story to do *some* real reinforcement of
+    # under-practiced vocabulary, but the old "≥ 60 % of content tokens must
+    # be low-occ" rule punished any story that contained natural prose (common
+    # verbs/adjectives like 見る・いい・私 cross the threshold by story 8, after
+    # which every natural sentence makes the percentage worse). That regime
+    # was the single biggest cause of nonsense lines like 「本は静かです」 in
+    # the 2026-04-22 audit: weird, low-occ-noun-heavy sentences were cheaper
+    # to write than natural ones.
     #
-    # IMPORTANT: occurrences must be measured AS OF THE STORY'S SHIP TIME, not
-    # the current lifetime total. The lifetime total in vocab_state.json keeps
-    # climbing every time a later story uses the word; re-validating an older
-    # story against the current totals would punish words that have since
-    # become well-practiced for being "no longer low-occ" — even though they
-    # were low-occ when this story shipped. We compensate by subtracting this
-    # story's own uses AND every later story's uses from the lifetime total.
+    # The replacement rule asks for an *absolute floor* of reinforcement
+    # tokens. Hit the floor and you're done — the rest of the prose is free
+    # to be as natural as it needs to be.
+    #
+    # IMPORTANT: occurrences are still measured AS OF THE STORY'S SHIP TIME,
+    # not the current lifetime total (so re-validating an older story against
+    # the current vocab_state never retroactively fails it). We do this by
+    # subtracting this story's own uses AND every later story's uses from
+    # the lifetime total.
     if content_tokens and not bootstrap_story:
         sid = story.get("story_id", 0)
 
-        # Build a "discount table": for every word_id, how many uses appear in
-        # this story plus every story with a larger story_id (ship-time = now
-        # minus future contributions). story_id=0 is the test-fixture sentinel
-        # — don't discount in that case (the fixture is asking "what does Check
-        # 6 say if the words really are at this occurrence count?", which is
-        # the correct question for that test).
+        # Build the discount table (same logic as before — count STORIES, not
+        # tokens, to match state_updater.py's per-story-once increment rule).
         discount: dict[str, int] = {}
-        # Match the (simplified) semantics used by state_updater.py: lifetime
-        # occurrence is incremented ONCE per story that uses a word, regardless
-        # of how many tokens reference it within that story. Discount logic
-        # therefore counts STORIES, not tokens.
         def stories_using(story_obj: dict) -> set[str]:
             wids: set[str] = set()
             for sent in story_obj.get("sentences", []):
@@ -837,10 +875,8 @@ def validate(
             return wids
 
         if sid > 0:
-            # 1. Subtract this story (1 per word_id used).
             for wid in stories_using(story):
                 discount[wid] = discount.get(wid, 0) + 1
-            # 2. Subtract every story with story_id > this one (1 each).
             try:
                 from pathlib import Path
                 stories_dir = Path(__file__).resolve().parent.parent / "stories"
@@ -858,7 +894,7 @@ def validate(
                     for wid in stories_using(other):
                         discount[wid] = discount.get(wid, 0) + 1
             except Exception:
-                pass  # Directory unreadable — fall back to lifetime counts.
+                pass
 
         reinforcement_count = 0
         for tok in content_tokens:
@@ -867,15 +903,80 @@ def validate(
                 word = words_dict.get(wid)
                 lifetime_occ = word.get("occurrences", 0) if word else 0
                 effective_occ = max(0, lifetime_occ - discount.get(wid, 0))
-                if effective_occ < 5:
+                if effective_occ < LOW_OCCURRENCE_LIMIT:
                     reinforcement_count += 1
-        ratio = reinforcement_count / len(content_tokens)
-        if ratio < REUSE_QUOTA:
+
+        # Compute the absolute floor for this story's size. Use the
+        # progression curve's target_content_tokens if available; fall back
+        # to the actual content-token count otherwise.
+        try:
+            from progression import target_content_tokens as _tgt_for_floor
+            target_content = _tgt_for_floor(sid) if isinstance(sid, int) and sid > 0 else len(content_tokens)
+        except Exception:
+            target_content = len(content_tokens)
+        proportional_floor = int(target_content * REUSE_FLOOR_FRACTION)
+        floor = max(3, min(REUSE_FLOOR_TOKENS, proportional_floor))
+
+        if reinforcement_count < floor:
             result.add_error(
                 6,
-                f"Reuse quota not met: {ratio:.0%} of content tokens were low-occ at "
-                f"ship time (minimum {REUSE_QUOTA:.0%}). ({reinforcement_count}/{len(content_tokens)})"
+                f"Reinforcement floor not met: {reinforcement_count} content "
+                f"token(s) point at under-practiced words (occ<{LOW_OCCURRENCE_LIMIT}), "
+                f"need at least {floor}. Add a sentence that reuses a recently-"
+                f"introduced noun, verb, or adjective. (Lifetime targets are in "
+                f"`pipeline/lookup.py --weak`.)"
             )
+
+        # Library-level starvation alarm (warning only). For each known word
+        # with effective_occ < LOW_OCCURRENCE_LIMIT that has *not* been used
+        # within the last STARVATION_GAP_STORIES stories, surface a warning so
+        # the next planner can prioritise it. Skip on test fixtures.
+        if isinstance(sid, int) and sid > 0:
+            try:
+                from pathlib import Path
+                stories_dir = Path(__file__).resolve().parent.parent / "stories"
+                # Build {wid -> last_story_id_using_it} from history (≤ sid).
+                last_seen: dict[str, int] = {}
+                for path in stories_dir.glob("story_*.json"):
+                    try:
+                        other_sid = int(path.stem.split("_")[1])
+                    except (ValueError, IndexError):
+                        continue
+                    if other_sid > sid:
+                        continue
+                    try:
+                        other = json.loads(path.read_text(encoding="utf-8"))
+                    except Exception:
+                        continue
+                    for wid in stories_using(other):
+                        if other_sid > last_seen.get(wid, 0):
+                            last_seen[wid] = other_sid
+                # Add this story's words too (in case it isn't on disk yet).
+                for wid in stories_using(story):
+                    if sid > last_seen.get(wid, 0):
+                        last_seen[wid] = sid
+                starved: list[str] = []
+                for wid, w in words_dict.items():
+                    occ = w.get("occurrences", 0)
+                    if occ <= 0 or occ >= LOW_OCCURRENCE_LIMIT:
+                        continue
+                    last = last_seen.get(wid, 0)
+                    if last == 0:
+                        # Word in vocab but never used in any story on disk
+                        # — likely just declared in a plan, skip.
+                        continue
+                    if sid - last >= STARVATION_GAP_STORIES:
+                        starved.append(f"{wid} (occ={occ}, last seen story_{last})")
+                if starved:
+                    result.add_warning(
+                        f"[Check 6] Library starvation alarm — these under-practiced "
+                        f"words have not appeared in the last {STARVATION_GAP_STORIES} "
+                        f"stories; consider planning a story around one of them: "
+                        + ", ".join(sorted(starved)[:8])
+                        + ("…" if len(starved) > 8 else "")
+                    )
+            except Exception:
+                pass
 
     # ── Check 7: Length progression ──────────────────────────────────────────
     # Length is now governed by the library-wide progression curve in
@@ -935,24 +1036,25 @@ def validate(
         if n_sentences > max_sentences:
             result.add_error(7, f"Sentence count {n_sentences} exceeds plan max {max_sentences}")
 
-    # ── Check 8: Forbidden topics (keyword heuristic) ────────────────────────
-    FORBIDDEN_KEYWORDS = {
-        "violence", "kill", "murder", "war", "gun", "weapon", "bomb",
-        "romance", "love", "kiss", "sex", "naked",
-        "politics", "election", "president", "government",
-        "drug", "alcohol", "drunk", "blood", "death", "suicide",
-    }
-    for i, sent in enumerate(sentences):
-        gloss = sent.get("gloss_en", "").lower()
-        found = FORBIDDEN_KEYWORDS & set(gloss.split())
-        if found:
-            result.add_error(
-                8,
-                f"Forbidden topic keyword(s) in gloss: {sorted(found)}",
-                f"sentence {i}"
-            )
+    # ── Check 8: REMOVED ─────────────────────────────────────────────────────
+    # The forbidden-topic / forbidden-keyword check was removed 2026-04-22 by
+    # explicit product decision: "remove all 'forbidden' words, phrases and
+    # themes checks, everything should be allowed". The validator no longer
+    # imposes any topic, theme, or content restrictions on stories. Subject
+    # matter is the author's choice; the validator only checks that the
+    # story is mechanically well-formed and pedagogically coherent.
+    #
+    # Check 8 is intentionally left as a numbered no-op so that downstream
+    # error parsers / docs that reference "Check 8" by number don't have to
+    # be renumbered. Future content policies, if any, should live OUTSIDE
+    # the validator (e.g. as an opt-in linter) rather than as a hard gate.
 
     # ── Check 9: Gloss sanity ─────────────────────────────────────────────────
+    # Two-tier: extreme ratios (< 0.5 or > 4.0) are almost always
+    # mistranslations (the audit's "open the door" gloss for ドアを見て was
+    # ratio 1.5 — passed the warning band but was nonsense semantically).
+    # The phrase-level checks in semantic_lint.py catch the latter; the
+    # error band here catches the obvious cases of gloss inflation/elision.
     for i, sent in enumerate(sentences):
         gloss = sent.get("gloss_en", "")
         if not gloss.strip():
@@ -963,10 +1065,64 @@ def validate(
         en_count  = len(gloss.split())
         if jp_count > 0:
             ratio = en_count / jp_count
-            if not (GLOSS_MIN_RATIO <= ratio <= GLOSS_MAX_RATIO):
+            if ratio < GLOSS_ERROR_MIN_RATIO or ratio > GLOSS_ERROR_MAX_RATIO:
+                result.add_error(
+                    9,
+                    f"Gloss length ratio {ratio:.1f} (EN words {en_count} / JP tokens {jp_count}) "
+                    f"outside hard error band [{GLOSS_ERROR_MIN_RATIO}, {GLOSS_ERROR_MAX_RATIO}] "
+                    f"— this almost always means the gloss invents content not in the JP "
+                    f"or omits content that is.",
+                    f"sentence {i}"
+                )
+            elif not (GLOSS_MIN_RATIO <= ratio <= GLOSS_MAX_RATIO):
                 result.add_warning(
                     f"[Check 9] sentence {i}: gloss length ratio {ratio:.1f} (EN words {en_count} / JP tokens {jp_count}) outside expected range [{GLOSS_MIN_RATIO}, {GLOSS_MAX_RATIO}]"
                 )
+
+    # ── Check 11: Semantic-sanity lint ──────────────────────────────────────
+    # Conservative pattern checks for the kinds of nonsense the mechanical
+    # validators silently allow (e.g. inanimate-thing-is-quiet, future-X-eaten-
+    # today, ~と思います for self-known facts, smuggled verb word_ids,
+    # unestablished motifs). See pipeline/semantic_lint.py for rule docs.
+    try:
+        from semantic_lint import semantic_sanity_lint
+        for issue in semantic_sanity_lint(story, vocab):
+            if issue.severity == "error":
+                result.add_error(11, issue.message, issue.location)
+            else:
+                result.add_warning(f"[Check 11] {issue.location}: {issue.message}")
+    except ImportError:
+        pass  # module missing — soft-skip (back-compat)
+
+    # ── Check 12: Motif-rotation lint (library-level, warning only) ─────────
+    # Surfaces high-vocabulary-overlap with the previous N stories so the
+    # author / engagement reviewer can decide whether the continuation is
+    # justified. Warning only — never blocks ship.
+    try:
+        from semantic_lint import motif_rotation_lint
+        sid_for_motif = story.get("story_id")
+        if isinstance(sid_for_motif, int) and sid_for_motif > 0:
+            try:
+                from pathlib import Path
+                stories_dir = Path(__file__).resolve().parent.parent / "stories"
+                prior_stories: list[dict] = []
+                for path in stories_dir.glob("story_*.json"):
+                    try:
+                        other_sid = int(path.stem.split("_")[1])
+                    except (ValueError, IndexError):
+                        continue
+                    if other_sid >= sid_for_motif:
+                        continue
+                    try:
+                        prior_stories.append(json.loads(path.read_text(encoding="utf-8")))
+                    except Exception:
+                        continue
+                for issue in motif_rotation_lint(story, prior_stories):
+                    result.add_warning(f"[Check 12] {issue.message}")
+            except Exception:
+                pass
+    except ImportError:
+        pass
 
     # ── Check 10: Round-trip ──────────────────────────────────────────────────
     for i, sent in enumerate(sentences):

@@ -72,19 +72,27 @@ Read it completely before generating. These rules are non-negotiable.
   Good: "It is raining. I drink warm tea. I feel calm."
   Weak: "I wake up. I eat. I go to school." (no emotional beat)
 
-- **Settings that work well at beginner levels:**
+- **Setting suggestions** (not requirements; pick whatever serves the
+  story you want to write):
   home, kitchen, garden, park, café, train, school, weather, morning/evening
   routines, small emotions (tired, calm, curious, a little lonely, content).
 
-- **Avoid absolutely:**
-  - graphic violence or injury
-  - sexual content or romantic content beyond platonic warmth
-  - politics, religion, elections, governments
-  - brand names, real people, celebrities
-  - medical or legal advice
-  - anything that could be read as instruction for harm
-  - drug or alcohol use
-  - death or suicide
+- **No topic restrictions.** As of 2026-04-22 the validator no longer
+  blocks any subject matter (the old "Avoid absolutely" list was
+  removed along with Check 8). Any theme is allowed. The other
+  content rules (concrete imagery, narrative arc, semantic sanity,
+  faithful gloss) still apply regardless of theme.
+
+- **Embrace high-stakes themes — they are usually engagement gold.**
+  Loss, grief, conflict, romance, death, war, displacement, addiction,
+  brand names, real people — these are *strong* engagement levers, not
+  things to dance around. The cozy-only library got forgettable
+  precisely because every story pulled back from anything with stakes.
+  Restraint belongs at the *imagery* level (imply, don't show), not at
+  the topic level. The most powerful sentence in a grief story is
+  often the one that doesn't mention the loss directly. Cozy is still
+  allowed, just no longer the default. See the full hint in
+  `pipeline/authoring_rules.md` § 3.
 
 ---
 
@@ -270,12 +278,6 @@ A clean refusal is better than a story that fails validation.
       "W00033",
       "W00034",
       "W00036"
-    ],
-    "forbidden_words": [],
-    "avoid_topics": [
-      "violence",
-      "romance",
-      "politics"
     ]
   },
   "target_word_count": 18,

@@ -259,9 +259,7 @@ def scaffold_plan(args) -> int:
         "theme": "<2-5 sentence theme: what the story is *about*, the central feeling, the small surprise>",
         "setting": "<one or two sentences: where, when, who is present>",
         "constraints": {
-            "must_reuse_words": must_reuse,
-            "forbidden_words": [],
-            "avoid_topics": ["violence", "romance", "politics"]
+            "must_reuse_words": must_reuse
         },
         "target_word_count": tgt_content_tokens,
         "max_sentences": smax,

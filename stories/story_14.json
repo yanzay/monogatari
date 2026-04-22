@@ -297,7 +297,7 @@
     },
     {
       "idx": 4,
-      "gloss_en": "For tomorrow morning, I will prepare breakfast too.",
+      "gloss_en": "Tomorrow, too, I will eat breakfast.",
       "tokens": [
         {
           "t": "明日",
@@ -306,9 +306,9 @@
           "word_id": "W00046"
         },
         {
-          "t": "の",
+          "t": "も",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "朝ごはん",
@@ -317,9 +317,9 @@
           "word_id": "W00019"
         },
         {
-          "t": "も",
+          "t": "を",
           "role": "particle",
-          "grammar_id": "G009_mo_also"
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "食べます",
@@ -342,19 +342,8 @@
     },
     {
       "idx": 5,
-      "gloss_en": "I will leave the tea ready for tomorrow.",
+      "gloss_en": "I'll go ahead and have some tea now.",
       "tokens": [
-        {
-          "t": "明日",
-          "r": "あした",
-          "role": "content",
-          "word_id": "W00046"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
         {
           "t": "お茶",
           "r": "おちゃ",
@@ -395,7 +384,7 @@
     },
     {
       "idx": 6,
-      "gloss_en": "I will leave the letter ready too.",
+      "gloss_en": "I'll go ahead and look at the letter again, too.",
       "tokens": [
         {
           "t": "手紙",

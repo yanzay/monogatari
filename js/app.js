@@ -197,19 +197,19 @@ async function renderLibraryView() {
     const id        = entry.story_id;
     const isCurrent = id === currentStoryId;
     const progress  = learnerState.story_progress?.[id] ?? {};
-    const sentencesRead = (progress.sentences_read ?? []).length;
     const totalSentences = entry.n_sentences ?? 0;
     const completed = !!progress.completed;
     const readingMin = estimateReadingMinutes(entry);
-    const pct = totalSentences ? Math.round((sentencesRead / totalSentences) * 100) : 0;
 
+    // Per-sentence progress was removed 2026-04-22 — the only states a
+    // story can be in are "done" (added to SRS), "current" (open in the
+    // reader), or "unread". The progress bar is gone with the metric.
     const card = document.createElement('div');
     card.className = 'story-card' + (isCurrent ? ' current' : '');
     card.innerHTML = `
       <span class="story-card-id">Story ${id}</span>
       <div class="story-card-title-jp">${entry.title_jp || `Story ${id}`}</div>
       <div class="story-card-title-en">${entry.title_en || ''}</div>
-      <div class="story-card-progress" title="${sentencesRead}/${totalSentences} sentences"><span style="width:${pct}%"></span></div>
       <div class="story-card-meta">
         <span>${totalSentences} sentences · ~${readingMin} min</span>
         <span class="story-card-badge${completed ? ' done' : ''}">${completed ? '✓ done' : isCurrent ? 'reading' : 'unread'}</span>
@@ -259,19 +259,23 @@ function renderReadView() {
   subtitleEl.innerHTML = '';
   buildRubyHeader(story.subtitle, subtitleEl);
 
-  // Story nav buttons (Next is gated until every sentence has been opened or
-  // the story has been marked completed at least once).
+  // Story nav buttons. The Next button is gated solely on whether the
+  // learner has explicitly added this story's new words to the SRS via
+  // the "Mark as read → add to SRS" button (which sets
+  // `progress.completed`). Listening to audio, opening sentences, and
+  // any other in-story interactions are all OPTIONAL — the system
+  // intentionally does not track sentence-level progress (see the
+  // 2026-04-22 product decision: "story is done when user presses
+  // 'Add to SRS', and that's the only thing that unlocks Next").
   const progress = learnerState.story_progress?.[story.story_id] ?? {};
   const completed = !!progress.completed;
-  const sentencesRead = new Set(progress.sentences_read ?? []);
-  const allSentencesRead = sentencesRead.size >= story.sentences.length;
 
   const prevBtn = document.getElementById('btn-prev-story');
   const nextBtn = document.getElementById('btn-next-story');
   prevBtn.disabled = story.story_id <= 1;
-  nextBtn.disabled = !(completed || allSentencesRead);
+  nextBtn.disabled = !completed;
   nextBtn.title = nextBtn.disabled
-    ? 'Open every sentence (or mark as read) to unlock the next story'
+    ? 'Press “Mark as read → add to SRS” to unlock the next story'
     : '';
   prevBtn.onclick = () => loadStory(currentStoryId - 1);
   nextBtn.onclick = () => loadStory(currentStoryId + 1);
@@ -309,10 +313,10 @@ function renderReadView() {
       if (tok.word_id) seenInStory.add(tok.word_id);
     });
 
-    // Click sentence → mark read + show its translation in popup
+    // Click sentence → show its translation in popup. (No progress is
+    // recorded here; per-sentence progress was removed 2026-04-22 — see
+    // the comment on the Next button gating above.)
     wrap.addEventListener('click', e => {
-      // Tokens handle their own popups; just record progress here.
-      markSentenceRead(story.story_id, i);
       if (e.target.closest('.token.clickable')) return;
       showPopup(`
         <div style="font-family:var(--font-jp);font-size:1.4rem;margin-bottom:0.75rem;line-height:1.8;">${sentence.tokens.map(t => t.t).join('')}</div>
@@ -331,8 +335,8 @@ function renderReadView() {
     }
   });
 
-  // Sentence progress dots
-  renderProgressDots();
+  // (Sentence progress dots were removed 2026-04-22 — the reader no
+  // longer tracks per-sentence reading state.)
 
   // Audio controls
   setupAudioControls();
@@ -344,24 +348,10 @@ function renderReadView() {
   renderMarkAsRead();
 }
 
-// ── Sentence progress ──────────────────────────────────────────────
-function markSentenceRead(storyId, idx) {
-  if (!learnerState.story_progress) learnerState.story_progress = {};
-  const p = learnerState.story_progress[storyId] ?? {};
-  const set = new Set(p.sentences_read ?? []);
-  if (set.has(idx)) return;
-  set.add(idx);
-  p.sentences_read = Array.from(set).sort((a, b) => a - b);
-  learnerState.story_progress[storyId] = p;
-  saveLearnerState();
-  renderProgressDots();
-  // Re-evaluate Next gating without re-rendering the whole story
-  const next = document.getElementById('btn-next-story');
-  if (next && p.sentences_read.length >= story.sentences.length) {
-    next.disabled = false;
-    next.title = '';
-  }
-}
+// (markSentenceRead was removed 2026-04-22 along with all per-sentence
+// progress tracking. A story is considered "done" only when the learner
+// presses "Mark as read → add to SRS"; see `renderMarkAsRead` and the
+// gating logic in `renderReadView`.)
 
 // ── Audio playback ─────────────────────────────────────────────────
 const AUDIO_CACHE = new Map();   // src → HTMLAudioElement
@@ -398,8 +388,9 @@ function playSentenceAudio(sentenceIdx, { onEnd } = {}) {
   AUDIO_STATE.current = a;
   const wrap = document.querySelector(`.sentence-wrap[data-sentence-idx="${sentenceIdx}"]`);
   if (wrap) wrap.classList.add('playing');
-  // Mark read on play (counts toward progress + Next gating)
-  markSentenceRead(story.story_id, sentenceIdx);
+  // (Per-sentence progress tracking was removed 2026-04-22. Listening
+  // is optional; the only thing that marks a story "done" is the
+  // explicit "Add to SRS" button.)
   a.onended = () => {
     if (wrap) wrap.classList.remove('playing');
     AUDIO_STATE.current = null;
@@ -487,24 +478,9 @@ function setupAudioControls() {
   });
 }
 
-function renderProgressDots() {
-  const dots = document.getElementById('progress-dots');
-  if (!dots || !story) return;
-  dots.innerHTML = '';
-  const p = learnerState.story_progress?.[story.story_id] ?? {};
-  const read = new Set(p.sentences_read ?? []);
-  story.sentences.forEach((_, i) => {
-    const dot = document.createElement('span');
-    dot.className = 'progress-dot';
-    if (read.has(i)) dot.classList.add('read');
-    dot.title = `Sentence ${i + 1}${read.has(i) ? ' (read)' : ''}`;
-    dot.addEventListener('click', () => {
-      const wrap = document.querySelector(`.sentence-wrap[data-sentence-idx="${i}"]`);
-      if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
-    dots.appendChild(dot);
-  });
-}
+// (renderProgressDots was removed 2026-04-22 — see the comment on
+// markSentenceRead above. The #progress-dots element was also removed
+// from index.html.)
 
 function renderMarkAsRead() {
   const existing = document.getElementById('btn-mark-read');
