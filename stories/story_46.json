@@ -1,0 +1,766 @@
+{
+  "story_id": 46,
+  "title": {
+    "jp": "寒くない朝",
+    "en": "A Not-Cold Morning",
+    "tokens": [
+      {
+        "t": "寒くない",
+        "r": "samui",
+        "role": "content",
+        "word_id": "W00062",
+        "inflection": {
+          "form": "kunai",
+          "grammar_id": "G038_kunai"
+        }
+      },
+      {
+        "t": "朝",
+        "r": "asa",
+        "role": "content",
+        "word_id": "W00015"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "春の光。",
+    "en": "The light of spring.",
+    "tokens": [
+      {
+        "t": "春",
+        "r": "haru",
+        "role": "content",
+        "word_id": "W00072"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
+      },
+      {
+        "t": "光",
+        "r": "hikari",
+        "role": "content",
+        "word_id": "W00139"
+      },
+      {
+        "t": "。",
+        "role": "punct"
+      }
+    ]
+  },
+  "new_words": [
+    "W00137",
+    "W00138",
+    "W00139"
+  ],
+  "new_grammar": [
+    "G038_kunai"
+  ],
+  "all_words_used": [
+    "W00062",
+    "W00015",
+    "W00072",
+    "W00139",
+    "W00138",
+    "W00137",
+    "W00012",
+    "W00003",
+    "W00004",
+    "W00045",
+    "W00087",
+    "W00054",
+    "W00047",
+    "W00029",
+    "W00075",
+    "W00024",
+    "W00044",
+    "W00083",
+    "W00095",
+    "W00056",
+    "W00040",
+    "W00041"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "haru",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "朝",
+          "r": "asa",
+          "role": "content",
+          "word_id": "W00015"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is a spring morning.",
+      "audio": "audio/story_46/s0.wav",
+      "audio_hash": "03fcfb532d5c"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "朝",
+          "r": "asa",
+          "role": "content",
+          "word_id": "W00015"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "寒くない",
+          "r": "samui",
+          "role": "content",
+          "word_id": "W00062",
+          "inflection": {
+            "form": "kunai",
+            "grammar_id": "G038_kunai"
+          },
+          "is_new_grammar": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The morning is not cold.",
+      "audio": "audio/story_46/s1.wav",
+      "audio_hash": "a34ff26d258b"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "空気",
+          "r": "kuuki",
+          "role": "content",
+          "word_id": "W00138",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "r": "akarui",
+          "role": "content",
+          "word_id": "W00137",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          },
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The air is bright.",
+      "audio": "audio/story_46/s2.wav",
+      "audio_hash": "73589c17bda0"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "haru",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "光",
+          "r": "hikari",
+          "role": "content",
+          "word_id": "W00139",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "温かい",
+          "r": "atatakai",
+          "role": "content",
+          "word_id": "W00012",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The spring light is warm.",
+      "audio": "audio/story_46/s3.wav",
+      "audio_hash": "47d4dde7b5ba"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "窓",
+          "r": "mado",
+          "role": "content",
+          "word_id": "W00004"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "そば",
+          "r": "soba",
+          "role": "content",
+          "word_id": "W00045"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "立ちます",
+          "r": "tachimasu",
+          "role": "content",
+          "word_id": "W00087"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I stand by the window.",
+      "audio": "audio/story_46/s4.wav",
+      "audio_hash": "52f1f6b63528"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "鳥",
+          "r": "tori",
+          "role": "content",
+          "word_id": "W00054"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "空",
+          "r": "sora",
+          "role": "content",
+          "word_id": "W00047"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "います",
+          "r": "imasu",
+          "role": "content",
+          "word_id": "W00029"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A bird is in the sky.",
+      "audio": "audio/story_46/s5.wav",
+      "audio_hash": "d2552210c961"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "部屋",
+          "r": "heya",
+          "role": "content",
+          "word_id": "W00075"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "花",
+          "r": "hana",
+          "role": "content",
+          "word_id": "W00024"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "r": "arimasu",
+          "role": "content",
+          "word_id": "W00044"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There are flowers in the room.",
+      "audio": "audio/story_46/s6.wav",
+      "audio_hash": "3b83de0d1b87"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "花",
+          "r": "hana",
+          "role": "content",
+          "word_id": "W00024"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "美しい",
+          "r": "utsukushii",
+          "role": "content",
+          "word_id": "W00083",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The flowers are beautiful.",
+      "audio": "audio/story_46/s7.wav",
+      "audio_hash": "d6008f3e46f2"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "冬",
+          "r": "fuyu",
+          "role": "content",
+          "word_id": "W00095"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "朝",
+          "r": "asa",
+          "role": "content",
+          "word_id": "W00015"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "寒い",
+          "r": "samui",
+          "role": "content",
+          "word_id": "W00062",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Winter mornings are cold.",
+      "audio": "audio/story_46/s8.wav",
+      "audio_hash": "a4323779c9a5"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "でも",
+          "role": "aux",
+          "grammar_id": "G032_demo"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "春",
+          "r": "haru",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "朝",
+          "r": "asa",
+          "role": "content",
+          "word_id": "W00015"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "寒くない",
+          "r": "samui",
+          "role": "content",
+          "word_id": "W00062",
+          "inflection": {
+            "form": "kunai",
+            "grammar_id": "G038_kunai"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But spring mornings are not cold.",
+      "audio": "audio/story_46/s9.wav",
+      "audio_hash": "797460378eae"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "嬉しい",
+          "r": "ureshii",
+          "role": "content",
+          "word_id": "W00056",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I am happy.",
+      "audio": "audio/story_46/s10.wav",
+      "audio_hash": "5c29e5352c54"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "haru",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ます",
+          "r": "kimasu",
+          "role": "content",
+          "word_id": "W00040"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G030_kara_reason"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "待ちません",
+          "r": "machimasu",
+          "role": "content",
+          "word_id": "W00041",
+          "inflection": {
+            "form": "masen",
+            "grammar_id": "G036_masen"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Because spring is coming, I do not wait.",
+      "audio": "audio/story_46/s11.wav",
+      "audio_hash": "c0ecf71b24aa"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "haru",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "美しい",
+          "r": "utsukushii",
+          "role": "content",
+          "word_id": "W00083",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Is spring beautiful?",
+      "audio": "audio/story_46/s12.wav",
+      "audio_hash": "d18c7d6ebdde"
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "haru",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "美しい",
+          "r": "utsukushii",
+          "role": "content",
+          "word_id": "W00083",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Spring is beautiful.",
+      "audio": "audio/story_46/s13.wav",
+      "audio_hash": "8077fc6945f1"
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "明るい",
+          "r": "akarui",
+          "role": "content",
+          "word_id": "W00137",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "朝",
+          "r": "asa",
+          "role": "content",
+          "word_id": "W00015"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "温かい",
+          "r": "atatakai",
+          "role": "content",
+          "word_id": "W00012",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "光",
+          "r": "hikari",
+          "role": "content",
+          "word_id": "W00139"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A bright morning, a warm light.",
+      "audio": "audio/story_46/s14.wav",
+      "audio_hash": "2d5d385bfcd5"
+    }
+  ],
+  "word_audio": {
+    "W00137": "audio/story_46/w_W00137.wav",
+    "W00138": "audio/story_46/w_W00138.wav",
+    "W00139": "audio/story_46/w_W00139.wav"
+  },
+  "word_audio_hash": {
+    "W00137": "53b4a762f917",
+    "W00138": "a012d55156a4",
+    "W00139": "bf728630db0b"
+  }
+}
