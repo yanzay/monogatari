@@ -161,3 +161,33 @@ character, prop, or setting* — see story 6 (cat as new presence),
 story 8 (parallel two-person reading), story 10 (offstage friend via
 letter). The pattern that scores worst is *recycling the previous
 story's setting with one variable swapped*.
+
+## Gloss honesty: never pad to satisfy Check 9 (v0.15, 2026-04-22)
+
+A small but corrosive failure mode caught during story 18 review:
+the natural gloss "I am happy." for 私は嬉しいです was tripping a
+Check 9 warning under the old non-punct-token denominator. The
+author "fixed" it by writing "As for me, I am happy." — five words
+instead of three, warning gone, but the gloss now lies about what
+the JP literally says (the は does not translate to "as for me" in
+running prose; it's a topic marker, invisible in English).
+
+That is the same anti-pattern as story 14's "leave the tea ready"
+that the 2026-04-22 audit removed. **Padding the English to win the
+ratio check is a hack, not a fix.**
+
+The validator now counts only `content + aux` tokens for the ratio
+(particles excluded), so natural compact glosses pass on their own.
+If you still see a Check 9 warning on a faithful gloss, the right
+move is:
+
+1. Re-read the JP. Is it actually saying what you mean? Maybe the
+   JP needs a content token, not the gloss padding.
+2. If the JP is right and the gloss is honest, leave the warning.
+   The validator's warnings are advisories; an honest gloss with a
+   borderline ratio is always preferred over a padded gloss with a
+   pretty ratio.
+3. **Never** add English filler ("As for me", "I will go ahead and",
+   "Today, …", "in my hands", "leave X ready") to game the ratio.
+
+Full rationale and band table: `docs/authoring.md` § v0.15.

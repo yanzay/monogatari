@@ -252,13 +252,22 @@ LOW_OCCURRENCE_LIMIT  = 5     # what counts as "under-practiced"
 STARVATION_GAP_STORIES = 5
 
 # ── Check 9 (gloss) tunables ──────────────────────────────────────────────────
+# The denominator is the count of JP tokens that *carry English meaning* —
+# i.e. role ∈ {content, aux}. Particles (は, を, に, …) and punctuation are
+# excluded because they do not surface as English words; counting them
+# inflated the denominator and forced authors to pad short, faithful
+# glosses (e.g. "I am happy." for 私は嬉しいです — 3 EN words / 4 non-punct
+# JP tokens = 0.75) below the old 0.8 floor. Switched 2026-04-22 after
+# review found 23 of the existing library's natural glosses sitting at
+# ratio 0.80–0.95 only because は/が/を/です were inflating the count.
+#
 # Warning band: ratios outside this trigger a warning (advisory).
-GLOSS_MIN_RATIO = 0.8
+GLOSS_MIN_RATIO = 0.7
 GLOSS_MAX_RATIO = 3.0
 # Error band: ratios outside this trigger a hard error (almost always means
 # the gloss is mistranslated — see the audit's "open the door" / "leave the
 # tea ready" cases). Promoted from warning-only on 2026-04-22.
-GLOSS_ERROR_MIN_RATIO = 0.5
+GLOSS_ERROR_MIN_RATIO = 0.4
 GLOSS_ERROR_MAX_RATIO = 4.0
 
 
@@ -1060,15 +1069,21 @@ def validate(
         if not gloss.strip():
             result.add_error(9, "Empty gloss_en", f"sentence {i}")
             continue
-        jp_tokens = [tok for tok in sent["tokens"] if tok.get("role") != "punct"]
-        jp_count  = len(jp_tokens)
-        en_count  = len(gloss.split())
+        # Count only tokens that carry English meaning. Particles do not
+        # surface as English words and inflated the denominator under the
+        # pre-2026-04-22 metric, forcing natural short glosses to be padded.
+        jp_meaning_tokens = [
+            tok for tok in sent["tokens"]
+            if tok.get("role") in ("content", "aux")
+        ]
+        jp_count = len(jp_meaning_tokens)
+        en_count = len(gloss.split())
         if jp_count > 0:
             ratio = en_count / jp_count
             if ratio < GLOSS_ERROR_MIN_RATIO or ratio > GLOSS_ERROR_MAX_RATIO:
                 result.add_error(
                     9,
-                    f"Gloss length ratio {ratio:.1f} (EN words {en_count} / JP tokens {jp_count}) "
+                    f"Gloss length ratio {ratio:.1f} (EN words {en_count} / JP meaning-bearing tokens {jp_count}) "
                     f"outside hard error band [{GLOSS_ERROR_MIN_RATIO}, {GLOSS_ERROR_MAX_RATIO}] "
                     f"— this almost always means the gloss invents content not in the JP "
                     f"or omits content that is.",
@@ -1076,7 +1091,7 @@ def validate(
                 )
             elif not (GLOSS_MIN_RATIO <= ratio <= GLOSS_MAX_RATIO):
                 result.add_warning(
-                    f"[Check 9] sentence {i}: gloss length ratio {ratio:.1f} (EN words {en_count} / JP tokens {jp_count}) outside expected range [{GLOSS_MIN_RATIO}, {GLOSS_MAX_RATIO}]"
+                    f"[Check 9] sentence {i}: gloss length ratio {ratio:.1f} (EN words {en_count} / JP meaning-bearing tokens {jp_count}) outside expected range [{GLOSS_MIN_RATIO}, {GLOSS_MAX_RATIO}]"
                 )
 
     # ── Check 11: Semantic-sanity lint ──────────────────────────────────────

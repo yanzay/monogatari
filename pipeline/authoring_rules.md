@@ -148,6 +148,16 @@ Read it completely before generating. These rules are non-negotiable.
   the meaning, not a word-for-word calque. It is for comprehension checking,
   not translation practice. Aim for 1–2 short sentences.
 
+  **Never pad or stretch the gloss to satisfy Check 9's length ratio.**
+  Check 9 measures `EN_words / (content + aux JP tokens)` — particles
+  are excluded from the denominator (since they don't surface in
+  English) so a natural short gloss like "I am happy." for 私は嬉しい
+  です passes. If a faithful gloss still trips the warning band, the
+  fix is to revisit the JP (is it actually saying what you mean?), not
+  to inflate the English with filler ("As for me, I am happy" is a
+  validator hack, not an honest translation). See docs/authoring.md
+  G4 / v0.15 for the bands and rationale.
+
 - **Title and subtitle JP fields** must use only words from the allowed vocab
   set and should be tokenised in the same format as sentence tokens.
   English title/subtitle fields are free.

@@ -109,7 +109,7 @@ Runs `pipeline/validate.py` — 12 deterministic checks (10 mechanical + 2 conte
 | 6 | **Reinforcement floor** — at least 6 low-occ content tokens per story (replaces the old 60 % quota; see v0.11) |
 | 7 | Length (within the per-story progression band; see `pipeline/progression.py`) |
 | 8 | **REMOVED** (2026-04-22) — the forbidden-topic check was deleted entirely; the validator no longer imposes any subject-matter restrictions. Number left intact for stability. |
-| 9 | Gloss sanity — warning band 0.8–3.0×, hard error band 0.5–4.0× (the latter catches mistranslations) |
+| 9 | Gloss sanity — warning band 0.7–3.0×, hard error band 0.4–4.0× (denominator is **content + aux** tokens, i.e. JP tokens that carry English meaning; particles are excluded — see v0.15 note below) |
 | 10 | Round-trip (no double spaces, no stray ASCII, terminal punct) |
 | **11** | **Semantic-sanity lint** (added v0.11) — inanimate-thing-is-quiet, tomorrow's-X-eaten-today, `〜と思います` for self-known facts, word_id ↔ pos mismatch, lonely scene noun |
 | **12** | **Motif rotation** (added v0.11, warning only) — Jaccard ≥ 55 % overlap with any of the previous 3 stories surfaces a warning |
@@ -431,19 +431,29 @@ The engagement quota and reuse rules are downstream of this order, so
 recompute it whenever you edit tokens. `precheck.py --fix` does this for
 you and preserves the canonical order.
 
-### G4. Glosses must satisfy `0.8 ≤ EN_words / JP_tokens ≤ 3.0`
+### G4. Glosses must satisfy `0.7 ≤ EN_words / JP_meaning_tokens ≤ 3.0`
 
-Punct tokens don't count toward JP. A 7-token sentence needs **6–21**
-English words. Examples:
+The denominator counts only JP tokens that carry English meaning —
+i.e. `role ∈ {content, aux}`. **Particles (は/が/を/に/で/と/から/も/…)
+and punctuation are excluded** because they do not surface as English
+words. Counting them used to inflate the denominator and pressure
+authors to pad short, faithful glosses (see v0.15 below).
+
+A sentence with 4 content tokens + 1 aux (です/います) needs
+**~4–15 English words**. Examples (`(content+aux)` shown):
 
 ```
-JP tokens=7  →  6 ≤ EN ≤ 21
-JP tokens=8  →  7 ≤ EN ≤ 24
-JP tokens=5  →  4 ≤ EN ≤ 15
+私は嬉しいです        → (2 content + 1 aux) = 3  →  3 ≤ EN ≤ 9
+私は本を読みます      → (3 content + 0 aux) = 3  →  3 ≤ EN ≤ 9
+今朝はいい気分です    → (3 content + 1 aux) = 4  →  3 ≤ EN ≤ 12
 ```
 
-If you write `"I look outside."` (3 words) for a 7-token sentence,
-the validator will flag it. Either expand the gloss or tighten the JP.
+If your gloss drops a content word (the JP says "small bird" but the
+gloss only says "bird") or invents content (the gloss says "I'll go
+ahead and have some tea now" for お茶を飲みます which has no ておく
+nuance), the validator will flag it. Either fix the gloss to match
+the JP or fix the JP to match the intent — never pad the gloss to
+satisfy the ratio.
 
 ### G5. Verb forms need `inflection`
 
@@ -1623,3 +1633,84 @@ got fixed. Two small `semantic_lint.py` corrections shipped alongside.
   fires on natural prose and trains authors to ignore the lint. New
   rule sets should be gated behind a regression test that pins both
   word_id AND surface form.
+
+## v0.15 — Check 9 gloss-ratio reform: meaning-bearing tokens only (2026-04-22)
+
+### The problem
+
+Story 18 s7 was authored as **私は嬉しいです** with the natural gloss
+**"I am happy."** That gloss is exactly faithful — three English words
+covering one pronoun, one copula, and one i-adjective predicate. But
+under the pre-v0.15 Check 9 the denominator counted *all* non-punct
+tokens (4: 私, は, 嬉しい, です), so the ratio was 3 / 4 = 0.75 —
+below the old 0.8 floor. The validator emitted a warning. The author
+"fixed" the warning by inflating the gloss to **"As for me, I am
+happy."** — five words, ratio now 5 / 4 = 1.25, warning gone. **The
+gloss had become dishonest to satisfy the math.**
+
+A library audit at the same time found:
+
+- **23 of the existing library's natural glosses** were sitting in the
+  0.80–0.95 band — i.e. they were *one short word away* from the same
+  failure mode. Authors had been padding glosses for stories 1–17
+  every time a sentence used は or です with short content.
+- The pad pattern ("As for me, …", "I will go ahead and …", "Today,
+  …") is itself the same failure mode the audit flagged in stories 14
+  and 15 — gloss inflation that the authoring rules explicitly forbid.
+
+### The root cause
+
+Particles (は, が, を, に, で, から, …) and punctuation **do not surface
+as English words.** Counting them in the denominator of a "how many
+English words should this gloss have" check is a category error: it
+penalises authors for using natural Japanese (which is particle-dense)
+unless they also pad the English (which makes the gloss unnatural).
+
+### The fix
+
+`pipeline/validate.py`'s Check 9 now counts only tokens with
+`role ∈ {content, aux}` — i.e. JP tokens that *carry English meaning*.
+The bands are:
+
+|                  | Old (≤ v0.14) | New (v0.15) |
+|------------------|---------------|-------------|
+| Warning low      | 0.80          | 0.70        |
+| Warning high     | 3.00          | 3.00        |
+| Hard error low   | 0.50          | 0.40        |
+| Hard error high  | 4.00          | 4.00        |
+| Denominator      | non-punct     | content+aux |
+
+The slightly lower warning floor is because content+aux is a smaller
+denominator than non-punct, so identical glosses get higher ratios; we
+keep some headroom for compact English.
+
+### Verification across the existing library
+
+After the change, **every shipped story (1 through 18)** passes Check
+9 without padding. Two glosses were also reverted to their natural
+forms during the audit:
+
+- `stories/story_18.json` s7: "As for me, I am happy." → **"I am
+  happy."** (the immediate trigger).
+- `stories/story_14.json` s6: "I'll go ahead and look at the letter
+  again, too." → **"I'll go ahead and look at the letter, too."**
+  ("again" had no JP backing — invented to pad the ratio under the
+  old metric).
+
+### Author rule going forward
+
+`pipeline/authoring_rules.md` § 4 now includes an explicit prohibition:
+
+> Never pad or stretch the gloss to satisfy Check 9's length ratio.
+> If a faithful gloss still trips the warning band, the fix is to
+> revisit the JP, not to inflate the English.
+
+### Why this is a one-shot fix
+
+This was a measurement bug, not a policy reversal. The authoring
+rule has always been "glosses must be natural English faithful to the
+JP" (see § 4 and § 6.5). Check 9 just couldn't see which JP tokens
+deserved English words and which didn't. With particles excluded from
+the denominator, the math now matches the rule. No future story
+should require the audit-and-revert work this one did, because no
+future author will be incentivised to pad.
