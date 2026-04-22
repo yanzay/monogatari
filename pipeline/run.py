@@ -129,7 +129,13 @@ def main() -> None:
             print("ERROR: pipeline/story_raw.json not found.", file=sys.stderr)
             sys.exit(1)
 
-        print("\n[Step 3] Validating story…")
+        print("\n[Step 3a] Auto-repairing common authoring slips (autofix.py)…")
+        rc = run([sys.executable, "pipeline/autofix.py", "--story", str(raw_path)])
+        if rc != 0:
+            print("\n✗ autofix failed (likely a path/IO issue, not your story).")
+            sys.exit(1)
+
+        print("\n[Step 3b] Validating story…")
         validate_args = [sys.executable, "pipeline/validate.py", str(raw_path),
                          "--vocab", args.vocab, "--grammar", args.grammar]
         if plan_path.exists():

@@ -1137,3 +1137,129 @@ N2 and N1 are intentionally excluded from the curated catalog. Both
 have noisier source data and substantially more variance between
 references; we won't reach N2 territory for ~50 stories. The catalog
 can be extended to those levels later when needed.
+
+---
+
+## Gotchas added from stories 11–12 sessions (April 2026)
+
+### G_STATE. Re-run state_updater after any post-ship edit to story_raw.json
+
+If you fix a token in `pipeline/story_raw.json` after running `state_updater`,
+the lifetime occurrence counts in `data/vocab_state.json` will be stale —
+they reflect the OLD token list. The cleanest recovery is:
+
+```bash
+# revert to the most recent backup before that run
+cp state_backups/vocab_state_<latest>.json data/vocab_state.json
+cp state_backups/grammar_state_<latest>.json data/grammar_state.json
+# re-run state_updater on the corrected story
+python3 pipeline/state_updater.py pipeline/story_raw.json --plan pipeline/plan.json
+```
+
+This bit me once on story 12 (changed s0 朝→今朝 after shipping; vocab_state then
+showed 朝 over-counted by 1). The state validator catches the divergence loudly
+once per session, so it never silently corrupts; just be aware.
+
+### G_AUTOFIX. Use `pipeline/autofix.py` BEFORE the first validator run
+
+Catches every gotcha in this section in a single pass:
+- Wrong word_ids (resolves from surface vs vocab_state)
+- Pure-grammar surfaces wrongly tagged as content (です, だ, と, も, etc.)
+- Past-form verbs not tagged with G013_mashita_past
+- `is_new` placement on title/subtitle (must be first sentence-level occurrence only)
+- `all_words_used` not in first-seen order
+- Sentence `idx` missing or out of order
+
+```bash
+# preview
+python3 pipeline/autofix.py --dry-run
+
+# apply
+python3 pipeline/autofix.py
+```
+
+Idempotent — safe to re-run after manual edits. Will only print "✓ No fixes needed."
+once everything is clean. Designed to be run BEFORE `validate.py` to drain the
+mechanical errors so the validator's output focuses on judgement-call problems.
+
+### G_PREFLIGHT. Use `lookup --reuse-preflight` BEFORE writing tokens
+
+Prevents the most expensive late-stage failure: discovering at validate time
+that you used too many high-occ words and need to redesign the sentences.
+
+Format: comma-separated `wid:count` pairs (count defaults to 1):
+```bash
+python3 pipeline/lookup.py --reuse-preflight 'W00003:3,W00028:4,W00031:2,W00043:3'
+```
+
+Output classifies each word LOW/high (effective_occ < 5 = LOW) and prints the
+predicted ratio. If it says ✗ FAIL, swap a high-occ word for a low-occ one
+BEFORE writing any token JSON. `lookup --low-occ` lists candidates.
+
+### G_SURFACE. Use `lookup --by-surface` instead of guessing
+
+Stop trusting your memory for word_ids. The numeric range is densely packed
+and similar surfaces have wildly different ids:
+- 窓 = W00004 (not W00007 — that's どこ)
+- お茶 = W00009 (not W00012 — that's 行きます)
+- 飲みます = W00010 (not W00040 — that's 来ます)
+
+```bash
+python3 pipeline/lookup.py --by-surface 窓
+# W00004  窓  (まど)  occ=4  pos=noun
+#   → window
+```
+
+Handles homographs by listing all matches with their meanings.
+
+### G_GRAMMAR_SURFACES. These never get a `word_id`
+
+They are grammar/aux/particle, not vocabulary:
+- copula: です, だ, でした, じゃない, ではない
+- particles: は, が, を, に, で, へ, と, や, も, の, か, ね, よ, から, まで, より, など
+- conjunctions: そして, でも, けど, しかし
+- aux verbs: ます, ました, ません
+
+If you accidentally tag any of these as `role: content` with a `word_id`,
+autofix will strip the wid and reset the role. Validate Check 1/Check 5
+will also catch this, but autofix gets it on the first pass.
+
+### G_CATALOG_FIRST. Trust the catalog over your memory of JLPT levels
+
+`〜ました` feels like an N4 grammar point because past tense feels "more
+advanced" — but our curated catalog (cross-referenced against JLPTSensei,
+BunPro, and Genki) classifies it as N5 (Genki L4). I called it N4 wrong
+when planning story 11 and only caught it because the state validator
+rejected the made-up `catalog_id`.
+
+Always run:
+```bash
+python3 pipeline/lookup.py --catalog N5      # see all N5 entries
+python3 pipeline/lookup.py --untaught N4     # see N4 not yet introduced
+```
+
+before deciding what tier a new grammar point belongs in. The catalog has
+141 cross-referenced entries; rely on it.
+
+### G_TRANSITIVE_PREREQ. でした implies です is in play
+
+The validator's prerequisite check is now transitive: if a story uses
+G013_mashita_past, then G003_desu's prerequisite is automatically satisfied
+because G013 lists G003 as a prerequisite. You don't need to also use です
+just to satisfy the dependency graph.
+
+### G_INFLECTION_GRAMMAR_TAG. Past-form verbs need BOTH inflection.form AND grammar_id
+
+A token like 〜ました needs:
+```json
+{
+  "t": "いました", "role": "content", "word_id": "W00029",
+  "inflection": {"base": "いる", "base_r": "いる", "form": "polite_past", "verb_class": "ichidan"},
+  "grammar_id": "G013_mashita_past"
+}
+```
+
+The `grammar_id` is what makes Check 3 see G013 as "used" in the story
+(important for first-occurrence + repetition counting). Autofix will add
+the grammar_id automatically when it sees `inflection.form ∈ {polite_past,
+plain_past}`. Don't omit it.

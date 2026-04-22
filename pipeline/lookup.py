@@ -241,6 +241,90 @@ def show_untaught(jlpt_level: str) -> None:
         print()
 
 
+def show_by_surface(surface: str) -> None:
+    """Look up word_id(s) by exact Japanese surface."""
+    vocab, _ = load_state()
+    hits = [(wid, w) for wid, w in vocab.get("words", {}).items()
+            if w.get("surface") == surface]
+    if not hits:
+        print(f"No vocab entry with surface '{surface}'.")
+        print("(Tip: this might be grammar/aux/particle, not a vocab word.)")
+        return
+    if len(hits) == 1:
+        wid, w = hits[0]
+        occ = w.get("occurrences", 0)
+        print(f"{wid}  {w.get('surface','')}  ({w.get('kana','')})  occ={occ}  pos={w.get('pos','?')}")
+        meanings = w.get("meanings", [])
+        if meanings:
+            print(f"  → {', '.join(meanings)}")
+    else:
+        print(f"⚠ {len(hits)} homographs for '{surface}':")
+        for wid, w in hits:
+            occ = w.get("occurrences", 0)
+            print(f"  {wid}  ({w.get('kana','')})  occ={occ}  meanings: {', '.join(w.get('meanings', []))}")
+
+
+def show_reuse_preflight(spec: str) -> None:
+    """
+    Given a comma-separated list of word_ids (or 'wid:count' for multi-use),
+    predict the reuse-quota % using the same logic as Check 6.
+
+    Example:
+      lookup --reuse-preflight 'W00003:3,W00028:4,W00031:2,W00043:3'
+    """
+    from pathlib import Path
+    vocab, _ = load_state()
+    words = vocab.get("words", {})
+
+    plan: list[tuple[str, int]] = []
+    for entry in spec.split(","):
+        entry = entry.strip()
+        if not entry:
+            continue
+        if ":" in entry:
+            wid, count = entry.split(":", 1)
+            plan.append((wid.strip(), int(count.strip())))
+        else:
+            plan.append((entry, 1))
+
+    total = sum(c for _, c in plan)
+    if total == 0:
+        print("(empty plan)")
+        return
+
+    print(f"── Reuse preflight ({total} content tokens planned) ──")
+    print(f"{'word_id':<10}{'surface':<10}{'lifetime':>10}{'plan_uses':>11}{'effective':>11}{'class':>8}")
+    print("─" * 60)
+
+    low_count = 0
+    unknown_count = 0
+    for wid, count in plan:
+        w = words.get(wid)
+        if not w:
+            print(f"{wid:<10}{'?':<10}{'?':>10}{count:>11}{'?':>11}{'NEW':>8}")
+            # Treat unknowns (= new words to be added) as 0 lifetime → low
+            low_count += count
+            unknown_count += count
+            continue
+        lifetime = w.get("occurrences", 0)
+        effective = max(0, lifetime - count)
+        cls = "LOW" if effective < 5 else "high"
+        if cls == "LOW":
+            low_count += count
+        print(f"{wid:<10}{w.get('surface',''):<10}{lifetime:>10}{count:>11}{effective:>11}{cls:>8}")
+
+    pct = low_count / total * 100
+    verdict = "✓ PASS" if pct >= 60 else "✗ FAIL"
+    print("─" * 60)
+    print(f"  Low-occ ratio: {low_count}/{total} = {pct:.0f}%  (need ≥ 60%)  {verdict}")
+    if pct < 60:
+        deficit = int((0.60 * total) - low_count + 0.999)
+        print(f"  → Need to convert {deficit} more high-occ token(s) to low-occ words.")
+        print(f"  → Run `lookup --low-occ` for candidates.")
+    if unknown_count:
+        print(f"  Note: {unknown_count} token(s) reference unknown word_id(s) — assumed new (low-occ).")
+
+
 def show_record(record_id: str) -> None:
     vocab, grammar = load_state()
     if record_id.startswith("W") and record_id in vocab["words"]:
@@ -264,6 +348,8 @@ def main() -> None:
     p.add_argument("--grammar-progression", action="store_true", help="Print the JLPT-aligned grammar tier ladder")
     p.add_argument("--catalog", choices=["N5", "N4", "N3"], help="Print the curated grammar catalog filtered by JLPT level")
     p.add_argument("--untaught", choices=["N5", "N4", "N3"], help="List grammar points in the catalog not yet introduced in any story")
+    p.add_argument("--by-surface", help="Look up word_id by exact Japanese surface (handles homographs by listing all matches)")
+    p.add_argument("--reuse-preflight", help="Predict reuse-quota %% for a comma-separated list of word_ids before authoring tokens (e.g. 'W00003,W00028,W00031')")
     args = p.parse_args()
 
     vocab, grammar = load_state()
@@ -277,6 +363,12 @@ def main() -> None:
         return 0
     elif args.untaught:
         show_untaught(args.untaught)
+        return 0
+    elif args.by_surface:
+        show_by_surface(args.by_surface)
+        return 0
+    elif args.reuse_preflight:
+        show_reuse_preflight(args.reuse_preflight)
         return 0
     elif args.grammar_progression:
         from grammar_progression import show_curve
