@@ -1,6 +1,6 @@
 # Monogatari — Story Writer Task
 
-You are writing story **22** for the Monogatari Japanese graded-reader.
+You are writing story **23** for the Monogatari Japanese graded-reader.
 Read the authoring rules and plan below, then produce the story JSON.
 Output **only** the JSON object — no prose, no markdown fences.
 
@@ -448,67 +448,67 @@ A clean refusal is better than a story that fails validation.
 
 ```json
 {
-  "story_id": 22,
+  "story_id": 23,
   "target_word_count": 23,
   "max_sentences": 10,
   "new_words": [
-    "W00066",
-    "W00067",
-    "W00068"
+    "W00069",
+    "W00070",
+    "W00071"
   ],
   "new_grammar": [],
-  "theme": "An old book, a new book, an old photo",
-  "setting": "Morning. Two people sit at the desk reading. Inside an old book they find a small photo of themselves; the friend smiles. A new book waits beside the old one.",
+  "theme": "Waiting at the station, snow falling",
+  "setting": "Evening at a small station. The narrator waits for a friend; snow begins; a train arrives; the friend steps off; the two walk home together past the snowy road, under a starry sky.",
   "constraints": {
     "must_reuse_words": [
-      "W00035",
-      "W00033",
-      "W00034",
-      "W00037",
-      "W00022"
+      "W00041",
+      "W00050",
+      "W00018",
+      "W00032",
+      "W00063"
     ]
   },
   "new_word_definitions": {
-    "W00066": {
-      "surface": "新しい",
-      "kana": "あたらしい",
-      "reading": "atarashii",
-      "pos": "adjective",
-      "verb_class": null,
-      "adj_class": "i",
-      "meanings": [
-        "new"
-      ],
-      "grammar_tags": []
-    },
-    "W00067": {
-      "surface": "古い",
-      "kana": "ふるい",
-      "reading": "furui",
-      "pos": "adjective",
-      "verb_class": null,
-      "adj_class": "i",
-      "meanings": [
-        "old (of objects)"
-      ],
-      "grammar_tags": []
-    },
-    "W00068": {
-      "surface": "写真",
-      "kana": "しゃしん",
-      "reading": "shashin",
+    "W00069": {
+      "surface": "駅",
+      "kana": "えき",
+      "reading": "eki",
       "pos": "noun",
       "verb_class": null,
       "adj_class": null,
       "meanings": [
-        "photograph, photo"
+        "train station"
+      ],
+      "grammar_tags": []
+    },
+    "W00070": {
+      "surface": "電車",
+      "kana": "でんしゃ",
+      "reading": "densha",
+      "pos": "noun",
+      "verb_class": null,
+      "adj_class": null,
+      "meanings": [
+        "train"
+      ],
+      "grammar_tags": []
+    },
+    "W00071": {
+      "surface": "時計",
+      "kana": "とけい",
+      "reading": "tokei",
+      "pos": "noun",
+      "verb_class": null,
+      "adj_class": null,
+      "meanings": [
+        "clock, watch"
       ],
       "grammar_tags": []
     }
   },
   "new_grammar_definitions": {},
-  "rationale": "Story 22 brings 二人 back from story 16 and introduces a new descriptor pair (新しい / 古い) plus a memory-bearing concrete prop (写真). The pair is taught contrastively in adjacent sentences so the learner sees both halves immediately. 写真 unlocks 'memory inside an object' — a story shape the library has only handled abstractly through 思います / と思います before. The new closer ('the morning of two is warm') is a quiet emotional payoff that depends on 二人 having actually been present in the scene, not just named.",
-  "seed": 91337
+  "rationale": "Story 23 introduces public transit infrastructure (駅 + 電車) — a major shape the library has avoided so far. 時計 is the third new word and gives the scene a temporal anchor without needing number-words (which the library still doesn't have). Story is also a deliberate emotional pair to story 21: same outdoor evening, same snowy road, same human-count noun (一人 then, 二人 now) — but the narrator is no longer alone. That kind of cross-story continuation is the highest-scoring pattern per NOTES_FOR_FUTURE_AGENTS. Reuses 待ちます (story 16), 一緒に (story 17), 夕方 (story 17), 星 (story 15), 雪 (story 21).",
+  "seed": 102883
 }
 ```
 
@@ -516,28 +516,28 @@ A clean refusal is better than a story that fails validation.
 
 ## Allowed vocabulary (ALL words you may use — no others)
 
-- `W00001`: **今朝** (けさ) [noun] — this morning [occ:7]
+- `W00001`: **今朝** (けさ) [noun] — this morning [occ:8]
 - `W00002`: **雨** (あめ) [noun] — rain [occ:7]
-- `W00003`: **私** (わたし) [pronoun] — I, me [occ:20]
+- `W00003`: **私** (わたし) [pronoun] — I, me [occ:21]
 - `W00004`: **窓** (まど) [noun] — window [occ:8]
 - `W00005`: **外** (そと) [noun] — outside [occ:8]
-- `W00006`: **見ます** (みます) [verb] — to see, to look [occ:14]
+- `W00006`: **見ます** (みます) [verb] — to see, to look [occ:15]
 - `W00007`: **木** (き) [noun] — tree [occ:5]
 - `W00008`: **濡れる** (ぬれる) [verb] — to get wet [occ:3]
 - `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:10]
 - `W00010`: **飲みます** (のみます) [verb] — to drink [occ:6]
 - `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:17]
-- `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:8]
+- `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:9]
 - `W00013`: **いい** (いい) [adjective] — good, nice [occ:9]
 - `W00014`: **気分** (きぶん) [noun] — feeling, mood [occ:5]
-- `W00015`: **朝** (あさ) [noun] — morning [occ:11]
+- `W00015`: **朝** (あさ) [noun] — morning [occ:12]
 - `W00016`: **公園** (こうえん) [noun] — park [occ:5]
 - `W00017`: **歩きます** (あるきます) [verb] — to walk [occ:5]
 - `W00018`: **夕方** (ゆうがた) [noun] — evening, late afternoon [occ:3]
 - `W00019`: **朝ごはん** (あさごはん) [noun] — breakfast [occ:3]
 - `W00020`: **食べます** (たべます) [verb] — to eat [occ:3]
 - `W00021`: **卵** (たまご) [noun] — egg [occ:2]
-- `W00022`: **友達** (ともだち) [noun] — friend [occ:11]
+- `W00022`: **友達** (ともだち) [noun] — friend [occ:12]
 - `W00023`: **散歩** (さんぽ) [noun] — walk, stroll [occ:2]
 - `W00024`: **花** (はな) [noun] — flower [occ:3]
 - `W00025`: **ドア** (ドア) [noun] — door [occ:2]
@@ -548,18 +548,18 @@ A clean refusal is better than a story that fails validation.
 - `W00030`: **夜** (よる) [noun] — night [occ:5]
 - `W00031`: **月** (つき) [noun] — moon [occ:5]
 - `W00032`: **星** (ほし) [noun] — star [occ:2]
-- `W00033`: **本** (ほん) [noun] — book [occ:5]
-- `W00034`: **読みます** (よみます) [verb] — to read [occ:6]
-- `W00035`: **二人** (ふたり) [noun] — two people [occ:2]
+- `W00033`: **本** (ほん) [noun] — book [occ:6]
+- `W00034`: **読みます** (よみます) [verb] — to read [occ:7]
+- `W00035`: **二人** (ふたり) [noun] — two people [occ:3]
 - `W00036`: **椅子** (いす) [noun] — chair [occ:3]
-- `W00037`: **机** (つくえ) [noun] — desk [occ:5]
+- `W00037`: **机** (つくえ) [noun] — desk [occ:6]
 - `W00038`: **寝ます** (ねます) [verb] — to sleep [occ:3]
 - `W00039`: **手紙** (てがみ) [noun] — letter, note [occ:4]
 - `W00040`: **来ます** (きます) [verb] — to come, to arrive [occ:6]
 - `W00041`: **待ちます** (まちます) [verb] — to wait [occ:3]
 - `W00042`: **昨日** (きのう) [noun] — yesterday [occ:5]
 - `W00043`: **思います** (おもいます) [verb] — to think [occ:4]
-- `W00044`: **あります** (あります) [verb] — to exist (inanimate), to be (inanimate) [occ:8]
+- `W00044`: **あります** (あります) [verb] — to exist (inanimate), to be (inanimate) [occ:9]
 - `W00045`: **そば** (そば) [noun] — side, near [occ:3]
 - `W00046`: **明日** (あした) [noun] — tomorrow [occ:3]
 - `W00047`: **空** (そら) [noun] — sky [occ:3]
@@ -568,7 +568,7 @@ A clean refusal is better than a story that fails validation.
 - `W00050`: **一緒に** (いっしょに) [adverb] — together [occ:2]
 - `W00051`: **子供** (こども) [noun] — child [occ:2]
 - `W00052`: **ベンチ** (ベンチ) [noun] — bench [occ:1]
-- `W00053`: **笑います** (わらいます) [verb] — to smile, to laugh [occ:2]
+- `W00053`: **笑います** (わらいます) [verb] — to smile, to laugh [occ:3]
 - `W00054`: **鳥** (とり) [noun] — bird [occ:2]
 - `W00055`: **小さい** (ちいさい) [adjective] — small, little [occ:3]
 - `W00056`: **嬉しい** (うれしい) [adjective] — happy, glad [occ:2]
@@ -581,9 +581,12 @@ A clean refusal is better than a story that fails validation.
 - `W00063`: **雪** (ゆき) [noun] — snow [occ:1]
 - `W00064`: **道** (みち) [noun] — road, path [occ:1]
 - `W00065`: **一人** (ひとり) [noun] — one person, alone [occ:1]
-- `W00066`: **新しい** (あたらしい) [adjective] — new **[NEW]**
-- `W00067`: **古い** (ふるい) [adjective] — old (of objects) **[NEW]**
-- `W00068`: **写真** (しゃしん) [noun] — photograph, photo **[NEW]**
+- `W00066`: **新しい** (あたらしい) [adjective] — new [occ:1]
+- `W00067`: **古い** (ふるい) [adjective] — old (of objects) [occ:1]
+- `W00068`: **写真** (しゃしん) [noun] — photograph, photo [occ:1]
+- `W00069`: **駅** (えき) [noun] — train station **[NEW]**
+- `W00070`: **電車** (でんしゃ) [noun] — train **[NEW]**
+- `W00071`: **時計** (とけい) [noun] — clock, watch **[NEW]**
 
 ---
 
@@ -614,19 +617,19 @@ A clean refusal is better than a story that fails validation.
 
 ## New word definitions (introduce these in the story)
 
-- `W00066`: **新しい** (あたらしい) [adjective · i-adj] — new
-- `W00067`: **古い** (ふるい) [adjective · i-adj] — old (of objects)
-- `W00068`: **写真** (しゃしん) [noun] — photograph, photo
+- `W00069`: **駅** (えき) [noun] — train station
+- `W00070`: **電車** (でんしゃ) [noun] — train
+- `W00071`: **時計** (とけい) [noun] — clock, watch
 
 ---
 
 ## Output schema
 
-Produce a `story_22.json` object with this structure:
+Produce a `story_23.json` object with this structure:
 
 ```json
 {
-  "story_id": 22,
+  "story_id": 23,
   "title": {
     "jp": "<kanji/kana title>",
     "en": "<English title>",
@@ -640,7 +643,7 @@ Produce a `story_22.json` object with this structure:
     "tokens": [ ... ]
   },
   "plan_ref": "plan.json",
-  "new_words": ["W00066", "W00067", "W00068"],
+  "new_words": ["W00069", "W00070", "W00071"],
   "new_grammar": [],
   "all_words_used": ["<every word_id used, in order of first appearance>"],
   "sentences": [

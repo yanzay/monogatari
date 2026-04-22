@@ -19,7 +19,7 @@
     ],
     "last_regenerated": "2026-04-22 15:30",
     "stories_covered": 12,
-    "n_stories": 22
+    "n_stories": 23
   },
   "reviews": [
     {
@@ -771,6 +771,39 @@
           "why": "voice"
         }
       ]
+    },
+    {
+      "story_id": 23,
+      "title_jp": "駅の夕方",
+      "title_en": "Evening at the Station",
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 5,
+        "closure": 4
+      },
+      "average": 4.2,
+      "approved": true,
+      "highlights": [
+        "First public-transit scene in 23 stories — 駅 + 電車 give the library a setting it has never had: infrastructure, the city's quiet edge. The scene fits the existing voice (slow, observed, single 'I') without leaning on the new vocabulary as a gimmick.",
+        "Direct emotional pair to story 21: same outdoor evening, same snowy road, but the human-count noun has flipped from 一人 (alone) to 二人 (two) — the narrator who walked home alone in 21 is now the narrator who waits and walks home with someone in 23. That is the cross-story arc NOTES_FOR_FUTURE_AGENTS flagged as the highest-scoring pattern.",
+        "Closer 'Together, an evening of stars' uses 一緒に attributively-by-implication and ends on a concrete image (星) the s7 already established, so it satisfies the lonely-noun lint *and* the variety guard against 〜いい〜です."
+      ],
+      "weaknesses": [
+        "Three 来ます verbs in a row (s3 雪が, s4 電車が, s5 友達は) — the repetition is intentional (each 'arrival' pulls the scene forward) but reads as four beats with the same verb if the reader is paying attention to the JP. Could vary by using 着きます (to arrive) but that verb isn't in the library yet.",
+        "S2 'The station's clock is big' is the lightest beat — it earns its place pedagogically (introduces 時計, sets up s3) but is not narratively interesting on its own."
+      ],
+      "suggestions": [
+        {
+          "what": "When 着きます (to arrive) enters vocab, revisit s4/s5 to differentiate train-arrives vs friend-arrives.",
+          "why": "voice"
+        },
+        {
+          "what": "Future story could pair 駅 with 朝 (morning station, departure beat) for symmetry with this story's evening arrival.",
+          "why": "originality"
+        }
+      ]
     }
   ],
   "leaderboard": [
@@ -840,49 +873,54 @@
       "rank": 9
     },
     {
+      "story_id": 23,
+      "average": 4.2,
+      "rank": 9
+    },
+    {
       "story_id": 3,
       "average": 4.0,
-      "rank": 14
+      "rank": 15
     },
     {
       "story_id": 14,
       "average": 4.0,
-      "rank": 14
+      "rank": 15
     },
     {
       "story_id": 15,
       "average": 4.0,
-      "rank": 14
+      "rank": 15
     },
     {
       "story_id": 16,
       "average": 4.0,
-      "rank": 14
+      "rank": 15
     },
     {
       "story_id": 21,
       "average": 4.0,
-      "rank": 14
+      "rank": 15
     },
     {
       "story_id": 1,
       "average": 3.8,
-      "rank": 19
+      "rank": 20
     },
     {
       "story_id": 13,
       "average": 3.8,
-      "rank": 19
+      "rank": 20
     },
     {
       "story_id": 17,
       "average": 3.8,
-      "rank": 19
+      "rank": 20
     },
     {
       "story_id": 18,
       "average": 3.8,
-      "rank": 19
+      "rank": 20
     }
   ],
   "next_actions": [
