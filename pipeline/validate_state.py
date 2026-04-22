@@ -92,6 +92,31 @@ def validate_grammar_state(grammar: dict) -> list[str]:
                 f"(got {jlpt!r})"
             )
 
+    # Optional cross-check against grammar_catalog.json (if present).
+    cat_path = Path(__file__).resolve().parent.parent / "data" / "grammar_catalog.json"
+    if cat_path.exists():
+        try:
+            cat = json.loads(cat_path.read_text())
+            cat_index = {e["id"]: e for e in cat.get("entries", [])}
+            for gid, gp in points.items():
+                cid = gp.get("catalog_id")
+                if cid is None:
+                    continue  # catalog_id is optional
+                if cid not in cat_index:
+                    errors.append(
+                        f"{gid}: catalog_id '{cid}' not found in grammar_catalog.json"
+                    )
+                    continue
+                # If linked, jlpt must agree
+                cat_jlpt = cat_index[cid]["jlpt"]
+                if gp.get("jlpt") and gp["jlpt"] != cat_jlpt:
+                    errors.append(
+                        f"{gid}: jlpt {gp['jlpt']!r} disagrees with catalog "
+                        f"({cid} → {cat_jlpt})"
+                    )
+        except Exception as e:
+            errors.append(f"failed to cross-check grammar_catalog.json: {e}")
+
     return errors
 
 

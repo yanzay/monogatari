@@ -191,6 +191,56 @@ def low_occurrences() -> None:
             print(fmt_word(w))
 
 
+def _load_catalog() -> dict:
+    cat_path = Path(__file__).resolve().parent.parent / "data" / "grammar_catalog.json"
+    if not cat_path.exists():
+        print(f"  ⚠ {cat_path.relative_to(Path.cwd())} not found — run pipeline/build_grammar_catalog.py", file=sys.stderr)
+        sys.exit(1)
+    return json.loads(cat_path.read_text())
+
+
+def show_catalog(jlpt_level: str) -> None:
+    cat = _load_catalog()
+    entries = [e for e in cat["entries"] if e["jlpt"] == jlpt_level]
+    print(f"── grammar catalog: {jlpt_level} ({len(entries)} points) ──")
+    print(f"  {'id':<26} {'marker':<22} {'category':<14} title")
+    print(f"  {'─'*26} {'─'*22} {'─'*14} {'─'*40}")
+    for e in entries:
+        print(f"  {e['id']:<26} {e['marker']:<22} {e['category']:<14} {e['title']}")
+
+
+def show_untaught(jlpt_level: str) -> None:
+    """List grammar catalog entries at this JLPT level that haven't been
+    introduced in any shipped story yet."""
+    cat = _load_catalog()
+    _, grammar = load_state()
+    taught_catalog_ids = {
+        gp.get("catalog_id")
+        for gp in grammar.get("points", {}).values()
+        if gp.get("catalog_id")
+    }
+    untaught = [
+        e for e in cat["entries"]
+        if e["jlpt"] == jlpt_level and e["id"] not in taught_catalog_ids
+    ]
+    taught = [
+        e for e in cat["entries"]
+        if e["jlpt"] == jlpt_level and e["id"] in taught_catalog_ids
+    ]
+    total = len(untaught) + len(taught)
+    print(f"── untaught {jlpt_level} grammar: {len(untaught)} of {total} catalog points ──")
+    print(f"  ({len(taught)} already introduced in stories)")
+    print()
+    by_cat: dict[str, list] = {}
+    for e in untaught:
+        by_cat.setdefault(e["category"], []).append(e)
+    for category in sorted(by_cat):
+        print(f"  ▸ {category}")
+        for e in by_cat[category]:
+            print(f"      {e['marker']:<22} {e['title']}")
+        print()
+
+
 def show_record(record_id: str) -> None:
     vocab, grammar = load_state()
     if record_id.startswith("W") and record_id in vocab["words"]:
@@ -212,6 +262,8 @@ def main() -> None:
     p.add_argument("--morph", action="store_true", help="Run morphological analysis (UniDic-Lite) on the term — useful for verifying inflected surfaces parse the way you expect")
     p.add_argument("--progression", action="store_true", help="Print the length-progression curve up to story 35")
     p.add_argument("--grammar-progression", action="store_true", help="Print the JLPT-aligned grammar tier ladder")
+    p.add_argument("--catalog", choices=["N5", "N4", "N3"], help="Print the curated grammar catalog filtered by JLPT level")
+    p.add_argument("--untaught", choices=["N5", "N4", "N3"], help="List grammar points in the catalog not yet introduced in any story")
     args = p.parse_args()
 
     vocab, grammar = load_state()
@@ -220,6 +272,12 @@ def main() -> None:
         show_next(vocab, grammar)
     elif args.progression:
         show_progression()
+    elif args.catalog:
+        show_catalog(args.catalog)
+        return 0
+    elif args.untaught:
+        show_untaught(args.untaught)
+        return 0
     elif args.grammar_progression:
         from grammar_progression import show_curve
         show_curve()

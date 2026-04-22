@@ -1074,3 +1074,66 @@ block is one-directional (no jumping ahead, never backward).
 
 All 12 existing grammar points were tagged `jlpt: "N5"` (they fit cleanly
 into Tier 1). Story 11 will be the first to draw from N4.
+
+---
+
+## v0.10 — Curated grammar catalog
+
+### What you got
+
+A new file: **`data/grammar_catalog.json`**, with **141 grammar points**
+(N5: 53, N4: 49, N3: 39), every entry **cross-referenced against ≥2 of
+3 authoritative sources** (JLPTSensei, BunPro, Genki I/II / Tobira).
+
+This is the "stocked pantry" — the universe of *what could be taught*.
+The state file (`data/grammar_state.json`) remains the per-library
+record of what *has been* taught.
+
+### Build process (reproducible)
+
+The catalog is **generated** from `pipeline/build_grammar_catalog.py`,
+not hand-edited. To re-generate:
+
+    python3 pipeline/build_grammar_catalog.py
+
+The build script is the source of truth. To add or amend an entry,
+edit the script's data tuples and re-run. The build asserts every
+entry has ≥2 source citations and rejects duplicates.
+
+### Cross-references
+
+Every catalog entry has a `sources` array citing the references that
+agree on its level, e.g.:
+
+    "sources": ["jlpt_sensei", "bunpro_n5", "genki_L6"]
+
+When sources disagree on level, the more conservative (lower JLPT
+number = harder = wait longer) is recorded and `disputed: true`
+is set. Currently no entries are disputed because the curation only
+included points where all sources agreed.
+
+### How it integrates
+
+- `python3 pipeline/lookup.py --catalog N4` — print the full N4 catalog.
+- `python3 pipeline/lookup.py --untaught N4` — list N4 points not yet
+  introduced in any story (essential for picking the next grammar to
+  introduce when authoring a tier-2+ story).
+- `pipeline/validate_state.py` — cross-checks every grammar point's
+  optional `catalog_id` field against the catalog; if linked, the
+  jlpt level must agree.
+- All 12 existing grammar points in `grammar_state.json` were
+  back-linked to their catalog entries via `catalog_id`.
+
+### Coverage today
+
+- N5: 12/53 introduced (41 N5 points still untaught — vast room to
+  grow within tier 1 if a story warrants).
+- N4: 0/49 introduced (story 11 onward will draw from this).
+- N3: 0/39 introduced (stories 26+).
+
+### Future tiers
+
+N2 and N1 are intentionally excluded from the curated catalog. Both
+have noisier source data and substantially more variance between
+references; we won't reach N2 territory for ~50 stories. The catalog
+can be extended to those levels later when needed.
