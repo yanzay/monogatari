@@ -1,6 +1,6 @@
 # Monogatari — Story Writer Task
 
-You are writing story **9** for the Monogatari Japanese graded-reader.
+You are writing story **10** for the Monogatari Japanese graded-reader.
 Read the authoring rules and plan below, then produce the story JSON.
 Output **only** the JSON object — no prose, no markdown fences.
 
@@ -256,18 +256,20 @@ A clean refusal is better than a story that fails validation.
 
 ```json
 {
-  "story_id": 9,
-  "title_jp": "猫はどこ",
-  "title_en": "Where Is the Cat?",
-  "subtitle_jp": "朝の家",
-  "subtitle_en": "The Morning House",
-  "theme": "A small daily mystery: the cat is somewhere in the house, but where? The narrator looks in two ordinary places, finally finds the cat sleeping in a third. The story uses location-marking に as the load-bearing grammar — every sentence answers 'where?'.",
-  "setting": "Morning, inside the narrator's home. The cat from story 6 has reappeared as a recurring character. The narrator searches: chair, desk, then finds the cat asleep on the bed (implicit — they sleep, ね).",
+  "story_id": 10,
+  "title_jp": "友達からの手紙",
+  "title_en": "A Letter from a Friend",
+  "subtitle_jp": "朝の風",
+  "subtitle_en": "The morning wind",
+  "theme": "A small daily wait: the narrator reads a letter from a friend who lives far away. The story uses から as the load-bearing grammar — the letter comes from somewhere, the friend writes from somewhere. Closes with the narrator waiting (待ちます), an open-ended feeling rather than the usual 'A and B, feeling です' formula.",
+  "setting": "Morning, at the narrator's home (the chair from story 9 returns). The friend from stories 4 and 8 is still the friend — third-time recurring character. The wind from story 5 returns as a sensory anchor.",
   "constraints": {
     "must_reuse_words": [
-      "W00028",
-      "W00029",
-      "W00015"
+      "W00022",
+      "W00027",
+      "W00033",
+      "W00034",
+      "W00036"
     ],
     "forbidden_words": [],
     "avoid_topics": [
@@ -279,63 +281,67 @@ A clean refusal is better than a story that fails validation.
   "target_word_count": 18,
   "max_sentences": 8,
   "new_words": [
-    "W00036",
-    "W00037",
-    "W00038"
+    "W00039",
+    "W00040",
+    "W00041"
   ],
   "new_word_definitions": {
-    "W00036": {
-      "id": "W00036",
-      "first_story": 9,
+    "W00039": {
+      "id": "W00039",
+      "first_story": 10,
       "grammar_tags": [],
-      "surface": "椅子",
-      "kana": "いす",
-      "reading": "isu",
+      "surface": "手紙",
+      "kana": "てがみ",
+      "reading": "tegami",
       "pos": "noun",
       "verb_class": null,
       "adj_class": null,
       "meanings": [
-        "chair"
-      ]
+        "letter; missive; note; mail"
+      ],
+      "_jmdict_pos": "noun (common) (futsuumeishi)"
     },
-    "W00037": {
-      "id": "W00037",
-      "first_story": 9,
+    "W00040": {
+      "id": "W00040",
+      "first_story": 10,
       "grammar_tags": [],
-      "surface": "机",
-      "kana": "つくえ",
-      "reading": "tsukue",
-      "pos": "noun",
-      "verb_class": null,
-      "adj_class": null,
-      "meanings": [
-        "desk"
-      ]
-    },
-    "W00038": {
-      "id": "W00038",
-      "first_story": 9,
-      "grammar_tags": [],
-      "surface": "寝ます",
-      "kana": "ねます",
-      "reading": "nemasu",
+      "surface": "来ます",
+      "kana": "きます",
+      "reading": "kimasu",
       "pos": "verb",
-      "verb_class": "ichidan",
+      "verb_class": "irregular_kuru",
       "adj_class": null,
       "meanings": [
-        "to sleep; to lie down"
-      ]
+        "to come (spatially or temporally); to approach; to arrive"
+      ],
+      "_jmdict_pos": "カ行変格 → irregular_kuru (via fugashi; lemma=来る)"
+    },
+    "W00041": {
+      "id": "W00041",
+      "first_story": 10,
+      "grammar_tags": [],
+      "surface": "待ちます",
+      "kana": "まちます",
+      "reading": "machimasu",
+      "pos": "verb",
+      "verb_class": "godan",
+      "adj_class": null,
+      "meanings": [
+        "to wait"
+      ],
+      "_jmdict_pos": "五段-タ行 → godan (via fugashi; lemma=待つ)"
     }
   },
   "new_grammar": [],
   "new_grammar_definitions": {},
   "context_words_to_reuse": [
-    "W00028",
-    "W00029",
-    "W00015",
-    "W00009"
+    "W00022",
+    "W00033",
+    "W00034",
+    "W00027",
+    "W00036"
   ],
-  "notes": "Engagement plan: HOOK = a question (どこ in title) — first story to open with a mystery rather than weather. ORIGINALITY = recurring character (cat from story 6) + first explicit 'search' structure. UNDERUSED-GRAMMAR move: G004_ni_location was the lowest-used grammar (1 use across 8 stories) — every sentence here answers 'where?' so に carries the meaning. CLOSER follows the established 'A and B, feeling' motif but anchors it on a discovered moment, not a static observation."
+  "notes": "Engagement plan: HOOK = sensory (wind opens the scene before any human appears). ORIGINALITY = first letter / written-language scene; first time a recurring character is OFF-stage (the friend exists only via their writing). UNDERUSED-GRAMMAR move: G006_kara_from carries the meaning — friend comes FROM far away, letter comes FROM the friend. CLOSER = breaks the 'X, feeling です' pattern; ends with an action-verb in present continuous-ish posture (待ちます) — open-ended waiting. Exercises the brand-new irregular_kuru / fugashi-classified verb path."
 }
 ```
 
@@ -345,19 +351,19 @@ A clean refusal is better than a story that fails validation.
 
 - `W00001`: **今朝** (けさ) [noun] — this morning [occ:2]
 - `W00002`: **雨** (あめ) [noun] — rain [occ:6]
-- `W00003`: **私** (わたし) [pronoun] — I, me [occ:10]
+- `W00003`: **私** (わたし) [pronoun] — I, me [occ:11]
 - `W00004`: **窓** (まど) [noun] — window [occ:4]
 - `W00005`: **外** (そと) [noun] — outside [occ:6]
-- `W00006`: **見ます** (みます) [verb] — to see, to look [occ:8]
+- `W00006`: **見ます** (みます) [verb] — to see, to look [occ:9]
 - `W00007`: **木** (き) [noun] — tree [occ:5]
 - `W00008`: **濡れる** (ぬれる) [verb] — to get wet [occ:1]
 - `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:6]
 - `W00010`: **飲みます** (のみます) [verb] — to drink [occ:3]
-- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:9]
+- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:10]
 - `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:5]
-- `W00013`: **いい** (いい) [adjective] — good, nice [occ:9]
+- `W00013`: **いい** (いい) [adjective] — good, nice [occ:10]
 - `W00014`: **気分** (きぶん) [noun] — feeling, mood [occ:6]
-- `W00015`: **朝** (あさ) [noun] — morning [occ:5]
+- `W00015`: **朝** (あさ) [noun] — morning [occ:6]
 - `W00016`: **公園** (こうえん) [noun] — park [occ:4]
 - `W00017`: **歩きます** (あるきます) [verb] — to walk [occ:4]
 - `W00018`: **夕方** (ゆうがた) [noun] — evening, late afternoon [occ:3]
@@ -370,17 +376,20 @@ A clean refusal is better than a story that fails validation.
 - `W00025`: **ドア** (ドア) [noun] — door [occ:1]
 - `W00026`: **帰ります** (かえります) [verb] — to return home, to go back [occ:1]
 - `W00027`: **風** (かぜ) [noun] — wind [occ:1]
-- `W00028`: **猫** (ねこ) [noun] — cat [occ:1]
-- `W00029`: **います** (います) [verb] — to be (animate); to exist (animate) [occ:1]
+- `W00028`: **猫** (ねこ) [noun] — cat [occ:2]
+- `W00029`: **います** (います) [verb] — to be (animate); to exist (animate) [occ:2]
 - `W00030`: **夜** (よる) [noun] — night [occ:1]
 - `W00031`: **月** (つき) [noun] — moon [occ:1]
 - `W00032`: **星** (ほし) [noun] — star [occ:1]
-- `W00033`: **本** (ほん) [noun] — book [occ:1]
+- `W00033`: **本** (ほん) [noun] — book [occ:2]
 - `W00034`: **読む** (よむ) [verb] — to read [occ:1]
 - `W00035`: **二人** (ふたり) [noun] — two people [occ:1]
-- `W00036`: **椅子** (いす) [noun] — chair **[NEW]**
-- `W00037`: **机** (つくえ) [noun] — desk **[NEW]**
-- `W00038`: **寝ます** (ねます) [verb] — to sleep; to lie down **[NEW]**
+- `W00036`: **椅子** (いす) [noun] — chair [occ:1]
+- `W00037`: **机** (つくえ) [noun] — desk [occ:1]
+- `W00038`: **寝ます** (ねます) [verb] — to sleep; to lie down [occ:1]
+- `W00039`: **手紙** (てがみ) [noun] — letter; missive; note; mail **[NEW]**
+- `W00040`: **来ます** (きます) [verb] — to come (spatially or temporally); to approach; to arrive **[NEW]**
+- `W00041`: **待ちます** (まちます) [verb] — to wait **[NEW]**
 
 ---
 
@@ -403,19 +412,19 @@ A clean refusal is better than a story that fails validation.
 
 ## New word definitions (introduce these in the story)
 
-- `W00036`: **椅子** (いす) [noun] — chair
-- `W00037`: **机** (つくえ) [noun] — desk
-- `W00038`: **寝ます** (ねます) [verb · ichidan] — to sleep; to lie down
+- `W00039`: **手紙** (てがみ) [noun] — letter; missive; note; mail
+- `W00040`: **来ます** (きます) [verb · irregular_kuru] — to come (spatially or temporally); to approach; to arrive
+- `W00041`: **待ちます** (まちます) [verb · godan] — to wait
 
 ---
 
 ## Output schema
 
-Produce a `story_9.json` object with this structure:
+Produce a `story_10.json` object with this structure:
 
 ```json
 {
-  "story_id": 9,
+  "story_id": 10,
   "title": {
     "jp": "<kanji/kana title>",
     "en": "<English title>",
@@ -429,7 +438,7 @@ Produce a `story_9.json` object with this structure:
     "tokens": [ ... ]
   },
   "plan_ref": "plan.json",
-  "new_words": ["W00036", "W00037", "W00038"],
+  "new_words": ["W00039", "W00040", "W00041"],
   "new_grammar": [],
   "all_words_used": ["<every word_id used, in order of first appearance>"],
   "sentences": [

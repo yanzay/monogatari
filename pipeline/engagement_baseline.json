@@ -5,7 +5,7 @@
     "approve_bar": "average >= 3.5 AND every dimension >= 3",
     "reviewer": "rovo-dev",
     "first_reviewed_at": "2026-04-22T01:22:00Z",
-    "last_revised_at": "2026-04-22T11:42:00Z",
+    "last_revised_at": "2026-04-22T12:08:00Z",
     "history": [
       "2026-04-22 — initial baseline established (stories 1-4)",
       "2026-04-22 — stories 2 and 3 revised after baseline put them under the bar (2.8 and 3.4)",
@@ -14,7 +14,8 @@
       "2026-04-22 — JP NLP toolkit installed (fugashi + jaconv + jamdict-data) and wired into precheck/scaffold/lookup. Real inflection-engine validation, JMdict auto-fill of new word definitions, English↔JP dictionary lookup CLI, morphological-analysis CLI.",
       "2026-04-22 — story 7 (夜) authored end-to-end with the new tooling (scaffold --new-word-surfaces auto-filled 夜/月/星 from JMdict; precheck --fix auto-computed all_words_used). First night-set story; gives G011_ya_partial real semantic work (was in state since story 4, only used twice). Cleared the bar on first pass (avg 4.4).",
       "2026-04-22 — story 8 (本と友達) authored end-to-end. First multi-person scene with parallel actions in the library. Gives G009_mo_also (formerly 4 spread-thin uses) 3 fresh load-bearing semantic uses in one tight a/b/a/b/c construction. Cleared the bar on first pass (avg 4.6, ties stories 5 and 6 for #1).",
-      "2026-04-22 — story 9 (朝の猫) authored end-to-end. First story to use a recurring character (cat from story 6) — a real arrival of multi-story narrative continuity. Gives G004_ni_location (was the lowest-used grammar at 1 use across 8 stories) real semantic work — every sentence answers 'where?'. Sleeping-cat compound-noun closer is a new syntactic pattern. Cleared the bar on first pass (avg 4.4)."
+      "2026-04-22 — story 9 (朝の猫) authored end-to-end. First story to use a recurring character (cat from story 6) — a real arrival of multi-story narrative continuity. Gives G004_ni_location (was the lowest-used grammar at 1 use across 8 stories) real semantic work — every sentence answers 'where?'. Sleeping-cat compound-noun closer is a new syntactic pattern. Cleared the bar on first pass (avg 4.4).",
+      "2026-04-22 — story 10 (友達からの手紙) authored end-to-end. First story to exercise the new fugashi-classified irregular_kuru verb path (来ます). Gives G006_kara_from real semantic work — letter FROM the friend, friend FROM far away. First off-stage character communication: friend exists only via the letter, not as a present body. Closer breaks the 'X, feeling です' pattern (used in 5 of 9 prior stories) — ends on the verb 待ちます (open-ended waiting). Cleared the bar on first pass (avg 4.6, ties stories 5/6/8 for #1). Validates with zero warnings — first ship after the v0.8 inflection-engine consolidation."
     ]
   },
   "reviews": [
@@ -332,6 +333,36 @@
         "consider opening with a sensory cue (sound, smell, light) when story 10 targets a hook of 5",
         "the 'X, feeling です' closer pattern is now used in 5 of 9 stories — vary further as the library grows",
         "G006_kara_from is the next-most-underused grammar (2 uses) — candidate for a 'real work' move in story 10"
+      ]
+    },
+    {
+      "story_id": 10,
+      "title_jp": "友達からの手紙",
+      "title_en": "A Letter from a Friend",
+      "scores": {
+        "hook": 5,
+        "voice": 4,
+        "originality": 5,
+        "coherence": 4,
+        "closure": 5
+      },
+      "average": 4.6,
+      "approved": true,
+      "highlights": [
+        "first true sensory hook (wind opens the scene before any human appears)",
+        "first off-stage character communication — friend exists only via the letter",
+        "first irregular verb shipped (来ます, irregular_kuru) — exercises new fugashi pipeline path",
+        "closer breaks the 'X, feeling です' pattern with an open-ended verb (待ちます)",
+        "から carries semantic load throughout (FROM friend, FROM far away)"
+      ],
+      "weaknesses": [
+        "s5 ('friend drinks tea too') is a thematically sideways turn that doesn't directly serve the wait/letter arc — slight coherence ding (4 not 5)",
+        "voice's 'wait for friend's morning' phrasing is gloss-accurate but slightly unusual"
+      ],
+      "next_actions": [
+        "G007_te_form is now the most underused grammar (2 uses) — candidate for story 11's 'real work' move",
+        "if revising for 5/5 coherence: cut s5 (friend's tea) and let the two waits face each other directly",
+        "consider authoring story 11 with a single sustained action (te-form chaining)"
       ]
     }
   ],

@@ -21,6 +21,7 @@
 | 1 | story 5 | **4.6** | Tied for #1 — first story authored with rubric in writer prompt; cleared the bar on first pass. |
 | 1 | story 6 | **4.6** | Tied for #1 — first story with a non-human character; cat arrives as a real surprise. Originality 5/5. |
 | 1 | story 8 | **4.6** | Tied for #1 — first multi-person parallel scene; gives G009_mo_also 3 fresh load-bearing uses. Most architecturally distinctive story. |
+| 1 | story 10 | **4.6** | Tied for #1 — first sensory hook (wind), first off-stage character communication, first irregular verb shipped, closer breaks the 'X, feeling です' pattern. |
 | 4 | story 4 | **4.4** | Strong; small refinements possible. |
 | 4 | story 7 | **4.4** | First night-set story; gives G011_ya_partial real work. Doubles the underused-grammar pattern that elevated story 6. |
 | 4 | story 9 | **4.4** | First story with a recurring character (cat from story 6); gives G004_ni_location real semantic work in every sentence; sleeping-cat compound-noun closer is a new syntactic pattern. |
@@ -250,3 +251,29 @@ _Previous score: 3.4 (before revision)_
 - Consider opening with a sensory cue (sound, smell, light) when story 10 targets a hook of 5.
 - The "X, feeling です" closer pattern is now used in 5 of 9 stories — vary further as the library grows.
 - G006_kara_from is the next-most-underused grammar (2 uses) — candidate for a "real work" move in story 10.
+
+---
+
+## Story 10 — 友達からの手紙 / A Letter from a Friend
+
+| hook | voice | originality | coherence | closure |
+|------|-------|-------------|-----------|---------|
+| **5** | 4 | **5** | 4 | **5** |
+
+**Avg: 4.6 ✓** — ties stories 5/6/8 for #1.
+
+**Highlights**
+- First true sensory hook (wind opens the scene before any human appears).
+- First off-stage character communication — the friend (3rd recurrence) exists only via the letter, not as a present body.
+- First irregular verb shipped (来ます, irregular_kuru) — exercises the new fugashi pipeline path end-to-end.
+- Closer breaks the "X, feeling です" pattern (used in 5 of 9 prior stories) — ends on an open-ended verb (待ちます).
+- から carries semantic load throughout (FROM friend, FROM far away).
+
+**Weaknesses**
+- s5 ("friend drinks tea too") is a thematically sideways turn that doesn't directly serve the wait/letter arc — slight coherence ding (4 not 5).
+- Voice's "wait for friend's morning" is gloss-accurate but slightly unusual phrasing.
+
+**Next actions**
+- G007_te_form is now the most underused grammar (2 uses) — candidate for story 11's "real work" move.
+- If revising for 5/5 coherence: cut s5 and let the two waits face each other directly.
+- Consider authoring story 11 with a single sustained action (te-form chaining).
