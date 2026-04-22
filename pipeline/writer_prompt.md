@@ -1,6 +1,6 @@
 # Monogatari — Story Writer Task
 
-You are writing story **25** for the Monogatari Japanese graded-reader.
+You are writing story **26** for the Monogatari Japanese graded-reader.
 Read the authoring rules and plan below, then produce the story JSON.
 Output **only** the JSON object — no prose, no markdown fences.
 
@@ -448,67 +448,67 @@ A clean refusal is better than a story that fails validation.
 
 ```json
 {
-  "story_id": 25,
+  "story_id": 26,
   "target_word_count": 23,
   "max_sentences": 10,
   "new_words": [
-    "W00075",
-    "W00076",
-    "W00077"
+    "W00078",
+    "W00079",
+    "W00080"
   ],
   "new_grammar": [],
-  "theme": "An empty room, a friend gone out",
-  "setting": "A friend has just left the room. The narrator stays alone, sees an old photo of the friend on the desk smiling, feels sad as the rain begins outside, and finally leaves the room too.",
+  "theme": "Coming home, finding a small key",
+  "setting": "Evening. The narrator returns home, finds a small key in the door, opens it, enters the house, enters the room, and finds a friend's letter waiting on the desk.",
   "constraints": {
     "must_reuse_words": [
-      "W00065",
-      "W00068",
-      "W00067",
-      "W00002",
-      "W00022"
+      "W00026",
+      "W00025",
+      "W00073",
+      "W00039",
+      "W00056"
     ]
   },
   "new_word_definitions": {
-    "W00075": {
-      "surface": "部屋",
-      "kana": "へや",
-      "reading": "heya",
+    "W00078": {
+      "surface": "家",
+      "kana": "いえ",
+      "reading": "ie",
       "pos": "noun",
       "verb_class": null,
       "adj_class": null,
       "meanings": [
-        "room"
+        "house, home"
       ],
       "grammar_tags": []
     },
-    "W00076": {
-      "surface": "悲しい",
-      "kana": "かなしい",
-      "reading": "kanashii",
-      "pos": "adjective",
+    "W00079": {
+      "surface": "鍵",
+      "kana": "かぎ",
+      "reading": "kagi",
+      "pos": "noun",
       "verb_class": null,
-      "adj_class": "i",
-      "meanings": [
-        "sad"
-      ],
-      "grammar_tags": []
-    },
-    "W00077": {
-      "surface": "出ます",
-      "kana": "でます",
-      "reading": "demasu",
-      "pos": "verb",
-      "verb_class": "ichidan",
       "adj_class": null,
       "meanings": [
-        "to go out, to leave"
+        "key"
+      ],
+      "grammar_tags": []
+    },
+    "W00080": {
+      "surface": "入ります",
+      "kana": "はいります",
+      "reading": "hairimasu",
+      "pos": "verb",
+      "verb_class": "godan",
+      "adj_class": null,
+      "meanings": [
+        "to enter, to go in"
       ],
       "grammar_tags": []
     }
   },
   "new_grammar_definitions": {},
-  "rationale": "Story 25 takes the brave-thematic-choice hint from NOTES_FOR_FUTURE_AGENTS literally: this is the library's first explicitly sad story. The 24-story arc has been mostly quiet contentment; here the narrator is briefly left behind by a friend who has just stepped out, sees an old photo, feels the loss, then steps out themselves into the rain. New vocab is structurally exact: 部屋 (room) finally gives the library a private indoor space distinct from 庭/外/窓; 悲しい is the first sadness adjective (we have 嬉しい, 元気 — the emotional palette had only positive register); 出ます closes the spatial pair with 開けます (open) from story 24. Reuses 一人 (story 21), 写真 + 古い (story 22), 雨 (story 18). The closer 'sad morning, quiet rain' deliberately uses 静か on rain (which is conventional in JP literary register) and leaves the emotional weight on the reader without resolution.",
-  "seed": 132671
+  "rationale": "Story 26 follows story 25's sad turn with a quiet recovery — the narrator comes home and finds a friend's letter waiting. New vocab does three structural jobs: 家 finally gives the library a 'home' (we had 部屋, 庭, 外, 窓 but no whole-house concept); 鍵 is a small concrete object that becomes the prop the scene turns on (echoing story 22's photo-as-emotional-anchor pattern, but with a different object class — a tool); 入ります completes the spatial verb pair with 出ます from story 25 (leave / enter), and pairs in two adjacent sentences (s4 home, s5 room) so the verb's range is shown. Cross-story callback: the friend's letter on the desk picks up directly from story 20's 'I write a letter to my friend' — the friend has now answered.",
+  "seed": 142567
 }
 ```
 
@@ -516,28 +516,28 @@ A clean refusal is better than a story that fails validation.
 
 ## Allowed vocabulary (ALL words you may use — no others)
 
-- `W00001`: **今朝** (けさ) [noun] — this morning [occ:9]
-- `W00002`: **雨** (あめ) [noun] — rain [occ:7]
-- `W00003`: **私** (わたし) [pronoun] — I, me [occ:23]
+- `W00001`: **今朝** (けさ) [noun] — this morning [occ:10]
+- `W00002`: **雨** (あめ) [noun] — rain [occ:8]
+- `W00003`: **私** (わたし) [pronoun] — I, me [occ:24]
 - `W00004`: **窓** (まど) [noun] — window [occ:9]
-- `W00005`: **外** (そと) [noun] — outside [occ:8]
+- `W00005`: **外** (そと) [noun] — outside [occ:9]
 - `W00006`: **見ます** (みます) [verb] — to see, to look [occ:16]
 - `W00007`: **木** (き) [noun] — tree [occ:5]
 - `W00008`: **濡れる** (ぬれる) [verb] — to get wet [occ:3]
 - `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:10]
 - `W00010`: **飲みます** (のみます) [verb] — to drink [occ:6]
-- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:18]
+- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:19]
 - `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:10]
 - `W00013`: **いい** (いい) [adjective] — good, nice [occ:9]
 - `W00014`: **気分** (きぶん) [noun] — feeling, mood [occ:5]
-- `W00015`: **朝** (あさ) [noun] — morning [occ:13]
+- `W00015`: **朝** (あさ) [noun] — morning [occ:14]
 - `W00016`: **公園** (こうえん) [noun] — park [occ:5]
 - `W00017`: **歩きます** (あるきます) [verb] — to walk [occ:5]
 - `W00018`: **夕方** (ゆうがた) [noun] — evening, late afternoon [occ:4]
 - `W00019`: **朝ごはん** (あさごはん) [noun] — breakfast [occ:4]
 - `W00020`: **食べます** (たべます) [verb] — to eat [occ:4]
 - `W00021`: **卵** (たまご) [noun] — egg [occ:3]
-- `W00022`: **友達** (ともだち) [noun] — friend [occ:13]
+- `W00022`: **友達** (ともだち) [noun] — friend [occ:14]
 - `W00023`: **散歩** (さんぽ) [noun] — walk, stroll [occ:2]
 - `W00024`: **花** (はな) [noun] — flower [occ:4]
 - `W00025`: **ドア** (ドア) [noun] — door [occ:3]
@@ -552,14 +552,14 @@ A clean refusal is better than a story that fails validation.
 - `W00034`: **読みます** (よみます) [verb] — to read [occ:7]
 - `W00035`: **二人** (ふたり) [noun] — two people [occ:4]
 - `W00036`: **椅子** (いす) [noun] — chair [occ:3]
-- `W00037`: **机** (つくえ) [noun] — desk [occ:6]
+- `W00037`: **机** (つくえ) [noun] — desk [occ:7]
 - `W00038`: **寝ます** (ねます) [verb] — to sleep [occ:3]
 - `W00039`: **手紙** (てがみ) [noun] — letter, note [occ:4]
 - `W00040`: **来ます** (きます) [verb] — to come, to arrive [occ:8]
 - `W00041`: **待ちます** (まちます) [verb] — to wait [occ:4]
 - `W00042`: **昨日** (きのう) [noun] — yesterday [occ:5]
 - `W00043`: **思います** (おもいます) [verb] — to think [occ:4]
-- `W00044`: **あります** (あります) [verb] — to exist (inanimate), to be (inanimate) [occ:10]
+- `W00044`: **あります** (あります) [verb] — to exist (inanimate), to be (inanimate) [occ:11]
 - `W00045`: **そば** (そば) [noun] — side, near [occ:3]
 - `W00046`: **明日** (あした) [noun] — tomorrow [occ:3]
 - `W00047`: **空** (そら) [noun] — sky [occ:3]
@@ -568,7 +568,7 @@ A clean refusal is better than a story that fails validation.
 - `W00050`: **一緒に** (いっしょに) [adverb] — together [occ:3]
 - `W00051`: **子供** (こども) [noun] — child [occ:2]
 - `W00052`: **ベンチ** (ベンチ) [noun] — bench [occ:1]
-- `W00053`: **笑います** (わらいます) [verb] — to smile, to laugh [occ:3]
+- `W00053`: **笑います** (わらいます) [verb] — to smile, to laugh [occ:4]
 - `W00054`: **鳥** (とり) [noun] — bird [occ:2]
 - `W00055`: **小さい** (ちいさい) [adjective] — small, little [occ:3]
 - `W00056`: **嬉しい** (うれしい) [adjective] — happy, glad [occ:2]
@@ -580,19 +580,22 @@ A clean refusal is better than a story that fails validation.
 - `W00062`: **寒い** (さむい) [adjective] — cold (weather) [occ:1]
 - `W00063`: **雪** (ゆき) [noun] — snow [occ:2]
 - `W00064`: **道** (みち) [noun] — road, path [occ:3]
-- `W00065`: **一人** (ひとり) [noun] — one person, alone [occ:1]
+- `W00065`: **一人** (ひとり) [noun] — one person, alone [occ:2]
 - `W00066`: **新しい** (あたらしい) [adjective] — new [occ:1]
-- `W00067`: **古い** (ふるい) [adjective] — old (of objects) [occ:1]
-- `W00068`: **写真** (しゃしん) [noun] — photograph, photo [occ:1]
+- `W00067`: **古い** (ふるい) [adjective] — old (of objects) [occ:2]
+- `W00068`: **写真** (しゃしん) [noun] — photograph, photo [occ:2]
 - `W00069`: **駅** (えき) [noun] — train station [occ:1]
 - `W00070`: **電車** (でんしゃ) [noun] — train [occ:1]
 - `W00071`: **時計** (とけい) [noun] — clock, watch [occ:1]
 - `W00072`: **春** (はる) [noun] — spring (season) [occ:1]
 - `W00073`: **開けます** (あけます) [verb] — to open [occ:1]
 - `W00074`: **長い** (ながい) [adjective] — long [occ:1]
-- `W00075`: **部屋** (へや) [noun] — room **[NEW]**
-- `W00076`: **悲しい** (かなしい) [adjective] — sad **[NEW]**
-- `W00077`: **出ます** (でます) [verb] — to go out, to leave **[NEW]**
+- `W00075`: **部屋** (へや) [noun] — room [occ:1]
+- `W00076`: **悲しい** (かなしい) [adjective] — sad [occ:1]
+- `W00077`: **出ます** (でます) [verb] — to go out, to leave [occ:1]
+- `W00078`: **家** (いえ) [noun] — house, home **[NEW]**
+- `W00079`: **鍵** (かぎ) [noun] — key **[NEW]**
+- `W00080`: **入ります** (はいります) [verb] — to enter, to go in **[NEW]**
 
 ---
 
@@ -623,19 +626,19 @@ A clean refusal is better than a story that fails validation.
 
 ## New word definitions (introduce these in the story)
 
-- `W00075`: **部屋** (へや) [noun] — room
-- `W00076`: **悲しい** (かなしい) [adjective · i-adj] — sad
-- `W00077`: **出ます** (でます) [verb · ichidan] — to go out, to leave
+- `W00078`: **家** (いえ) [noun] — house, home
+- `W00079`: **鍵** (かぎ) [noun] — key
+- `W00080`: **入ります** (はいります) [verb · godan] — to enter, to go in
 
 ---
 
 ## Output schema
 
-Produce a `story_25.json` object with this structure:
+Produce a `story_26.json` object with this structure:
 
 ```json
 {
-  "story_id": 25,
+  "story_id": 26,
   "title": {
     "jp": "<kanji/kana title>",
     "en": "<English title>",
@@ -649,7 +652,7 @@ Produce a `story_25.json` object with this structure:
     "tokens": [ ... ]
   },
   "plan_ref": "plan.json",
-  "new_words": ["W00075", "W00076", "W00077"],
+  "new_words": ["W00078", "W00079", "W00080"],
   "new_grammar": [],
   "all_words_used": ["<every word_id used, in order of first appearance>"],
   "sentences": [

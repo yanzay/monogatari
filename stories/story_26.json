@@ -1,0 +1,607 @@
+{
+  "story_id": 26,
+  "title": {
+    "jp": "小さい鍵",
+    "en": "A Small Key",
+    "tokens": [
+      {
+        "t": "小さい",
+        "r": "ちいさい",
+        "word_id": "W00055",
+        "role": "content"
+      },
+      {
+        "t": "鍵",
+        "r": "かぎ",
+        "word_id": "W00079",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "家の手紙",
+    "en": "A letter at home",
+    "tokens": [
+      {
+        "t": "家",
+        "r": "いえ",
+        "word_id": "W00078",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "手紙",
+        "r": "てがみ",
+        "word_id": "W00039",
+        "role": "content"
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00078",
+    "W00079",
+    "W00080"
+  ],
+  "new_grammar": [],
+  "all_words_used": [
+    "W00055",
+    "W00079",
+    "W00078",
+    "W00039",
+    "W00018",
+    "W00026",
+    "W00025",
+    "W00044",
+    "W00073",
+    "W00003",
+    "W00080",
+    "W00075",
+    "W00012",
+    "W00037",
+    "W00022",
+    "W00034",
+    "W00056"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "gloss_en": "In the evening, I return home.",
+      "tokens": [
+        {
+          "t": "夕方",
+          "r": "ゆうがた",
+          "word_id": "W00018",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "家",
+          "r": "いえ",
+          "word_id": "W00078",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "帰ります",
+          "r": "かえります",
+          "word_id": "W00026",
+          "role": "content",
+          "inflection": {
+            "base": "帰る",
+            "base_r": "かえる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_26/s0.wav",
+      "audio_hash": "ef0639f4fc1d"
+    },
+    {
+      "idx": 1,
+      "gloss_en": "There is a key in the door of the house.",
+      "tokens": [
+        {
+          "t": "家",
+          "r": "いえ",
+          "word_id": "W00078",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "ドア",
+          "r": "ドア",
+          "word_id": "W00025",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "鍵",
+          "r": "かぎ",
+          "word_id": "W00079",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "あります",
+          "word_id": "W00044",
+          "role": "content",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_26/s1.wav",
+      "audio_hash": "5b3f8883773d"
+    },
+    {
+      "idx": 2,
+      "gloss_en": "The key is small.",
+      "tokens": [
+        {
+          "t": "鍵",
+          "r": "かぎ",
+          "word_id": "W00079",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "小さい",
+          "r": "ちいさい",
+          "word_id": "W00055",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_26/s2.wav",
+      "audio_hash": "865d31bffb31"
+    },
+    {
+      "idx": 3,
+      "gloss_en": "With the key, I open the door.",
+      "tokens": [
+        {
+          "t": "鍵",
+          "r": "かぎ",
+          "word_id": "W00079",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "ドア",
+          "r": "ドア",
+          "word_id": "W00025",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "開けます",
+          "r": "あけます",
+          "word_id": "W00073",
+          "role": "content",
+          "inflection": {
+            "base": "開ける",
+            "base_r": "あける",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_26/s3.wav",
+      "audio_hash": "e883b7f46c65"
+    },
+    {
+      "idx": 4,
+      "gloss_en": "I enter the house.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "家",
+          "r": "いえ",
+          "word_id": "W00078",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "入ります",
+          "r": "はいります",
+          "word_id": "W00080",
+          "role": "content",
+          "is_new": true,
+          "inflection": {
+            "base": "入る",
+            "base_r": "はいる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_26/s4.wav",
+      "audio_hash": "6cae53a15619"
+    },
+    {
+      "idx": 5,
+      "gloss_en": "I enter the room too.",
+      "tokens": [
+        {
+          "t": "部屋",
+          "r": "へや",
+          "word_id": "W00075",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "入ります",
+          "r": "はいります",
+          "word_id": "W00080",
+          "role": "content",
+          "inflection": {
+            "base": "入る",
+            "base_r": "はいる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_26/s5.wav",
+      "audio_hash": "72cf633ad343"
+    },
+    {
+      "idx": 6,
+      "gloss_en": "The room is warm.",
+      "tokens": [
+        {
+          "t": "部屋",
+          "r": "へや",
+          "word_id": "W00075",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "word_id": "W00012",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_26/s6.wav",
+      "audio_hash": "b5b743315591"
+    },
+    {
+      "idx": 7,
+      "gloss_en": "On the desk is a letter from my friend.",
+      "tokens": [
+        {
+          "t": "机",
+          "r": "つくえ",
+          "word_id": "W00037",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "手紙",
+          "r": "てがみ",
+          "word_id": "W00039",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "あります",
+          "word_id": "W00044",
+          "role": "content",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_26/s7.wav",
+      "audio_hash": "791243f807e4"
+    },
+    {
+      "idx": 8,
+      "gloss_en": "I read the letter at the desk.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "机",
+          "r": "つくえ",
+          "word_id": "W00037",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "手紙",
+          "r": "てがみ",
+          "word_id": "W00039",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "読みます",
+          "r": "よみます",
+          "word_id": "W00034",
+          "role": "content",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_26/s8.wav",
+      "audio_hash": "0be3d6bb6846"
+    },
+    {
+      "idx": 9,
+      "gloss_en": "I am happy.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "嬉しい",
+          "r": "うれしい",
+          "word_id": "W00056",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_26/s9.wav",
+      "audio_hash": "d77f9378798f"
+    },
+    {
+      "idx": 10,
+      "gloss_en": "A small key, a warm home.",
+      "tokens": [
+        {
+          "t": "小さい",
+          "r": "ちいさい",
+          "word_id": "W00055",
+          "role": "content"
+        },
+        {
+          "t": "鍵",
+          "r": "かぎ",
+          "word_id": "W00079",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "word_id": "W00012",
+          "role": "content"
+        },
+        {
+          "t": "家",
+          "r": "いえ",
+          "word_id": "W00078",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_26/s10.wav",
+      "audio_hash": "15b75d688af7"
+    }
+  ],
+  "word_audio": {
+    "W00078": "audio/story_26/w_W00078.wav",
+    "W00079": "audio/story_26/w_W00079.wav",
+    "W00080": "audio/story_26/w_W00080.wav"
+  },
+  "checksum": null,
+  "word_audio_hash": {
+    "W00078": "c8ae97be80f3",
+    "W00079": "1c59564ec66e",
+    "W00080": "466016d47860"
+  }
+}
