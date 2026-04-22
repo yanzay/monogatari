@@ -334,19 +334,18 @@
     },
     {
       "idx": 6,
-      "gloss_en": "The sleeping cat — a good morning.",
+      "gloss_en": "On the chair, the cat is there.",
       "tokens": [
         {
-          "t": "寝る",
-          "r": "ねる",
+          "t": "椅子",
+          "r": "いす",
           "role": "content",
-          "word_id": "W00038",
-          "inflection": {
-            "word_id": "W00038",
-            "base": "寝る",
-            "base_r": "ねる",
-            "form": "dictionary"
-          }
+          "word_id": "W00036"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "猫",
@@ -355,25 +354,15 @@
           "word_id": "W00028"
         },
         {
-          "t": "、",
-          "role": "punct"
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
         },
         {
-          "t": "いい",
-          "r": "いい",
+          "t": "います",
+          "r": "います",
           "role": "content",
-          "word_id": "W00013"
-        },
-        {
-          "t": "朝",
-          "r": "あさ",
-          "role": "content",
-          "word_id": "W00015"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
+          "word_id": "W00029"
         },
         {
           "t": "。",
@@ -381,7 +370,7 @@
         }
       ],
       "audio": "audio/story_9/s6.mp3",
-      "audio_hash": "f85737c4487a"
+      "audio_hash": "6264b8823791"
     }
   ],
   "new_words": [
@@ -400,8 +389,7 @@
     "W00037",
     "W00011",
     "W00033",
-    "W00038",
-    "W00013"
+    "W00038"
   ],
   "word_audio": {
     "W00036": "audio/story_9/w_W00036.mp3",

@@ -51,9 +51,7 @@
     "W00011",
     "W00003",
     "W00006",
-    "W00027",
-    "W00013",
-    "W00014"
+    "W00027"
   ],
   "sentences": [
     {
@@ -339,7 +337,7 @@
     },
     {
       "idx": 6,
-      "gloss_en": "The moon and the night — a good feeling.",
+      "gloss_en": "Moon and stars — outside, the night.",
       "tokens": [
         {
           "t": "月",
@@ -353,30 +351,31 @@
           "grammar_id": "G010_to_and"
         },
         {
-          "t": "夜",
-          "r": "よる",
+          "t": "星",
+          "r": "ほし",
           "role": "content",
-          "word_id": "W00030"
+          "word_id": "W00032"
         },
         {
           "t": "、",
           "role": "punct"
         },
         {
-          "t": "いい",
+          "t": "外",
+          "r": "そと",
           "role": "content",
-          "word_id": "W00013"
+          "word_id": "W00005"
         },
         {
-          "t": "気分",
-          "r": "きぶん",
-          "role": "content",
-          "word_id": "W00014"
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
+          "t": "夜",
+          "r": "よる",
+          "role": "content",
+          "word_id": "W00030"
         },
         {
           "t": "。",
@@ -384,7 +383,7 @@
         }
       ],
       "audio": "audio/story_7/s6.mp3",
-      "audio_hash": "0ebb772c43b3"
+      "audio_hash": "5f0b392016f3"
     }
   ],
   "word_audio": {

@@ -1564,3 +1564,62 @@ only situation in which a future agent will see these tests fire is:
 - The TTS call failed silently mid-build and left a 0-byte file.
   `--force` will re-attempt; if that still fails, they'll see the
   Google credentials error and can fix it.
+
+---
+
+## v0.14 — Library audit pass: closer rotation + 2 semantic_lint fixes (2026-04-22)
+
+This is a *content* release, not a pipeline release: the back-catalog
+was audited against the v0.10/v0.11 honesty bar and several defects
+got fixed. Two small `semantic_lint.py` corrections shipped alongside.
+
+### What got fixed in the catalog
+
+- **Stories 4, 6, 7, 8, 9, 11**: closers rewritten. The library was
+  closing 9 of 16 stories with the same template (`X、いいN(です/でした)`
+  — "good morning / good feeling"). The v0.10 *Variety guard* in
+  `authoring_rules.md` forbids this template repetition between
+  *consecutive* stories; an audit pass found it had drifted into the
+  back-catalog. Each of the six rewritten closers now has a distinct
+  shape (concrete action / image-fragment / small declarative). Audio
+  was regenerated for the changed sentences; v0.13 drift hashes were
+  updated; `engagement_baseline.json` weaknesses were annotated.
+
+- **Story 1 s3**: gloss inflation removed (`"I drink some warm tea"`
+  → `"I drink the tea."`). The JP did not contain 温かい.
+
+- **Story 2 s2 / s6**: rewritten. s2 was a verbatim duplicate of
+  story 1 s4 (`雨は静かです`); s6 had broken
+  `Aと Bと Cを 歩きます` grammar.
+
+### Two small `semantic_lint.py` corrections
+
+- **id-vs-comment mismatch in `INANIMATE_QUIET_NOUN_IDS`**: the list
+  contained `"W00018"` under the comment `# 卵 (egg)` — but W00018 is
+  actually 夕方 (evening), and 夕方は静かです is perfectly natural
+  JP poetry. The real "egg" id (W00021) was substituted in. Without
+  this fix, the rule fired on the closer-rotation rewrite of story 2
+  s2, blocking a perfectly good sentence.
+
+- Same class of bug fixed in `SELF_KNOWN_FACT_NOUN_IDS` (W00021
+  commented as 今朝 → was 卵; W00037 commented as 昨日 → was 机;
+  W00045 commented as 夕方 → was そば). No false positives observed
+  in shipped stories, but the rule would have started misfiring on
+  any future story that wrote `卵だと思います` etc.
+
+- **New rule 11.6**: location-を with a noun list joined by と. Fires
+  on `Aと Bと Cを VERB-of-motion` when at least one of the
+  と-coordinated nouns is not a traversable place. Excludes
+  companion-と with animate nouns (`友達と公園を歩きます` is fine).
+  Catches the original story 2 s6 defect at first ship.
+
+### Lessons preserved
+
+- A semantic_lint rule must be tested in **both directions** — fires
+  on the canonical defect, *and* does not fire on the canonical
+  false-positive. See `pipeline/tests/test_semantic_lint_rules.py`
+  for the eight rule-direction tests added in v0.14.
+- ID-vs-comment mismatch in a curated word-id set is high-cost: it
+  fires on natural prose and trains authors to ignore the lint. New
+  rule sets should be gated behind a regression test that pins both
+  word_id AND surface form.

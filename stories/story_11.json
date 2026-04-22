@@ -403,23 +403,18 @@
     },
     {
       "idx": 7,
-      "gloss_en": "A letter from my friend — it was a good morning.",
+      "gloss_en": "Moon and letter — it was a quiet night.",
       "tokens": [
         {
-          "t": "友達",
-          "r": "ともだち",
+          "t": "月",
+          "r": "つき",
           "role": "content",
-          "word_id": "W00022"
+          "word_id": "W00031"
         },
         {
-          "t": "から",
+          "t": "と",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "手紙",
@@ -432,16 +427,21 @@
           "role": "punct"
         },
         {
-          "t": "いい",
-          "r": "いい",
+          "t": "静か",
+          "r": "しずか",
           "role": "content",
-          "word_id": "W00013"
+          "word_id": "W00011"
         },
         {
-          "t": "朝",
-          "r": "あさ",
+          "t": "な",
+          "role": "particle",
+          "grammar_id": "G016_na_adjective"
+        },
+        {
+          "t": "夜",
+          "r": "よる",
           "role": "content",
-          "word_id": "W00015"
+          "word_id": "W00030"
         },
         {
           "t": "でした",
@@ -459,7 +459,7 @@
         }
       ],
       "audio": "audio/story_11/s7.mp3",
-      "audio_hash": "ae5db275efd2"
+      "audio_hash": "8c00913c7699"
     }
   ],
   "new_words": [
@@ -482,8 +482,7 @@
     "W00011",
     "W00030",
     "W00027",
-    "W00006",
-    "W00013"
+    "W00006"
   ],
   "word_audio": {
     "W00042": "audio/story_11/w_W00042.mp3"

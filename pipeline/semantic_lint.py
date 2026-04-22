@@ -58,7 +58,7 @@ INANIMATE_QUIET_NOUN_IDS: frozenset[str] = frozenset({
     # The audit's canonical defects were `本は静かです` and `手紙は静かです`.
     "W00033",   # 本     (book)        — story 8 / story 9 audit defect
     "W00039",   # 手紙   (letter)      — story 10 audit defect
-    "W00018",   # 卵     (egg)
+    "W00021",   # 卵     (egg)
     "W00019",   # 朝ごはん (breakfast)
     "W00009",   # お茶   (tea)
     # Furniture: a chair/desk is silent in the trivial sense that it
@@ -67,9 +67,18 @@ INANIMATE_QUIET_NOUN_IDS: frozenset[str] = frozenset({
     # furniture as 静か, not the furniture itself.
     "W00036",   # 椅子   (chair)
     "W00037",   # 机     (desk)
-    # NOTE: 木 (W00007), 花 (W00024), 月, 星, 空, 風, 雨, 部屋, 家, 夜, 朝
-    # are NOT on this list — they all naturally take 静か in JP poetry
-    # and prose. Be very conservative when adding to this list.
+    # NOTE: 木 (W00007), 花 (W00024), 月 (W00031), 星 (W00032), 空 (W00047),
+    # 風 (W00027), 雨 (W00002), 夜 (W00030), 朝 (W00015), 夕方 (W00018),
+    # 公園 (W00016) are NOT on this list — they all naturally take 静か
+    # in JP poetry and prose (静かな夕方, 静かな公園 etc are stock JP).
+    # Be very conservative when adding to this list.
+    #
+    # FIXED 2026-04-22 (v0.14): the original list mistakenly contained
+    # W00018 with the comment "卵 (egg)" — but W00018 is actually 夕方
+    # (evening). The id-vs-comment mismatch caused the rule to fire on
+    # the perfectly natural sentence `夕方は静かです` (the evening is
+    # quiet) during the closer-rotation audit. The real "egg" id W00021
+    # has now been substituted in.
 })
 
 # Verbs of consumption — used by the "tomorrow's-X-eaten-today" check.
@@ -82,14 +91,24 @@ CONSUMPTION_VERB_IDS: frozenset[str] = frozenset({
 # these in `~と思います` it's almost certainly the audit's "I think it is
 # night" defect (story 12 s7) — the speaker is already in the night.
 SELF_KNOWN_FACT_NOUN_IDS: frozenset[str] = frozenset({
-    "W00015",   # 朝
-    "W00030",   # 夜
-    "W00021",   # 今朝
-    "W00045",   # 夕方
-    "W00037",   # 昨日
-    "W00046",   # 明日
-    "W00002",   # 雨
-    "W00027",   # 風
+    # FIXED 2026-04-22 (v0.14): same id-vs-comment mismatch class of bug
+    # as INANIMATE_QUIET_NOUN_IDS above. The original list had:
+    #   "W00021" commented as "今朝" — actually 卵 (egg)
+    #   "W00037" commented as "昨日" — actually 机 (desk)
+    #   "W00045" commented as "夕方" — actually そば (side, nearby)
+    # The right ids are W00001 (今朝), W00042 (昨日), W00018 (夕方); they
+    # have been substituted in. The bug had no observable false-positive
+    # impact (none of the wrong ids ever appeared with と思います) but
+    # it would have started misfiring as soon as a story tried to write
+    # `卵だと思います` etc, which is perfectly fine JP.
+    "W00015",   # 朝     (morning)
+    "W00030",   # 夜     (night)
+    "W00001",   # 今朝   (this morning)
+    "W00018",   # 夕方   (evening)
+    "W00042",   # 昨日   (yesterday)
+    "W00046",   # 明日   (tomorrow)
+    "W00002",   # 雨     (rain)
+    "W00027",   # 風     (wind)
 })
 
 # Grammar IDs we recognise.
@@ -328,6 +347,138 @@ def semantic_sanity_lint(story: dict, vocab: dict | None = None) -> list[Issue]:
                         ),
                         location=f"sentence {view['idx']}",
                     ))
+
+    # ─ Rule 11.6: location-を with a noun list joined by と ───────────────────
+    # Pattern: a verb of motion that takes location-を (歩く, 走る, 飛ぶ — in
+    # this library: 歩きます W00017) is preceded by `Nと N(と N…)を`. The
+    # を particle here is *only* legal as a location marker; the noun
+    # immediately before を must be a place. と-coordinated lists like
+    # `雨と夕方と公園` mix non-traversable items (rain, evening) with the
+    # actual place (the park), turning the sentence into "we walk through
+    # rain, evening, the park" — confused at best, beginner-grammar broken
+    # at worst. The 2026-04-22 closer-rotation audit caught
+    # `雨と夕方と公園を歩きます` (story 2 s6).
+    #
+    # The rule fires only on the strict shape `Aと B(…と)を MOTION-VERB`
+    # AND only when at least one of the と-coordinated nouns is not a
+    # traversable place (i.e. not in TRAVERSABLE_PLACE_IDS). It is
+    # CONSERVATIVE: `公園と外を歩きます` (we walk in the park and outside)
+    # is fine because both nouns are places.
+    MOTION_VERB_LOCATION_WO_IDS: frozenset[str] = frozenset({
+        "W00017",   # 歩く  (walk)
+    })
+    TRAVERSABLE_PLACE_IDS: frozenset[str] = frozenset({
+        "W00016",   # 公園  (park)
+        "W00005",   # 外    (outside)
+    })
+    # Animate nouns can take companion-と (`友達と公園を歩きます` = "I walk
+    # in the park WITH a friend"). The と binds only the animate noun and
+    # is NOT part of a list-と coordination, even though the surface looks
+    # identical. Excluding these from the list-noun collection avoids
+    # false-positive errors on perfectly natural sentences. Story 4 s0
+    # was the canonical false-positive that surfaced this distinction.
+    COMPANION_TO_ANIMATE_IDS: frozenset[str] = frozenset({
+        "W00003",   # 私    (I)
+        "W00022",   # 友達  (friend)
+        "W00028",   # 猫    (cat)
+        "W00035",   # 二人  (the two of us — group of people)
+    })
+    for view in sentence_views:
+        toks = view["tokens"]
+        for i, tok in enumerate(toks):
+            if tok.get("word_id") not in MOTION_VERB_LOCATION_WO_IDS:
+                continue
+            # Walk backwards from the verb collecting the noun(s) attached
+            # to this verb's を-clause. Stop at sentence start, at a
+            # punctuation token, or at any non-content/non-particle token
+            # other than と / を / の.
+            list_nouns: list[dict] = []
+            saw_wo = False
+            j = i - 1
+            while j >= 0:
+                t = toks[j]
+                role = t.get("role")
+                surface = t.get("t", "")
+                if role == "punct":
+                    break
+                if role == "particle":
+                    if surface == "を":
+                        saw_wo = True
+                    elif surface == "と" and saw_wo:
+                        # と after we've seen を means we're now collecting
+                        # a noun list to the left. Continue.
+                        pass
+                    elif surface in ("、",):
+                        break
+                    elif surface in ("は", "が", "に", "で", "から"):
+                        # These reset the clause boundary for our purposes.
+                        break
+                    elif surface == "の":
+                        # Possessive の inside a noun phrase — keep going
+                        # but don't add it to list_nouns.
+                        pass
+                    j -= 1
+                    continue
+                if role == "content" and t.get("word_id") and saw_wo:
+                    # Companion-と: an animate noun followed by と (and no
+                    # を of its own) is a companion adverbial, not a list
+                    # entry. Stop the leftward walk here so we don't claim
+                    # the animate noun is part of the location list.
+                    if t.get("word_id") in COMPANION_TO_ANIMATE_IDS:
+                        # Check that the immediately following token is と
+                        # (companion case). If it is, this animate noun
+                        # is *not* part of the location-を list — stop
+                        # the walk entirely (everything to the left is
+                        # also outside the は/を clause).
+                        nxt = toks[j + 1] if j + 1 < len(toks) else None
+                        if nxt and nxt.get("t") == "と" and nxt.get("role") == "particle":
+                            break
+                    list_nouns.append(t)
+                    j -= 1
+                    continue
+                # Anything else (aux, adj, …) ends the clause.
+                break
+            # We need at least 2 nouns and at least one と between them in
+            # surface order to call this a "list". Surface check is easier
+            # than rebuilding from collected tokens: just look at the slice
+            # between the leftmost noun and を for at least one と.
+            if len(list_nouns) < 2 or not saw_wo:
+                continue
+            # Reconstruct token order for the slice we just walked.
+            leftmost = min(toks.index(n) for n in list_nouns)
+            wo_idx = next(
+                k for k in range(leftmost, i)
+                if toks[k].get("t") == "を" and toks[k].get("role") == "particle"
+            )
+            slice_surfaces = [t.get("t", "") for t in toks[leftmost:wo_idx]]
+            if "と" not in slice_surfaces:
+                continue
+            # Now: at least one of the list_nouns must be NOT a traversable
+            # place for the rule to fire (otherwise it's a clean "park and
+            # outside" coordination, which is fine).
+            offending = [
+                n for n in list_nouns
+                if n.get("word_id") not in TRAVERSABLE_PLACE_IDS
+            ]
+            if not offending:
+                continue
+            surface = "".join(t.get("t", "") for t in toks)
+            offending_surfaces = "、".join(n.get("t", "") for n in offending)
+            issues.append(Issue(
+                severity="error",
+                message=(
+                    f"Verb of motion '{tok.get('t')}' takes location-を, but "
+                    f"the を-clause coordinates non-traversable noun(s) "
+                    f"({offending_surfaces}) with the place via と. You can "
+                    f"walk *through a place*, not through `rain と evening と "
+                    f"a park`. Put the non-place nouns in their own clause "
+                    f"(e.g. as a backdrop with の, or as a separate sentence) "
+                    f"and keep only the actual place before を. "
+                    f"(Sentence: 「{surface}」)"
+                ),
+                location=f"sentence {view['idx']}",
+            ))
+            break
 
     # ─ Rule 11.5: lonely scene noun ──────────────────────────────────────────
     # Pattern: a scene-setting noun (rain, wind, moon, star, sky, …) appears

@@ -336,7 +336,7 @@
     },
     {
       "idx": 6,
-      "gloss_en": "The two of us and our books — a good morning.",
+      "gloss_en": "The two of us read a book together.",
       "tokens": [
         {
           "t": "二人",
@@ -345,9 +345,9 @@
           "word_id": "W00035"
         },
         {
-          "t": "と",
+          "t": "で",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "本",
@@ -356,24 +356,15 @@
           "word_id": "W00033"
         },
         {
-          "t": "、",
-          "role": "punct"
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
-          "t": "いい",
+          "t": "読みます",
+          "r": "よみます",
           "role": "content",
-          "word_id": "W00013"
-        },
-        {
-          "t": "朝",
-          "r": "あさ",
-          "role": "content",
-          "word_id": "W00015"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
+          "word_id": "W00034"
         },
         {
           "t": "。",
@@ -381,7 +372,7 @@
         }
       ],
       "audio": "audio/story_8/s6.mp3",
-      "audio_hash": "bccfa2036f91"
+      "audio_hash": "01d2a29dc5c1"
     }
   ],
   "word_audio": {
