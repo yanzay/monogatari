@@ -19,7 +19,7 @@
     ],
     "last_regenerated": "2026-04-22 15:30",
     "stories_covered": 12,
-    "n_stories": 20
+    "n_stories": 21
   },
   "reviews": [
     {
@@ -705,6 +705,39 @@
           "why": "originality"
         }
       ]
+    },
+    {
+      "story_id": 21,
+      "title_jp": "雪の道",
+      "title_en": "The Snowy Road",
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 4,
+        "closure": 4
+      },
+      "average": 4.0,
+      "approved": true,
+      "highlights": [
+        "Clears three story-15 starvation entries in one scene: 帰ります (s1), 夜 (s0, s8), 月 (s4, s5, s7) — none had been seen since story 15. The walk is genuinely about going home alone, not a contrived ride for the words.",
+        "First non-rain weather noun (雪) and first walking-surface noun (道) — both arrive in the same image (snow on the road) so the pair is taught together, not as separate flashcards.",
+        "Closer 'A solitary night is quiet.' uses the new 一人 attributively (一人の夜) instead of predicatively (私は一人です) — small grammatical exercise that lifts the closer above the 〜いい〜です silhouette."
+      ],
+      "weaknesses": [
+        "Six of the nine sentences are X は Y です predicates — the rhythm reads slightly catalogue-like in the middle (s3-s6). I could break it up by using a single て-form chain, but every form-mixing option I tried (e.g. 'snow falls and the road is quiet') needs a verb the library doesn't have yet (降る). Decision: ship the catalogue and let story 22+ vary the predicate shapes.",
+        "The 'big moon, small snow' visual juxtaposition in s5/s6 is the structural payoff but reads slightly diagrammatic — the pedagogical point (size pair) is doing more work than the image."
+      ],
+      "suggestions": [
+        {
+          "what": "When 降ります (to fall) enters vocab, revisit s0 to '雪が降ります' for an active opening.",
+          "why": "hook"
+        },
+        {
+          "what": "Pair 一人 with 二人 in a future story for explicit count contrast.",
+          "why": "originality"
+        }
+      ]
     }
   ],
   "leaderboard": [
@@ -789,24 +822,29 @@
       "rank": 13
     },
     {
+      "story_id": 21,
+      "average": 4.0,
+      "rank": 13
+    },
+    {
       "story_id": 1,
       "average": 3.8,
-      "rank": 17
+      "rank": 18
     },
     {
       "story_id": 13,
       "average": 3.8,
-      "rank": 17
+      "rank": 18
     },
     {
       "story_id": 17,
       "average": 3.8,
-      "rank": 17
+      "rank": 18
     },
     {
       "story_id": 18,
       "average": 3.8,
-      "rank": 17
+      "rank": 18
     }
   ],
   "next_actions": [

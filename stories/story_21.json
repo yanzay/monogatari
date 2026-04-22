@@ -1,0 +1,480 @@
+{
+  "story_id": 21,
+  "title": {
+    "jp": "雪の道",
+    "en": "The Snowy Road",
+    "tokens": [
+      {
+        "t": "雪",
+        "r": "ゆき",
+        "word_id": "W00063",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "道",
+        "r": "みち",
+        "word_id": "W00064",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "一人の夜",
+    "en": "A solitary night",
+    "tokens": [
+      {
+        "t": "一人",
+        "r": "ひとり",
+        "word_id": "W00065",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "夜",
+        "r": "よる",
+        "word_id": "W00030",
+        "role": "content"
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00063",
+    "W00064",
+    "W00065"
+  ],
+  "new_grammar": [],
+  "all_words_used": [
+    "W00063",
+    "W00064",
+    "W00065",
+    "W00030",
+    "W00005",
+    "W00003",
+    "W00026",
+    "W00011",
+    "W00044",
+    "W00031",
+    "W00047",
+    "W00057",
+    "W00055"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "gloss_en": "At night, outside is snow.",
+      "tokens": [
+        {
+          "t": "夜",
+          "r": "よる",
+          "word_id": "W00030",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "外",
+          "r": "そと",
+          "word_id": "W00005",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "雪",
+          "r": "ゆき",
+          "word_id": "W00063",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_21/s0.wav",
+      "audio_hash": "c1e353d9b174"
+    },
+    {
+      "idx": 1,
+      "gloss_en": "I walk home alone.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "一人",
+          "r": "ひとり",
+          "word_id": "W00065",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "帰ります",
+          "r": "かえります",
+          "word_id": "W00026",
+          "role": "content",
+          "inflection": {
+            "base": "帰る",
+            "base_r": "かえる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_21/s1.wav",
+      "audio_hash": "45576014504e"
+    },
+    {
+      "idx": 2,
+      "gloss_en": "The road is quiet.",
+      "tokens": [
+        {
+          "t": "道",
+          "r": "みち",
+          "word_id": "W00064",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "word_id": "W00011",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_21/s2.wav",
+      "audio_hash": "aff0d067ebad"
+    },
+    {
+      "idx": 3,
+      "gloss_en": "There is snow on the road.",
+      "tokens": [
+        {
+          "t": "道",
+          "r": "みち",
+          "word_id": "W00064",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "雪",
+          "r": "ゆき",
+          "word_id": "W00063",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "あります",
+          "word_id": "W00044",
+          "role": "content",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_21/s3.wav",
+      "audio_hash": "a414aa05fad0"
+    },
+    {
+      "idx": 4,
+      "gloss_en": "The moon is in the sky.",
+      "tokens": [
+        {
+          "t": "月",
+          "r": "つき",
+          "word_id": "W00031",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "空",
+          "r": "そら",
+          "word_id": "W00047",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "あります",
+          "word_id": "W00044",
+          "role": "content",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_21/s4.wav",
+      "audio_hash": "0e08264d94d6"
+    },
+    {
+      "idx": 5,
+      "gloss_en": "The moon is big.",
+      "tokens": [
+        {
+          "t": "月",
+          "r": "つき",
+          "word_id": "W00031",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "大きい",
+          "r": "おおきい",
+          "word_id": "W00057",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_21/s5.wav",
+      "audio_hash": "5a07cf44f41a"
+    },
+    {
+      "idx": 6,
+      "gloss_en": "The snow is small.",
+      "tokens": [
+        {
+          "t": "雪",
+          "r": "ゆき",
+          "word_id": "W00063",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "小さい",
+          "r": "ちいさい",
+          "word_id": "W00055",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_21/s6.wav",
+      "audio_hash": "81c69089e09b"
+    },
+    {
+      "idx": 7,
+      "gloss_en": "A snowy road, the moon's sky.",
+      "tokens": [
+        {
+          "t": "雪",
+          "r": "ゆき",
+          "word_id": "W00063",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "道",
+          "r": "みち",
+          "word_id": "W00064",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "月",
+          "r": "つき",
+          "word_id": "W00031",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "空",
+          "r": "そら",
+          "word_id": "W00047",
+          "role": "content"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_21/s7.wav",
+      "audio_hash": "2239e792aded"
+    },
+    {
+      "idx": 8,
+      "gloss_en": "A solitary night is quiet.",
+      "tokens": [
+        {
+          "t": "一人",
+          "r": "ひとり",
+          "word_id": "W00065",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "夜",
+          "r": "よる",
+          "word_id": "W00030",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "word_id": "W00011",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_21/s8.wav",
+      "audio_hash": "ea747c3ae3ef"
+    }
+  ],
+  "word_audio": {
+    "W00063": "audio/story_21/w_W00063.wav",
+    "W00064": "audio/story_21/w_W00064.wav",
+    "W00065": "audio/story_21/w_W00065.wav"
+  },
+  "checksum": null,
+  "word_audio_hash": {
+    "W00063": "53058fe2e03c",
+    "W00064": "00a9d5bd97c2",
+    "W00065": "45b3f27e3a97"
+  }
+}

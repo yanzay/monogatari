@@ -1,6 +1,6 @@
 # Monogatari — Story Writer Task
 
-You are writing story **20** for the Monogatari Japanese graded-reader.
+You are writing story **21** for the Monogatari Japanese graded-reader.
 Read the authoring rules and plan below, then produce the story JSON.
 Output **only** the JSON object — no prose, no markdown fences.
 
@@ -448,67 +448,67 @@ A clean refusal is better than a story that fails validation.
 
 ```json
 {
-  "story_id": 20,
+  "story_id": 21,
   "target_word_count": 23,
   "max_sentences": 10,
   "new_words": [
-    "W00060",
-    "W00061",
-    "W00062"
+    "W00063",
+    "W00064",
+    "W00065"
   ],
   "new_grammar": [],
-  "theme": "Cold morning, writing a letter",
-  "setting": "A cold morning. The narrator sits at the desk and writes a letter to an absent friend, signing both names, while the tea stays warm and the outside is not.",
+  "theme": "Walking home alone in the snow",
+  "setting": "A snowy night. The narrator walks home alone down a quiet road. Snow on the road, a big moon in the sky, small snowflakes — a solitary night that is not unhappy, only quiet.",
   "constraints": {
     "must_reuse_words": [
-      "W00039",
-      "W00022",
-      "W00009",
-      "W00012",
-      "W00043"
+      "W00026",
+      "W00030",
+      "W00031",
+      "W00032",
+      "W00027"
     ]
   },
   "new_word_definitions": {
-    "W00060": {
-      "surface": "書きます",
-      "kana": "かきます",
-      "reading": "kakimasu",
-      "pos": "verb",
-      "verb_class": "godan",
-      "adj_class": null,
-      "meanings": [
-        "to write"
-      ],
-      "grammar_tags": []
-    },
-    "W00061": {
-      "surface": "名前",
-      "kana": "なまえ",
-      "reading": "namae",
+    "W00063": {
+      "surface": "雪",
+      "kana": "ゆき",
+      "reading": "yuki",
       "pos": "noun",
       "verb_class": null,
       "adj_class": null,
       "meanings": [
-        "name"
+        "snow"
       ],
       "grammar_tags": []
     },
-    "W00062": {
-      "surface": "寒い",
-      "kana": "さむい",
-      "reading": "samui",
-      "pos": "adjective",
+    "W00064": {
+      "surface": "道",
+      "kana": "みち",
+      "reading": "michi",
+      "pos": "noun",
       "verb_class": null,
-      "adj_class": "i",
+      "adj_class": null,
       "meanings": [
-        "cold (weather)"
+        "road, path"
+      ],
+      "grammar_tags": []
+    },
+    "W00065": {
+      "surface": "一人",
+      "kana": "ひとり",
+      "reading": "hitori",
+      "pos": "noun",
+      "verb_class": null,
+      "adj_class": null,
+      "meanings": [
+        "one person, alone"
       ],
       "grammar_tags": []
     }
   },
   "new_grammar_definitions": {},
-  "rationale": "Story 20 brings back 手紙 (W00039, last seen story 14, the only remaining starvation-alarmed word) by anchoring the scene around the act of writing one. New words are deliberately practical: 書きます is the canonical 'write' verb (the library has read/think/say-by-laughing but no write); 名前 unlocks self-introduction patterns and signs concretely (the narrator writes both names); 寒い is the first cold-weather i-adj (palette had only 温かい), enabling parallel cold/warm contrast inside the same story. Closer 'cold morning, warm letter' uses the new descriptor pair structurally. No new grammar — vocabulary expansion still has runway after 17/18/19's grammar-light beats.",
-  "seed": 73841
+  "rationale": "Story 21 attacks the story-15 starvation cluster (帰ります, 夜, 月 — all unseen since story 15) by walking the narrator home through a snowy night. New words push three different palette gaps: 雪 is the first new weather noun since 雨 in story 1; 道 is the first walking-surface noun (we had 公園 / 庭 / 外 but no path); 一人 is the first human-count noun (we had 二人 since story 8 but no singular). The closer 'a solitary night is quiet' uses 一人 attributively and intentionally avoids the 〜いい〜です template by ending on the noun-modifying form.",
+  "seed": 81927
 }
 ```
 
@@ -516,28 +516,28 @@ A clean refusal is better than a story that fails validation.
 
 ## Allowed vocabulary (ALL words you may use — no others)
 
-- `W00001`: **今朝** (けさ) [noun] — this morning [occ:6]
+- `W00001`: **今朝** (けさ) [noun] — this morning [occ:7]
 - `W00002`: **雨** (あめ) [noun] — rain [occ:7]
-- `W00003`: **私** (わたし) [pronoun] — I, me [occ:18]
+- `W00003`: **私** (わたし) [pronoun] — I, me [occ:19]
 - `W00004`: **窓** (まど) [noun] — window [occ:8]
-- `W00005`: **外** (そと) [noun] — outside [occ:6]
+- `W00005`: **外** (そと) [noun] — outside [occ:7]
 - `W00006`: **見ます** (みます) [verb] — to see, to look [occ:14]
 - `W00007`: **木** (き) [noun] — tree [occ:5]
 - `W00008`: **濡れる** (ぬれる) [verb] — to get wet [occ:3]
-- `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:9]
+- `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:10]
 - `W00010`: **飲みます** (のみます) [verb] — to drink [occ:6]
 - `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:16]
-- `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:7]
+- `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:8]
 - `W00013`: **いい** (いい) [adjective] — good, nice [occ:9]
 - `W00014`: **気分** (きぶん) [noun] — feeling, mood [occ:5]
-- `W00015`: **朝** (あさ) [noun] — morning [occ:10]
+- `W00015`: **朝** (あさ) [noun] — morning [occ:11]
 - `W00016`: **公園** (こうえん) [noun] — park [occ:5]
 - `W00017`: **歩きます** (あるきます) [verb] — to walk [occ:5]
 - `W00018`: **夕方** (ゆうがた) [noun] — evening, late afternoon [occ:3]
 - `W00019`: **朝ごはん** (あさごはん) [noun] — breakfast [occ:3]
 - `W00020`: **食べます** (たべます) [verb] — to eat [occ:3]
 - `W00021`: **卵** (たまご) [noun] — egg [occ:2]
-- `W00022`: **友達** (ともだち) [noun] — friend [occ:10]
+- `W00022`: **友達** (ともだち) [noun] — friend [occ:11]
 - `W00023`: **散歩** (さんぽ) [noun] — walk, stroll [occ:2]
 - `W00024`: **花** (はな) [noun] — flower [occ:3]
 - `W00025`: **ドア** (ドア) [noun] — door [occ:2]
@@ -552,16 +552,16 @@ A clean refusal is better than a story that fails validation.
 - `W00034`: **読みます** (よみます) [verb] — to read [occ:6]
 - `W00035`: **二人** (ふたり) [noun] — two people [occ:2]
 - `W00036`: **椅子** (いす) [noun] — chair [occ:3]
-- `W00037`: **机** (つくえ) [noun] — desk [occ:4]
+- `W00037`: **机** (つくえ) [noun] — desk [occ:5]
 - `W00038`: **寝ます** (ねます) [verb] — to sleep [occ:3]
-- `W00039`: **手紙** (てがみ) [noun] — letter, note [occ:3]
+- `W00039`: **手紙** (てがみ) [noun] — letter, note [occ:4]
 - `W00040`: **来ます** (きます) [verb] — to come, to arrive [occ:6]
 - `W00041`: **待ちます** (まちます) [verb] — to wait [occ:3]
 - `W00042`: **昨日** (きのう) [noun] — yesterday [occ:5]
-- `W00043`: **思います** (おもいます) [verb] — to think [occ:3]
-- `W00044`: **あります** (あります) [verb] — to exist (inanimate), to be (inanimate) [occ:6]
-- `W00045`: **そば** (そば) [noun] — side, near [occ:2]
-- `W00046`: **明日** (あした) [noun] — tomorrow [occ:2]
+- `W00043`: **思います** (おもいます) [verb] — to think [occ:4]
+- `W00044`: **あります** (あります) [verb] — to exist (inanimate), to be (inanimate) [occ:7]
+- `W00045`: **そば** (そば) [noun] — side, near [occ:3]
+- `W00046`: **明日** (あした) [noun] — tomorrow [occ:3]
 - `W00047`: **空** (そら) [noun] — sky [occ:2]
 - `W00048`: **作ります** (つくります) [verb] — to make, to prepare [occ:2]
 - `W00049`: **パン** (パン) [noun] — bread [occ:2]
@@ -571,13 +571,16 @@ A clean refusal is better than a story that fails validation.
 - `W00053`: **笑います** (わらいます) [verb] — to smile, to laugh [occ:2]
 - `W00054`: **鳥** (とり) [noun] — bird [occ:2]
 - `W00055`: **小さい** (ちいさい) [adjective] — small, little [occ:2]
-- `W00056`: **嬉しい** (うれしい) [adjective] — happy, glad [occ:1]
+- `W00056`: **嬉しい** (うれしい) [adjective] — happy, glad [occ:2]
 - `W00057`: **大きい** (おおきい) [adjective] — big, large [occ:1]
 - `W00058`: **元気** (げんき) [adjective] — lively, energetic, healthy [occ:1]
 - `W00059`: **庭** (にわ) [noun] — garden, yard [occ:1]
-- `W00060`: **書きます** (かきます) [verb] — to write **[NEW]**
-- `W00061`: **名前** (なまえ) [noun] — name **[NEW]**
-- `W00062`: **寒い** (さむい) [adjective] — cold (weather) **[NEW]**
+- `W00060`: **書きます** (かきます) [verb] — to write [occ:1]
+- `W00061`: **名前** (なまえ) [noun] — name [occ:1]
+- `W00062`: **寒い** (さむい) [adjective] — cold (weather) [occ:1]
+- `W00063`: **雪** (ゆき) [noun] — snow **[NEW]**
+- `W00064`: **道** (みち) [noun] — road, path **[NEW]**
+- `W00065`: **一人** (ひとり) [noun] — one person, alone **[NEW]**
 
 ---
 
@@ -608,19 +611,19 @@ A clean refusal is better than a story that fails validation.
 
 ## New word definitions (introduce these in the story)
 
-- `W00060`: **書きます** (かきます) [verb · godan] — to write
-- `W00061`: **名前** (なまえ) [noun] — name
-- `W00062`: **寒い** (さむい) [adjective · i-adj] — cold (weather)
+- `W00063`: **雪** (ゆき) [noun] — snow
+- `W00064`: **道** (みち) [noun] — road, path
+- `W00065`: **一人** (ひとり) [noun] — one person, alone
 
 ---
 
 ## Output schema
 
-Produce a `story_20.json` object with this structure:
+Produce a `story_21.json` object with this structure:
 
 ```json
 {
-  "story_id": 20,
+  "story_id": 21,
   "title": {
     "jp": "<kanji/kana title>",
     "en": "<English title>",
@@ -634,7 +637,7 @@ Produce a `story_20.json` object with this structure:
     "tokens": [ ... ]
   },
   "plan_ref": "plan.json",
-  "new_words": ["W00060", "W00061", "W00062"],
+  "new_words": ["W00063", "W00064", "W00065"],
   "new_grammar": [],
   "all_words_used": ["<every word_id used, in order of first appearance>"],
   "sentences": [
