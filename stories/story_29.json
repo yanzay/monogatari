@@ -52,7 +52,9 @@
     "W00088",
     "W00089"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G024_da"
+  ],
   "all_words_used": [
     "W00052",
     "W00022",
@@ -499,8 +501,9 @@
         },
         {
           "t": "だ",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "grammar_id": "G024_da",
+          "role": "aux",
+          "is_new_grammar": true
         },
         {
           "t": "と",
@@ -671,5 +674,5 @@
     "W00088": "3c659f5514a2",
     "W00089": "1a3205c3a91e"
   },
-  "consolidation_arc": true
+  "consolidation_arc": false
 }

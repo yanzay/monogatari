@@ -596,23 +596,6 @@
       "jlpt_sensei_ref": "https://jlptsensei.com/learn-japanese-grammar/でも-demo/",
       "notes": "Sentence-initial only at this stage — clause-internal が-but is a separate later grammar. The romance arc needs でも because longing is fundamentally contrastive: I want X, but Y."
     },
-    "G033_te_iru": {
-      "id": "G033_te_iru",
-      "title": "〜ています — progressive / state",
-      "short": "Verb te-form + います = ongoing action or resulting state. 待っています = 'I am waiting'.",
-      "long": "The te-form of a verb plus います expresses either (a) an action in progress or (b) the resulting state of an action. For action verbs (待つ, 歩く, 話す), this is usually progressive: 待っています = 'I am waiting'. For change-of-state verbs (知る, 結婚する), it is the resulting state: 知っています = 'I know (have come to know)'. The polite negative is 〜ていません, deferred to a later story. At this level, use only the affirmative; pair with already-known time-or-state markers (今, ずっと). The romance arc needs this grammar because love is a state (loving), not just an event (falling in love).",
-      "jlpt": "N5",
-      "catalog_id": "N5_te_iru",
-      "first_story": "story_42",
-      "prerequisites": [
-        "G007_te_form",
-        "G013_mashita_past"
-      ],
-      "genki_ref": "L7",
-      "bunpro_ref": "https://bunpro.jp/grammar_points/ている",
-      "jlpt_sensei_ref": "https://jlptsensei.com/learn-japanese-grammar/ている-teiru/",
-      "notes": "Affirmative only at this stage. Distinguish progressive (歩いています = walking) from state (知っています = knowing). Pairs naturally with the romance arc closer because the entire scene is one continuing action: walking, side by side, in a state."
-    },
     "G034_ne_confirm": {
       "id": "G034_ne_confirm",
       "title": "ね — sentence-final \"right?\" / \"isn't it?\"",
@@ -635,6 +618,30 @@
       "notes": "Always sentence-final, immediately before the period. Distinguish from よ (which asserts new information the listener doesn't share). Don't over-use: more than one ね per story drains the shared-feeling weight.",
       "occurrences": 5,
       "last_seen_story": 42
+    },
+    "G024_da": {
+      "id": "G024_da",
+      "title": "だ — plain copula (before quoting と)",
+      "short": "だ is the plain/casual form of です. Required before と思います / と言います clauses: 元気だと思います = \"I think she is well.\"",
+      "long": "だ is the dictionary/plain form of the copula です. While the library narrates almost entirely in polite (です) form, the quoting particle と grammatically requires the plain copula in front of it: you must say 元気だと思います (\"I think she is well\"), never 元気ですと思います. The same holds for と言います when quoting a copula clause. This makes だ a structurally necessary form even in a polite-register library — it surfaces precisely at the boundary where one clause becomes the *content* of another. At this level use だ ONLY in this position (before と思います / と言います quoting an attributive clause). Sentence-final だ for plain-form statements is deferred (that is the casual register the library does not yet use).",
+      "jlpt": "N5",
+      "catalog_id": "N5_da",
+      "first_story": "story_29",
+      "prerequisites": [
+        "G003_desu",
+        "G014_to_omoimasu"
+      ],
+      "genki_ref": "L4",
+      "examples": [
+        "猫はいい友達だと思います — I think the cat is a good friend.",
+        "友達は元気だと思います — I think the friend is well.",
+        "風の朝だと思います — I think it is a windy morning."
+      ],
+      "bunpro_ref": "https://bunpro.jp/grammar_points/だ",
+      "jlpt_sensei_ref": "https://jlptsensei.com/learn-japanese-grammar/だ-da/",
+      "notes": "In this library, だ is used ONLY in the position before と (quoting particle). Sentence-final plain-form だ statements are deferred. Story 29 brings the grammar into focus; earlier appearances in stories 12, 13, 19 are pre-introduction usages forced by the と思います grammar that were tagged as G003_desu before the audit.",
+      "occurrences": 3,
+      "last_seen_story": 31
     }
   }
 }
