@@ -1,0 +1,661 @@
+{
+  "story_id": 29,
+  "title": {
+    "jp": "ベンチの友達",
+    "en": "A Friend on the Bench",
+    "tokens": [
+      {
+        "t": "ベンチ",
+        "r": "ベンチ",
+        "word_id": "W00052",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "友達",
+        "r": "ともだち",
+        "word_id": "W00022",
+        "role": "content"
+      }
+    ]
+  },
+  "subtitle": {
+    "jp": "家族の写真",
+    "en": "A family photo",
+    "tokens": [
+      {
+        "t": "家族",
+        "r": "かぞく",
+        "word_id": "W00088",
+        "role": "content"
+      },
+      {
+        "t": "の",
+        "grammar_id": "G015_no_possessive",
+        "role": "particle"
+      },
+      {
+        "t": "写真",
+        "r": "しゃしん",
+        "word_id": "W00068",
+        "role": "content"
+      }
+    ]
+  },
+  "plan_ref": "plan.json",
+  "new_words": [
+    "W00087",
+    "W00088",
+    "W00089"
+  ],
+  "new_grammar": [],
+  "all_words_used": [
+    "W00052",
+    "W00022",
+    "W00088",
+    "W00068",
+    "W00072",
+    "W00015",
+    "W00016",
+    "W00017",
+    "W00067",
+    "W00085",
+    "W00003",
+    "W00035",
+    "W00009",
+    "W00010",
+    "W00006",
+    "W00089",
+    "W00029",
+    "W00083",
+    "W00058",
+    "W00043",
+    "W00056",
+    "W00087"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "gloss_en": "On a spring morning, I walk in the park.",
+      "tokens": [
+        {
+          "t": "春",
+          "r": "はる",
+          "word_id": "W00072",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "word_id": "W00015",
+          "role": "content"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "公園",
+          "r": "こうえん",
+          "word_id": "W00016",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "歩きます",
+          "r": "あるきます",
+          "word_id": "W00017",
+          "role": "content",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_29/s0.wav",
+      "audio_hash": "b34bbc5ad81f"
+    },
+    {
+      "idx": 1,
+      "gloss_en": "An old friend sits on a bench.",
+      "tokens": [
+        {
+          "t": "ベンチ",
+          "r": "ベンチ",
+          "word_id": "W00052",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "古い",
+          "r": "ふるい",
+          "word_id": "W00067",
+          "role": "content"
+        },
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "座ります",
+          "r": "すわります",
+          "word_id": "W00085",
+          "role": "content",
+          "inflection": {
+            "base": "座る",
+            "base_r": "すわる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_29/s1.wav",
+      "audio_hash": "35c99284e7bf"
+    },
+    {
+      "idx": 2,
+      "gloss_en": "I also sit on the bench.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "ベンチ",
+          "r": "ベンチ",
+          "word_id": "W00052",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "座ります",
+          "r": "すわります",
+          "word_id": "W00085",
+          "role": "content",
+          "inflection": {
+            "base": "座る",
+            "base_r": "すわる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_29/s2.wav",
+      "audio_hash": "75ae675f83b8"
+    },
+    {
+      "idx": 3,
+      "gloss_en": "We drink tea together.",
+      "tokens": [
+        {
+          "t": "二人",
+          "r": "ふたり",
+          "word_id": "W00035",
+          "role": "content"
+        },
+        {
+          "t": "で",
+          "grammar_id": "G017_de_means",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "word_id": "W00009",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "飲みます",
+          "r": "のみます",
+          "word_id": "W00010",
+          "role": "content",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_29/s3.wav",
+      "audio_hash": "ff24031ec611"
+    },
+    {
+      "idx": 4,
+      "gloss_en": "We look at a photo of my friend's family.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "家族",
+          "r": "かぞく",
+          "word_id": "W00088",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "写真",
+          "r": "しゃしん",
+          "word_id": "W00068",
+          "role": "content"
+        },
+        {
+          "t": "を",
+          "grammar_id": "G005_wo_object",
+          "role": "particle"
+        },
+        {
+          "t": "見ます",
+          "r": "みます",
+          "word_id": "W00006",
+          "role": "content",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_29/s4.wav",
+      "audio_hash": "3366200d1e2f"
+    },
+    {
+      "idx": 5,
+      "gloss_en": "In the photo, my friend's mother is there.",
+      "tokens": [
+        {
+          "t": "写真",
+          "r": "しゃしん",
+          "word_id": "W00068",
+          "role": "content"
+        },
+        {
+          "t": "に",
+          "grammar_id": "G004_ni_location",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "母",
+          "r": "はは",
+          "word_id": "W00089",
+          "role": "content",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "grammar_id": "G002_ga_subject",
+          "role": "particle"
+        },
+        {
+          "t": "います",
+          "word_id": "W00029",
+          "role": "content"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_29/s5.wav",
+      "audio_hash": "149b91fe747f"
+    },
+    {
+      "idx": 6,
+      "gloss_en": "My friend's mother is beautiful.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "母",
+          "r": "はは",
+          "word_id": "W00089",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "美しい",
+          "r": "うつくしい",
+          "word_id": "W00083",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_29/s6.wav",
+      "audio_hash": "c1f73e5a475e"
+    },
+    {
+      "idx": 7,
+      "gloss_en": "I think my friend's family is well.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "の",
+          "grammar_id": "G015_no_possessive",
+          "role": "particle"
+        },
+        {
+          "t": "家族",
+          "r": "かぞく",
+          "word_id": "W00088",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "元気",
+          "r": "げんき",
+          "word_id": "W00058",
+          "role": "content"
+        },
+        {
+          "t": "だ",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "と",
+          "grammar_id": "G014_to_omoimasu",
+          "role": "particle"
+        },
+        {
+          "t": "思います",
+          "r": "おもいます",
+          "word_id": "W00043",
+          "role": "content",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_29/s7.wav",
+      "audio_hash": "3cd66f13ae79"
+    },
+    {
+      "idx": 8,
+      "gloss_en": "I am happy too.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "嬉しい",
+          "r": "うれしい",
+          "word_id": "W00056",
+          "role": "content"
+        },
+        {
+          "t": "です",
+          "grammar_id": "G003_desu",
+          "role": "aux"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_29/s8.wav",
+      "audio_hash": "20b17f72b4c2"
+    },
+    {
+      "idx": 9,
+      "gloss_en": "My friend stands up from the bench.",
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "word_id": "W00022",
+          "role": "content"
+        },
+        {
+          "t": "は",
+          "grammar_id": "G001_wa_topic",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "ベンチ",
+          "r": "ベンチ",
+          "word_id": "W00052",
+          "role": "content"
+        },
+        {
+          "t": "から",
+          "grammar_id": "G006_kara_from",
+          "role": "particle"
+        },
+        {
+          "t": "立ちます",
+          "r": "たちます",
+          "word_id": "W00087",
+          "role": "content",
+          "is_new": true,
+          "inflection": {
+            "base": "立つ",
+            "base_r": "たつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_29/s9.wav",
+      "audio_hash": "a4411871937b"
+    },
+    {
+      "idx": 10,
+      "gloss_en": "I stand up too.",
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "word_id": "W00003",
+          "role": "content"
+        },
+        {
+          "t": "も",
+          "grammar_id": "G009_mo_also",
+          "role": "particle"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "立ちます",
+          "r": "たちます",
+          "word_id": "W00087",
+          "role": "content",
+          "inflection": {
+            "base": "立つ",
+            "base_r": "たつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "audio": "audio/story_29/s10.wav",
+      "audio_hash": "f6549d4e3dd8"
+    }
+  ],
+  "word_audio": {
+    "W00087": "audio/story_29/w_W00087.wav",
+    "W00088": "audio/story_29/w_W00088.wav",
+    "W00089": "audio/story_29/w_W00089.wav"
+  },
+  "checksum": null,
+  "word_audio_hash": {
+    "W00087": "9177805f84b0",
+    "W00088": "3c659f5514a2",
+    "W00089": "1a3205c3a91e"
+  }
+}
