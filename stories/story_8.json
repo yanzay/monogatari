@@ -36,7 +36,7 @@
       {
         "t": "で",
         "role": "particle",
-        "grammar_id": "G004_ni_location"
+        "grammar_id": "G017_de_means"
       },
       {
         "t": "読みます",
@@ -68,6 +68,7 @@
     "W00003",
     "W00011",
     "W00009",
+    "W00044",
     "W00013"
   ],
   "sentences": [
@@ -208,7 +209,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "本",
@@ -252,7 +253,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "本",
@@ -309,8 +310,9 @@
         },
         {
           "t": "あります",
-          "role": "aux",
-          "grammar_id": "G003_desu"
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります"
         },
         {
           "t": "。",

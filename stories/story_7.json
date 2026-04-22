@@ -49,6 +49,7 @@
     "W00004",
     "W00005",
     "W00006",
+    "W00044",
     "W00011",
     "W00002",
     "W00013",
@@ -113,7 +114,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "外",
@@ -183,8 +184,9 @@
         },
         {
           "t": "あります",
-          "role": "aux",
-          "grammar_id": "G003_desu"
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります"
         },
         {
           "t": "。",
