@@ -1,6 +1,6 @@
 # Monogatari — Story Writer Task
 
-You are writing story **8** for the Monogatari Japanese graded-reader.
+You are writing story **9** for the Monogatari Japanese graded-reader.
 Read the authoring rules and plan below, then produce the story JSON.
 Output **only** the JSON object — no prose, no markdown fences.
 
@@ -256,20 +256,18 @@ A clean refusal is better than a story that fails validation.
 
 ```json
 {
-  "story_id": 8,
-  "title_jp": "本と友達",
-  "title_en": "Books and Friends",
-  "subtitle_jp": "二人で読みます",
-  "subtitle_en": "We two read together",
-  "theme": "A small social moment: the narrator and a friend are reading indoors. Each has their own book; tea is between them; rain is outside. The point of the scene isn't drama — it's the parallel: 'I read; my friend also reads; tea is also there.' This makes も load-bearing in the way the textbook intends — as a partner-equivalence marker for parallel actions across people.",
-  "setting": "A quiet room. The narrator and a friend sit with two books and tea. Rain outside the window provides a still backdrop; no one moves except to turn pages.",
+  "story_id": 9,
+  "title_jp": "猫はどこ",
+  "title_en": "Where Is the Cat?",
+  "subtitle_jp": "朝の家",
+  "subtitle_en": "The Morning House",
+  "theme": "A small daily mystery: the cat is somewhere in the house, but where? The narrator looks in two ordinary places, finally finds the cat sleeping in a third. The story uses location-marking に as the load-bearing grammar — every sentence answers 'where?'.",
+  "setting": "Morning, inside the narrator's home. The cat from story 6 has reappeared as a recurring character. The narrator searches: chair, desk, then finds the cat asleep on the bed (implicit — they sleep, ね).",
   "constraints": {
     "must_reuse_words": [
-      "W00008",
-      "W00019",
-      "W00020",
-      "W00021",
-      "W00025"
+      "W00028",
+      "W00029",
+      "W00015"
     ],
     "forbidden_words": [],
     "avoid_topics": [
@@ -278,67 +276,66 @@ A clean refusal is better than a story that fails validation.
       "politics"
     ]
   },
-  "target_word_count": 24,
-  "max_sentences": 7,
+  "target_word_count": 18,
+  "max_sentences": 8,
   "new_words": [
-    "W00033",
-    "W00034",
-    "W00035"
+    "W00036",
+    "W00037",
+    "W00038"
   ],
   "new_word_definitions": {
-    "W00033": {
-      "id": "W00033",
-      "first_story": 8,
+    "W00036": {
+      "id": "W00036",
+      "first_story": 9,
       "grammar_tags": [],
-      "surface": "本",
-      "kana": "ほん",
-      "reading": "hon",
+      "surface": "椅子",
+      "kana": "いす",
+      "reading": "isu",
       "pos": "noun",
       "verb_class": null,
       "adj_class": null,
       "meanings": [
-        "book"
+        "chair"
       ]
     },
-    "W00034": {
-      "id": "W00034",
-      "first_story": 8,
+    "W00037": {
+      "id": "W00037",
+      "first_story": 9,
       "grammar_tags": [],
-      "surface": "読む",
-      "kana": "よむ",
-      "reading": "yomu",
+      "surface": "机",
+      "kana": "つくえ",
+      "reading": "tsukue",
+      "pos": "noun",
+      "verb_class": null,
+      "adj_class": null,
+      "meanings": [
+        "desk"
+      ]
+    },
+    "W00038": {
+      "id": "W00038",
+      "first_story": 9,
+      "grammar_tags": [],
+      "surface": "寝ます",
+      "kana": "ねます",
+      "reading": "nemasu",
       "pos": "verb",
-      "verb_class": "godan",
+      "verb_class": "ichidan",
       "adj_class": null,
       "meanings": [
-        "to read"
-      ]
-    },
-    "W00035": {
-      "id": "W00035",
-      "first_story": 8,
-      "grammar_tags": [],
-      "surface": "二人",
-      "kana": "ふたり",
-      "reading": "futari",
-      "pos": "noun",
-      "verb_class": null,
-      "adj_class": null,
-      "meanings": [
-        "two people"
+        "to sleep; to lie down"
       ]
     }
   },
   "new_grammar": [],
   "new_grammar_definitions": {},
   "context_words_to_reuse": [
-    "W00008",
-    "W00019",
-    "W00020",
-    "W00021",
-    "W00025"
+    "W00028",
+    "W00029",
+    "W00015",
+    "W00009"
   ],
-  "notes": "Hook: time-of-day + image (proven pattern). Underused-grammar move: G009_mo_also gets at least 3 semantic uses doing real comparison work — previously も has been used atmospherically ('cat too', 'night too'); story 8 makes it about people doing the same thing in parallel, which is its textbook strongest use. First multi-person scene with parallel actions in the library. Closer pulls 本 + 友達 into one observation, mirroring stories 4/5/6/7."
+  "notes": "Engagement plan: HOOK = a question (どこ in title) — first story to open with a mystery rather than weather. ORIGINALITY = recurring character (cat from story 6) + first explicit 'search' structure. UNDERUSED-GRAMMAR move: G004_ni_location was the lowest-used grammar (1 use across 8 stories) — every sentence here answers 'where?' so に carries the meaning. CLOSER follows the established 'A and B, feeling' motif but anchors it on a discovered moment, not a static observation."
 }
 ```
 
@@ -347,27 +344,27 @@ A clean refusal is better than a story that fails validation.
 ## Allowed vocabulary (ALL words you may use — no others)
 
 - `W00001`: **今朝** (けさ) [noun] — this morning [occ:2]
-- `W00002`: **雨** (あめ) [noun] — rain [occ:5]
-- `W00003`: **私** (わたし) [pronoun] — I, me [occ:9]
+- `W00002`: **雨** (あめ) [noun] — rain [occ:6]
+- `W00003`: **私** (わたし) [pronoun] — I, me [occ:10]
 - `W00004`: **窓** (まど) [noun] — window [occ:4]
 - `W00005`: **外** (そと) [noun] — outside [occ:6]
 - `W00006`: **見ます** (みます) [verb] — to see, to look [occ:8]
 - `W00007`: **木** (き) [noun] — tree [occ:5]
 - `W00008`: **濡れる** (ぬれる) [verb] — to get wet [occ:1]
-- `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:5]
+- `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:6]
 - `W00010`: **飲みます** (のみます) [verb] — to drink [occ:3]
-- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:8]
+- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:9]
 - `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:5]
-- `W00013`: **いい** (いい) [adjective] — good, nice [occ:8]
+- `W00013`: **いい** (いい) [adjective] — good, nice [occ:9]
 - `W00014`: **気分** (きぶん) [noun] — feeling, mood [occ:6]
-- `W00015`: **朝** (あさ) [noun] — morning [occ:4]
+- `W00015`: **朝** (あさ) [noun] — morning [occ:5]
 - `W00016`: **公園** (こうえん) [noun] — park [occ:4]
 - `W00017`: **歩きます** (あるきます) [verb] — to walk [occ:4]
 - `W00018`: **夕方** (ゆうがた) [noun] — evening, late afternoon [occ:3]
 - `W00019`: **朝ごはん** (あさごはん) [noun] — breakfast [occ:1]
 - `W00020`: **食べます** (たべます) [verb] — to eat [occ:1]
 - `W00021`: **卵** (たまご) [noun] — egg [occ:1]
-- `W00022`: **友達** (ともだち) [noun] — friend [occ:2]
+- `W00022`: **友達** (ともだち) [noun] — friend [occ:3]
 - `W00023`: **散歩** (さんぽ) [noun] — walk, stroll [occ:2]
 - `W00024`: **花** (はな) [noun] — flower [occ:3]
 - `W00025`: **ドア** (ドア) [noun] — door [occ:1]
@@ -378,9 +375,12 @@ A clean refusal is better than a story that fails validation.
 - `W00030`: **夜** (よる) [noun] — night [occ:1]
 - `W00031`: **月** (つき) [noun] — moon [occ:1]
 - `W00032`: **星** (ほし) [noun] — star [occ:1]
-- `W00033`: **本** (ほん) [noun] — book **[NEW]**
-- `W00034`: **読む** (よむ) [verb] — to read **[NEW]**
-- `W00035`: **二人** (ふたり) [noun] — two people **[NEW]**
+- `W00033`: **本** (ほん) [noun] — book [occ:1]
+- `W00034`: **読む** (よむ) [verb] — to read [occ:1]
+- `W00035`: **二人** (ふたり) [noun] — two people [occ:1]
+- `W00036`: **椅子** (いす) [noun] — chair **[NEW]**
+- `W00037`: **机** (つくえ) [noun] — desk **[NEW]**
+- `W00038`: **寝ます** (ねます) [verb] — to sleep; to lie down **[NEW]**
 
 ---
 
@@ -403,19 +403,19 @@ A clean refusal is better than a story that fails validation.
 
 ## New word definitions (introduce these in the story)
 
-- `W00033`: **本** (ほん) [noun] — book
-- `W00034`: **読む** (よむ) [verb · godan] — to read
-- `W00035`: **二人** (ふたり) [noun] — two people
+- `W00036`: **椅子** (いす) [noun] — chair
+- `W00037`: **机** (つくえ) [noun] — desk
+- `W00038`: **寝ます** (ねます) [verb · ichidan] — to sleep; to lie down
 
 ---
 
 ## Output schema
 
-Produce a `story_8.json` object with this structure:
+Produce a `story_9.json` object with this structure:
 
 ```json
 {
-  "story_id": 8,
+  "story_id": 9,
   "title": {
     "jp": "<kanji/kana title>",
     "en": "<English title>",
@@ -429,7 +429,7 @@ Produce a `story_8.json` object with this structure:
     "tokens": [ ... ]
   },
   "plan_ref": "plan.json",
-  "new_words": ["W00033", "W00034", "W00035"],
+  "new_words": ["W00036", "W00037", "W00038"],
   "new_grammar": [],
   "all_words_used": ["<every word_id used, in order of first appearance>"],
   "sentences": [

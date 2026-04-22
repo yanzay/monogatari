@@ -5,7 +5,7 @@
     "approve_bar": "average >= 3.5 AND every dimension >= 3",
     "reviewer": "rovo-dev",
     "first_reviewed_at": "2026-04-22T01:22:00Z",
-    "last_revised_at":   "2026-04-22T01:31:00Z",
+    "last_revised_at": "2026-04-22T11:42:00Z",
     "history": [
       "2026-04-22 — initial baseline established (stories 1-4)",
       "2026-04-22 — stories 2 and 3 revised after baseline put them under the bar (2.8 and 3.4)",
@@ -13,7 +13,8 @@
       "2026-04-22 — story 6 (猫) authored end-to-end; first story with a non-human character (cat as new presence). Cleared the bar on first pass (avg 4.6, ties story 5 for #1). G002_ga_subject (in state since story 1 but barely used) gets two real textual uses presenting the cat as new information.",
       "2026-04-22 — JP NLP toolkit installed (fugashi + jaconv + jamdict-data) and wired into precheck/scaffold/lookup. Real inflection-engine validation, JMdict auto-fill of new word definitions, English↔JP dictionary lookup CLI, morphological-analysis CLI.",
       "2026-04-22 — story 7 (夜) authored end-to-end with the new tooling (scaffold --new-word-surfaces auto-filled 夜/月/星 from JMdict; precheck --fix auto-computed all_words_used). First night-set story; gives G011_ya_partial real semantic work (was in state since story 4, only used twice). Cleared the bar on first pass (avg 4.4).",
-      "2026-04-22 — story 8 (本と友達) authored end-to-end. First multi-person scene with parallel actions in the library. Gives G009_mo_also (formerly 4 spread-thin uses) 3 fresh load-bearing semantic uses in one tight a/b/a/b/c construction. Cleared the bar on first pass (avg 4.6, ties stories 5 and 6 for #1)."
+      "2026-04-22 — story 8 (本と友達) authored end-to-end. First multi-person scene with parallel actions in the library. Gives G009_mo_also (formerly 4 spread-thin uses) 3 fresh load-bearing semantic uses in one tight a/b/a/b/c construction. Cleared the bar on first pass (avg 4.6, ties stories 5 and 6 for #1).",
+      "2026-04-22 — story 9 (朝の猫) authored end-to-end. First story to use a recurring character (cat from story 6) — a real arrival of multi-story narrative continuity. Gives G004_ni_location (was the lowest-used grammar at 1 use across 8 stories) real semantic work — every sentence answers 'where?'. Sleeping-cat compound-noun closer is a new syntactic pattern. Cleared the bar on first pass (avg 4.4)."
     ]
   },
   "reviews": [
@@ -21,7 +22,13 @@
       "story_id": 1,
       "title_jp": "雨",
       "title_en": "Rain",
-      "scores":  { "hook": 4, "voice": 4, "originality": 3, "coherence": 4, "closure": 4 },
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 3,
+        "coherence": 4,
+        "closure": 4
+      },
       "average": 3.8,
       "approved": true,
       "highlights": [
@@ -34,8 +41,14 @@
         "Originality is constrained — this is the bootstrap story, 14 new words. Voice still emerges."
       ],
       "suggestions": [
-        { "what": "Consider swapping s3 ('I drink tea') and s4 ('the rain is quiet') to delay the I-action and let the world breathe first.", "why": "coherence + voice" },
-        { "what": "If a future revision pass adds it, replace 'いい気分です' with something more specific like '心が静かです' once 心 enters vocabulary.", "why": "closure (deferred)" }
+        {
+          "what": "Consider swapping s3 ('I drink tea') and s4 ('the rain is quiet') to delay the I-action and let the world breathe first.",
+          "why": "coherence + voice"
+        },
+        {
+          "what": "If a future revision pass adds it, replace 'いい気分です' with something more specific like '心が静かです' once 心 enters vocabulary.",
+          "why": "closure (deferred)"
+        }
       ]
     },
     {
@@ -43,10 +56,22 @@
       "title_jp": "夕方の公園",
       "title_en": "The Evening Park",
       "revised": true,
-      "scores":  { "hook": 4, "voice": 4, "originality": 4, "coherence": 4, "closure": 5 },
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 4,
+        "closure": 5
+      },
       "average": 4.2,
       "approved": true,
-      "previous_scores": { "hook": 3, "voice": 3, "originality": 2, "coherence": 3, "closure": 3 },
+      "previous_scores": {
+        "hook": 3,
+        "voice": 3,
+        "originality": 2,
+        "coherence": 3,
+        "closure": 3
+      },
       "previous_average": 2.8,
       "highlights": [
         "Hook now mirrors story 4: time-of-day comma, companion, action in one breath.",
@@ -58,7 +83,10 @@
         "Implied scene shift between walking (s1) and tea (s3); a single linking sentence would smooth it. Deferred to a future story (needs verbs like 座る, 休む)."
       ],
       "suggestions": [
-        { "what": "If a future revision pass adds 座ります or 休みます, insert a one-line 'we sit' beat between s2 and s3.", "why": "coherence (deferred)" }
+        {
+          "what": "If a future revision pass adds 座ります or 休みます, insert a one-line 'we sit' beat between s2 and s3.",
+          "why": "coherence (deferred)"
+        }
       ],
       "revision_notes": [
         "Removed 4 of the 5 静か uses; kept exactly one in s2.",
@@ -71,10 +99,22 @@
       "title_jp": "朝ごはん",
       "title_en": "Breakfast",
       "revised": true,
-      "scores":  { "hook": 4, "voice": 4, "originality": 3, "coherence": 4, "closure": 5 },
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 3,
+        "coherence": 4,
+        "closure": 5
+      },
       "average": 4.0,
       "approved": true,
-      "previous_scores": { "hook": 3, "voice": 3, "originality": 3, "coherence": 4, "closure": 4 },
+      "previous_scores": {
+        "hook": 3,
+        "voice": 3,
+        "originality": 3,
+        "coherence": 4,
+        "closure": 4
+      },
       "previous_average": 3.4,
       "highlights": [
         "Hook 「朝、雨です。」 is a 4-syllable sensory poem — specific weather + time in two beats.",
@@ -85,7 +125,10 @@
         "Still essentially a 'breakfast scene' — originality remains the hardest dimension to push within the constraint."
       ],
       "suggestions": [
-        { "what": "If a future revision pass introduces a sound or tactile word (e.g. 音 / 香り), replace one of the 温かい lines with the new sense.", "why": "originality (deferred)" }
+        {
+          "what": "If a future revision pass introduces a sound or tactile word (e.g. 音 / 香り), replace one of the 温かい lines with the new sense.",
+          "why": "originality (deferred)"
+        }
       ],
       "revision_notes": [
         "Replaced flat opener 「朝ごはんは卵とお茶です」 (definition) with 「朝、雨です」 (sensory).",
@@ -98,7 +141,13 @@
       "story_id": 8,
       "title_jp": "本と友達",
       "title_en": "Books and Friends",
-      "scores":  { "hook": 4, "voice": 4, "originality": 5, "coherence": 5, "closure": 5 },
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 5,
+        "coherence": 5,
+        "closure": 5
+      },
       "average": 4.6,
       "approved": true,
       "highlights": [
@@ -113,15 +162,27 @@
         "Voice (4 not 5): narrator-as-observer is consistent but the parallel symmetry is so even it could read slightly mechanical; a small asymmetry in the future would deepen it."
       ],
       "suggestions": [
-        { "what": "When 隣 ('next to') enters vocab, add a position-grounding line between s0 and s1 — '友達は私の隣にいます' — to anchor the spatial relationship before the parallel begins.", "why": "voice / setting (deferred)" },
-        { "what": "When 違う ('different') enters vocab, replace s4 with '友達の本は私の本と違います' to make the parallel slightly less perfectly symmetric, adding a small tension under the surface calm.", "why": "originality (deferred)" }
+        {
+          "what": "When 隣 ('next to') enters vocab, add a position-grounding line between s0 and s1 — '友達は私の隣にいます' — to anchor the spatial relationship before the parallel begins.",
+          "why": "voice / setting (deferred)"
+        },
+        {
+          "what": "When 違う ('different') enters vocab, replace s4 with '友達の本は私の本と違います' to make the parallel slightly less perfectly symmetric, adding a small tension under the surface calm.",
+          "why": "originality (deferred)"
+        }
       ]
     },
     {
       "story_id": 7,
       "title_jp": "夜",
       "title_en": "Night",
-      "scores":  { "hook": 4, "voice": 4, "originality": 4, "coherence": 5, "closure": 5 },
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 5,
+        "closure": 5
+      },
       "average": 4.4,
       "approved": true,
       "highlights": [
@@ -137,15 +198,27 @@
         "Originality (4 not 5): the imagery (moon/stars/rain/quiet) is conventional Japanese poetic stock. The grammar choreography (や/と/も interplay) is what carries the freshness."
       ],
       "suggestions": [
-        { "what": "When 遠く ('far away') enters vocab, replace s4's 雨 with 遠く: 「月も遠くを見ます」 lands the contrast with story 6's reciprocal cat more strongly.", "why": "originality (deferred)" },
-        { "what": "When a verb of appearance (e.g. 出る 'to come out') enters vocab, change s0 to 「月が出ます」 to make the hook a sensory action rather than stative.", "why": "hook (deferred)" }
+        {
+          "what": "When 遠く ('far away') enters vocab, replace s4's 雨 with 遠く: 「月も遠くを見ます」 lands the contrast with story 6's reciprocal cat more strongly.",
+          "why": "originality (deferred)"
+        },
+        {
+          "what": "When a verb of appearance (e.g. 出る 'to come out') enters vocab, change s0 to 「月が出ます」 to make the hook a sensory action rather than stative.",
+          "why": "hook (deferred)"
+        }
       ]
     },
     {
       "story_id": 6,
       "title_jp": "猫",
       "title_en": "The Cat",
-      "scores":  { "hook": 4, "voice": 4, "originality": 5, "coherence": 5, "closure": 5 },
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 5,
+        "coherence": 5,
+        "closure": 5
+      },
       "average": 4.6,
       "approved": true,
       "highlights": [
@@ -159,15 +232,27 @@
         "Hook (4 not 5): time + weather without an action — story 5's 「朝、私は公園を歩きます」 sets a stronger sensory stage. Acceptable trade because the cat itself is the surprise."
       ],
       "suggestions": [
-        { "what": "When 中 (inside) enters vocab, swap s4 to 「猫は中にいます」 and free a sentence for a third specific gesture.", "why": "originality (deferred)" },
-        { "what": "When 降ります (to fall, of rain) enters vocab, change s0 to 「雨が降ります」 to make the hook a sensory action rather than a stative.", "why": "hook (deferred)" }
+        {
+          "what": "When 中 (inside) enters vocab, swap s4 to 「猫は中にいます」 and free a sentence for a third specific gesture.",
+          "why": "originality (deferred)"
+        },
+        {
+          "what": "When 降ります (to fall, of rain) enters vocab, change s0 to 「雨が降ります」 to make the hook a sensory action rather than a stative.",
+          "why": "hook (deferred)"
+        }
       ]
     },
     {
       "story_id": 5,
       "title_jp": "朝の散歩",
       "title_en": "A Morning Walk",
-      "scores":  { "hook": 5, "voice": 4, "originality": 4, "coherence": 5, "closure": 5 },
+      "scores": {
+        "hook": 5,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 5,
+        "closure": 5
+      },
       "average": 4.6,
       "approved": true,
       "highlights": [
@@ -181,14 +266,23 @@
         "Optional: 私は in the hook could be dropped for an even tighter opener — but the explicit subject also reads naturally."
       ],
       "suggestions": [
-        { "what": "If 音 (sound) enters vocab in a future story, revisit s5 to add an auditory note about the wind.", "why": "originality (deferred)" }
+        {
+          "what": "If 音 (sound) enters vocab in a future story, revisit s5 to add an auditory note about the wind.",
+          "why": "originality (deferred)"
+        }
       ]
     },
     {
       "story_id": 4,
       "title_jp": "散歩",
       "title_en": "A Walk",
-      "scores":  { "hook": 5, "voice": 4, "originality": 4, "coherence": 4, "closure": 5 },
+      "scores": {
+        "hook": 5,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 4,
+        "closure": 5
+      },
       "average": 4.4,
       "approved": true,
       "highlights": [
@@ -201,20 +295,95 @@
         "「いい気分」 appears in s3 AND s6. The closer would land harder if s3's feeling were swapped for a sensory observation."
       ],
       "suggestions": [
-        { "what": "Insert a one-line 'we sit' or 'we rest' beat between s3 and s4 — needs a new word like 座ります, plan it for a future story.", "why": "coherence (deferred)" },
-        { "what": "Replace s3 「散歩はいい気分です」 with a sensory line so 'いい気分' lands only once, in the closer.", "why": "closure + voice" }
+        {
+          "what": "Insert a one-line 'we sit' or 'we rest' beat between s3 and s4 — needs a new word like 座ります, plan it for a future story.",
+          "why": "coherence (deferred)"
+        },
+        {
+          "what": "Replace s3 「散歩はいい気分です」 with a sensory line so 'いい気分' lands only once, in the closer.",
+          "why": "closure + voice"
+        }
+      ]
+    },
+    {
+      "story_id": 9,
+      "title_jp": "朝の猫",
+      "title_en": "The Morning Cat",
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 5,
+        "coherence": 5,
+        "closure": 4
+      },
+      "average": 4.4,
+      "approved": true,
+      "highlights": [
+        "first story to use a recurring character (cat from story 6) — narrative continuity across stories",
+        "cat-narrator-cat attention triangle (s0 cat sits → s1 I look → s4 cat looks at book) is a structurally fresh move",
+        "に carries semantic load throughout — every sentence answers 'where?'",
+        "sleeping-cat compound-noun closer (寝る猫) is a new syntactic pattern in the library"
+      ],
+      "weaknesses": [
+        "hook is locational, not sensory (4 not 5)",
+        "'good morning' closer phrasing reused from stories 5/6/8 (4 not 5)"
+      ],
+      "next_actions": [
+        "consider opening with a sensory cue (sound, smell, light) when story 10 targets a hook of 5",
+        "the 'X, feeling です' closer pattern is now used in 5 of 9 stories — vary further as the library grows",
+        "G006_kara_from is the next-most-underused grammar (2 uses) — candidate for a 'real work' move in story 10"
       ]
     }
   ],
   "leaderboard": [
-    { "rank": 1, "story_id": 5, "average": 4.6, "verdict": "Tied for #1 — first story authored with rubric in writer prompt; cleared the bar on first pass." },
-    { "rank": 1, "story_id": 6, "average": 4.6, "verdict": "Tied for #1 — first story with a non-human character; cat arrives as a real surprise. Originality 5/5." },
-    { "rank": 1, "story_id": 8, "average": 4.6, "verdict": "Tied for #1 — first multi-person parallel scene; gives G009_mo_also 3 fresh load-bearing uses. Most architecturally distinctive story." },
-    { "rank": 4, "story_id": 4, "average": 4.4, "verdict": "Strong; small refinements possible." },
-    { "rank": 4, "story_id": 7, "average": 4.4, "verdict": "First night-set story; gives G011_ya_partial real work. Doubles the underused-grammar pattern that elevated story 6." },
-    { "rank": 6, "story_id": 2, "average": 4.2, "verdict": "Revised — strong; only a deferred 'we sit' beat is missing." },
-    { "rank": 7, "story_id": 3, "average": 4.0, "verdict": "Revised — strongest closer of stories 1-4; originality tough within constraint." },
-    { "rank": 8, "story_id": 1, "average": 3.8, "verdict": "Strong given the bootstrap constraint; ship as-is." }
+    {
+      "rank": 1,
+      "story_id": 5,
+      "average": 4.6,
+      "verdict": "Tied for #1 — first story authored with rubric in writer prompt; cleared the bar on first pass."
+    },
+    {
+      "rank": 1,
+      "story_id": 6,
+      "average": 4.6,
+      "verdict": "Tied for #1 — first story with a non-human character; cat arrives as a real surprise. Originality 5/5."
+    },
+    {
+      "rank": 1,
+      "story_id": 8,
+      "average": 4.6,
+      "verdict": "Tied for #1 — first multi-person parallel scene; gives G009_mo_also 3 fresh load-bearing uses. Most architecturally distinctive story."
+    },
+    {
+      "rank": 4,
+      "story_id": 4,
+      "average": 4.4,
+      "verdict": "Strong; small refinements possible."
+    },
+    {
+      "rank": 4,
+      "story_id": 7,
+      "average": 4.4,
+      "verdict": "First night-set story; gives G011_ya_partial real work. Doubles the underused-grammar pattern that elevated story 6."
+    },
+    {
+      "rank": 6,
+      "story_id": 2,
+      "average": 4.2,
+      "verdict": "Revised — strong; only a deferred 'we sit' beat is missing."
+    },
+    {
+      "rank": 7,
+      "story_id": 3,
+      "average": 4.0,
+      "verdict": "Revised — strongest closer of stories 1-4; originality tough within constraint."
+    },
+    {
+      "rank": 8,
+      "story_id": 1,
+      "average": 3.8,
+      "verdict": "Strong given the bootstrap constraint; ship as-is."
+    }
   ],
   "next_actions": [
     "All eight stories now pass the engagement bar (avg ≥ 3.5; every dimension ≥ 3).",

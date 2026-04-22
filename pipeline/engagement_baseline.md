@@ -23,9 +23,10 @@
 | 1 | story 8 | **4.6** | Tied for #1 — first multi-person parallel scene; gives G009_mo_also 3 fresh load-bearing uses. Most architecturally distinctive story. |
 | 4 | story 4 | **4.4** | Strong; small refinements possible. |
 | 4 | story 7 | **4.4** | First night-set story; gives G011_ya_partial real work. Doubles the underused-grammar pattern that elevated story 6. |
-| 6 | story 2 | **4.2** | Revised — strong; only a deferred 'we sit' beat is missing. |
-| 7 | story 3 | **4.0** | Revised — strongest closer of stories 1-4; originality tough within constraint. |
-| 8 | story 1 | **3.8** | Strong given the bootstrap constraint; ship as-is. |
+| 4 | story 9 | **4.4** | First story with a recurring character (cat from story 6); gives G004_ni_location real semantic work in every sentence; sleeping-cat compound-noun closer is a new syntactic pattern. |
+| 7 | story 2 | **4.2** | Revised — strong; only a deferred 'we sit' beat is missing. |
+| 8 | story 3 | **4.0** | Revised — strongest closer of stories 1-4; originality tough within constraint. |
+| 9 | story 1 | **3.8** | Strong given the bootstrap constraint; ship as-is. |
 
 
 ## Story 1 — 雨 *(Rain)*
@@ -224,3 +225,28 @@ _Previous score: 3.4 (before revision)_
 - When 中 (inside) enters vocab, revisit story 6's s4 for a settled-inside relocation; when 降ります enters vocab, upgrade story 6's hook to a sensory action.
 - When 遠く ('far away') enters vocab, revisit story 7's s4 to land the contrast with story 6's reciprocal cat.
 - When 隣 ('next to') and 違う ('different') enter vocab, revisit story 8 to add the position-grounding line and the small asymmetry suggested in its review.
+
+---
+
+## Story 9 — 朝の猫 / The Morning Cat
+
+| hook | voice | originality | coherence | closure |
+|------|-------|-------------|-----------|---------|
+| 4 | 4 | **5** | 5 | 4 |
+
+**Avg: 4.4 ✓** — first story to use a recurring character (cat from story 6).
+
+**Highlights**
+- First story to use a recurring character — narrative continuity across stories.
+- Cat-narrator-cat attention triangle (s0 cat sits → s1 I look → s4 cat looks at book) is a structurally fresh move.
+- に carries semantic load throughout — every sentence answers "where?".
+- Sleeping-cat compound-noun closer (寝る猫) is a new syntactic pattern in the library.
+
+**Weaknesses**
+- Hook is locational, not sensory (4 not 5).
+- "Good morning" closer phrasing reused from stories 5/6/8 (4 not 5).
+
+**Next actions**
+- Consider opening with a sensory cue (sound, smell, light) when story 10 targets a hook of 5.
+- The "X, feeling です" closer pattern is now used in 5 of 9 stories — vary further as the library grows.
+- G006_kara_from is the next-most-underused grammar (2 uses) — candidate for a "real work" move in story 10.
