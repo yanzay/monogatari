@@ -650,3 +650,76 @@ edits the author should still make by hand:
 - **Choose dictionary form.** JMdict almost always returns the
   dictionary form; if you wrote `光ります` instead of `光る` in
   `--new-word-surfaces`, expect a miss.
+
+---
+
+## Length progression — v0.4
+
+Stories grow gradually as the library grows, so a learner working through
+the library is always slightly stretched but never jolted. The curve is
+encoded in `pipeline/progression.py` and enforced by the validator's
+Check 7.
+
+### The curve
+
+```
+target_sentences(n)      = 7 + max(0, (n - 10 - 1) // 5 + 1)   for n > 10
+target_content_tokens(n) = round(2.6 * target_sentences(n))
+```
+
+| Stories | Sentences | Content tokens | (delta) |
+|---------|-----------|----------------|---------|
+| 1–10    | 7         | 18             | (baseline plateau) |
+| 11–15   | 8         | 21             | +1 sentence |
+| 16–20   | 9         | 23             | +1 sentence |
+| 21–25   | 10        | 26             | +1 sentence |
+| 26–30   | 11        | 29             | +1 sentence |
+| 31–35   | 12        | 31             | +1 sentence |
+| ...     | ...       | ...            | ... |
+
+By story 30 the learner is reading **57% longer** stories than at story 1,
+but they got there in 5 imperceptible steps. Each step coincides with a
+"tier" boundary every 5 stories.
+
+### Tolerance
+
+| | min | target | max |
+|---|---|---|---|
+| Sentences | target − 1 | _from curve_ | target + 1 |
+| Content tokens | target × 0.7 | _from curve_ | target × 1.4 |
+
+The 1.4× upper-bound on content tokens (rather than 1.3×) was calibrated
+to admit story 4 (the densest in the existing library at 25 content tokens
+for an 18-token target). Tightening to 1.3× would retroactively reject
+already-shipped prose.
+
+### How the pipeline enforces it
+
+| Stage | Check |
+|-------|-------|
+| `lookup.py --next` | Surfaces the target sentences + content tokens for the next story. |
+| `lookup.py --progression` | Prints the full curve up to story 35 with tier boundaries marked. |
+| `scaffold.py plan` | Auto-fills `target_word_count` and `max_sentences` from the curve. |
+| `scaffold.py story --sentences` | If omitted, defaults to the progression target for the plan's `story_id`. |
+| `planner.py --validate` | Refuses plans whose `target_word_count` or `max_sentences` lies outside the band. |
+| `validate.py` Check 7 | Hard-fails stories whose sentence count or content-token count is outside the per-story-id band. |
+
+### What NOT to do
+
+- **Don't bump `_BASELINE_PLATEAU`.** Stories 1–8 already shipped at 7
+  sentences; raising the floor would invalidate existing prose.
+- **Don't widen `CONTENT_HIGH` past 1.4×.** The current value is the
+  tightest the existing library allows; widening it weakens the curve's
+  whole purpose.
+- **Don't tighten `SENTENCE_TOLERANCE` below 1.** The curve is supposed
+  to give the author one beat of latitude. The tolerance is what makes
+  a "+1 sentence step" a soft transition rather than a sudden jolt
+  (story 11 at 8 sentences is fine; story 11 at 7 is also fine because
+  it sits at the previous tier's max).
+
+### Special story_id
+
+`story_id == 0` is reserved for test fixtures and other in-pipeline uses
+where the progression curve does not apply. Check 7 falls back to the
+historic absolute sentence range (5..8) for these. Real shipped stories
+must always have `story_id >= 1`.

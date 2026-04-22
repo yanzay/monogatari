@@ -55,7 +55,11 @@ Read everything below carefully. Output **only** the JSON object — no prose.
 
 - Introduce exactly **{n_new_words}** new words.
 - Optionally introduce at most **{n_new_grammar}** new grammar point(s). Zero is fine.
-- Story length: 5–8 sentences, 35–65 content tokens total.
+- Story length (from the library-wide progression curve in pipeline/progression.py):
+  - **Target: {target_sentences} sentences, {target_content_tokens} content tokens.**
+  - Acceptance band: {sentence_min}–{sentence_max} sentences, {content_min}–{content_max} content tokens.
+  - The validator's Check 7 enforces these bands per story_id; the writer
+    will be told the same target. Going outside the band fails the build.
 - At least 60% of content tokens must be previously-seen words with occurrences < 5.
 - New grammar prerequisites must all already exist in grammar_state.
 - New words must be i+1: high-frequency, concrete, combinable with existing vocab.
@@ -76,8 +80,8 @@ Produce this exact JSON object:
 ```json
 {{
   "story_id": {story_id},
-  "target_word_count": <integer 35-65>,
-  "max_sentences": 8,
+  "target_word_count": {target_content_tokens},
+  "max_sentences": {sentence_max},
   "new_words": ["<id1>", "<id2>", "<id3>"],
   "new_grammar": ["<gid>" ],
   "theme": "<2-5 word theme>",
@@ -159,6 +163,20 @@ def next_word_id(vocab: dict) -> tuple[str, str, str]:
 def build_prompt(vocab: dict, grammar: dict, story_id: int,
                  n_new_words: int, n_new_grammar: int, theme: str | None) -> str:
     nw1, nw2, nw3 = next_word_id(vocab)
+    # Pull length-progression targets from the curve (single source of truth).
+    try:
+        from progression import (
+            target_sentences as _tgt_sent,
+            target_content_tokens as _tgt_content,
+            sentence_band as _sent_band,
+            content_band as _content_band,
+        )
+        tgt_sent = _tgt_sent(story_id)
+        tgt_content = _tgt_content(story_id)
+        smin, smax = _sent_band(story_id)
+        cmin, cmax = _content_band(story_id)
+    except Exception:
+        tgt_sent, tgt_content, smin, smax, cmin, cmax = 7, 18, 6, 8, 13, 25
     return PLANNER_PROMPT_TEMPLATE.format(
         story_id=story_id,
         n_words=len(vocab.get("words", {})),
@@ -172,6 +190,12 @@ def build_prompt(vocab: dict, grammar: dict, story_id: int,
         next_word_id=nw1,
         next_word_id2=nw2,
         next_word_id3=nw3,
+        target_sentences=tgt_sent,
+        target_content_tokens=tgt_content,
+        sentence_min=smin,
+        sentence_max=smax,
+        content_min=cmin,
+        content_max=cmax,
     )
 
 
@@ -227,6 +251,48 @@ def validate_plan(plan: dict, vocab: dict, grammar: dict) -> list[str]:
     for wid in plan.get("constraints", {}).get("must_reuse_words", []):
         if wid not in known_words:
             errors.append(f"must_reuse_word '{wid}' not in vocab_state")
+
+    # ── Length progression: plan targets must agree with the curve ──────────
+    # The library-wide progression curve is the source of truth (see
+    # pipeline/progression.py). The plan's target_word_count and max_sentences
+    # are advisory but they MUST land inside the band for the given story_id;
+    # otherwise the writer would be told to produce something Check 7 will
+    # later reject.
+    try:
+        from progression import (
+            target_sentences as _tgt_sent,
+            target_content_tokens as _tgt_content,
+            sentence_band as _sent_band,
+            content_band as _content_band,
+        )
+        sid = plan.get("story_id")
+        if isinstance(sid, int) and sid > 0:
+            smin, smax = _sent_band(sid)
+            cmin, cmax = _content_band(sid)
+            target_words = plan.get("target_word_count")
+            if target_words is None:
+                errors.append(
+                    f"Missing 'target_word_count' (recommended {_tgt_content(sid)}; "
+                    f"band [{cmin}, {cmax}] for story {sid})"
+                )
+            elif not (cmin <= target_words <= cmax):
+                errors.append(
+                    f"target_word_count={target_words} outside progression band "
+                    f"[{cmin}, {cmax}] for story_id={sid} (recommended {_tgt_content(sid)})"
+                )
+            max_sent = plan.get("max_sentences")
+            if max_sent is None:
+                errors.append(
+                    f"Missing 'max_sentences' (recommended {smax}; "
+                    f"band [{smin}, {smax}] for story {sid})"
+                )
+            elif max_sent < smin or max_sent > smax:
+                errors.append(
+                    f"max_sentences={max_sent} outside progression band "
+                    f"[{smin}, {smax}] for story_id={sid} (recommended {smax})"
+                )
+    except Exception:
+        pass  # progression module not available — skip the check
 
     return errors
 

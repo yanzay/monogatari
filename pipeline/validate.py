@@ -698,23 +698,61 @@ def validate(
                 f"Reuse quota not met: {ratio:.0%} of content tokens have occurrences < 5 (minimum {REUSE_QUOTA:.0%}). ({reinforcement_count}/{len(content_tokens)})"
             )
 
-    # ── Check 7: Length ───────────────────────────────────────────────────────
-    n_sentences = len(sentences)
-    if not (SENTENCE_MIN <= n_sentences <= SENTENCE_MAX):
-        result.add_error(
-            7,
-            f"Sentence count {n_sentences} out of range [{SENTENCE_MIN}, {SENTENCE_MAX}]"
+    # ── Check 7: Length progression ──────────────────────────────────────────
+    # Length is now governed by the library-wide progression curve in
+    # pipeline/progression.py — the plan's target_word_count and max_sentences
+    # are advisory and must themselves agree with the curve (enforced by
+    # validate_plan, not here).
+    try:
+        from progression import (
+            target_sentences as _tgt_sent,
+            target_content_tokens as _tgt_content,
+            sentence_band as _sent_band,
+            content_band as _content_band,
         )
+        _PROGRESSION_OK = True
+    except Exception:
+        _PROGRESSION_OK = False
 
+    n_sentences = len(sentences)
     n_content = len(content_tokens)
+
+    if _PROGRESSION_OK:
+        sid = story.get("story_id")
+        # story_id == 0 is reserved for test fixtures and other in-pipeline
+        # uses where progression doesn't apply; fall back to the historic
+        # absolute range there.
+        if isinstance(sid, int) and sid > 0:
+            smin, smax = _sent_band(sid)
+            cmin, cmax = _content_band(sid)
+            if not (smin <= n_sentences <= smax):
+                result.add_error(
+                    7,
+                    f"Sentence count {n_sentences} outside progression band [{smin}, {smax}] "
+                    f"for story_id={sid} (target {_tgt_sent(sid)}; see pipeline/progression.py)"
+                )
+            if not (cmin <= n_content <= cmax):
+                result.add_error(
+                    7,
+                    f"Content token count {n_content} outside progression band [{cmin}, {cmax}] "
+                    f"for story_id={sid} (target {_tgt_content(sid)}; see pipeline/progression.py)"
+                )
+        else:
+            # No story_id: fall back to the historic absolute range
+            if not (SENTENCE_MIN <= n_sentences <= SENTENCE_MAX):
+                result.add_error(7, f"Sentence count {n_sentences} out of range [{SENTENCE_MIN}, {SENTENCE_MAX}]")
+    else:
+        # progression.py unavailable: keep the old behavior so the pipeline
+        # never silently breaks if someone moves files around.
+        if not (SENTENCE_MIN <= n_sentences <= SENTENCE_MAX):
+            result.add_error(7, f"Sentence count {n_sentences} out of range [{SENTENCE_MIN}, {SENTENCE_MAX}]")
+        if plan:
+            target = plan.get("target_word_count", 0)
+            if target and not (target * 0.7 <= n_content <= target * 1.3):
+                result.add_error(7, f"Content token count {n_content} is outside 70–130% of plan target {target}")
+
     if plan:
-        target = plan.get("target_word_count", 0)
         max_sentences = plan.get("max_sentences", SENTENCE_MAX)
-        if target and not (target * 0.7 <= n_content <= target * 1.3):
-            result.add_error(
-                7,
-                f"Content token count {n_content} is outside 70–130% of plan target {target}"
-            )
         if n_sentences > max_sentences:
             result.add_error(7, f"Sentence count {n_sentences} exceeds plan max {max_sentences}")
 

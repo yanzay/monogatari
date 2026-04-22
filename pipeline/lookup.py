@@ -101,6 +101,47 @@ def show_next(vocab: dict, grammar: dict) -> None:
     next_story = max(int(p.stem.split("_")[1]) for p in STORIES.glob("story_*.json")) + 1
     print(f"Next free story_id:   {next_story}")
 
+    # Surface the length-progression target for the next story so the author
+    # knows up front whether they're still on the plateau or stepping up.
+    try:
+        from progression import (
+            target_sentences as _tgt_sent,
+            target_content_tokens as _tgt_content,
+            sentence_band as _sent_band,
+            content_band as _content_band,
+        )
+        smin, smax = _sent_band(next_story)
+        cmin, cmax = _content_band(next_story)
+        print(f"Length target:        {_tgt_sent(next_story)} sentences "
+              f"(band {smin}-{smax}), {_tgt_content(next_story)} content tokens "
+              f"(band {cmin}-{cmax})")
+        # Flag tier transitions so the author can plan accordingly.
+        if next_story > 1:
+            prev_sent = _tgt_sent(next_story - 1)
+            this_sent = _tgt_sent(next_story)
+            if this_sent != prev_sent:
+                print(f"Tier transition:      story {next_story} adds +{this_sent - prev_sent} "
+                      f"sentence(s) vs story {next_story - 1} (was {prev_sent})")
+    except Exception:
+        pass
+
+
+def show_progression(up_to: int = 35) -> None:
+    """Print the full length-progression curve up to the given story id."""
+    try:
+        from progression import progression_table
+    except Exception:
+        print("progression module not available")
+        return
+    print(f"── length progression (stories 1..{up_to}) ──\n")
+    print(f"{'story':6s} {'sentences':10s} {'sent-band':10s} {'content':9s} {'content-band':14s}")
+    last = None
+    for r in progression_table(up_to):
+        marker = "  ← +1 step" if last is not None and r["target_sentences"] != last else ""
+        print(f"{r['story_id']:<6} {r['target_sentences']:<10} {str(r['sentence_band']):<10} "
+              f"{r['target_content_tokens']:<9} {str(r['content_band']):<14}{marker}")
+        last = r["target_sentences"]
+
 
 def grammar_usage() -> None:
     vocab, grammar = load_state()
@@ -154,12 +195,15 @@ def main() -> None:
     p.add_argument("--low-occ", action="store_true", help="List words with occurrences < 5 (engagement pool)")
     p.add_argument("--jmdict", action="store_true", help="Query JMdict (English↔Japanese) for the term — useful for finding readings/POS for a candidate new word")
     p.add_argument("--morph", action="store_true", help="Run morphological analysis (UniDic-Lite) on the term — useful for verifying inflected surfaces parse the way you expect")
+    p.add_argument("--progression", action="store_true", help="Print the length-progression curve up to story 35")
     args = p.parse_args()
 
     vocab, grammar = load_state()
 
     if args.next:
         show_next(vocab, grammar)
+    elif args.progression:
+        show_progression()
     elif args.grammar_usage:
         grammar_usage()
     elif args.low_occ:

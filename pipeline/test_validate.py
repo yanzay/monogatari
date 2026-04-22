@@ -51,10 +51,12 @@ GRAMMAR = {
 }
 
 # A minimal valid story (2 sentences — below SENTENCE_MIN, but useful as base)
-# We'll use 5 sentences in the "valid" fixture.
+# We'll use 5 sentences in the "valid" fixture (small enough to keep tests
+# readable). story_id is 0, which signals to validate.py's Check 7 that the
+# story is a test fixture and the progression curve does not apply.
 def make_valid_story():
     return {
-        "story_id": 1,
+        "story_id": 0,
         "title": {
             "jp": "雨",
             "en": "Rain",
@@ -717,6 +719,40 @@ def run_tests():
             "target_word_count": 40, "max_sentences": 3}
     r = validate(s, VOCAB, GRAMMAR, plan)
     check("Exceeds plan max_sentences → check 7 error", errors_for_check(r, 7))
+
+    print("\n── Check 7: Length progression curve ────────────────────────────")
+    # Story 1 (plateau, target 7): 7 sentences should pass; 5 should fail.
+    s = make_valid_story()
+    s["story_id"] = 1
+    extra = copy.deepcopy(s["sentences"][0])
+    extra["idx"] = 5
+    for _ in range(2):
+        s["sentences"].append(copy.deepcopy(extra))  # 5 → 7
+    r = validate(s, VOCAB, GRAMMAR)
+    check("story 1 with 7 sentences → no check 7 error",
+          not errors_for_check(r, 7))
+
+    s = make_valid_story()
+    s["story_id"] = 1
+    s["sentences"] = s["sentences"][:5]  # 5 sentences (below target plateau)
+    r = validate(s, VOCAB, GRAMMAR)
+    check("story 1 with 5 sentences → check 7 error (band 6-8)",
+          errors_for_check(r, 7))
+
+    # Story 11 (first +1 step, target 8): 7 sentences should fail (out of band 7-9... wait band is 7-9).
+    # Use a clearer test: story 21 (target 10, band 9-11) with 7 sentences should fail.
+    s = make_valid_story()
+    s["story_id"] = 21
+    r = validate(s, VOCAB, GRAMMAR)  # has 5 sentences
+    check("story 21 with 5 sentences → check 7 error (band 9-11)",
+          errors_for_check(r, 7))
+
+    # Story_id 0 (test fixture sentinel) should bypass progression and use the
+    # historic absolute range so existing fixtures keep working.
+    s = make_valid_story()  # story_id=0 by fixture
+    r = validate(s, VOCAB, GRAMMAR)
+    check("story_id=0 fixture (5 sentences) → no check 7 error (absolute range used)",
+          not errors_for_check(r, 7))
 
     print("\n── Check 8: Forbidden topics ─────────────────────────────────────")
     s = make_valid_story()

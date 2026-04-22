@@ -143,6 +143,19 @@ def scaffold_plan(args) -> int:
     low = sorted(vocab["words"].values(), key=lambda w: (w.get("occurrences", 0), w["id"]))
     must_reuse = [w["id"] for w in low[:5]]
 
+    # Pull progression targets so the scaffold pre-fills the right numbers.
+    try:
+        from progression import (
+            target_sentences as _tgt_sent,
+            target_content_tokens as _tgt_content,
+            sentence_band as _sent_band,
+        )
+        tgt_sentences = _tgt_sent(next_story)
+        tgt_content_tokens = _tgt_content(next_story)
+        _, smax = _sent_band(next_story)
+    except Exception:
+        tgt_sentences, tgt_content_tokens, smax = 7, 18, 8
+
     plan = {
         "story_id": next_story,
         "title_jp": args.title_jp or "<title in Japanese>",
@@ -156,8 +169,8 @@ def scaffold_plan(args) -> int:
             "forbidden_words": [],
             "avoid_topics": ["violence", "romance", "politics"]
         },
-        "target_word_count": 24,
-        "max_sentences": 7,
+        "target_word_count": tgt_content_tokens,
+        "max_sentences": smax,
         "new_words": new_words,
         "new_word_definitions": new_word_defs,
         "new_grammar": new_grammar,
@@ -180,6 +193,14 @@ def scaffold_plan(args) -> int:
 def scaffold_story(args) -> int:
     plan = json.loads(PLAN.read_text(encoding="utf-8")) if PLAN.exists() else {}
     sid = plan.get("story_id", 1)
+    # If the user didn't override --sentences, default to the progression target.
+    try:
+        from progression import target_sentences as _tgt_sent
+        if args.sentences is None:
+            args.sentences = _tgt_sent(sid)
+    except Exception:
+        if args.sentences is None:
+            args.sentences = 7
 
     title = {
         "jp": plan.get("title_jp", "<title>"),
@@ -243,7 +264,8 @@ def main() -> int:
     )
 
     p_story = sub.add_parser("story", help="Scaffold pipeline/story_raw.json from current plan.json")
-    p_story.add_argument("--sentences", type=int, default=6)
+    p_story.add_argument("--sentences", type=int, default=None,
+                         help="If omitted, uses the progression-curve target for the plan's story_id.")
 
     args = ap.parse_args()
     return scaffold_plan(args) if args.cmd == "plan" else scaffold_story(args)
