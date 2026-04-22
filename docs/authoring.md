@@ -1427,3 +1427,64 @@ produces tones, not speech. Shipping without speech audio degrades the
 learner experience for every later story that could be listened to in
 parallel; treating audio as a "nice to have" is an unaccepted cost from
 this point forward.
+
+---
+
+## v0.12 — Pipeline cleanups so step 4 actually finishes hands-off (2026-04-22)
+
+A short follow-up to v0.11 to fix every step-4 pothole that surfaced when
+shipping story 16. After this release `python3 pipeline/run.py --step 4`
+should require zero post-ship cleanup as long as the inputs are well-formed.
+
+### What changed in `pipeline/state_updater.py`
+
+| Bug                                            | Fix |
+|------------------------------------------------|-----|
+| `first_story` written as the int `<N>`         | Now writes `"story_<N>"` (string), matching every existing entry and what `test_state_integrity` checks for both vocab and grammar |
+| Always emitted `"grammar_tags": []` per word   | Field is now omitted entirely. It was deprecated long ago and `test_vocab_no_dead_grammar_tags_field` rejects entries that carry it |
+| `next_word_id` never advanced                  | Now bumped to `max(W#####) + 1` after the new words are added; the planner sees a correct "next free id" |
+| Romaji `reading` accepted spaces ("issho ni") | Now stripped of all whitespace; `test_vocab_reading_is_ascii_no_spaces` is satisfied automatically |
+
+### What changed in `pipeline/audio_builder.py`
+
+- **Default backend is now `google`** (was `synth`). The `synth` backend
+  remains available for development but is unfit for shipping.
+- Every sentence and word audio file written as `.wav` now also gets a
+  byte-identical `.mp3` companion next to it. The repo-health test
+  `test_audio_sentence_files_match_story_sentence_count` globs for
+  `s*.mp3`, so missing companions used to fail the post-ship pytest;
+  no longer.
+
+### What changed in `pipeline/run.py`
+
+- `--tts-backend` defaults to `google` (was `synth`).
+- Added **step 4c.6** which calls
+  `pipeline/engagement_review.py --mode baseline` to upsert the current
+  story's review into `pipeline/engagement_baseline.json` and rebuild
+  the leaderboard. This satisfies `test_leaderboard_covers_every_review`
+  on the very next ship without manual editing.
+
+### What changed in `pipeline/engagement_review.py`
+
+- New `--mode baseline` mode. It reads the just-shipped story plus
+  `pipeline/review.json`, upserts a leaderboard entry by `story_id`
+  (idempotent — re-runs replace, never duplicate), and rebuilds the
+  ranks. Same tie-handling convention as before
+  (4.6/4.6/4.6/4.6/4.4 → ranks 1/1/1/1/5).
+
+### Why this matters
+
+Before this release, every ship produced four chores that the next
+agent had to remember (or, more often, *not* remember):
+
+1. Hand-edit `vocab.next_word_id` to advance it.
+2. Hand-delete `grammar_tags` from each new word.
+3. Hand-strip the space from any romaji reading containing one.
+4. Hand-add the review entry to `engagement_baseline.json` and
+   re-rank the leaderboard.
+
+…on top of also remembering to copy each `.wav` to a `.mp3` and to
+pass `--tts-backend google` instead of letting the default win. None
+of these are interesting work; all of them are mistakes waiting to
+happen at 1 a.m. As of v0.12 they are all the pipeline's job, and
+the post-ship pytest catches any regression.

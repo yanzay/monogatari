@@ -92,6 +92,15 @@ def _empty_template(story_id: int, mode: str) -> dict:
         "scores": {d: None for d in DIMENSIONS},
         "average": None,
         "approved": False,
+        "highlights": [
+            "What this story does well — be specific (a sentence, a beat, a "
+            "structural choice). Required: at least one entry."
+        ],
+        "weaknesses": [
+            "What this story does worst — be specific. Required: at least "
+            "one entry. 'None' is dishonest; if the prose is perfect, write "
+            "the structural compromise you accepted."
+        ],
         "suggestions": [
             {"what": "", "why": ""},
         ],
@@ -110,6 +119,16 @@ def _validate_review(review: dict) -> list[str]:
             errs.append(f"scores.{d} must be an int 1..5 (got {v!r})")
     if not isinstance(review.get("approved"), bool):
         errs.append("approved must be a boolean")
+    # v0.12: highlights/weaknesses are part of the review contract — they
+    # propagate into engagement_baseline.json and the
+    # test_every_review_has_minimum_richness test rejects entries lacking
+    # either. Enforcing it here means the failure surfaces at finalize time
+    # (where it's cheap to fix), not at the post-ship pytest gate.
+    for field in ("highlights", "weaknesses"):
+        items = review.get(field)
+        if not isinstance(items, list) or len([x for x in items if str(x).strip()]) < 1:
+            errs.append(f"{field} must be a non-empty list of strings "
+                        f"(got {items!r})")
     # Review-honesty gate (added 2026-04-22): if the reviewer's own free-text
     # notes describe the prose as repetitive / awkward / nonsensical, the
     # corresponding numeric score must reflect that. Catches the failure
@@ -194,6 +213,81 @@ def _finalize_mode(story: dict) -> int:
     return 0 if review.get("approved") else 1
 
 
+DEFAULT_BASELINE = Path("pipeline/engagement_baseline.json")
+
+
+def _baseline_mode(story: dict) -> int:
+    """Append the current shipped story's review to engagement_baseline.json
+    and rebuild the leaderboard. Idempotent: re-running for the same story
+    replaces (rather than duplicates) the entry. Run automatically by
+    `run.py --step 4` so future agents never have to remember to do it.
+    """
+    if not DEFAULT_REVIEW_J.exists():
+        print(f"ERROR: {DEFAULT_REVIEW_J} not found.", file=sys.stderr)
+        return 1
+    review = json.loads(DEFAULT_REVIEW_J.read_text(encoding="utf-8"))
+    if not DEFAULT_BASELINE.exists():
+        print(f"ERROR: {DEFAULT_BASELINE} not found.", file=sys.stderr)
+        return 1
+    baseline = json.loads(DEFAULT_BASELINE.read_text(encoding="utf-8"))
+    reviews = baseline.setdefault("reviews", [])
+
+    sid = story["story_id"]
+    title = story.get("title") or {}
+    new_entry = {
+        "story_id":  sid,
+        "title_jp":  title.get("jp", ""),
+        "title_en":  title.get("en", ""),
+        "scores":    review.get("scores", {}),
+        "average":   review.get("average"),
+        "approved":  bool(review.get("approved", False)),
+        "highlights": review.get("highlights", []),
+        "weaknesses": review.get("weaknesses", []),
+        "suggestions": review.get("suggestions", []),
+    }
+
+    # Idempotent upsert by story_id
+    replaced = False
+    for i, r in enumerate(reviews):
+        if r.get("story_id") == sid:
+            reviews[i] = new_entry
+            replaced = True
+            break
+    if not replaced:
+        reviews.append(new_entry)
+
+    # Rebuild leaderboard. Ties share rank; the next rank skips by the size
+    # of the tie group, so 4.6/4.6/4.6/4.6/4.4 → ranks 1/1/1/1/5.
+    items = sorted(reviews, key=lambda r: (-(r.get("average") or 0), r["story_id"]))
+    new_lb = []
+    prev_avg = object()
+    last_rank = 0
+    for i, r in enumerate(items, start=1):
+        avg = r.get("average")
+        if avg != prev_avg:
+            last_rank = i
+            prev_avg = avg
+        new_lb.append({
+            "story_id": r["story_id"],
+            "average":  avg,
+            "rank":     last_rank,
+        })
+    baseline["leaderboard"] = new_lb
+
+    if isinstance(baseline.get("_meta"), dict):
+        baseline["_meta"]["n_stories"] = len(reviews)
+
+    DEFAULT_BASELINE.write_text(
+        json.dumps(baseline, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    rank = next(x["rank"] for x in new_lb if x["story_id"] == sid)
+    verb = "Updated" if replaced else "Added"
+    print(f"✓ {verb} engagement baseline entry for story_{sid} "
+          f"(avg {new_entry['average']}, rank {rank} of {len(new_lb)}).")
+    return 0
+
+
 def _skip_mode(story: dict) -> int:
     review = {
         "story_id": story["story_id"],
@@ -218,9 +312,11 @@ def main() -> None:
     ap.add_argument("--story",   default=str(DEFAULT_STORY),
                     help="Path to story_raw.json (default: pipeline/story_raw.json)")
     ap.add_argument("--mode",    default="print",
-                    choices=["print", "finalize", "skip"],
+                    choices=["print", "finalize", "skip", "baseline"],
                     help="print: render story+rubric and write blank review.json; "
                          "finalize: read filled-in review.json and validate it; "
+                         "baseline: append review to engagement_baseline.json and "
+                         "rebuild the leaderboard (idempotent); "
                          "skip: write an approved review (emergency only).")
     args = ap.parse_args()
 
@@ -236,6 +332,8 @@ def main() -> None:
         rc = _finalize_mode(story)
     elif args.mode == "skip":
         rc = _skip_mode(story)
+    elif args.mode == "baseline":
+        rc = _baseline_mode(story)
     else:
         print(f"Unknown mode: {args.mode}", file=sys.stderr)
         sys.exit(2)

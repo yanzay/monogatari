@@ -44,9 +44,11 @@ def main() -> None:
     parser.add_argument("--no-audio",      action="store_true",
                         help="Skip the audio build step at end of step 4")
     parser.add_argument("--tts-backend",
-                        default=os.environ.get("MONOGATARI_TTS", "synth"),
+                        default=os.environ.get("MONOGATARI_TTS", "google"),
                         choices=["synth", "google"],
-                        help="Audio backend at step 4d (synth=offline, google=GCP TTS)")
+                        help="Audio backend at step 4d (default: google — see "
+                             "docs/authoring.md § v0.11. Use synth only for "
+                             "offline development; never ship with synth).")
     parser.add_argument("--tts-voice",
                         default=os.environ.get("MONOGATARI_TTS_VOICE", "ja-JP-Neural2-B"),
                         help="Google TTS voice name (when --tts-backend=google)")
@@ -257,6 +259,16 @@ def main() -> None:
         rc = run([sys.executable, "pipeline/build_manifest.py"])
         if rc != 0:
             print("Manifest rebuild failed; reader will fall back to discovery probe.")
+
+        # ── Step 4c.6: Append review to engagement baseline (idempotent) ──
+        # Without this, the next ship's repo-health pytest fails on
+        # test_leaderboard_covers_every_review. Doing it here means future
+        # agents never have to remember it.
+        print("\n[Step 4c.6] Updating engagement_baseline.json…")
+        shipped_story = Path("stories") / f"story_{story_id}.json"
+        run([sys.executable, "pipeline/engagement_review.py",
+             "--story", str(shipped_story),
+             "--mode",  "baseline"])
 
         # ── Step 4d: Audio (optional, on by default) ──
         if not getattr(args, "no_audio", False):

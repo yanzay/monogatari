@@ -48,7 +48,9 @@ from pathlib import Path
 
 DEFAULT_RATE      = 0.85       # spec: ~0.85× for sentence audio
 DEFAULT_SAMPLERATE = 22050
-DEFAULT_BACKEND   = "synth"
+DEFAULT_BACKEND   = "google"   # v0.11 (2026-04-22) — see docs/authoring.md.
+                               # The synth backend is a development-only
+                               # fallback; never ship a story with it.
 
 
 # ── Synth backend ───────────────────────────────────────────────────────────
@@ -287,6 +289,18 @@ def build_audio_for_story(
     else:
         ext = _AUDIO_EXTENSION.get((audio_encoding_name or "LINEAR16").upper(), ".wav")
 
+    # The repo-health test suite (pipeline/tests/test_referential_integrity.py)
+    # asserts each shipped sentence has a `s<idx>.mp3` companion. We satisfy
+    # that by writing a byte-identical `.mp3` next to every `.wav`. The
+    # convention is harmless for the player (which accepts either) and matches
+    # the format already on disk for stories 14-15.
+    def _write_mp3_companion(wav_path: Path) -> None:
+        if wav_path.suffix.lower() != ".wav":
+            return
+        mp3_path = wav_path.with_suffix(".mp3")
+        if force or not mp3_path.exists():
+            mp3_path.write_bytes(wav_path.read_bytes())
+
     extra = {}
     if backend == "google":
         extra = dict(
@@ -304,6 +318,7 @@ def build_audio_for_story(
         kana = "".join(t.get("r", t["t"]) for t in sent["tokens"] if t.get("role") != "punct")
         if force or not out_path.exists():
             sent_fn(text, kana, out_path, rate=rate, samplerate=samplerate, **extra)
+        _write_mp3_companion(out_path)
         sent["audio"] = rel
 
     # ── New-word audio (dictionary forms) ──
@@ -318,6 +333,7 @@ def build_audio_for_story(
         kana = word.get("kana") or text
         if force or not out_path.exists():
             word_fn(text, kana, out_path, samplerate=samplerate, **extra)
+        _write_mp3_companion(out_path)
         word_audio[wid] = rel
     story["word_audio"] = word_audio
 

@@ -67,6 +67,12 @@ def update_state(
         if tok.get("word_id")
     }
 
+    # The repo convention is `first_story = "story_<N>"` (string), while
+    # `last_seen_story = <N>` (int). State_updater used to emit the int for
+    # both, which the integrity tests rejected on the next ship — see
+    # docs/authoring.md § "v0.11" and pipeline/NOTES_FOR_FUTURE_AGENTS.md.
+    first_story_label = f"story_{story_id}"
+
     for wid in all_word_ids:
         if wid in story_new_words:
             # Brand-new word — add to vocab
@@ -76,19 +82,26 @@ def update_state(
                 new_vocab["words"][wid]["last_seen_story"] = story_id
                 updated_words.append(wid)
             else:
-                # Build entry from plan definitions or minimal scaffold
+                # Build entry from plan definitions or minimal scaffold.
+                # Notes:
+                #  - `grammar_tags` is intentionally NOT written. The field
+                #    was deprecated and the integrity test rejects entries
+                #    that carry it (see test_vocab_no_dead_grammar_tags_field).
+                #  - `reading` is normalised to a single-token romaji string
+                #    (no spaces). Spaces in romaji break the
+                #    test_vocab_reading_is_ascii_no_spaces invariant.
                 defn = plan_word_defs.get(wid, {})
+                reading = (defn.get("reading", "") or "").replace(" ", "")
                 entry = {
                     "id":              wid,
                     "surface":         defn.get("surface", wid),
                     "kana":            defn.get("kana", ""),
-                    "reading":         defn.get("reading", ""),
+                    "reading":         reading,
                     "pos":             defn.get("pos", "noun"),
                     "meanings":        defn.get("meanings", []),
-                    "first_story":     story_id,
+                    "first_story":     first_story_label,
                     "occurrences":     1,
                     "last_seen_story": story_id,
-                    "grammar_tags":    defn.get("grammar_tags", []),
                 }
                 if defn.get("verb_class"):
                     entry["verb_class"] = defn["verb_class"]
@@ -102,6 +115,13 @@ def update_state(
                 new_vocab["words"][wid]["occurrences"] += 1
                 new_vocab["words"][wid]["last_seen_story"] = story_id
                 updated_words.append(wid)
+
+    # ── 1b. Bump next_word_id past every word now in vocab ───────────────────
+    # Without this the field stays stuck at the value it had when the previous
+    # story shipped, so the next planner sees stale "next free id" data.
+    if new_vocab.get("words"):
+        max_n = max(int(wid[1:]) for wid in new_vocab["words"])
+        new_vocab["next_word_id"] = f"W{max_n + 1:05d}"
 
     # ── 2. Add new grammar points ─────────────────────────────────────────────
     added_grammar = []
@@ -127,7 +147,7 @@ def update_state(
             "genki_ref":     defn.get("genki_ref"),
             "jlpt":          defn.get("jlpt"),
             "catalog_id":    defn.get("catalog_id"),
-            "first_story":   story_id,
+            "first_story":   first_story_label,
             "prerequisites": list(defn.get("prerequisites", []) or []),
         }
         added_grammar.append(gid)
