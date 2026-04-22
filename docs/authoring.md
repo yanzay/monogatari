@@ -862,3 +862,81 @@ classify and inflect each correctly without further intervention.
   case. If the library ever needs an irregular verb as a new word, that
   one definition would still need a hand fix. (Not a blocker today; we
   have no irregular verbs in the upcoming queue.)
+
+---
+
+## v0.7 — Fugashi-backed verb classification (handles irregulars)
+
+### What v0.6 left on the table
+
+The masu-form fallback I added in v0.6 was bespoke string-rewriting that
+worked for ichidan + all 9 godan endings, but had two real limitations:
+
+1. **Irregular verbs** (来る, する) couldn't be classified — JMdict tags them
+   as "irregular" rather than ichidan/godan, and my candidate generator
+   only knew those two classes.
+2. **Suru-compounds** (勉強します, 散歩します) had no story at all — my
+   candidates would only try `勉強する → 勉強る` (ichidan attempt, no hit)
+   and a non-existent godan candidate.
+
+### What changed
+
+`pipeline/jp.py` now exports `analyze_verb(surface)` that does
+**all** the verb-shape analysis from a single fugashi pass:
+
+```python
+analyze_verb("寝ます")
+# → {lemma: 寝る, lemma_kana: ねる, masu_kana: ねます,
+#    verb_class: ichidan, conj_type: 下一段-ナ行, ...}
+
+analyze_verb("勉強します")
+# → {lemma: 勉強する, lemma_kana: べんきょうする, masu_kana: べんきょうします,
+#    verb_class: irregular_suru, ...}
+```
+
+Mapping from UniDic conjugation type to our taxonomy:
+
+| UniDic cType   | Our `verb_class`     | Examples              |
+| -------------- | -------------------- | --------------------- |
+| 五段-X行       | godan                | 飲む, 読む, 立つ, 帰る   |
+| 上一段-X行     | ichidan              | 見る, いる            |
+| 下一段-X行     | ichidan              | 食べる, 寝る           |
+| カ行変格       | irregular_kuru       | 来る (only)           |
+| サ行変格       | irregular_suru       | する + all suru compounds |
+
+`pipeline/scaffold.py:_enrich_word_from_jmdict` is now fugashi-first for
+verbs (UniDic gets the verb_class right; JMdict is only consulted for
+the English meaning), JMdict-only for non-verbs. The bespoke ます-stem
+mapping table from v0.6 is retired.
+
+### Validator-side: irregular conjugation
+
+`pipeline/validate.py:conjugate` now has small total tables for
+`irregular_kuru` and `irregular_suru` so the validator can verify
+inflected surfaces of irregular verbs once they ship. Suru-compound
+support is structural — `conjugate("勉強する", "polite_nonpast", "irregular_suru")`
+returns `勉強します` by stripping the trailing する and re-attaching
+the irregular suffix.
+
+Forms covered: dictionary, polite_nonpast (= masu), polite_past,
+polite_negative, te, ta, nai/negative.
+
+### End-to-end coverage today
+
+`pipeline/scaffold.py plan --new-word-surfaces "X,Y,Z"` now handles
+**any** combination of:
+
+- nouns (椅子, 机, 朝, 卵, ...)
+- i-adjectives (温かい, 静か, ...)
+- ichidan verbs (寝ます, 食べます, 見ます, います, ...)
+- godan verbs (飲みます, 読みます, 歩きます, あります, ...)
+- irregular_kuru (来ます)
+- irregular_suru (します)
+- suru-compounds (勉強します, 散歩します)
+
+…with no hand intervention. The dictionary form, masu form kana,
+romaji, verb_class, and POS are all populated automatically and
+correctly. JMdict is the sole source of English meanings; if JMdict
+has no entry for a suru-compound (it usually only indexes the noun
+half), the meaning slot is left as a `<primary English meaning>`
+placeholder for the author to fill — the only remaining hand step.

@@ -113,6 +113,37 @@ def conjugate(base: str, form: str, verb_class: Optional[str]) -> Optional[str]:
             return base
         return None
 
+    # Irregular verbs: 来る (kuru) and する (suru). Tables are tiny and total.
+    if verb_class == "irregular_kuru":
+        # base is normally 来る or くる
+        table = {
+            "dictionary":      base,
+            "polite_nonpast":  "きます",  "masu":     "きます",  "masu_form": "きます",
+            "polite_past":     "きました", "polite_negative": "きません",
+            "te":              "きて",   "te_form":  "きて",
+            "ta":              "きた",   "past":     "きた",
+            "nai":             "こない", "negative": "こない",
+        }
+        return table.get(form)
+    if verb_class == "irregular_suru":
+        # base may be plain する/為る or a noun+する compound (e.g. 勉強する).
+        # For compounds, strip the trailing する/為る and re-attach the
+        # irregular suffix.
+        prefix = base
+        for tail in ("する", "為る"):
+            if base.endswith(tail):
+                prefix = base[: -len(tail)]
+                break
+        table = {
+            "dictionary":      base,
+            "polite_nonpast":  prefix + "します",   "masu":     prefix + "します",  "masu_form": prefix + "します",
+            "polite_past":     prefix + "しました", "polite_negative": prefix + "しません",
+            "te":              prefix + "して",    "te_form":  prefix + "して",
+            "ta":              prefix + "した",    "past":     prefix + "した",
+            "nai":             prefix + "しない",  "negative": prefix + "しない",
+        }
+        return table.get(form)
+
     if verb_class in ("i_adjective", "i-adjective", "i_adj"):
         if not base.endswith("い"):
             return None

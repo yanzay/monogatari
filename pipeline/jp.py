@@ -75,6 +75,7 @@ class Token:
     pos2: str              # 普通名詞 / 格助詞 ...
     reading: str           # ミマス  (full surface kana)
     inflection_form: str   # 連用形-一般 / 終止形 / 命令形 ...
+    conj_type: str = ""    # 五段-マ行 / 上一段-マ行 / カ行変格 / サ行変格 / 下一段-バ行 / *
     raw: object = field(default=None, repr=False)
 
 
@@ -99,6 +100,7 @@ def tokenize(text: str) -> list[Token]:
             pos2=getattr(f, "pos2", "") or "",
             reading=getattr(f, "kana", "") or "",
             inflection_form=getattr(f, "cForm", "") or "",
+            conj_type=getattr(f, "cType", "") or "",
             raw=w,
         ))
     return out
@@ -240,6 +242,131 @@ class DictEntry:
     kana: list[str]
     senses: list[str]
     pos: list[str]
+
+
+# ── Verb analysis (UniDic-backed) ────────────────────────────────────────────
+
+# Map UniDic conjugation type prefix → our verb_class taxonomy.
+# UniDic cType examples:
+#   五段-マ行       → godan         (e.g. 飲む, 読む, 立つ)
+#   上一段-マ行     → ichidan       (e.g. 見る)
+#   下一段-バ行     → ichidan       (e.g. 食べる, 寝る)
+#   カ行変格        → irregular_kuru (来る only)
+#   サ行変格        → irregular_suru (する only)
+_UNIDIC_CONJ_TO_CLASS = {
+    "五段":   "godan",
+    "上一段": "ichidan",
+    "下一段": "ichidan",
+    "カ行変格": "irregular_kuru",
+    "サ行変格": "irregular_suru",
+}
+
+
+def _classify_conj(c_type: str) -> str | None:
+    """Return our verb_class taxonomy from a UniDic cType, or None if unknown."""
+    if not c_type:
+        return None
+    for prefix, label in _UNIDIC_CONJ_TO_CLASS.items():
+        if c_type.startswith(prefix):
+            return label
+    return None
+
+
+def analyze_verb(surface: str) -> dict | None:
+    """
+    Analyze a verb surface (often a polite form like 寝ます) and return
+    enough info to populate a vocab definition.
+
+    Returns a dict with:
+      - surface         (echo back the input)
+      - lemma           (dictionary form, e.g. 寝る; for irregular_suru: 為る)
+      - lemma_kana      (hiragana of lemma, e.g. ねる)
+      - masu_kana       (hiragana of polite form, e.g. ねます — synthesized)
+      - verb_class      (godan / ichidan / irregular_kuru / irregular_suru)
+      - is_polite       (True if surface ends in ます)
+      - pos1, pos2, conj_type   (raw UniDic tags for diagnostics)
+
+    Returns None if fugashi is unavailable, the surface doesn't tokenize as
+    a verb, or the conjugation type can't be classified.
+
+    Handles every verb class including irregulars and suru-compounds:
+      analyze_verb("寝ます")     → ichidan, lemma=寝る, masu_kana=ねます
+      analyze_verb("読みます")   → godan,   lemma=読む, masu_kana=よみます
+      analyze_verb("来ます")     → irregular_kuru, lemma=来る, masu_kana=きます
+      analyze_verb("します")     → irregular_suru, lemma=為る, masu_kana=します
+      analyze_verb("勉強します") → irregular_suru (compound: 勉強+する)
+    """
+    if not _FUGASHI_OK or not surface:
+        return None
+    toks = tokenize(surface)
+    if not toks:
+        return None
+
+    # Strategy: scan for the first token whose pos1 starts with 動詞 (verb).
+    # If the surface is a noun+する compound (勉強します), we'll instead see
+    # a noun token (pos1=名詞, pos2 includes サ変可能) followed by します;
+    # detect that pattern and return irregular_suru with the noun as lemma.
+    # Detect 名詞 + 為る/する compound. UniDic-Lite often labels the noun
+    # only as 普通名詞 (no サ変可能 sub-tag), so the structural test —
+    # noun immediately followed by する's lemma — is more reliable than
+    # depending on a sub-tag that may or may not be present.
+    if (
+        len(toks) >= 2
+        and toks[0].pos1.startswith("名詞")
+        and toks[1].lemma in {"為る", "する"}
+    ):
+        # 勉強+します compound. Lemma is the noun + する.
+        noun = toks[0]
+        return {
+            "surface": surface,
+            "lemma": noun.surface + "する",
+            "lemma_kana": katakana_to_hiragana(noun.lemma_kana) + "する",
+            "masu_kana": katakana_to_hiragana(noun.lemma_kana) + "します",
+            "verb_class": "irregular_suru",
+            "is_polite": surface.endswith("ます"),
+            "pos1": "動詞",
+            "pos2": "サ変複合",
+            "conj_type": "サ行変格",
+        }
+
+    # Plain verb path — find the first verb token.
+    verb = next((t for t in toks if t.pos1.startswith("動詞")), None)
+    if verb is None:
+        return None
+
+    vclass = _classify_conj(verb.conj_type)
+    if vclass is None:
+        return None
+
+    lemma_kana = katakana_to_hiragana(verb.lemma_kana)
+    is_polite = surface.endswith("ます")
+
+    # Synthesize masu_kana from lemma_kana + verb_class.
+    if vclass == "ichidan":
+        # ねる → ねます ; たべる → たべます
+        masu_kana = lemma_kana[:-1] + "ます" if lemma_kana.endswith("る") else lemma_kana + "ます"
+    elif vclass == "godan":
+        # よむ → よみます ; のむ → のみます ; あるく → あるきます
+        masu_kana = expected_inflection(lemma_kana, "polite_nonpast", "godan") or (lemma_kana + "ます")
+    elif vclass == "irregular_kuru":
+        masu_kana = "きます"
+    elif vclass == "irregular_suru":
+        # Plain する; for suru-compounds we already returned earlier.
+        masu_kana = "します"
+    else:
+        masu_kana = lemma_kana + "ます"
+
+    return {
+        "surface": surface,
+        "lemma": verb.lemma,
+        "lemma_kana": lemma_kana,
+        "masu_kana": masu_kana,
+        "verb_class": vclass,
+        "is_polite": is_polite,
+        "pos1": verb.pos1,
+        "pos2": verb.pos2,
+        "conj_type": verb.conj_type,
+    }
 
 
 def jmdict_lookup(query: str, max_results: int = 5) -> list[DictEntry]:
