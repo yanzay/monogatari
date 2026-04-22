@@ -121,7 +121,9 @@ If validation **fails**, ask Rovo Dev to fix `pipeline/story_raw.json` based on 
 ### Step 4 — Ship
 
 ```bash
-python3 pipeline/run.py --step 4
+# Always activate the venv so google-cloud-texttospeech is on the path
+source .venv/bin/activate
+python3 pipeline/run.py --step 4 --tts-backend google --tts-voice ja-JP-Neural2-B --tts-encoding LINEAR16
 ```
 
 This:
@@ -131,6 +133,16 @@ This:
 4. Increments occurrence counts for all words used
 5. Adds new grammar points to `grammar_state.json`
 6. Copies the story to `stories/story_N.json`
+7. **Builds audio with Google Cloud TTS** (sentence audio + per-new-word audio)
+8. Rebuilds `stories/index.json` so the manifest reflects `has_audio: true`
+
+> **Audio policy (v0.11, 2026-04-22):** *always* ship with audio. The pipeline
+> already wires up `pipeline/audio_builder.py` and `pipeline/run.py` accepts
+> `--tts-backend google`; do **not** ship with `--no-audio` and do **not** fall
+> back to the offline `synth` backend (it produces tones, not speech).
+> If `google-cloud-texttospeech` is missing, `pip install -r requirements.txt`
+> inside `.venv/`. If credentials are missing, fix the GCP auth before
+> shipping — never ship a story without proper audio.
 
 Reload `http://localhost:8000` and click "Next →" to read the new story.
 
@@ -1332,3 +1344,86 @@ The repository now ships with a comprehensive pytest suite at `pipeline/tests/`
 Any time you spot a new bug class that wasn't caught automatically, add a
 test for it in the appropriate Class file. The cost is 5-10 lines of code;
 the benefit is the entire bug class never recurs.
+
+---
+
+## v0.11 — Audio is mandatory, Google TTS is the default (2026-04-22)
+
+### The policy
+
+Every shipped story **must** have real spoken audio attached, generated
+by Google Cloud Text-to-Speech. The offline `synth` backend (deterministic
+tones used during early development) is no longer acceptable for shipping
+— it does not produce speech and is useless for the listening half of a
+graded reader.
+
+`pipeline/run.py --step 4` defaults the audio step on (`--no-audio` exists
+but should never be passed for a real ship), and `--tts-backend google`
+should be the standard invocation:
+
+```bash
+source .venv/bin/activate
+python3 pipeline/run.py --step 4 \
+    --tts-backend google \
+    --tts-voice ja-JP-Neural2-B \
+    --tts-encoding LINEAR16
+```
+
+This produces, under `audio/story_N/`:
+- one `sM.wav` per sentence (M = sentence index)
+- one `w_W#####.wav` per *new* word introduced in that story
+
+The shipped `stories/story_N.json` then carries `audio: "audio/story_N/sM.wav"`
+on each sentence and a `word_audio` map for the new words; the manifest
+build (`pipeline/build_manifest.py`, run automatically by step 4) picks
+those up and sets `has_audio: true` for the story.
+
+### Standard voice and encoding
+
+| Setting           | Default                | Why |
+|-------------------|------------------------|-----|
+| `--tts-voice`     | `ja-JP-Neural2-B`      | Female, neutral, the voice used for the bulk of the existing library. Switch to `-C` (male) or `-D` (alt female) only if the story explicitly calls for it; consistency across stories matters more than per-story flavour. |
+| `--tts-encoding`  | `LINEAR16` (.wav)      | Lossless, future-proof. Older stories also have `.mp3` companions; the player accepts either. |
+| Speech rate       | `0.85` (default)       | Slightly slowed for learner comprehension. Override only with `--rate`. |
+
+### Setup checklist (one-time, per workstation)
+
+1. Create a venv if one isn't present: `python3 -m venv .venv`
+2. `source .venv/bin/activate && pip install -r requirements.txt`
+3. Configure GCP auth — `gcloud auth application-default login` is the
+   simplest path; alternatively set `GOOGLE_APPLICATION_CREDENTIALS` to
+   a service-account JSON keyfile.
+4. Verify with a dry-run: `python3 pipeline/audio_builder.py
+   stories/story_1.json --vocab data/vocab_state.json --backend google
+   --dry-run`. The script will print planned requests without spending
+   credits.
+
+### Re-building audio after a post-ship edit
+
+If a sentence's JP tokens change after ship (typo fix, word swap, gloss
+correction that touched a token), the corresponding `sM.wav` is now
+**stale** and must be regenerated:
+
+```bash
+source .venv/bin/activate
+python3 pipeline/audio_builder.py stories/story_N.json \
+    --vocab data/vocab_state.json --backend google --force
+```
+
+`--force` overwrites existing files; without it, the builder skips
+sentences that already have audio. After regenerating, re-run
+`python3 pipeline/build_manifest.py` so the manifest still reflects
+truth (timestamps, etc.). The repo-health pytest suite includes an
+audio-orphan check that will catch missing or stale entries on the next
+ship attempt.
+
+### Why this is non-optional now
+
+Stories 14 and 15 were the first to ship with `.wav` files alongside
+`.mp3`s, signalling the move to higher-quality audio. Story 16 made the
+Google TTS path the default in the documented `--step 4` invocation
+because the offline `synth` backend has no value for end-users — it
+produces tones, not speech. Shipping without speech audio degrades the
+learner experience for every later story that could be listened to in
+parallel; treating audio as a "nice to have" is an unaccepted cost from
+this point forward.

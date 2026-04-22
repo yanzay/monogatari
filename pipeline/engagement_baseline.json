@@ -18,7 +18,8 @@
       "2026-04-22 — story 10 (友達からの手紙) authored end-to-end. First story to exercise the new fugashi-classified irregular_kuru verb path (来ます). Gives G006_kara_from real semantic work — letter FROM the friend, friend FROM far away. First off-stage character communication: friend exists only via the letter, not as a present body. Closer breaks the 'X, feeling です' pattern (used in 5 of 9 prior stories) — ends on the verb 待ちます (open-ended waiting). Cleared the bar on first pass (avg 4.6, ties stories 5/6/8 for #1). Validates with zero warnings — first ship after the v0.8 inflection-engine consolidation."
     ],
     "last_regenerated": "2026-04-22 15:30",
-    "stories_covered": 12
+    "stories_covered": 12,
+    "n_stories": 16
   },
   "reviews": [
     {
@@ -532,6 +533,39 @@
           "why": "originality"
         }
       ]
+    },
+    {
+      "story_id": 16,
+      "title_jp": "二人の朝ごはん",
+      "title_en": "Breakfast for Two",
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 4,
+        "closure": 4
+      },
+      "average": 4.0,
+      "approved": true,
+      "highlights": [
+        "Breaks the night/window/letter rotation that had dominated stories 11-15 by moving the camera to a kitchen at breakfast — a setting unused since story 3.",
+        "First real workout for G017_de_means (で as location-of-action) after 15 stories of dormancy: 机で待ちます, 机で食べます, 二人で食べます.",
+        "First scene where the two participants actually act as one (二人で一緒に朝ごはんを食べます) rather than as parallel narrators."
+      ],
+      "weaknesses": [
+        "The prose is competent rather than electric; the breakfast vignette is a well-trodden form for graded readers in general.",
+        "The s5/s6 parallel (bread warm / tea also warm) verges on filler and could earn its place with a sharper second half."
+      ],
+      "suggestions": [
+        {
+          "what": "Consider trimming 友達 from the s8 closer image — the friend is implied by 一緒に, and a tighter fragment lands cleaner.",
+          "why": "closure"
+        },
+        {
+          "what": "Replace 'I wait at the desk' (s1) with a brief sensory anchor (a chair already pulled out, an empty cup) to lift voice.",
+          "why": "voice"
+        }
+      ]
     }
   ],
   "leaderboard": [
@@ -601,14 +635,19 @@
       "rank": 11
     },
     {
+      "story_id": 16,
+      "average": 4.0,
+      "rank": 11
+    },
+    {
       "story_id": 1,
       "average": 3.8,
-      "rank": 14
+      "rank": 15
     },
     {
       "story_id": 13,
       "average": 3.8,
-      "rank": 14
+      "rank": 15
     }
   ],
   "next_actions": [

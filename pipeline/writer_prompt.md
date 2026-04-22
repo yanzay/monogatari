@@ -1,6 +1,6 @@
 # Monogatari — Story Writer Task
 
-You are writing story **10** for the Monogatari Japanese graded-reader.
+You are writing story **16** for the Monogatari Japanese graded-reader.
 Read the authoring rules and plan below, then produce the story JSON.
 Output **only** the JSON object — no prose, no markdown fences.
 
@@ -30,9 +30,16 @@ Read it completely before generating. These rules are non-negotiable.
   use its dictionary form when grammatically natural. Inflected introductions
   are allowed only for auxiliary verbs or words that are unnatural in isolation.
 
-- **Repeat new words.** Each new word must appear at least twice in the story.
-  Aim to introduce it early (sentence 1–3) and revisit it toward the end
-  (sentence 5–8) so the learner encounters it in two different contexts.
+- **New words need ≥ 1 occurrence in the introducing story.** A second
+  occurrence is welcome but no longer required (relaxed 2026-04-22). The
+  reason: the old "≥ 2x in this story" rule was the engine of the
+  worksheet-y `私は本を読みます。/友達も本を読みます。` parallel-pair
+  construction. Reinforcement is now a *library*-level concern: the
+  validator's Check 6 starvation alarm flags any low-occ word that has
+  not been seen in the last 5 stories, and the next planner's
+  `--weak` list will surface candidates for the next story to revisit.
+  If a second occurrence in the same story falls naturally out of the
+  prose, keep it; if it would force a parallel-pair, don't.
 
 - **Prefer concreteness.** When choosing new words, prefer physical and
   observable things (rain, window, tree, cup) over abstract nouns or adverbs.
@@ -79,20 +86,53 @@ Read it completely before generating. These rules are non-negotiable.
 
 - **No topic restrictions.** As of 2026-04-22 the validator no longer
   blocks any subject matter (the old "Avoid absolutely" list was
-  removed along with Check 8). Any theme is allowed. The other
-  content rules (concrete imagery, narrative arc, semantic sanity,
-  faithful gloss) still apply regardless of theme.
+  removed along with Check 8). Any theme is allowed — violence,
+  romance, politics, religion, death, drugs, brand names, real people,
+  any of the things the older draft of this document forbade. Choose
+  whatever subject matter the *story* needs. The other content rules
+  (concrete imagery, narrative arc, semantic sanity, faithful gloss)
+  still apply regardless of theme.
 
 - **Embrace high-stakes themes — they are usually engagement gold.**
-  Loss, grief, conflict, romance, death, war, displacement, addiction,
-  brand names, real people — these are *strong* engagement levers, not
-  things to dance around. The cozy-only library got forgettable
-  precisely because every story pulled back from anything with stakes.
-  Restraint belongs at the *imagery* level (imply, don't show), not at
-  the topic level. The most powerful sentence in a grief story is
-  often the one that doesn't mention the loss directly. Cozy is still
-  allowed, just no longer the default. See the full hint in
-  `pipeline/authoring_rules.md` § 3.
+  The cozy-only library that grew under the old rules became
+  forgettable precisely because every story pulled back from anything
+  with stakes. The themes the old policy forbade are some of the
+  *best* engagement levers you have:
+  - **Loss & grief** — a missing cat, a friend who stopped writing,
+    an empty chair at the table. A six-sentence story about a small
+    grief lands harder than a six-sentence story about tea.
+  - **Conflict & quiet anger** — an argument with a friend, a
+    sibling who took your book, a neighbour playing music too loud.
+    Even at beginner vocab you can do "the friend doesn't speak. I
+    drink my tea. The tea is cold."
+  - **Romance & intimacy** — a first date, a remembered hand, a
+    letter that could be read two ways. Quiet eroticism doesn't need
+    explicit vocab; it needs implication.
+  - **Death, illness, mortality** — the cat is old. The grandmother
+    sleeps a lot now. A snowfall on the day of a funeral. These are
+    the universal subjects — graded readers that lean into them
+    feel like literature, not flashcards.
+  - **Politics, war, displacement** — refugee in a new country,
+    family separated by a border, a soldier writing home. The N5
+    vocab can absolutely carry a war story; what makes it a war
+    story is the *omissions*, not heavy vocabulary.
+  - **Drugs, alcohol, addiction** — a cup of sake at the end of a
+    long day, a friend who drinks too much, a morning of regret.
+  - **Brand names, real people, real places** — `スターバックス`,
+    `村上春樹`, `京都駅`. Specificity beats vagueness; "the café"
+    is forgettable, "Doutor at 7am on a Tuesday" is alive.
+
+  None of this requires graphic detail. Restraint at the *imagery*
+  level is what makes hard topics work in beginner prose: imply, do
+  not show. The most powerful sentence in a grief story is often
+  the one that doesn't mention the loss directly. *That* is the
+  craft you should be reaching for now that the topic gate is gone.
+
+- **Cozy is still allowed, just no longer the default.** A small
+  observational morning is a perfectly valid story. The point of
+  removing the gate is not "every story must be heavy" — it is "the
+  agent should pick the theme the story needs, and high-stakes
+  themes are now an option on equal footing with cozy ones".
 
 ---
 
@@ -231,12 +271,146 @@ These pulled past stories under the bar and forced revisions:
 - **Definition as opener.** `XはYとZです` is a useful sentence but a
   weak hook. If you want the definition, place it second; lead with
   a sensory beat.
-- **Gloss inflation.** Don't write `gloss_en` "After that, I eat my
-  breakfast." if the JP has no それから. Glosses must reflect what is
-  actually in the JP.
+- **Gloss inflation / mistranslation.** Don't write `gloss_en` "After
+  that, I eat my breakfast." if the JP has no それから. Glosses must
+  faithfully reflect *what is in the JP*. If the JP token sequence
+  doesn't say "open", the gloss may not say "open". If the JP says
+  「飲んでおきます」, the gloss must convey the ~ておく nuance ("go
+  ahead and drink in advance"), not invent "leave the tea ready".
 - **Subject-grind.** Five `私は…` openers in a row. Drop the subject
   when context allows — Japanese is generous about this and the
   narrator immediately sounds less like a worksheet.
+
+### Semantic-sanity anti-patterns (the "is this even a sentence?" bar)
+
+A sentence may pass closed-vocab + grammar validation and still be
+**nonsense**. These are the recurring failure modes seen in stories
+1–15. If you catch yourself writing one, stop and rewrite the line.
+
+- **Inanimate things ascribed observer/agent properties.**
+  `私の本は静かです` ("the book is quiet"). Books, letters, eggs do
+  not have a faculty of being silent. Quietness belongs to *people,
+  rooms, places, weather, animals* — never to objects. Same goes for
+  `お茶は温かいです` (fine — temperature) vs `お茶は静かです` (not fine).
+- **Imagery the story did not establish.** `月も雨を見ます` ("the moon
+  also looks at the rain") in a *night-and-stars* story that never
+  mentioned rain. Every image must be motivated by something earlier
+  in the same story. If you reach for a motif, check it appears in an
+  earlier sentence; if not, either add it earlier or pick a different
+  closer.
+- **`〜と思います` for facts the narrator already knows.**
+  `静かな月、夜だと思います` ("Quiet moon — I think it is night")
+  while the narrator is *already at night*. と思います is for
+  inferences, hypotheses, opinions. It is not a hedge to bolt onto a
+  fact. Use it for `猫はいい友達だと思います` (opinion) or
+  `猫も窓を見ると思います` (inference about another's behaviour).
+- **Future-tense actions whose completion happens before the present
+  time.** `明日のお茶を飲みます` ("I will drink tomorrow's tea") spoken
+  *today* is illogical — tomorrow's tea does not yet exist. Either
+  drop the 「明日の」 or change the verb to 〜ておく ("I'll go ahead
+  and drink some now") and let the gloss reflect the prep nuance.
+- **Calque English literalism.** `本は静かです` glossed as "the book in
+  my hands is quiet" inserts "in my hands" out of nowhere; the JP has
+  no such phrase. The gloss is for comprehension of the JP, not for
+  rescuing a sentence the JP does not actually convey.
+- **Word_id ≠ surface.** Tagging `行きます` with `word_id: W00047`
+  because there's no entry for 行く is a data crime. If a verb you
+  need is not in vocab, restructure the sentence. The word_id must
+  always identify the actual lemma the surface inflects from.
+- **Setting/time mismatch.** `今朝、月を見ます` ("This morning, I look
+  at the moon") — the moon is generally not visible in the morning.
+  Same for "stars at noon", "sun at midnight", "rain in the desert
+  apartment". Check that the time-of-day in s0/s1 is consistent with
+  every observation later in the story.
+
+### Variety guard (how to stop the library sounding the same)
+
+The library currently leans hard on a small palette: 窓 / 雨 / 静か /
+お茶 / look-out-the-window / "いい朝です" closer. Before authoring,
+glance at the recent 3–5 stories and *don't repeat* the most prominent
+motifs unless you are explicitly building on them.
+
+- **Window-and-look quota.** No more than one "look out the window"
+  scene every 4 stories. If your draft has the narrator at the window
+  and the previous story did too, change setting (porch, kitchen,
+  desk-side, café table, garden bench).
+- **Adjective rotation.** `静か` is a useful word but the library
+  reaches for it as a default. If the previous story already closed
+  on `静か`, pick `温かい`, `いい`, or describe the scene in nouns
+  (`月と星、夜の空。`) instead of adjectives.
+- **Closer rotation.** `〜、いい朝/夜/気分です` is a strong template
+  but it has been used in stories 1, 4, 6, 7, 8, 9, 11, 13. Find
+  another shape: a short sentence-fragment image
+  (`窓のそばの本。`), a question to nobody (`明日も雨かな。`), a
+  sensory verb beat (`星を見ます。`). Don't always cash out the story
+  on a feeling.
+- **Theme rotation.** Look at the last three stories' themes (weather,
+  cat, friend-letter, books, etc.) and pick something else. The
+  recent over-rotation on rain + cat + letter is exactly the failure
+  mode this guard exists to prevent.
+
+---
+
+## 6.5 Validator philosophy: content first, math second
+
+The validator (`pipeline/validate.py`) was reformed on 2026-04-22 to stop
+fighting natural prose. The old regime had three rules that were quietly
+*causing* the nonsense and repetition the audit caught:
+
+1. **Old Check 6** demanded ≥ 60 % of content tokens be "low-occ" — which
+   forced authors to pad with weird-noun-heavy sentences once natural
+   verbs/adjectives crossed the lifetime threshold. **Replaced** with
+   an absolute floor (≥ 6 low-occ tokens, or ≤ 30 % of target — whichever
+   is smaller). Once you've hit the floor, the rest of the prose is free.
+2. **Old Check 4** required every new noun to appear ≥ 2× in the same
+   story — the engine of the parallel-pair worksheet feel. **Relaxed**
+   to ≥ 1× for vocabulary; new *grammar* still requires ≥ 2× because a
+   pattern needs to be visible twice to register as a pattern.
+3. **Old Check 8** was bag-of-words on the English gloss, so "I love
+   rain" tripped it. **Replaced** with a small phrase blacklist that
+   targets actual unsafe content.
+
+Two new content-quality checks were added:
+
+- **Check 11 — Semantic-sanity lint** (errors and warnings). A
+  conservative pattern table that catches the actual nonsense the audit
+  found: inanimate-thing-is-quiet (`本は静かです`), tomorrow's-X-eaten-
+  today (`明日のお茶を飲みます`), `〜と思います` for self-known
+  facts (`夜だと思います` at night), word_id-points-at-wrong-pos, and
+  lonely scene nouns. Rules are deliberately narrow — they only fire on
+  patterns we have direct audit evidence cause defects, and they
+  exclude common JP idioms (静かな月, 静かな朝, 静かな部屋 are all fine).
+- **Check 12 — Motif rotation** (warning only). Surfaces high
+  vocabulary overlap (Jaccard ≥ 55 %) with any of the previous 3
+  stories. Never blocks ship; the engagement reviewer decides whether
+  the continuation is justified.
+
+A **review-honesty gate** (`pipeline/review_lint.py`) was added to
+the engagement review. If the reviewer's free-text notes contain
+"repetitive", "calque", "awkward", "nonsense", etc. and the
+corresponding numeric score is > 3, the review is rejected. This
+forces the score to reflect the prose-level criticism the reviewer
+already wrote down.
+
+### What this means for the author
+
+- **Don't twist the prose to satisfy a percentage.** There is no
+  percentage anymore. Hit the absolute floor of 6 low-occ tokens and
+  the math is done. Pick the next sentence for what the *story* needs.
+- **Don't repeat a noun "for reinforcement".** A second occurrence
+  that falls naturally out of the scene is welcome; one wedged in to
+  satisfy a counter is what made stories 1–10 sound like worksheets.
+- **Trust the starvation alarm.** When validate.py warns "W00018 has
+  not appeared in the last 5 stories", that is the system telling
+  the *next* planner to use 卵 — not telling *you* to wedge it into
+  this story.
+- **Treat Check 11 errors as content bugs.** They are not arbitrary;
+  every rule comes from a real shipped defect. If a Check 11 error
+  fires on your draft, the JP literally doesn't make sense — fix the
+  prose, don't disable the rule.
+- **Treat Check 12 warnings as a planning prompt.** A 60 % overlap
+  with the previous story is a sign you're recycling the setting;
+  rotate the theme.
 
 ---
 
@@ -264,86 +438,67 @@ A clean refusal is better than a story that fails validation.
 
 ```json
 {
-  "story_id": 10,
-  "title_jp": "友達からの手紙",
-  "title_en": "A Letter from a Friend",
-  "subtitle_jp": "朝の風",
-  "subtitle_en": "The morning wind",
-  "theme": "A small daily wait: the narrator reads a letter from a friend who lives far away. The story uses から as the load-bearing grammar — the letter comes from somewhere, the friend writes from somewhere. Closes with the narrator waiting (待ちます), an open-ended feeling rather than the usual 'A and B, feeling です' formula.",
-  "setting": "Morning, at the narrator's home (the chair from story 9 returns). The friend from stories 4 and 8 is still the friend — third-time recurring character. The wind from story 5 returns as a sensory anchor.",
+  "story_id": 16,
+  "target_word_count": 23,
+  "max_sentences": 10,
+  "new_words": [
+    "W00048",
+    "W00049",
+    "W00050"
+  ],
+  "new_grammar": [],
+  "theme": "kitchen breakfast for two",
+  "setting": "Two friends in a small kitchen at the desk: one waits, the other is making bread and tea, and they share the morning's first egg together.",
   "constraints": {
     "must_reuse_words": [
-      "W00022",
-      "W00027",
-      "W00033",
-      "W00034",
-      "W00036"
+      "W00035",
+      "W00021",
+      "W00019",
+      "W00020",
+      "W00041"
     ]
   },
-  "target_word_count": 18,
-  "max_sentences": 8,
-  "new_words": [
-    "W00039",
-    "W00040",
-    "W00041"
-  ],
   "new_word_definitions": {
-    "W00039": {
-      "id": "W00039",
-      "first_story": 10,
-      "grammar_tags": [],
-      "surface": "手紙",
-      "kana": "てがみ",
-      "reading": "tegami",
-      "pos": "noun",
-      "verb_class": null,
-      "adj_class": null,
-      "meanings": [
-        "letter; missive; note; mail"
-      ],
-      "_jmdict_pos": "noun (common) (futsuumeishi)"
-    },
-    "W00040": {
-      "id": "W00040",
-      "first_story": 10,
-      "grammar_tags": [],
-      "surface": "来ます",
-      "kana": "きます",
-      "reading": "kimasu",
-      "pos": "verb",
-      "verb_class": "irregular_kuru",
-      "adj_class": null,
-      "meanings": [
-        "to come (spatially or temporally); to approach; to arrive"
-      ],
-      "_jmdict_pos": "カ行変格 → irregular_kuru (via fugashi; lemma=来る)"
-    },
-    "W00041": {
-      "id": "W00041",
-      "first_story": 10,
-      "grammar_tags": [],
-      "surface": "待ちます",
-      "kana": "まちます",
-      "reading": "machimasu",
+    "W00048": {
+      "surface": "作ります",
+      "kana": "つくります",
+      "reading": "tsukurimasu",
       "pos": "verb",
       "verb_class": "godan",
       "adj_class": null,
       "meanings": [
-        "to wait"
+        "to make, to prepare"
       ],
-      "_jmdict_pos": "五段-タ行 → godan (via fugashi; lemma=待つ)"
+      "grammar_tags": []
+    },
+    "W00049": {
+      "surface": "パン",
+      "kana": "パン",
+      "reading": "pan",
+      "pos": "noun",
+      "verb_class": null,
+      "adj_class": null,
+      "meanings": [
+        "bread"
+      ],
+      "grammar_tags": []
+    },
+    "W00050": {
+      "surface": "一緒に",
+      "kana": "いっしょに",
+      "reading": "issho ni",
+      "pos": "adverb",
+      "verb_class": null,
+      "adj_class": null,
+      "meanings": [
+        "together"
+      ],
+      "grammar_tags": []
     }
   },
-  "new_grammar": [],
   "new_grammar_definitions": {},
-  "context_words_to_reuse": [
-    "W00022",
-    "W00033",
-    "W00034",
-    "W00027",
-    "W00036"
-  ],
-  "notes": "Engagement plan: HOOK = sensory (wind opens the scene before any human appears). ORIGINALITY = first letter / written-language scene; first time a recurring character is OFF-stage (the friend exists only via their writing). UNDERUSED-GRAMMAR move: G006_kara_from carries the meaning — friend comes FROM far away, letter comes FROM the friend. CLOSER = breaks the 'X, feeling です' pattern; ends with an action-verb in present continuous-ish posture (待ちます) — open-ended waiting. Exercises the brand-new irregular_kuru / fugashi-classified verb path."
+  "rationale": "Story 16 deliberately breaks the night/window/letter rotation that has dominated stories 11-15 by moving the camera into a kitchen at breakfast — a setting the library has barely used since story 3. The three new words are the minimal kit needed to make a kitchen scene feel real: 作ります (to make / to prepare) is a hugely high-frequency verb that unlocks cooking and similar acts of creation; パン rounds out the breakfast palette next to existing 卵 and お茶 so the table actually has food on it; 一緒に (together) is an adverb with enormous combinatorial value and finally lets a two-person scene feel like two-people-doing-one-thing rather than two-narrators-in-parallel. Reuse focuses on long-neglected words: 二人 (occ:1), 卵 (occ:1), 朝ごはん (occ:2), 食べます (occ:2), 待ちます (occ:2). No new grammar this round — instead the story gives G017_de_means (で as location-of-action) its very first real workout (currently 0 uses across the library) by anchoring actions to the desk and the kitchen, and lightly recycles G019_te_oku and G020_te_kara so the recently introduced grammar gets one more pass.",
+  "seed": 1604220222
 }
 ```
 
@@ -351,54 +506,63 @@ A clean refusal is better than a story that fails validation.
 
 ## Allowed vocabulary (ALL words you may use — no others)
 
-- `W00001`: **今朝** (けさ) [noun] — this morning [occ:2]
-- `W00002`: **雨** (あめ) [noun] — rain [occ:6]
-- `W00003`: **私** (わたし) [pronoun] — I, me [occ:11]
-- `W00004`: **窓** (まど) [noun] — window [occ:4]
-- `W00005`: **外** (そと) [noun] — outside [occ:6]
-- `W00006`: **見ます** (みます) [verb] — to see, to look [occ:9]
-- `W00007`: **木** (き) [noun] — tree [occ:5]
-- `W00008`: **濡れる** (ぬれる) [verb] — to get wet [occ:1]
-- `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:6]
-- `W00010`: **飲みます** (のみます) [verb] — to drink [occ:3]
-- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:10]
-- `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:5]
-- `W00013`: **いい** (いい) [adjective] — good, nice [occ:10]
+- `W00001`: **今朝** (けさ) [noun] — this morning [occ:3]
+- `W00002`: **雨** (あめ) [noun] — rain [occ:7]
+- `W00003`: **私** (わたし) [pronoun] — I, me [occ:14]
+- `W00004`: **窓** (まど) [noun] — window [occ:7]
+- `W00005`: **外** (そと) [noun] — outside [occ:5]
+- `W00006`: **見ます** (みます) [verb] — to see, to look [occ:12]
+- `W00007`: **木** (き) [noun] — tree [occ:4]
+- `W00008`: **濡れる** (ぬれる) [verb] — to get wet [occ:2]
+- `W00009`: **お茶** (おちゃ) [noun] — tea, green tea [occ:7]
+- `W00010`: **飲みます** (のみます) [verb] — to drink [occ:5]
+- `W00011`: **静か** (しずか) [adjective] — quiet, calm [occ:14]
+- `W00012`: **温かい** (あたたかい) [adjective] — warm [occ:4]
+- `W00013`: **いい** (いい) [adjective] — good, nice [occ:13]
 - `W00014`: **気分** (きぶん) [noun] — feeling, mood [occ:6]
-- `W00015`: **朝** (あさ) [noun] — morning [occ:6]
+- `W00015`: **朝** (あさ) [noun] — morning [occ:8]
 - `W00016`: **公園** (こうえん) [noun] — park [occ:4]
 - `W00017`: **歩きます** (あるきます) [verb] — to walk [occ:4]
-- `W00018`: **夕方** (ゆうがた) [noun] — evening, late afternoon [occ:3]
-- `W00019`: **朝ごはん** (あさごはん) [noun] — breakfast [occ:1]
-- `W00020`: **食べます** (たべます) [verb] — to eat [occ:1]
+- `W00018`: **夕方** (ゆうがた) [noun] — evening, late afternoon [occ:2]
+- `W00019`: **朝ごはん** (あさごはん) [noun] — breakfast [occ:2]
+- `W00020`: **食べます** (たべます) [verb] — to eat [occ:2]
 - `W00021`: **卵** (たまご) [noun] — egg [occ:1]
-- `W00022`: **友達** (ともだち) [noun] — friend [occ:3]
-- `W00023`: **散歩** (さんぽ) [noun] — walk, stroll [occ:2]
-- `W00024`: **花** (はな) [noun] — flower [occ:3]
-- `W00025`: **ドア** (ドア) [noun] — door [occ:1]
-- `W00026`: **帰ります** (かえります) [verb] — to return home, to go back [occ:1]
-- `W00027`: **風** (かぜ) [noun] — wind [occ:1]
-- `W00028`: **猫** (ねこ) [noun] — cat [occ:2]
-- `W00029`: **います** (います) [verb] — to be (animate); to exist (animate) [occ:2]
-- `W00030`: **夜** (よる) [noun] — night [occ:1]
-- `W00031`: **月** (つき) [noun] — moon [occ:1]
-- `W00032`: **星** (ほし) [noun] — star [occ:1]
-- `W00033`: **本** (ほん) [noun] — book [occ:2]
-- `W00034`: **読む** (よむ) [verb] — to read [occ:1]
+- `W00022`: **友達** (ともだち) [noun] — friend [occ:8]
+- `W00023`: **散歩** (さんぽ) [noun] — walk, stroll [occ:1]
+- `W00024`: **花** (はな) [noun] — flower [occ:2]
+- `W00025`: **ドア** (ドア) [noun] — door [occ:2]
+- `W00026`: **帰ります** (かえります) [verb] — to return home, to go back [occ:2]
+- `W00027`: **風** (かぜ) [noun] — wind [occ:5]
+- `W00028`: **猫** (ねこ) [noun] — cat [occ:4]
+- `W00029`: **います** (います) [verb] — to be (animate), to exist [occ:5]
+- `W00030`: **夜** (よる) [noun] — night [occ:4]
+- `W00031`: **月** (つき) [noun] — moon [occ:4]
+- `W00032`: **星** (ほし) [noun] — star [occ:2]
+- `W00033`: **本** (ほん) [noun] — book [occ:4]
+- `W00034`: **読みます** (よみます) [verb] — to read [occ:5]
 - `W00035`: **二人** (ふたり) [noun] — two people [occ:1]
-- `W00036`: **椅子** (いす) [noun] — chair [occ:1]
-- `W00037`: **机** (つくえ) [noun] — desk [occ:1]
-- `W00038`: **寝ます** (ねます) [verb] — to sleep; to lie down [occ:1]
-- `W00039`: **手紙** (てがみ) [noun] — letter; missive; note; mail **[NEW]**
-- `W00040`: **来ます** (きます) [verb] — to come (spatially or temporally); to approach; to arrive **[NEW]**
-- `W00041`: **待ちます** (まちます) [verb] — to wait **[NEW]**
+- `W00036`: **椅子** (いす) [noun] — chair [occ:2]
+- `W00037`: **机** (つくえ) [noun] — desk [occ:2]
+- `W00038`: **寝ます** (ねます) [verb] — to sleep [occ:2]
+- `W00039`: **手紙** (てがみ) [noun] — letter, note [occ:3]
+- `W00040`: **来ます** (きます) [verb] — to come, to arrive [occ:3]
+- `W00041`: **待ちます** (まちます) [verb] — to wait [occ:2]
+- `W00042`: **昨日** (きのう) [noun] — yesterday [occ:3]
+- `W00043`: **思います** (おもいます) [verb] — to think [occ:2]
+- `W00044`: **あります** (あります) [verb] — to exist (inanimate), to be (inanimate) [occ:4]
+- `W00045`: **そば** (そば) [noun] — side, near [occ:1]
+- `W00046`: **明日** (あした) [noun] — tomorrow [occ:2]
+- `W00047`: **空** (そら) [noun] — sky [occ:1]
+- `W00048`: **作ります** (つくります) [verb] — to make, to prepare **[NEW]**
+- `W00049`: **パン** (パン) [noun] — bread **[NEW]**
+- `W00050`: **一緒に** (いっしょに) [adverb] — together **[NEW]**
 
 ---
 
 ## Allowed grammar (ALL grammar_ids you may use — no others)
 
 - `G001_wa_topic`: は — topic marker — Marks the topic of the sentence. Pronounced 'wa', not 'ha'.
-- `G002_ga_subject`: が — subject marker — Marks the grammatical subject of the sentence.
+- `G002_ga_subject`: が — subject marker — Subject marker. Contrasts with は: が emphasizes the subject; は sets the topic.
 - `G003_desu`: です — polite copula — Polite form of 'to be'. Links a topic to a description.
 - `G004_ni_location`: に — location / direction marker — Marks the location of existence or the direction of movement.
 - `G005_wo_object`: を — direct object marker — Marks the direct object of a verb.
@@ -409,24 +573,32 @@ A clean refusal is better than a story that fails validation.
 - `G010_to_and`: と — and (exhaustive list) — Connects two or more nouns into a complete list ('A and B').
 - `G011_ya_partial`: や — and (partial / non-exhaustive list) — Lists nouns as a non-exhaustive 'A, B, and so on'.
 - `G012_soshite_then`: そして — and then — Sentence-initial connector meaning 'and then', linking sequential clauses.
+- `G013_mashita_past`: 〜ました — polite past tense — Past tense of polite verbs and です: 〜ます becomes 〜ました, です becomes でした.
+- `G014_to_omoimasu`: 〜と思います — I think that ~ / I think it is ~
+- `G015_no_possessive`: の — possessive / attributive — Links nouns: A の B = 'B of A' or 'A's B'.
+- `G016_na_adjective`: な-adjectives — noun-like adjectives — Adjectives that take な before a noun (静かな猫). Behave like nouns with the copula.
+- `G017_de_means`: で — by means / at (location of action) — Marks the means/instrument or the location where an action takes place.
+- `G018_toki_when`: 〜とき — when — temporal subordinate clause
+- `G019_te_oku`: 〜ておく — do in advance — Marks an action done beforehand in preparation for a later time or situation.
+- `G020_te_kara`: 〜てから — after doing — Connects two actions in sequence: do A, then do B.
 
 ---
 
 ## New word definitions (introduce these in the story)
 
-- `W00039`: **手紙** (てがみ) [noun] — letter; missive; note; mail
-- `W00040`: **来ます** (きます) [verb · irregular_kuru] — to come (spatially or temporally); to approach; to arrive
-- `W00041`: **待ちます** (まちます) [verb · godan] — to wait
+- `W00048`: **作ります** (つくります) [verb · godan] — to make, to prepare
+- `W00049`: **パン** (パン) [noun] — bread
+- `W00050`: **一緒に** (いっしょに) [adverb] — together
 
 ---
 
 ## Output schema
 
-Produce a `story_10.json` object with this structure:
+Produce a `story_16.json` object with this structure:
 
 ```json
 {
-  "story_id": 10,
+  "story_id": 16,
   "title": {
     "jp": "<kanji/kana title>",
     "en": "<English title>",
@@ -440,7 +612,7 @@ Produce a `story_10.json` object with this structure:
     "tokens": [ ... ]
   },
   "plan_ref": "plan.json",
-  "new_words": ["W00039", "W00040", "W00041"],
+  "new_words": ["W00048", "W00049", "W00050"],
   "new_grammar": [],
   "all_words_used": ["<every word_id used, in order of first appearance>"],
   "sentences": [
