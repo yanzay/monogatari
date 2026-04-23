@@ -1,0 +1,1271 @@
+{
+  "story_id": 61,
+  "title": {
+    "jp": "なぜ来ますか。",
+    "en": "Why Do You Come?",
+    "tokens": [
+      {
+        "t": "なぜ",
+        "r": "なぜ",
+        "role": "content",
+        "grammar_id": "G053_naze_why",
+        "word_id": "W00152"
+      },
+      {
+        "t": "来ます",
+        "r": "きます",
+        "role": "content",
+        "word_id": "W00040",
+        "inflection": {
+          "form": "masu_polite_nonpast",
+          "grammar_id": "G026_masu_nonpast"
+        }
+      },
+      {
+        "t": "か",
+        "role": "particle",
+        "grammar_id": "G037_ka_question",
+        "r": "か"
+      },
+      {
+        "t": "。",
+        "role": "punct"
+      }
+    ],
+    "gloss_en": "Why do you come?"
+  },
+  "subtitle": {
+    "jp": "春の夕方、祖母は私に話します。",
+    "en": "In the spring evening, grandmother talks to me.",
+    "tokens": [
+      {
+        "t": "春",
+        "r": "はる",
+        "role": "content",
+        "word_id": "W00072"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "G015_no_possessive",
+        "r": "の"
+      },
+      {
+        "t": "夕方",
+        "r": "ゆうがた",
+        "role": "content",
+        "word_id": "W00018"
+      },
+      {
+        "t": "、",
+        "role": "punct"
+      },
+      {
+        "t": "祖母",
+        "r": "そぼ",
+        "role": "content",
+        "word_id": "W00098"
+      },
+      {
+        "t": "は",
+        "role": "particle",
+        "grammar_id": "G001_wa_topic",
+        "r": "は"
+      },
+      {
+        "t": "私",
+        "r": "わたし",
+        "role": "content",
+        "word_id": "W00003"
+      },
+      {
+        "t": "に",
+        "role": "particle",
+        "grammar_id": "G004_ni_location",
+        "r": "に"
+      },
+      {
+        "t": "話します",
+        "r": "はなします",
+        "role": "content",
+        "word_id": "W00094",
+        "inflection": {
+          "form": "masu_polite_nonpast",
+          "grammar_id": "G026_masu_nonpast"
+        }
+      },
+      {
+        "t": "。",
+        "role": "punct"
+      }
+    ],
+    "gloss_en": "In the spring evening, grandmother talks to me."
+  },
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "はる",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "夕方",
+          "r": "ゆうがた",
+          "role": "content",
+          "word_id": "W00018"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is a spring evening.",
+      "audio": "audio/story_61/s0.wav",
+      "audio_hash": "fdecbcf80e9f"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "家",
+          "r": "いえ",
+          "role": "content",
+          "word_id": "W00078"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location",
+          "r": "に"
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "role": "content",
+          "word_id": "W00029"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I am at grandmother's house.",
+      "audio": "audio/story_61/s1.wav",
+      "audio_hash": "a8a869de1c85"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "role": "content",
+          "word_id": "W00009"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object",
+          "r": "を"
+        },
+        {
+          "t": "飲みます",
+          "r": "のみます",
+          "role": "content",
+          "word_id": "W00010",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother drinks tea.",
+      "audio": "audio/story_61/s2.wav",
+      "audio_hash": "aa7ee9e7ee02"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "なぜ",
+          "r": "なぜ",
+          "role": "content",
+          "grammar_id": "G053_naze_why",
+          "is_new_grammar": true,
+          "word_id": "W00152",
+          "is_new": true
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "店",
+          "r": "みせ",
+          "role": "content",
+          "word_id": "W00084"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "G050_he_direction",
+          "r": "え"
+        },
+        {
+          "t": "行きます",
+          "r": "いきます",
+          "role": "content",
+          "word_id": "W00150",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question",
+          "r": "か"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "と"
+        },
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "言います",
+          "r": "いいます",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Why do you go to the bookstore?\" grandmother says.",
+      "audio": "audio/story_61/s3.wav",
+      "audio_hash": "3653675f5269"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "role": "content",
+          "word_id": "W00011",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G016_na_adjective"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I am quiet.",
+      "audio": "audio/story_61/s4.wav",
+      "audio_hash": "41dae5ba304f"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject",
+          "r": "が"
+        },
+        {
+          "t": "好き",
+          "r": "すき",
+          "role": "content",
+          "word_id": "W00114",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G016_na_adjective"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G030_kara_reason",
+          "r": "から"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "と"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "言います",
+          "r": "いいます",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Because I like books,\" I say.",
+      "audio": "audio/story_61/s5.wav",
+      "audio_hash": "43fd96c599cd"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object",
+          "r": "を"
+        },
+        {
+          "t": "見ます",
+          "r": "みます",
+          "role": "content",
+          "word_id": "W00006",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother looks at me.",
+      "audio": "audio/story_61/s6.wav",
+      "audio_hash": "b392962aa76d"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "なぜ",
+          "r": "なぜ",
+          "role": "content",
+          "grammar_id": "G053_naze_why",
+          "word_id": "W00152"
+        },
+        {
+          "t": "嬉しい",
+          "r": "うれしい",
+          "role": "content",
+          "word_id": "W00056",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question",
+          "r": "か"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "と"
+        },
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "言います",
+          "r": "いいます",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Why are you happy?\" grandmother says.",
+      "audio": "audio/story_61/s7.wav",
+      "audio_hash": "7ae0feaabf87"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "心",
+          "r": "こころ",
+          "role": "content",
+          "word_id": "W00120"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "role": "content",
+          "word_id": "W00012",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My heart is warm.",
+      "audio": "audio/story_61/s8.wav",
+      "audio_hash": "60752119f2ba"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "店",
+          "r": "みせ",
+          "role": "content",
+          "word_id": "W00084"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "人",
+          "r": "ひと",
+          "role": "content",
+          "word_id": "W00113"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "新しい",
+          "r": "あたらしい",
+          "role": "content",
+          "word_id": "W00066",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G030_kara_reason",
+          "r": "から"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "と"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "言います",
+          "r": "いいます",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Because the bookstore person is a new friend,\" I say.",
+      "audio": "audio/story_61/s9.wav",
+      "audio_hash": "7555fcb62c0c"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "いい",
+          "r": "いい",
+          "role": "content",
+          "word_id": "W00013",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "人",
+          "r": "ひと",
+          "role": "content",
+          "word_id": "W00113"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother is a good person.",
+      "audio": "audio/story_61/s10.wav",
+      "audio_hash": "9808ac1321a3"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "なぜ",
+          "r": "なぜ",
+          "role": "content",
+          "grammar_id": "G053_naze_why",
+          "word_id": "W00152"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location",
+          "r": "に"
+        },
+        {
+          "t": "言いません",
+          "r": "いいません",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "masen",
+            "grammar_id": "G036_masen"
+          }
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question",
+          "r": "か"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "と"
+        },
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "言います",
+          "r": "いいます",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Why don't you tell me?\" grandmother says.",
+      "audio": "audio/story_61/s11.wav",
+      "audio_hash": "0bb1581bb619"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "悲しい",
+          "r": "かなしい",
+          "role": "content",
+          "word_id": "W00076",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I am sad.",
+      "audio": "audio/story_61/s12.wav",
+      "audio_hash": "cfa1bba870c7"
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "role": "content",
+          "word_id": "W00011",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G016_na_adjective"
+          }
+        },
+        {
+          "t": "じゃない",
+          "role": "aux",
+          "grammar_id": "G051_janai",
+          "r": "じゃない"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G030_kara_reason",
+          "r": "から"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G014_to_omoimasu",
+          "r": "と"
+        },
+        {
+          "t": "思います",
+          "role": "aux",
+          "grammar_id": "G014_to_omoimasu",
+          "r": "おもいます"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Because grandmother is not quiet,\" I think.",
+      "audio": "audio/story_61/s13.wav",
+      "audio_hash": "b1e3f7483317"
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "でも",
+          "r": "でも",
+          "role": "aux",
+          "grammar_id": "G032_demo"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "夜",
+          "r": "よる",
+          "role": "content",
+          "word_id": "W00030"
+        },
+        {
+          "t": "まで",
+          "role": "particle",
+          "grammar_id": "G052_made_until",
+          "r": "まで"
+        },
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and",
+          "r": "と"
+        },
+        {
+          "t": "一緒に",
+          "r": "いっしょに",
+          "role": "content",
+          "word_id": "W00050"
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "role": "content",
+          "word_id": "W00029"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But, I am with grandmother until night.",
+      "audio": "audio/story_61/s14.wav",
+      "audio_hash": "6fe19a45b02f"
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "明日",
+          "r": "あした",
+          "role": "content",
+          "word_id": "W00046"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "店",
+          "r": "みせ",
+          "role": "content",
+          "word_id": "W00084"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "人",
+          "r": "ひと",
+          "role": "content",
+          "word_id": "W00113"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and",
+          "r": "と"
+        },
+        {
+          "t": "来ます",
+          "r": "きます",
+          "role": "content",
+          "word_id": "W00040",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "と"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "言います",
+          "r": "いいます",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Tomorrow, I will come with the bookstore person,\" I say.",
+      "audio": "audio/story_61/s15.wav",
+      "audio_hash": "421ce934ac49"
+    },
+    {
+      "idx": 16,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "はる",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "夕方",
+          "r": "ゆうがた",
+          "role": "content",
+          "word_id": "W00018"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "role": "content",
+          "word_id": "W00012",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "role": "content",
+          "word_id": "W00009"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "新しい",
+          "r": "あたらしい",
+          "role": "content",
+          "word_id": "W00066",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "約束",
+          "r": "やくそく",
+          "role": "content",
+          "word_id": "W00132"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A spring evening, warm tea, a new promise.",
+      "audio": "audio/story_61/s16.wav",
+      "audio_hash": "66c33b540680"
+    }
+  ],
+  "new_words": [
+    "W00152"
+  ],
+  "new_grammar": [
+    "G053_naze_why"
+  ],
+  "all_words_used": [
+    "W00152",
+    "W00040",
+    "W00072",
+    "W00018",
+    "W00098",
+    "W00003",
+    "W00094",
+    "W00078",
+    "W00029",
+    "W00009",
+    "W00010",
+    "W00033",
+    "W00084",
+    "W00150",
+    "W00097",
+    "W00011",
+    "W00114",
+    "W00006",
+    "W00056",
+    "W00120",
+    "W00012",
+    "W00113",
+    "W00066",
+    "W00022",
+    "W00013",
+    "W00076",
+    "W00030",
+    "W00050",
+    "W00046",
+    "W00132"
+  ],
+  "word_audio": {
+    "W00152": "audio/story_61/w_W00152.wav"
+  },
+  "word_audio_hash": {
+    "W00152": "6d6111fba948"
+  }
+}
