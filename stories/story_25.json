@@ -55,7 +55,9 @@
     "W00036",
     "W00085",
     "W00237",
-    "W00009"
+    "W00009",
+    "W00019",
+    "W00020"
   ],
   "sentences": [
     {
@@ -639,6 +641,40 @@
         }
       ],
       "gloss_en": "There is tea on the desk."
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "朝ごはん",
+          "role": "content",
+          "word_id": "W00019",
+          "r": "あさごはん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "食べます",
+          "role": "content",
+          "word_id": "W00020",
+          "r": "たべます",
+          "inflection": {
+            "base": "食べる",
+            "base_r": "たべる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I eat breakfast."
     }
   ]
 }

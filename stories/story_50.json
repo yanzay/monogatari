@@ -74,7 +74,10 @@
     "W00044",
     "W00066",
     "W00033",
-    "W00153"
+    "W00153",
+    "W00190",
+    "W00002",
+    "W00107"
   ],
   "sentences": [
     {
@@ -1055,6 +1058,46 @@
         }
       ],
       "gloss_en": "Older brother shows a new book."
+    },
+    {
+      "idx": 17,
+      "tokens": [
+        {
+          "t": "少し",
+          "role": "content",
+          "word_id": "W00190",
+          "r": "すこし"
+        },
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あめ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "降ります",
+          "role": "content",
+          "word_id": "W00107",
+          "r": "ふります",
+          "inflection": {
+            "base": "降る",
+            "base_r": "ふる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A little rain falls."
     }
   ]
 }

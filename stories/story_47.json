@@ -26,7 +26,8 @@
   "new_words": [
     "W00140",
     "W00141",
-    "W00142"
+    "W00142",
+    "W00174"
   ],
   "new_grammar": [
     "G039_dare_who"
@@ -64,7 +65,9 @@
     "W00123",
     "W00201",
     "W00015",
-    "W00137"
+    "W00137",
+    "W00147",
+    "W00174"
   ],
   "sentences": [
     {
@@ -904,6 +907,51 @@
         }
       ],
       "gloss_en": "The town's morning is bright."
+    },
+    {
+      "idx": 17,
+      "tokens": [
+        {
+          "t": "あの",
+          "role": "content",
+          "word_id": "W00147",
+          "r": "あの",
+          "grammar_id": "G043_kosoado_pre_nominal"
+        },
+        {
+          "t": "傘",
+          "role": "content",
+          "word_id": "W00116",
+          "r": "かさ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00174",
+          "r": "おとうと",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "That umbrella over there is my brother's."
     }
   ]
 }

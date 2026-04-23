@@ -55,7 +55,10 @@
     "W00120",
     "W00003",
     "W00078",
-    "W00077"
+    "W00077",
+    "W00190",
+    "W00159",
+    "W00015"
   ],
   "sentences": [
     {
@@ -663,6 +666,40 @@
         }
       ],
       "gloss_en": "With a sad heart, I leave the house."
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "少し",
+          "role": "content",
+          "word_id": "W00190",
+          "r": "すこし"
+        },
+        {
+          "t": "早い",
+          "role": "content",
+          "word_id": "W00159",
+          "r": "はやい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It's a slightly early morning."
     }
   ]
 }

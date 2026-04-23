@@ -65,7 +65,9 @@
     "W00103",
     "W00044",
     "W00046",
-    "W00040"
+    "W00040",
+    "W00157",
+    "W00092"
   ],
   "sentences": [
     {
@@ -917,6 +919,47 @@
         }
       ],
       "gloss_en": "The shop person says, \"I will come tomorrow too.\""
+    },
+    {
+      "idx": 16,
+      "tokens": [
+        {
+          "t": "白い",
+          "role": "content",
+          "word_id": "W00157",
+          "r": "しろい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "雲",
+          "role": "content",
+          "word_id": "W00092",
+          "r": "くも"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I look at the white clouds."
     }
   ]
 }

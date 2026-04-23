@@ -68,7 +68,10 @@
     "W00117",
     "W00125",
     "W00066",
-    "W00153"
+    "W00153",
+    "W00157",
+    "W00101",
+    "W00159"
   ],
   "sentences": [
     {
@@ -833,6 +836,46 @@
         }
       ],
       "gloss_en": "Grandmother shows a new clock."
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "白い",
+          "role": "content",
+          "word_id": "W00157",
+          "r": "しろい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "犬",
+          "role": "content",
+          "word_id": "W00101",
+          "r": "いぬ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "早い",
+          "role": "content",
+          "word_id": "W00159",
+          "r": "はやい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The white dog is fast."
     }
   ]
 }
