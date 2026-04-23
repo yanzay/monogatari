@@ -60,6 +60,7 @@
     "W00025",
     "W00044",
     "W00073",
+    "W00065",
     "W00003",
     "W00080",
     "W00075",
@@ -266,8 +267,20 @@
     },
     {
       "idx": 4,
-      "gloss_en": "I enter the house.",
+      "gloss_en": "I enter the house alone.",
       "tokens": [
+        {
+          "t": "一人",
+          "role": "content",
+          "r": "ひとり",
+          "word_id": "W00065",
+          "grammar_id": "G025_counters"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
         {
           "t": "私",
           "r": "わたし",

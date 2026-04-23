@@ -500,6 +500,17 @@
           "word_id": "W00024"
         },
         {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "影",
+          "role": "content",
+          "r": "かげ",
+          "word_id": "W00188"
+        },
+        {
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
@@ -526,7 +537,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The garden flowers are beautiful."
+      "gloss_en": "The shadow of the garden's flowers is beautiful."
     },
     {
       "idx": 9,
@@ -585,6 +596,17 @@
       "idx": 10,
       "tokens": [
         {
+          "t": "昼",
+          "role": "content",
+          "r": "ひる",
+          "word_id": "W00182"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
           "t": "夕方",
           "r": "ゆうがた",
           "role": "content",
@@ -623,7 +645,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I read books until evening."
+      "gloss_en": "From noon until evening, I read the book."
     },
     {
       "idx": 11,
@@ -988,11 +1010,13 @@
     "W00059",
     "W00006",
     "W00024",
+    "W00188",
     "W00083",
     "W00118",
     "W00027",
     "W00190",
     "W00151",
+    "W00182",
     "W00195",
     "W00092",
     "W00110",
