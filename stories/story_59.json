@@ -1,0 +1,996 @@
+{
+  "story_id": 59,
+  "title": {
+    "jp": "静かじゃない夜。",
+    "en": "A Not-Quiet Night.",
+    "tokens": [
+      {
+        "t": "静か",
+        "r": "しずか",
+        "role": "content",
+        "word_id": "W00011",
+        "inflection": {
+          "form": "plain_nonpast",
+          "grammar_id": "G016_na_adjective"
+        }
+      },
+      {
+        "t": "じゃない",
+        "role": "aux",
+        "grammar_id": "G051_janai",
+        "r": "じゃない"
+      },
+      {
+        "t": "夜",
+        "r": "よる",
+        "role": "content",
+        "word_id": "W00030"
+      },
+      {
+        "t": "。",
+        "role": "punct"
+      }
+    ],
+    "gloss_en": "A not-quiet night."
+  },
+  "subtitle": {
+    "jp": "雨が降ります、風も吹きます。",
+    "en": "Rain falls, wind also blows.",
+    "tokens": [
+      {
+        "t": "雨",
+        "r": "あめ",
+        "role": "content",
+        "word_id": "W00002"
+      },
+      {
+        "t": "が",
+        "role": "particle",
+        "grammar_id": "G002_ga_subject",
+        "r": "が"
+      },
+      {
+        "t": "降ります",
+        "r": "ふります",
+        "role": "content",
+        "word_id": "W00107",
+        "inflection": {
+          "form": "masu_polite_nonpast",
+          "grammar_id": "G026_masu_nonpast"
+        }
+      },
+      {
+        "t": "、",
+        "role": "punct"
+      },
+      {
+        "t": "風",
+        "r": "かぜ",
+        "role": "content",
+        "word_id": "W00027"
+      },
+      {
+        "t": "も",
+        "role": "particle",
+        "grammar_id": "G009_mo_also",
+        "r": "も"
+      },
+      {
+        "t": "吹きます",
+        "r": "ふきます",
+        "role": "content",
+        "word_id": "W00151",
+        "inflection": {
+          "form": "masu_polite_nonpast",
+          "grammar_id": "G026_masu_nonpast"
+        }
+      },
+      {
+        "t": "。",
+        "role": "punct"
+      }
+    ],
+    "gloss_en": "Rain falls, wind also blows."
+  },
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "はる",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "夜",
+          "r": "よる",
+          "role": "content",
+          "word_id": "W00030"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is a spring night.",
+      "audio": "audio/story_59/s0.wav",
+      "audio_hash": "db4ad02aebe8"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "雨",
+          "r": "あめ",
+          "role": "content",
+          "word_id": "W00002"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject",
+          "r": "が"
+        },
+        {
+          "t": "降ります",
+          "r": "ふります",
+          "role": "content",
+          "word_id": "W00107",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Rain falls.",
+      "audio": "audio/story_59/s1.wav",
+      "audio_hash": "ab3864b4899e"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "風",
+          "r": "かぜ",
+          "role": "content",
+          "word_id": "W00027"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also",
+          "r": "も"
+        },
+        {
+          "t": "吹きます",
+          "r": "ふきます",
+          "role": "content",
+          "word_id": "W00151",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          },
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Wind also blows.",
+      "audio": "audio/story_59/s2.wav",
+      "audio_hash": "4120dccd1109"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "部屋",
+          "r": "へや",
+          "role": "content",
+          "word_id": "W00075"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "role": "content",
+          "word_id": "W00011",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G016_na_adjective"
+          }
+        },
+        {
+          "t": "じゃない",
+          "role": "aux",
+          "grammar_id": "G051_janai",
+          "r": "じゃない",
+          "is_new_grammar": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The room is not quiet.",
+      "audio": "audio/story_59/s3.wav",
+      "audio_hash": "6ffcd1e97a9c"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "元気",
+          "r": "げんき",
+          "role": "content",
+          "word_id": "W00058",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G016_na_adjective"
+          }
+        },
+        {
+          "t": "じゃない",
+          "role": "aux",
+          "grammar_id": "G051_janai",
+          "r": "じゃない"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I am not well.",
+      "audio": "audio/story_59/s4.wav",
+      "audio_hash": "c6a7f08e9665"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "来ませんでした",
+          "r": "きませんでした",
+          "role": "content",
+          "word_id": "W00040",
+          "inflection": {
+            "form": "masen_deshita",
+            "grammar_id": "G046_masen_deshita"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend did not come.",
+      "audio": "audio/story_59/s5.wav",
+      "audio_hash": "739dcd454a35"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "店",
+          "r": "みせ",
+          "role": "content",
+          "word_id": "W00084"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "人",
+          "r": "ひと",
+          "role": "content",
+          "word_id": "W00113"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also",
+          "r": "も"
+        },
+        {
+          "t": "来ませんでした",
+          "r": "きませんでした",
+          "role": "content",
+          "word_id": "W00040",
+          "inflection": {
+            "form": "masen_deshita",
+            "grammar_id": "G046_masen_deshita"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The bookstore person also did not come.",
+      "audio": "audio/story_59/s6.wav",
+      "audio_hash": "a72b111f517a"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "悲しい",
+          "r": "かなしい",
+          "role": "content",
+          "word_id": "W00076",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I am sad.",
+      "audio": "audio/story_59/s7.wav",
+      "audio_hash": "cfa1bba870c7"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "でも",
+          "r": "でも",
+          "role": "aux",
+          "grammar_id": "G032_demo"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "role": "content",
+          "word_id": "W00009"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "role": "content",
+          "word_id": "W00012",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But, the tea is warm.",
+      "audio": "audio/story_59/s8.wav",
+      "audio_hash": "2dd9ff05634a"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "風",
+          "r": "かぜ",
+          "role": "content",
+          "word_id": "W00027"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject",
+          "r": "が"
+        },
+        {
+          "t": "吹きます",
+          "r": "ふきます",
+          "role": "content",
+          "word_id": "W00151",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G049_ga_but",
+          "r": "が"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "家",
+          "r": "いえ",
+          "role": "content",
+          "word_id": "W00078"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "role": "content",
+          "word_id": "W00012",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The wind blows, but the house is warm.",
+      "audio": "audio/story_59/s9.wav",
+      "audio_hash": "fe92728ac003"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "雨",
+          "r": "あめ",
+          "role": "content",
+          "word_id": "W00002"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "嬉しくない",
+          "r": "うれしくない",
+          "role": "content",
+          "word_id": "W00056",
+          "inflection": {
+            "form": "i_adj_neg",
+            "grammar_id": "G038_kunai"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The rain is not happy.",
+      "audio": "audio/story_59/s10.wav",
+      "audio_hash": "bb58ef92fd1a"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "でも",
+          "r": "でも",
+          "role": "aux",
+          "grammar_id": "G032_demo"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "明日",
+          "r": "あした",
+          "role": "content",
+          "word_id": "W00046"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "雨",
+          "r": "あめ",
+          "role": "content",
+          "word_id": "W00002"
+        },
+        {
+          "t": "じゃありません",
+          "role": "aux",
+          "grammar_id": "G051_janai",
+          "r": "じゃありません"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But, tomorrow it is not rain.",
+      "audio": "audio/story_59/s11.wav",
+      "audio_hash": "e1336e7455bd"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "時々",
+          "r": "ときどき",
+          "role": "content",
+          "word_id": "W00131"
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "店",
+          "r": "みせ",
+          "role": "content",
+          "word_id": "W00084"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "G050_he_direction",
+          "r": "え"
+        },
+        {
+          "t": "行きたい",
+          "r": "いきたい",
+          "role": "content",
+          "word_id": "W00150",
+          "inflection": {
+            "form": "tai",
+            "grammar_id": "G031_tai"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I sometimes want to go to the bookstore.",
+      "audio": "audio/story_59/s12.wav",
+      "audio_hash": "cd9355818b53"
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "古い",
+          "r": "ふるい",
+          "role": "content",
+          "word_id": "W00067",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is an old book.",
+      "audio": "audio/story_59/s13.wav",
+      "audio_hash": "94bc8d2b3369"
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "いい",
+          "r": "いい",
+          "role": "content",
+          "word_id": "W00013",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G049_ga_but",
+          "r": "が"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "人",
+          "r": "ひと",
+          "role": "content",
+          "word_id": "W00113"
+        },
+        {
+          "t": "じゃありません",
+          "role": "aux",
+          "grammar_id": "G051_janai",
+          "r": "じゃありません"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A book is a good friend, but not a person.",
+      "audio": "audio/story_59/s14.wav",
+      "audio_hash": "af6f063d1de3"
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "心",
+          "r": "こころ",
+          "role": "content",
+          "word_id": "W00120"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "role": "content",
+          "word_id": "W00011",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G016_na_adjective"
+          }
+        },
+        {
+          "t": "じゃない",
+          "role": "aux",
+          "grammar_id": "G051_janai",
+          "r": "じゃない"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G049_ga_but",
+          "r": "が"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "role": "content",
+          "word_id": "W00012",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My heart is not quiet, but it is warm.",
+      "audio": "audio/story_59/s15.wav",
+      "audio_hash": "a58e0c635a71"
+    },
+    {
+      "idx": 16,
+      "tokens": [
+        {
+          "t": "雨",
+          "r": "あめ",
+          "role": "content",
+          "word_id": "W00002"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "夜",
+          "r": "よる",
+          "role": "content",
+          "word_id": "W00030"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "新しい",
+          "r": "あたらしい",
+          "role": "content",
+          "word_id": "W00066",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "role": "content",
+          "word_id": "W00012",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "心",
+          "r": "こころ",
+          "role": "content",
+          "word_id": "W00120"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A rainy night, a new book, a warm heart.",
+      "audio": "audio/story_59/s16.wav",
+      "audio_hash": "f496232d3f76"
+    }
+  ],
+  "new_words": [
+    "W00151"
+  ],
+  "new_grammar": [
+    "G051_janai"
+  ],
+  "all_words_used": [
+    "W00011",
+    "W00030",
+    "W00002",
+    "W00107",
+    "W00027",
+    "W00151",
+    "W00072",
+    "W00075",
+    "W00003",
+    "W00058",
+    "W00022",
+    "W00040",
+    "W00033",
+    "W00084",
+    "W00113",
+    "W00076",
+    "W00009",
+    "W00012",
+    "W00078",
+    "W00056",
+    "W00046",
+    "W00131",
+    "W00150",
+    "W00067",
+    "W00013",
+    "W00120",
+    "W00066"
+  ],
+  "word_audio": {
+    "W00151": "audio/story_59/w_W00151.wav"
+  },
+  "word_audio_hash": {
+    "W00151": "24088236d620"
+  }
+}
