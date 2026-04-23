@@ -104,9 +104,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring evening.",
-      "audio": "audio/story_51/s0.wav",
-      "audio_hash": "fdecbcf80e9f"
+      "gloss_en": "It is a spring evening."
     },
     {
       "idx": 1,
@@ -164,9 +162,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the park, there are trees and flowers.",
-      "audio": "audio/story_51/s1.wav",
-      "audio_hash": "54ecf2d1abb9"
+      "gloss_en": "In the park, there are trees and flowers."
     },
     {
       "idx": 2,
@@ -249,9 +245,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend says, \"that flower over there is happy\".",
-      "audio": "audio/story_51/s2.wav",
-      "audio_hash": "01fba25cffd5"
+      "gloss_en": "The friend says, \"that flower over there is happy\"."
     },
     {
       "idx": 3,
@@ -328,9 +322,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think, \"that flower over there is red\".",
-      "audio": "audio/story_51/s3.wav",
-      "audio_hash": "160b8614d048"
+      "gloss_en": "I think, \"that flower over there is red\"."
     },
     {
       "idx": 4,
@@ -412,24 +404,21 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I say, \"this tree is old\".",
-      "audio": "audio/story_51/s4.wav",
-      "audio_hash": "2861a85576a2"
+      "gloss_en": "I say, \"this tree is old\"."
     },
     {
       "idx": 5,
       "tokens": [
         {
           "t": "友達",
-          "r": "tomodachi",
           "role": "content",
+          "r": "ともだち",
           "word_id": "W00022"
         },
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "「",
@@ -437,38 +426,32 @@
         },
         {
           "t": "この",
-          "r": "kono",
           "role": "content",
+          "r": "この",
           "word_id": "W00148",
           "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
           "t": "木",
-          "r": "ki",
           "role": "content",
+          "r": "き",
           "word_id": "W00007"
         },
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "美しい",
-          "r": "utsukushii",
+          "t": "大きい",
           "role": "content",
-          "word_id": "W00083",
-          "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+          "r": "おおきい",
+          "word_id": "W00057"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "desu"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "」",
@@ -477,27 +460,27 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu",
-          "r": "to"
+          "grammar_id": "G014_to_omoimasu"
         },
         {
           "t": "言います",
-          "r": "iimasu",
           "role": "content",
+          "r": "いいます",
           "word_id": "W00097",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend says, \"this tree is beautiful\".",
-      "audio": "audio/story_51/s5.wav",
-      "audio_hash": "23e6af73373d"
+      "gloss_en": "The friend says, \"This tree is large.\""
     },
     {
       "idx": 6,
@@ -543,9 +526,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the pond, there is a bird.",
-      "audio": "audio/story_51/s6.wav",
-      "audio_hash": "84f58b556452"
+      "gloss_en": "In the pond, there is a bird."
     },
     {
       "idx": 7,
@@ -630,9 +611,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend says, \"what is that bird over there?\"",
-      "audio": "audio/story_51/s7.wav",
-      "audio_hash": "e20d580aa8d8"
+      "gloss_en": "The friend says, \"what is that bird over there?\""
     },
     {
       "idx": 8,
@@ -700,9 +679,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I say, \"it is a black bird\".",
-      "audio": "audio/story_51/s8.wav",
-      "audio_hash": "481eac54fb8c"
+      "gloss_en": "I say, \"it is a black bird\"."
     },
     {
       "idx": 9,
@@ -744,9 +721,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend looks at the sky.",
-      "audio": "audio/story_51/s9.wav",
-      "audio_hash": "59739c186891"
+      "gloss_en": "The friend looks at the sky."
     },
     {
       "idx": 10,
@@ -858,9 +833,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My heart is happy.",
-      "audio": "audio/story_51/s11.wav",
-      "audio_hash": "b224b0eb608f"
+      "gloss_en": "My heart is happy."
     },
     {
       "idx": 12,
@@ -944,9 +917,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend says, \"when will (we) come to this park?\"",
-      "audio": "audio/story_51/s12.wav",
-      "audio_hash": "05c0113b7435"
+      "gloss_en": "The friend says, \"when will (we) come to this park?\""
     },
     {
       "idx": 13,
@@ -989,9 +960,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a promise.",
-      "audio": "audio/story_51/s14.wav",
-      "audio_hash": "d338ce761233"
+      "gloss_en": "It is a promise."
     },
     {
       "idx": 15,
@@ -1061,9 +1030,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Spring evening, that flower, the bird in the sky.",
-      "audio": "audio/story_51/s15.wav",
-      "audio_hash": "b7fef074e7c4"
+      "gloss_en": "Spring evening, that flower, the bird in the sky."
     }
   ],
   "new_words": [
@@ -1091,7 +1058,7 @@
     "W00003",
     "W00148",
     "W00067",
-    "W00083",
+    "W00057",
     "W00103",
     "W00054",
     "W00029",
@@ -1104,13 +1071,5 @@
     "W00145",
     "W00040",
     "W00132"
-  ],
-  "word_audio": {
-    "W00147": "audio/story_51/w_W00147.wav",
-    "W00148": "audio/story_51/w_W00148.wav"
-  },
-  "word_audio_hash": {
-    "W00147": "abadd06eea1e",
-    "W00148": "fad04fc93bda"
-  }
+  ]
 }

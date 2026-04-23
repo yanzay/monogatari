@@ -833,9 +833,20 @@
       "tokens": [
         {
           "t": "来週",
-          "r": "らいしゅう",
           "role": "content",
+          "r": "らいしゅう",
           "word_id": "W00146"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "時間",
+          "role": "content",
+          "r": "じかん",
+          "word_id": "W00177"
         },
         {
           "t": "、",
@@ -843,56 +854,56 @@
         },
         {
           "t": "本",
-          "r": "ほん",
           "role": "content",
+          "r": "ほん",
           "word_id": "W00033"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "の"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "店",
-          "r": "みせ",
           "role": "content",
+          "r": "みせ",
           "word_id": "W00084"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "の"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "人",
-          "r": "ひと",
           "role": "content",
+          "r": "ひと",
           "word_id": "W00113"
         },
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "来ます",
-          "r": "きます",
           "role": "content",
+          "r": "きます",
           "word_id": "W00040",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "Next week, the bookstore person comes."
+      "gloss_en": "Next week's time, the bookstore person comes."
     },
     {
       "idx": 15,
@@ -1029,10 +1040,9 @@
     "W00050",
     "W00120",
     "W00097",
+    "W00177",
     "W00012",
     "W00074",
     "W00181"
-  ],
-  "word_audio": {},
-  "word_audio_hash": {}
+  ]
 }

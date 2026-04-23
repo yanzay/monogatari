@@ -84,9 +84,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The station is quiet.",
-      "audio": "audio/story_50/s0.mp3",
-      "audio_hash": "b5984af6798d"
+      "gloss_en": "The station is quiet."
     },
     {
       "idx": 1,
@@ -142,9 +140,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A child and their grandmother wait for the train.",
-      "audio": "audio/story_50/s1.mp3",
-      "audio_hash": "038b70be5b24"
+      "gloss_en": "A child and their grandmother wait for the train."
     },
     {
       "idx": 2,
@@ -240,9 +236,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The child says to grandmother, \"When will the train come?\"",
-      "audio": "audio/story_50/s2.mp3",
-      "audio_hash": "106d096af7bd"
+      "gloss_en": "The child says to grandmother, \"When will the train come?\""
     },
     {
       "idx": 3,
@@ -298,9 +292,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Grandmother looks at the child's face.",
-      "audio": "audio/story_50/s3.mp3",
-      "audio_hash": "46bcb9e506de"
+      "gloss_en": "Grandmother looks at the child's face."
     },
     {
       "idx": 4,
@@ -359,9 +351,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Grandmother says, \"Next week.\"",
-      "audio": "audio/story_50/s4.mp3",
-      "audio_hash": "4ddd7c9bbc0a"
+      "gloss_en": "Grandmother says, \"Next week.\""
     },
     {
       "idx": 5,
@@ -415,17 +405,16 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Because the child is strong, they wait.",
-      "audio": "audio/story_50/s5.mp3",
-      "audio_hash": "abd661bc52e7"
+      "gloss_en": "Because the child is strong, they wait."
     },
     {
       "idx": 6,
       "tokens": [
         {
           "t": "でも",
-          "role": "aux",
-          "grammar_id": "G032_demo"
+          "role": "particle",
+          "grammar_id": "G032_demo",
+          "r": "でも"
         },
         {
           "t": "、",
@@ -433,8 +422,8 @@
         },
         {
           "t": "子供",
-          "r": "こども",
           "role": "content",
+          "r": "こども",
           "word_id": "W00051"
         },
         {
@@ -443,10 +432,10 @@
           "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "顔",
-          "r": "かお",
+          "t": "帽子",
           "role": "content",
-          "word_id": "W00122"
+          "r": "ぼうし",
+          "word_id": "W00170"
         },
         {
           "t": "は",
@@ -455,8 +444,8 @@
         },
         {
           "t": "赤い",
-          "r": "あかい",
           "role": "content",
+          "r": "あかい",
           "word_id": "W00142"
         },
         {
@@ -469,9 +458,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But the child's face is red.",
-      "audio": "audio/story_50/s6.mp3",
-      "audio_hash": "4cfdf622d336"
+      "gloss_en": "But the child's hat is red."
     },
     {
       "idx": 7,
@@ -548,9 +535,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Grandmother says, \"Won't you have some tea?\"",
-      "audio": "audio/story_50/s7.mp3",
-      "audio_hash": "64760890076d"
+      "gloss_en": "Grandmother says, \"Won't you have some tea?\""
     },
     {
       "idx": 8,
@@ -630,9 +615,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "And then grandmother says, \"It will come soon, won't it.\"",
-      "audio": "audio/story_50/s8.mp3",
-      "audio_hash": "c5a8e6bee23b"
+      "gloss_en": "And then grandmother says, \"It will come soon, won't it.\""
     },
     {
       "idx": 9,
@@ -677,16 +660,14 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The child looks at grandmother.",
-      "audio": "audio/story_50/s9.mp3",
-      "audio_hash": "9420f0f1d453"
+      "gloss_en": "The child looks at grandmother."
     },
     {
       "idx": 10,
       "tokens": [
         {
           "t": "そして",
-          "role": "aux",
+          "role": "particle",
           "grammar_id": "G012_soshite_then"
         },
         {
@@ -695,20 +676,9 @@
         },
         {
           "t": "電車",
+          "role": "content",
           "r": "でんしゃ",
-          "role": "content",
           "word_id": "W00070"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "音",
-          "r": "おと",
-          "role": "content",
-          "word_id": "W00109"
         },
         {
           "t": "が",
@@ -716,9 +686,21 @@
           "grammar_id": "G002_ga_subject"
         },
         {
-          "t": "来ます",
-          "r": "きます",
+          "t": "走って",
           "role": "content",
+          "r": "はしって",
+          "word_id": "W00102",
+          "inflection": {
+            "base": "走る",
+            "base_r": "はしる",
+            "form": "te_form",
+            "grammar_id": "G007_te_form"
+          }
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "r": "きます",
           "word_id": "W00040",
           "inflection": {
             "base": "来る",
@@ -733,9 +715,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "And then, the sound of the train comes.",
-      "audio": "audio/story_50/s10.mp3",
-      "audio_hash": "9dbb033e0116"
+      "gloss_en": "Then, the train comes running."
     },
     {
       "idx": 11,
@@ -767,9 +747,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The child is happy.",
-      "audio": "audio/story_50/s11.mp3",
-      "audio_hash": "8dde05ba5980"
+      "gloss_en": "The child is happy."
     },
     {
       "idx": 12,
@@ -801,9 +779,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Grandmother is happy too.",
-      "audio": "audio/story_50/s12.mp3",
-      "audio_hash": "adda4ed5f516"
+      "gloss_en": "Grandmother is happy too."
     },
     {
       "idx": 13,
@@ -853,46 +829,56 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The child is beside grandmother.",
-      "audio": "audio/story_50/s13.mp3",
-      "audio_hash": "0b2bacccb029"
+      "gloss_en": "The child is beside grandmother."
     },
     {
       "idx": 14,
       "tokens": [
         {
           "t": "兄",
-          "r": "あに",
           "role": "content",
+          "r": "あに",
           "word_id": "W00172",
           "is_new": true
         },
         {
-          "t": "が",
+          "t": "の",
           "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "あります",
-          "r": "あります",
+          "t": "服",
           "role": "content",
-          "word_id": "W00044",
-          "inflection": {
-            "base": "ある",
-            "base_r": "ある",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
+          "r": "ふく",
+          "word_id": "W00168"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "どこ",
+          "role": "content",
+          "r": "どこ",
+          "word_id": "W00143"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "aux",
+          "grammar_id": "G037_ka_question"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "There is older brother.",
-      "audio": "audio/story_50/s14.mp3",
-      "audio_hash": "c284427e37f5"
+      "gloss_en": "Where are the big brother's clothes?"
     }
   ],
   "all_words_used": [
@@ -909,16 +895,18 @@
     "W00006",
     "W00146",
     "W00118",
+    "W00170",
     "W00142",
     "W00009",
     "W00010",
     "W00133",
-    "W00109",
+    "W00102",
     "W00056",
     "W00127",
     "W00029",
     "W00172",
-    "W00044"
+    "W00168",
+    "W00143"
   ],
   "new_words": [
     "W00145",
@@ -927,15 +915,5 @@
   ],
   "new_grammar": [
     "G042_itsu_when"
-  ],
-  "word_audio": {
-    "W00145": "audio/story_50/w_W00145.mp3",
-    "W00146": "audio/story_50/w_W00146.mp3",
-    "W00172": "audio/story_50/word_兄.mp3"
-  },
-  "word_audio_hash": {
-    "W00145": "bb855b2edb8f",
-    "W00146": "1ea631f89910",
-    "W00172": "b7488a2d40a3"
-  }
+  ]
 }

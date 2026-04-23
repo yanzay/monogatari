@@ -647,27 +647,37 @@
       "tokens": [
         {
           "t": "あの",
-          "r": "あの",
           "role": "content",
+          "r": "あの",
           "word_id": "W00147",
           "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
-          "t": "夏",
-          "r": "なつ",
+          "t": "年",
           "role": "content",
+          "r": "とし",
+          "word_id": "W00178"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夏",
+          "role": "content",
+          "r": "なつ",
           "word_id": "W00081"
         },
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "美しかった",
-          "r": "うつくしかった",
           "role": "content",
+          "r": "うつくしかった",
           "word_id": "W00083",
           "inflection": {
             "form": "i_adj_past",
@@ -677,15 +687,14 @@
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "That summer was beautiful."
+      "gloss_en": "That year's summer was beautiful."
     },
     {
       "idx": 12,
@@ -959,10 +968,9 @@
     "W00097",
     "W00120",
     "W00147",
+    "W00178",
     "W00183",
     "W00131",
     "W00006"
-  ],
-  "word_audio": {},
-  "word_audio_hash": {}
+  ]
 }

@@ -129,9 +129,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring evening.",
-      "audio": "audio/story_49/s0.wav",
-      "audio_hash": "fdecbcf80e9f"
+      "gloss_en": "It is a spring evening."
     },
     {
       "idx": 1,
@@ -195,9 +193,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend is at my house's door.",
-      "audio": "audio/story_49/s1.wav",
-      "audio_hash": "bf26f1a6aad8"
+      "gloss_en": "The friend is at my house's door."
     },
     {
       "idx": 2,
@@ -260,9 +256,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"Won't you have tea?\" I say.",
-      "audio": "audio/story_49/s2.wav",
-      "audio_hash": "ae503cedaa01"
+      "gloss_en": "\"Won't you have tea?\" I say."
     },
     {
       "idx": 3,
@@ -300,9 +294,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend is happy.",
-      "audio": "audio/story_49/s3.wav",
-      "audio_hash": "d521f7f66f53"
+      "gloss_en": "The friend is happy."
     },
     {
       "idx": 4,
@@ -358,9 +350,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend and I drink tea.",
-      "audio": "audio/story_49/s4.wav",
-      "audio_hash": "8010b5a1967e"
+      "gloss_en": "The friend and I drink tea."
     },
     {
       "idx": 5,
@@ -398,9 +388,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The tea is warm.",
-      "audio": "audio/story_49/s5.wav",
-      "audio_hash": "f9c5e462ab89"
+      "gloss_en": "The tea is warm."
     },
     {
       "idx": 6,
@@ -474,9 +462,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"Won't you look at the garden?\" I say.",
-      "audio": "audio/story_49/s6.wav",
-      "audio_hash": "753abdd1f054"
+      "gloss_en": "\"Won't you look at the garden?\" I say."
     },
     {
       "idx": 7,
@@ -536,9 +522,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Behind the garden, there are spring flowers.",
-      "audio": "audio/story_49/s7.wav",
-      "audio_hash": "54bab7508eaa"
+      "gloss_en": "Behind the garden, there are spring flowers."
     },
     {
       "idx": 8,
@@ -588,9 +572,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Together with the friend, I look at the flowers.",
-      "audio": "audio/story_49/s8.wav",
-      "audio_hash": "e477a37e3c9f"
+      "gloss_en": "Together with the friend, I look at the flowers."
     },
     {
       "idx": 9,
@@ -637,9 +619,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend's face is happy.",
-      "audio": "audio/story_49/s9.wav",
-      "audio_hash": "92caf3841f6f"
+      "gloss_en": "The friend's face is happy."
     },
     {
       "idx": 10,
@@ -689,17 +669,15 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My heart is warm.",
-      "audio": "audio/story_49/s10.wav",
-      "audio_hash": "60752119f2ba"
+      "gloss_en": "My heart is warm."
     },
     {
       "idx": 11,
       "tokens": [
         {
           "t": "私",
-          "r": "watashi",
           "role": "content",
+          "r": "わたし",
           "word_id": "W00003"
         },
         {
@@ -708,19 +686,20 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "赤い",
-          "r": "akai",
+          "t": "服",
           "role": "content",
-          "word_id": "W00142",
-          "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+          "r": "ふく",
+          "word_id": "W00168"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "帽子",
-          "r": "ぼうし",
           "role": "content",
+          "r": "ぼうし",
           "word_id": "W00170",
           "is_new": true
         },
@@ -731,22 +710,23 @@
         },
         {
           "t": "覚えます",
-          "r": "oboemasu",
           "role": "content",
+          "r": "おぼえます",
           "word_id": "W00123",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "base": "覚える",
+            "base_r": "おぼえる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I remember the red hat.",
-      "audio": "audio/story_49/s11.wav",
-      "audio_hash": "594d3603dc0b"
+      "gloss_en": "I remember the clothes and the hat."
     },
     {
       "idx": 12,
@@ -808,9 +788,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"Won't you come tomorrow too?\" I say.",
-      "audio": "audio/story_49/s12.wav",
-      "audio_hash": "e002919272c5"
+      "gloss_en": "\"Won't you come tomorrow too?\" I say."
     },
     {
       "idx": 13,
@@ -882,9 +860,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend says, \"where will tomorrow be?\"",
-      "audio": "audio/story_49/s13.wav",
-      "audio_hash": "5c95a673ee03"
+      "gloss_en": "The friend says, \"where will tomorrow be?\""
     },
     {
       "idx": 14,
@@ -1008,9 +984,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Spring evening, warm tea, a new promise.",
-      "audio": "audio/story_49/s15.wav",
-      "audio_hash": "66c33b540680"
+      "gloss_en": "Spring evening, warm tea, a new promise."
     }
   ],
   "new_words": [
@@ -1043,7 +1017,7 @@
     "W00050",
     "W00122",
     "W00120",
-    "W00142",
+    "W00168",
     "W00170",
     "W00123",
     "W00046",
@@ -1053,7 +1027,5 @@
     "W00017",
     "W00066",
     "W00132"
-  ],
-  "word_audio": {},
-  "word_audio_hash": {}
+  ]
 }

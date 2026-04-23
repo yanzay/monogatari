@@ -132,9 +132,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring morning.",
-      "audio": "audio/story_53/s0.wav",
-      "audio_hash": "03fcfb532d5c"
+      "gloss_en": "It is a spring morning."
     },
     {
       "idx": 1,
@@ -210,9 +208,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bookstore person is at my house.",
-      "audio": "audio/story_53/s1.wav",
-      "audio_hash": "98d87f5aed45"
+      "gloss_en": "The bookstore person is at my house."
     },
     {
       "idx": 2,
@@ -262,9 +258,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On the table, there is an old book.",
-      "audio": "audio/story_53/s2.wav",
-      "audio_hash": "8c1a98ad4a6b"
+      "gloss_en": "On the table, there is an old book."
     },
     {
       "idx": 3,
@@ -342,9 +336,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I say, \"what kind of book is it?\"",
-      "audio": "audio/story_53/s3.wav",
-      "audio_hash": "7d273013fef6"
+      "gloss_en": "I say, \"what kind of book is it?\""
     },
     {
       "idx": 4,
@@ -419,9 +411,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bookstore person says, \"it is a beautiful book.\"",
-      "audio": "audio/story_53/s4.wav",
-      "audio_hash": "b552f1ceadcc"
+      "gloss_en": "The bookstore person says, \"it is a beautiful book.\""
     },
     {
       "idx": 5,
@@ -483,9 +473,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "(He) says, \"please, look at it.\"",
-      "audio": "audio/story_53/s5.wav",
-      "audio_hash": "7476f3d0bc41"
+      "gloss_en": "(He) says, \"please, look at it.\""
     },
     {
       "idx": 6,
@@ -536,9 +524,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I look at this book.",
-      "audio": "audio/story_53/s6.wav",
-      "audio_hash": "8d28a268462a"
+      "gloss_en": "I look at this book."
     },
     {
       "idx": 7,
@@ -576,9 +562,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The book is old.",
-      "audio": "audio/story_53/s7.wav",
-      "audio_hash": "b02cc2a7fb1c"
+      "gloss_en": "The book is old."
     },
     {
       "idx": 8,
@@ -638,9 +622,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But, the book's flowers are new.",
-      "audio": "audio/story_53/s8.wav",
-      "audio_hash": "396d684a36a6"
+      "gloss_en": "But, the book's flowers are new."
     },
     {
       "idx": 9,
@@ -729,9 +711,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I say, \"what flower is this?\"",
-      "audio": "audio/story_53/s9.wav",
-      "audio_hash": "ccecac2538f2"
+      "gloss_en": "I say, \"what flower is this?\""
     },
     {
       "idx": 10,
@@ -806,9 +786,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bookstore person says, \"they are red flowers.\"",
-      "audio": "audio/story_53/s10.wav",
-      "audio_hash": "e71d70606da2"
+      "gloss_en": "The bookstore person says, \"they are red flowers.\""
     },
     {
       "idx": 11,
@@ -858,83 +836,71 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My heart is happy.",
-      "audio": "audio/story_53/s11.wav",
-      "audio_hash": "b224b0eb608f"
+      "gloss_en": "My heart is happy."
     },
     {
       "idx": 12,
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
           "role": "content",
+          "r": "わたし",
           "word_id": "W00003"
         },
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and",
-          "r": "と"
-        },
-        {
-          "t": "あの",
-          "r": "あの",
-          "role": "content",
-          "word_id": "W00147",
-          "grammar_id": "G043_kosoado_pre_nominal"
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "学生",
-          "r": "がくせい",
           "role": "content",
+          "r": "がくせい",
           "word_id": "W00176",
           "is_new": true
         },
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "温かい",
-          "r": "あたたかい",
           "role": "content",
+          "r": "あたたかい",
           "word_id": "W00012",
-          "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "お茶",
-          "r": "おちゃ",
           "role": "content",
+          "r": "おちゃ",
           "word_id": "W00009"
         },
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object",
-          "r": "を"
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "飲みます",
-          "r": "のみます",
           "role": "content",
+          "r": "のみます",
           "word_id": "W00010",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "(My) student and I drink warm tea."
+      "gloss_en": "The student and I drink warm tea."
     },
     {
       "idx": 13,
@@ -1003,44 +969,51 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think, \"what shall we talk about next week?\"",
-      "audio": "audio/story_53/s13.wav",
-      "audio_hash": "750947efc9dc"
+      "gloss_en": "I think, \"what shall we talk about next week?\""
     },
     {
       "idx": 14,
       "tokens": [
         {
-          "t": "時間",
-          "r": "じかん",
+          "t": "先生",
           "role": "content",
+          "r": "せんせい",
+          "word_id": "W00175"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "時間",
+          "role": "content",
+          "r": "じかん",
           "word_id": "W00177",
           "is_new": true
         },
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "来週",
-          "r": "らいしゅう",
           "role": "content",
+          "r": "らいしゅう",
           "word_id": "W00146"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The time is next week."
+      "gloss_en": "The teacher's time is next week."
     },
     {
       "idx": 15,
@@ -1157,9 +1130,8 @@
     "W00009",
     "W00010",
     "W00146",
+    "W00175",
     "W00177",
     "W00178"
-  ],
-  "word_audio": {},
-  "word_audio_hash": {}
+  ]
 }
