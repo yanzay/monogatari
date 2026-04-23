@@ -23,73 +23,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "本の店の人と公園に行きます。",
-    "en": "I go to the park with the bookstore person.",
-    "tokens": [
-      {
-        "t": "本",
-        "role": "content",
-        "word_id": "W00033",
-        "r": "ほん"
-      },
-      {
-        "t": "の",
-        "role": "particle",
-        "grammar_id": "G015_no_possessive"
-      },
-      {
-        "t": "店",
-        "role": "content",
-        "word_id": "W00084",
-        "r": "みせ"
-      },
-      {
-        "t": "の",
-        "role": "particle",
-        "grammar_id": "G015_no_possessive"
-      },
-      {
-        "t": "人",
-        "role": "content",
-        "word_id": "W00113",
-        "r": "ひと"
-      },
-      {
-        "t": "と",
-        "role": "particle",
-        "grammar_id": "G010_to_and"
-      },
-      {
-        "t": "公園",
-        "role": "content",
-        "word_id": "W00016",
-        "r": "こうえん"
-      },
-      {
-        "t": "に",
-        "role": "particle",
-        "grammar_id": "G004_ni_location"
-      },
-      {
-        "t": "行きます",
-        "role": "content",
-        "word_id": "W00150",
-        "r": "いきます",
-        "inflection": {
-          "base": "行く",
-          "base_r": "いく",
-          "form": "polite_nonpast",
-          "verb_class": "godan"
-        },
-        "grammar_id": "G026_masu_nonpast"
-      },
-      {
-        "t": "。",
-        "role": "punct"
-      }
-    ]
-  },
   "new_words": [
     "W00150",
     "W00185",
@@ -100,16 +33,16 @@
   ],
   "all_words_used": [
     "W00150",
+    "W00072",
+    "W00018",
     "W00033",
     "W00084",
     "W00113",
-    "W00016",
-    "W00072",
-    "W00018",
     "W00003",
     "W00078",
     "W00185",
     "W00040",
+    "W00016",
     "W00097",
     "W00120",
     "W00056",

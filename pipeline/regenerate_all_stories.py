@@ -49,7 +49,7 @@ def strip_audio(story: dict) -> None:
     """Remove all audio-related fields IN PLACE."""
     for f in AUDIO_FIELDS:
         story.pop(f, None)
-    for sect in ("title", "subtitle"):
+    for sect in ("title",):
         for tok in story.get(sect, {}).get("tokens", []):
             for f in TOKEN_AUDIO_FIELDS:
                 tok.pop(f, None)
@@ -66,7 +66,7 @@ def _normalize_first_occurrence_flags(stories_dir: Path) -> None:
 
     A `word_id` (resp. `grammar_id`) is marked `is_new` (resp. `is_new_grammar`)
     on EXACTLY ONE token in EXACTLY ONE story — the first story (by id) and,
-    within that story, the first token in document order (title → subtitle →
+    within that story, the first token in document order (title →
     sentences in source order) where the id appears.
 
     Story-level `new_words` and `new_grammar` arrays are recomputed to be
@@ -106,8 +106,8 @@ def _normalize_first_occurrence_flags(stories_dir: Path) -> None:
                     first_in_story_grammars.append(gid)
 
         # Stamp is_new on the FIRST SENTENCE occurrence of each new word
-        # (validator semantics: title/subtitle is decorative, the flag
-        # belongs to the body). Fall back to title/subtitle only when the
+        # (validator semantics: title is decorative, the flag
+        # belongs to the body). Fall back to title only when the
         # word never appears in any sentence in this story.
         sentence_first_word: dict[str, dict] = {}
         for sn in story.get("sentences", []):
@@ -116,7 +116,7 @@ def _normalize_first_occurrence_flags(stories_dir: Path) -> None:
                 if wid in first_in_story_words and wid not in sentence_first_word:
                     sentence_first_word[wid] = t
         title_first_word: dict[str, dict] = {}
-        for sect in ("title", "subtitle"):
+        for sect in ("title",):
             for t in story.get(sect, {}).get("tokens", []):
                 wid = t.get("word_id")
                 if wid in first_in_story_words and wid not in title_first_word:
@@ -143,7 +143,7 @@ def _normalize_first_occurrence_flags(stories_dir: Path) -> None:
                 if g in first_in_story_grammars and g not in sentence_first_g:
                     sentence_first_g[g] = t
         title_first_g: dict[str, dict] = {}
-        for sect in ("title", "subtitle"):
+        for sect in ("title",):
             for t in story.get(sect, {}).get("tokens", []):
                 g = _gid_of(t)
                 if g in first_in_story_grammars and g not in title_first_g:
@@ -168,7 +168,7 @@ def _refresh_vocab_metadata(vocab: dict, stories_dir: Path) -> None:
     # `occurrences` mirrors state_updater semantics: one increment per story
     # the word appears in, counting `sentences` only.
     sent_seen_in: dict[str, list[str]] = {wid: [] for wid in word_ids}
-    # `first_story` / `last_seen_story` count ANY appearance (incl. title/subtitle)
+    # `first_story` / `last_seen_story` count ANY appearance (incl. title)
     any_seen_in: dict[str, list[str]] = {wid: [] for wid in word_ids}
     for path in sorted(stories_dir.glob("story_*.json"), key=lambda p: int(p.stem.split("_")[1])):
         story = json.loads(path.read_text(encoding="utf-8"))
@@ -181,7 +181,7 @@ def _refresh_vocab_metadata(vocab: dict, stories_dir: Path) -> None:
                 if wid and wid in word_ids:
                     sent_used.add(wid)
                     any_used.add(wid)
-        for sect in ("title", "subtitle"):
+        for sect in ("title",):
             for t in story.get(sect, {}).get("tokens", []):
                 wid = t.get("word_id")
                 if wid and wid in word_ids:
@@ -203,7 +203,7 @@ def _refresh_vocab_metadata(vocab: dict, stories_dir: Path) -> None:
 def _all_section_tokens(story: dict) -> list[tuple[str, dict]]:
     """Walk all tokens in (section_name, token) pairs, in document order."""
     out = []
-    for sect_name in ("title", "subtitle"):
+    for sect_name in ("title",):
         for t in story.get(sect_name, {}).get("tokens", []):
             out.append((sect_name, t))
     for sn in story.get("sentences", []):

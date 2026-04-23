@@ -40,62 +40,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "友達は私の家に来ます。",
-    "en": "The friend comes to my house.",
-    "tokens": [
-      {
-        "t": "友達",
-        "role": "content",
-        "word_id": "W00022",
-        "r": "ともだち"
-      },
-      {
-        "t": "は",
-        "role": "particle",
-        "grammar_id": "G001_wa_topic"
-      },
-      {
-        "t": "私",
-        "role": "content",
-        "word_id": "W00003",
-        "r": "わたし"
-      },
-      {
-        "t": "の",
-        "role": "particle",
-        "grammar_id": "G015_no_possessive"
-      },
-      {
-        "t": "家",
-        "role": "content",
-        "word_id": "W00078",
-        "r": "いえ"
-      },
-      {
-        "t": "に",
-        "role": "particle",
-        "grammar_id": "G004_ni_location"
-      },
-      {
-        "t": "来ます",
-        "role": "content",
-        "word_id": "W00040",
-        "r": "きます",
-        "inflection": {
-          "base": "来る",
-          "base_r": "くる",
-          "form": "polite_nonpast",
-          "verb_class": "irregular_kuru"
-        },
-        "grammar_id": "G026_masu_nonpast"
-      },
-      {
-        "t": "。",
-        "role": "punct"
-      }
-    ]
-  },
   "new_words": [
     "W00170",
     "W00171",
@@ -107,12 +51,11 @@
   "all_words_used": [
     "W00009",
     "W00010",
+    "W00072",
+    "W00018",
     "W00022",
     "W00003",
     "W00078",
-    "W00040",
-    "W00072",
-    "W00018",
     "W00025",
     "W00029",
     "W00097",
@@ -130,6 +73,7 @@
     "W00170",
     "W00123",
     "W00046",
+    "W00040",
     "W00143",
     "W00171",
     "W00169",

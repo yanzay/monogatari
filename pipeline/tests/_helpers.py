@@ -4,7 +4,7 @@ from __future__ import annotations
 
 def iter_tokens(story: dict):
     """Yield (section_name, sentence_idx_or_None, token_idx, token) for every token."""
-    for sec_name in ("title", "subtitle"):
+    for sec_name in ("title",):
         sec = story.get(sec_name) or {}
         for j, tok in enumerate(sec.get("tokens", [])):
             yield (sec_name, None, j, tok)

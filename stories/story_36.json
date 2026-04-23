@@ -23,36 +23,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "友達が来ます",
-    "en": "The friend comes",
-    "tokens": [
-      {
-        "t": "友達",
-        "role": "content",
-        "word_id": "W00022",
-        "r": "ともだち"
-      },
-      {
-        "t": "が",
-        "role": "particle",
-        "grammar_id": "G002_ga_subject"
-      },
-      {
-        "t": "来ます",
-        "role": "content",
-        "word_id": "W00040",
-        "r": "きます",
-        "inflection": {
-          "base": "来る",
-          "base_r": "くる",
-          "form": "polite_nonpast",
-          "verb_class": "irregular_kuru"
-        },
-        "grammar_id": "G026_masu_nonpast"
-      }
-    ]
-  },
   "new_words": [
     "W00107",
     "W00109",
@@ -63,8 +33,6 @@
   "all_words_used": [
     "W00063",
     "W00030",
-    "W00022",
-    "W00040",
     "W00107",
     "W00003",
     "W00004",
@@ -73,6 +41,7 @@
     "W00062",
     "W00011",
     "W00070",
+    "W00022",
     "W00041",
     "W00025",
     "W00109",

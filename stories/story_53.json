@@ -38,62 +38,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "本の店の人と話します。",
-    "en": "I talk with the bookstore person.",
-    "tokens": [
-      {
-        "t": "本",
-        "role": "content",
-        "word_id": "W00033",
-        "r": "ほん"
-      },
-      {
-        "t": "の",
-        "role": "particle",
-        "grammar_id": "G015_no_possessive"
-      },
-      {
-        "t": "店",
-        "role": "content",
-        "word_id": "W00084",
-        "r": "みせ"
-      },
-      {
-        "t": "の",
-        "role": "particle",
-        "grammar_id": "G015_no_possessive"
-      },
-      {
-        "t": "人",
-        "role": "content",
-        "word_id": "W00113",
-        "r": "ひと"
-      },
-      {
-        "t": "と",
-        "role": "particle",
-        "grammar_id": "G010_to_and"
-      },
-      {
-        "t": "話します",
-        "role": "content",
-        "word_id": "W00094",
-        "r": "はなします",
-        "inflection": {
-          "base": "話す",
-          "base_r": "はなす",
-          "form": "polite_nonpast",
-          "verb_class": "godan"
-        },
-        "grammar_id": "G026_masu_nonpast"
-      },
-      {
-        "t": "。",
-        "role": "punct"
-      }
-    ]
-  },
   "new_words": [
     "W00176",
     "W00177",
@@ -103,11 +47,10 @@
   "all_words_used": [
     "W00135",
     "W00033",
-    "W00084",
-    "W00113",
-    "W00094",
     "W00072",
     "W00015",
+    "W00084",
+    "W00113",
     "W00003",
     "W00078",
     "W00029",

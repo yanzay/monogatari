@@ -37,61 +37,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "冬の朝、雪が降ります。",
-    "en": "A winter morning — snow falls.",
-    "tokens": [
-      {
-        "t": "冬",
-        "role": "content",
-        "word_id": "W00095",
-        "r": "ふゆ"
-      },
-      {
-        "t": "の",
-        "role": "particle",
-        "grammar_id": "G015_no_possessive"
-      },
-      {
-        "t": "朝",
-        "role": "content",
-        "word_id": "W00015",
-        "r": "あさ"
-      },
-      {
-        "t": "、",
-        "role": "punct"
-      },
-      {
-        "t": "雪",
-        "role": "content",
-        "word_id": "W00063",
-        "r": "ゆき"
-      },
-      {
-        "t": "が",
-        "role": "particle",
-        "grammar_id": "G002_ga_subject"
-      },
-      {
-        "t": "降ります",
-        "role": "content",
-        "word_id": "W00107",
-        "r": "ふります",
-        "inflection": {
-          "base": "降る",
-          "base_r": "ふる",
-          "form": "polite_nonpast",
-          "verb_class": "ichidan"
-        },
-        "grammar_id": "G026_masu_nonpast"
-      },
-      {
-        "t": "。",
-        "role": "punct"
-      }
-    ]
-  },
   "new_words": [
     "W00212",
     "W00213",

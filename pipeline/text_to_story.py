@@ -6,7 +6,6 @@ Input (JSON):
 {
   "story_id": 68,
   "title":    {"jp": "雨", "en": "Rain"},
-  "subtitle": {"jp": "静かな朝", "en": "A quiet morning"},
   "sentences": [
     {"jp": "今朝は雨です。", "en": "This morning, it is raining."},
     ...
@@ -926,7 +925,6 @@ def build_story(
         return {"jp": jp, "en": en, "tokens": tokens_for_text(jp, st)}
 
     title = _section(spec["title"]["jp"], spec["title"]["en"])
-    subtitle = _section(spec["subtitle"]["jp"], spec["subtitle"]["en"])
     sentences = []
     for idx, s in enumerate(spec["sentences"]):
         sentences.append({
@@ -935,10 +933,10 @@ def build_story(
             "gloss_en": s["en"],
         })
 
-    # all_words_used in first-seen order across title→subtitle→sentences
+    # all_words_used in first-seen order across title→sentences
     all_word_ids: list[str] = []
     seen: set[str] = set()
-    for section in [title, subtitle, *sentences]:
+    for section in [title, *sentences]:
         for t in section["tokens"]:
             wid = t.get("word_id")
             if wid and wid != "<TODO>" and wid not in seen:
@@ -948,7 +946,6 @@ def build_story(
     raw = {
         "story_id": spec["story_id"],
         "title": title,
-        "subtitle": subtitle,
         "new_words": [],     # filled by _normalize_first_occurrence_flags
         "new_grammar": [],   # filled by _normalize_first_occurrence_flags
         "all_words_used": all_word_ids,

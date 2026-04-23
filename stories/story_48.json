@@ -28,62 +28,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "友達は本の店を探します。",
-    "en": "The friend looks for the bookstore.",
-    "tokens": [
-      {
-        "t": "友達",
-        "role": "content",
-        "word_id": "W00022",
-        "r": "ともだち"
-      },
-      {
-        "t": "は",
-        "role": "particle",
-        "grammar_id": "G001_wa_topic"
-      },
-      {
-        "t": "本",
-        "role": "content",
-        "word_id": "W00033",
-        "r": "ほん"
-      },
-      {
-        "t": "の",
-        "role": "particle",
-        "grammar_id": "G015_no_possessive"
-      },
-      {
-        "t": "店",
-        "role": "content",
-        "word_id": "W00084",
-        "r": "みせ"
-      },
-      {
-        "t": "を",
-        "role": "particle",
-        "grammar_id": "G005_wo_object"
-      },
-      {
-        "t": "探します",
-        "role": "content",
-        "word_id": "W00128",
-        "r": "さがします",
-        "inflection": {
-          "base": "探す",
-          "base_r": "さがす",
-          "form": "polite_nonpast",
-          "verb_class": "godan"
-        },
-        "grammar_id": "G026_masu_nonpast"
-      },
-      {
-        "t": "。",
-        "role": "punct"
-      }
-    ]
-  },
   "new_words": [
     "W00143",
     "W00144",
@@ -94,13 +38,12 @@
   ],
   "all_words_used": [
     "W00143",
-    "W00022",
-    "W00033",
-    "W00084",
-    "W00128",
     "W00072",
     "W00018",
+    "W00022",
     "W00040",
+    "W00033",
+    "W00084",
     "W00097",
     "W00003",
     "W00078",
@@ -112,6 +55,7 @@
     "W00144",
     "W00067",
     "W00137",
+    "W00128",
     "W00140",
     "W00043",
     "W00139",

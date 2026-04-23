@@ -19,76 +19,31 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "友達がすぐに来ます。",
-    "en": "My friend comes right away.",
-    "tokens": [
-      {
-        "t": "友達",
-        "role": "content",
-        "word_id": "W00022",
-        "r": "ともだち"
-      },
-      {
-        "t": "が",
-        "role": "particle",
-        "grammar_id": "G002_ga_subject"
-      },
-      {
-        "t": "すぐ",
-        "role": "content",
-        "word_id": "W00133",
-        "r": "すぐ"
-      },
-      {
-        "t": "に",
-        "role": "particle",
-        "grammar_id": "G004_ni_location"
-      },
-      {
-        "t": "来ます",
-        "role": "content",
-        "word_id": "W00040",
-        "r": "きます",
-        "inflection": {
-          "base": "来る",
-          "base_r": "くる",
-          "form": "polite_nonpast",
-          "verb_class": "irregular_kuru"
-        },
-        "grammar_id": "G026_masu_nonpast"
-      },
-      {
-        "t": "。",
-        "role": "punct"
-      }
-    ]
-  },
   "new_words": [
-    "W00133",
     "W00132",
-    "W00131"
+    "W00131",
+    "W00133"
   ],
   "new_grammar": [
     "G036_masen"
   ],
   "all_words_used": [
     "W00041",
-    "W00022",
-    "W00133",
-    "W00040",
     "W00072",
     "W00018",
     "W00003",
     "W00004",
     "W00045",
     "W00087",
+    "W00022",
     "W00132",
     "W00039",
     "W00128",
     "W00131",
     "W00093",
+    "W00040",
     "W00044",
+    "W00133",
     "W00024",
     "W00058",
     "W00097",

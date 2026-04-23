@@ -95,7 +95,7 @@ def test_first_introduction_marked_is_new(stories, vocab):
     is_new_marks: dict[str, list[str]] = {}  # wid → list of (story_id, location) where is_new was true
 
     for story in sorted(stories, key=lambda s: int(s["_id"].split("_")[1])):
-        for sec_name in ("title", "subtitle"):
+        for sec_name in ("title",):
             sec = story.get(sec_name) or {}
             for j, tok in enumerate(sec.get("tokens", [])):
                 wid = tok.get("word_id")
@@ -127,7 +127,7 @@ def test_all_words_used_in_first_seen_order(stories):
     bad = []
     for story in stories:
         seen: list[str] = []
-        for sec_name in ("title", "subtitle"):
+        for sec_name in ("title",):
             sec = story.get(sec_name) or {}
             for tok in sec.get("tokens", []):
                 wid = tok.get("word_id")

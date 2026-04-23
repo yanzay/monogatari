@@ -23,41 +23,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "隣に歩いています",
-    "en": "Walking beside me",
-    "tokens": [
-      {
-        "t": "隣",
-        "role": "content",
-        "word_id": "W00127",
-        "r": "となり"
-      },
-      {
-        "t": "に",
-        "role": "particle",
-        "grammar_id": "G004_ni_location"
-      },
-      {
-        "t": "歩いて",
-        "role": "content",
-        "word_id": "W00017",
-        "r": "あるいて",
-        "inflection": {
-          "base": "歩く",
-          "base_r": "あるく",
-          "form": "te",
-          "verb_class": "godan"
-        },
-        "grammar_id": "G007_te_form"
-      },
-      {
-        "t": "います",
-        "role": "aux",
-        "grammar_id": "G008_te_iru"
-      }
-    ]
-  },
   "new_words": [
     "W00127",
     "W00125",
@@ -67,15 +32,15 @@
   "all_words_used": [
     "W00035",
     "W00064",
-    "W00127",
-    "W00017",
     "W00072",
     "W00018",
     "W00022",
     "W00078",
     "W00026",
+    "W00017",
     "W00113",
     "W00003",
+    "W00127",
     "W00029",
     "W00115",
     "W00125",

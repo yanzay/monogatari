@@ -23,36 +23,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "父が言います",
-    "en": "Father speaks",
-    "tokens": [
-      {
-        "t": "父",
-        "role": "content",
-        "word_id": "W00096",
-        "r": "ちち"
-      },
-      {
-        "t": "が",
-        "role": "particle",
-        "grammar_id": "G002_ga_subject"
-      },
-      {
-        "t": "言います",
-        "role": "content",
-        "word_id": "W00097",
-        "r": "いいます",
-        "inflection": {
-          "base": "言う",
-          "base_r": "いう",
-          "form": "polite_nonpast",
-          "verb_class": "godan"
-        },
-        "grammar_id": "G026_masu_nonpast"
-      }
-    ]
-  },
   "new_words": [
     "W00095",
     "W00096",
@@ -66,8 +36,6 @@
   "all_words_used": [
     "W00095",
     "W00019",
-    "W00096",
-    "W00097",
     "W00015",
     "W00062",
     "W00003",
@@ -76,8 +44,10 @@
     "W00167",
     "W00009",
     "W00010",
+    "W00096",
     "W00093",
     "W00040",
+    "W00097",
     "W00061",
     "W00058",
     "W00088",

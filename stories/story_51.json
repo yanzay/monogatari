@@ -20,57 +20,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "公園で友達と一緒に歩きます。",
-    "en": "I walk in the park with the friend.",
-    "tokens": [
-      {
-        "t": "公園",
-        "role": "content",
-        "word_id": "W00016",
-        "r": "こうえん"
-      },
-      {
-        "t": "で",
-        "role": "particle",
-        "grammar_id": "G017_de_means"
-      },
-      {
-        "t": "友達",
-        "role": "content",
-        "word_id": "W00022",
-        "r": "ともだち"
-      },
-      {
-        "t": "と",
-        "role": "particle",
-        "grammar_id": "G010_to_and"
-      },
-      {
-        "t": "一緒に",
-        "role": "content",
-        "word_id": "W00050",
-        "r": "いっしょに"
-      },
-      {
-        "t": "歩きます",
-        "role": "content",
-        "word_id": "W00017",
-        "r": "あるきます",
-        "inflection": {
-          "base": "歩く",
-          "base_r": "あるく",
-          "form": "polite_nonpast",
-          "verb_class": "godan"
-        },
-        "grammar_id": "G026_masu_nonpast"
-      },
-      {
-        "t": "。",
-        "role": "punct"
-      }
-    ]
-  },
   "new_words": [
     "W00147",
     "W00148",
@@ -83,14 +32,12 @@
   "all_words_used": [
     "W00147",
     "W00024",
-    "W00016",
-    "W00022",
-    "W00050",
-    "W00017",
     "W00072",
     "W00018",
+    "W00016",
     "W00007",
     "W00044",
+    "W00022",
     "W00056",
     "W00097",
     "W00142",
@@ -107,6 +54,8 @@
     "W00047",
     "W00006",
     "W00173",
+    "W00050",
+    "W00017",
     "W00120",
     "W00145",
     "W00040",

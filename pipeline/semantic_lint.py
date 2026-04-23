@@ -132,16 +132,16 @@ def semantic_sanity_lint(story: dict, vocab: dict | None = None) -> list[Issue]:
     issues: list[Issue] = []
     sentences = story.get("sentences", []) or []
 
-    # Set of word_ids that appear in title/subtitle (so a "motif must be
+    # Set of word_ids that appear in title (so a "motif must be
     # established earlier" check correctly counts the title as established
     # context).
-    title_subtitle_wids: set[str] = set()
-    for sec in ("title", "subtitle"):
+    title_wids: set[str] = set()
+    for sec in ("title",):
         sec_obj = story.get(sec) or {}
         for tok in sec_obj.get("tokens", []):
             wid = tok.get("word_id")
             if wid:
-                title_subtitle_wids.add(wid)
+                title_wids.add(wid)
 
     # Build per-sentence content/grammar projections for cheap pattern matching.
     sentence_views: list[dict] = []
@@ -482,7 +482,7 @@ def semantic_sanity_lint(story: dict, vocab: dict | None = None) -> list[Issue]:
 
     # ─ Rule 11.5: lonely scene noun ──────────────────────────────────────────
     # Pattern: a scene-setting noun (rain, wind, moon, star, sky, …) appears
-    # in exactly ONE sentence of the story AND is not in title/subtitle.
+    # in exactly ONE sentence of the story AND is not in title.
     # The original audit case was story 7's `月も雨を見ます` — 雨 was used
     # in exactly one sentence of a stars-and-moon story that never set up
     # rain anywhere else. A noun that genuinely matters to the scene gets
@@ -506,14 +506,14 @@ def semantic_sanity_lint(story: dict, vocab: dict | None = None) -> list[Issue]:
                 scene_counts[wid] += 1
                 scene_first_idx.setdefault(wid, view["idx"])
     for wid, count in scene_counts.items():
-        if count == 1 and wid not in title_subtitle_wids:
+        if count == 1 and wid not in title_wids:
             idx = scene_first_idx[wid]
             issues.append(Issue(
                 severity="warning",
                 message=(
                     f"Lonely scene noun '{_lemma_for(vocab, wid)}' appears in "
                     f"exactly one sentence (s{idx}) and is not in the title or "
-                    f"subtitle. A motif that genuinely matters to the scene "
+                    f"the title. A motif that genuinely matters to the scene "
                     f"usually appears at least twice or anchors the title. If "
                     f"this image is decoration, consider cutting it or echoing "
                     f"it earlier so it doesn't read as the 'moon also looks at "

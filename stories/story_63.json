@@ -35,62 +35,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "私は朝から夜まで書きます。",
-    "en": "I write from morning until night.",
-    "tokens": [
-      {
-        "t": "私",
-        "role": "content",
-        "word_id": "W00003",
-        "r": "わたし"
-      },
-      {
-        "t": "は",
-        "role": "particle",
-        "grammar_id": "G001_wa_topic"
-      },
-      {
-        "t": "朝",
-        "role": "content",
-        "word_id": "W00015",
-        "r": "あさ"
-      },
-      {
-        "t": "から",
-        "role": "particle",
-        "grammar_id": "G006_kara_from"
-      },
-      {
-        "t": "夜",
-        "role": "content",
-        "word_id": "W00030",
-        "r": "よる"
-      },
-      {
-        "t": "まで",
-        "role": "particle",
-        "grammar_id": "G052_made_until"
-      },
-      {
-        "t": "書きます",
-        "role": "content",
-        "word_id": "W00060",
-        "r": "かきます",
-        "inflection": {
-          "base": "書く",
-          "base_r": "かく",
-          "form": "polite_nonpast",
-          "verb_class": "godan"
-        },
-        "grammar_id": "G026_masu_nonpast"
-      },
-      {
-        "t": "。",
-        "role": "punct"
-      }
-    ]
-  },
   "new_words": [
     "W00154",
     "W00202",
@@ -102,11 +46,9 @@
   "all_words_used": [
     "W00154",
     "W00060",
-    "W00003",
-    "W00015",
-    "W00030",
     "W00072",
     "W00018",
+    "W00003",
     "W00037",
     "W00029",
     "W00067",

@@ -23,40 +23,17 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "雪と電車",
-    "en": "Snow and a train",
-    "tokens": [
-      {
-        "t": "雪",
-        "role": "content",
-        "word_id": "W00063",
-        "r": "ゆき"
-      },
-      {
-        "t": "と",
-        "role": "particle",
-        "grammar_id": "G010_to_and"
-      },
-      {
-        "t": "電車",
-        "role": "content",
-        "word_id": "W00070",
-        "r": "でんしゃ"
-      }
-    ]
-  },
   "new_words": [
     "W00069",
-    "W00070",
-    "W00071"
+    "W00071",
+    "W00070"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G025_counters"
+  ],
   "all_words_used": [
     "W00069",
     "W00018",
-    "W00063",
-    "W00070",
     "W00011",
     "W00003",
     "W00022",
@@ -65,7 +42,9 @@
     "W00071",
     "W00057",
     "W00006",
+    "W00063",
     "W00040",
+    "W00070",
     "W00035",
     "W00026",
     "W00064",
@@ -382,7 +361,8 @@
           "role": "content",
           "word_id": "W00035",
           "r": "ふたり",
-          "grammar_id": "G025_counters"
+          "grammar_id": "G025_counters",
+          "is_new_grammar": true
         },
         {
           "t": "で",

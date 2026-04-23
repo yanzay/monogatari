@@ -41,7 +41,7 @@ def load_json(path: Path) -> dict:
 
 def first_seen_word_order(story: dict) -> list[str]:
     """Compute the canonical all_words_used: every word_id in first-seen order
-    across title -> subtitle -> sentences (in order)."""
+    across title -> sentences (in order)."""
     seen: list[str] = []
     seen_set: set[str] = set()
 
@@ -54,8 +54,6 @@ def first_seen_word_order(story: dict) -> list[str]:
 
     if title := story.get("title"):
         visit(title.get("tokens", []))
-    if subtitle := story.get("subtitle"):
-        visit(subtitle.get("tokens", []))
     for sent in story.get("sentences", []):
         visit(sent.get("tokens", []))
     return seen
@@ -82,7 +80,7 @@ def main() -> int:
     fixes_applied: list[str] = []
 
     # ── 1. top-level required fields ─────────────────────────────────────────
-    for field in ("story_id", "title", "subtitle", "sentences"):
+    for field in ("story_id", "title", "sentences"):
         if field not in story:
             errors.append(f"missing top-level field '{field}'")
 
@@ -128,19 +126,18 @@ def main() -> int:
             if missing:
                 details.append(f"missing={sorted(missing)}")
             if not extra and not missing:
-                details.append("wrong order — should be first-seen order across title→subtitle→sentences")
+                details.append("wrong order — should be first-seen order across title→sentences")
             errors.append("all_words_used is stale: " + ", ".join(details))
 
     # ── 4. is_new placement (must be on first sentence-token, not title) ─────
     title_toks = (story.get("title") or {}).get("tokens", [])
-    subtitle_toks = (story.get("subtitle") or {}).get("tokens", [])
-    for tok in title_toks + subtitle_toks:
+    for tok in title_toks:
         if tok.get("is_new") and tok.get("word_id") in declared_new_words:
             if args.fix:
                 del tok["is_new"]
-                fixes_applied.append(f"removed is_new from title/subtitle token '{tok.get('t')}' (must live on first sentence-token)")
+                fixes_applied.append(f"removed is_new from title token '{tok.get('t')}' (must live on first sentence-token)")
             else:
-                errors.append(f"title/subtitle token '{tok.get('t')}' has is_new=true — must live on the FIRST SENTENCE-token, not in title/subtitle")
+                errors.append(f"title token '{tok.get('t')}' has is_new=true — must live on the FIRST SENTENCE-token, not in title")
 
     # find first sentence-occurrence and ensure is_new is set there exactly once
     for wid in declared_new_words:

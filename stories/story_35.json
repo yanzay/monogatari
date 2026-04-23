@@ -23,43 +23,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "新しい仕事を始めます",
-    "en": "Beginning a new job",
-    "tokens": [
-      {
-        "t": "新しい",
-        "role": "content",
-        "word_id": "W00066",
-        "r": "あたらしい",
-        "grammar_id": "G022_i_adj"
-      },
-      {
-        "t": "仕事",
-        "role": "content",
-        "word_id": "W00105",
-        "r": "しごと"
-      },
-      {
-        "t": "を",
-        "role": "particle",
-        "grammar_id": "G005_wo_object"
-      },
-      {
-        "t": "始めます",
-        "role": "content",
-        "word_id": "W00106",
-        "r": "はじめます",
-        "inflection": {
-          "base": "始める",
-          "base_r": "はじめる",
-          "form": "polite_nonpast",
-          "verb_class": "ichidan"
-        },
-        "grammar_id": "G026_masu_nonpast"
-      }
-    ]
-  },
   "new_words": [
     "W00105",
     "W00106",
@@ -72,15 +35,15 @@
   "all_words_used": [
     "W00089",
     "W00039",
-    "W00066",
-    "W00105",
-    "W00106",
     "W00018",
     "W00037",
     "W00029",
     "W00040",
     "W00003",
     "W00034",
+    "W00066",
+    "W00105",
+    "W00106",
     "W00104",
     "W00093",
     "W00058",

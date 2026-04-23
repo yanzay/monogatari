@@ -46,73 +46,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "本の店の人が家に来ました。",
-    "en": "The bookstore person came to the house.",
-    "tokens": [
-      {
-        "t": "本",
-        "role": "content",
-        "word_id": "W00033",
-        "r": "ほん"
-      },
-      {
-        "t": "の",
-        "role": "particle",
-        "grammar_id": "G015_no_possessive"
-      },
-      {
-        "t": "店",
-        "role": "content",
-        "word_id": "W00084",
-        "r": "みせ"
-      },
-      {
-        "t": "の",
-        "role": "particle",
-        "grammar_id": "G015_no_possessive"
-      },
-      {
-        "t": "人",
-        "role": "content",
-        "word_id": "W00113",
-        "r": "ひと"
-      },
-      {
-        "t": "が",
-        "role": "particle",
-        "grammar_id": "G002_ga_subject"
-      },
-      {
-        "t": "家",
-        "role": "content",
-        "word_id": "W00078",
-        "r": "いえ"
-      },
-      {
-        "t": "に",
-        "role": "particle",
-        "grammar_id": "G004_ni_location"
-      },
-      {
-        "t": "来ました",
-        "role": "content",
-        "word_id": "W00040",
-        "r": "きました",
-        "inflection": {
-          "base": "来る",
-          "base_r": "くる",
-          "form": "polite_past",
-          "verb_class": "irregular_kuru"
-        },
-        "grammar_id": "G013_mashita_past"
-      },
-      {
-        "t": "。",
-        "role": "punct"
-      }
-    ]
-  },
   "new_words": [
     "W00211",
     "W00210",
@@ -124,11 +57,6 @@
   "all_words_used": [
     "W00080",
     "W00013",
-    "W00033",
-    "W00084",
-    "W00113",
-    "W00078",
-    "W00040",
     "W00072",
     "W00018",
     "W00003",
@@ -136,6 +64,9 @@
     "W00029",
     "W00011",
     "W00025",
+    "W00033",
+    "W00084",
+    "W00113",
     "W00147",
     "W00097",
     "W00085",
@@ -144,6 +75,7 @@
     "W00010",
     "W00050",
     "W00022",
+    "W00078",
     "W00102",
     "W00066",
     "W00211",
@@ -154,6 +86,7 @@
     "W00148",
     "W00086",
     "W00154",
+    "W00040",
     "W00060",
     "W00120",
     "W00012"

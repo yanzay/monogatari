@@ -39,13 +39,12 @@ def _make_story(*, story_id: int, opener_jp: str, title_jp: str = "テスト",
     """Minimal story stub that exercises only the opener + title checks.
 
     The validator's Check 1 short-circuits if required schema fields are
-    missing, so we provide token lists for title/subtitle/sentences (using
+    missing, so we provide token lists for title/sentences (using
     role:'punct' to bypass content-token vocab requirements).
     """
     return {
         "story_id": story_id,
         "title": {"jp": title_jp, "en": "test", "tokens": _punct_tokens(title_jp)},
-        "subtitle": {"jp": "サブ", "en": "sub", "tokens": _punct_tokens("サブ")},
         "new_words": [],
         "new_grammar": new_grammar or [],
         "all_words_used": [],

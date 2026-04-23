@@ -23,36 +23,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "窓を開けて",
-    "en": "Opening the window",
-    "tokens": [
-      {
-        "t": "窓",
-        "role": "content",
-        "word_id": "W00004",
-        "r": "まど"
-      },
-      {
-        "t": "を",
-        "role": "particle",
-        "grammar_id": "G005_wo_object"
-      },
-      {
-        "t": "開けて",
-        "role": "content",
-        "word_id": "W00073",
-        "r": "あけて",
-        "inflection": {
-          "base": "開ける",
-          "base_r": "あける",
-          "form": "te",
-          "verb_class": "ichidan"
-        },
-        "grammar_id": "G007_te_form"
-      }
-    ]
-  },
   "new_words": [
     "W00072",
     "W00073",
@@ -62,12 +32,12 @@
   "all_words_used": [
     "W00072",
     "W00015",
-    "W00004",
-    "W00073",
     "W00001",
     "W00040",
     "W00003",
     "W00066",
+    "W00004",
+    "W00073",
     "W00012",
     "W00059",
     "W00024",

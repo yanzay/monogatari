@@ -30,43 +30,9 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "部屋を探します。",
-    "en": "I search the room.",
-    "tokens": [
-      {
-        "t": "部屋",
-        "role": "content",
-        "word_id": "W00075",
-        "r": "へや"
-      },
-      {
-        "t": "を",
-        "role": "particle",
-        "grammar_id": "G005_wo_object"
-      },
-      {
-        "t": "探します",
-        "role": "content",
-        "word_id": "W00128",
-        "r": "さがします",
-        "inflection": {
-          "base": "探す",
-          "base_r": "さがす",
-          "form": "polite_nonpast",
-          "verb_class": "godan"
-        },
-        "grammar_id": "G026_masu_nonpast"
-      },
-      {
-        "t": "。",
-        "role": "punct"
-      }
-    ]
-  },
   "new_words": [
-    "W00128",
     "W00130",
+    "W00128",
     "W00129"
   ],
   "new_grammar": [
@@ -75,13 +41,13 @@
   "all_words_used": [
     "W00079",
     "W00044",
-    "W00075",
-    "W00128",
     "W00030",
     "W00003",
+    "W00075",
     "W00040",
     "W00130",
     "W00037",
+    "W00128",
     "W00036",
     "W00006",
     "W00076",

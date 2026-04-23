@@ -81,11 +81,10 @@ GRAMMAR_SCHEMA = {
 STORY_SCHEMA = {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
-    "required": ["title", "subtitle", "sentences", "all_words_used", "new_words", "new_grammar"],
+    "required": ["title", "sentences", "all_words_used", "new_words", "new_grammar"],
     "properties": {
         "id":               {"type": "string", "pattern": "^story_\\d+$"},
         "title":            {"type": "object"},
-        "subtitle":         {"type": "object"},
         "sentences":        {"type": "array"},
         "all_words_used":   {"type": "array", "items": {"type": "string", "pattern": "^W\\d{5}$"}},
         "new_words":        {"type": "array"},
@@ -146,7 +145,7 @@ def test_token_schema(stories):
     validator = Draft202012Validator(TOKEN_SCHEMA)
     errors = []
     for story in stories:
-        for sec_name in ("title", "subtitle"):
+        for sec_name in ("title",):
             sec = story.get(sec_name) or {}
             for j, tok in enumerate(sec.get("tokens", [])):
                 for err in validator.iter_errors(tok):

@@ -27,68 +27,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "雨が降ります、風も吹きます。",
-    "en": "Rain falls, wind also blows.",
-    "tokens": [
-      {
-        "t": "雨",
-        "role": "content",
-        "word_id": "W00002",
-        "r": "あめ"
-      },
-      {
-        "t": "が",
-        "role": "particle",
-        "grammar_id": "G002_ga_subject"
-      },
-      {
-        "t": "降ります",
-        "role": "content",
-        "word_id": "W00107",
-        "r": "ふります",
-        "inflection": {
-          "base": "降る",
-          "base_r": "ふる",
-          "form": "polite_nonpast",
-          "verb_class": "ichidan"
-        },
-        "grammar_id": "G026_masu_nonpast"
-      },
-      {
-        "t": "、",
-        "role": "punct"
-      },
-      {
-        "t": "風",
-        "role": "content",
-        "word_id": "W00027",
-        "r": "かぜ"
-      },
-      {
-        "t": "も",
-        "role": "particle",
-        "grammar_id": "G009_mo_also"
-      },
-      {
-        "t": "吹きます",
-        "role": "content",
-        "word_id": "W00151",
-        "r": "ふきます",
-        "inflection": {
-          "base": "吹く",
-          "base_r": "ふく",
-          "form": "polite_nonpast",
-          "verb_class": "godan"
-        },
-        "grammar_id": "G026_masu_nonpast"
-      },
-      {
-        "t": "。",
-        "role": "punct"
-      }
-    ]
-  },
   "new_words": [
     "W00151",
     "W00194",
@@ -100,11 +38,11 @@
   "all_words_used": [
     "W00011",
     "W00030",
+    "W00072",
     "W00002",
     "W00107",
     "W00027",
     "W00151",
-    "W00072",
     "W00075",
     "W00003",
     "W00058",

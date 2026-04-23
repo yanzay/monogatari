@@ -28,62 +28,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "本の店の人は来ます。",
-    "en": "The bookstore person comes.",
-    "tokens": [
-      {
-        "t": "本",
-        "role": "content",
-        "word_id": "W00033",
-        "r": "ほん"
-      },
-      {
-        "t": "の",
-        "role": "particle",
-        "grammar_id": "G015_no_possessive"
-      },
-      {
-        "t": "店",
-        "role": "content",
-        "word_id": "W00084",
-        "r": "みせ"
-      },
-      {
-        "t": "の",
-        "role": "particle",
-        "grammar_id": "G015_no_possessive"
-      },
-      {
-        "t": "人",
-        "role": "content",
-        "word_id": "W00113",
-        "r": "ひと"
-      },
-      {
-        "t": "は",
-        "role": "particle",
-        "grammar_id": "G001_wa_topic"
-      },
-      {
-        "t": "来ます",
-        "role": "content",
-        "word_id": "W00040",
-        "r": "きます",
-        "inflection": {
-          "base": "来る",
-          "base_r": "くる",
-          "form": "polite_nonpast",
-          "verb_class": "irregular_kuru"
-        },
-        "grammar_id": "G026_masu_nonpast"
-      },
-      {
-        "t": "。",
-        "role": "punct"
-      }
-    ]
-  },
   "new_words": [
     "W00149",
     "W00174",
@@ -94,14 +38,14 @@
   ],
   "all_words_used": [
     "W00080",
+    "W00072",
+    "W00018",
     "W00033",
     "W00084",
     "W00113",
-    "W00040",
-    "W00072",
-    "W00018",
     "W00003",
     "W00078",
+    "W00040",
     "W00025",
     "W00006",
     "W00149",

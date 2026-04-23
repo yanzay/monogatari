@@ -21,62 +21,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "私は朝から本を読みます。",
-    "en": "I read books from morning.",
-    "tokens": [
-      {
-        "t": "私",
-        "role": "content",
-        "word_id": "W00003",
-        "r": "わたし"
-      },
-      {
-        "t": "は",
-        "role": "particle",
-        "grammar_id": "G001_wa_topic"
-      },
-      {
-        "t": "朝",
-        "role": "content",
-        "word_id": "W00015",
-        "r": "あさ"
-      },
-      {
-        "t": "から",
-        "role": "particle",
-        "grammar_id": "G006_kara_from"
-      },
-      {
-        "t": "本",
-        "role": "content",
-        "word_id": "W00033",
-        "r": "ほん"
-      },
-      {
-        "t": "を",
-        "role": "particle",
-        "grammar_id": "G005_wo_object"
-      },
-      {
-        "t": "読みます",
-        "role": "content",
-        "word_id": "W00034",
-        "r": "よみます",
-        "inflection": {
-          "base": "読む",
-          "base_r": "よむ",
-          "form": "polite_nonpast",
-          "verb_class": "godan"
-        },
-        "grammar_id": "G026_masu_nonpast"
-      },
-      {
-        "t": "。",
-        "role": "punct"
-      }
-    ]
-  },
   "new_words": [
     "W00197",
     "W00196",
@@ -87,11 +31,11 @@
   ],
   "all_words_used": [
     "W00018",
-    "W00003",
+    "W00072",
     "W00015",
+    "W00003",
     "W00033",
     "W00034",
-    "W00072",
     "W00067",
     "W00197",
     "W00009",

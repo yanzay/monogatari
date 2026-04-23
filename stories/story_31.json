@@ -23,36 +23,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "家族について話します",
-    "en": "Talking about family",
-    "tokens": [
-      {
-        "t": "家族",
-        "role": "content",
-        "word_id": "W00088",
-        "r": "かぞく"
-      },
-      {
-        "t": "について",
-        "role": "particle",
-        "grammar_id": "G027_ni_tsuite"
-      },
-      {
-        "t": "話します",
-        "role": "content",
-        "word_id": "W00094",
-        "r": "はなします",
-        "inflection": {
-          "base": "話す",
-          "base_r": "はなす",
-          "form": "polite_nonpast",
-          "verb_class": "godan"
-        },
-        "grammar_id": "G026_masu_nonpast"
-      }
-    ]
-  },
   "new_words": [
     "W00093",
     "W00094",
@@ -64,13 +34,12 @@
   "all_words_used": [
     "W00022",
     "W00093",
-    "W00088",
-    "W00094",
     "W00001",
     "W00040",
     "W00003",
     "W00009",
     "W00010",
+    "W00094",
     "W00089",
     "W00058",
     "W00090",

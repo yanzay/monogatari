@@ -34,41 +34,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "人を見たいです",
-    "en": "I want to see them",
-    "tokens": [
-      {
-        "t": "人",
-        "role": "content",
-        "word_id": "W00113",
-        "r": "ひと"
-      },
-      {
-        "t": "を",
-        "role": "particle",
-        "grammar_id": "G005_wo_object"
-      },
-      {
-        "t": "見たい",
-        "role": "content",
-        "word_id": "W00006",
-        "r": "みたい",
-        "inflection": {
-          "base": "見る",
-          "base_r": "みる",
-          "form": "tai",
-          "verb_class": "ichidan"
-        },
-        "grammar_id": "G031_tai"
-      },
-      {
-        "t": "です",
-        "role": "aux",
-        "grammar_id": "G003_desu"
-      }
-    ]
-  },
   "new_words": [
     "W00113",
     "W00114",
@@ -81,7 +46,6 @@
     "W00033",
     "W00084",
     "W00113",
-    "W00006",
     "W00029",
     "W00055",
     "W00011",
@@ -93,6 +57,7 @@
     "W00097",
     "W00115",
     "W00043",
+    "W00006",
     "W00027",
     "W00050",
     "W00041"

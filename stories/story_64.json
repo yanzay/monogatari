@@ -34,72 +34,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "夕方、友達は私の家に来ました。",
-    "en": "In the evening, the friend came to my house.",
-    "tokens": [
-      {
-        "t": "夕方",
-        "role": "content",
-        "word_id": "W00018",
-        "r": "ゆうがた"
-      },
-      {
-        "t": "、",
-        "role": "punct"
-      },
-      {
-        "t": "友達",
-        "role": "content",
-        "word_id": "W00022",
-        "r": "ともだち"
-      },
-      {
-        "t": "は",
-        "role": "particle",
-        "grammar_id": "G001_wa_topic"
-      },
-      {
-        "t": "私",
-        "role": "content",
-        "word_id": "W00003",
-        "r": "わたし"
-      },
-      {
-        "t": "の",
-        "role": "particle",
-        "grammar_id": "G015_no_possessive"
-      },
-      {
-        "t": "家",
-        "role": "content",
-        "word_id": "W00078",
-        "r": "いえ"
-      },
-      {
-        "t": "に",
-        "role": "particle",
-        "grammar_id": "G004_ni_location"
-      },
-      {
-        "t": "来ました",
-        "role": "content",
-        "word_id": "W00040",
-        "r": "きました",
-        "inflection": {
-          "base": "来る",
-          "base_r": "くる",
-          "form": "polite_past",
-          "verb_class": "irregular_kuru"
-        },
-        "grammar_id": "G013_mashita_past"
-      },
-      {
-        "t": "。",
-        "role": "punct"
-      }
-    ]
-  },
   "new_words": [
     "W00205",
     "W00206",
@@ -111,15 +45,13 @@
   "all_words_used": [
     "W00022",
     "W00094",
-    "W00018",
-    "W00003",
-    "W00078",
-    "W00040",
     "W00072",
     "W00015",
+    "W00003",
     "W00154",
     "W00060",
     "W00205",
+    "W00040",
     "W00009",
     "W00010",
     "W00046",

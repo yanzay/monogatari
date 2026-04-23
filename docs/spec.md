@@ -107,10 +107,9 @@ Static reference catalog of all grammar points (built once from JLPT/Genki sourc
 {
   "story_id": 12,
   "title":    {"tokens": [ /* token records */ ]},
-  "subtitle": {"tokens": [ /* token records */ ]},
   "new_words":      ["W00045", "W00046"],
   "new_grammar":    ["G013_mashita_past"],
-  "all_words_used": ["W00001", "W00002", "..."],   // first-seen order across title→subtitle→sentences
+  "all_words_used": ["W00001", "W00002", "..."],   // first-seen order across title→sentences
   "sentences": [
     {
       "idx":      1,
@@ -178,7 +177,7 @@ The validator accepts `te_form` as an alias for `te`. The legacy v1/v3 names (`m
 1. **Schema** — all required fields present, types correct.
 2. **Vocab resolution** — every `word_id` is in `vocab_state` or in this story's `new_words`.
 3. **Grammar resolution** — every `grammar_id` is in `grammar_state` or `new_grammar`.
-4. **First-seen order** — `all_words_used` matches the actual first occurrence across title→subtitle→sentences.
+4. **First-seen order** — `all_words_used` matches the actual first occurrence across title→sentences.
 5. **Inflection consistency** — when `inflection` is present, the surface kana matches what the inflection rules would produce from `base` + `form`.
 6. **Reading sanity** — `r` is hiragana (no romaji); kanji tokens have a reading.
 7. **Length tier** — total token count is within the policy band for the story's tier.

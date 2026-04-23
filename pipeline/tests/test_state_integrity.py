@@ -365,7 +365,7 @@ def test_lifetime_occurrences_match_state_updater_semantics(stories, vocab):
 
     This matches state_updater.py's semantics (one increment per story, regardless
     of how many tokens reference the word, and only counting `sentences`, not
-    title/subtitle). Catches state drift after post-ship edits.
+    title). Catches state drift after post-ship edits.
     """
     expected: Counter[str] = Counter()
     for story in stories:

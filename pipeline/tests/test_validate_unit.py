@@ -69,13 +69,6 @@ def make_valid_story():
                 {"t": "雨", "r": "あめ", "word_id": "W00002", "role": "content"}
             ],
         },
-        "subtitle": {
-            "jp": "雨",
-            "en": "A rainy morning",
-            "tokens": [
-                {"t": "雨", "r": "あめ", "word_id": "W00002", "role": "content"},
-            ],
-        },
         "plan_ref": None,
         "new_words": ["W00001", "W00002", "W00003", "W00004", "W00005"],
         "new_grammar": ["G006_kara_from"],
@@ -166,7 +159,7 @@ def make_valid_plan(story=None):
 
 def refresh_used_word_ids(story):
     used = []
-    for section in [story.get("title", {}), story.get("subtitle", {})]:
+    for section in [story.get("title", {})]:
         for tok in section.get("tokens", []):
             wid = tok.get("word_id")
             if wid and wid not in used:
@@ -182,7 +175,6 @@ def refresh_used_word_ids(story):
 
 def remove_title_tokens(story):
     story["title"].pop("tokens", None)
-    story["subtitle"].pop("tokens", None)
     return story
 
 
@@ -596,16 +588,18 @@ def run_tests():
     r = validate(s, VOCAB, GRAMMAR)
     check("Unknown grammar_id → check 3 error", errors_for_check(r, 3))
 
-    print("\n── Check 1b: Title/subtitle tokenisation and metadata ─────────────")
+    print("\n── Check 1b: Title tokenisation and metadata ─────────────")
     s = make_valid_story()
     s["title"]["tokens"] = [{"t": "雨", "r": "あめ", "role": "content", "word_id": "W00002"}]
     r = validate(s, VOCAB, GRAMMAR)
     check("Title tokens supported → still valid", r.valid, str(r.errors) if r.errors else "")
 
     s = make_valid_story()
-    s["subtitle"] = {"jp": "朝", "en": "Morning", "tokens": [{"t": "今朝", "r": "けさ", "role": "content", "word_id": "W00001"}]}
+    # Title with text/token mismatch (tokens claim 朝 but jp text says 雨) → check 1 error
+    s["title"] = {"jp": "雨", "en": "Rain",
+                  "tokens": [{"t": "朝", "r": "あさ", "role": "content", "word_id": "W00001"}]}
     r = validate(s, VOCAB, GRAMMAR)
-    check("Mismatched title/subtitle tokens → check 1 error", errors_for_check(r, 1))
+    check("Mismatched title tokens → check 1 error", errors_for_check(r, 1))
 
     s = make_valid_story()
     s["title"]["tokens"] = [{"t": "の", "role": "particle"}]

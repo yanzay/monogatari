@@ -349,7 +349,7 @@ def _post_split_shizukana(tokens: list[dict], stats: Counter) -> list[dict]:
 
 def normalize_story(story: dict, stats: Counter, warnings: list) -> bool:
     changed = False
-    for sect in ("title", "subtitle"):
+    for sect in ("title",):
         toks = story.get(sect, {}).get("tokens", [])
         for tok in toks:
             if normalize_token(tok, stats, warnings):
@@ -381,7 +381,7 @@ def normalize_story(story: dict, stats: Counter, warnings: list) -> bool:
 
     # Note: we deliberately do NOT touch is_new_grammar markers — the
     # validator's notion of "first occurrence" is subtle (it accepts title,
-    # subtitle, OR sentence depending on context) and rewriting them is
+    # OR sentence depending on context) and rewriting them is
     # likely to introduce regressions. The G023→G022 collapse below could
     # leave a previously-tagged G023 first occurrence un-marked, but the
     # validator only requires *some* first occurrence carries the flag.

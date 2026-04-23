@@ -23,56 +23,23 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "二人で読みます",
-    "en": "We two read together",
-    "tokens": [
-      {
-        "t": "二人",
-        "role": "content",
-        "word_id": "W00035",
-        "r": "ふたり",
-        "grammar_id": "G025_counters",
-        "is_new_grammar": true
-      },
-      {
-        "t": "で",
-        "role": "particle",
-        "grammar_id": "G017_de_means"
-      },
-      {
-        "t": "読みます",
-        "role": "content",
-        "word_id": "W00034",
-        "r": "よみます",
-        "inflection": {
-          "base": "読む",
-          "base_r": "よむ",
-          "form": "polite_nonpast",
-          "verb_class": "godan"
-        },
-        "grammar_id": "G026_masu_nonpast"
-      }
-    ]
-  },
   "new_words": [
     "W00033",
     "W00035",
     "W00034"
   ],
   "new_grammar": [
-    "G025_counters",
     "G017_de_means"
   ],
   "all_words_used": [
     "W00033",
     "W00022",
-    "W00035",
-    "W00034",
     "W00015",
+    "W00035",
     "W00016",
     "W00029",
     "W00003",
+    "W00034",
     "W00011",
     "W00156",
     "W00013",

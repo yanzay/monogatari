@@ -12,35 +12,8 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "静かな朝",
-    "en": "A quiet morning",
-    "tokens": [
-      {
-        "t": "静か",
-        "role": "content",
-        "word_id": "W00011",
-        "r": "しずか"
-      },
-      {
-        "t": "な",
-        "role": "particle",
-        "grammar_id": "G016_na_adjective",
-        "is_new_grammar": true
-      },
-      {
-        "t": "朝",
-        "role": "content",
-        "word_id": "W00015",
-        "r": "あさ",
-        "is_new": true
-      }
-    ]
-  },
   "new_words": [
     "W00002",
-    "W00011",
-    "W00015",
     "W00001",
     "W00003",
     "W00004",
@@ -50,12 +23,12 @@
     "W00008",
     "W00009",
     "W00010",
+    "W00011",
     "W00012",
     "W00013",
     "W00014"
   ],
   "new_grammar": [
-    "G016_na_adjective",
     "G001_wa_topic",
     "G003_desu",
     "G006_kara_from",
@@ -68,8 +41,6 @@
   ],
   "all_words_used": [
     "W00002",
-    "W00011",
-    "W00015",
     "W00001",
     "W00003",
     "W00004",
@@ -79,6 +50,7 @@
     "W00008",
     "W00009",
     "W00010",
+    "W00011",
     "W00012",
     "W00013",
     "W00014"

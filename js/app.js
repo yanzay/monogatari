@@ -247,7 +247,7 @@ function switchView(name, { updateHash = true, replace = true } = {}) {
 function renderReadView() {
   if (!story) return;
 
-  // Header — build title/subtitle as interactive ruby tokens
+  // Header — build title as interactive ruby tokens
   document.getElementById('story-title-en').textContent   = story.title.en;
   document.getElementById('story-id-label').textContent   = `Story ${story.story_id}`;
 
@@ -255,9 +255,6 @@ function renderReadView() {
   titleEl.innerHTML = '';
   buildRubyHeader(story.title, titleEl);
 
-  const subtitleEl = document.getElementById('story-subtitle-jp');
-  subtitleEl.innerHTML = '';
-  buildRubyHeader(story.subtitle, subtitleEl);
 
   // Story nav buttons. The Next button is gated solely on whether the
   // learner has explicitly added this story's new words to the SRS via
@@ -534,7 +531,7 @@ function addStoryToSRS(s) {
   });
 }
 
-// Build interactive ruby tokens for title/subtitle from a {jp, en, tokens?} object.
+// Build interactive ruby tokens for title from a {jp, en, tokens?} object.
 // If no tokens array, fall back to a single ruby span using jp/kana fields.
 function buildRubyHeader(titleObj, container) {
   if (titleObj.tokens) {

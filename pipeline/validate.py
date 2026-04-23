@@ -214,7 +214,6 @@ class ValidationResult:
 REQUIRED_STORY_FIELDS = {
     "story_id": int,
     "title": dict,
-    "subtitle": dict,
     "new_words": list,
     "new_grammar": list,
     "all_words_used": list,
@@ -277,7 +276,7 @@ def has_kanji(text: str) -> bool:
 
 def collect_text_sections(story: dict) -> list[tuple[str, list[dict]]]:
     sections: list[tuple[str, list[dict]]] = []
-    for field_name in ("title", "subtitle"):
+    for field_name in ("title",):
         obj = story.get(field_name, {})
         if isinstance(obj, dict) and isinstance(obj.get("tokens"), list):
             sections.append((field_name, obj["tokens"]))
@@ -435,8 +434,8 @@ def sentence_sections(story: dict) -> list[tuple[str, list[dict]]]:
     return [(name, tokens) for name, tokens in collect_text_sections(story) if name.startswith("sentence ")]
 
 
-def title_subtitle_sections(story: dict) -> list[tuple[str, list[dict]]]:
-    return [(name, tokens) for name, tokens in collect_text_sections(story) if name in {"title", "subtitle"}]
+def title_sections(story: dict) -> list[tuple[str, list[dict]]]:
+    return [(name, tokens) for name, tokens in collect_text_sections(story) if name == "title"]
 
 
 def count_non_punct_tokens(tokens: list[dict]) -> int:
@@ -514,8 +513,8 @@ def new_ids_marked_once(story: dict, key: str, flag: str) -> dict[str, int]:
     return counts
 
 
-def validate_title_subtitle_tokens(story: dict, result: ValidationResult) -> None:
-    for section_name, tokens in title_subtitle_sections(story):
+def validate_title_tokens(story: dict, result: ValidationResult) -> None:
+    for section_name, tokens in title_sections(story):
         text_obj = story.get(section_name, {})
         jp_text = text_obj.get("jp", "") if isinstance(text_obj, dict) else ""
         if not tokens:
@@ -552,7 +551,7 @@ def validate(
                                 f"got {type(story[field_name]).__name__}")
 
     for field_name in ("jp", "en"):
-        for obj_name in ("title", "subtitle"):
+        for obj_name in ("title",):
             obj = story.get(obj_name, {})
             if isinstance(obj, dict) and field_name not in obj:
                 result.add_error(1, f"'{obj_name}' missing '{field_name}' field")
@@ -588,11 +587,11 @@ def validate(
         # Stop early — further checks assume schema is valid
         return result
 
-    validate_title_subtitle_tokens(story, result)
+    validate_title_tokens(story, result)
     if result.errors:
         return result
 
-    # Collect all tokens across titles/subtitles/sentences, but keep length checks sentence-only.
+    # Collect all tokens across titles/sentences, but keep length checks sentence-only.
     all_tokens = collect_all_tokens(story)
     sentence_tokens = collect_sentence_tokens(story)
     content_tokens = [tok for tok in sentence_tokens if tok.get("role") == "content"]
@@ -763,7 +762,7 @@ def validate(
 
                 def _grammar_used(d: dict) -> set[str]:
                     u: set[str] = set()
-                    for sec in ("title", "subtitle"):
+                    for sec in ("title",):
                         for tok in (d.get(sec) or {}).get("tokens", []):
                             for gid in (tok.get("grammar_id"),
                                         (tok.get("inflection") or {}).get("grammar_id")):
@@ -899,9 +898,9 @@ def validate(
         if not occ:
             continue
         section_index, section_name, tok = occ
-        # Title/subtitle uses are decorative; the spec's "first introduction"
+        # Title uses are decorative; the spec's "first introduction"
         # belongs to the body, so use the first sentence occurrence when present.
-        if section_name in ("title", "subtitle"):
+        if section_name == "title":
             sentence_intro = _first_sentence_word(wid)
             if sentence_intro:
                 section_index, section_name, tok = sentence_intro
@@ -913,7 +912,7 @@ def validate(
         if not occ:
             continue
         section_index, section_name, tok = occ
-        if section_name in ("title", "subtitle"):
+        if section_name == "title":
             sentence_intro = _first_sentence_grammar(gid)
             if sentence_intro:
                 section_index, section_name, tok = sentence_intro

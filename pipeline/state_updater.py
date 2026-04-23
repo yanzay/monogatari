@@ -52,22 +52,22 @@ def update_state(
 
     # Collect all word_ids used in this story.
     #
-    # `first_story` and `last_seen_story` are computed from title + subtitle +
+    # `first_story` and `last_seen_story` are computed from title +
     # sentences (a word that debuts in the title genuinely debuts there, and
-    # the same for "last seen" — a learner reads the subtitle when revisiting
+    # the same for "last seen" — a learner reads the title when revisiting
     # a story).
     #
     # `occurrences` (the lifetime practice counter) is computed from
     # **sentences only**. The repo's permanent integrity test
     # (`test_lifetime_occurrences_match_state_updater_semantics`) defines this
-    # as the contract — title and subtitle are headers, not body beats, and
+    # as the contract — title is a header, not body beats, and
     # counting them inflated the per-word practice count for words that
     # appeared as headline-only motifs (this drift was caught after story 27,
-    # which had 朝 in the subtitle but not in any sentence). See v0.16 in
+    # which used to live in a subtitle field, now removed). See v0.16 in
     # docs/authoring.md for the full rationale.
     header_word_ids = {
         tok["word_id"]
-        for sec_name in ("title", "subtitle")
+        for sec_name in ("title",)
         for tok in (story.get(sec_name) or {}).get("tokens", [])
         if tok.get("word_id")
     }
@@ -87,7 +87,7 @@ def update_state(
 
     for wid in all_word_ids:
         # Practice counter only counts sentence-level appearances; headers
-        # (title/subtitle) are tracked for first_story/last_seen_story but
+        # (title) are tracked for first_story/last_seen_story but
         # don't bump occurrences.
         in_body = wid in body_word_ids
         if wid in story_new_words:

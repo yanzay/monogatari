@@ -26,46 +26,6 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "祖母と一緒にいました。",
-    "en": "I was with grandmother.",
-    "tokens": [
-      {
-        "t": "祖母",
-        "role": "content",
-        "word_id": "W00098",
-        "r": "そぼ"
-      },
-      {
-        "t": "と",
-        "role": "particle",
-        "grammar_id": "G010_to_and"
-      },
-      {
-        "t": "一緒に",
-        "role": "content",
-        "word_id": "W00050",
-        "r": "いっしょに"
-      },
-      {
-        "t": "いました",
-        "role": "content",
-        "word_id": "W00029",
-        "r": "いました",
-        "inflection": {
-          "base": "いる",
-          "base_r": "いる",
-          "form": "polite_past",
-          "verb_class": "ichidan"
-        },
-        "grammar_id": "G013_mashita_past"
-      },
-      {
-        "t": "。",
-        "role": "punct"
-      }
-    ]
-  },
   "new_words": [
     "W00182",
     "W00184",
@@ -75,14 +35,12 @@
   "all_words_used": [
     "W00082",
     "W00081",
-    "W00098",
-    "W00050",
-    "W00029",
     "W00072",
     "W00015",
     "W00003",
     "W00043",
     "W00182",
+    "W00098",
     "W00078",
     "W00059",
     "W00083",
@@ -91,6 +49,7 @@
     "W00044",
     "W00103",
     "W00054",
+    "W00029",
     "W00184",
     "W00009",
     "W00010",

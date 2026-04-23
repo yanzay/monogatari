@@ -26,7 +26,6 @@ def extract_spec(canonical: dict) -> dict:
     return {
         "story_id": canonical["story_id"],
         "title":    {"jp": canonical["title"]["jp"],    "en": canonical["title"]["en"]},
-        "subtitle": {"jp": canonical["subtitle"]["jp"], "en": canonical["subtitle"]["en"]},
         "sentences": [
             {"jp": "".join(t.get("t", "") for t in s["tokens"]), "en": s["gloss_en"]}
             for s in canonical["sentences"]
@@ -74,7 +73,6 @@ def section_token_diff(canon_toks: list, gen_toks: list, section_name: str) -> l
 def diff_story(canon: dict, gen: dict) -> list[dict]:
     diffs: list[dict] = []
     diffs += section_token_diff(canon["title"]["tokens"],    gen["title"]["tokens"],    "title")
-    diffs += section_token_diff(canon["subtitle"]["tokens"], gen["subtitle"]["tokens"], "subtitle")
     n = max(len(canon["sentences"]), len(gen["sentences"]))
     for i in range(n):
         if i >= len(canon["sentences"]) or i >= len(gen["sentences"]):

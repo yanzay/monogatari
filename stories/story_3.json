@@ -12,42 +12,22 @@
       }
     ]
   },
-  "subtitle": {
-    "jp": "卵とお茶",
-    "en": "Eggs and tea",
-    "tokens": [
-      {
-        "t": "卵",
-        "role": "content",
-        "word_id": "W00021",
-        "r": "たまご"
-      },
-      {
-        "t": "と",
-        "role": "particle",
-        "grammar_id": "G010_to_and"
-      },
-      {
-        "t": "お茶",
-        "role": "content",
-        "word_id": "W00009",
-        "r": "おちゃ"
-      }
-    ]
-  },
   "new_words": [
     "W00019",
+    "W00015",
     "W00021",
     "W00020"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G016_na_adjective"
+  ],
   "all_words_used": [
     "W00019",
-    "W00021",
-    "W00009",
     "W00015",
     "W00002",
+    "W00021",
     "W00012",
+    "W00009",
     "W00020",
     "W00004",
     "W00005",
@@ -64,7 +44,8 @@
           "t": "朝",
           "role": "content",
           "word_id": "W00015",
-          "r": "あさ"
+          "r": "あさ",
+          "is_new": true
         },
         {
           "t": "、",
@@ -347,7 +328,8 @@
         {
           "t": "な",
           "role": "particle",
-          "grammar_id": "G016_na_adjective"
+          "grammar_id": "G016_na_adjective",
+          "is_new_grammar": true
         },
         {
           "t": "朝",

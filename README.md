@@ -27,7 +27,6 @@ cat > pipeline/inputs/story_68.json <<'EOF'
 {
   "story_id": 68,
   "title":    {"jp": "雨", "en": "Rain"},
-  "subtitle": {"jp": "静かな朝", "en": "A quiet morning"},
   "sentences": [
     {"jp": "今朝は雨です。",       "en": "This morning, it is raining."},
     {"jp": "私は窓から外を見ます。", "en": "I look outside through the window."}
