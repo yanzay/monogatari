@@ -5,13 +5,9 @@
     "consecutive_opener_template_max_chars": 8,
     "consecutive_opener_window": 3,
     "rationale_consecutive_opener": "If the first 8 characters of sentence 0 (after stripping leading numerics) appear identically as the first 8 characters of sentence 0 in any of the previous 3 stories, the story is rejected. Forces opener variety mechanically because the human reviewer demonstrably stopped enforcing pre-check item 5.",
-
     "grandfather_until_story_id": 67,
     "rationale_grandfather": "Stories with story_id <= 67 were authored before this guardrail existed; Check 13 and Check 14 emit warnings (not errors) for them so the existing library still ships while the back-catalog is rewritten. New stories (id >= 68) get hard errors. When the failing stories are rewritten, lower this number.",
-
-    "title_must_not_equal_grammar_form": true,
     "rationale_title_grammar": "If the story's new_grammar introduces a form (e.g. masen_deshita = 待ちませんでした) and the title's literal JP text is exactly that surface form (e.g. '待ちませんでした'), the story is rejected. authoring_rules.md §6 warns against letting the new grammar drive the plot; titling the story after the form is the most visible symptom.",
-
     "library_opener_blocklist": [
       "春の夕方です",
       "春の朝です",

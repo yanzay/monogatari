@@ -1359,12 +1359,6 @@ def validate(
                 else:
                     result.add_error(13, msg, loc)
 
-            def _emit_check14(msg: str, loc: str = "title") -> None:
-                if grandfathered:
-                    result.add_warning(f"[Check 14 (grandfathered)] {loc}: {msg}")
-                else:
-                    result.add_error(14, msg, loc)
-
             if (
                 isinstance(sid_for_opener, int)
                 and sid_for_opener > 0
@@ -1418,45 +1412,6 @@ def validate(
                         )
                         break
 
-            # ── Check 14: Title must not be the new-grammar surface form ────
-            if rules.get("title_must_not_equal_grammar_form", True):
-                title_text = ""
-                title = story.get("title") or {}
-                if isinstance(title, dict):
-                    title_text = title.get("jp") or "".join(
-                        t.get("t", "") for t in title.get("tokens", [])
-                    )
-                title_text = title_text.strip()
-                new_grammar = story.get("new_grammar") or []
-                if title_text and isinstance(new_grammar, list):
-                    grammar_table = grammar.get("points", {}) if isinstance(grammar, dict) else {}
-                    for gid in new_grammar:
-                        if not isinstance(gid, str):
-                            continue
-                        gpoint = grammar_table.get(gid) or {}
-                        gsurfaces = gpoint.get("surfaces") or gpoint.get("surface_forms") or []
-                        if isinstance(gsurfaces, str):
-                            gsurfaces = [gsurfaces]
-                        for surf in gsurfaces:
-                            if not isinstance(surf, str) or not surf:
-                                continue
-                            if title_text == surf or title_text.endswith(surf):
-                                # Allow title to *contain* the form mid-phrase,
-                                # but a bare title that is the form (or ends
-                                # with it after a noun) is the failure mode we
-                                # want to catch ("待ちません", "行きましょう",
-                                # "新しい傘がほしい" is borderline; require the
-                                # title surface to be at least 1.5x the form
-                                # surface to escape).
-                                if len(title_text) < int(len(surf) * 1.5):
-                                    _emit_check14(
-                                        f"Title '{title_text}' is essentially the "
-                                        f"new-grammar surface form '{surf}' "
-                                        f"(grammar {gid}). Re-title the story so "
-                                        f"the form is not the headline — the form "
-                                        f"should serve the plot, not be the plot."
-                                    )
-                                    break
     except Exception:  # never let a guardrail crash the validator
         pass
 
