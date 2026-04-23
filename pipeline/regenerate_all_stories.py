@@ -302,10 +302,31 @@ def _carry_over_canonical_grammar(
     return n_carried
 
 
-def regen_one(canon_path: Path, vocab: dict, grammar: dict) -> tuple[dict, dict, dict]:
-    """Regenerate one story. Returns (bilingual_spec, regenerated, report)."""
+def regen_one(
+    canon_path: Path,
+    vocab: dict,
+    grammar: dict,
+    inputs_dir: Optional[Path] = None,
+) -> tuple[dict, dict, dict]:
+    """Regenerate one story. Returns (bilingual_spec, regenerated, report).
+
+    Source-of-truth precedence:
+      1. pipeline/inputs/story_N.bilingual.json (if present and non-empty) —
+         the human-editable bilingual spec is the canonical input.
+      2. Otherwise, extract a spec from the shipped story_N.json itself
+         (initial bootstrap path).
+    """
     canon = json.loads(canon_path.read_text(encoding="utf-8"))
-    spec = extract_spec(canon)
+    sid = canon.get("story_id")
+    spec_path: Optional[Path] = None
+    if inputs_dir is not None and sid is not None:
+        candidate = inputs_dir / f"story_{sid}.bilingual.json"
+        if candidate.exists():
+            spec_path = candidate
+    if spec_path is not None:
+        spec = json.loads(spec_path.read_text(encoding="utf-8"))
+    else:
+        spec = extract_spec(canon)
     regen, report = build_story(spec, vocab, grammar)
     # Carry over any grammar tags the converter didn't know how to emit
     # (so the validator's reinforcement / first-occurrence checks see the
@@ -390,7 +411,7 @@ def main() -> int:
     for canon_path in story_paths:
         sid = int(canon_path.stem.split("_")[1])
         try:
-            spec, regen, report = regen_one(canon_path, vocab, grammar)
+            spec, regen, report = regen_one(canon_path, vocab, grammar, inputs_dir=args.inputs_dir)
         except Exception as e:
             print(f"  ✗ story {sid}: {type(e).__name__}: {e}")
             continue
@@ -415,12 +436,16 @@ def main() -> int:
         if args.apply:
             # Backup current story
             shutil.copy(canon_path, bak_dir / f"{canon_path.stem}_{ts}.json")
-            # Write bilingual spec
+            # Bilingual spec is the source of truth — only write it if it
+            # doesn't already exist (i.e., bootstrap path). Once authored,
+            # it's edited by humans and must NEVER be overwritten by
+            # round-tripping through the shipped story.
             spec_path = args.inputs_dir / f"story_{sid}.bilingual.json"
-            spec_path.write_text(
-                json.dumps(spec, ensure_ascii=False, indent=2) + "\n",
-                encoding="utf-8",
-            )
+            if not spec_path.exists():
+                spec_path.write_text(
+                    json.dumps(spec, ensure_ascii=False, indent=2) + "\n",
+                    encoding="utf-8",
+                )
             # Write regenerated story (audio-stripped)
             canon_path.write_text(new_text + "\n", encoding="utf-8")
             # Append any minted vocab to the live vocab dict so subsequent
