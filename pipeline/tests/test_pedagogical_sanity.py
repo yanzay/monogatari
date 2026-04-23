@@ -334,7 +334,7 @@ def test_introduced_grammar_is_reinforced(stories, root):
     intros: dict[int, list[str]] = {}
     for n, story in by_n.items():
         u: set[str] = set()
-        for sec in ("title", "subtitle"):
+        for sec in ("title",):
             for tok in (story.get(sec) or {}).get("tokens", []):
                 for gid in (tok.get("grammar_id"),
                             (tok.get("inflection") or {}).get("grammar_id")):
@@ -443,7 +443,7 @@ def test_vocab_words_are_reinforced(stories, root):
 
     def word_ids_used(story: dict) -> set[str]:
         used: set[str] = set()
-        for sec in ("title", "subtitle"):
+        for sec in ("title",):
             for tok in (story.get(sec) or {}).get("tokens", []):
                 if tok.get("role") == "content" and tok.get("word_id"):
                     used.add(tok["word_id"])
@@ -530,7 +530,7 @@ def test_no_vocab_word_abandoned(stories, root):
 
     def word_ids_used(story: dict) -> set[str]:
         used: set[str] = set()
-        for sec in ("title", "subtitle"):
+        for sec in ("title",):
             for tok in (story.get(sec) or {}).get("tokens", []):
                 if tok.get("role") == "content" and tok.get("word_id"):
                     used.add(tok["word_id"])
