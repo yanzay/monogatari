@@ -58,7 +58,9 @@
     "W00077",
     "W00190",
     "W00159",
-    "W00015"
+    "W00015",
+    "W00166",
+    "W00229"
   ],
   "sentences": [
     {
@@ -700,6 +702,40 @@
         }
       ],
       "gloss_en": "It's a slightly early morning."
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "皿",
+          "role": "content",
+          "word_id": "W00166",
+          "r": "さら"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "置きます",
+          "role": "content",
+          "word_id": "W00229",
+          "r": "おきます",
+          "inflection": {
+            "base": "置く",
+            "base_r": "おく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I put down the plate."
     }
   ]
 }

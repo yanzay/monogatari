@@ -38,9 +38,9 @@
     ]
   },
   "new_words": [
-    "W00212",
     "W00213",
-    "W00214"
+    "W00214",
+    "W00252"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -87,7 +87,10 @@
     "W00067",
     "W00208",
     "W00155",
-    "W00226"
+    "W00226",
+    "W00247",
+    "W00248",
+    "W00252"
   ],
   "sentences": [
     {
@@ -219,8 +222,7 @@
           "t": "緑",
           "role": "content",
           "word_id": "W00212",
-          "r": "みどり",
-          "is_new": true
+          "r": "みどり"
         },
         {
           "t": "は",
@@ -1263,6 +1265,72 @@
         }
       ],
       "gloss_en": "I meet that person."
+    },
+    {
+      "idx": 23,
+      "tokens": [
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "ページ",
+          "role": "content",
+          "word_id": "W00247",
+          "r": "ぺーじ"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "表紙",
+          "role": "content",
+          "word_id": "W00248",
+          "r": "ひょうし"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "夕日",
+          "role": "content",
+          "word_id": "W00252",
+          "r": "ゆうひ",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "美しい",
+          "role": "content",
+          "word_id": "W00083",
+          "r": "うつくしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The book's page and cover, and the evening sun, are beautiful."
     }
   ]
 }

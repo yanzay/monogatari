@@ -30,7 +30,8 @@
   },
   "new_words": [
     "W00149",
-    "W00175"
+    "W00175",
+    "W00244"
   ],
   "new_grammar": [
     "G044_te_kudasai"
@@ -71,7 +72,9 @@
     "W00039",
     "W00034",
     "W00079",
-    "W00220"
+    "W00220",
+    "W00244",
+    "W00044"
   ],
   "sentences": [
     {
@@ -1147,6 +1150,41 @@
         }
       ],
       "gloss_en": "The key isn't there."
+    },
+    {
+      "idx": 19,
+      "tokens": [
+        {
+          "t": "上着",
+          "role": "content",
+          "word_id": "W00244",
+          "r": "うわぎ",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is a coat."
     }
   ]
 }

@@ -25,7 +25,8 @@
     "W00197",
     "W00196",
     "W00195",
-    "W00238"
+    "W00238",
+    "W00250"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -80,7 +81,9 @@
     "W00098",
     "W00225",
     "W00238",
-    "W00137"
+    "W00137",
+    "W00245",
+    "W00250"
   ],
   "sentences": [
     {
@@ -1143,6 +1146,51 @@
         }
       ],
       "gloss_en": "This week, every day is bright."
+    },
+    {
+      "idx": 21,
+      "tokens": [
+        {
+          "t": "晩",
+          "role": "content",
+          "word_id": "W00183",
+          "r": "ばん"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "鐘",
+          "role": "content",
+          "word_id": "W00245",
+          "r": "かね"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "聞こえます",
+          "role": "content",
+          "word_id": "W00250",
+          "r": "きこえます",
+          "inflection": {
+            "base": "聞こえる",
+            "base_r": "きこえる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the evening, you can hear the bell."
     }
   ]
 }

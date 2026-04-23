@@ -25,7 +25,8 @@
   },
   "new_words": [
     "W00084",
-    "W00086"
+    "W00086",
+    "W00241"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -59,6 +60,8 @@
     "W00138",
     "W00160",
     "W00190",
+    "W00241",
+    "W00011",
     "W00137",
     "W00066"
   ],
@@ -761,24 +764,51 @@
           "grammar_id": "G002_ga_subject"
         },
         {
-          "t": "来ます",
+          "t": "来て",
           "role": "content",
           "word_id": "W00040",
-          "r": "きます",
+          "r": "きて",
           "inflection": {
             "base": "来る",
             "base_r": "くる",
-            "form": "polite_nonpast",
+            "form": "te",
             "verb_class": "irregular_kuru"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "客",
+          "role": "content",
+          "word_id": "W00241",
+          "r": "きゃく",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "A little rain comes."
+      "gloss_en": "A little rain comes, and the customer is quiet."
     },
     {
       "idx": 15,

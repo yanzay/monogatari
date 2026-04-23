@@ -15,7 +15,8 @@
   "new_words": [
     "W00030",
     "W00031",
-    "W00032"
+    "W00032",
+    "W00055"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -29,7 +30,10 @@
     "W00003",
     "W00006",
     "W00027",
-    "W00156"
+    "W00156",
+    "W00055",
+    "W00101",
+    "W00029"
   ],
   "sentences": [
     {
@@ -374,6 +378,48 @@
         }
       ],
       "gloss_en": "Moon, stars, and color — the night outside."
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00055",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "犬",
+          "role": "content",
+          "word_id": "W00101",
+          "r": "いぬ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "います",
+          "role": "content",
+          "word_id": "W00029",
+          "r": "います",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is a small dog."
     }
   ]
 }

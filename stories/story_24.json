@@ -26,8 +26,7 @@
   "new_words": [
     "W00073",
     "W00074",
-    "W00190",
-    "W00137"
+    "W00190"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -60,7 +59,9 @@
     "W00190",
     "W00076",
     "W00137",
-    "W00138"
+    "W00138",
+    "W00251",
+    "W00036"
   ],
   "sentences": [
     {
@@ -622,8 +623,7 @@
           "role": "content",
           "word_id": "W00137",
           "r": "あかるい",
-          "grammar_id": "G022_i_adj",
-          "is_new": true
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "空気",
@@ -653,6 +653,51 @@
         }
       ],
       "gloss_en": "The bright air is quiet."
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "角",
+          "role": "content",
+          "word_id": "W00251",
+          "r": "かく"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "椅子",
+          "role": "content",
+          "word_id": "W00036",
+          "r": "いす"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is a chair on the corner."
     }
   ]
 }

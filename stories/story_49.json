@@ -81,7 +81,10 @@
     "W00130",
     "W00079",
     "W00220",
-    "W00129"
+    "W00129",
+    "W00212",
+    "W00243",
+    "W00011"
   ],
   "sentences": [
     {
@@ -1043,6 +1046,49 @@
         }
       ],
       "gloss_en": "Without the bag's key, I'm troubled."
+    },
+    {
+      "idx": 17,
+      "tokens": [
+        {
+          "t": "緑",
+          "role": "content",
+          "word_id": "W00212",
+          "r": "みどり"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "草",
+          "role": "content",
+          "word_id": "W00243",
+          "r": "くさ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The green grass is still."
     }
   ]
 }

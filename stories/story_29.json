@@ -26,7 +26,8 @@
   "new_words": [
     "W00088",
     "W00089",
-    "W00087"
+    "W00087",
+    "W00201"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -55,7 +56,10 @@
     "W00087",
     "W00237",
     "W00063",
-    "W00044"
+    "W00044",
+    "W00201",
+    "W00251",
+    "W00137"
   ],
   "sentences": [
     {
@@ -694,6 +698,51 @@
         }
       ],
       "gloss_en": "On the bench, there is snow."
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "町",
+          "role": "content",
+          "word_id": "W00201",
+          "r": "まち",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "角",
+          "role": "content",
+          "word_id": "W00251",
+          "r": "かく"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The town's corner is bright."
     }
   ]
 }

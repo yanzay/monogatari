@@ -80,8 +80,9 @@
     "W00044",
     "W00230",
     "W00238",
-    "W00137",
-    "W00015"
+    "W00245",
+    "W00109",
+    "W00250"
   ],
   "sentences": [
     {
@@ -1356,29 +1357,46 @@
           "role": "punct"
         },
         {
-          "t": "明るい",
+          "t": "鐘",
           "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
-          "grammar_id": "G022_i_adj"
+          "word_id": "W00245",
+          "r": "かね"
         },
         {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
+          "t": "音",
+          "role": "content",
+          "word_id": "W00109",
+          "r": "おと"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "聞こえます",
+          "role": "content",
+          "word_id": "W00250",
+          "r": "きこえます",
+          "inflection": {
+            "base": "聞こえる",
+            "base_r": "きこえる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "Every day, the morning is bright."
+      "gloss_en": "Every day, I can hear the bell."
     }
   ]
 }

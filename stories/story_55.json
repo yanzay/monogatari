@@ -29,7 +29,8 @@
   "new_words": [
     "W00182",
     "W00184",
-    "W00183"
+    "W00183",
+    "W00249"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -71,7 +72,9 @@
     "W00104",
     "W00150",
     "W00177",
-    "W00220"
+    "W00220",
+    "W00244",
+    "W00249"
   ],
   "sentences": [
     {
@@ -1097,6 +1100,41 @@
         }
       ],
       "gloss_en": "He says, \"there is no time.\""
+    },
+    {
+      "idx": 19,
+      "tokens": [
+        {
+          "t": "上着",
+          "role": "content",
+          "word_id": "W00244",
+          "r": "うわぎ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "着ます",
+          "role": "content",
+          "word_id": "W00249",
+          "r": "きます",
+          "inflection": {
+            "base": "着る",
+            "base_r": "きる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I put on a coat."
     }
   ]
 }

@@ -50,7 +50,10 @@
     "W00006",
     "W00158",
     "W00032",
-    "W00011"
+    "W00011",
+    "W00101",
+    "W00005",
+    "W00029"
   ],
   "sentences": [
     {
@@ -451,6 +454,51 @@
         }
       ],
       "gloss_en": "It was a quiet night."
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "犬",
+          "role": "content",
+          "word_id": "W00101",
+          "r": "いぬ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "外",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "そと"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "います",
+          "role": "content",
+          "word_id": "W00029",
+          "r": "います",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The dog is outside."
     }
   ]
 }

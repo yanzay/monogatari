@@ -25,7 +25,8 @@
   },
   "new_words": [
     "W00179",
-    "W00181"
+    "W00181",
+    "W00245"
   ],
   "new_grammar": [
     "G046_masen_deshita"
@@ -75,7 +76,9 @@
     "W00137",
     "W00222",
     "W00019",
-    "W00020"
+    "W00020",
+    "W00245",
+    "W00109"
   ],
   "sentences": [
     {
@@ -1204,6 +1207,50 @@
         }
       ],
       "gloss_en": "I eat breakfast with a bright feeling."
+    },
+    {
+      "idx": 20,
+      "tokens": [
+        {
+          "t": "鐘",
+          "role": "content",
+          "word_id": "W00245",
+          "r": "かね",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "音",
+          "role": "content",
+          "word_id": "W00109",
+          "r": "おと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The bell's sound is quiet."
     }
   ]
 }

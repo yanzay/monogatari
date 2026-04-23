@@ -90,7 +90,10 @@
     "W00071",
     "W00153",
     "W00232",
-    "W00002"
+    "W00002",
+    "W00059",
+    "W00243",
+    "W00212"
   ],
   "sentences": [
     {
@@ -1305,6 +1308,49 @@
         }
       ],
       "gloss_en": "The previous morning was rainy."
+    },
+    {
+      "idx": 20,
+      "tokens": [
+        {
+          "t": "庭",
+          "role": "content",
+          "word_id": "W00059",
+          "r": "にわ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "草",
+          "role": "content",
+          "word_id": "W00243",
+          "r": "くさ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "緑",
+          "role": "content",
+          "word_id": "W00212",
+          "r": "みどり"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The grass in the garden is green."
     }
   ]
 }

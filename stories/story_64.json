@@ -85,7 +85,9 @@
     "W00083",
     "W00074",
     "W00177",
-    "W00224"
+    "W00224",
+    "W00247",
+    "W00006"
   ],
   "sentences": [
     {
@@ -1386,6 +1388,51 @@
         }
       ],
       "gloss_en": "I spend a long time with my friend."
+    },
+    {
+      "idx": 21,
+      "tokens": [
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "ページ",
+          "role": "content",
+          "word_id": "W00247",
+          "r": "ぺーじ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I look at the page of the book."
     }
   ]
 }

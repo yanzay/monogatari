@@ -26,7 +26,8 @@
   "new_words": [
     "W00026",
     "W00025",
-    "W00027"
+    "W00027",
+    "W00101"
   ],
   "new_grammar": [
     "G012_soshite_then"
@@ -46,7 +47,10 @@
     "W00005",
     "W00002",
     "W00027",
-    "W00013"
+    "W00013",
+    "W00001",
+    "W00101",
+    "W00064"
   ],
   "sentences": [
     {
@@ -349,6 +353,62 @@
         }
       ],
       "gloss_en": "Wind and rain — a good morning."
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "今朝",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "けさ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "犬",
+          "role": "content",
+          "word_id": "W00101",
+          "r": "いぬ",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "道",
+          "role": "content",
+          "word_id": "W00064",
+          "r": "みち"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "歩きます",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "あるきます",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "This morning, the dog walks down the road."
     }
   ]
 }

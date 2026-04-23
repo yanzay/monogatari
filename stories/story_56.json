@@ -74,7 +74,10 @@
     "W00225",
     "W00011",
     "W00015",
-    "W00232"
+    "W00232",
+    "W00245",
+    "W00109",
+    "W00137"
   ],
   "sentences": [
     {
@@ -1214,6 +1217,50 @@
         }
       ],
       "gloss_en": "The previous house is old."
+    },
+    {
+      "idx": 21,
+      "tokens": [
+        {
+          "t": "鐘",
+          "role": "content",
+          "word_id": "W00245",
+          "r": "かね"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "音",
+          "role": "content",
+          "word_id": "W00109",
+          "r": "おと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The bell's sound is bright."
     }
   ]
 }

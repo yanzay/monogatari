@@ -26,7 +26,8 @@
   "new_words": [
     "W00069",
     "W00071",
-    "W00070"
+    "W00070",
+    "W00102"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -47,7 +48,11 @@
     "W00026",
     "W00064",
     "W00032",
-    "W00050"
+    "W00050",
+    "W00240",
+    "W00137",
+    "W00101",
+    "W00102"
   ],
   "sentences": [
     {
@@ -497,6 +502,85 @@
         }
       ],
       "gloss_en": "Together, an evening of stars."
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "太陽",
+          "role": "content",
+          "word_id": "W00240",
+          "r": "たいよう"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The sun is bright."
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "犬",
+          "role": "content",
+          "word_id": "W00101",
+          "r": "いぬ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "道",
+          "role": "content",
+          "word_id": "W00064",
+          "r": "みち"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "走ります",
+          "role": "content",
+          "word_id": "W00102",
+          "r": "はしります",
+          "inflection": {
+            "base": "走る",
+            "base_r": "はしる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The dog runs on the road."
     }
   ]
 }

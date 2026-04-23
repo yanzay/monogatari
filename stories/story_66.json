@@ -104,7 +104,8 @@
     "W00067",
     "W00207",
     "W00006",
-    "W00238"
+    "W00238",
+    "W00248"
   ],
   "sentences": [
     {
@@ -1510,6 +1511,39 @@
         }
       ],
       "gloss_en": "Every day, I read a new book."
+    },
+    {
+      "idx": 22,
+      "tokens": [
+        {
+          "t": "表紙",
+          "role": "content",
+          "word_id": "W00248",
+          "r": "ひょうし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "美しい",
+          "role": "content",
+          "word_id": "W00083",
+          "r": "うつくしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The cover is beautiful."
     }
   ]
 }

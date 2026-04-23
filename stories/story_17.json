@@ -24,7 +24,6 @@
     ]
   },
   "new_words": [
-    "W00051",
     "W00052",
     "W00053",
     "W00050",
@@ -53,7 +52,10 @@
     "W00036",
     "W00085",
     "W00013",
-    "W00043"
+    "W00043",
+    "W00166",
+    "W00237",
+    "W00039"
   ],
   "sentences": [
     {
@@ -194,8 +196,7 @@
           "t": "子供",
           "role": "content",
           "word_id": "W00051",
-          "r": "こども",
-          "is_new": true
+          "r": "こども"
         },
         {
           "t": "が",
@@ -655,6 +656,62 @@
         }
       ],
       "gloss_en": "I think, \"good.\""
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "皿",
+          "role": "content",
+          "word_id": "W00166",
+          "r": "さら"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "上",
+          "role": "content",
+          "word_id": "W00237",
+          "r": "うえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is a letter on the plate."
     }
   ]
 }

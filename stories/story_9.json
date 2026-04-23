@@ -26,7 +26,9 @@
   "new_words": [
     "W00036",
     "W00037",
-    "W00038"
+    "W00038",
+    "W00237",
+    "W00054"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -40,7 +42,10 @@
     "W00011",
     "W00033",
     "W00038",
-    "W00035"
+    "W00035",
+    "W00239",
+    "W00237",
+    "W00054"
   ],
   "sentences": [
     {
@@ -429,6 +434,64 @@
         }
       ],
       "gloss_en": "The cat and I, the two of us — it is morning."
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "石",
+          "role": "content",
+          "word_id": "W00239",
+          "r": "いし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "上",
+          "role": "content",
+          "word_id": "W00237",
+          "r": "うえ",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "鳥",
+          "role": "content",
+          "word_id": "W00054",
+          "r": "とり",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "います",
+          "role": "content",
+          "word_id": "W00029",
+          "r": "います",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "On the stone is a bird."
     }
   ]
 }

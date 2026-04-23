@@ -75,7 +75,8 @@
     "W00234",
     "W00201",
     "W00233",
-    "W00063"
+    "W00063",
+    "W00244"
   ],
   "sentences": [
     {
@@ -1041,6 +1042,39 @@
         }
       ],
       "gloss_en": "Today is snowy."
+    },
+    {
+      "idx": 20,
+      "tokens": [
+        {
+          "t": "上着",
+          "role": "content",
+          "word_id": "W00244",
+          "r": "うわぎ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The coat is old."
     }
   ]
 }

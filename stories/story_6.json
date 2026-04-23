@@ -15,13 +15,9 @@
   "new_words": [
     "W00028",
     "W00029",
-    "W00156",
-    "W00044"
+    "W00156"
   ],
-  "new_grammar": [
-    "G021_aru_iru",
-    "G004_ni_location"
-  ],
+  "new_grammar": [],
   "all_words_used": [
     "W00028",
     "W00015",
@@ -175,8 +171,7 @@
             "verb_class": "ichidan"
           },
           "grammar_id": "G021_aru_iru",
-          "is_new": true,
-          "is_new_grammar": true
+          "is_new": true
         },
         {
           "t": "。",
@@ -240,8 +235,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location",
-          "is_new_grammar": true
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "猫",
@@ -410,8 +404,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G021_aru_iru",
-          "is_new": true
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",

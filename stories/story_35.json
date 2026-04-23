@@ -63,7 +63,9 @@
     "W00044",
     "W00013",
     "W00015",
-    "W00097"
+    "W00097",
+    "W00084",
+    "W00241"
   ],
   "sentences": [
     {
@@ -774,6 +776,51 @@
         }
       ],
       "gloss_en": "Mother says, \"it is a nice morning.\""
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "客",
+          "role": "content",
+          "word_id": "W00241",
+          "r": "きゃく"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "います",
+          "role": "content",
+          "word_id": "W00029",
+          "r": "います",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is a customer in the shop."
     }
   ]
 }

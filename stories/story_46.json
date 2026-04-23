@@ -23,7 +23,9 @@
     ]
   },
   "new_words": [
-    "W00139"
+    "W00139",
+    "W00243",
+    "W00212"
   ],
   "new_grammar": [
     "G038_kunai"
@@ -55,7 +57,9 @@
     "W00135",
     "W00134",
     "W00098",
-    "W00121"
+    "W00121",
+    "W00243",
+    "W00212"
   ],
   "sentences": [
     {
@@ -769,6 +773,40 @@
         }
       ],
       "gloss_en": "Grandmother's words are bright."
+    },
+    {
+      "idx": 16,
+      "tokens": [
+        {
+          "t": "草",
+          "role": "content",
+          "word_id": "W00243",
+          "r": "くさ",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "緑",
+          "role": "content",
+          "word_id": "W00212",
+          "r": "みどり",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The grass is green."
     }
   ]
 }

@@ -118,6 +118,18 @@ def list_word_occurrences(stories: Iterable[tuple[int, dict]], wid: str) -> list
     return out
 
 
+def mint_check(jp: str) -> list[dict]:
+    """Tokenize a candidate JP sentence and return its `new_words` mint list.
+
+    Returns an empty list when the sentence wouldn't introduce any new
+    word_ids — useful as a precondition guard for `spec.py append/replace`.
+    """
+    spec = {"story_id": 999, "title": {"jp": jp, "en": "preview"},
+            "sentences": [{"jp": jp, "en": "preview"}]}
+    _story, report = build(spec)
+    return list(report.get("new_words") or [])
+
+
 def list_grammar_occurrences(stories: Iterable[tuple[int, dict]], gid: str) -> list[tuple[int, str]]:
     out = []
     for sid, story in stories:

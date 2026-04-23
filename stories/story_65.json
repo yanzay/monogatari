@@ -86,7 +86,9 @@
     "W00183",
     "W00011",
     "W00187",
-    "W00234"
+    "W00234",
+    "W00109",
+    "W00250"
   ],
   "sentences": [
     {
@@ -1326,6 +1328,51 @@
         }
       ],
       "gloss_en": "I cross an old bridge."
+    },
+    {
+      "idx": 22,
+      "tokens": [
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あめ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "音",
+          "role": "content",
+          "word_id": "W00109",
+          "r": "おと"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "聞こえます",
+          "role": "content",
+          "word_id": "W00250",
+          "r": "きこえます",
+          "inflection": {
+            "base": "聞こえる",
+            "base_r": "きこえる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The sound of rain can be heard."
     }
   ]
 }

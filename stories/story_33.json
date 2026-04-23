@@ -54,7 +54,8 @@
     "W00066",
     "W00086",
     "W00120",
-    "W00115"
+    "W00115",
+    "W00201"
   ],
   "sentences": [
     {
@@ -762,6 +763,38 @@
         }
       ],
       "gloss_en": "Grandmother's heart is gentle."
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "町",
+          "role": "content",
+          "word_id": "W00201",
+          "r": "まち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The town is quiet."
     }
   ]
 }

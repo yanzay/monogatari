@@ -41,41 +41,117 @@ def _word_ids_used(story: dict) -> set[str]:
     return used
 
 
+def _grammar_ids_used(story: dict) -> set[str]:
+    used = set()
+    for sec in ("title",):
+        for tok in (story.get(sec) or {}).get("tokens", []):
+            if tok.get("grammar_id"):
+                used.add(tok["grammar_id"])
+    for sn in story.get("sentences", []):
+        for tok in sn.get("tokens", []):
+            if tok.get("grammar_id"):
+                used.add(tok["grammar_id"])
+    return used
+
+
 def cmd_suggest(args):
-    """Print a starter weave plan: one stub per Rule R1 violation."""
+    """Print a starter weave plan: one stub per R1, R2, or G2 violation."""
     sys.path.insert(0, str(ROOT / "pipeline"))
     from grammar_progression import (BOOTSTRAP_END, VOCAB_REINFORCE_WINDOW,
-                                     VOCAB_REINFORCE_MIN_USES)
+                                     VOCAB_REINFORCE_MIN_USES,
+                                     VOCAB_MAX_GAP, VOCAB_ABANDON_GRACE,
+                                     REINFORCEMENT_WINDOW, MIN_REINFORCEMENT_USES)
     by_n = {sid: s for sid, s in iter_stories()}
     used = {n: _word_ids_used(s) for n, s in by_n.items()}
-    intros = {}
-    for n, s in by_n.items():
-        if n <= BOOTSTRAP_END: continue
-        ids = [w if isinstance(w, str) else w.get("id") or w.get("word_id", "")
-               for w in (s.get("new_words") or [])]
-        intros[n] = [i for i in ids if i]
+    used_g = {n: _grammar_ids_used(s) for n, s in by_n.items()}
     vocab = load_vocab()
+    grammar = load_grammar()
     plan = []
-    for n, ids in intros.items():
-        followups = [i for i in range(n+1, n+1+VOCAB_REINFORCE_WINDOW) if i in by_n]
-        if len(followups) < VOCAB_REINFORCE_MIN_USES: continue
-        required = min(VOCAB_REINFORCE_MIN_USES, len(followups))
-        for wid in ids:
-            hits = [i for i in followups if wid in used.get(i, set())]
-            if len(hits) < required:
-                gap = required - len(hits)
-                w = vocab["words"].get(wid, {})
-                surf = w.get("surface", "?")
-                meaning = (w.get("meanings") or ["?"])[0][:40]
-                # Suggest target = first story in window with neither the word
-                # nor a recent weave; this is intentionally crude.
-                target = followups[len(hits)] if len(hits) < len(followups) else followups[0]
-                plan.append({
-                    "story": target,
-                    "jp": f"# TODO: weave {surf} ({meaning}) — {gap} more occurrence(s) needed (intro story_{n}, wid={wid})",
-                    "en": "TODO",
-                    "_meta": {"violation": f"story_{n} introduced {wid}", "gap": gap},
-                })
+    rules = set(args.rules or ["r1", "r2", "g2"])
+    max_n = max(by_n)
+
+    if "r1" in rules:
+        intros = {}
+        for n, s in by_n.items():
+            if n <= BOOTSTRAP_END: continue
+            ids = [w if isinstance(w, str) else w.get("id") or w.get("word_id", "")
+                   for w in (s.get("new_words") or [])]
+            intros[n] = [i for i in ids if i]
+        for n, ids in intros.items():
+            followups = [i for i in range(n+1, n+1+VOCAB_REINFORCE_WINDOW) if i in by_n]
+            if len(followups) < VOCAB_REINFORCE_MIN_USES: continue
+            required = min(VOCAB_REINFORCE_MIN_USES, len(followups))
+            for wid in ids:
+                hits = [i for i in followups if wid in used.get(i, set())]
+                if len(hits) < required:
+                    gap = required - len(hits)
+                    w = vocab["words"].get(wid, {})
+                    surf = w.get("surface", "?")
+                    meaning = (w.get("meanings") or ["?"])[0][:40]
+                    target = followups[len(hits)] if len(hits) < len(followups) else followups[0]
+                    plan.append({
+                        "story": target, "jp": f"# R1 weave {surf} ({meaning}) — gap={gap} (intro story_{n}, wid={wid})",
+                        "en": "TODO",
+                        "_meta": {"rule": "R1", "violation": f"story_{n} introduced {wid}", "gap": gap},
+                    })
+
+    if "r2" in rules:
+        apps: dict[str, list[int]] = {}
+        for n, wids in used.items():
+            for wid in wids:
+                apps.setdefault(wid, []).append(n)
+        for wid in apps: apps[wid].sort()
+        intro_n: dict[str, int] = {}
+        for n, s in by_n.items():
+            for w in s.get("new_words") or []:
+                wid = w if isinstance(w, str) else w.get("id") or w.get("word_id", "")
+                if wid and wid not in intro_n:
+                    intro_n[wid] = n
+        for wid, app in apps.items():
+            in_n = intro_n.get(wid, app[0])
+            if in_n >= max_n - VOCAB_ABANDON_GRACE + 1: continue
+            if len(app) < 2:
+                trailing = max_n - app[0]
+                if trailing > VOCAB_MAX_GAP:
+                    w = vocab["words"].get(wid, {})
+                    plan.append({
+                        "story": app[0] + VOCAB_MAX_GAP // 2,
+                        "jp": f"# R2 weave {w.get('surface','?')} (trailing gap={trailing} from story_{app[0]})",
+                        "en": "TODO",
+                        "_meta": {"rule": "R2", "wid": wid, "gap": trailing},
+                    })
+                continue
+            for prev, curr in zip(app, app[1:]):
+                gap = curr - prev - 1
+                if gap > VOCAB_MAX_GAP:
+                    w = vocab["words"].get(wid, {})
+                    plan.append({
+                        "story": prev + (gap // 2),
+                        "jp": f"# R2 weave {w.get('surface','?')} (gap={gap} between story_{prev} and story_{curr})",
+                        "en": "TODO",
+                        "_meta": {"rule": "R2", "wid": wid, "gap": gap},
+                    })
+
+    if "g2" in rules:
+        intros_g = {}
+        for n, s in by_n.items():
+            ids = [g if isinstance(g, str) else g.get("id") for g in (s.get("new_grammar") or [])]
+            intros_g[n] = [i for i in ids if i]
+        for n, ids in intros_g.items():
+            followups = [i for i in range(n+1, n+1+REINFORCEMENT_WINDOW) if i in by_n]
+            if not followups: continue
+            required = min(MIN_REINFORCEMENT_USES, len(followups))
+            for gid in ids:
+                hits = [i for i in followups if gid in used_g.get(i, set())]
+                if len(hits) < required:
+                    g = grammar["points"].get(gid, {})
+                    plan.append({
+                        "story": followups[0],
+                        "jp": f"# G2 weave {gid} ({g.get('title','?')}) — needed (intro story_{n})",
+                        "en": "TODO",
+                        "_meta": {"rule": "G2", "gid": gid, "intro": n},
+                    })
+
     print(json.dumps(plan, ensure_ascii=False, indent=2))
 
 
@@ -137,7 +213,10 @@ def main():
     p = argparse.ArgumentParser(prog="weave.py", description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
-    s = sub.add_parser("suggest"); s.set_defaults(func=cmd_suggest)
+    s = sub.add_parser("suggest", help="auto-draft a plan from current violations")
+    s.add_argument("--rules", nargs="+", choices=["r1", "r2", "g2"],
+                   help="restrict to specific rule(s); default: all three")
+    s.set_defaults(func=cmd_suggest)
     s = sub.add_parser("preview"); s.add_argument("plan"); s.set_defaults(func=cmd_preview)
     s = sub.add_parser("apply"); s.add_argument("plan")
     s.add_argument("--regen", action="store_true",

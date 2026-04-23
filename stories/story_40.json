@@ -25,7 +25,8 @@
   },
   "new_words": [
     "W00119",
-    "W00121"
+    "W00121",
+    "W00246"
   ],
   "new_grammar": [
     "G032_demo"
@@ -69,6 +70,7 @@
     "W00084",
     "W00150",
     "W00172",
+    "W00246",
     "W00033",
     "W00034"
   ],
@@ -905,6 +907,18 @@
           "grammar_id": "G001_wa_topic"
         },
         {
+          "t": "ペン",
+          "role": "content",
+          "word_id": "W00246",
+          "r": "ぺん",
+          "is_new": true
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
           "t": "本",
           "role": "content",
           "word_id": "W00033",
@@ -933,7 +947,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Older brother reads a book."
+      "gloss_en": "Older brother reads a book with a pen."
     }
   ]
 }

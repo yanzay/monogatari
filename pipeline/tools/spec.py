@@ -17,7 +17,23 @@ from __future__ import annotations
 import argparse
 import sys
 
-from _common import (load_spec, save_spec, iter_specs, color)
+from _common import (load_spec, save_spec, iter_specs, mint_check, color)
+
+
+def _check_mint(jp: str, allow_mint: bool) -> None:
+    """Abort the operation if the sentence would mint, unless --allow-mint."""
+    mints = mint_check(jp)
+    if mints and not allow_mint:
+        print(color(f"✗ This sentence would mint {len(mints)} new word(s):", "red"))
+        for nw in mints:
+            print(f"    {nw}")
+        print(color("    Re-run with --allow-mint to proceed anyway, or use "
+                    "vocab.py search to find existing equivalents.", "yellow"))
+        sys.exit(2)
+    if mints:
+        print(color(f"⚠ Allowing {len(mints)} mint(s):", "yellow"))
+        for nw in mints:
+            print(f"    {nw}")
 
 
 def parse_locator(arg: str) -> tuple[int, int | None]:
@@ -40,6 +56,7 @@ def cmd_show(args):
 
 def cmd_append(args):
     sid, _ = parse_locator(args.locator)
+    _check_mint(args.jp, args.allow_mint)
     s = load_spec(sid)
     s.setdefault("sentences", []).append({"jp": args.jp, "en": args.en})
     save_spec(sid, s)
@@ -50,6 +67,7 @@ def cmd_replace(args):
     sid, idx = parse_locator(args.locator)
     if idx is None:
         sys.exit("replace requires N:I (e.g. 18:5)")
+    _check_mint(args.jp, args.allow_mint)
     s = load_spec(sid)
     if not (0 <= idx < len(s.get("sentences", []))):
         sys.exit(f"index {idx} out of range (have {len(s.get('sentences', []))} sentences)")
@@ -124,10 +142,14 @@ def main():
 
     s = sub.add_parser("append"); s.add_argument("locator")
     s.add_argument("--jp", required=True); s.add_argument("--en", required=True)
+    s.add_argument("--allow-mint", action="store_true",
+                   help="proceed even if the sentence would mint a new word_id")
     s.set_defaults(func=cmd_append)
 
     s = sub.add_parser("replace"); s.add_argument("locator")
     s.add_argument("--jp", required=True); s.add_argument("--en", required=True)
+    s.add_argument("--allow-mint", action="store_true",
+                   help="proceed even if the sentence would mint a new word_id")
     s.set_defaults(func=cmd_replace)
 
     s = sub.add_parser("delete"); s.add_argument("locator"); s.set_defaults(func=cmd_delete)

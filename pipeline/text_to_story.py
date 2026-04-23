@@ -679,20 +679,24 @@ def _ensure_word(merged: dict, st: BuildState) -> Optional[dict]:
                "形状詞": "na_adjective", "副詞": "adverb",
                "代名詞": "pronoun", "連体詞": "adnominal"}
     pos = pos_map.get(merged["_pos1"], "noun")
-    meaning = st.new_word_meanings.get(surface) or st.new_word_meanings.get(lemma or "")
+    # UniDic appends an etymology suffix to katakana loanwords
+    # (e.g. lemma='ペン-pen', 'ページ-page'). Strip it before lookup/mint.
+    clean_lemma = (lemma or surface).split("-", 1)[0]
+    clean_kana = kana.split("-", 1)[0] if kana else ""
+    meaning = st.new_word_meanings.get(surface) or st.new_word_meanings.get(clean_lemma)
     if not meaning:
-        # Try jamdict
+        # Try jamdict with the cleaned lemma
         try:
-            hits = jmdict_lookup(lemma or surface, max_results=1)
+            hits = jmdict_lookup(clean_lemma or surface, max_results=1)
             if hits and hits[0].senses:
                 meaning = hits[0].senses[0]
         except Exception:
             meaning = None
     rec = {
         "id": new_id,
-        "surface": lemma or surface,
-        "kana": kana,
-        "reading": kana_to_romaji(kana),
+        "surface": clean_lemma or surface,
+        "kana": clean_kana or kana,
+        "reading": kana_to_romaji(clean_kana or kana),
         "pos": pos,
         "meanings": [meaning or "<TODO meaning>"],
         "_minted_by": "text_to_story",

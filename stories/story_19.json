@@ -24,7 +24,6 @@
     ]
   },
   "new_words": [
-    "W00059",
     "W00058",
     "W00057",
     "W00229"
@@ -51,7 +50,9 @@
     "W00047",
     "W00163",
     "W00166",
-    "W00229"
+    "W00229",
+    "W00240",
+    "W00137"
   ],
   "sentences": [
     {
@@ -71,8 +72,7 @@
           "t": "庭",
           "role": "content",
           "word_id": "W00059",
-          "r": "にわ",
-          "is_new": true
+          "r": "にわ"
         },
         {
           "t": "は",
@@ -585,6 +585,39 @@
         }
       ],
       "gloss_en": "I put warm bread on the plate."
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "太陽",
+          "role": "content",
+          "word_id": "W00240",
+          "r": "たいよう"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The sun is bright."
     }
   ]
 }

@@ -71,7 +71,8 @@
     "W00153",
     "W00157",
     "W00101",
-    "W00159"
+    "W00159",
+    "W00068"
   ],
   "sentences": [
     {
@@ -876,6 +877,47 @@
         }
       ],
       "gloss_en": "The white dog is fast."
+    },
+    {
+      "idx": 16,
+      "tokens": [
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "写真",
+          "role": "content",
+          "word_id": "W00068",
+          "r": "しゃしん"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is an old photo."
     }
   ]
 }

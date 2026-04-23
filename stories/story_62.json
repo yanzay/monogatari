@@ -34,7 +34,9 @@
     ]
   },
   "new_words": [
-    "W00200"
+    "W00200",
+    "W00247",
+    "W00248"
   ],
   "new_grammar": [
     "G054_yo_emphasis"
@@ -75,7 +77,11 @@
     "W00187",
     "W00195",
     "W00225",
-    "W00234"
+    "W00234",
+    "W00247",
+    "W00248",
+    "W00244",
+    "W00249"
   ],
   "sentences": [
     {
@@ -1314,6 +1320,93 @@
         }
       ],
       "gloss_en": "I cross the town's bridge."
+    },
+    {
+      "idx": 21,
+      "tokens": [
+        {
+          "t": "ページ",
+          "role": "content",
+          "word_id": "W00247",
+          "r": "ぺーじ",
+          "is_new": true
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "表紙",
+          "role": "content",
+          "word_id": "W00248",
+          "r": "ひょうし",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "美しい",
+          "role": "content",
+          "word_id": "W00083",
+          "r": "うつくしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The pages and cover are beautiful."
+    },
+    {
+      "idx": 22,
+      "tokens": [
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "上着",
+          "role": "content",
+          "word_id": "W00244",
+          "r": "うわぎ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "着ます",
+          "role": "content",
+          "word_id": "W00249",
+          "r": "きます",
+          "inflection": {
+            "base": "着る",
+            "base_r": "きる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I wear an old coat."
     }
   ]
 }

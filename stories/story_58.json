@@ -81,7 +81,9 @@
     "W00185",
     "W00186",
     "W00225",
-    "W00183"
+    "W00183",
+    "W00244",
+    "W00249"
   ],
   "sentences": [
     {
@@ -1233,6 +1235,40 @@
         }
       ],
       "gloss_en": "This week is a good time."
+    },
+    {
+      "idx": 21,
+      "tokens": [
+        {
+          "t": "上着",
+          "role": "content",
+          "word_id": "W00244",
+          "r": "うわぎ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "着ます",
+          "role": "content",
+          "word_id": "W00249",
+          "r": "きます",
+          "inflection": {
+            "base": "着る",
+            "base_r": "きる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I put on the coat."
     }
   ]
 }

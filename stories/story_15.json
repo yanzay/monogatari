@@ -27,7 +27,8 @@
     "W00047",
     "W00165",
     "W00166",
-    "W00066"
+    "W00066",
+    "W00051"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -51,7 +52,9 @@
     "W00037",
     "W00009",
     "W00166",
-    "W00066"
+    "W00066",
+    "W00055",
+    "W00051"
   ],
   "sentences": [
     {
@@ -688,6 +691,46 @@
         }
       ],
       "gloss_en": "I think, \"the tea is good.\""
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00055",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "子供",
+          "role": "content",
+          "word_id": "W00051",
+          "r": "こども",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The small child is quiet."
     }
   ]
 }
