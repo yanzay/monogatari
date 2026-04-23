@@ -59,7 +59,8 @@
   "new_words": [
     "W00187",
     "W00189",
-    "W00188"
+    "W00188",
+    "W00230"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -99,7 +100,15 @@
     "W00188",
     "W00098",
     "W00185",
-    "W00097"
+    "W00097",
+    "W00176",
+    "W00230",
+    "W00178",
+    "W00159",
+    "W00183",
+    "W00184",
+    "W00109",
+    "W00222"
   ],
   "sentences": [
     {
@@ -1112,6 +1121,188 @@
         }
       ],
       "gloss_en": "Rainy morning, bright heart, next week's promise."
+    },
+    {
+      "idx": 17,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "学生",
+          "role": "content",
+          "word_id": "W00176",
+          "r": "がくせい"
+        },
+        {
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "G013_mashita_past",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "一",
+          "role": "content",
+          "word_id": "W00230",
+          "r": "いち",
+          "is_new": true
+        },
+        {
+          "t": "年",
+          "role": "content",
+          "word_id": "W00178",
+          "r": "とし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "早い",
+          "role": "content",
+          "word_id": "W00159",
+          "r": "はやい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I was a bright student. A year is fast."
+    },
+    {
+      "idx": 18,
+      "tokens": [
+        {
+          "t": "晩",
+          "role": "content",
+          "word_id": "W00183",
+          "r": "ばん"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "台所",
+          "role": "content",
+          "word_id": "W00184",
+          "r": "だいどころ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "温かい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "音",
+          "role": "content",
+          "word_id": "W00109",
+          "r": "おと"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the evening, the kitchen is quiet with warm sounds."
+    },
+    {
+      "idx": 19,
+      "tokens": [
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "気持ち",
+          "role": "content",
+          "word_id": "W00222",
+          "r": "きもち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "温かい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother's feeling is warm."
     }
   ]
 }

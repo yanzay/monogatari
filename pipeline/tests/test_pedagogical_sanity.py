@@ -12,17 +12,17 @@ import pytest
 
 
 def test_every_story_meets_progression_target(stories, root):
-    """Each shipped story must be within ±20 % of its computed sentence target."""
+    """Each shipped story must sit within Check 7's per-story sentence band."""
     sys.path.insert(0, str(root / "pipeline"))
-    from progression import target_sentences
+    from progression import target_sentences, SENTENCE_TOLERANCE
 
     bad = []
     for story in stories:
         n = int(story["_id"].split("_")[1])
         target = target_sentences(n)
         actual = len(story.get("sentences", []))
-        # Allow target ± 1 (matches Check 7 length policy)
-        if abs(actual - target) > 1:
+        # Match Check 7's tolerance band exactly (target ± SENTENCE_TOLERANCE)
+        if abs(actual - target) > SENTENCE_TOLERANCE:
             bad.append(f"{story['_id']}: {actual} sentences (target {target})")
     assert not bad, "Progression curve violations:\n  " + "\n  ".join(bad)
 
@@ -442,14 +442,19 @@ def test_vocab_words_are_reinforced(stories, root):
         return
 
     def word_ids_used(story: dict) -> set[str]:
+        # Any token carrying a word_id counts as a vocabulary encounter,
+        # regardless of role. The AUX_AFTER_TO post-pass demotes verbs like
+        # 思います / 言います to role='aux' inside the と+...+verb construction,
+        # but those still expose the learner to the lemma; for spaced
+        # encounters that is what matters.
         used: set[str] = set()
         for sec in ("title",):
             for tok in (story.get(sec) or {}).get("tokens", []):
-                if tok.get("role") == "content" and tok.get("word_id"):
+                if tok.get("word_id"):
                     used.add(tok["word_id"])
         for sent in story.get("sentences", []):
             for tok in sent.get("tokens", []):
-                if tok.get("role") == "content" and tok.get("word_id"):
+                if tok.get("word_id"):
                     used.add(tok["word_id"])
         return used
 
@@ -529,14 +534,16 @@ def test_no_vocab_word_abandoned(stories, root):
     max_n = max(by_n)
 
     def word_ids_used(story: dict) -> set[str]:
+        # See comment in test_vocab_words_are_reinforced — count any token
+        # carrying a word_id, regardless of role.
         used: set[str] = set()
         for sec in ("title",):
             for tok in (story.get(sec) or {}).get("tokens", []):
-                if tok.get("role") == "content" and tok.get("word_id"):
+                if tok.get("word_id"):
                     used.add(tok["word_id"])
         for sent in story.get("sentences", []):
             for tok in sent.get("tokens", []):
-                if tok.get("role") == "content" and tok.get("word_id"):
+                if tok.get("word_id"):
                     used.add(tok["word_id"])
         return used
 

@@ -55,7 +55,22 @@
     "W00114",
     "W00061",
     "W00099",
-    "W00118"
+    "W00118",
+    "W00101",
+    "W00103",
+    "W00045",
+    "W00102",
+    "W00015",
+    "W00023",
+    "W00106",
+    "W00098",
+    "W00167",
+    "W00231",
+    "W00084",
+    "W00150",
+    "W00172",
+    "W00033",
+    "W00034"
   ],
   "sentences": [
     {
@@ -672,6 +687,253 @@
         }
       ],
       "gloss_en": "A quiet evening's strong words."
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "犬",
+          "role": "content",
+          "word_id": "W00101",
+          "r": "いぬ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "池",
+          "role": "content",
+          "word_id": "W00103",
+          "r": "いけ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "そば",
+          "role": "content",
+          "word_id": "W00045",
+          "r": "そば"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "走ります",
+          "role": "content",
+          "word_id": "W00102",
+          "r": "はしります",
+          "inflection": {
+            "base": "走る",
+            "base_r": "はしる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The dog runs by the pond."
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "散歩",
+          "role": "content",
+          "word_id": "W00023",
+          "r": "さんぽ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "始めます",
+          "role": "content",
+          "word_id": "W00106",
+          "r": "はじめます",
+          "inflection": {
+            "base": "始める",
+            "base_r": "はじめる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I begin my morning walk."
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "カップ",
+          "role": "content",
+          "word_id": "W00167",
+          "r": "カップ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "持ちます",
+          "role": "content",
+          "word_id": "W00231",
+          "r": "もちます",
+          "inflection": {
+            "base": "持つ",
+            "base_r": "もつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother holds a cup."
+    },
+    {
+      "idx": 16,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "G050_he_direction"
+        },
+        {
+          "t": "行きます",
+          "role": "content",
+          "word_id": "W00150",
+          "r": "いきます",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I go to the shop."
+    },
+    {
+      "idx": 17,
+      "tokens": [
+        {
+          "t": "兄",
+          "role": "content",
+          "word_id": "W00172",
+          "r": "あに"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "読みます",
+          "role": "content",
+          "word_id": "W00034",
+          "r": "よみます",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Older brother reads a book."
     }
   ]
 }

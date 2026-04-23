@@ -72,7 +72,21 @@
     "W00207",
     "W00006",
     "W00208",
-    "W00034"
+    "W00034",
+    "W00009",
+    "W00197",
+    "W00196",
+    "W00205",
+    "W00206",
+    "W00204",
+    "W00195",
+    "W00106",
+    "W00202",
+    "W00203",
+    "W00183",
+    "W00011",
+    "W00187",
+    "W00234"
   ],
   "sentences": [
     {
@@ -1093,6 +1107,225 @@
         }
       ],
       "gloss_en": "The friend reads a newspaper."
+    },
+    {
+      "idx": 19,
+      "tokens": [
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00009",
+          "r": "おちゃ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "味",
+          "role": "content",
+          "word_id": "W00197",
+          "r": "あじ"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "匂い",
+          "role": "content",
+          "word_id": "W00196",
+          "r": "におい"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "会社",
+          "role": "content",
+          "word_id": "W00205",
+          "r": "かいしゃ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "旅行",
+          "role": "content",
+          "word_id": "W00206",
+          "r": "りょこう"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "お金",
+          "role": "content",
+          "word_id": "W00204",
+          "r": "おかね"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "空想",
+          "role": "content",
+          "word_id": "W00195",
+          "r": "くうそう"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "始めます",
+          "role": "content",
+          "word_id": "W00106",
+          "r": "はじめます",
+          "inflection": {
+            "base": "始める",
+            "base_r": "はじめる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "With the taste and smell of tea, I begin a daydream of a company trip and money."
+    },
+    {
+      "idx": 20,
+      "tokens": [
+        {
+          "t": "村",
+          "role": "content",
+          "word_id": "W00202",
+          "r": "むら"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "駐車場",
+          "role": "content",
+          "word_id": "W00203",
+          "r": "ちゅうしゃじょう"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "晩",
+          "role": "content",
+          "word_id": "W00183",
+          "r": "ばん"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The village parking lot is quiet in the evening."
+    },
+    {
+      "idx": 21,
+      "tokens": [
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "橋",
+          "role": "content",
+          "word_id": "W00187",
+          "r": "はし"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "渡ります",
+          "role": "content",
+          "word_id": "W00234",
+          "r": "わたります",
+          "inflection": {
+            "base": "渡る",
+            "base_r": "わたる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I cross an old bridge."
     }
   ]
 }

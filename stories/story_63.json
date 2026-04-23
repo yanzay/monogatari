@@ -71,7 +71,17 @@
     "W00022",
     "W00012",
     "W00202",
-    "W00203"
+    "W00203",
+    "W00192",
+    "W00191",
+    "W00123",
+    "W00199",
+    "W00221",
+    "W00044",
+    "W00230",
+    "W00238",
+    "W00137",
+    "W00015"
   ],
   "sentences": [
     {
@@ -1152,6 +1162,223 @@
         }
       ],
       "gloss_en": "The parking lot is old."
+    },
+    {
+      "idx": 19,
+      "tokens": [
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "優しさ",
+          "role": "content",
+          "word_id": "W00192",
+          "r": "やさしさ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "沢山",
+          "role": "content",
+          "word_id": "W00191",
+          "r": "たくさん"
+        },
+        {
+          "t": "覚えて",
+          "role": "content",
+          "word_id": "W00123",
+          "r": "おぼえて",
+          "inflection": {
+            "base": "覚える",
+            "base_r": "おぼえる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "います",
+          "role": "aux",
+          "grammar_id": "G008_te_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I remember grandmother's kindness deeply."
+    },
+    {
+      "idx": 20,
+      "tokens": [
+        {
+          "t": "新しい",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "あたらしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "世界",
+          "role": "content",
+          "word_id": "W00199",
+          "r": "せかい"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "中",
+          "role": "content",
+          "word_id": "W00221",
+          "r": "なか"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A new world is inside the book."
+    },
+    {
+      "idx": 21,
+      "tokens": [
+        {
+          "t": "一",
+          "role": "content",
+          "word_id": "W00230",
+          "r": "いち"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "読みます",
+          "role": "content",
+          "word_id": "W00034",
+          "r": "よみます",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I read book number one."
+    },
+    {
+      "idx": 22,
+      "tokens": [
+        {
+          "t": "毎日",
+          "role": "content",
+          "word_id": "W00238",
+          "r": "まいにち"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Every day, the morning is bright."
     }
   ]
 }

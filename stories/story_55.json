@@ -64,7 +64,14 @@
     "W00131",
     "W00125",
     "W00039",
-    "W00006"
+    "W00006",
+    "W00173",
+    "W00176",
+    "W00137",
+    "W00104",
+    "W00150",
+    "W00177",
+    "W00220"
   ],
   "sentences": [
     {
@@ -925,6 +932,171 @@
         }
       ],
       "gloss_en": "The hot summer, the beautiful grandmother."
+    },
+    {
+      "idx": 16,
+      "tokens": [
+        {
+          "t": "妹",
+          "role": "content",
+          "word_id": "W00173",
+          "r": "いもうと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "台所",
+          "role": "content",
+          "word_id": "W00184",
+          "r": "だいどころ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00009",
+          "r": "おちゃ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "飲みます",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "のみます",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Younger sister drinks tea in the kitchen."
+    },
+    {
+      "idx": 17,
+      "tokens": [
+        {
+          "t": "学生",
+          "role": "content",
+          "word_id": "W00176",
+          "r": "がくせい"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "学校",
+          "role": "content",
+          "word_id": "W00104",
+          "r": "がっこう"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "G050_he_direction"
+        },
+        {
+          "t": "行きます",
+          "role": "content",
+          "word_id": "W00150",
+          "r": "いきます",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Students go to school on bright mornings."
+    },
+    {
+      "idx": 18,
+      "tokens": [
+        {
+          "t": "時間",
+          "role": "content",
+          "word_id": "W00177",
+          "r": "じかん"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "無い",
+          "role": "content",
+          "word_id": "W00220",
+          "r": "ない",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "言います",
+          "role": "aux",
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "He says, \"there is no time.\""
     }
   ]
 }

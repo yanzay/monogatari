@@ -50,7 +50,12 @@
     "W00089",
     "W00058",
     "W00087",
-    "W00026"
+    "W00026",
+    "W00076",
+    "W00120",
+    "W00003",
+    "W00078",
+    "W00077"
   ],
   "sentences": [
     {
@@ -591,6 +596,73 @@
         }
       ],
       "gloss_en": "On the autumn road, the two of us return home."
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "悲しい",
+          "role": "content",
+          "word_id": "W00076",
+          "r": "かなしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "心",
+          "role": "content",
+          "word_id": "W00120",
+          "r": "こころ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "出ます",
+          "role": "content",
+          "word_id": "W00077",
+          "r": "でます",
+          "inflection": {
+            "base": "出る",
+            "base_r": "でる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "With a sad heart, I leave the house."
     }
   ]
 }

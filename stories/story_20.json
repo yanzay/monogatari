@@ -53,7 +53,9 @@
     "W00045",
     "W00044",
     "W00058",
-    "W00043"
+    "W00043",
+    "W00160",
+    "W00163"
   ],
   "sentences": [
     {
@@ -542,6 +544,46 @@
         }
       ],
       "gloss_en": "A cold morning, a warm letter."
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "重い",
+          "role": "content",
+          "word_id": "W00160",
+          "r": "おもい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "痛い",
+          "role": "content",
+          "word_id": "W00163",
+          "r": "いたい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A heavy letter is painful."
     }
   ]
 }

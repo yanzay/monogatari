@@ -24,9 +24,7 @@
     "W00131",
     "W00133"
   ],
-  "new_grammar": [
-    "G036_masen"
-  ],
+  "new_grammar": [],
   "all_words_used": [
     "W00041",
     "W00072",
@@ -51,7 +49,14 @@
     "W00035",
     "W00050",
     "W00094",
-    "W00083"
+    "W00083",
+    "W00002",
+    "W00109",
+    "W00114",
+    "W00201",
+    "W00033",
+    "W00084",
+    "W00011"
   ],
   "sentences": [
     {
@@ -312,8 +317,7 @@
             "form": "negative_polite",
             "verb_class": "godan"
           },
-          "grammar_id": "G036_masen",
-          "is_new_grammar": true
+          "grammar_id": "G036_masen"
         },
         {
           "t": "。",
@@ -642,6 +646,129 @@
         }
       ],
       "gloss_en": "A spring evening — I do not wait."
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あめ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "音",
+          "role": "content",
+          "word_id": "W00109",
+          "r": "おと"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "好き",
+          "role": "content",
+          "word_id": "W00114",
+          "r": "すき"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I like the sound of the rain."
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "町",
+          "role": "content",
+          "word_id": "W00201",
+          "r": "まち"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "At the town's bookshop, I am quiet."
     }
   ]
 }

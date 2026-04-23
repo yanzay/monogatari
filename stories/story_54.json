@@ -25,7 +25,6 @@
   },
   "new_words": [
     "W00179",
-    "W00180",
     "W00181"
   ],
   "new_grammar": [
@@ -58,15 +57,25 @@
     "W00135",
     "W00132",
     "W00044",
-    "W00180",
+    "W00146",
     "W00050",
     "W00120",
     "W00097",
-    "W00146",
     "W00177",
     "W00012",
     "W00074",
-    "W00181"
+    "W00181",
+    "W00172",
+    "W00104",
+    "W00150",
+    "W00174",
+    "W00221",
+    "W00067",
+    "W00039",
+    "W00137",
+    "W00222",
+    "W00019",
+    "W00020"
   ],
   "sentences": [
     {
@@ -609,18 +618,10 @@
       "idx": 10,
       "tokens": [
         {
-          "t": "あの",
+          "t": "来週",
           "role": "content",
-          "word_id": "W00147",
-          "r": "あの",
-          "grammar_id": "G043_kosoado_pre_nominal"
-        },
-        {
-          "t": "週",
-          "role": "content",
-          "word_id": "W00180",
-          "r": "しゅう",
-          "is_new": true
+          "word_id": "W00146",
+          "r": "らいしゅう"
         },
         {
           "t": "、",
@@ -644,24 +645,24 @@
           "r": "ときどき"
         },
         {
-          "t": "来ました",
+          "t": "来ます",
           "role": "content",
           "word_id": "W00040",
-          "r": "きました",
+          "r": "きます",
           "inflection": {
             "base": "来る",
             "base_r": "くる",
-            "form": "polite_past",
+            "form": "polite_nonpast",
             "verb_class": "irregular_kuru"
           },
-          "grammar_id": "G013_mashita_past"
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "That week, the friend sometimes came."
+      "gloss_en": "Next week, the friend will come from time to time."
     },
     {
       "idx": 11,
@@ -981,6 +982,228 @@
         }
       ],
       "gloss_en": "Spring morning, warm tea, long dinner, next week's promise."
+    },
+    {
+      "idx": 16,
+      "tokens": [
+        {
+          "t": "兄",
+          "role": "content",
+          "word_id": "W00172",
+          "r": "あに"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "学校",
+          "role": "content",
+          "word_id": "W00104",
+          "r": "がっこう"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "G050_he_direction"
+        },
+        {
+          "t": "行きます",
+          "role": "content",
+          "word_id": "W00150",
+          "r": "いきます",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Older brother goes to school."
+    },
+    {
+      "idx": 17,
+      "tokens": [
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00174",
+          "r": "おとうと"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "兄",
+          "role": "content",
+          "word_id": "W00172",
+          "r": "あに"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "一緒に",
+          "role": "content",
+          "word_id": "W00050",
+          "r": "いっしょに"
+        },
+        {
+          "t": "学校",
+          "role": "content",
+          "word_id": "W00104",
+          "r": "がっこう"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "G050_he_direction"
+        },
+        {
+          "t": "行きます",
+          "role": "content",
+          "word_id": "W00150",
+          "r": "いきます",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Younger brother and older brother go to school together."
+    },
+    {
+      "idx": 18,
+      "tokens": [
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "中",
+          "role": "content",
+          "word_id": "W00221",
+          "r": "なか"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Inside the book there is an old letter."
+    },
+    {
+      "idx": 19,
+      "tokens": [
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "気持ち",
+          "role": "content",
+          "word_id": "W00222",
+          "r": "きもち"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "朝ごはん",
+          "role": "content",
+          "word_id": "W00019",
+          "r": "あさごはん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "食べます",
+          "role": "content",
+          "word_id": "W00020",
+          "r": "たべます",
+          "inflection": {
+            "base": "食べる",
+            "base_r": "たべる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I eat breakfast with a bright feeling."
     }
   ]
 }

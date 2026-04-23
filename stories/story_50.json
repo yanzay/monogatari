@@ -33,7 +33,7 @@
   "new_words": [
     "W00145",
     "W00146",
-    "W00172"
+    "W00221"
   ],
   "new_grammar": [
     "G042_itsu_when"
@@ -65,7 +65,16 @@
     "W00029",
     "W00172",
     "W00168",
-    "W00143"
+    "W00143",
+    "W00055",
+    "W00136",
+    "W00221",
+    "W00067",
+    "W00039",
+    "W00044",
+    "W00066",
+    "W00033",
+    "W00153"
   ],
   "sentences": [
     {
@@ -878,8 +887,7 @@
           "t": "兄",
           "role": "content",
           "word_id": "W00172",
-          "r": "あに",
-          "is_new": true
+          "r": "あに"
         },
         {
           "t": "の",
@@ -920,6 +928,133 @@
         }
       ],
       "gloss_en": "Where are the big brother's clothes?"
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00055",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "箱",
+          "role": "content",
+          "word_id": "W00136",
+          "r": "はこ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "中",
+          "role": "content",
+          "word_id": "W00221",
+          "r": "なか",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Inside a small box, there is an old letter."
+    },
+    {
+      "idx": 16,
+      "tokens": [
+        {
+          "t": "兄",
+          "role": "content",
+          "word_id": "W00172",
+          "r": "あに"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "新しい",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "あたらしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見せます",
+          "role": "content",
+          "word_id": "W00153",
+          "r": "みせます",
+          "inflection": {
+            "base": "見せる",
+            "base_r": "みせる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Older brother shows a new book."
     }
   ]
 }

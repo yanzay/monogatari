@@ -59,7 +59,12 @@
     "W00011",
     "W00056",
     "W00046",
-    "W00086"
+    "W00086",
+    "W00121",
+    "W00123",
+    "W00201",
+    "W00015",
+    "W00137"
   ],
   "sentences": [
     {
@@ -799,6 +804,106 @@
         }
       ],
       "gloss_en": "A rainy evening, a black umbrella."
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "言葉",
+          "role": "content",
+          "word_id": "W00121",
+          "r": "ことば"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "覚えます",
+          "role": "content",
+          "word_id": "W00123",
+          "r": "おぼえます",
+          "inflection": {
+            "base": "覚える",
+            "base_r": "おぼえる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I remember grandmother's words."
+    },
+    {
+      "idx": 16,
+      "tokens": [
+        {
+          "t": "町",
+          "role": "content",
+          "word_id": "W00201",
+          "r": "まち"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The town's morning is bright."
     }
   ]
 }

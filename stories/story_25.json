@@ -26,7 +26,6 @@
   "new_words": [
     "W00075",
     "W00077",
-    "W00076",
     "W00120"
   ],
   "new_grammar": [],
@@ -52,7 +51,11 @@
     "W00025",
     "W00073",
     "W00163",
-    "W00120"
+    "W00120",
+    "W00036",
+    "W00085",
+    "W00237",
+    "W00009"
   ],
   "sentences": [
     {
@@ -335,8 +338,7 @@
           "role": "content",
           "word_id": "W00076",
           "r": "かなしい",
-          "grammar_id": "G022_i_adj",
-          "is_new": true
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -536,6 +538,107 @@
         }
       ],
       "gloss_en": "A sad morning, a painful heart, a quiet rain."
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "椅子",
+          "role": "content",
+          "word_id": "W00036",
+          "r": "いす"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "座ります",
+          "role": "content",
+          "word_id": "W00085",
+          "r": "すわります",
+          "inflection": {
+            "base": "座る",
+            "base_r": "すわる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I sit on the chair."
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "机",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "つくえ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "上",
+          "role": "content",
+          "word_id": "W00237",
+          "r": "うえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00009",
+          "r": "おちゃ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is tea on the desk."
     }
   ]
 }

@@ -54,7 +54,14 @@
     "W00077",
     "W00012",
     "W00056",
-    "W00090"
+    "W00090",
+    "W00081",
+    "W00082",
+    "W00190",
+    "W00076",
+    "W00137",
+    "W00078",
+    "W00053"
   ],
   "sentences": [
     {
@@ -570,6 +577,134 @@
         }
       ],
       "gloss_en": "A joyful autumn and winter."
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "夏",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "なつ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "暑い",
+          "role": "content",
+          "word_id": "W00082",
+          "r": "あつい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Summer mornings are hot."
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "少し",
+          "role": "content",
+          "word_id": "W00190",
+          "r": "すこし"
+        },
+        {
+          "t": "悲しい",
+          "role": "content",
+          "word_id": "W00076",
+          "r": "かなしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I am a little sad."
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "家族",
+          "role": "content",
+          "word_id": "W00088",
+          "r": "かぞく"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "笑います",
+          "role": "content",
+          "word_id": "W00053",
+          "r": "わらいます",
+          "inflection": {
+            "base": "笑う",
+            "base_r": "わらう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In a bright house, the family laughs."
     }
   ]
 }

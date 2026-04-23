@@ -19,14 +19,12 @@
     ]
   },
   "new_words": [
-    "W00147",
     "W00148",
-    "W00216",
-    "W00173"
+    "W00222",
+    "W00185",
+    "W00232"
   ],
-  "new_grammar": [
-    "G043_kosoado_pre_nominal"
-  ],
+  "new_grammar": [],
   "all_words_used": [
     "W00147",
     "W00024",
@@ -47,7 +45,7 @@
     "W00103",
     "W00054",
     "W00029",
-    "W00216",
+    "W00135",
     "W00141",
     "W00047",
     "W00006",
@@ -57,7 +55,18 @@
     "W00120",
     "W00145",
     "W00040",
-    "W00132"
+    "W00132",
+    "W00137",
+    "W00015",
+    "W00138",
+    "W00222",
+    "W00013",
+    "W00171",
+    "W00059",
+    "W00053",
+    "W00169",
+    "W00185",
+    "W00232"
   ],
   "sentences": [
     {
@@ -176,9 +185,7 @@
           "role": "content",
           "word_id": "W00147",
           "r": "あの",
-          "grammar_id": "G043_kosoado_pre_nominal",
-          "is_new": true,
-          "is_new_grammar": true
+          "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
           "t": "花",
@@ -535,11 +542,16 @@
           "r": "とり"
         },
         {
-          "t": "何何",
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "何",
           "role": "content",
-          "word_id": "W00216",
-          "r": "なになに",
-          "is_new": true
+          "word_id": "W00135",
+          "r": "なに",
+          "grammar_id": "G045_nan_what"
         },
         {
           "t": "です",
@@ -719,8 +731,7 @@
           "t": "妹",
           "role": "content",
           "word_id": "W00173",
-          "r": "いもうと",
-          "is_new": true
+          "r": "いもうと"
         },
         {
           "t": "と",
@@ -1010,6 +1021,193 @@
         }
       ],
       "gloss_en": "Spring evening, that flower, the bird in the sky."
+    },
+    {
+      "idx": 16,
+      "tokens": [
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "空気",
+          "role": "content",
+          "word_id": "W00138",
+          "r": "くうき"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "気持ち",
+          "role": "content",
+          "word_id": "W00222",
+          "r": "きもち",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "いい",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "いい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Bright morning air feels good."
+    },
+    {
+      "idx": 17,
+      "tokens": [
+        {
+          "t": "姉",
+          "role": "content",
+          "word_id": "W00171",
+          "r": "あね"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "妹",
+          "role": "content",
+          "word_id": "W00173",
+          "r": "いもうと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "一緒に",
+          "role": "content",
+          "word_id": "W00050",
+          "r": "いっしょに"
+        },
+        {
+          "t": "庭",
+          "role": "content",
+          "word_id": "W00059",
+          "r": "にわ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "笑います",
+          "role": "content",
+          "word_id": "W00053",
+          "r": "わらいます",
+          "inflection": {
+            "base": "笑う",
+            "base_r": "わらう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Older sister and younger sister laugh together in the garden."
+    },
+    {
+      "idx": 18,
+      "tokens": [
+        {
+          "t": "靴",
+          "role": "content",
+          "word_id": "W00169",
+          "r": "くつ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "玄関",
+          "role": "content",
+          "word_id": "W00185",
+          "r": "げんかん",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "前",
+          "role": "content",
+          "word_id": "W00232",
+          "r": "まえ",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The shoes are in front of the entrance."
     }
   ]
 }

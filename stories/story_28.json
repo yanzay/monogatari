@@ -25,8 +25,7 @@
   },
   "new_words": [
     "W00084",
-    "W00086",
-    "W00085"
+    "W00086"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -51,7 +50,17 @@
     "W00035",
     "W00050",
     "W00010",
-    "W00081"
+    "W00081",
+    "W00070",
+    "W00045",
+    "W00057",
+    "W00071",
+    "W00044",
+    "W00138",
+    "W00160",
+    "W00190",
+    "W00137",
+    "W00066"
   ],
   "sentences": [
     {
@@ -289,8 +298,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast",
-          "is_new": true
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -624,6 +632,208 @@
         }
       ],
       "gloss_en": "Summer morning, a warm shop."
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "電車",
+          "role": "content",
+          "word_id": "W00070",
+          "r": "でんしゃ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "そば",
+          "role": "content",
+          "word_id": "W00045",
+          "r": "そば"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "大きい",
+          "role": "content",
+          "word_id": "W00057",
+          "r": "おおきい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "時計",
+          "role": "content",
+          "word_id": "W00071",
+          "r": "とけい"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Beside the train, there is a big clock."
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あめ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "空気",
+          "role": "content",
+          "word_id": "W00138",
+          "r": "くうき"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "重い",
+          "role": "content",
+          "word_id": "W00160",
+          "r": "おもい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Rainy air is heavy."
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "少し",
+          "role": "content",
+          "word_id": "W00190",
+          "r": "すこし"
+        },
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あめ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A little rain comes."
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "空気",
+          "role": "content",
+          "word_id": "W00138",
+          "r": "くうき"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "新しい",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "あたらしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "On a bright morning, the air is new."
     }
   ]
 }

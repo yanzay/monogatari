@@ -22,7 +22,8 @@
   "new_words": [
     "W00098",
     "W00100",
-    "W00099"
+    "W00099",
+    "W00115"
   ],
   "new_grammar": [
     "G029_kute"
@@ -49,7 +50,11 @@
     "W00024",
     "W00083",
     "W00099",
-    "W00096"
+    "W00096",
+    "W00066",
+    "W00086",
+    "W00120",
+    "W00115"
   ],
   "sentences": [
     {
@@ -660,6 +665,103 @@
         }
       ],
       "gloss_en": "Father and grandmother's old, important clock."
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "新しい",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "あたらしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "時計",
+          "role": "content",
+          "word_id": "W00071",
+          "r": "とけい"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "買います",
+          "role": "content",
+          "word_id": "W00086",
+          "r": "かいます",
+          "inflection": {
+            "base": "買う",
+            "base_r": "かう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother buys a new clock."
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "心",
+          "role": "content",
+          "word_id": "W00120",
+          "r": "こころ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "優しい",
+          "role": "content",
+          "word_id": "W00115",
+          "r": "やさしい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother's heart is gentle."
     }
   ]
 }

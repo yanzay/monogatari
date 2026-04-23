@@ -44,7 +44,8 @@
     "W00022",
     "W00039",
     "W00034",
-    "W00056"
+    "W00056",
+    "W00229"
   ],
   "sentences": [
     {
@@ -581,6 +582,51 @@
         }
       ],
       "gloss_en": "A small key, a warm home."
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "鍵",
+          "role": "content",
+          "word_id": "W00079",
+          "r": "かぎ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "机",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "つくえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "置きます",
+          "role": "content",
+          "word_id": "W00229",
+          "r": "おきます",
+          "inflection": {
+            "base": "置く",
+            "base_r": "おく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I place the key on the desk."
     }
   ]
 }

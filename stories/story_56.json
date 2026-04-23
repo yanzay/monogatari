@@ -24,9 +24,9 @@
     ]
   },
   "new_words": [
-    "W00150",
-    "W00185",
-    "W00186"
+    "W00186",
+    "W00233",
+    "W00225"
   ],
   "new_grammar": [
     "G048_masho"
@@ -64,7 +64,17 @@
     "W00181",
     "W00132",
     "W00066",
-    "W00012"
+    "W00012",
+    "W00174",
+    "W00175",
+    "W00115",
+    "W00233",
+    "W00002",
+    "W00179",
+    "W00225",
+    "W00011",
+    "W00015",
+    "W00232"
   ],
   "sentences": [
     {
@@ -161,8 +171,7 @@
           "t": "玄関",
           "role": "content",
           "word_id": "W00185",
-          "r": "げんかん",
-          "is_new": true
+          "r": "げんかん"
         },
         {
           "t": "に",
@@ -219,7 +228,6 @@
             "verb_class": "godan"
           },
           "grammar_id": "G048_masho",
-          "is_new": true,
           "is_new_grammar": true
         },
         {
@@ -1030,6 +1038,182 @@
         }
       ],
       "gloss_en": "Spring evening, a new promise, a warm heart."
+    },
+    {
+      "idx": 17,
+      "tokens": [
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00174",
+          "r": "おとうと"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "先生",
+          "role": "content",
+          "word_id": "W00175",
+          "r": "せんせい"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "優しい",
+          "role": "content",
+          "word_id": "W00115",
+          "r": "やさしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Younger brother's teacher is kind."
+    },
+    {
+      "idx": 18,
+      "tokens": [
+        {
+          "t": "今日",
+          "role": "content",
+          "word_id": "W00233",
+          "r": "きょう",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あめ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "日",
+          "role": "content",
+          "word_id": "W00179",
+          "r": "ひ"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Today is a rainy day."
+    },
+    {
+      "idx": 19,
+      "tokens": [
+        {
+          "t": "今週",
+          "role": "content",
+          "word_id": "W00225",
+          "r": "こんしゅう",
+          "is_new": true
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "な",
+          "role": "particle",
+          "grammar_id": "G016_na_adjective"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "This week, too, it is a quiet morning."
+    },
+    {
+      "idx": 20,
+      "tokens": [
+        {
+          "t": "前",
+          "role": "content",
+          "word_id": "W00232",
+          "r": "まえ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The previous house is old."
     }
   ]
 }

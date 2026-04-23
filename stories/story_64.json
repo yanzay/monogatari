@@ -37,7 +37,8 @@
   "new_words": [
     "W00205",
     "W00206",
-    "W00204"
+    "W00204",
+    "W00226"
   ],
   "new_grammar": [
     "G056_plain_past_pair"
@@ -67,7 +68,24 @@
     "W00150",
     "W00067",
     "W00066",
-    "W00132"
+    "W00132",
+    "W00194",
+    "W00221",
+    "W00027",
+    "W00151",
+    "W00115",
+    "W00193",
+    "W00202",
+    "W00203",
+    "W00113",
+    "W00226",
+    "W00110",
+    "W00111",
+    "W00200",
+    "W00083",
+    "W00074",
+    "W00177",
+    "W00224"
   ],
   "sentences": [
     {
@@ -1094,6 +1112,280 @@
         }
       ],
       "gloss_en": "A spring morning, an old notebook, a new promise."
+    },
+    {
+      "idx": 17,
+      "tokens": [
+        {
+          "t": "夢",
+          "role": "content",
+          "word_id": "W00194",
+          "r": "ゆめ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "中",
+          "role": "content",
+          "word_id": "W00221",
+          "r": "なか"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "風",
+          "role": "content",
+          "word_id": "W00027",
+          "r": "かぜ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "吹いて",
+          "role": "content",
+          "word_id": "W00151",
+          "r": "ふいて",
+          "inflection": {
+            "base": "吹く",
+            "base_r": "ふく",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "優しい",
+          "role": "content",
+          "word_id": "W00115",
+          "r": "やさしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "声",
+          "role": "content",
+          "word_id": "W00193",
+          "r": "こえ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In a dream, wind blew and a gentle voice came."
+    },
+    {
+      "idx": 18,
+      "tokens": [
+        {
+          "t": "村",
+          "role": "content",
+          "word_id": "W00202",
+          "r": "むら"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "駐車場",
+          "role": "content",
+          "word_id": "W00203",
+          "r": "ちゅうしゃじょう"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "新しい",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "あたらしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00113",
+          "r": "ひと"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "会います",
+          "role": "content",
+          "word_id": "W00226",
+          "r": "あいます",
+          "inflection": {
+            "base": "会う",
+            "base_r": "あう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the village parking lot, I meet a new person."
+    },
+    {
+      "idx": 19,
+      "tokens": [
+        {
+          "t": "山",
+          "role": "content",
+          "word_id": "W00110",
+          "r": "やま"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "川",
+          "role": "content",
+          "word_id": "W00111",
+          "r": "かわ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "国",
+          "role": "content",
+          "word_id": "W00200",
+          "r": "くに"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "美しい",
+          "role": "content",
+          "word_id": "W00083",
+          "r": "うつくしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The country of mountains and rivers is beautiful."
+    },
+    {
+      "idx": 20,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "長い",
+          "role": "content",
+          "word_id": "W00074",
+          "r": "ながい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "時間",
+          "role": "content",
+          "word_id": "W00177",
+          "r": "じかん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "過ごします",
+          "role": "content",
+          "word_id": "W00224",
+          "r": "すごします",
+          "inflection": {
+            "base": "過ごす",
+            "base_r": "すごす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I spend a long time with my friend."
     }
   ]
 }

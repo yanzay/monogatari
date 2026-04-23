@@ -58,7 +58,9 @@
     "W00167",
     "W00009",
     "W00010",
-    "W00055"
+    "W00055",
+    "W00049",
+    "W00086"
   ],
   "sentences": [
     {
@@ -633,6 +635,84 @@
         }
       ],
       "gloss_en": "A warm and happy night."
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "雪",
+          "role": "content",
+          "word_id": "W00063",
+          "r": "ゆき"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夜",
+          "role": "content",
+          "word_id": "W00030",
+          "r": "よる"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "温かい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "パン",
+          "role": "content",
+          "word_id": "W00049",
+          "r": "パン"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "買います",
+          "role": "content",
+          "word_id": "W00086",
+          "r": "かいます",
+          "inflection": {
+            "base": "買う",
+            "base_r": "かう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "On a snowy night, I buy warm bread."
     }
   ]
 }

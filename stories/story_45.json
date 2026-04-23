@@ -34,9 +34,9 @@
     ]
   },
   "new_words": [
-    "W00134",
     "W00135",
-    "W00136"
+    "W00136",
+    "W00153"
   ],
   "new_grammar": [
     "G045_nan_what",
@@ -64,7 +64,11 @@
     "W00129",
     "W00082",
     "W00081",
-    "W00083"
+    "W00083",
+    "W00117",
+    "W00125",
+    "W00066",
+    "W00153"
   ],
   "sentences": [
     {
@@ -170,8 +174,7 @@
           "t": "これ",
           "role": "content",
           "word_id": "W00134",
-          "r": "これ",
-          "is_new": true
+          "r": "これ"
         },
         {
           "t": "は",
@@ -715,6 +718,121 @@
         }
       ],
       "gloss_en": "An old box, a precious memory."
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "箱",
+          "role": "content",
+          "word_id": "W00136",
+          "r": "はこ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "渡します",
+          "role": "content",
+          "word_id": "W00117",
+          "r": "わたします",
+          "inflection": {
+            "base": "渡す",
+            "base_r": "わたす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother hands me a box."
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "さん",
+          "role": "content",
+          "word_id": "W00125",
+          "r": "さん"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "新しい",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "あたらしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "時計",
+          "role": "content",
+          "word_id": "W00071",
+          "r": "とけい"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見せます",
+          "role": "content",
+          "word_id": "W00153",
+          "r": "みせます",
+          "inflection": {
+            "base": "見せる",
+            "base_r": "みせる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother shows a new clock."
     }
   ]
 }

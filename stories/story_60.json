@@ -24,11 +24,10 @@
   "new_words": [
     "W00197",
     "W00196",
-    "W00195"
+    "W00195",
+    "W00238"
   ],
-  "new_grammar": [
-    "G052_made_until"
-  ],
+  "new_grammar": [],
   "all_words_used": [
     "W00018",
     "W00072",
@@ -70,7 +69,18 @@
     "W00107",
     "W00120",
     "W00193",
-    "W00013"
+    "W00013",
+    "W00183",
+    "W00184",
+    "W00147",
+    "W00113",
+    "W00192",
+    "W00123",
+    "W00230",
+    "W00098",
+    "W00225",
+    "W00238",
+    "W00137"
   ],
   "sentences": [
     {
@@ -213,8 +223,7 @@
         {
           "t": "まで",
           "role": "particle",
-          "grammar_id": "G052_made_until",
-          "is_new_grammar": true
+          "grammar_id": "G052_made_until"
         },
         {
           "t": "本",
@@ -936,6 +945,204 @@
         }
       ],
       "gloss_en": "From morning to evening, an old book, warm tea."
+    },
+    {
+      "idx": 17,
+      "tokens": [
+        {
+          "t": "晩",
+          "role": "content",
+          "word_id": "W00183",
+          "r": "ばん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "台所",
+          "role": "content",
+          "word_id": "W00184",
+          "r": "だいどころ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "温かい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The evening kitchen is warm."
+    },
+    {
+      "idx": 18,
+      "tokens": [
+        {
+          "t": "あの",
+          "role": "content",
+          "word_id": "W00147",
+          "r": "あの",
+          "grammar_id": "G043_kosoado_pre_nominal"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00113",
+          "r": "ひと"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "優しさ",
+          "role": "content",
+          "word_id": "W00192",
+          "r": "やさしさ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "覚えて",
+          "role": "content",
+          "word_id": "W00123",
+          "r": "おぼえて",
+          "inflection": {
+            "base": "覚える",
+            "base_r": "おぼえる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "います",
+          "role": "aux",
+          "grammar_id": "G008_te_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I remember that person's kindness."
+    },
+    {
+      "idx": 19,
+      "tokens": [
+        {
+          "t": "一",
+          "role": "content",
+          "word_id": "W00230",
+          "r": "いち"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00113",
+          "r": "ひと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Person number one is grandmother."
+    },
+    {
+      "idx": 20,
+      "tokens": [
+        {
+          "t": "今週",
+          "role": "content",
+          "word_id": "W00225",
+          "r": "こんしゅう"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "毎日",
+          "role": "content",
+          "word_id": "W00238",
+          "r": "まいにち",
+          "is_new": true
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "This week, every day is bright."
     }
   ]
 }

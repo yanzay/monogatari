@@ -767,18 +767,20 @@ def run_tests():
     check("story 1 with 7 sentences → no check 7 error",
           not errors_for_check(r, 7))
 
+    # Story 1 target 7, with ±5 tolerance the band is [2,12]; 1 sentence fails.
     s = make_valid_story()
     s["story_id"] = 1
-    s["sentences"] = s["sentences"][:4]  # 4 sentences (below band 5-9 for target 7)
+    s["sentences"] = s["sentences"][:1]
     r = validate(s, VOCAB, GRAMMAR)
-    check("story 1 with 4 sentences → check 7 error (band 5-9)",
+    check("story 1 with 1 sentence → check 7 error (below band)",
           errors_for_check(r, 7))
 
-    # Story 21 (target 10, band 8-12 with ±2 tolerance): 5 sentences should fail.
+    # Story 21 target 10, band [5,15]; 4 sentences fails.
     s = make_valid_story()
     s["story_id"] = 21
-    r = validate(s, VOCAB, GRAMMAR)  # has 5 sentences
-    check("story 21 with 5 sentences → check 7 error (band 8-12)",
+    s["sentences"] = s["sentences"][:4]
+    r = validate(s, VOCAB, GRAMMAR)
+    check("story 21 with 4 sentences → check 7 error (below band)",
           errors_for_check(r, 7))
 
     # Story_id 0 (test fixture sentinel) should bypass progression and use the

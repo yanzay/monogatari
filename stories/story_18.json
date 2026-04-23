@@ -26,7 +26,9 @@
   "new_words": [
     "W00054",
     "W00055",
-    "W00056"
+    "W00056",
+    "W00138",
+    "W00076"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -54,7 +56,12 @@
     "W00056",
     "W00165",
     "W00011",
-    "W00015"
+    "W00015",
+    "W00159",
+    "W00160",
+    "W00138",
+    "W00076",
+    "W00043"
   ],
   "sentences": [
     {
@@ -508,6 +515,86 @@
         }
       ],
       "gloss_en": "Joyful music, a quiet morning."
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "早い",
+          "role": "content",
+          "word_id": "W00159",
+          "r": "はやい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "重い",
+          "role": "content",
+          "word_id": "W00160",
+          "r": "おもい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "空気",
+          "role": "content",
+          "word_id": "W00138",
+          "r": "くうき",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "悲しい",
+          "role": "content",
+          "word_id": "W00076",
+          "r": "かなしい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G014_to_omoimasu"
+        },
+        {
+          "t": "思います",
+          "role": "aux",
+          "word_id": "W00043",
+          "r": "おもいます",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the early morning, I think the heavy air is sad."
     }
   ]
 }

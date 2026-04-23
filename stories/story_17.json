@@ -27,7 +27,8 @@
     "W00051",
     "W00052",
     "W00053",
-    "W00050"
+    "W00050",
+    "W00085"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -48,7 +49,11 @@
     "W00022",
     "W00164",
     "W00048",
-    "W00050"
+    "W00050",
+    "W00036",
+    "W00085",
+    "W00013",
+    "W00043"
   ],
   "sentences": [
     {
@@ -513,6 +518,143 @@
         }
       ],
       "gloss_en": "Together on the bench, we laugh."
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "こうえん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "椅子",
+          "role": "content",
+          "word_id": "W00036",
+          "r": "いす"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "子供",
+          "role": "content",
+          "word_id": "W00051",
+          "r": "こども"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "一緒に",
+          "role": "content",
+          "word_id": "W00050",
+          "r": "いっしょに"
+        },
+        {
+          "t": "座ります",
+          "role": "content",
+          "word_id": "W00085",
+          "r": "すわります",
+          "inflection": {
+            "base": "座る",
+            "base_r": "すわる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "On a park chair, the child and I sit together."
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "いい",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "いい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G014_to_omoimasu"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "思います",
+          "role": "aux",
+          "word_id": "W00043",
+          "r": "おもいます",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I think, \"good.\""
     }
   ]
 }

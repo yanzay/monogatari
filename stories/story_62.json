@@ -34,9 +34,7 @@
     ]
   },
   "new_words": [
-    "W00153",
-    "W00200",
-    "W00201"
+    "W00200"
   ],
   "new_grammar": [
     "G054_yo_emphasis"
@@ -73,7 +71,11 @@
     "W00066",
     "W00132",
     "W00200",
-    "W00201"
+    "W00201",
+    "W00187",
+    "W00195",
+    "W00225",
+    "W00234"
   ],
   "sentences": [
     {
@@ -270,8 +272,7 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast",
-          "is_new": true
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -1144,13 +1145,37 @@
           "t": "町",
           "role": "content",
           "word_id": "W00201",
-          "r": "まち",
-          "is_new": true
+          "r": "まち"
         },
         {
-          "t": "も",
+          "t": "の",
           "role": "particle",
-          "grammar_id": "G009_mo_also"
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "橋",
+          "role": "content",
+          "word_id": "W00187",
+          "r": "はし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "古くて",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるくて",
+          "inflection": {
+            "form": "i_adj_te"
+          },
+          "grammar_id": "G029_kute"
+        },
+        {
+          "t": "、",
+          "role": "punct"
         },
         {
           "t": "美しい",
@@ -1169,7 +1194,126 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The town, too, is beautiful."
+      "gloss_en": "The town's bridge is old and beautiful."
+    },
+    {
+      "idx": 19,
+      "tokens": [
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "空想",
+          "role": "content",
+          "word_id": "W00195",
+          "r": "くうそう"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "今週",
+          "role": "content",
+          "word_id": "W00225",
+          "r": "こんしゅう"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "新しい",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "あたらしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "読みました",
+          "role": "content",
+          "word_id": "W00034",
+          "r": "よみました",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "With bright daydreams, this week I read a new book."
+    },
+    {
+      "idx": 20,
+      "tokens": [
+        {
+          "t": "町",
+          "role": "content",
+          "word_id": "W00201",
+          "r": "まち"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "橋",
+          "role": "content",
+          "word_id": "W00187",
+          "r": "はし"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "渡ります",
+          "role": "content",
+          "word_id": "W00234",
+          "r": "わたります",
+          "inflection": {
+            "base": "渡る",
+            "base_r": "わたる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I cross the town's bridge."
     }
   ]
 }

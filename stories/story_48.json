@@ -60,7 +60,11 @@
     "W00132",
     "W00046",
     "W00120",
-    "W00168"
+    "W00168",
+    "W00098",
+    "W00125",
+    "W00061",
+    "W00126"
   ],
   "sentences": [
     {
@@ -942,6 +946,72 @@
         }
       ],
       "gloss_en": "There are the friend's clothes."
+    },
+    {
+      "idx": 16,
+      "tokens": [
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "さん",
+          "role": "content",
+          "word_id": "W00125",
+          "r": "さん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "名前",
+          "role": "content",
+          "word_id": "W00061",
+          "r": "なまえ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "知ります",
+          "role": "content",
+          "word_id": "W00126",
+          "r": "しります",
+          "inflection": {
+            "base": "知る",
+            "base_r": "しる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I come to know grandmother's name."
     }
   ]
 }

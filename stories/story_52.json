@@ -64,7 +64,15 @@
     "W00094",
     "W00132",
     "W00146",
-    "W00175"
+    "W00175",
+    "W00141",
+    "W00130",
+    "W00140",
+    "W00172",
+    "W00039",
+    "W00034",
+    "W00079",
+    "W00220"
   ],
   "sentences": [
     {
@@ -1002,6 +1010,145 @@
         }
       ],
       "gloss_en": "Spring evening, warm tea, the bookstore person."
+    },
+    {
+      "idx": 16,
+      "tokens": [
+        {
+          "t": "黒い",
+          "role": "content",
+          "word_id": "W00141",
+          "r": "くろい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "カバン",
+          "role": "content",
+          "word_id": "W00130",
+          "r": "かばん"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "誰",
+          "role": "content",
+          "word_id": "W00140",
+          "r": "だれ",
+          "grammar_id": "G039_dare_who"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Whose black bag is it?"
+    },
+    {
+      "idx": 17,
+      "tokens": [
+        {
+          "t": "兄",
+          "role": "content",
+          "word_id": "W00172",
+          "r": "あに"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00174",
+          "r": "おとうと"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "読みます",
+          "role": "content",
+          "word_id": "W00034",
+          "r": "よみます",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Older brother reads younger brother's letter."
+    },
+    {
+      "idx": 18,
+      "tokens": [
+        {
+          "t": "鍵",
+          "role": "content",
+          "word_id": "W00079",
+          "r": "かぎ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "無い",
+          "role": "content",
+          "word_id": "W00220",
+          "r": "ない",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The key isn't there."
     }
   ]
 }

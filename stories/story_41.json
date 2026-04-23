@@ -37,7 +37,8 @@
   "new_words": [
     "W00122",
     "W00123",
-    "W00124"
+    "W00124",
+    "W00201"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -63,7 +64,15 @@
     "W00119",
     "W00121",
     "W00100",
-    "W00034"
+    "W00034",
+    "W00104",
+    "W00051",
+    "W00105",
+    "W00106",
+    "W00201",
+    "W00111",
+    "W00066",
+    "W00112"
   ],
   "sentences": [
     {
@@ -666,6 +675,155 @@
         }
       ],
       "gloss_en": "The face of the spring shop."
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "学校",
+          "role": "content",
+          "word_id": "W00104",
+          "r": "がっこう"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "子供",
+          "role": "content",
+          "word_id": "W00051",
+          "r": "こども"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "仕事",
+          "role": "content",
+          "word_id": "W00105",
+          "r": "しごと"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "始めます",
+          "role": "content",
+          "word_id": "W00106",
+          "r": "はじめます",
+          "inflection": {
+            "base": "始める",
+            "base_r": "はじめる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "At school, the child begins their work."
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "町",
+          "role": "content",
+          "word_id": "W00201",
+          "r": "まち",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "川",
+          "role": "content",
+          "word_id": "W00111",
+          "r": "かわ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The town's river is quiet."
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "新しい",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "あたらしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "春",
+          "role": "content",
+          "word_id": "W00072",
+          "r": "はる"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "生まれます",
+          "role": "content",
+          "word_id": "W00112",
+          "r": "うまれます",
+          "inflection": {
+            "base": "生まれる",
+            "base_r": "うまれる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A new spring is born."
     }
   ]
 }

@@ -23,8 +23,6 @@
     ]
   },
   "new_words": [
-    "W00138",
-    "W00137",
     "W00139"
   ],
   "new_grammar": [
@@ -55,7 +53,9 @@
     "W00040",
     "W00041",
     "W00135",
-    "W00134"
+    "W00134",
+    "W00098",
+    "W00121"
   ],
   "sentences": [
     {
@@ -134,8 +134,7 @@
           "t": "空気",
           "role": "content",
           "word_id": "W00138",
-          "r": "くうき",
-          "is_new": true
+          "r": "くうき"
         },
         {
           "t": "は",
@@ -147,8 +146,7 @@
           "role": "content",
           "word_id": "W00137",
           "r": "あかるい",
-          "grammar_id": "G022_i_adj",
-          "is_new": true
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -727,6 +725,50 @@
         }
       ],
       "gloss_en": "This is a bright morning, warm light."
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "言葉",
+          "role": "content",
+          "word_id": "W00121",
+          "r": "ことば"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother's words are bright."
     }
   ]
 }

@@ -33,12 +33,12 @@
     ]
   },
   "new_words": [
-    "W00190",
     "W00191",
-    "W00192"
+    "W00192",
+    "W00224"
   ],
   "new_grammar": [
-    "G050_he_direction"
+    "G052_made_until"
   ],
   "all_words_used": [
     "W00033",
@@ -74,7 +74,14 @@
     "W00006",
     "W00066",
     "W00012",
-    "W00120"
+    "W00120",
+    "W00074",
+    "W00177",
+    "W00224",
+    "W00185",
+    "W00186",
+    "W00225",
+    "W00183"
   ],
   "sentences": [
     {
@@ -205,8 +212,7 @@
         {
           "t": "へ",
           "role": "particle",
-          "grammar_id": "G050_he_direction",
-          "is_new_grammar": true
+          "grammar_id": "G050_he_direction"
         },
         {
           "t": "行きます",
@@ -246,8 +252,7 @@
           "t": "少し",
           "role": "content",
           "word_id": "W00190",
-          "r": "すこし",
-          "is_new": true
+          "r": "すこし"
         },
         {
           "t": "美しい",
@@ -1023,6 +1028,211 @@
         }
       ],
       "gloss_en": "A spring road, a new store, a warm heart."
+    },
+    {
+      "idx": 17,
+      "tokens": [
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "長い",
+          "role": "content",
+          "word_id": "W00074",
+          "r": "ながい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "時間",
+          "role": "content",
+          "word_id": "W00177",
+          "r": "じかん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "過ごします",
+          "role": "content",
+          "word_id": "W00224",
+          "r": "すごします",
+          "inflection": {
+            "base": "過ごす",
+            "base_r": "すごす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "At the bookshop, I spend a long time."
+    },
+    {
+      "idx": 18,
+      "tokens": [
+        {
+          "t": "玄関",
+          "role": "content",
+          "word_id": "W00185",
+          "r": "げんかん"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "廊下",
+          "role": "content",
+          "word_id": "W00186",
+          "r": "ろうか"
+        },
+        {
+          "t": "まで",
+          "role": "particle",
+          "grammar_id": "G052_made_until",
+          "is_new_grammar": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "From the entryway to the hallway is bright."
+    },
+    {
+      "idx": 19,
+      "tokens": [
+        {
+          "t": "今週",
+          "role": "content",
+          "word_id": "W00225",
+          "r": "こんしゅう"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "晩",
+          "role": "content",
+          "word_id": "W00183",
+          "r": "ばん"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "長い",
+          "role": "content",
+          "word_id": "W00074",
+          "r": "ながい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "This week the evenings are long."
+    },
+    {
+      "idx": 20,
+      "tokens": [
+        {
+          "t": "今週",
+          "role": "content",
+          "word_id": "W00225",
+          "r": "こんしゅう"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "いい",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "いい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "時間",
+          "role": "content",
+          "word_id": "W00177",
+          "r": "じかん"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "This week is a good time."
     }
   ]
 }

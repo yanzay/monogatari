@@ -24,9 +24,10 @@
     ]
   },
   "new_words": [
-    "W00072",
     "W00073",
-    "W00074"
+    "W00074",
+    "W00190",
+    "W00137"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -51,7 +52,15 @@
     "W00064",
     "W00074",
     "W00069",
-    "W00070"
+    "W00070",
+    "W00050",
+    "W00041",
+    "W00002",
+    "W00011",
+    "W00190",
+    "W00076",
+    "W00137",
+    "W00138"
   ],
   "sentences": [
     {
@@ -71,8 +80,7 @@
           "t": "春",
           "role": "content",
           "word_id": "W00072",
-          "r": "はる",
-          "is_new": true
+          "r": "はる"
         },
         {
           "t": "が",
@@ -510,6 +518,141 @@
         }
       ],
       "gloss_en": "Long spring road, station's train, warm morning."
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "一緒に",
+          "role": "content",
+          "word_id": "W00050",
+          "r": "いっしょに"
+        },
+        {
+          "t": "春",
+          "role": "content",
+          "word_id": "W00072",
+          "r": "はる"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "待ちます",
+          "role": "content",
+          "word_id": "W00041",
+          "r": "まちます",
+          "inflection": {
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Together we wait for spring."
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あめ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "少し",
+          "role": "content",
+          "word_id": "W00190",
+          "r": "すこし",
+          "is_new": true
+        },
+        {
+          "t": "悲しい",
+          "role": "content",
+          "word_id": "W00076",
+          "r": "かなしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The rain is quiet and a little sad."
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "空気",
+          "role": "content",
+          "word_id": "W00138",
+          "r": "くうき"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The bright air is quiet."
     }
   ]
 }

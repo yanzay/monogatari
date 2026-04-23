@@ -30,7 +30,8 @@
   "new_words": [
     "W00151",
     "W00194",
-    "W00193"
+    "W00193",
+    "W00234"
   ],
   "new_grammar": [
     "G051_janai"
@@ -67,7 +68,14 @@
     "W00193",
     "W00013",
     "W00120",
-    "W00066"
+    "W00066",
+    "W00225",
+    "W00179",
+    "W00187",
+    "W00234",
+    "W00201",
+    "W00233",
+    "W00063"
   ],
   "sentences": [
     {
@@ -888,6 +896,151 @@
         }
       ],
       "gloss_en": "A rainy night, a new book, a warm heart."
+    },
+    {
+      "idx": 17,
+      "tokens": [
+        {
+          "t": "今週",
+          "role": "content",
+          "word_id": "W00225",
+          "r": "こんしゅう"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "日",
+          "role": "content",
+          "word_id": "W00179",
+          "r": "ひ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "This week's days are quiet."
+    },
+    {
+      "idx": 18,
+      "tokens": [
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "橋",
+          "role": "content",
+          "word_id": "W00187",
+          "r": "はし"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "渡って",
+          "role": "content",
+          "word_id": "W00234",
+          "r": "わたって",
+          "inflection": {
+            "base": "渡る",
+            "base_r": "わたる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form",
+          "is_new": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "町",
+          "role": "content",
+          "word_id": "W00201",
+          "r": "まち"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "G050_he_direction"
+        },
+        {
+          "t": "行きます",
+          "role": "content",
+          "word_id": "W00150",
+          "r": "いきます",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Crossing the old bridge, I go to the town."
+    },
+    {
+      "idx": 19,
+      "tokens": [
+        {
+          "t": "今日",
+          "role": "content",
+          "word_id": "W00233",
+          "r": "きょう"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "雪",
+          "role": "content",
+          "word_id": "W00063",
+          "r": "ゆき"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Today is snowy."
     }
   ]
 }
