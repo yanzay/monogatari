@@ -1,0 +1,1160 @@
+{
+  "story_id": 65,
+  "title": {
+    "jp": "新しい傘がほしい。",
+    "en": "I Want a New Umbrella.",
+    "tokens": [
+      {
+        "t": "新しい",
+        "r": "あたらしい",
+        "role": "content",
+        "word_id": "W00066",
+        "inflection": {
+          "form": "attributive",
+          "grammar_id": "G023_attributive"
+        }
+      },
+      {
+        "t": "傘",
+        "r": "かさ",
+        "role": "content",
+        "word_id": "W00116"
+      },
+      {
+        "t": "が",
+        "role": "particle",
+        "grammar_id": "G002_ga_subject",
+        "r": "が"
+      },
+      {
+        "t": "ほしい",
+        "r": "ほしい",
+        "role": "aux",
+        "grammar_id": "G057_ga_hoshii"
+      },
+      {
+        "t": "。",
+        "role": "punct"
+      }
+    ],
+    "gloss_en": "I want a new umbrella."
+  },
+  "subtitle": {
+    "jp": "古い傘は雨に弱いです。",
+    "en": "The old umbrella is weak in the rain.",
+    "tokens": [
+      {
+        "t": "古い",
+        "r": "ふるい",
+        "role": "content",
+        "word_id": "W00067",
+        "inflection": {
+          "form": "attributive",
+          "grammar_id": "G023_attributive"
+        }
+      },
+      {
+        "t": "傘",
+        "r": "かさ",
+        "role": "content",
+        "word_id": "W00116"
+      },
+      {
+        "t": "は",
+        "role": "particle",
+        "grammar_id": "G001_wa_topic",
+        "r": "は"
+      },
+      {
+        "t": "雨",
+        "r": "あめ",
+        "role": "content",
+        "word_id": "W00002"
+      },
+      {
+        "t": "に",
+        "role": "particle",
+        "grammar_id": "G004_ni_location",
+        "r": "に"
+      },
+      {
+        "t": "弱い",
+        "r": "よわい",
+        "role": "content",
+        "word_id": "W00155",
+        "inflection": {
+          "form": "plain_nonpast",
+          "grammar_id": "G022_i_adj"
+        }
+      },
+      {
+        "t": "です",
+        "role": "aux",
+        "grammar_id": "G003_desu",
+        "r": "です"
+      },
+      {
+        "t": "。",
+        "role": "punct"
+      }
+    ],
+    "gloss_en": "The old umbrella is weak in the rain."
+  },
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "はる",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "role": "content",
+          "word_id": "W00015"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is a spring morning.",
+      "audio": "audio/story_65/s0.wav",
+      "audio_hash": "03fcfb532d5c"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "雨",
+          "r": "あめ",
+          "role": "content",
+          "word_id": "W00002"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject",
+          "r": "が"
+        },
+        {
+          "t": "降ります",
+          "r": "ふります",
+          "role": "content",
+          "word_id": "W00107",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Rain falls.",
+      "audio": "audio/story_65/s1.wav",
+      "audio_hash": "ab3864b4899e"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "傘",
+          "r": "かさ",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "古い",
+          "r": "ふるい",
+          "role": "content",
+          "word_id": "W00067",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My umbrella is old.",
+      "audio": "audio/story_65/s2.wav",
+      "audio_hash": "7a2fb18e257d"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "古い",
+          "r": "ふるい",
+          "role": "content",
+          "word_id": "W00067",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "傘",
+          "r": "かさ",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "弱い",
+          "r": "よわい",
+          "role": "content",
+          "word_id": "W00155",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          },
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The old umbrella is weak.",
+      "audio": "audio/story_65/s3.wav",
+      "audio_hash": "a03675464b9b"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "強い",
+          "r": "つよい",
+          "role": "content",
+          "word_id": "W00118",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "傘",
+          "r": "かさ",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject",
+          "r": "が"
+        },
+        {
+          "t": "ほしい",
+          "r": "ほしい",
+          "role": "aux",
+          "grammar_id": "G057_ga_hoshii",
+          "is_new_grammar": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I want a strong umbrella.",
+      "audio": "audio/story_65/s4.wav",
+      "audio_hash": "6c9134b3a5f9"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "ノート",
+          "r": "ノート",
+          "role": "content",
+          "word_id": "W00154"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location",
+          "r": "に"
+        },
+        {
+          "t": "書きます",
+          "r": "かきます",
+          "role": "content",
+          "word_id": "W00060",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I write in the notebook.",
+      "audio": "audio/story_65/s5.wav",
+      "audio_hash": "69db537b9919"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "新しい",
+          "r": "あたらしい",
+          "role": "content",
+          "word_id": "W00066",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "傘",
+          "r": "かさ",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject",
+          "r": "が"
+        },
+        {
+          "t": "ほしい",
+          "r": "ほしい",
+          "role": "aux",
+          "grammar_id": "G057_ga_hoshii"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "と"
+        },
+        {
+          "t": "書きます",
+          "r": "かきます",
+          "role": "content",
+          "word_id": "W00060",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I write, \"I want a new umbrella.\"",
+      "audio": "audio/story_65/s6.wav",
+      "audio_hash": "7b34a940d63e"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "家",
+          "r": "いえ",
+          "role": "content",
+          "word_id": "W00078"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location",
+          "r": "に"
+        },
+        {
+          "t": "来ました",
+          "r": "きました",
+          "role": "content",
+          "word_id": "W00040",
+          "inflection": {
+            "form": "polite_past",
+            "grammar_id": "G013_mashita_past",
+            "base": "来る",
+            "base_r": "くる"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend came to my house.",
+      "audio": "audio/story_65/s7.wav",
+      "audio_hash": "2b18dee15dc2"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "何",
+          "r": "なに",
+          "role": "content",
+          "word_id": "W00135",
+          "grammar_id": "G045_nan_what"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject",
+          "r": "が"
+        },
+        {
+          "t": "ほしい",
+          "r": "ほしい",
+          "role": "aux",
+          "grammar_id": "G057_ga_hoshii"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question",
+          "r": "か"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "と"
+        },
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "言いました",
+          "r": "いいました",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "polite_past",
+            "grammar_id": "G013_mashita_past",
+            "base": "言う",
+            "base_r": "いう"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"What do you want?\" the friend said.",
+      "audio": "audio/story_65/s8.wav",
+      "audio_hash": "d0ff9122eb53"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "大きい",
+          "r": "おおきい",
+          "role": "content",
+          "word_id": "W00057",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "傘",
+          "r": "かさ",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject",
+          "r": "が"
+        },
+        {
+          "t": "ほしい",
+          "r": "ほしい",
+          "role": "aux",
+          "grammar_id": "G057_ga_hoshii"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "と"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "言いました",
+          "r": "いいました",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "polite_past",
+            "grammar_id": "G013_mashita_past",
+            "base": "言う",
+            "base_r": "いう"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"I want a big umbrella,\" I said.",
+      "audio": "audio/story_65/s9.wav",
+      "audio_hash": "5dfdb0be5f29"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "あの",
+          "r": "あの",
+          "role": "content",
+          "word_id": "W00147"
+        },
+        {
+          "t": "店",
+          "r": "みせ",
+          "role": "content",
+          "word_id": "W00084"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "G050_he_direction",
+          "r": "え"
+        },
+        {
+          "t": "行きましょう",
+          "r": "いきましょう",
+          "role": "content",
+          "word_id": "W00150",
+          "inflection": {
+            "form": "mashou",
+            "grammar_id": "G048_masho",
+            "base": "行く",
+            "base_r": "いく"
+          }
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "と"
+        },
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "言いました",
+          "r": "いいました",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "polite_past",
+            "grammar_id": "G013_mashita_past",
+            "base": "言う",
+            "base_r": "いう"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Let's go to that store,\" the friend said.",
+      "audio": "audio/story_65/s10.wav",
+      "audio_hash": "900d7f7622b8"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and",
+          "r": "と"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "店",
+          "r": "みせ",
+          "role": "content",
+          "word_id": "W00084"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "G050_he_direction",
+          "r": "え"
+        },
+        {
+          "t": "行きました",
+          "r": "いきました",
+          "role": "content",
+          "word_id": "W00150",
+          "inflection": {
+            "form": "polite_past",
+            "grammar_id": "G013_mashita_past",
+            "base": "行く",
+            "base_r": "いく"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend and I went to the store.",
+      "audio": "audio/story_65/s11.wav",
+      "audio_hash": "50647bd09cc9"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "店",
+          "r": "みせ",
+          "role": "content",
+          "word_id": "W00084"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location",
+          "r": "に"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "大きい",
+          "r": "おおきい",
+          "role": "content",
+          "word_id": "W00057",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "傘",
+          "r": "かさ",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject",
+          "r": "が"
+        },
+        {
+          "t": "あります",
+          "r": "あります",
+          "role": "content",
+          "word_id": "W00044"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There are big umbrellas in the store.",
+      "audio": "audio/story_65/s12.wav",
+      "audio_hash": "256ea8905332"
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "強い",
+          "r": "つよい",
+          "role": "content",
+          "word_id": "W00118",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "傘",
+          "r": "かさ",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object",
+          "r": "を"
+        },
+        {
+          "t": "買いました",
+          "r": "かいました",
+          "role": "content",
+          "word_id": "W00086",
+          "inflection": {
+            "form": "polite_past",
+            "grammar_id": "G013_mashita_past",
+            "base": "買う",
+            "base_r": "かう"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I bought a strong umbrella.",
+      "audio": "audio/story_65/s13.wav",
+      "audio_hash": "69ddacc4e1f4"
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "嬉しい",
+          "r": "うれしい",
+          "role": "content",
+          "word_id": "W00056",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I am happy.",
+      "audio": "audio/story_65/s14.wav",
+      "audio_hash": "5c29e5352c54"
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "ノート",
+          "r": "ノート",
+          "role": "content",
+          "word_id": "W00154"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location",
+          "r": "に"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "新しい",
+          "r": "あたらしい",
+          "role": "content",
+          "word_id": "W00066",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "傘",
+          "r": "かさ",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object",
+          "r": "を"
+        },
+        {
+          "t": "買った",
+          "r": "かった",
+          "role": "content",
+          "word_id": "W00086",
+          "inflection": {
+            "form": "plain_past",
+            "grammar_id": "G056_plain_past_pair",
+            "base": "買う",
+            "base_r": "かう"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "と"
+        },
+        {
+          "t": "書きます",
+          "r": "かきます",
+          "role": "content",
+          "word_id": "W00060",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I write in the notebook, \"I bought a new umbrella.\"",
+      "audio": "audio/story_65/s15.wav",
+      "audio_hash": "b103008557af"
+    },
+    {
+      "idx": 16,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "はる",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "role": "content",
+          "word_id": "W00015"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "新しい",
+          "r": "あたらしい",
+          "role": "content",
+          "word_id": "W00066",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "傘",
+          "r": "かさ",
+          "role": "content",
+          "word_id": "W00116"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "強い",
+          "r": "つよい",
+          "role": "content",
+          "word_id": "W00118",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "心",
+          "r": "こころ",
+          "role": "content",
+          "word_id": "W00120"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A spring morning, a new umbrella, a strong heart.",
+      "audio": "audio/story_65/s16.wav",
+      "audio_hash": "2782aaf22a18"
+    }
+  ],
+  "new_words": [
+    "W00155"
+  ],
+  "new_grammar": [
+    "G057_ga_hoshii"
+  ],
+  "all_words_used": [
+    "W00066",
+    "W00116",
+    "W00067",
+    "W00002",
+    "W00155",
+    "W00072",
+    "W00015",
+    "W00107",
+    "W00003",
+    "W00118",
+    "W00154",
+    "W00060",
+    "W00022",
+    "W00078",
+    "W00040",
+    "W00135",
+    "W00097",
+    "W00057",
+    "W00147",
+    "W00084",
+    "W00150",
+    "W00044",
+    "W00086",
+    "W00056",
+    "W00120"
+  ],
+  "word_audio": {
+    "W00155": "audio/story_65/w_W00155.wav"
+  },
+  "word_audio_hash": {
+    "W00155": "8cea5557726e"
+  }
+}
