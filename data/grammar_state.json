@@ -74,7 +74,7 @@
       "short": "Marks the location of existence or the direction of movement.",
       "long": "に has several uses. As a location marker, it indicates where something exists (います/あります). As a direction marker, it indicates where something or someone is going. It is more precise than で, which marks the location of an action.",
       "genki_ref": "L3",
-      "first_story": "story_9",
+      "first_story": "story_6",
       "prerequisites": [],
       "jlpt": "N5",
       "catalog_id": "N5_ni_location",
@@ -222,7 +222,7 @@
       "bunpro_ref": "https://bunpro.jp/grammar_points/と-particle",
       "jlpt_sensei_ref": "https://jlptsensei.com/learn-japanese-grammar/と-to/",
       "notes": "Authoring tip: と is exhaustive ('A and B and only those'). Distinct from や (G011, non-exhaustive 'A, B, and so on'). Always between every pair: AとBとC. Don't use と to connect verbs or sentences (use て-form for that). と also functions as a quote particle (G014).",
-      "occurrences": 40,
+      "occurrences": 41,
       "last_seen_story": "story_66"
     },
     "G011_ya_partial": {
@@ -381,7 +381,7 @@
         "G004_ni_location"
       ],
       "notes": "Re-anchored to story_16 (was story_8) so the immediate reinforcement window contains real follow-up uses (で-particle in stories 17, 18, 20, 21).",
-      "first_story": "story_16",
+      "first_story": "story_8",
       "occurrences": 28,
       "last_seen_story": "story_64"
     },
@@ -391,7 +391,7 @@
       "short": "ある is for inanimate things ('there is X'); いる is for animate things ('there's a person/animal').",
       "long": "Japanese expresses existence with two verbs: ある (inanimate, plants, abstract) and いる (people, animals). Both use the location particle に for where. Polite forms: あります / います.",
       "genki_ref": "L4",
-      "first_story": "story_7",
+      "first_story": "story_6",
       "prerequisites": [
         "G002_ga_subject"
       ],
@@ -414,7 +414,7 @@
       "short": "Adjectives ending in い conjugate directly (no copula needed in plain form).",
       "long": "い-adjectives end in い in their dictionary form (大きい, 小さい, 静かい-no-wait-静か-is-na). They attach to nouns directly (大きい家 = a big house) and predicate with です in polite speech (家は大きいです = the house is big). Note: です follows the adjective, not replaces い.",
       "genki_ref": "L5",
-      "first_story": "story_18",
+      "first_story": "story_1",
       "prerequisites": [
         "G003_desu",
         "G016_na_adjective"
@@ -438,7 +438,7 @@
       "short": "Adjectives modify nouns directly: 古い本, 美しい花, 静かな庭.",
       "long": "Both い-adjectives and な-adjectives attach directly to the noun they modify. い-adjectives use their dictionary form (古い本 = old book); な-adjectives insert な (静かな庭 = a quiet garden). This is structurally distinct from predicative use (本は古いです / 庭は静かです).",
       "genki_ref": "L5",
-      "first_story": "story_22",
+      "first_story": "story_1",
       "prerequisites": [
         "G016_na_adjective",
         "G022_i_adj"
@@ -462,7 +462,7 @@
       "short": "Numbers in Japanese take counter suffixes that depend on what is counted.",
       "long": "Japanese cannot count nouns directly with bare numbers; a counter suffix is required: 一人 (hitori, one person), 二人 (futari), 三人 (sannin), 一つ (hitotsu, one general thing), 二つ (futatsu), 一回 (ikkai, one time). The choice of counter depends on the category of the noun being counted (people, flat objects, long objects, occurrences, etc.). Beginners learn 〜人 (people), 〜つ (general), and 〜回 (occurrences) first.",
       "genki_ref": "L9",
-      "first_story": "story_25",
+      "first_story": "story_8",
       "prerequisites": [
         "G003_desu"
       ],
@@ -485,7 +485,7 @@
       "short": "Polite non-past verb ending. The default formality for stories and conversation.",
       "long": "〜ます is the polite non-past verb ending. It expresses both present habitual ('I read books') and future ('I will read books') depending on context. Stem comes from the verb root: 食べる→食べます, 読む→読みます, する→します, 来る→きます. This story-library has used ます since story 1; story_28 anchors the explicit pattern as the focus of a review story.",
       "genki_ref": "L3",
-      "first_story": "story_28",
+      "first_story": "story_6",
       "prerequisites": [
         "G003_desu"
       ],
@@ -663,7 +663,7 @@
       "long": "The sentence-final particle ね expects the listener to share or confirm the speaker's judgment. It is essentially \"right?\" or \"isn't it?\" appended to a statement. Crucially, ね is a marker of *shared* perception: the speaker assumes the listener already sees what the speaker sees. This is why it shows up in the library at the moments when characters reach for shared ground — father observing the cold breakfast, the bookstore stranger acknowledging the book, the friend recognizing the kind person. ね is structurally trivial (one syllable, sentence-final) but emotionally precise: it is the grammar of \"we are seeing the same thing.\"",
       "jlpt": "N5",
       "catalog_id": "N5_ne_confirm",
-      "first_story": "story_41",
+      "first_story": "story_32",
       "prerequisites": [
         "G003_desu"
       ],
@@ -742,7 +742,7 @@
       "long": "Adding か to the end of any polite sentence turns it into a question. With a question word like 何 or どこ it is a wh-question (これは何ですか — what is this?); without one it is a yes/no question (元気ですか — are you well?). Spoken Japanese often drops か with rising intonation, but the written register keeps it. The question mark ? is unnecessary and considered Western — か is the punctuation. The library has shipped one untagged か (story 32 s7) which this introduction retroactively governs.",
       "jlpt": "N5",
       "catalog_id": "N5_ka_question",
-      "first_story": "story_45",
+      "first_story": "story_32",
       "prerequisites": [
         "G003_desu"
       ],
@@ -893,7 +893,7 @@
       "long": "i-adjectives form past tense by replacing the final い with かった: 暑い → 暑かった (was hot), 古い → 古かった (was old), 嬉しい → 嬉しかった (was happy). Often followed by です for politeness: 暑かったです. The kkata pattern is the canonical N5 i-adj past form.",
       "jlpt": "N5",
       "catalog_id": "N5_i_adj_past",
-      "first_story": "story_55",
+      "first_story": "story_45",
       "prerequisites": [
         "G022_i_adj",
         "G013_mashita_past"

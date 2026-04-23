@@ -94,7 +94,9 @@
     "W00005",
     "W00072",
     "W00025",
-    "W00073"
+    "W00073",
+    "W00163",
+    "W00120"
   ],
   "sentences": [
     {
@@ -509,20 +511,37 @@
     },
     {
       "idx": 8,
-      "gloss_en": "A sad morning, a quiet rain.",
+      "gloss_en": "A sad morning, a painful heart, a quiet rain.",
       "tokens": [
         {
           "t": "悲しい",
+          "role": "content",
           "r": "かなしい",
           "word_id": "W00076",
-          "role": "content",
           "grammar_id": "G023_attributive"
         },
         {
           "t": "朝",
+          "role": "content",
           "r": "あさ",
-          "word_id": "W00015",
-          "role": "content"
+          "word_id": "W00015"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "痛い",
+          "role": "content",
+          "r": "いたい",
+          "word_id": "W00163",
+          "grammar_id": "G023_attributive"
+        },
+        {
+          "t": "心",
+          "role": "content",
+          "r": "こころ",
+          "word_id": "W00120"
         },
         {
           "t": "、",
@@ -530,25 +549,25 @@
         },
         {
           "t": "静か",
+          "role": "content",
           "r": "しずか",
-          "word_id": "W00011",
-          "role": "content"
+          "word_id": "W00011"
         },
         {
           "t": "な",
-          "grammar_id": "G016_na_adjective",
-          "role": "particle"
+          "role": "aux",
+          "grammar_id": "G016_na_adjective"
         },
         {
           "t": "雨",
+          "role": "content",
           "r": "あめ",
-          "word_id": "W00002",
-          "role": "content"
+          "word_id": "W00002"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",

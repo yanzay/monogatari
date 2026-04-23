@@ -78,6 +78,7 @@
     "W00098",
     "W00067",
     "W00066",
+    "W00109",
     "W00043",
     "W00033",
     "W00084",
@@ -515,9 +516,35 @@
       "idx": 9,
       "tokens": [
         {
-          "t": "私",
-          "r": "watashi",
+          "t": "雨",
           "role": "content",
+          "r": "あめ",
+          "word_id": "W00002"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "音",
+          "role": "content",
+          "r": "おと",
+          "word_id": "W00109"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "r": "わたし",
           "word_id": "W00003"
         },
         {
@@ -527,16 +554,23 @@
         },
         {
           "t": "思います",
-          "r": "omoimasu",
           "role": "content",
-          "word_id": "W00043"
+          "r": "おもいます",
+          "word_id": "W00043",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I think."
+      "gloss_en": "With the sound of rain, I think."
     },
     {
       "idx": 10,

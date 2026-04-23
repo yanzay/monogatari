@@ -97,6 +97,7 @@
     "W00056",
     "W00031",
     "W00077",
+    "W00110",
     "W00006",
     "W00050",
     "W00011"
@@ -596,6 +597,17 @@
           "role": "particle"
         },
         {
+          "t": "山",
+          "role": "content",
+          "r": "やま",
+          "word_id": "W00110"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
           "t": "月",
           "r": "つき",
           "word_id": "W00031",
@@ -624,7 +636,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us are looking at the moon."
+      "gloss_en": "The two of us are looking at the mountain and the moon."
     },
     {
       "idx": 11,
