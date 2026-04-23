@@ -88,6 +88,7 @@
     "W00022",
     "W00034",
     "W00003",
+    "W00162",
     "W00006",
     "W00053",
     "W00061",
@@ -333,8 +334,15 @@
     },
     {
       "idx": 4,
-      "gloss_en": "My friend looks at the photo and smiles.",
+      "gloss_en": "The young friend looks at the photo and laughs.",
       "tokens": [
+        {
+          "t": "若い",
+          "role": "content",
+          "r": "わかい",
+          "word_id": "W00162",
+          "grammar_id": "G023_attributive"
+        },
         {
           "t": "友達",
           "r": "ともだち",

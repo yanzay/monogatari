@@ -73,6 +73,7 @@
     "W00024",
     "W00044",
     "W00025",
+    "W00161",
     "W00019",
     "W00020",
     "W00021",
@@ -331,7 +332,7 @@
     },
     {
       "idx": 5,
-      "gloss_en": "I eat breakfast in the garden.",
+      "gloss_en": "In the garden, I eat a light breakfast.",
       "tokens": [
         {
           "t": "庭",
@@ -347,6 +348,13 @@
         {
           "t": "、",
           "role": "punct"
+        },
+        {
+          "t": "軽い",
+          "role": "content",
+          "r": "かるい",
+          "word_id": "W00161",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "朝ごはん",

@@ -85,6 +85,7 @@
     "W00010",
     "W00003",
     "W00056",
+    "W00165",
     "W00011",
     "W00015"
   ],
@@ -487,8 +488,18 @@
     },
     {
       "idx": 8,
-      "gloss_en": "A happy, quiet morning.",
+      "gloss_en": "Joyful music, a quiet morning.",
       "tokens": [
+        {
+          "t": "音楽",
+          "role": "content",
+          "r": "おんがく",
+          "word_id": "W00165"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
         {
           "t": "嬉しい",
           "r": "うれしい",

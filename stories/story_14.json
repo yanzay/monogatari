@@ -58,6 +58,7 @@
     "W00164",
     "W00030",
     "W00003",
+    "W00158",
     "W00004",
     "W00006",
     "W00042",
@@ -79,7 +80,7 @@
   "sentences": [
     {
       "idx": 0,
-      "gloss_en": "At night, I look at the moon from the window.",
+      "gloss_en": "At night, I look at the moon through the blue window.",
       "tokens": [
         {
           "t": "夜",
@@ -101,6 +102,13 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "青い",
+          "role": "content",
+          "r": "あおい",
+          "word_id": "W00158",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "窓",
