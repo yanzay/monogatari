@@ -29,7 +29,6 @@
     "W00104"
   ],
   "new_grammar": [
-    "G030_kara_reason",
     "G059_dakara"
   ],
   "all_words_used": [
@@ -95,7 +94,7 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -116,8 +115,7 @@
         {
           "t": "から",
           "role": "particle",
-          "grammar_id": "G030_kara_reason",
-          "is_new_grammar": true
+          "grammar_id": "G006_kara_from"
         },
         {
           "t": "手紙",
@@ -533,7 +531,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu"
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "書きます",
@@ -620,7 +618,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G014_to_omoimasu"
         },
         {
           "t": "祖母",
@@ -635,7 +633,7 @@
         },
         {
           "t": "思います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00043",
           "r": "おもいます",
           "inflection": {
@@ -653,6 +651,5 @@
       ],
       "gloss_en": "Quiet evening, I think of mother and grandmother."
     }
-  ],
-  "plan_ref": "plan.json"
+  ]
 }

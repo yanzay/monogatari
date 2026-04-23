@@ -26,8 +26,7 @@
           "form": "negative_polite",
           "verb_class": "godan"
         },
-        "grammar_id": "G041_masenka_invitation",
-        "is_new_grammar": true
+        "grammar_id": "G036_masen"
       },
       {
         "t": "か",
@@ -45,9 +44,7 @@
     "W00171",
     "W00169"
   ],
-  "new_grammar": [
-    "G041_masenka_invitation"
-  ],
+  "new_grammar": [],
   "all_words_used": [
     "W00009",
     "W00010",
@@ -172,7 +169,7 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -411,7 +408,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "私",
@@ -426,7 +423,7 @@
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {
@@ -502,7 +499,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -750,11 +747,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {
@@ -825,11 +822,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {

@@ -4,14 +4,25 @@ How to add a new story to the library.
 
 ## Overview
 
-Authoring is **text-first**. You write a small bilingual JSON spec containing the Japanese prose and an English gloss per sentence; the converter turns it into a fully tagged story JSON, the validator checks it, the audio builder generates MP3s, and the state updater records the deltas.
+Authoring is **text-first** and **source-of-truth**. You write a small bilingual JSON spec containing the Japanese prose and an English gloss per sentence; the converter turns it into a fully tagged story JSON, the validator checks it, the audio builder generates MP3s, and the state updater records the deltas.
 
 ```
-your bilingual JP+EN spec
+pipeline/inputs/story_N.bilingual.json   ← THE source of truth (you edit this)
         │
-        ▼
-  text_to_story.py  →  validate.py  →  audio_builder.py  →  state_updater.py  →  shipped
+        ▼ regenerate_all_stories.py --apply
+        │
+stories/story_N.json                     ← derived artifact (do not hand-edit)
+        │
+        ▼ validate.py → audio_builder.py → build_manifest.py → pytest
+        │
+shipped
 ```
+
+Key invariants:
+
+- **`pipeline/inputs/*.bilingual.json` is the only source you edit.** The shipped JSON in `stories/` is a derived artifact of the bilingual spec plus `data/vocab_state.json` and `data/grammar_state.json`.
+- **The regenerator is idempotent** — running it twice produces the same output.
+- **`is_new`, `is_new_grammar`, `new_words`, `new_grammar`** are decided by a single library-wide first-occurrence pass that walks the shipped library in story-id order. There are no heuristics; the shipped library IS the source of truth for first-occurrence semantics.
 
 No external LLMs are involved. All NLP is local: `fugashi` (UniDic) for tokenization, `jamdict` (JMDict) for dictionary lookups, `jaconv` for kana conversion.
 
@@ -26,7 +37,7 @@ export GOOGLE_CLOUD_PROJECT=<your-project-id>
 
 ## Step 1 — Write the bilingual spec
 
-Create `pipeline/inputs/story_<N>.json` (the `inputs/` directory is for working drafts; gitignored):
+Create `pipeline/inputs/story_<N>.bilingual.json`. This file is the source of truth — once it exists, the regenerator never overwrites it.
 
 ```json
 {
@@ -51,47 +62,52 @@ Notes:
 - **`sentences[].en`** is your free-form translation. The validator's gloss-ratio check (Check 9) requires meaning-bearing English words to be within `[0.7, 3.0]` × meaning-bearing Japanese tokens — keep glosses concise.
 - **`new_word_meanings`** is optional. Provide an explicit English meaning for any vocabulary word you expect to be new; otherwise the converter will fall back to the first JMDict sense (which is often acceptable but not always idiomatic).
 
-## Step 2 — Convert text to story JSON
+## Step 2 — Regenerate
 
 ```bash
-python3 pipeline/text_to_story.py pipeline/inputs/story_68.json \
-    --out    pipeline/story_raw.json \
-    --report pipeline/text_to_story.report.json
+python3 pipeline/regenerate_all_stories.py --apply
 ```
 
-The converter:
+The regenerator:
 
-1. Tokenizes each JP string with fugashi/UniDic.
-2. Merges sub-tokens into canonical units (見+ます → 見ます, でし+た → でした, て+いる → te-aux).
-3. Resolves each token to a `word_id` from `data/vocab_state.json` (matching by surface, kana, dictionary form, or polite-form kana).
-4. Mints fresh `word_id`s for unrecognized vocabulary using your `new_word_meanings` or jamdict fallback.
-5. Tags grammar surfaces (particles, copulae, te-form, polite-past, i-adj, etc.) with `grammar_id`s from `data/grammar_catalog.json`.
-6. Emits `inflection` blocks (`base`, `base_r`, `form`, `verb_class`) for inflected verbs.
-7. Marks `is_new` / `is_new_grammar` on first occurrences (deltas vs the cumulative state).
+1. For each `pipeline/inputs/story_N.bilingual.json` (and any shipped story without one — bootstrap path), invokes `text_to_story.py` to convert prose → tagged JSON.
+2. Mints fresh `word_id`s for unrecognized vocabulary, appending them to `data/vocab_state.json`.
+3. Runs context-sensitive grammar tagging (interrogatives 何/誰/どこ/いつ/なぜ, kosoado あの/この/その/どの, the と思います/と言います quotative construction, ある/いる existence, counters 一人/二人).
+4. Walks the entire library in story-id order and rewrites `is_new`, `is_new_grammar`, story-level `new_words`, and story-level `new_grammar` deterministically — no heuristics, no hints.
+5. Refreshes per-word `occurrences`, `first_story`, `last_seen_story` in `data/vocab_state.json` by scanning the regenerated stories.
+6. Writes timestamped backups to `state_backups/regenerate_all_stories/`.
 
-Read `pipeline/text_to_story.report.json` for any unresolved tokens, ambiguous grammar, or minted vocabulary.
+The script is idempotent: a second `--apply` produces no changes when nothing has been edited.
+
+For a single story (faster iteration), invoke the converter directly:
+
+```bash
+python3 pipeline/text_to_story.py pipeline/inputs/story_68.bilingual.json \
+    --out pipeline/story_raw.json --report pipeline/text_to_story.report.json
+```
+
+…then read the report for any unresolved tokens or minted vocabulary, and run the regenerator once you're happy.
 
 ## Step 3 — Validate
 
 ```bash
-python3 pipeline/validate.py pipeline/story_raw.json
+python3 pipeline/validate.py stories/story_68.json
 ```
 
 The validator runs the deterministic checks listed in [`spec.md` §5](spec.md#5-validator-deterministic). Common failure modes and fixes:
 
 | Failure | Fix |
 |---|---|
-| **Check 5: Inflection mismatch** | Surface and the inflection's reading don't agree. Usually a homograph (e.g. UniDic picked 下りる for 降); fix by hand-editing `inflection.base` to the correct dictionary form. |
-| **Check 7: Token count outside tier band** | Add or remove sentences to land in the policy range for this story_id. |
+| **Check 5: Inflection mismatch** | Surface and the inflection's reading don't agree. Usually a homograph (e.g. UniDic picked 下りる for 降); add a `LEMMA_OVERRIDES` entry in `pipeline/text_to_story.py` and re-regenerate. |
+| **Check 7: Token count outside tier band** | Add or remove tokens in the bilingual spec to land in the policy range for this story_id. |
 | **Check 9: Gloss ratio out of [0.7, 3.0]** | Your English is too terse or too verbose for the JP token count. Rewrite that sentence's gloss. |
-| **Check 3.5: Grammar cadence exceeded** | You introduced more than the per-story budget of new grammar points. Split into two stories or substitute simpler patterns. |
 
-Edit the spec, re-run step 2, re-validate. Iterate until clean.
+Edit `pipeline/inputs/story_<N>.bilingual.json`, re-run step 2, re-validate. Iterate until clean.
 
 ## Step 4 — Generate audio
 
 ```bash
-python3 pipeline/audio_builder.py pipeline/story_raw.json
+python3 pipeline/audio_builder.py stories/story_68.json
 ```
 
 This calls Google Cloud TTS once per sentence and once per **new** word_id (existing word audio is reused from `audio/`). Output goes to `audio/story_68/`. The script writes audio paths and SHA hashes back into the story JSON.
@@ -99,13 +115,11 @@ This calls Google Cloud TTS once per sentence and once per **new** word_id (exis
 ## Step 5 — Ship
 
 ```bash
-cp pipeline/story_raw.json stories/story_68.json
-python3 pipeline/state_updater.py stories/story_68.json
 python3 pipeline/build_manifest.py    # rebuilds stories/index.json
 python3 -m pytest pipeline/tests/     # final gate
 ```
 
-`state_updater.py` increments `vocab_state.json` and `grammar_state.json` with the new entries and updates each affected word's `last_seen_story` / `occurrences`. Backups are written to `state_backups/` automatically.
+`vocab_state.json` and `grammar_state.json` were already refreshed by the regenerator in step 2; you don't need to run `state_updater.py` separately when using the regenerator.
 
 ## Authoring tools
 
@@ -126,28 +140,9 @@ Lightweight version of the validator that surfaces the most common mistakes (mis
 python3 pipeline/precheck.py pipeline/story_raw.json
 ```
 
-### `pipeline/text_to_story_roundtrip.py` — regression harness
-
-Re-extracts each shipped story's bilingual prose, runs it back through the converter, and diffs against the canonical JSON. Used in CI.
-
-```bash
-python3 pipeline/text_to_story_roundtrip.py             # full library
-python3 pipeline/text_to_story_roundtrip.py --story 12  # single story
-python3 pipeline/text_to_story_roundtrip.py --strict    # exit nonzero on any diff
-```
-
-### `pipeline/normalize_to_v2.py` — schema normalizer
-
-Idempotent in-place rewriter that brings any older v1/v3-shape stories to the canonical v2 schema (form-name aliases, romaji-r fixes, inflection field placement). Safe to run on the whole library; auto-backs-up to `state_backups/normalize_to_v2/`.
-
-```bash
-python3 pipeline/normalize_to_v2.py --dry-run   # preview
-python3 pipeline/normalize_to_v2.py --apply     # apply
-```
-
 ## Determinism guarantees
 
-The converter is deterministic given the same input spec, vocab state, and grammar state. The round-trip harness verifies this on every commit: future changes to `text_to_story.py` cannot regress existing stories without a visible diff in CI.
+The converter and regenerator are deterministic given the same input spec, vocab state, and grammar state. Running `regenerate_all_stories.py --apply` twice in a row yields no changes when nothing has been edited, and the pytest suite gates structural integrity (`stories/`, `data/vocab_state.json`, `data/grammar_state.json` must agree).
 
 What the converter **cannot** do automatically:
 
@@ -169,10 +164,10 @@ When your story uses a grammar surface not yet in `data/grammar_catalog.json`:
 
 ```
 pipeline/
-  inputs/                      # your working spec drafts (gitignored)
-  story_raw.json               # last converter output
-  text_to_story.report.json    # last converter report
-state_backups/                  # automatic state snapshots
+  inputs/                      # bilingual JP+EN specs — SOURCE OF TRUTH (tracked in git)
+  story_raw.json               # last single-story converter output (gitignored)
+  text_to_story.report.json    # last single-story converter report (gitignored)
+state_backups/                  # automatic state snapshots (gitignored)
 ```
 
 ## Troubleshooting
@@ -181,8 +176,8 @@ state_backups/                  # automatic state snapshots
 
 **"unknown grammar surface"** — A particle or auxiliary you used isn't in the catalog. Add it (see "Adding a new grammar point") or rephrase.
 
-**Converter produces a token you don't want** — UniDic occasionally over-segments or picks the wrong reading. Hand-edit `pipeline/story_raw.json` after the converter runs; subsequent stages (validate, audio, state) work on the edited file.
+**Converter produces the wrong reading or base form** — UniDic occasionally picks a homograph. Add an entry to `LEMMA_OVERRIDES` or `READING_OVERRIDES` in `pipeline/text_to_story.py` and re-run the regenerator. Direct hand-edits to `stories/story_*.json` are NOT preserved — the next regenerator run overwrites them.
 
 **Audio generation fails** — Confirm `gcloud auth application-default login` is current and `GOOGLE_CLOUD_PROJECT` is set. The first run for a story uploads ~one TTS request per sentence + per new word.
 
-**Pytest fails after shipping** — Run `pipeline/normalize_to_v2.py --dry-run` to see if the new story drifts from v2 schema. If so, `--apply` to fix.
+**Pytest fails after shipping** — Run `python3 pipeline/regenerate_all_stories.py` (dry-run, no `--apply`) to see what would change. If it shows pending diffs, the shipped library is stale; run `--apply`. The library-wide first-occurrence pass and vocab metadata refresh both run inside the regenerator, so a clean dry-run is the canonical "ready to ship" signal.

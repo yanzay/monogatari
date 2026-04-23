@@ -22,8 +22,8 @@ python3 -m http.server 8080
 # 1. Install authoring deps (one-time)
 pip install -r requirements.txt
 
-# 2. Write your bilingual JP+EN spec
-cat > pipeline/inputs/story_68.json <<'EOF'
+# 2. Write your bilingual JP+EN spec — this is the source of truth
+cat > pipeline/inputs/story_68.bilingual.json <<'EOF'
 {
   "story_id": 68,
   "title":    {"jp": "雨", "en": "Rain"},
@@ -34,34 +34,33 @@ cat > pipeline/inputs/story_68.json <<'EOF'
 }
 EOF
 
-# 3. Convert text → story JSON
-python3 pipeline/text_to_story.py pipeline/inputs/story_68.json \
-    --out pipeline/story_raw.json --report pipeline/text_to_story.report.json
+# 3. Regenerate the entire library (idempotent; only changed stories rewritten)
+python3 pipeline/regenerate_all_stories.py --apply
 
 # 4. Validate
-python3 pipeline/validate.py pipeline/story_raw.json
+python3 pipeline/validate.py stories/story_68.json
 
 # 5. Generate audio (requires Google Cloud TTS credentials)
-python3 pipeline/audio_builder.py pipeline/story_raw.json
+python3 pipeline/audio_builder.py stories/story_68.json
 
-# 6. Ship: copy to stories/ and update state
-cp pipeline/story_raw.json stories/story_68.json
-python3 pipeline/state_updater.py stories/story_68.json
+# 6. Refresh manifest + run tests
+python3 pipeline/build_manifest.py
+python3 -m pytest pipeline/tests/
 ```
 
-See [`docs/authoring.md`](docs/authoring.md) for the full workflow.
+The bilingual spec is the only thing humans edit. `stories/story_68.json` is a derived artifact of `pipeline/inputs/story_68.bilingual.json` and is regenerated on demand. See [`docs/authoring.md`](docs/authoring.md) for the full workflow.
 
 ## Layout
 
 ```
 index.html, js/, css/, sw.js     # Reader app (static)
-stories/story_*.json             # Shipped stories
+stories/story_*.json             # Shipped stories (DERIVED from pipeline/inputs/)
 audio/story_*/                   # Per-sentence + per-word MP3
 data/                            # Cumulative vocab + grammar state
-pipeline/                        # Authoring tools
-  text_to_story.py               # JP+EN text → story JSON (the main authoring entry point)
-  text_to_story_roundtrip.py     # Regression harness
-  normalize_to_v2.py             # Schema normalizer (idempotent)
+pipeline/
+  inputs/                        # Bilingual JP+EN specs — SOURCE OF TRUTH
+  text_to_story.py               # JP+EN text → story JSON (single-story entry point)
+  regenerate_all_stories.py      # Bulk regenerator (reads inputs/, writes stories/)
   validate.py                    # Deterministic validator
   audio_builder.py               # Google TTS audio generator
   state_updater.py               # Update vocab_state + grammar_state after a new story

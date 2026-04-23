@@ -206,7 +206,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu"
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "川",
@@ -252,7 +252,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
@@ -415,7 +415,7 @@
         {
           "t": "から",
           "role": "particle",
-          "grammar_id": "G030_kara_reason"
+          "grammar_id": "G006_kara_from"
         },
         {
           "t": "来ます",
@@ -473,11 +473,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {
@@ -754,6 +754,5 @@
       ],
       "gloss_en": "A morning of mountain and river."
     }
-  ],
-  "plan_ref": "plan.json"
+  ]
 }

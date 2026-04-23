@@ -29,6 +29,7 @@
     "W00034"
   ],
   "new_grammar": [
+    "G025_counters",
     "G017_de_means"
   ],
   "all_words_used": [
@@ -65,7 +66,9 @@
           "role": "content",
           "word_id": "W00035",
           "r": "ふたり",
-          "is_new": true
+          "grammar_id": "G025_counters",
+          "is_new": true,
+          "is_new_grammar": true
         },
         {
           "t": "は",
@@ -316,7 +319,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -332,7 +335,8 @@
           "t": "二人",
           "role": "content",
           "word_id": "W00035",
-          "r": "ふたり"
+          "r": "ふたり",
+          "grammar_id": "G025_counters"
         },
         {
           "t": "で",

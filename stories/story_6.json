@@ -19,8 +19,8 @@
     "W00044"
   ],
   "new_grammar": [
-    "G004_ni_location",
-    "G021_aru_iru"
+    "G021_aru_iru",
+    "G004_ni_location"
   ],
   "all_words_used": [
     "W00028",
@@ -174,8 +174,9 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast",
-          "is_new": true
+          "grammar_id": "G021_aru_iru",
+          "is_new": true,
+          "is_new_grammar": true
         },
         {
           "t": "。",
@@ -264,8 +265,7 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G021_aru_iru",
-          "is_new_grammar": true
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -410,7 +410,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast",
+          "grammar_id": "G021_aru_iru",
           "is_new": true
         },
         {

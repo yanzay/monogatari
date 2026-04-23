@@ -121,6 +121,7 @@
           "role": "content",
           "word_id": "W00065",
           "r": "ひとり",
+          "grammar_id": "G025_counters",
           "is_new": true
         },
         {
@@ -270,7 +271,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -400,7 +401,8 @@
           "t": "一人",
           "role": "content",
           "word_id": "W00065",
-          "r": "ひとり"
+          "r": "ひとり",
+          "grammar_id": "G025_counters"
         },
         {
           "t": "の",
@@ -459,6 +461,5 @@
       ],
       "gloss_en": "Alone at night, I write a name."
     }
-  ],
-  "plan_ref": "plan.json"
+  ]
 }

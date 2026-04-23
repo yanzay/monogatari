@@ -27,8 +27,7 @@
         "role": "content",
         "word_id": "W00217",
         "r": "ほしい",
-        "grammar_id": "G057_ga_hoshii",
-        "is_new_grammar": true
+        "grammar_id": "G022_i_adj"
       },
       {
         "t": "。",
@@ -42,9 +41,7 @@
     "W00207",
     "W00208"
   ],
-  "new_grammar": [
-    "G057_ga_hoshii"
-  ],
+  "new_grammar": [],
   "all_words_used": [
     "W00066",
     "W00116",
@@ -354,7 +351,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu"
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "書きます",
@@ -596,7 +593,8 @@
           "t": "あの",
           "role": "content",
           "word_id": "W00147",
-          "r": "あの"
+          "r": "あの",
+          "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
           "t": "店",
@@ -766,7 +764,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -905,8 +903,7 @@
             "base": "買う",
             "base_r": "かう",
             "form": "past",
-            "verb_class": "godan",
-            "grammar_id": "G056_plain_past_pair"
+            "verb_class": "godan"
           },
           "grammar_id": "G013_mashita_past"
         },

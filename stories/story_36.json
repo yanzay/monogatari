@@ -140,7 +140,7 @@
         {
           "t": "から",
           "role": "particle",
-          "grammar_id": "G030_kara_reason"
+          "grammar_id": "G006_kara_from"
         },
         {
           "t": "外",
@@ -502,7 +502,8 @@
           "t": "二人",
           "role": "content",
           "word_id": "W00035",
-          "r": "ふたり"
+          "r": "ふたり",
+          "grammar_id": "G025_counters"
         },
         {
           "t": "で",
@@ -633,6 +634,5 @@
       ],
       "gloss_en": "A warm and happy night."
     }
-  ],
-  "plan_ref": "plan.json"
+  ]
 }

@@ -144,7 +144,8 @@
           "t": "二人",
           "role": "content",
           "word_id": "W00035",
-          "r": "ふたり"
+          "r": "ふたり",
+          "grammar_id": "G025_counters"
         },
         {
           "t": "で",
@@ -235,7 +236,7 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -289,11 +290,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu"
+          "grammar_id": "G014_to_omoimasu"
         },
         {
           "t": "思います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00043",
           "r": "おもいます",
           "inflection": {
@@ -525,7 +526,8 @@
           "t": "二人",
           "role": "content",
           "word_id": "W00035",
-          "r": "ふたり"
+          "r": "ふたり",
+          "grammar_id": "G025_counters"
         },
         {
           "t": "で",
@@ -642,7 +644,8 @@
           "t": "二人",
           "role": "content",
           "word_id": "W00035",
-          "r": "ふたり"
+          "r": "ふたり",
+          "grammar_id": "G025_counters"
         },
         {
           "t": "の",
@@ -667,6 +670,5 @@
       ],
       "gloss_en": "A quiet road of two."
     }
-  ],
-  "plan_ref": "plan.json"
+  ]
 }

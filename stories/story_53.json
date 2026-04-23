@@ -8,8 +8,7 @@
         "t": "何",
         "role": "content",
         "word_id": "W00135",
-        "r": "なに",
-        "grammar_id": "G045_nan_what"
+        "r": "なに"
       },
       {
         "t": "の",
@@ -182,7 +181,7 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -234,7 +233,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -265,7 +264,8 @@
           "t": "何",
           "role": "content",
           "word_id": "W00135",
-          "r": "なに"
+          "r": "なに",
+          "grammar_id": "G045_nan_what"
         },
         {
           "t": "の",
@@ -367,11 +367,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {
@@ -431,11 +431,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {
@@ -471,7 +471,8 @@
           "t": "この",
           "role": "content",
           "word_id": "W00148",
-          "r": "この"
+          "r": "この",
+          "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
           "t": "本",
@@ -623,7 +624,8 @@
           "t": "何",
           "role": "content",
           "word_id": "W00135",
-          "r": "なに"
+          "r": "なに",
+          "grammar_id": "G045_nan_what"
         },
         {
           "t": "の",
@@ -653,11 +655,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {
@@ -682,7 +684,8 @@
           "t": "あの",
           "role": "content",
           "word_id": "W00147",
-          "r": "あの"
+          "r": "あの",
+          "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
           "t": "人",
@@ -724,11 +727,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {
@@ -875,7 +878,8 @@
           "t": "何",
           "role": "content",
           "word_id": "W00135",
-          "r": "なに"
+          "r": "なに",
+          "grammar_id": "G045_nan_what"
         },
         {
           "t": "を",

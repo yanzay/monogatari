@@ -8,9 +8,7 @@
         "t": "どこ",
         "role": "content",
         "word_id": "W00143",
-        "r": "どこ",
-        "grammar_id": "G040_doko_where",
-        "is_new_grammar": true
+        "r": "どこ"
       },
       {
         "t": "です",
@@ -165,7 +163,9 @@
           "role": "content",
           "word_id": "W00143",
           "r": "どこ",
-          "is_new": true
+          "grammar_id": "G040_doko_where",
+          "is_new": true,
+          "is_new_grammar": true
         },
         {
           "t": "です",
@@ -307,7 +307,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -505,11 +505,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {
@@ -571,7 +571,8 @@
           "t": "どこ",
           "role": "content",
           "word_id": "W00143",
-          "r": "どこ"
+          "r": "どこ",
+          "grammar_id": "G040_doko_where"
         },
         {
           "t": "です",
@@ -590,11 +591,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {
@@ -801,7 +802,8 @@
           "t": "どこ",
           "role": "content",
           "word_id": "W00143",
-          "r": "どこ"
+          "r": "どこ",
+          "grammar_id": "G040_doko_where"
         },
         {
           "t": "です",
@@ -820,11 +822,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G014_to_omoimasu"
         },
         {
           "t": "思います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00043",
           "r": "おもいます",
           "inflection": {
@@ -932,7 +934,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",

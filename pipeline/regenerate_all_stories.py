@@ -29,7 +29,23 @@ ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(Path(__file__).parent))
 
 from text_to_story import build_story  # type: ignore
-from text_to_story_roundtrip import extract_spec  # type: ignore
+
+
+def extract_spec(canonical: dict) -> dict:
+    """Bootstrap path only: derive a bilingual spec from a shipped story.
+    Used the very first time a story passes through the regenerator,
+    when no pipeline/inputs/story_N.bilingual.json exists yet. Once the
+    bilingual spec is on disk, it becomes the source of truth and this
+    function is not called again for that story.
+    """
+    return {
+        "story_id": canonical["story_id"],
+        "title":    {"jp": canonical["title"]["jp"], "en": canonical["title"]["en"]},
+        "sentences": [
+            {"jp": "".join(t.get("t", "") for t in s["tokens"]), "en": s["gloss_en"]}
+            for s in canonical["sentences"]
+        ],
+    }
 
 
 # Story-level fields that are populated by audio_builder.py / state_updater.py
@@ -212,96 +228,6 @@ def _all_section_tokens(story: dict) -> list[tuple[str, dict]]:
     return out
 
 
-def _carry_over_canonical_grammar(
-    canon: dict,
-    regen: dict,
-    hint_grammar: set[str],
-) -> int:
-    """
-    For each grammar_id in hint_grammar that isn't tagged on ANY regen token,
-    find canonical's first occurrence (by section + surface), then locate the
-    matching surface in regen and copy the grammar_id over.
-
-    Returns the number of tags carried over.
-    """
-    # Build set of grammar_ids already present in regen
-    present_in_regen: set[str] = set()
-    for _, t in _all_section_tokens(regen):
-        gid = t.get("grammar_id")
-        if gid:
-            present_in_regen.add(gid)
-        infl = t.get("inflection")
-        if isinstance(infl, dict) and infl.get("grammar_id"):
-            present_in_regen.add(infl["grammar_id"])
-
-    missing = hint_grammar - present_in_regen
-    if not missing:
-        return 0
-
-    n_carried = 0
-    for gid in missing:
-        # Find canon's first token carrying this gid
-        canon_loc = None
-        for sect, t in _all_section_tokens(canon):
-            if t.get("grammar_id") == gid or (
-                isinstance(t.get("inflection"), dict)
-                and t["inflection"].get("grammar_id") == gid
-            ):
-                canon_loc = (sect, t)
-                break
-        if not canon_loc:
-            continue
-        sect_name, canon_tok = canon_loc
-        canon_surface = canon_tok.get("t")
-
-        # Find matching regen token by section + surface
-        regen_target = None
-        for sect, t in _all_section_tokens(regen):
-            if sect == sect_name and t.get("t") == canon_surface:
-                regen_target = t
-                break
-        # Fallback: any section with same surface
-        if regen_target is None:
-            for _, t in _all_section_tokens(regen):
-                if t.get("t") == canon_surface:
-                    regen_target = t
-                    break
-        if regen_target is None:
-            continue
-
-        # Morphological aux tags that the converter often slaps on a verb
-        # token; if canonical instead used a more specific LEXICAL tag (like
-        # G021_aru_iru), we should override.
-        # When canonical assigns a more specific lexical/discourse tag, allow
-        # overriding the converter's generic morphological/particle tag.
-        REPLACEABLE_AUX = {
-            # Morphological aux on verbs
-            "G026_masu_nonpast", "G013_mashita_past",
-            "G036_masen", "G046_masen_deshita",
-            "G022_i_adj",
-            # Generic particles overridable by specific patterns
-            # (e.g. と→G014_to_omoimasu in と思います context)
-            "G010_to_and", "G006_kara_from", "G005_wo_object",
-            "G001_wa_topic", "G002_ga_subject", "G009_mo_also",
-            "G017_de_means", "G004_ni_location",
-        }
-        # Copy the grammar_id; respect canonical's placement (token-level
-        # vs inside inflection)
-        if canon_tok.get("grammar_id") == gid:
-            existing = regen_target.get("grammar_id")
-            if not existing or existing in REPLACEABLE_AUX:
-                regen_target["grammar_id"] = gid
-                n_carried += 1
-        else:
-            # gid was inside canon's inflection block
-            infl = regen_target.setdefault("inflection", {})
-            if not infl.get("grammar_id"):
-                infl["grammar_id"] = gid
-                n_carried += 1
-
-    return n_carried
-
-
 def regen_one(
     canon_path: Path,
     vocab: dict,
@@ -328,42 +254,66 @@ def regen_one(
     else:
         spec = extract_spec(canon)
     regen, report = build_story(spec, vocab, grammar)
-    # Carry over any grammar tags the converter didn't know how to emit
-    # (so the validator's reinforcement / first-occurrence checks see the
-    # right set of gids on tokens). is_new_grammar / new_grammar are NOT
-    # set here — the library-wide first-occurrence pass owns those fields.
-    canon_all_gids: set[str] = set()
-    for _, t in _all_section_tokens(canon):
-        if t.get("grammar_id"):
-            canon_all_gids.add(t["grammar_id"])
-        if isinstance(t.get("inflection"), dict) and t["inflection"].get("grammar_id"):
-            canon_all_gids.add(t["inflection"]["grammar_id"])
-    n = _carry_over_canonical_grammar(canon, regen, canon_all_gids)
-    if n:
-        report.setdefault("carried_grammar", n)
-    # Demote 思います / 言います to role=aux when an earlier token in the
-    # SAME sentence is と tagged with G014_to_omoimasu / G028_to_iimasu.
-    # Canonical treats these as quotative aux verbs in this construction
-    # even when the topic (e.g. 私は) intervenes between と and the verb.
-    AUX_AFTER_TO = {
+    # Sentence-level post-pass for context-sensitive grammar tagging the
+    # per-token converter cannot determine alone:
+    #
+    #   * 何 / なに / なん → G045_nan_what (interrogative)
+    #   * あの / この / その / どの → G043_kosoado_pre_nominal (when role=content
+    #     and the underlying surface is one of these demonstratives)
+    #   * The quotative ~と思います / ~と言います construction:
+    #       - retag と as G014_to_omoimasu / G028_to_iimasu (was G010_to_and)
+    #       - demote 思います / 言います to role=aux
+    #     Triggers when 思います/言います appears anywhere later in the same
+    #     sentence as a と (the topic 私は often intervenes between them).
+    # Surface → grammar_id maps applied during the post-pass. Some require
+    # context (kosoado must be a content-pos demonstrative; 一人/二人 must
+    # immediately precede the relevant noun, etc.) — handled below.
+    NAN_SURFACES = {"何", "なに", "なん"}
+    KOSOADO_SURFACES = {"あの", "この", "その", "どの"}
+    INTERROGATIVE_GIDS = {
+        "だれ": "G039_dare_who", "誰":   "G039_dare_who",
+        "どこ": "G040_doko_where",
+        "いつ": "G042_itsu_when",
+        "なぜ": "G053_naze_why",
+    }
+    COUNTER_SURFACES = {"一人", "二人", "三人", "四人", "五人", "ひとり", "ふたり"}
+    ARU_IRU_BASES   = {"ある", "いる"}
+    QUOTATIVE_VERBS = {
         "思います": "G014_to_omoimasu",
         "言います": "G028_to_iimasu",
     }
     for sn in regen.get("sentences", []):
         toks = sn.get("tokens", [])
-        # Find a と with the relevant gid first; then any subsequent
-        # 思います/言います in the same sentence becomes aux.
-        active_gids: set[str] = set()
+        # Pass A: simple surface-based retagging
         for tok in toks:
-            if tok.get("t") == "と":
-                gid = tok.get("grammar_id")
-                if gid in ("G014_to_omoimasu", "G028_to_iimasu"):
-                    active_gids.add(gid)
-            if tok.get("t") in AUX_AFTER_TO and AUX_AFTER_TO[tok["t"]] in active_gids:
-                tok["role"] = "aux"
-    # Preserve any plan_ref from canonical (informational only)
-    if "plan_ref" in canon and "plan_ref" not in regen:
-        regen["plan_ref"] = canon["plan_ref"]
+            t = tok.get("t")
+            # Interrogative content words
+            if t in NAN_SURFACES:
+                tok["grammar_id"] = "G045_nan_what"
+            elif t in KOSOADO_SURFACES and tok.get("role") == "content":
+                tok["grammar_id"] = "G043_kosoado_pre_nominal"
+            elif t in INTERROGATIVE_GIDS:
+                tok["grammar_id"] = INTERROGATIVE_GIDS[t]
+            elif t in COUNTER_SURFACES and tok.get("role") == "content":
+                tok["grammar_id"] = "G025_counters"
+            # ある/いる existence verbs (lexical, not the te-iru aux)
+            elif tok.get("role") == "content":
+                base = (tok.get("inflection") or {}).get("base")
+                if base in ARU_IRU_BASES:
+                    tok["grammar_id"] = "G021_aru_iru"
+        # Pass B: quotative と + 思います/言います construction.
+        # Find the latest quotative verb in the sentence; then walk back to
+        # the nearest preceding と and retag both.
+        for j in range(len(toks) - 1, -1, -1):
+            qv = toks[j].get("t")
+            if qv in QUOTATIVE_VERBS:
+                quot_gid = QUOTATIVE_VERBS[qv]
+                # Find the と that precedes this verb
+                for k in range(j - 1, -1, -1):
+                    if toks[k].get("t") == "と" and toks[k].get("role") == "particle":
+                        toks[k]["grammar_id"] = quot_gid
+                        toks[j]["role"] = "aux"
+                        break
     strip_audio(regen)
     return spec, regen, report
 
