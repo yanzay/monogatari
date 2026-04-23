@@ -53,13 +53,11 @@
     ]
   },
   "new_words": [
-    "W00123",
     "W00124",
-    "W00122"
+    "W00122",
+    "W00123"
   ],
-  "new_grammar": [
-    "G034_ne_confirm"
-  ],
+  "new_grammar": [],
   "all_words_used": [
     "W00072",
     "W00033",
@@ -278,8 +276,7 @@
         {
           "t": "ね",
           "role": "particle",
-          "grammar_id": "G034_ne_confirm",
-          "is_new_grammar": true
+          "grammar_id": "G034_ne_confirm"
         },
         {
           "t": "」",
@@ -341,14 +338,14 @@
           "role": "content",
           "word_id": "W00123",
           "r": "おぼえます",
-          "is_new": true,
           "inflection": {
             "base": "覚える",
             "base_r": "おぼえる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
         },
         {
           "t": "。",

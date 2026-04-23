@@ -55,11 +55,13 @@
   },
   "new_words": [
     "W00095",
-    "W00097",
-    "W00096"
+    "W00096",
+    "W00097"
   ],
   "new_grammar": [
-    "G028_to_iimasu"
+    "G034_ne_confirm",
+    "G028_to_iimasu",
+    "G037_ka_question"
   ],
   "all_words_used": [
     "W00095",
@@ -310,7 +312,8 @@
         {
           "t": "ね",
           "role": "particle",
-          "grammar_id": "G034_ne_confirm"
+          "grammar_id": "G034_ne_confirm",
+          "is_new_grammar": true
         },
         {
           "t": "」",
@@ -327,14 +330,14 @@
           "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
-          "is_new": true,
           "inflection": {
             "base": "言う",
             "base_r": "いう",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
         },
         {
           "t": "。",
@@ -409,7 +412,8 @@
         {
           "t": "か",
           "role": "particle",
-          "grammar_id": "G037_ka_question"
+          "grammar_id": "G037_ka_question",
+          "is_new_grammar": true
         },
         {
           "t": "」",

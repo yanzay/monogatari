@@ -32,7 +32,8 @@
         "role": "content",
         "word_id": "W00035",
         "r": "ふたり",
-        "grammar_id": "G025_counters"
+        "grammar_id": "G025_counters",
+        "is_new_grammar": true
       },
       {
         "t": "で",
@@ -59,7 +60,10 @@
     "W00035",
     "W00034"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G025_counters",
+    "G017_de_means"
+  ],
   "all_words_used": [
     "W00033",
     "W00022",
@@ -163,14 +167,14 @@
           "role": "content",
           "word_id": "W00034",
           "r": "よみます",
-          "is_new": true,
           "inflection": {
             "base": "読む",
             "base_r": "よむ",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
         },
         {
           "t": "。",
@@ -366,7 +370,8 @@
         {
           "t": "で",
           "role": "particle",
-          "grammar_id": "G017_de_means"
+          "grammar_id": "G017_de_means",
+          "is_new_grammar": true
         },
         {
           "t": "本",

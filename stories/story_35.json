@@ -61,12 +61,13 @@
     ]
   },
   "new_words": [
-    "W00104",
+    "W00105",
     "W00106",
-    "W00105"
+    "W00104"
   ],
   "new_grammar": [
-    "G030_kara_reason"
+    "G030_kara_reason",
+    "G059_dakara"
   ],
   "all_words_used": [
     "W00089",
@@ -269,14 +270,14 @@
           "role": "content",
           "word_id": "W00106",
           "r": "はじめます",
-          "is_new": true,
           "inflection": {
             "base": "始める",
             "base_r": "はじめる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
         },
         {
           "t": "。",
@@ -352,7 +353,8 @@
         {
           "t": "ですから",
           "role": "particle",
-          "grammar_id": "G059_dakara"
+          "grammar_id": "G059_dakara",
+          "is_new_grammar": true
         },
         {
           "t": "、",

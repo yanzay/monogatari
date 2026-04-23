@@ -474,14 +474,12 @@ class BuildState:
     vocab_index: VocabIndex
     new_word_meanings: dict[str, str]
     minted: dict[str, dict]               # surface → minted vocab record
-    seen_word_ids: set[str]               # for is_new (within-story dedup)
-    seen_grammar_ids: set[str]            # for is_new_grammar (within-story dedup)
     report: dict
-    # Optional explicit hints (used during round-trip / when authoring against
-    # a known-good plan). When non-empty, ONLY word_ids in this set get
-    # `is_new=true`; everything else is treated as "already known".
-    new_word_hint:    Optional[set[str]] = None
-    new_grammar_hint: Optional[set[str]] = None
+    # NB: is_new / is_new_grammar / new_words / new_grammar are NOT decided here.
+    # They are owned by the library-wide first-occurrence pass in
+    # pipeline/regenerate_all_stories.py:_normalize_first_occurrence_flags
+    # which runs after every story has been written and rewrites those fields
+    # deterministically by walking the shipped library in id order.
 
 
 def _grammar_role(gid: str) -> str:
@@ -675,7 +673,7 @@ def _ensure_word(merged: dict, st: BuildState) -> Optional[dict]:
         return None
     if surface in st.minted:
         return st.minted[surface]
-    new_id = next_word_id(st.vocab_state, set(st.minted.keys()) | st.seen_word_ids)
+    new_id = next_word_id(st.vocab_state, set(st.minted.keys()))
     kana = derive_kana(lemma) if lemma else derive_kana(surface) or ""
     kana = katakana_to_hiragana(kana or "")
     pos_map = {"名詞": "noun", "動詞": "verb", "形容詞": "i_adjective",
@@ -712,20 +710,11 @@ def _ensure_word(merged: dict, st: BuildState) -> Optional[dict]:
     return rec
 
 
-def _mark_new_grammar(tok: dict, gid: str, st: BuildState) -> None:
-    if gid in st.seen_grammar_ids:
-        return
-    st.seen_grammar_ids.add(gid)
-    # Only set is_new_grammar when the grammar point is genuinely new for the
-    # corpus state. With an explicit hint, defer to it; otherwise mark as new
-    # if the grammar isn't yet in grammar_state.
-    if st.new_grammar_hint is not None:
-        if gid in st.new_grammar_hint:
-            tok["is_new_grammar"] = True
-    else:
-        if not _is_known_grammar(gid, st):
-            tok["is_new_grammar"] = True
-            st.report["unknown_grammar"].append({"surface": tok.get("t"), "grammar_id": gid})
+def _record_unknown_grammar(tok: dict, gid: str, st: BuildState) -> None:
+    """Just a diagnostic — flagging genuinely-unknown gids in the report.
+    The first-occurrence pass downstream owns is_new_grammar."""
+    if not _is_known_grammar(gid, st):
+        st.report["unknown_grammar"].append({"surface": tok.get("t"), "grammar_id": gid})
 
 
 def _surface_reading(merged: dict, word: Optional[dict]) -> Optional[str]:
@@ -771,7 +760,7 @@ def merged_to_token_json(merged: dict, st: BuildState) -> dict:
                 "base_r": "です",
                 "form": "polite_past",
             }
-        _mark_new_grammar(tok, gid, st)
+        _record_unknown_grammar(tok, gid, st)
         return tok
 
     # Pure grammar surface match (particles / copula / discourse).
@@ -784,7 +773,7 @@ def merged_to_token_json(merged: dict, st: BuildState) -> dict:
     ) or surface in GRAMMAR_NOMINAL_SURFACES and surface in SURFACE_TO_GRAMMAR:
         gid = SURFACE_TO_GRAMMAR[surface]
         tok = {"t": surface, "role": _grammar_role(gid), "grammar_id": gid}
-        _mark_new_grammar(tok, gid, st)
+        _record_unknown_grammar(tok, gid, st)
         return tok
 
     # Content word (noun / verb / adjective / pronoun / adverb)
@@ -798,16 +787,9 @@ def merged_to_token_json(merged: dict, st: BuildState) -> dict:
     if r:
         tok["r"] = r
 
-    # is_new: present and `true` on first occurrence within this story AND
-    # the word is genuinely new to the corpus (or in the explicit hint set).
-    if word["id"] not in st.seen_word_ids:
-        st.seen_word_ids.add(word["id"])
-        if st.new_word_hint is not None:
-            if word["id"] in st.new_word_hint:
-                tok["is_new"] = True
-        else:
-            if word["id"] not in st.vocab_state.get("words", {}):
-                tok["is_new"] = True
+    # NB: is_new is intentionally NOT set here. The deterministic
+    # library-wide first-occurrence pass (run after every story is written)
+    # owns this field — see _normalize_first_occurrence_flags.
 
     # Inflection (verbs only). Canonical places grammar_id on the TOKEN, not
     # inside `inflection`.
@@ -883,7 +865,7 @@ def merged_to_token_json(merged: dict, st: BuildState) -> dict:
             gid = cls["token_grammar_id"]
             if gid:
                 tok["grammar_id"] = gid
-                _mark_new_grammar(tok, gid, st)
+                _record_unknown_grammar(tok, gid, st)
 
     # Adjective tagging.
     if merged["_pos1"] == "形容詞" and not tok.get("inflection") and not tok.get("grammar_id"):
@@ -893,18 +875,18 @@ def merged_to_token_json(merged: dict, st: BuildState) -> dict:
         if surface.endswith("かった"):
             tok["inflection"] = {"form": "i_adj_past"}
             tok["grammar_id"] = "G047_i_adj_past"
-            _mark_new_grammar(tok, "G047_i_adj_past", st)
+            _record_unknown_grammar(tok, "G047_i_adj_past", st)
         elif surface.endswith("くて"):
             tok["inflection"] = {"form": "i_adj_te"}
             tok["grammar_id"] = "G029_kute"
-            _mark_new_grammar(tok, "G029_kute", st)
+            _record_unknown_grammar(tok, "G029_kute", st)
         elif surface.endswith("くない"):
             tok["inflection"] = {"form": "i_adj_negative"}
             tok["grammar_id"] = "G038_kunai"
-            _mark_new_grammar(tok, "G038_kunai", st)
+            _record_unknown_grammar(tok, "G038_kunai", st)
         elif surface.endswith("い"):
             tok["grammar_id"] = "G022_i_adj"
-            _mark_new_grammar(tok, "G022_i_adj", st)
+            _record_unknown_grammar(tok, "G022_i_adj", st)
 
     return tok
 
@@ -921,9 +903,15 @@ def build_story(
     spec: dict,
     vocab_state: dict,
     grammar_state: dict,
-    new_word_hint: Optional[set[str]] = None,
-    new_grammar_hint: Optional[set[str]] = None,
 ) -> tuple[dict, dict]:
+    """Build a story_raw.json document from a bilingual spec.
+
+    NB: `is_new`, `is_new_grammar`, and the story-level `new_words` /
+    `new_grammar` arrays are intentionally left empty here. They are owned
+    by `regenerate_all_stories._normalize_first_occurrence_flags`, which
+    runs after every story has been written and assigns those fields by
+    walking the shipped library deterministically in story-id order.
+    """
     report = {"new_words": [], "unknown_grammar": [], "unresolved": []}
     st = BuildState(
         vocab_state=vocab_state,
@@ -931,44 +919,23 @@ def build_story(
         vocab_index=VocabIndex.build(vocab_state),
         new_word_meanings=spec.get("new_word_meanings", {}),
         minted={},
-        seen_word_ids=set(),
-        seen_grammar_ids=set(),
         report=report,
-        new_word_hint=new_word_hint,
-        new_grammar_hint=new_grammar_hint,
     )
 
-    # Title and subtitle: tokens go through the same pipeline, but is_new must
-    # NOT be set here (per docs/authoring G2). We process title/subtitle FIRST
-    # so seen_word_ids gets populated, ensuring sentence tokens carry is_new
-    # on their FIRST sentence occurrence.
     def _section(jp: str, en: str) -> dict:
-        toks = tokens_for_text(jp, st)
-        # Validator semantics: title/subtitle uses are decorative; the flag
-        # belongs on the first SENTENCE occurrence. Strip both flags here.
-        for t in toks:
-            t.pop("is_new", None)
-            t.pop("is_new_grammar", None)
-        return {"jp": jp, "en": en, "tokens": toks}
+        return {"jp": jp, "en": en, "tokens": tokens_for_text(jp, st)}
 
-    # Process title and subtitle FIRST so seen_word_ids/seen_grammar_ids gets
-    # populated. Then RESET both, so sentences carry the flags on their first
-    # sentence-level occurrence.
     title = _section(spec["title"]["jp"], spec["title"]["en"])
     subtitle = _section(spec["subtitle"]["jp"], spec["subtitle"]["en"])
-    st.seen_word_ids.clear()
-    st.seen_grammar_ids.clear()
-
     sentences = []
     for idx, s in enumerate(spec["sentences"]):
-        toks = tokens_for_text(s["jp"], st)
         sentences.append({
             "idx": idx,
-            "tokens": toks,
+            "tokens": tokens_for_text(s["jp"], st),
             "gloss_en": s["en"],
         })
 
-    # Build all_words_used in first-seen order across title→subtitle→sentences
+    # all_words_used in first-seen order across title→subtitle→sentences
     all_word_ids: list[str] = []
     seen: set[str] = set()
     for section in [title, subtitle, *sentences]:
@@ -978,68 +945,12 @@ def build_story(
                 all_word_ids.append(wid)
                 seen.add(wid)
 
-    # Compute new_words / new_grammar.
-    # When explicit hints are provided (round-trip / regeneration against a
-    # known-good plan), use them as truth — they record what was NEW for this
-    # story when it was originally authored. Otherwise, derive from the
-    # cumulative state.
-    used_grammar: list[str] = []
-    seen_g: set[str] = set()
-    for section in [title, subtitle, *sentences]:
-        for t in section["tokens"]:
-            gid = t.get("grammar_id")
-            if gid and gid not in seen_g:
-                used_grammar.append(gid)
-                seen_g.add(gid)
-            infl = t.get("inflection") or {}
-            igid = infl.get("grammar_id")
-            if igid and igid not in seen_g:
-                used_grammar.append(igid)
-                seen_g.add(igid)
-
-    if new_word_hint is not None:
-        # Preserve hint order (canonical), filter to words actually used
-        used_set = set(all_word_ids)
-        new_words = [w for w in new_word_hint if w in used_set]
-    else:
-        existing_words = set(vocab_state.get("words", {}).keys())
-        new_words = [w for w in all_word_ids if w not in existing_words]
-
-    if new_grammar_hint is not None:
-        # Preserve the canonical hint as-is (it records the pedagogical
-        # intent of the original story; some IDs may not appear as
-        # `grammar_id` on tokens because of converter table differences).
-        new_grammar = list(new_grammar_hint)
-    else:
-        existing_grammar = set(grammar_state.get("points", {}).keys())
-        new_grammar = [g for g in used_grammar if g not in existing_grammar]
-
-    # Validator semantics: first occurrence (in body OR title/subtitle) of a
-    # new_grammar must carry is_new_grammar=true. We stripped the flag from
-    # title/subtitle; we now restore it where needed:
-    #   - if the gid appears in any sentence, stamp the FIRST sentence token.
-    #   - if the gid appears ONLY in title/subtitle, stamp the first such token.
-    sentence_first: dict[str, dict] = {}
-    for sn in sentences:
-        for t in sn["tokens"]:
-            for gid in extract_token_grammar(t):
-                sentence_first.setdefault(gid, t)
-    title_subtitle_first: dict[str, dict] = {}
-    for section in (title, subtitle):
-        for t in section["tokens"]:
-            for gid in extract_token_grammar(t):
-                title_subtitle_first.setdefault(gid, t)
-    for gid in new_grammar:
-        target = sentence_first.get(gid) or title_subtitle_first.get(gid)
-        if target is not None:
-            target["is_new_grammar"] = True
-
     raw = {
         "story_id": spec["story_id"],
         "title": title,
         "subtitle": subtitle,
-        "new_words": new_words,
-        "new_grammar": new_grammar,
+        "new_words": [],     # filled by _normalize_first_occurrence_flags
+        "new_grammar": [],   # filled by _normalize_first_occurrence_flags
         "all_words_used": all_word_ids,
         "sentences": sentences,
     }

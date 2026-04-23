@@ -61,6 +61,104 @@ def strip_audio(story: dict) -> None:
                 tok.pop(f, None)
 
 
+def _normalize_first_occurrence_flags(stories_dir: Path) -> None:
+    """Honest library-wide first-occurrence pass.
+
+    A `word_id` (resp. `grammar_id`) is marked `is_new` (resp. `is_new_grammar`)
+    on EXACTLY ONE token in EXACTLY ONE story — the first story (by id) and,
+    within that story, the first token in document order (title → subtitle →
+    sentences in source order) where the id appears.
+
+    Story-level `new_words` and `new_grammar` arrays are recomputed to be
+    exactly the ids that fired their flag in this story.
+
+    No hints, no heuristics, no canonical fallback. The shipped library IS
+    the source of truth.
+    """
+    seen_words: set[str] = set()
+    seen_grammars: set[str] = set()
+    paths = sorted(stories_dir.glob("story_*.json"), key=lambda p: int(p.stem.split("_")[1]))
+    for path in paths:
+        story = json.loads(path.read_text(encoding="utf-8"))
+
+        # Strip any pre-existing flags so we have a clean slate.
+        for _, t in _all_section_tokens(story):
+            t.pop("is_new", None)
+            t.pop("is_new_grammar", None)
+
+        # Identify which words/grammars are first-seen in this story.
+        first_in_story_words:    list[str] = []
+        first_in_story_grammars: list[str] = []
+        for _, t in _all_section_tokens(story):
+            wid = t.get("word_id")
+            if wid and wid not in seen_words:
+                seen_words.add(wid)
+                if wid not in first_in_story_words:
+                    first_in_story_words.append(wid)
+            gid = t.get("grammar_id")
+            if not gid:
+                infl = t.get("inflection")
+                if isinstance(infl, dict):
+                    gid = infl.get("grammar_id")
+            if gid and gid not in seen_grammars:
+                seen_grammars.add(gid)
+                if gid not in first_in_story_grammars:
+                    first_in_story_grammars.append(gid)
+
+        # Stamp is_new on the FIRST SENTENCE occurrence of each new word
+        # (validator semantics: title/subtitle is decorative, the flag
+        # belongs to the body). Fall back to title/subtitle only when the
+        # word never appears in any sentence in this story.
+        sentence_first_word: dict[str, dict] = {}
+        for sn in story.get("sentences", []):
+            for t in sn.get("tokens", []):
+                wid = t.get("word_id")
+                if wid in first_in_story_words and wid not in sentence_first_word:
+                    sentence_first_word[wid] = t
+        title_first_word: dict[str, dict] = {}
+        for sect in ("title", "subtitle"):
+            for t in story.get(sect, {}).get("tokens", []):
+                wid = t.get("word_id")
+                if wid in first_in_story_words and wid not in title_first_word:
+                    title_first_word[wid] = t
+        for wid in first_in_story_words:
+            target = sentence_first_word.get(wid) or title_first_word.get(wid)
+            if target is not None:
+                target["is_new"] = True
+
+        # Same treatment for grammar.
+        def _gid_of(t: dict) -> Optional[str]:
+            g = t.get("grammar_id")
+            if g:
+                return g
+            infl = t.get("inflection")
+            if isinstance(infl, dict):
+                return infl.get("grammar_id")
+            return None
+
+        sentence_first_g: dict[str, dict] = {}
+        for sn in story.get("sentences", []):
+            for t in sn.get("tokens", []):
+                g = _gid_of(t)
+                if g in first_in_story_grammars and g not in sentence_first_g:
+                    sentence_first_g[g] = t
+        title_first_g: dict[str, dict] = {}
+        for sect in ("title", "subtitle"):
+            for t in story.get(sect, {}).get("tokens", []):
+                g = _gid_of(t)
+                if g in first_in_story_grammars and g not in title_first_g:
+                    title_first_g[g] = t
+        for gid in first_in_story_grammars:
+            target = sentence_first_g.get(gid) or title_first_g.get(gid)
+            if target is not None:
+                target["is_new_grammar"] = True
+
+        story["new_words"] = first_in_story_words
+        story["new_grammar"] = first_in_story_grammars
+
+        path.write_text(json.dumps(story, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
 def _refresh_vocab_metadata(vocab: dict, stories_dir: Path) -> None:
     """Recompute occurrences / first_story / last_seen_story for every word
     by scanning all shipped stories. Mirrors state_updater semantics:
@@ -118,7 +216,6 @@ def _carry_over_canonical_grammar(
     canon: dict,
     regen: dict,
     hint_grammar: set[str],
-    mark_new_set: Optional[set[str]] = None,
 ) -> int:
     """
     For each grammar_id in hint_grammar that isn't tagged on ANY regen token,
@@ -202,23 +299,6 @@ def _carry_over_canonical_grammar(
                 infl["grammar_id"] = gid
                 n_carried += 1
 
-        # Mark is_new_grammar only if this gid is genuinely new in this story
-        # (i.e., it appears in the new_grammar list). Reinforcement uses MUST
-        # NOT carry the flag.
-        if mark_new_set and gid in mark_new_set:
-            first_sentence_tok = None
-            for sect, t in _all_section_tokens(regen):
-                if not sect.startswith("sentence_"):
-                    continue
-                if t.get("grammar_id") == gid or (
-                    isinstance(t.get("inflection"), dict)
-                    and t["inflection"].get("grammar_id") == gid
-                ):
-                    first_sentence_tok = t
-                    break
-            target_for_flag = first_sentence_tok or regen_target
-            target_for_flag["is_new_grammar"] = True
-
     return n_carried
 
 
@@ -226,26 +306,18 @@ def regen_one(canon_path: Path, vocab: dict, grammar: dict) -> tuple[dict, dict,
     """Regenerate one story. Returns (bilingual_spec, regenerated, report)."""
     canon = json.loads(canon_path.read_text(encoding="utf-8"))
     spec = extract_spec(canon)
-    new_words_hint = set(canon.get("new_words") or [])
-    new_grammar_hint = set(canon.get("new_grammar") or [])
-    regen, report = build_story(
-        spec, vocab, grammar,
-        new_word_hint=new_words_hint,
-        new_grammar_hint=new_grammar_hint,
-    )
-    # Carry over any grammar tags the converter didn't know how to emit.
-    # This covers BOTH new_grammar (Check 4) AND reinforcement uses (Check 3.8).
-    # The text is unchanged; we only attach grammar_ids to surface-matching
-    # tokens. Build the full set of canonical grammar_ids in this story.
+    regen, report = build_story(spec, vocab, grammar)
+    # Carry over any grammar tags the converter didn't know how to emit
+    # (so the validator's reinforcement / first-occurrence checks see the
+    # right set of gids on tokens). is_new_grammar / new_grammar are NOT
+    # set here — the library-wide first-occurrence pass owns those fields.
     canon_all_gids: set[str] = set()
     for _, t in _all_section_tokens(canon):
         if t.get("grammar_id"):
             canon_all_gids.add(t["grammar_id"])
         if isinstance(t.get("inflection"), dict) and t["inflection"].get("grammar_id"):
             canon_all_gids.add(t["inflection"]["grammar_id"])
-    n = _carry_over_canonical_grammar(
-        canon, regen, canon_all_gids, mark_new_set=new_grammar_hint,
-    )
+    n = _carry_over_canonical_grammar(canon, regen, canon_all_gids)
     if n:
         report.setdefault("carried_grammar", n)
     # Demote 思います / 言います to role=aux when an earlier token in the
@@ -363,6 +435,10 @@ def main() -> int:
                     minted_records.append(rec)
 
     if args.apply:
+        # Honest library-wide first-occurrence pass for is_new / is_new_grammar
+        # and per-story new_words / new_grammar arrays. Runs after every story
+        # has been written so the walk sees the final shipped state.
+        _normalize_first_occurrence_flags(ROOT / "stories")
         # Recompute occurrences / first_story / last_seen_story for all words
         # by scanning the regenerated stories. This keeps vocab_state in sync
         # with the actual library and satisfies the state-integrity tests.

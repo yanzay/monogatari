@@ -47,14 +47,15 @@
     ]
   },
   "new_words": [
+    "W00018",
     "W00016",
-    "W00017",
-    "W00018"
+    "W00022",
+    "W00017"
   ],
   "new_grammar": [
-    "G009_mo_also",
+    "G015_no_possessive",
     "G010_to_and",
-    "G015_no_possessive"
+    "G009_mo_also"
   ],
   "all_words_used": [
     "W00018",
@@ -103,7 +104,8 @@
           "t": "友達",
           "role": "content",
           "word_id": "W00022",
-          "r": "ともだち"
+          "r": "ともだち",
+          "is_new": true
         },
         {
           "t": "は",
@@ -127,14 +129,14 @@
           "role": "content",
           "word_id": "W00017",
           "r": "あるきます",
-          "is_new": true,
           "inflection": {
             "base": "歩く",
             "base_r": "あるく",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
         },
         {
           "t": "。",

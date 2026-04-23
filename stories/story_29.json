@@ -47,13 +47,11 @@
     ]
   },
   "new_words": [
-    "W00087",
+    "W00088",
     "W00089",
-    "W00088"
+    "W00087"
   ],
-  "new_grammar": [
-    "G024_da"
-  ],
+  "new_grammar": [],
   "all_words_used": [
     "W00052",
     "W00022",
@@ -504,8 +502,7 @@
         {
           "t": "だ",
           "role": "aux",
-          "grammar_id": "G024_da",
-          "is_new_grammar": true
+          "grammar_id": "G024_da"
         },
         {
           "t": "と",
@@ -603,14 +600,14 @@
           "role": "content",
           "word_id": "W00087",
           "r": "たちます",
-          "is_new": true,
           "inflection": {
             "base": "立つ",
             "base_r": "たつ",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
         },
         {
           "t": "。",

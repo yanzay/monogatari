@@ -54,9 +54,10 @@
     ]
   },
   "new_words": [
-    "W00108",
+    "W00107",
     "W00109",
-    "W00107"
+    "W00215",
+    "W00108"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -131,14 +132,14 @@
           "role": "content",
           "word_id": "W00107",
           "r": "ふります",
-          "is_new": true,
           "inflection": {
             "base": "降る",
             "base_r": "ふる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
         },
         {
           "t": "。",
@@ -327,7 +328,8 @@
             "form": "polite_nonpast",
             "verb_class": "irregular_suru"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
         },
         {
           "t": "。",

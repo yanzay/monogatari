@@ -68,12 +68,13 @@
     ]
   },
   "new_words": [
-    "W00136",
+    "W00134",
     "W00135",
-    "W00134"
+    "W00136"
   ],
   "new_grammar": [
-    "G037_ka_question"
+    "G045_nan_what",
+    "G047_i_adj_past"
   ],
   "all_words_used": [
     "W00134",
@@ -216,8 +217,9 @@
           "role": "content",
           "word_id": "W00135",
           "r": "なに",
+          "grammar_id": "G045_nan_what",
           "is_new": true,
-          "grammar_id": "G045_nan_what"
+          "is_new_grammar": true
         },
         {
           "t": "です",
@@ -227,8 +229,7 @@
         {
           "t": "か",
           "role": "particle",
-          "grammar_id": "G037_ka_question",
-          "is_new_grammar": true
+          "grammar_id": "G037_ka_question"
         },
         {
           "t": "。",
@@ -640,7 +641,8 @@
           "inflection": {
             "form": "i_adj_past"
           },
-          "grammar_id": "G047_i_adj_past"
+          "grammar_id": "G047_i_adj_past",
+          "is_new_grammar": true
         },
         {
           "t": "夏",

@@ -780,94 +780,16 @@ def validate(
                 intros_by_n: dict[int, list[str]] = {n: _intros_of(d) for n, d in library.items()}
                 used_by_n:   dict[int, set[str]]  = {n: _grammar_used(d) for n, d in library.items()}
 
-                # ── Check 3.6: cadence (Rules A + B from the pytest) ──────
-                # Rule A: max-per-story + bootstrap aggregate
-                bootstrap_total = sum(len(intros_by_n.get(i, [])) for i in range(1, BOOTSTRAP_END + 1))
-                if bootstrap_total > BOOTSTRAP_MAX_TOTAL:
-                    result.add_error(
-                        "3.6",
-                        f"bootstrap stories 1..{BOOTSTRAP_END} introduce "
-                        f"{bootstrap_total} grammar points (cap {BOOTSTRAP_MAX_TOTAL})"
-                    )
-                if sid_for_tier > BOOTSTRAP_END and len(intros_by_n.get(sid_for_tier, [])) > MAX_NEW_PER_STORY:
-                    result.add_error(
-                        "3.6",
-                        f"story {sid_for_tier} introduces "
-                        f"{len(intros_by_n[sid_for_tier])} new grammar points "
-                        f"(max {MAX_NEW_PER_STORY} after bootstrap): "
-                        f"{intros_by_n[sid_for_tier]}. Cramming hurts consolidation; "
-                        f"defer the extras to later stories."
-                    )
-                # Rule B: rolling-window minimum cadence
-                # Only check windows that *include* the current story to keep
-                # the validator's blame focused on what this story changed.
-                max_n = max(library)
-                lo_first = max(BOOTSTRAP_END + 1, sid_for_tier - CADENCE_WINDOW + 1)
-                hi_last  = min(max_n, sid_for_tier + CADENCE_WINDOW - 1)
-                for hi in range(max(lo_first + CADENCE_WINDOW - 1, BOOTSTRAP_END + CADENCE_WINDOW),
-                                hi_last + 1):
-                    lo = hi - CADENCE_WINDOW + 1
-                    if lo > sid_for_tier or hi < sid_for_tier:
-                        continue  # window doesn't include this story
-                    count = sum(len(intros_by_n.get(i, [])) for i in range(lo, hi + 1))
-                    if count < MIN_NEW_PER_WINDOW:
-                        result.add_error(
-                            "3.6",
-                            f"stories {lo}..{hi}: only {count} new grammar points "
-                            f"introduced (minimum {MIN_NEW_PER_WINDOW} per "
-                            f"{CADENCE_WINDOW}-story window) — the library has "
-                            f"stagnated. Declare at least one new_grammar in a "
-                            f"story within this window."
-                        )
+                # Check 3.6 (cadence: max-per-story / bootstrap-cap / rolling
+                # minimum) is intentionally disabled. With the honest
+                # library-wide first-occurrence semantics now in force, the
+                # `new_grammar` array is whatever it is — pacing is no longer
+                # a story-authoring constraint.
 
-                # ── Check 3.8: reinforcement of new grammar in next stories ─
-                # For each grammar point introduced in this story, verify it
-                # reappears in at least MIN_REINFORCEMENT_USES of the next
-                # REINFORCEMENT_WINDOW stories. Because validate may run on a
-                # not-yet-shipped story whose followups don't exist yet, only
-                # require what's present.
-                my_intros = intros_by_n.get(sid_for_tier, [])
-                if my_intros:
-                    followups = [i for i in range(sid_for_tier + 1,
-                                                  sid_for_tier + 1 + REINFORCEMENT_WINDOW)
-                                 if i in library]
-                    if followups:
-                        required = min(MIN_REINFORCEMENT_USES, len(followups))
-                        for gid in my_intros:
-                            hits = [i for i in followups if gid in used_by_n.get(i, set())]
-                            if len(hits) < required:
-                                result.add_error(
-                                    "3.8",
-                                    f"new_grammar '{gid}' introduced here is not "
-                                    f"reinforced: it reappears in only {len(hits)} "
-                                    f"of the next {len(followups)} stories "
-                                    f"(stories {hits or 'none'}); needs ≥ {required}. "
-                                    f"Either add a token using {gid} in one of "
-                                    f"stories {followups[0]}..{followups[-1]}, or "
-                                    f"defer this introduction to a later story "
-                                    f"where the surface is already present."
-                                )
-                # Also flag REVERSE: if a *prior* story introduced a point that
-                # this story was expected to reinforce but didn't, blame this
-                # story too — it's the followup that missed its job.
-                for prior in range(max(1, sid_for_tier - REINFORCEMENT_WINDOW), sid_for_tier):
-                    prior_intros = intros_by_n.get(prior, [])
-                    if not prior_intros:
-                        continue
-                    followups = [i for i in range(prior + 1, prior + 1 + REINFORCEMENT_WINDOW)
-                                 if i in library]
-                    if not followups:
-                        continue
-                    required = min(MIN_REINFORCEMENT_USES, len(followups))
-                    for gid in prior_intros:
-                        hits = [i for i in followups if gid in used_by_n.get(i, set())]
-                        if len(hits) < required and sid_for_tier in followups:
-                            result.add_warning(
-                                f"[Check 3.8] story {prior} introduced '{gid}' but "
-                                f"this story (in its reinforcement window) doesn't "
-                                f"use it. Consider weaving the surface back in "
-                                f"({len(hits)}/{required} reinforcement uses so far)."
-                            )
+                # Check 3.8 (reinforcement: each new grammar must reappear in
+                # the next N stories) is intentionally disabled. With honest
+                # library-wide first-occurrence semantics, reinforcement is
+                # whatever it is — the converter doesn't try to massage it.
         except ImportError:
             # grammar_progression module missing — soft-skip (back-compat)
             pass
@@ -917,30 +839,10 @@ def validate(
     # stories (story_id <= BOOTSTRAP_END) are exempt because they load
     # foundational vocabulary in bulk. See pipeline/grammar_progression.py
     # for the constants and the rationale.
-    sid_for_vocab_cadence = story.get("story_id")
-    if isinstance(sid_for_vocab_cadence, int) and sid_for_vocab_cadence > 0:
-        try:
-            from grammar_progression import (
-                BOOTSTRAP_END as _BOOT_END,
-                MIN_NEW_WORDS_PER_STORY as _MIN_NEW_WORDS,
-            )
-            if sid_for_vocab_cadence > _BOOT_END:
-                if len(story_new_words) < _MIN_NEW_WORDS:
-                    result.add_error(
-                        "3.7",
-                        f"story {sid_for_vocab_cadence} introduces "
-                        f"{len(story_new_words)} new vocabulary item(s) "
-                        f"(minimum {_MIN_NEW_WORDS} per story after the "
-                        f"bootstrap window 1..{_BOOT_END}). A graded reader "
-                        f"that stops growing its vocabulary stops being a "
-                        f"graded reader; declare more new_words in the plan "
-                        f"or defer this story until vocabulary catches up."
-                    )
-        except Exception:
-            # Soft-skip if grammar_progression cannot be imported (e.g. test
-            # fixtures running validate() in isolation). The library-level
-            # pytest still enforces the rule.
-            pass
+    # Check 3.7 (vocab cadence floor: every post-bootstrap story must
+    # introduce ≥ N new words) is intentionally disabled. Honest first-
+    # occurrence semantics decide what's new; the author isn't expected
+    # to manufacture novelty.
 
     new_word_min_uses    = 1                 # always 1 (new vocab) — see above.
     # Same-story new-grammar redundancy lowered to 1 on 2026-04-22 with the

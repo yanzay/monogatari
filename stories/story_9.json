@@ -48,12 +48,10 @@
   },
   "new_words": [
     "W00036",
-    "W00038",
-    "W00037"
+    "W00037",
+    "W00038"
   ],
-  "new_grammar": [
-    "G004_ni_location"
-  ],
+  "new_grammar": [],
   "all_words_used": [
     "W00015",
     "W00028",
@@ -101,8 +99,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location",
-          "is_new_grammar": true
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "います",
@@ -340,14 +337,14 @@
           "role": "content",
           "word_id": "W00038",
           "r": "ねます",
-          "is_new": true,
           "inflection": {
             "base": "寝る",
             "base_r": "ねる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
         },
         {
           "t": "。",

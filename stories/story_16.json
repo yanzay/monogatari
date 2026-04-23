@@ -51,9 +51,7 @@
     "W00048",
     "W00050"
   ],
-  "new_grammar": [
-    "G017_de_means"
-  ],
+  "new_grammar": [],
   "all_words_used": [
     "W00016",
     "W00049",
@@ -119,14 +117,14 @@
           "role": "content",
           "word_id": "W00048",
           "r": "つくります",
-          "is_new": true,
           "inflection": {
             "base": "作る",
             "base_r": "つくる",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
         },
         {
           "t": "。",
@@ -201,8 +199,7 @@
         {
           "t": "で",
           "role": "particle",
-          "grammar_id": "G017_de_means",
-          "is_new_grammar": true
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "お茶",
