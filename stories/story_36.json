@@ -71,6 +71,7 @@
     "W00006",
     "W00062",
     "W00011",
+    "W00070",
     "W00041",
     "W00025",
     "W00109",
@@ -248,21 +249,32 @@
       "idx": 4,
       "tokens": [
         {
+          "t": "電車",
+          "role": "content",
+          "r": "でんしゃ",
+          "word_id": "W00070"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
           "t": "友達",
+          "role": "content",
           "r": "ともだち",
-          "word_id": "W00022",
-          "role": "content"
+          "word_id": "W00022"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "待ちます",
+          "role": "content",
           "r": "まちます",
           "word_id": "W00041",
-          "role": "content",
           "inflection": {
             "base": "待つ",
             "base_r": "まつ",
@@ -275,7 +287,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I wait for the friend."
+      "gloss_en": "I wait for the train and friend."
     },
     {
       "idx": 5,

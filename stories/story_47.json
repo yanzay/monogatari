@@ -84,11 +84,12 @@
     "W00113",
     "W00108",
     "W00045",
+    "W00163",
     "W00120",
     "W00011",
     "W00056",
     "W00046",
-    "W00117"
+    "W00086"
   ],
   "sentences": [
     {
@@ -621,6 +622,13 @@
           "grammar_id": "G015_no_possessive"
         },
         {
+          "t": "痛い",
+          "role": "content",
+          "r": "いたい",
+          "word_id": "W00163",
+          "grammar_id": "G023_attributive"
+        },
+        {
           "t": "心",
           "role": "content",
           "r": "こころ",
@@ -647,7 +655,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Beside the stove, my heart is quiet."
+      "gloss_en": "By the stove, my painful heart is quiet."
     },
     {
       "idx": 12,
@@ -690,18 +698,15 @@
       "tokens": [
         {
           "t": "黒い",
-          "r": "kuroi",
           "role": "content",
+          "r": "くろい",
           "word_id": "W00141",
-          "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "傘",
-          "r": "kasa",
           "role": "content",
+          "r": "かさ",
           "word_id": "W00116"
         },
         {
@@ -711,8 +716,8 @@
         },
         {
           "t": "明日",
-          "r": "ashita",
           "role": "content",
+          "r": "あした",
           "word_id": "W00046"
         },
         {
@@ -721,27 +726,34 @@
         },
         {
           "t": "店",
-          "r": "mise",
           "role": "content",
+          "r": "みせ",
           "word_id": "W00084"
         },
         {
-          "t": "に",
+          "t": "で",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "G017_de_means"
         },
         {
-          "t": "渡します",
-          "r": "watashimasu",
+          "t": "買います",
           "role": "content",
-          "word_id": "W00117"
+          "r": "かいます",
+          "word_id": "W00086",
+          "inflection": {
+            "base": "買う",
+            "base_r": "かう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "Tomorrow, I will hand the black umbrella to the shop."
+      "gloss_en": "The black umbrella, tomorrow, I'll buy at the shop."
     },
     {
       "idx": 14,

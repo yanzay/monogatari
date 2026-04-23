@@ -77,7 +77,8 @@
     "W00044",
     "W00083",
     "W00095",
-    "W00056",
+    "W00105",
+    "W00106",
     "W00040",
     "W00041",
     "W00134"
@@ -507,8 +508,8 @@
       "tokens": [
         {
           "t": "私",
-          "r": "watashi",
           "role": "content",
+          "r": "わたし",
           "word_id": "W00003"
         },
         {
@@ -517,26 +518,35 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "嬉しい",
-          "r": "ureshii",
+          "t": "仕事",
           "role": "content",
-          "word_id": "W00056",
-          "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+          "r": "しごと",
+          "word_id": "W00105"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "始めます",
+          "role": "content",
+          "r": "はじめます",
+          "word_id": "W00106",
+          "inflection": {
+            "base": "始める",
+            "base_r": "はじめる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I am happy."
+      "gloss_en": "I begin the work."
     },
     {
       "idx": 11,

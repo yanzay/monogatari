@@ -86,6 +86,7 @@
     "W00038",
     "W00055",
     "W00054",
+    "W00027",
     "W00029",
     "W00043",
     "W00056"
@@ -442,18 +443,18 @@
     },
     {
       "idx": 7,
-      "gloss_en": "The bird is near the flowers.",
+      "gloss_en": "The bird is by the flower and the wind.",
       "tokens": [
         {
           "t": "鳥",
+          "role": "content",
           "r": "とり",
-          "word_id": "W00054",
-          "role": "content"
+          "word_id": "W00054"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "、",
@@ -461,31 +462,48 @@
         },
         {
           "t": "花",
+          "role": "content",
           "r": "はな",
-          "word_id": "W00024",
-          "role": "content"
+          "word_id": "W00024"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "風",
+          "role": "content",
+          "r": "かぜ",
+          "word_id": "W00027"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "そば",
+          "role": "content",
           "r": "そば",
-          "word_id": "W00045",
-          "role": "content"
+          "word_id": "W00045"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "います",
-          "word_id": "W00029",
           "role": "content",
-          "grammar_id": "G021_aru_iru"
+          "r": "います",
+          "word_id": "W00029",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          }
         },
         {
           "t": "。",

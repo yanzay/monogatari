@@ -75,6 +75,7 @@
     "W00117",
     "W00097",
     "W00035",
+    "W00101",
     "W00040",
     "W00094",
     "W00056"
@@ -436,42 +437,54 @@
       "tokens": [
         {
           "t": "二人",
+          "role": "content",
           "r": "ふたり",
           "word_id": "W00035",
-          "role": "content"
+          "grammar_id": "G025_counters"
         },
         {
           "t": "で",
-          "grammar_id": "G017_de_means",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "傘",
+          "role": "content",
           "r": "かさ",
-          "word_id": "W00116",
-          "role": "content"
+          "word_id": "W00116"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "犬",
+          "role": "content",
+          "r": "いぬ",
+          "word_id": "W00101"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "そば",
+          "role": "content",
           "r": "そば",
-          "word_id": "W00045",
-          "role": "content"
+          "word_id": "W00045"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "います",
+          "role": "content",
           "r": "います",
           "word_id": "W00029",
-          "role": "content",
           "inflection": {
             "base": "いる",
             "base_r": "いる",
@@ -484,7 +497,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us are beside the umbrella."
+      "gloss_en": "The two of us, with the umbrella and the dog, stay close."
     },
     {
       "idx": 9,

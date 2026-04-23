@@ -69,6 +69,7 @@
     "W00044",
     "W00036",
     "W00006",
+    "W00076",
     "W00129",
     "W00011",
     "W00126",
@@ -343,8 +344,8 @@
       "tokens": [
         {
           "t": "私",
-          "r": "watashi",
           "role": "content",
+          "r": "わたし",
           "word_id": "W00003"
         },
         {
@@ -353,10 +354,29 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "困ります",
-          "r": "komarimasu",
+          "t": "悲しくて",
           "role": "content",
+          "r": "かなしくて",
+          "word_id": "W00076",
+          "inflection": {
+            "base": "悲しい",
+            "base_r": "かなしい",
+            "form": "te_form",
+            "grammar_id": "G007_te_form"
+          }
+        },
+        {
+          "t": "困ります",
+          "role": "content",
+          "r": "こまります",
           "word_id": "W00129",
+          "inflection": {
+            "base": "困る",
+            "base_r": "こまる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast",
           "is_new": true
         },
         {
@@ -364,7 +384,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am troubled."
+      "gloss_en": "I am sad and troubled."
     },
     {
       "idx": 8,

@@ -284,53 +284,67 @@
       "tokens": [
         {
           "t": "庭",
-          "r": "niwa",
           "role": "content",
+          "r": "にわ",
           "word_id": "W00059"
         },
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location",
-          "r": "ni"
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "春",
-          "r": "haru",
           "role": "content",
+          "r": "はる",
           "word_id": "W00072"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "no"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "花",
-          "r": "hana",
           "role": "content",
+          "r": "はな",
           "word_id": "W00024"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "雲",
+          "role": "content",
+          "r": "くも",
+          "word_id": "W00092"
         },
         {
           "t": "が",
           "role": "particle",
-          "grammar_id": "G002_ga_subject",
-          "r": "ga"
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "あります",
-          "r": "arimasu",
           "role": "content",
-          "grammar_id": "G021_aru_iru",
-          "word_id": "W00044"
+          "r": "あります",
+          "word_id": "W00044",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_aru"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "In the garden, there are spring flowers."
+      "gloss_en": "In the garden are spring flowers and clouds."
     },
     {
       "idx": 5,
@@ -958,6 +972,7 @@
     "W00078",
     "W00059",
     "W00024",
+    "W00092",
     "W00044",
     "W00111",
     "W00144",
