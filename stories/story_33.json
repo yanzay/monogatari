@@ -277,6 +277,11 @@
           "grammar_id": "G003_desu"
         },
         {
+          "t": "ね",
+          "role": "particle",
+          "grammar_id": "G034_ne_confirm"
+        },
+        {
           "t": "」",
           "role": "punct"
         },
@@ -303,10 +308,80 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Grandmother says, \"it is precious.\""
+      "gloss_en": "Grandmother says, \"it is precious, isn't it.\""
     },
     {
       "idx": 6,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "時計",
+          "role": "content",
+          "word_id": "W00071",
+          "r": "とけい"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "言います",
+          "role": "aux",
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Is it an old clock?\" I say."
+    },
+    {
+      "idx": 7,
       "tokens": [
         {
           "t": "祖母",
@@ -360,7 +435,7 @@
       "gloss_en": "Grandmother's house is small and warm."
     },
     {
-      "idx": 7,
+      "idx": 8,
       "tokens": [
         {
           "t": "庭",
@@ -416,7 +491,7 @@
       "gloss_en": "In the garden are leaves and flowers."
     },
     {
-      "idx": 8,
+      "idx": 9,
       "tokens": [
         {
           "t": "美しくて",
@@ -458,7 +533,7 @@
       "gloss_en": "A beautiful and quiet garden."
     },
     {
-      "idx": 9,
+      "idx": 10,
       "tokens": [
         {
           "t": "時計",
@@ -491,7 +566,7 @@
       "gloss_en": "The clock is a memory."
     },
     {
-      "idx": 10,
+      "idx": 11,
       "tokens": [
         {
           "t": "大切",
@@ -523,7 +598,7 @@
       "gloss_en": "A precious memory."
     },
     {
-      "idx": 11,
+      "idx": 12,
       "tokens": [
         {
           "t": "父",

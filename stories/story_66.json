@@ -47,8 +47,7 @@
   },
   "new_words": [
     "W00211",
-    "W00210",
-    "W00209"
+    "W00210"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -78,12 +77,11 @@
     "W00211",
     "W00210",
     "W00153",
-    "W00209",
-    "W00217",
     "W00148",
     "W00086",
     "W00154",
     "W00040",
+    "W00135",
     "W00060",
     "W00120",
     "W00012"
@@ -926,51 +924,6 @@
       "idx": 14,
       "tokens": [
         {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "雑誌",
-          "role": "content",
-          "word_id": "W00209",
-          "r": "ざっし",
-          "is_new": true
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "ほしい",
-          "role": "content",
-          "word_id": "W00217",
-          "r": "ほしい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I want a magazine."
-    },
-    {
-      "idx": 15,
-      "tokens": [
-        {
           "t": "「",
           "role": "punct"
         },
@@ -1035,7 +988,7 @@
       "gloss_en": "\"I bought this book,\" he said."
     },
     {
-      "idx": 16,
+      "idx": 15,
       "tokens": [
         {
           "t": "私",
@@ -1088,6 +1041,35 @@
           "grammar_id": "G013_mashita_past"
         },
         {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "何",
+          "role": "content",
+          "word_id": "W00135",
+          "r": "なに",
+          "grammar_id": "G045_nan_what"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "言わなかった",
+          "role": "content",
+          "word_id": "W00097",
+          "r": "いわなかった",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "plain_past_negative",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G056_plain_past_pair"
+        },
+        {
           "t": "」",
           "role": "punct"
         },
@@ -1114,10 +1096,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I write in the notebook, \"Someone came.\""
+      "gloss_en": "I write in the notebook, \"Someone came. I didn't say anything.\""
     },
     {
-      "idx": 17,
+      "idx": 16,
       "tokens": [
         {
           "t": "心",
@@ -1150,7 +1132,7 @@
       "gloss_en": "My heart is warm."
     },
     {
-      "idx": 18,
+      "idx": 17,
       "tokens": [
         {
           "t": "春",

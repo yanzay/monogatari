@@ -54,6 +54,7 @@
     "W00106",
     "W00040",
     "W00041",
+    "W00135",
     "W00134"
   ],
   "sentences": [
@@ -411,11 +412,14 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "寒い",
+          "t": "寒かった",
           "role": "content",
           "word_id": "W00062",
-          "r": "さむい",
-          "grammar_id": "G022_i_adj"
+          "r": "さむかった",
+          "inflection": {
+            "form": "i_adj_past"
+          },
+          "grammar_id": "G047_i_adj_past"
         },
         {
           "t": "です",
@@ -427,7 +431,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Winter mornings are cold."
+      "gloss_en": "Winter mornings were cold."
     },
     {
       "idx": 9,
@@ -612,11 +616,11 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "美しい",
+          "t": "何",
           "role": "content",
-          "word_id": "W00083",
-          "r": "うつくしい",
-          "grammar_id": "G022_i_adj"
+          "word_id": "W00135",
+          "r": "なに",
+          "grammar_id": "G045_nan_what"
         },
         {
           "t": "です",
@@ -633,7 +637,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Is spring beautiful?"
+      "gloss_en": "What is spring?"
     },
     {
       "idx": 13,

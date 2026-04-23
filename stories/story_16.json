@@ -25,8 +25,7 @@
   },
   "new_words": [
     "W00049",
-    "W00048",
-    "W00050"
+    "W00048"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -40,14 +39,13 @@
     "W00035",
     "W00009",
     "W00010",
+    "W00020",
     "W00047",
     "W00011",
     "W00027",
     "W00002",
     "W00165",
-    "W00050",
     "W00166",
-    "W00020",
     "W00013",
     "W00043",
     "W00164"
@@ -214,6 +212,45 @@
       "idx": 3,
       "tokens": [
         {
+          "t": "パン",
+          "role": "content",
+          "word_id": "W00049",
+          "r": "パン"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "食べて",
+          "role": "content",
+          "word_id": "W00020",
+          "r": "たべて",
+          "inflection": {
+            "base": "食べる",
+            "base_r": "たべる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "おきます",
+          "role": "aux",
+          "grammar_id": "G019_te_oku"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I go ahead and eat the bread."
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
           "t": "空",
           "role": "content",
           "word_id": "W00047",
@@ -243,7 +280,7 @@
       "gloss_en": "The sky is calm."
     },
     {
-      "idx": 4,
+      "idx": 5,
       "tokens": [
         {
           "t": "そして",
@@ -308,7 +345,7 @@
       "gloss_en": "Then wind, rain, and music come."
     },
     {
-      "idx": 5,
+      "idx": 6,
       "tokens": [
         {
           "t": "風",
@@ -351,7 +388,7 @@
       "gloss_en": "With the wind, the sky becomes rain."
     },
     {
-      "idx": 6,
+      "idx": 7,
       "tokens": [
         {
           "t": "二人",
@@ -364,13 +401,6 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "一緒に",
-          "role": "content",
-          "word_id": "W00050",
-          "r": "いっしょに",
-          "is_new": true
         },
         {
           "t": "皿",
@@ -412,10 +442,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two together eat the bread on the plate."
+      "gloss_en": "The two eat the bread on the plate."
     },
     {
-      "idx": 7,
+      "idx": 8,
       "tokens": [
         {
           "t": "「",
@@ -491,7 +521,7 @@
       "gloss_en": "\"A rainy morning is good,\" I think."
     },
     {
-      "idx": 8,
+      "idx": 9,
       "tokens": [
         {
           "t": "公園",

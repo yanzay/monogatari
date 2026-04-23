@@ -42,6 +42,7 @@
     "W00025",
     "W00026",
     "W00011",
+    "W00043",
     "W00013",
     "W00164",
     "W00165",
@@ -324,21 +325,35 @@
       "idx": 5,
       "tokens": [
         {
+          "t": "歩く",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "あるく",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "plain_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "とき",
+          "role": "particle",
+          "grammar_id": "G018_toki_when"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
           "t": "夜",
           "role": "content",
           "word_id": "W00030",
           "r": "よる"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "空",
-          "role": "content",
-          "word_id": "W00047",
-          "r": "そら"
         },
         {
           "t": "は",
@@ -352,16 +367,38 @@
           "r": "しずか"
         },
         {
-          "t": "です",
+          "t": "だ",
           "role": "aux",
-          "grammar_id": "G003_desu"
+          "grammar_id": "G024_da"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G014_to_omoimasu"
+        },
+        {
+          "t": "思います",
+          "role": "aux",
+          "word_id": "W00043",
+          "r": "おもいます",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The night sky is quiet."
+      "gloss_en": "When I walk, I think: \"the night is quiet.\""
     },
     {
       "idx": 6,

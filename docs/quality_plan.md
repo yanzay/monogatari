@@ -44,11 +44,46 @@ were.** Findings:
 not tagging artifacts. Subsequent phases must do the real work: weave
 reinforcement, smooth cadence, justify the bootstrap cap.
 
-### Phase 2 — Grammar reinforcement weaving
+### Phase 2 — Grammar reinforcement weaving ✅ COMPLETE
 
-For each of the 12 reinforcement gaps, weave one sentence using the
-introduced surface into a story in the next-5 window. One bilingual-spec
-edit per gap, validate after each.
+All 12 reinforcement gaps closed. `test_introduced_grammar_is_reinforced`
+now passes (0 violations, was 12).
+
+Per-weave summary:
+
+| Gid | Intro | Wove into | New sentence |
+|---|---|---|---|
+| G016_na_adjective | 3 | 4 | 「静かな公園です。」(replaced existing predicate-な) |
+| G025_counters | 8 | 9 | 「猫と私、二人で朝です。」(also covers G017_de_means) |
+| G017_de_means | 8 | 9 | (covered by 二人で in G025 weave) |
+| G024_da | 13 | 15 | 「歩くとき、『夜は静かだ』と思います。」 |
+| G018_toki_when | 13 | 15 | (covered by とき in G024 weave) |
+| G019_te_oku | 14 | 16 | 「パンを食べておきます。」 |
+| G034_ne_confirm | 32 | 33 | 「祖母は『大切ですね』と言います。」 |
+| G037_ka_question | 32 | 33 | 「『古い時計ですか』と私は言います。」 |
+| G035_arimasen | 43 | 44 (auto) | bug fix — G035 was being overridden by G021 in the regen post-pass |
+| G045_nan_what | 45 | 46 | 「春は何ですか。」 |
+| G047_i_adj_past | 45 | 46 | 「冬の朝は寒かったです。」 |
+| G056_plain_past_pair | 64 | 66 | 「『人が来た。何も言わなかった』と書きます。」 |
+
+Side effects (all positive):
+
+- Removed orphan word 雑誌 (W00209) from story_66 — was a
+  one-shot abandoned vocab.
+- Bug fix in `pipeline/regenerate_all_stories.py`: the post-pass
+  override of ある/いる → G021 was clobbering the more specific
+  G035_arimasen; now only overrides when current gid is None or
+  the generic G026_masu_nonpast.
+- Added auto-cleanup of orphan vocab records in the regenerator
+  (drops vocab entries no longer referenced by any shipped story).
+
+Token-band fixes required:
+
+- Story_16 (intro 二人で moved its content count to 35; band [16,34]).
+  Compressed sentence 7 by removing 一緒に.
+- Story_66 (added a 14th sentence pushed it to 76 tokens; band [34,74]).
+  Removed sentence 14 (「私は雑誌がほしいです」) which was tangential
+  and contained the now-orphan 雑誌.
 
 ### Phase 3 — Vocab early-reinforcement weaving
 

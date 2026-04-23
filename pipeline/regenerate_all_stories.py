@@ -296,10 +296,14 @@ def regen_one(
                 tok["grammar_id"] = INTERROGATIVE_GIDS[t]
             elif t in COUNTER_SURFACES and tok.get("role") == "content":
                 tok["grammar_id"] = "G025_counters"
-            # ある/いる existence verbs (lexical, not the te-iru aux)
+            # ある/いる existence verbs (lexical, not the te-iru aux).
+            # Override the generic G026_masu_nonpast that the converter
+            # assigns by default, but preserve more specific tags such as
+            # G035_arimasen (negative-polite ありません).
             elif tok.get("role") == "content":
                 base = (tok.get("inflection") or {}).get("base")
-                if base in ARU_IRU_BASES:
+                cur_gid = tok.get("grammar_id")
+                if base in ARU_IRU_BASES and cur_gid in (None, "G026_masu_nonpast"):
                     tok["grammar_id"] = "G021_aru_iru"
         # Pass B: quotative と + 思います/言います construction.
         # Find the latest quotative verb in the sentence; then walk back to
@@ -418,6 +422,25 @@ def main() -> int:
         # by scanning the regenerated stories. This keeps vocab_state in sync
         # with the actual library and satisfies the state-integrity tests.
         vpath = ROOT / "data" / "vocab_state.json"
+        # Drop any orphan vocab entries (words minted in past runs but no
+        # longer referenced by any shipped story). Without this, a word
+        # that gets edited out of a bilingual spec lingers forever.
+        _used_wids: set[str] = set()
+        for _path in (ROOT / "stories").glob("story_*.json"):
+            _s = json.loads(_path.read_text(encoding="utf-8"))
+            for _sn in _s.get("sentences", []):
+                for _t in _sn.get("tokens", []):
+                    if _t.get("word_id"):
+                        _used_wids.add(_t["word_id"])
+            for _t in (_s.get("title") or {}).get("tokens", []):
+                if _t.get("word_id"):
+                    _used_wids.add(_t["word_id"])
+        _orphans = [wid for wid in list(vocab.get("words", {}).keys())
+                    if wid not in _used_wids]
+        for wid in _orphans:
+            del vocab["words"][wid]
+        if _orphans:
+            print(f"Dropped {len(_orphans)} orphan vocab record(s): {', '.join(_orphans)}")
         _refresh_vocab_metadata(vocab, ROOT / "stories")
         # Update next_word_id to max+1
         max_n = max(int(k[1:]) for k in vocab["words"].keys() if k.startswith("W"))
