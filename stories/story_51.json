@@ -1,0 +1,1122 @@
+{
+  "story_id": 51,
+  "title": {
+    "jp": "あの花",
+    "en": "That Flower Over There",
+    "tokens": [
+      {
+        "t": "あの",
+        "r": "ano",
+        "role": "content",
+        "word_id": "W00147",
+        "grammar_id": "G043_kosoado_pre_nominal"
+      },
+      {
+        "t": "花",
+        "r": "hana",
+        "role": "content",
+        "word_id": "W00024"
+      }
+    ],
+    "gloss_en": "That flower over there."
+  },
+  "subtitle": {
+    "jp": "公園で友達と一緒に歩きます。",
+    "en": "I walk in the park with the friend.",
+    "tokens": [
+      {
+        "t": "公園",
+        "r": "kouen",
+        "role": "content",
+        "word_id": "W00016"
+      },
+      {
+        "t": "で",
+        "role": "particle",
+        "grammar_id": "G017_de_means",
+        "r": "de"
+      },
+      {
+        "t": "友達",
+        "r": "tomodachi",
+        "role": "content",
+        "word_id": "W00022"
+      },
+      {
+        "t": "と",
+        "role": "particle",
+        "grammar_id": "G010_to_and",
+        "r": "to"
+      },
+      {
+        "t": "一緒に",
+        "r": "isshoni",
+        "role": "content",
+        "word_id": "W00050"
+      },
+      {
+        "t": "歩きます",
+        "r": "arukimasu",
+        "role": "content",
+        "word_id": "W00017",
+        "inflection": {
+          "form": "masu_polite_nonpast",
+          "grammar_id": "G026_masu_nonpast"
+        }
+      },
+      {
+        "t": "。",
+        "role": "punct"
+      }
+    ],
+    "gloss_en": "In the park, I walk together with the friend."
+  },
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "haru",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "no"
+        },
+        {
+          "t": "夕方",
+          "r": "yuugata",
+          "role": "content",
+          "word_id": "W00018"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is a spring evening.",
+      "audio": "audio/story_51/s0.wav",
+      "audio_hash": "fdecbcf80e9f"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "公園",
+          "r": "kouen",
+          "role": "content",
+          "word_id": "W00016"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location",
+          "r": "ni"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "木",
+          "r": "ki",
+          "role": "content",
+          "word_id": "W00007"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and",
+          "r": "to"
+        },
+        {
+          "t": "花",
+          "r": "hana",
+          "role": "content",
+          "word_id": "W00024"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject",
+          "r": "ga"
+        },
+        {
+          "t": "あります",
+          "r": "arimasu",
+          "role": "content",
+          "word_id": "W00044"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the park, there are trees and flowers.",
+      "audio": "audio/story_51/s1.wav",
+      "audio_hash": "54ecf2d1abb9"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "tomodachi",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "あの",
+          "r": "ano",
+          "role": "content",
+          "word_id": "W00147",
+          "grammar_id": "G043_kosoado_pre_nominal",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "花",
+          "r": "hana",
+          "role": "content",
+          "word_id": "W00024"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "嬉しい",
+          "r": "ureshii",
+          "role": "content",
+          "word_id": "W00056",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "desu"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "to"
+        },
+        {
+          "t": "言います",
+          "r": "iimasu",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend says, \"that flower over there is happy\".",
+      "audio": "audio/story_51/s2.wav",
+      "audio_hash": "01fba25cffd5"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "あの",
+          "r": "ano",
+          "role": "content",
+          "word_id": "W00147",
+          "grammar_id": "G043_kosoado_pre_nominal"
+        },
+        {
+          "t": "花",
+          "r": "hana",
+          "role": "content",
+          "word_id": "W00024"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "赤い",
+          "r": "akai",
+          "role": "content",
+          "word_id": "W00142",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "desu"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G014_to_omoimasu",
+          "r": "to"
+        },
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "思います",
+          "r": "omoimasu",
+          "role": "aux",
+          "grammar_id": "G014_to_omoimasu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I think, \"that flower over there is red\".",
+      "audio": "audio/story_51/s3.wav",
+      "audio_hash": "160b8614d048"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "この",
+          "r": "kono",
+          "role": "content",
+          "word_id": "W00148",
+          "grammar_id": "G043_kosoado_pre_nominal",
+          "is_new": true
+        },
+        {
+          "t": "木",
+          "r": "ki",
+          "role": "content",
+          "word_id": "W00007"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "古い",
+          "r": "furui",
+          "role": "content",
+          "word_id": "W00067",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "desu"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "to"
+        },
+        {
+          "t": "言います",
+          "r": "iimasu",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I say, \"this tree is old\".",
+      "audio": "audio/story_51/s4.wav",
+      "audio_hash": "2861a85576a2"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "tomodachi",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "この",
+          "r": "kono",
+          "role": "content",
+          "word_id": "W00148",
+          "grammar_id": "G043_kosoado_pre_nominal"
+        },
+        {
+          "t": "木",
+          "r": "ki",
+          "role": "content",
+          "word_id": "W00007"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "美しい",
+          "r": "utsukushii",
+          "role": "content",
+          "word_id": "W00083",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "desu"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "to"
+        },
+        {
+          "t": "言います",
+          "r": "iimasu",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend says, \"this tree is beautiful\".",
+      "audio": "audio/story_51/s5.wav",
+      "audio_hash": "23e6af73373d"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "池",
+          "r": "ike",
+          "role": "content",
+          "word_id": "W00103"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location",
+          "r": "ni"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "鳥",
+          "r": "tori",
+          "role": "content",
+          "word_id": "W00054"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject",
+          "r": "ga"
+        },
+        {
+          "t": "います",
+          "r": "imasu",
+          "role": "content",
+          "word_id": "W00029"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the pond, there is a bird.",
+      "audio": "audio/story_51/s6.wav",
+      "audio_hash": "84f58b556452"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "あの",
+          "r": "ano",
+          "role": "content",
+          "word_id": "W00147",
+          "grammar_id": "G043_kosoado_pre_nominal"
+        },
+        {
+          "t": "鳥",
+          "r": "tori",
+          "role": "content",
+          "word_id": "W00054"
+        },
+        {
+          "t": "何",
+          "r": "nani",
+          "role": "content",
+          "word_id": "W00135"
+        },
+        {
+          "t": "何",
+          "r": "nani",
+          "role": "content",
+          "word_id": "W00135",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question",
+          "r": "ka"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "to"
+        },
+        {
+          "t": "友達",
+          "r": "tomodachi",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "言います",
+          "r": "iimasu",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend says, \"what is that bird over there?\"",
+      "audio": "audio/story_51/s7.wav",
+      "audio_hash": "e20d580aa8d8"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "黒い",
+          "r": "kuroi",
+          "role": "content",
+          "word_id": "W00141",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "鳥",
+          "r": "tori",
+          "role": "content",
+          "word_id": "W00054"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "desu"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "to"
+        },
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "言います",
+          "r": "iimasu",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I say, \"it is a black bird\".",
+      "audio": "audio/story_51/s8.wav",
+      "audio_hash": "481eac54fb8c"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "tomodachi",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "空",
+          "r": "sora",
+          "role": "content",
+          "word_id": "W00047"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "r": "mimasu",
+          "role": "content",
+          "word_id": "W00006",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend looks at the sky.",
+      "audio": "audio/story_51/s9.wav",
+      "audio_hash": "59739c186891"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "tomodachi",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and",
+          "r": "to"
+        },
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "一緒に",
+          "r": "isshoni",
+          "role": "content",
+          "word_id": "W00050"
+        },
+        {
+          "t": "歩きます",
+          "r": "arukimasu",
+          "role": "content",
+          "word_id": "W00017",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend and I walk together.",
+      "audio": "audio/story_51/s10.wav",
+      "audio_hash": "1bb1c6d6c143"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "no"
+        },
+        {
+          "t": "心",
+          "r": "kokoro",
+          "role": "content",
+          "word_id": "W00120"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "嬉しい",
+          "r": "ureshii",
+          "role": "content",
+          "word_id": "W00056",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My heart is happy.",
+      "audio": "audio/story_51/s11.wav",
+      "audio_hash": "b224b0eb608f"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "tomodachi",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "いつ",
+          "r": "itsu",
+          "role": "content",
+          "word_id": "W00145",
+          "grammar_id": "G042_itsu_when"
+        },
+        {
+          "t": "この",
+          "r": "kono",
+          "role": "content",
+          "word_id": "W00148",
+          "grammar_id": "G043_kosoado_pre_nominal"
+        },
+        {
+          "t": "公園",
+          "r": "kouen",
+          "role": "content",
+          "word_id": "W00016"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "来ます",
+          "r": "kimasu",
+          "role": "content",
+          "word_id": "W00040",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "言います",
+          "r": "iimasu",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend says, \"when will (we) come to this park?\"",
+      "audio": "audio/story_51/s12.wav",
+      "audio_hash": "05c0113b7435"
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "嬉しい",
+          "r": "ureshii",
+          "role": "content",
+          "word_id": "W00056",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I am happy.",
+      "audio": "audio/story_51/s13.wav",
+      "audio_hash": "5c29e5352c54"
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "約束",
+          "r": "yakusoku",
+          "role": "content",
+          "word_id": "W00132"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is a promise.",
+      "audio": "audio/story_51/s14.wav",
+      "audio_hash": "d338ce761233"
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "haru",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夕方",
+          "r": "yuugata",
+          "role": "content",
+          "word_id": "W00018"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "あの",
+          "r": "ano",
+          "role": "content",
+          "word_id": "W00147",
+          "grammar_id": "G043_kosoado_pre_nominal"
+        },
+        {
+          "t": "花",
+          "r": "hana",
+          "role": "content",
+          "word_id": "W00024"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "空",
+          "r": "sora",
+          "role": "content",
+          "word_id": "W00047"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "鳥",
+          "r": "tori",
+          "role": "content",
+          "word_id": "W00054"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Spring evening, that flower, the bird in the sky.",
+      "audio": "audio/story_51/s15.wav",
+      "audio_hash": "b7fef074e7c4"
+    }
+  ],
+  "new_words": [
+    "W00147",
+    "W00148"
+  ],
+  "new_grammar": [
+    "G043_kosoado_pre_nominal"
+  ],
+  "all_words_used": [
+    "W00147",
+    "W00024",
+    "W00016",
+    "W00022",
+    "W00050",
+    "W00017",
+    "W00072",
+    "W00018",
+    "W00007",
+    "W00044",
+    "W00056",
+    "W00097",
+    "W00142",
+    "W00003",
+    "W00148",
+    "W00067",
+    "W00083",
+    "W00103",
+    "W00054",
+    "W00029",
+    "W00135",
+    "W00141",
+    "W00047",
+    "W00006",
+    "W00120",
+    "W00145",
+    "W00040",
+    "W00132"
+  ],
+  "word_audio": {
+    "W00147": "audio/story_51/w_W00147.wav",
+    "W00148": "audio/story_51/w_W00148.wav"
+  },
+  "word_audio_hash": {
+    "W00147": "abadd06eea1e",
+    "W00148": "fad04fc93bda"
+  }
+}
