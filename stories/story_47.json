@@ -70,6 +70,7 @@
     "W00002",
     "W00018",
     "W00075",
+    "W00136",
     "W00044",
     "W00003",
     "W00142",
@@ -81,6 +82,8 @@
     "W00033",
     "W00084",
     "W00113",
+    "W00108",
+    "W00045",
     "W00120",
     "W00011",
     "W00056",
@@ -118,17 +121,15 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a rainy evening.",
-      "audio": "audio/story_47/s0.wav",
-      "audio_hash": "60c448a19dfc"
+      "gloss_en": "It is a rainy evening."
     },
     {
       "idx": 1,
       "tokens": [
         {
           "t": "部屋",
-          "r": "heya",
           "role": "content",
+          "r": "へや",
           "word_id": "W00075"
         },
         {
@@ -138,19 +139,27 @@
         },
         {
           "t": "黒い",
-          "r": "kuroi",
           "role": "content",
+          "r": "くろい",
           "word_id": "W00141",
-          "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          },
+          "grammar_id": "G023_attributive",
           "is_new": true
         },
         {
-          "t": "傘",
-          "r": "kasa",
+          "t": "箱",
           "role": "content",
+          "r": "はこ",
+          "word_id": "W00136"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "傘",
+          "role": "content",
+          "r": "かさ",
           "word_id": "W00116"
         },
         {
@@ -160,18 +169,23 @@
         },
         {
           "t": "あります",
-          "r": "arimasu",
           "role": "content",
-          "word_id": "W00044"
+          "r": "あります",
+          "word_id": "W00044",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_aru"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "There is a black umbrella in the room.",
-      "audio": "audio/story_47/s1.wav",
-      "audio_hash": "169b242a2739"
+      "gloss_en": "In the room are a black box and an umbrella."
     },
     {
       "idx": 2,
@@ -219,9 +233,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My umbrella is red.",
-      "audio": "audio/story_47/s2.wav",
-      "audio_hash": "509f6e7660cf"
+      "gloss_en": "My umbrella is red."
     },
     {
       "idx": 3,
@@ -282,9 +294,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Whose umbrella is the black umbrella?",
-      "audio": "audio/story_47/s3.wav",
-      "audio_hash": "1755c322b532"
+      "gloss_en": "Whose umbrella is the black umbrella?"
     },
     {
       "idx": 4,
@@ -321,9 +331,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Is it the friend's umbrella?",
-      "audio": "audio/story_47/s4.wav",
-      "audio_hash": "97bd39d1f2c5"
+      "gloss_en": "Is it the friend's umbrella?"
     },
     {
       "idx": 5,
@@ -370,9 +378,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend's umbrella is not black.",
-      "audio": "audio/story_47/s5.wav",
-      "audio_hash": "1fcdecf3174b"
+      "gloss_en": "The friend's umbrella is not black."
     },
     {
       "idx": 6,
@@ -409,9 +415,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Is it grandmother's umbrella?",
-      "audio": "audio/story_47/s6.wav",
-      "audio_hash": "a13413d80cd5"
+      "gloss_en": "Is it grandmother's umbrella?"
     },
     {
       "idx": 7,
@@ -458,9 +462,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Grandmother's umbrella is old.",
-      "audio": "audio/story_47/s7.wav",
-      "audio_hash": "f6017f5a8018"
+      "gloss_en": "Grandmother's umbrella is old."
     },
     {
       "idx": 8,
@@ -506,9 +508,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The black umbrella is new.",
-      "audio": "audio/story_47/s8.wav",
-      "audio_hash": "4083a31c89d6"
+      "gloss_en": "The black umbrella is new."
     },
     {
       "idx": 9,
@@ -535,9 +535,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think.",
-      "audio": "audio/story_47/s9.wav",
-      "audio_hash": "7dabf3481d75"
+      "gloss_en": "I think."
     },
     {
       "idx": 10,
@@ -580,17 +578,41 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is the bookstore person.",
-      "audio": "audio/story_47/s10.wav",
-      "audio_hash": "4e04f8d80ad1"
+      "gloss_en": "It is the bookstore person."
     },
     {
       "idx": 11,
       "tokens": [
         {
-          "t": "私",
-          "r": "watashi",
+          "t": "ストーブ",
           "role": "content",
+          "r": "ストーブ",
+          "word_id": "W00108"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "そば",
+          "role": "content",
+          "r": "そば",
+          "word_id": "W00045"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "r": "わたし",
           "word_id": "W00003"
         },
         {
@@ -600,8 +622,8 @@
         },
         {
           "t": "心",
-          "r": "kokoro",
           "role": "content",
+          "r": "こころ",
           "word_id": "W00120"
         },
         {
@@ -611,8 +633,8 @@
         },
         {
           "t": "静か",
-          "r": "shizuka",
           "role": "content",
+          "r": "しずか",
           "word_id": "W00011"
         },
         {
@@ -625,9 +647,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My heart is quiet.",
-      "audio": "audio/story_47/s11.wav",
-      "audio_hash": "14b8f12cc001"
+      "gloss_en": "Beside the stove, my heart is quiet."
     },
     {
       "idx": 12,
@@ -663,9 +683,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am happy.",
-      "audio": "audio/story_47/s12.wav",
-      "audio_hash": "5c29e5352c54"
+      "gloss_en": "I am happy."
     },
     {
       "idx": 13,
@@ -723,9 +741,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Tomorrow, I will hand the black umbrella to the shop.",
-      "audio": "audio/story_47/s13.wav",
-      "audio_hash": "ae41f774a829"
+      "gloss_en": "Tomorrow, I will hand the black umbrella to the shop."
     },
     {
       "idx": 14,
@@ -777,19 +793,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A rainy evening, a black umbrella.",
-      "audio": "audio/story_47/s14.wav",
-      "audio_hash": "8823907e1e89"
+      "gloss_en": "A rainy evening, a black umbrella."
     }
-  ],
-  "word_audio": {
-    "W00140": "audio/story_47/w_W00140.wav",
-    "W00141": "audio/story_47/w_W00141.wav",
-    "W00142": "audio/story_47/w_W00142.wav"
-  },
-  "word_audio_hash": {
-    "W00140": "47c9a42683e9",
-    "W00141": "d75c4a717b1c",
-    "W00142": "8e4b46ee4106"
-  }
+  ]
 }

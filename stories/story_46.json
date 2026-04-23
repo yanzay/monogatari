@@ -79,7 +79,8 @@
     "W00095",
     "W00056",
     "W00040",
-    "W00041"
+    "W00041",
+    "W00134"
   ],
   "sentences": [
     {
@@ -112,9 +113,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring morning.",
-      "audio": "audio/story_46/s0.wav",
-      "audio_hash": "03fcfb532d5c"
+      "gloss_en": "It is a spring morning."
     },
     {
       "idx": 1,
@@ -151,9 +150,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The morning is not cold.",
-      "audio": "audio/story_46/s1.wav",
-      "audio_hash": "a34ff26d258b"
+      "gloss_en": "The morning is not cold."
     },
     {
       "idx": 2,
@@ -191,9 +188,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The air is bright.",
-      "audio": "audio/story_46/s2.wav",
-      "audio_hash": "73589c17bda0"
+      "gloss_en": "The air is bright."
     },
     {
       "idx": 3,
@@ -241,9 +236,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The spring light is warm.",
-      "audio": "audio/story_46/s3.wav",
-      "audio_hash": "47d4dde7b5ba"
+      "gloss_en": "The spring light is warm."
     },
     {
       "idx": 4,
@@ -292,9 +285,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I stand by the window.",
-      "audio": "audio/story_46/s4.wav",
-      "audio_hash": "52f1f6b63528"
+      "gloss_en": "I stand by the window."
     },
     {
       "idx": 5,
@@ -332,9 +323,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A bird is in the sky.",
-      "audio": "audio/story_46/s5.wav",
-      "audio_hash": "d2552210c961"
+      "gloss_en": "A bird is in the sky."
     },
     {
       "idx": 6,
@@ -372,9 +361,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There are flowers in the room.",
-      "audio": "audio/story_46/s6.wav",
-      "audio_hash": "3b83de0d1b87"
+      "gloss_en": "There are flowers in the room."
     },
     {
       "idx": 7,
@@ -410,9 +397,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The flowers are beautiful.",
-      "audio": "audio/story_46/s7.wav",
-      "audio_hash": "d6008f3e46f2"
+      "gloss_en": "The flowers are beautiful."
     },
     {
       "idx": 8,
@@ -459,9 +444,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Winter mornings are cold.",
-      "audio": "audio/story_46/s8.wav",
-      "audio_hash": "a4323779c9a5"
+      "gloss_en": "Winter mornings are cold."
     },
     {
       "idx": 9,
@@ -517,9 +500,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But spring mornings are not cold.",
-      "audio": "audio/story_46/s9.wav",
-      "audio_hash": "797460378eae"
+      "gloss_en": "But spring mornings are not cold."
     },
     {
       "idx": 10,
@@ -555,9 +536,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am happy.",
-      "audio": "audio/story_46/s10.wav",
-      "audio_hash": "5c29e5352c54"
+      "gloss_en": "I am happy."
     },
     {
       "idx": 11,
@@ -614,9 +593,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Because spring is coming, I do not wait.",
-      "audio": "audio/story_46/s11.wav",
-      "audio_hash": "c0ecf71b24aa"
+      "gloss_en": "Because spring is coming, I do not wait."
     },
     {
       "idx": 12,
@@ -657,9 +634,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Is spring beautiful?",
-      "audio": "audio/story_46/s12.wav",
-      "audio_hash": "d18c7d6ebdde"
+      "gloss_en": "Is spring beautiful?"
     },
     {
       "idx": 13,
@@ -695,27 +670,33 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Spring is beautiful.",
-      "audio": "audio/story_46/s13.wav",
-      "audio_hash": "8077fc6945f1"
+      "gloss_en": "Spring is beautiful."
     },
     {
       "idx": 14,
       "tokens": [
         {
-          "t": "明るい",
-          "r": "akarui",
+          "t": "これ",
           "role": "content",
+          "r": "これ",
+          "word_id": "W00134"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "r": "あかるい",
           "word_id": "W00137",
-          "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "朝",
-          "r": "asa",
           "role": "content",
+          "r": "あさ",
           "word_id": "W00015"
         },
         {
@@ -724,18 +705,15 @@
         },
         {
           "t": "温かい",
-          "r": "atatakai",
           "role": "content",
+          "r": "あたたかい",
           "word_id": "W00012",
-          "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "光",
-          "r": "hikari",
           "role": "content",
+          "r": "ひかり",
           "word_id": "W00139"
         },
         {
@@ -748,19 +726,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A bright morning, a warm light.",
-      "audio": "audio/story_46/s14.wav",
-      "audio_hash": "2d5d385bfcd5"
+      "gloss_en": "This is a bright morning, warm light."
     }
-  ],
-  "word_audio": {
-    "W00137": "audio/story_46/w_W00137.wav",
-    "W00138": "audio/story_46/w_W00138.wav",
-    "W00139": "audio/story_46/w_W00139.wav"
-  },
-  "word_audio_hash": {
-    "W00137": "53b4a762f917",
-    "W00138": "a012d55156a4",
-    "W00139": "bf728630db0b"
-  }
+  ]
 }

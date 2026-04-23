@@ -74,7 +74,7 @@
     "W00045",
     "W00087",
     "W00132",
-    "W00044",
+    "W00128",
     "W00131",
     "W00093",
     "W00024",
@@ -117,9 +117,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring evening.",
-      "audio": "audio/story_44/s0.wav",
-      "audio_hash": "fdecbcf80e9f"
+      "gloss_en": "It is a spring evening."
     },
     {
       "idx": 1,
@@ -168,50 +166,53 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I stand by the window.",
-      "audio": "audio/story_44/s1.wav",
-      "audio_hash": "52f1f6b63528"
+      "gloss_en": "I stand by the window."
     },
     {
       "idx": 2,
       "tokens": [
         {
           "t": "友達",
-          "r": "tomodachi",
           "role": "content",
+          "r": "ともだち",
           "word_id": "W00022"
         },
         {
-          "t": "と",
+          "t": "は",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "約束",
-          "r": "yakusoku",
           "role": "content",
+          "r": "やくそく",
           "word_id": "W00132",
           "is_new": true
         },
         {
-          "t": "が",
+          "t": "を",
           "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "G005_wo_object"
         },
         {
-          "t": "あります",
-          "r": "arimasu",
+          "t": "探します",
           "role": "content",
-          "word_id": "W00044"
+          "r": "さがします",
+          "word_id": "W00128",
+          "inflection": {
+            "base": "探す",
+            "base_r": "さがす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "There is a promise with the friend.",
-      "audio": "audio/story_44/s2.wav",
-      "audio_hash": "81ad0a2c97ad"
+      "gloss_en": "The friend searches for the promise."
     },
     {
       "idx": 3,
@@ -249,9 +250,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Sometimes, a phone call comes.",
-      "audio": "audio/story_44/s3.wav",
-      "audio_hash": "aaced43724ce"
+      "gloss_en": "Sometimes, a phone call comes."
     },
     {
       "idx": 4,
@@ -286,9 +285,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But there is no phone call.",
-      "audio": "audio/story_44/s4.wav",
-      "audio_hash": "47024a417974"
+      "gloss_en": "But there is no phone call."
     },
     {
       "idx": 5,
@@ -320,9 +317,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I do not wait.",
-      "audio": "audio/story_44/s5.wav",
-      "audio_hash": "528726c092ab"
+      "gloss_en": "I do not wait."
     },
     {
       "idx": 6,
@@ -361,9 +356,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend comes right away.",
-      "audio": "audio/story_44/s6.wav",
-      "audio_hash": "753008d569c4"
+      "gloss_en": "The friend comes right away."
     },
     {
       "idx": 7,
@@ -401,9 +394,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend comes with flowers.",
-      "audio": "audio/story_44/s7.wav",
-      "audio_hash": "82d79e27dd97"
+      "gloss_en": "The friend comes with flowers."
     },
     {
       "idx": 8,
@@ -448,9 +439,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "She says, 'You are well, aren't you.'",
-      "audio": "audio/story_44/s8.wav",
-      "audio_hash": "6e8d4eed19cd"
+      "gloss_en": "She says, 'You are well, aren't you.'"
     },
     {
       "idx": 9,
@@ -486,9 +475,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am happy.",
-      "audio": "audio/story_44/s9.wav",
-      "audio_hash": "5c29e5352c54"
+      "gloss_en": "I am happy."
     },
     {
       "idx": 10,
@@ -521,9 +508,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us talk together.",
-      "audio": "audio/story_44/s10.wav",
-      "audio_hash": "ee83fdc80228"
+      "gloss_en": "The two of us talk together."
     },
     {
       "idx": 11,
@@ -583,9 +568,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Because the promise is beautiful, I am happy.",
-      "audio": "audio/story_44/s11.wav",
-      "audio_hash": "b604e9ccdf42"
+      "gloss_en": "Because the promise is beautiful, I am happy."
     },
     {
       "idx": 12,
@@ -637,19 +620,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A spring evening — I do not wait.",
-      "audio": "audio/story_44/s12.wav",
-      "audio_hash": "0f234278916b"
+      "gloss_en": "A spring evening — I do not wait."
     }
-  ],
-  "word_audio": {
-    "W00131": "audio/story_44/w_W00131.wav",
-    "W00132": "audio/story_44/w_W00132.wav",
-    "W00133": "audio/story_44/w_W00133.wav"
-  },
-  "word_audio_hash": {
-    "W00131": "ad44f001156a",
-    "W00132": "5c9caad4eb78",
-    "W00133": "d05c91f864ef"
-  }
+  ]
 }

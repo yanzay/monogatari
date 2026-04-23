@@ -88,9 +88,11 @@
     "W00011",
     "W00003",
     "W00006",
+    "W00131",
     "W00099",
     "W00097",
     "W00100",
+    "W00133",
     "W00056",
     "W00071",
     "W00044",
@@ -140,9 +142,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Grandmother's room is quiet.",
-      "audio": "audio/story_45/s0.wav",
-      "audio_hash": "9175dd0cc807"
+      "gloss_en": "Grandmother's room is quiet."
     },
     {
       "idx": 1,
@@ -191,9 +191,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I look at an old box.",
-      "audio": "audio/story_45/s1.wav",
-      "audio_hash": "67b1c4abd55d"
+      "gloss_en": "I look at an old box."
     },
     {
       "idx": 2,
@@ -234,17 +232,25 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "What is this?",
-      "audio": "audio/story_45/s2.wav",
-      "audio_hash": "ed653e5bdda5"
+      "gloss_en": "What is this?"
     },
     {
       "idx": 3,
       "tokens": [
         {
-          "t": "私",
-          "r": "watashi",
+          "t": "時々",
           "role": "content",
+          "r": "ときどき",
+          "word_id": "W00131"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "r": "わたし",
           "word_id": "W00003"
         },
         {
@@ -254,8 +260,8 @@
         },
         {
           "t": "祖母",
-          "r": "sobo",
           "role": "content",
+          "r": "そぼ",
           "word_id": "W00098"
         },
         {
@@ -265,18 +271,23 @@
         },
         {
           "t": "見ます",
-          "r": "mimasu",
           "role": "content",
-          "word_id": "W00006"
+          "r": "みます",
+          "word_id": "W00006",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I look at grandmother.",
-      "audio": "audio/story_45/s3.wav",
-      "audio_hash": "2b15ac5193ef"
+      "gloss_en": "Sometimes, I look at grandmother."
     },
     {
       "idx": 4,
@@ -316,9 +327,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "She says, 'It is a memory.'",
-      "audio": "audio/story_45/s4.wav",
-      "audio_hash": "3ef6d8ae0da5"
+      "gloss_en": "She says, 'It is a memory.'"
     },
     {
       "idx": 5,
@@ -355,17 +364,15 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Is the box precious?",
-      "audio": "audio/story_45/s5.wav",
-      "audio_hash": "522a18461e71"
+      "gloss_en": "Is the box precious?"
     },
     {
       "idx": 6,
       "tokens": [
         {
           "t": "祖母",
-          "r": "sobo",
           "role": "content",
+          "r": "そぼ",
           "word_id": "W00098"
         },
         {
@@ -374,14 +381,21 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "嬉しい",
-          "r": "ureshii",
+          "t": "すぐ",
           "role": "content",
-          "word_id": "W00056",
-          "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+          "r": "すぐ",
+          "word_id": "W00133"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "嬉しい",
+          "role": "content",
+          "r": "うれしい",
+          "word_id": "W00056"
         },
         {
           "t": "です",
@@ -393,9 +407,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Grandmother is happy.",
-      "audio": "audio/story_45/s6.wav",
-      "audio_hash": "c118b8c70c68"
+      "gloss_en": "Grandmother is immediately happy."
     },
     {
       "idx": 7,
@@ -445,9 +457,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "She says, 'It is a precious box.'",
-      "audio": "audio/story_45/s7.wav",
-      "audio_hash": "6359efe2410f"
+      "gloss_en": "She says, 'It is a precious box.'"
     },
     {
       "idx": 8,
@@ -495,9 +505,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the box, there is an old clock.",
-      "audio": "audio/story_45/s8.wav",
-      "audio_hash": "512562b9b336"
+      "gloss_en": "In the box, there is an old clock."
     },
     {
       "idx": 9,
@@ -546,9 +554,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think of grandmother's memories.",
-      "audio": "audio/story_45/s9.wav",
-      "audio_hash": "3ca066e3f856"
+      "gloss_en": "I think of grandmother's memories."
     },
     {
       "idx": 10,
@@ -588,9 +594,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But I am not troubled.",
-      "audio": "audio/story_45/s10.wav",
-      "audio_hash": "25b61994292f"
+      "gloss_en": "But I am not troubled."
     },
     {
       "idx": 11,
@@ -650,9 +654,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Because the memories are beautiful, I am happy.",
-      "audio": "audio/story_45/s11.wav",
-      "audio_hash": "5c49bc22b017"
+      "gloss_en": "Because the memories are beautiful, I am happy."
     },
     {
       "idx": 12,
@@ -703,19 +705,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "An old box, a precious memory.",
-      "audio": "audio/story_45/s12.wav",
-      "audio_hash": "bdd1f3bb1b69"
+      "gloss_en": "An old box, a precious memory."
     }
-  ],
-  "word_audio": {
-    "W00134": "audio/story_45/w_W00134.wav",
-    "W00135": "audio/story_45/w_W00135.wav",
-    "W00136": "audio/story_45/w_W00136.wav"
-  },
-  "word_audio_hash": {
-    "W00134": "f0b5ecd06b9a",
-    "W00135": "3265cdd08afe",
-    "W00136": "702dff992262"
-  }
+  ]
 }

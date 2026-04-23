@@ -90,7 +90,7 @@
     "W00043",
     "W00126",
     "W00124",
-    "W00121",
+    "W00119",
     "W00055",
     "W00120",
     "W00012",
@@ -132,9 +132,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring evening.",
-      "audio": "audio/story_42/s0.wav",
-      "audio_hash": "fdecbcf80e9f"
+      "gloss_en": "It is a spring evening."
     },
     {
       "idx": 1,
@@ -179,9 +177,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend went home.",
-      "audio": "audio/story_42/s1.wav",
-      "audio_hash": "1d2ee1d0c26b"
+      "gloss_en": "The friend went home."
     },
     {
       "idx": 2,
@@ -239,9 +235,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us are walking on the road.",
-      "audio": "audio/story_42/s2.wav",
-      "audio_hash": "3ea43c9bbfaa"
+      "gloss_en": "The two of us are walking on the road."
     },
     {
       "idx": 3,
@@ -297,9 +291,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The person is beside me.",
-      "audio": "audio/story_42/s3.wav",
-      "audio_hash": "916f24a4025c"
+      "gloss_en": "The person is beside me."
     },
     {
       "idx": 4,
@@ -364,9 +356,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think of (them as) \"Mr./Ms. Kind Person.\"",
-      "audio": "audio/story_42/s4.wav",
-      "audio_hash": "090d6783ad24"
+      "gloss_en": "I think of (them as) \"Mr./Ms. Kind Person.\""
     },
     {
       "idx": 5,
@@ -424,9 +414,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I know the person.",
-      "audio": "audio/story_42/s5.wav",
-      "audio_hash": "c609c76997f8"
+      "gloss_en": "I know the person."
     },
     {
       "idx": 6,
@@ -453,43 +441,39 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The same road.",
-      "audio": "audio/story_42/s6.wav",
-      "audio_hash": "a7a92888b0a6"
+      "gloss_en": "The same road."
     },
     {
       "idx": 7,
       "tokens": [
         {
-          "t": "言葉",
-          "r": "ことば",
-          "word_id": "W00121",
-          "role": "content"
+          "t": "返事",
+          "role": "content",
+          "r": "へんじ",
+          "word_id": "W00119"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "小さい",
+          "role": "content",
           "r": "ちいさい",
-          "word_id": "W00055",
-          "role": "content"
+          "word_id": "W00055"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The words are small.",
-      "audio": "audio/story_42/s7.wav",
-      "audio_hash": "f0de319a2055"
+      "gloss_en": "The reply is small."
     },
     {
       "idx": 8,
@@ -543,9 +527,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But the heart is warm and happy.",
-      "audio": "audio/story_42/s8.wav",
-      "audio_hash": "79e5914e5bc7"
+      "gloss_en": "But the heart is warm and happy."
     },
     {
       "idx": 9,
@@ -597,9 +579,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The moon is out, isn't it.",
-      "audio": "audio/story_42/s9.wav",
-      "audio_hash": "d642c90fc953"
+      "gloss_en": "The moon is out, isn't it."
     },
     {
       "idx": 10,
@@ -644,9 +624,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us are looking at the moon.",
-      "audio": "audio/story_42/s10.wav",
-      "audio_hash": "cbe992e9cced"
+      "gloss_en": "The two of us are looking at the moon."
     },
     {
       "idx": 11,
@@ -690,9 +668,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I want to walk together.",
-      "audio": "audio/story_42/s11.wav",
-      "audio_hash": "4e2e0c0894aa"
+      "gloss_en": "I want to walk together."
     },
     {
       "idx": 12,
@@ -735,20 +711,8 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A quiet road of two.",
-      "audio": "audio/story_42/s12.wav",
-      "audio_hash": "582ef0f89950"
+      "gloss_en": "A quiet road of two."
     }
   ],
-  "word_audio": {
-    "W00125": "audio/story_42/w_W00125.wav",
-    "W00126": "audio/story_42/w_W00126.wav",
-    "W00127": "audio/story_42/w_W00127.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00125": "93663a351728",
-    "W00126": "eca82fe9a0fb",
-    "W00127": "face8e8973e0"
-  }
+  "checksum": null
 }

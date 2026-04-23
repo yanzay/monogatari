@@ -77,9 +77,11 @@
     "W00113",
     "W00097",
     "W00123",
+    "W00118",
     "W00120",
     "W00056",
     "W00013",
+    "W00119",
     "W00121",
     "W00100",
     "W00034"
@@ -104,9 +106,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is spring.",
-      "audio": "audio/story_41/s0.wav",
-      "audio_hash": "732c4f6f1d5b"
+      "gloss_en": "It is spring."
     },
     {
       "idx": 1,
@@ -162,9 +162,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I came to the bookstore.",
-      "audio": "audio/story_41/s1.wav",
-      "audio_hash": "47350de49bd9"
+      "gloss_en": "I came to the bookstore."
     },
     {
       "idx": 2,
@@ -208,9 +206,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The shop is small and quiet.",
-      "audio": "audio/story_41/s2.wav",
-      "audio_hash": "f64d120ffb19"
+      "gloss_en": "The shop is small and quiet."
     },
     {
       "idx": 3,
@@ -243,9 +239,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend is here too.",
-      "audio": "audio/story_41/s3.wav",
-      "audio_hash": "915c911775ce"
+      "gloss_en": "The friend is here too."
     },
     {
       "idx": 4,
@@ -315,9 +309,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend said, \"a kind person, isn't it.\"",
-      "audio": "audio/story_41/s4.wav",
-      "audio_hash": "af76d75f7762"
+      "gloss_en": "The friend said, \"a kind person, isn't it.\""
     },
     {
       "idx": 5,
@@ -363,9 +355,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I remember the face.",
-      "audio": "audio/story_41/s5.wav",
-      "audio_hash": "cdce57cd0a71"
+      "gloss_en": "I remember the face."
     },
     {
       "idx": 6,
@@ -393,43 +383,46 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The same face.",
-      "audio": "audio/story_41/s6.wav",
-      "audio_hash": "c90c010a8cdd"
+      "gloss_en": "The same face."
     },
     {
       "idx": 7,
       "tokens": [
         {
+          "t": "強い",
+          "role": "content",
+          "r": "つよい",
+          "word_id": "W00118",
+          "grammar_id": "G023_attributive"
+        },
+        {
           "t": "心",
+          "role": "content",
           "r": "こころ",
-          "word_id": "W00120",
-          "role": "content"
+          "word_id": "W00120"
         },
         {
           "t": "が",
-          "grammar_id": "G002_ga_subject",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "嬉しい",
+          "role": "content",
           "r": "うれしい",
-          "word_id": "W00056",
-          "role": "content"
+          "word_id": "W00056"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "My heart is happy.",
-      "audio": "audio/story_41/s7.wav",
-      "audio_hash": "87c10fd7ac2f"
+      "gloss_en": "A strong heart is happy."
     },
     {
       "idx": 8,
@@ -498,18 +491,16 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The person said, \"a good book, isn't it.\"",
-      "audio": "audio/story_41/s8.wav",
-      "audio_hash": "e053eb38633d"
+      "gloss_en": "The person said, \"a good book, isn't it.\""
     },
     {
       "idx": 9,
       "tokens": [
         {
           "t": "でも",
-          "r": "でも",
+          "role": "particle",
           "grammar_id": "G032_demo",
-          "role": "particle"
+          "r": "でも"
         },
         {
           "t": "、",
@@ -517,34 +508,43 @@
         },
         {
           "t": "私",
+          "role": "content",
           "r": "わたし",
-          "word_id": "W00003",
-          "role": "content"
+          "word_id": "W00003"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "返事",
+          "role": "content",
+          "r": "へんじ",
+          "word_id": "W00119"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "静か",
+          "role": "content",
           "r": "しずか",
-          "word_id": "W00011",
-          "role": "content"
+          "word_id": "W00011"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "But I am quiet.",
-      "audio": "audio/story_41/s9.wav",
-      "audio_hash": "7bef40b60da9"
+      "gloss_en": "But my reply is quiet."
     },
     {
       "idx": 10,
@@ -596,9 +596,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Because the words are small, they are precious.",
-      "audio": "audio/story_41/s10.wav",
-      "audio_hash": "b9dd8be49712"
+      "gloss_en": "Because the words are small, they are precious."
     },
     {
       "idx": 11,
@@ -647,9 +645,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I want to read a book.",
-      "audio": "audio/story_41/s11.wav",
-      "audio_hash": "ed3c64b35091"
+      "gloss_en": "I want to read a book."
     },
     {
       "idx": 12,
@@ -692,20 +688,8 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The face of the spring shop.",
-      "audio": "audio/story_41/s12.wav",
-      "audio_hash": "ec7d94b818be"
+      "gloss_en": "The face of the spring shop."
     }
   ],
-  "word_audio": {
-    "W00122": "audio/story_41/w_W00122.wav",
-    "W00123": "audio/story_41/w_W00123.wav",
-    "W00124": "audio/story_41/w_W00124.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00122": "1021854feee3",
-    "W00123": "a75819d759da",
-    "W00124": "e6f3a3ce6a81"
-  }
+  "checksum": null
 }
