@@ -55,6 +55,7 @@
     "W00071",
     "W00098",
     "W00099",
+    "W00095",
     "W00018",
     "W00003",
     "W00075",
@@ -69,31 +70,41 @@
     "W00012",
     "W00059",
     "W00024",
-    "W00083"
+    "W00083",
+    "W00096"
   ],
   "sentences": [
     {
       "idx": 0,
       "tokens": [
         {
+          "t": "冬",
+          "role": "content",
+          "r": "ふゆ",
+          "word_id": "W00095"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
           "t": "夕方",
+          "role": "content",
           "r": "ゆうがた",
-          "word_id": "W00018",
-          "role": "content"
+          "word_id": "W00018"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "It is evening.",
-      "audio": "audio/story_33/s0.wav",
-      "audio_hash": "804912fc0867"
+      "gloss_en": "It is a winter evening."
     },
     {
       "idx": 1,
@@ -137,9 +148,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am in the room.",
-      "audio": "audio/story_33/s1.wav",
-      "audio_hash": "8777e980fc99"
+      "gloss_en": "I am in the room."
     },
     {
       "idx": 2,
@@ -189,9 +198,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On the desk, there is an old clock.",
-      "audio": "audio/story_33/s2.wav",
-      "audio_hash": "fd06b9cfa960"
+      "gloss_en": "On the desk, there is an old clock."
     },
     {
       "idx": 3,
@@ -224,9 +231,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is grandmother's clock.",
-      "audio": "audio/story_33/s3.wav",
-      "audio_hash": "a5f5235d37d4"
+      "gloss_en": "It is grandmother's clock."
     },
     {
       "idx": 4,
@@ -260,9 +265,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is old and quiet.",
-      "audio": "audio/story_33/s4.wav",
-      "audio_hash": "2bc2f2b7ca24"
+      "gloss_en": "It is old and quiet."
     },
     {
       "idx": 5,
@@ -320,9 +323,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Grandmother says, \"it is precious.\"",
-      "audio": "audio/story_33/s5.wav",
-      "audio_hash": "6baa97b6163d"
+      "gloss_en": "Grandmother says, \"it is precious.\""
     },
     {
       "idx": 6,
@@ -377,9 +378,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Grandmother's house is small and warm.",
-      "audio": "audio/story_33/s6.wav",
-      "audio_hash": "5aed0558fbfd"
+      "gloss_en": "Grandmother's house is small and warm."
     },
     {
       "idx": 7,
@@ -423,9 +422,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There are flowers in the garden.",
-      "audio": "audio/story_33/s7.wav",
-      "audio_hash": "1030083adc0d"
+      "gloss_en": "There are flowers in the garden."
     },
     {
       "idx": 8,
@@ -470,9 +467,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A beautiful and quiet garden.",
-      "audio": "audio/story_33/s8.wav",
-      "audio_hash": "19e032155c2a"
+      "gloss_en": "A beautiful and quiet garden."
     },
     {
       "idx": 9,
@@ -505,9 +500,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The clock is a memory.",
-      "audio": "audio/story_33/s9.wav",
-      "audio_hash": "c75764105559"
+      "gloss_en": "The clock is a memory."
     },
     {
       "idx": 10,
@@ -539,66 +532,74 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A precious memory.",
-      "audio": "audio/story_33/s10.wav",
-      "audio_hash": "1b3a2c1b9722"
+      "gloss_en": "A precious memory."
     },
     {
       "idx": 11,
       "tokens": [
         {
+          "t": "父",
+          "role": "content",
+          "r": "ちち",
+          "word_id": "W00096"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "祖母",
+          "role": "content",
+          "r": "そぼ",
+          "word_id": "W00098"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
           "t": "古くて",
+          "role": "content",
           "r": "ふるくて",
           "word_id": "W00067",
-          "role": "content",
           "inflection": {
             "base": "古い",
             "base_r": "ふるい",
             "form": "te_form",
-            "grammar_id": "G029_kute"
+            "grammar_id": "G007_te_form"
           }
         },
         {
           "t": "大切",
+          "role": "content",
           "r": "たいせつ",
-          "word_id": "W00100",
-          "role": "content"
+          "word_id": "W00100"
         },
         {
           "t": "な",
-          "grammar_id": "G016_na_adjective",
-          "role": "particle"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "時計",
+          "role": "content",
           "r": "とけい",
-          "word_id": "W00071",
-          "role": "content"
+          "word_id": "W00071"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "An old, precious clock.",
-      "audio": "audio/story_33/s11.wav",
-      "audio_hash": "8e8f71d84f26"
+      "gloss_en": "Father and grandmother's old, important clock."
     }
   ],
-  "word_audio": {
-    "W00098": "audio/story_33/w_W00098.wav",
-    "W00099": "audio/story_33/w_W00099.wav",
-    "W00100": "audio/story_33/w_W00100.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00098": "1fb2101ff72a",
-    "W00099": "36a157ce4bee",
-    "W00100": "bec6d2630605"
-  }
+  "checksum": null
 }

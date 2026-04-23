@@ -76,8 +76,10 @@
     "W00011",
     "W00115",
     "W00043",
+    "W00114",
     "W00061",
-    "W00099"
+    "W00099",
+    "W00118"
   ],
   "sentences": [
     {
@@ -99,9 +101,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is evening.",
-      "audio": "audio/story_40/s0.wav",
-      "audio_hash": "804912fc0867"
+      "gloss_en": "It is evening."
     },
     {
       "idx": 1,
@@ -145,9 +145,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am at the desk.",
-      "audio": "audio/story_40/s1.wav",
-      "audio_hash": "e5fea2a8169c"
+      "gloss_en": "I am at the desk."
     },
     {
       "idx": 2,
@@ -191,9 +189,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Yesterday, rain fell.",
-      "audio": "audio/story_40/s2.wav",
-      "audio_hash": "239065160cca"
+      "gloss_en": "Yesterday, rain fell."
     },
     {
       "idx": 3,
@@ -238,9 +234,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The person handed me the umbrella.",
-      "audio": "audio/story_40/s3.wav",
-      "audio_hash": "43e8cde57bcb"
+      "gloss_en": "The person handed me the umbrella."
     },
     {
       "idx": 4,
@@ -272,9 +266,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am happy.",
-      "audio": "audio/story_40/s4.wav",
-      "audio_hash": "5c29e5352c54"
+      "gloss_en": "I am happy."
     },
     {
       "idx": 5,
@@ -324,9 +316,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I want to write a reply.",
-      "audio": "audio/story_40/s5.wav",
-      "audio_hash": "b22bf0e11627"
+      "gloss_en": "I want to write a reply."
     },
     {
       "idx": 6,
@@ -383,9 +373,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The words of my heart are small and quiet.",
-      "audio": "audio/story_40/s6.wav",
-      "audio_hash": "4f348212386a"
+      "gloss_en": "The words of my heart are small and quiet."
     },
     {
       "idx": 7,
@@ -438,9 +426,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I wrote, \"happy.\"",
-      "audio": "audio/story_40/s7.wav",
-      "audio_hash": "974eb4da4d85"
+      "gloss_en": "I wrote, \"happy.\""
     },
     {
       "idx": 8,
@@ -499,9 +485,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I wrote, \"a kind person.\"",
-      "audio": "audio/story_40/s8.wav",
-      "audio_hash": "46783694d199"
+      "gloss_en": "I wrote, \"a kind person.\""
     },
     {
       "idx": 9,
@@ -544,9 +528,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But the words are small.",
-      "audio": "audio/story_40/s9.wav",
-      "audio_hash": "a7e9b2b621c9"
+      "gloss_en": "But the words are small."
     },
     {
       "idx": 10,
@@ -590,121 +572,122 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think about the reply.",
-      "audio": "audio/story_40/s10.wav",
-      "audio_hash": "d9e3fba8c7a7"
+      "gloss_en": "I think about the reply."
     },
     {
       "idx": 11,
       "tokens": [
         {
           "t": "でも",
-          "r": "でも",
+          "role": "particle",
           "grammar_id": "G032_demo",
-          "role": "particle"
+          "r": "でも"
         },
         {
           "t": "、",
           "role": "punct"
         },
         {
+          "t": "好き",
+          "role": "content",
+          "r": "すき",
+          "word_id": "W00114"
+        },
+        {
+          "t": "な",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
           "t": "人",
+          "role": "content",
           "r": "ひと",
-          "word_id": "W00113",
-          "role": "content"
+          "word_id": "W00113"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "名前",
+          "role": "content",
           "r": "なまえ",
-          "word_id": "W00061",
-          "role": "content"
+          "word_id": "W00061"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "思い出",
+          "role": "content",
           "r": "おもいで",
-          "word_id": "W00099",
-          "role": "content"
+          "word_id": "W00099"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "But the person's name is a memory.",
-      "audio": "audio/story_40/s11.wav",
-      "audio_hash": "1b3f144df038"
+      "gloss_en": "But the loved person's name is a memory."
     },
     {
       "idx": 12,
       "tokens": [
         {
-          "t": "静かな",
-          "r": "しずかな",
-          "word_id": "W00011",
+          "t": "静か",
           "role": "content",
-          "inflection": {
-            "base": "静か",
-            "base_r": "しずか",
-            "form": "attributive",
-            "grammar_id": "G016_na_adjective"
-          }
+          "r": "しずか",
+          "word_id": "W00011"
+        },
+        {
+          "t": "な",
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "夕方",
+          "role": "content",
           "r": "ゆうがた",
-          "word_id": "W00018",
-          "role": "content"
+          "word_id": "W00018"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "強い",
+          "role": "content",
+          "r": "つよい",
+          "word_id": "W00118",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "言葉",
+          "role": "content",
           "r": "ことば",
-          "word_id": "W00121",
-          "role": "content"
+          "word_id": "W00121"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "Words of a quiet evening.",
-      "audio": "audio/story_40/s12.wav",
-      "audio_hash": "0e6a70598f41"
+      "gloss_en": "A quiet evening's strong words."
     }
   ],
-  "word_audio": {
-    "W00119": "audio/story_40/w_W00119.wav",
-    "W00120": "audio/story_40/w_W00120.wav",
-    "W00121": "audio/story_40/w_W00121.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00119": "03df3835c0a6",
-    "W00120": "082c4ae74277",
-    "W00121": "e88845352db9"
-  }
+  "checksum": null
 }

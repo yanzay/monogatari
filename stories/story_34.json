@@ -63,6 +63,7 @@
     "W00023",
     "W00016",
     "W00103",
+    "W00095",
     "W00029",
     "W00003",
     "W00055",
@@ -74,6 +75,7 @@
     "W00051",
     "W00053",
     "W00097",
+    "W00098",
     "W00056"
   ],
   "sentences": [
@@ -81,36 +83,46 @@
       "idx": 0,
       "tokens": [
         {
+          "t": "冬",
+          "role": "content",
+          "r": "ふゆ",
+          "word_id": "W00095"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
           "t": "公園",
+          "role": "content",
           "r": "こうえん",
-          "word_id": "W00016",
-          "role": "content"
+          "word_id": "W00016"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "います",
+          "role": "content",
           "r": "います",
           "word_id": "W00029",
-          "role": "content",
           "inflection": {
             "base": "いる",
             "base_r": "いる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I am at the park.",
-      "audio": "audio/story_34/s0.wav",
-      "audio_hash": "4b97d87c2bd1"
+      "gloss_en": "I am in the winter park."
     },
     {
       "idx": 1,
@@ -155,9 +167,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My dog is here too.",
-      "audio": "audio/story_34/s1.wav",
-      "audio_hash": "4185d9245def"
+      "gloss_en": "My dog is here too."
     },
     {
       "idx": 2,
@@ -201,9 +211,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The dog is small and lively.",
-      "audio": "audio/story_34/s2.wav",
-      "audio_hash": "33eac9d37bb1"
+      "gloss_en": "The dog is small and lively."
     },
     {
       "idx": 3,
@@ -236,9 +244,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I walk.",
-      "audio": "audio/story_34/s3.wav",
-      "audio_hash": "3a71a138749a"
+      "gloss_en": "I walk."
     },
     {
       "idx": 4,
@@ -272,9 +278,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The dog runs.",
-      "audio": "audio/story_34/s4.wav",
-      "audio_hash": "038d6c0b4164"
+      "gloss_en": "The dog runs."
     },
     {
       "idx": 5,
@@ -319,9 +323,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is a pond at the park.",
-      "audio": "audio/story_34/s5.wav",
-      "audio_hash": "b7aecbcba829"
+      "gloss_en": "There is a pond at the park."
     },
     {
       "idx": 6,
@@ -365,9 +367,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The dog runs to the pond.",
-      "audio": "audio/story_34/s6.wav",
-      "audio_hash": "299c0634fc69"
+      "gloss_en": "The dog runs to the pond."
     },
     {
       "idx": 7,
@@ -422,9 +422,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Beside the pond, there is a child.",
-      "audio": "audio/story_34/s7.wav",
-      "audio_hash": "6fc3ef5dc42f"
+      "gloss_en": "Beside the pond, there is a child."
     },
     {
       "idx": 8,
@@ -457,9 +455,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The child laughs.",
-      "audio": "audio/story_34/s8.wav",
-      "audio_hash": "92ab89a873b7"
+      "gloss_en": "The child laughs."
     },
     {
       "idx": 9,
@@ -500,9 +496,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"Dog,\" the child says.",
-      "audio": "audio/story_34/s9.wav",
-      "audio_hash": "48f251ce1fdc"
+      "gloss_en": "\"Dog,\" the child says."
     },
     {
       "idx": 10,
@@ -535,61 +529,58 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I laugh too.",
-      "audio": "audio/story_34/s10.wav",
-      "audio_hash": "0e5bbf70022d"
+      "gloss_en": "I laugh too."
     },
     {
       "idx": 11,
       "tokens": [
         {
+          "t": "祖母",
+          "role": "content",
+          "r": "そぼ",
+          "word_id": "W00098"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
           "t": "小さくて",
+          "role": "content",
           "r": "ちいさくて",
           "word_id": "W00055",
-          "role": "content",
           "inflection": {
             "base": "小さい",
             "base_r": "ちいさい",
             "form": "te_form",
-            "grammar_id": "G029_kute"
+            "grammar_id": "G007_te_form"
           }
         },
         {
           "t": "嬉しい",
+          "role": "content",
           "r": "うれしい",
-          "word_id": "W00056",
-          "role": "content"
+          "word_id": "W00056"
         },
         {
           "t": "散歩",
+          "role": "content",
           "r": "さんぽ",
-          "word_id": "W00023",
-          "role": "content"
+          "word_id": "W00023"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "A small, happy walk.",
-      "audio": "audio/story_34/s11.wav",
-      "audio_hash": "943f4ed86bdf"
+      "gloss_en": "A small, happy walk with grandmother."
     }
   ],
-  "word_audio": {
-    "W00101": "audio/story_34/w_W00101.wav",
-    "W00102": "audio/story_34/w_W00102.wav",
-    "W00103": "audio/story_34/w_W00103.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00101": "1e82f9b0b675",
-    "W00102": "24d5c7ca0c19",
-    "W00103": "3342f4fb437f"
-  }
+  "checksum": null
 }

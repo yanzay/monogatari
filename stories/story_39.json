@@ -66,6 +66,7 @@
     "W00003",
     "W00078",
     "W00044",
+    "W00007",
     "W00045",
     "W00113",
     "W00033",
@@ -110,9 +111,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am at the station.",
-      "audio": "audio/story_39/s0.wav",
-      "audio_hash": "7e6975ba1bf6"
+      "gloss_en": "I am at the station."
     },
     {
       "idx": 1,
@@ -145,9 +144,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Rain falls.",
-      "audio": "audio/story_39/s1.wav",
-      "audio_hash": "ab3864b4899e"
+      "gloss_en": "Rain falls."
     },
     {
       "idx": 2,
@@ -175,9 +172,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is strong rain.",
-      "audio": "audio/story_39/s2.wav",
-      "audio_hash": "0e50c0a86f02"
+      "gloss_en": "It is strong rain."
     },
     {
       "idx": 3,
@@ -233,40 +228,49 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My umbrella is at home.",
-      "audio": "audio/story_39/s3.wav",
-      "audio_hash": "6998acb126dc"
+      "gloss_en": "My umbrella is at home."
     },
     {
       "idx": 4,
       "tokens": [
         {
+          "t": "木",
+          "role": "content",
+          "r": "き",
+          "word_id": "W00007"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
           "t": "そば",
+          "role": "content",
           "r": "そば",
-          "word_id": "W00045",
-          "role": "content"
+          "word_id": "W00045"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "人",
+          "role": "content",
           "r": "ひと",
-          "word_id": "W00113",
-          "role": "content"
+          "word_id": "W00113"
         },
         {
           "t": "が",
-          "grammar_id": "G002_ga_subject",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "います",
+          "role": "content",
           "r": "います",
           "word_id": "W00029",
-          "role": "content",
           "inflection": {
             "base": "いる",
             "base_r": "いる",
@@ -279,9 +283,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Beside me, there is a person.",
-      "audio": "audio/story_39/s4.wav",
-      "audio_hash": "5d45e14740a2"
+      "gloss_en": "A person is by a tree."
     },
     {
       "idx": 5,
@@ -330,9 +332,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is the kind person from the bookstore.",
-      "audio": "audio/story_39/s5.wav",
-      "audio_hash": "7b7e89e4dd65"
+      "gloss_en": "It is the kind person from the bookstore."
     },
     {
       "idx": 6,
@@ -388,9 +388,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The person hands me the umbrella.",
-      "audio": "audio/story_39/s6.wav",
-      "audio_hash": "827b1f2a8472"
+      "gloss_en": "The person hands me the umbrella."
     },
     {
       "idx": 7,
@@ -431,9 +429,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"Together,\" the person says.",
-      "audio": "audio/story_39/s7.wav",
-      "audio_hash": "240aa7b2804d"
+      "gloss_en": "\"Together,\" the person says."
     },
     {
       "idx": 8,
@@ -488,9 +484,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us are beside the umbrella.",
-      "audio": "audio/story_39/s8.wav",
-      "audio_hash": "7122be94e93c"
+      "gloss_en": "The two of us are beside the umbrella."
     },
     {
       "idx": 9,
@@ -543,9 +537,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Because the rain is strong, we walk.",
-      "audio": "audio/story_39/s9.wav",
-      "audio_hash": "f3f219472793"
+      "gloss_en": "Because the rain is strong, we walk."
     },
     {
       "idx": 10,
@@ -595,9 +587,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Together we come to the bookstore.",
-      "audio": "audio/story_39/s10.wav",
-      "audio_hash": "cbcce53e263d"
+      "gloss_en": "Together we come to the bookstore."
     },
     {
       "idx": 11,
@@ -646,9 +636,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I want to talk with the person.",
-      "audio": "audio/story_39/s11.wav",
-      "audio_hash": "2333605c7746"
+      "gloss_en": "I want to talk with the person."
     },
     {
       "idx": 12,
@@ -675,20 +663,8 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a happy rain.",
-      "audio": "audio/story_39/s12.wav",
-      "audio_hash": "f02d01a9b448"
+      "gloss_en": "It is a happy rain."
     }
   ],
-  "word_audio": {
-    "W00116": "audio/story_39/w_W00116.wav",
-    "W00117": "audio/story_39/w_W00117.wav",
-    "W00118": "audio/story_39/w_W00118.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00116": "bbb6574d7029",
-    "W00117": "9161ce554796",
-    "W00118": "165551d7f28e"
-  }
+  "checksum": null
 }

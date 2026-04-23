@@ -75,6 +75,7 @@
     "W00025",
     "W00109",
     "W00048",
+    "W00104",
     "W00080",
     "W00097",
     "W00108",
@@ -107,9 +108,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is night.",
-      "audio": "audio/story_36/s0.wav",
-      "audio_hash": "e81d3b78f313"
+      "gloss_en": "It is night."
     },
     {
       "idx": 1,
@@ -143,9 +142,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Snow falls.",
-      "audio": "audio/story_36/s1.wav",
-      "audio_hash": "de5660a198f5"
+      "gloss_en": "Snow falls."
     },
     {
       "idx": 2,
@@ -200,9 +197,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I look outside through the window.",
-      "audio": "audio/story_36/s2.wav",
-      "audio_hash": "55091ae6c5bf"
+      "gloss_en": "I look outside through the window."
     },
     {
       "idx": 3,
@@ -247,9 +242,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A cold and quiet night.",
-      "audio": "audio/story_36/s3.wav",
-      "audio_hash": "85578c94682f"
+      "gloss_en": "A cold and quiet night."
     },
     {
       "idx": 4,
@@ -282,9 +275,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I wait for the friend.",
-      "audio": "audio/story_36/s4.wav",
-      "audio_hash": "6331297514d9"
+      "gloss_en": "I wait for the friend."
     },
     {
       "idx": 5,
@@ -329,29 +320,38 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is the sound of the door.",
-      "audio": "audio/story_36/s5.wav",
-      "audio_hash": "2c72221c07c6"
+      "gloss_en": "There is the sound of the door."
     },
     {
       "idx": 6,
       "tokens": [
         {
           "t": "友達",
+          "role": "content",
           "r": "ともだち",
-          "word_id": "W00022",
-          "role": "content"
+          "word_id": "W00022"
         },
         {
-          "t": "が",
-          "grammar_id": "G002_ga_subject",
-          "role": "particle"
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "学校",
+          "role": "content",
+          "r": "がっこう",
+          "word_id": "W00104"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
         },
         {
           "t": "入ります",
+          "role": "content",
           "r": "はいります",
           "word_id": "W00080",
-          "role": "content",
           "inflection": {
             "base": "入る",
             "base_r": "はいる",
@@ -364,9 +364,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend enters.",
-      "audio": "audio/story_36/s6.wav",
-      "audio_hash": "06c9177d85bb"
+      "gloss_en": "The friend comes in from school."
     },
     {
       "idx": 7,
@@ -412,9 +410,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"It's cold,\" she says.",
-      "audio": "audio/story_36/s7.wav",
-      "audio_hash": "16a813a7092b"
+      "gloss_en": "\"It's cold,\" she says."
     },
     {
       "idx": 8,
@@ -459,9 +455,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "We sit beside the stove.",
-      "audio": "audio/story_36/s8.wav",
-      "audio_hash": "0655352fa61a"
+      "gloss_en": "We sit beside the stove."
     },
     {
       "idx": 9,
@@ -513,9 +507,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Because the stove is warm, I am happy.",
-      "audio": "audio/story_36/s9.wav",
-      "audio_hash": "ee0c6f2b767d"
+      "gloss_en": "Because the stove is warm, I am happy."
     },
     {
       "idx": 10,
@@ -559,9 +551,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us drink tea.",
-      "audio": "audio/story_36/s10.wav",
-      "audio_hash": "cd11b9069002"
+      "gloss_en": "The two of us drink tea."
     },
     {
       "idx": 11,
@@ -604,9 +594,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The sound of the stove is small.",
-      "audio": "audio/story_36/s11.wav",
-      "audio_hash": "538a2cf32cfd"
+      "gloss_en": "The sound of the stove is small."
     },
     {
       "idx": 12,
@@ -645,20 +633,8 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A warm and happy night.",
-      "audio": "audio/story_36/s12.wav",
-      "audio_hash": "df79449f66c7"
+      "gloss_en": "A warm and happy night."
     }
   ],
-  "word_audio": {
-    "W00107": "audio/story_36/w_W00107.wav",
-    "W00108": "audio/story_36/w_W00108.wav",
-    "W00109": "audio/story_36/w_W00109.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00107": "2842fb8c1ac4",
-    "W00108": "2829fb93ccdb",
-    "W00109": "bec69dd92eb8"
-  }
+  "checksum": null
 }

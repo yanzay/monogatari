@@ -80,6 +80,7 @@
     "W00097",
     "W00057",
     "W00083",
+    "W00109",
     "W00074",
     "W00040",
     "W00100",
@@ -121,9 +122,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a quiet morning.",
-      "audio": "audio/story_37/s0.wav",
-      "audio_hash": "c645bc0d361b"
+      "gloss_en": "It is a quiet morning."
     },
     {
       "idx": 1,
@@ -167,9 +166,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Father drinks tea.",
-      "audio": "audio/story_37/s1.wav",
-      "audio_hash": "1f289ac8b11a"
+      "gloss_en": "Father drinks tea."
     },
     {
       "idx": 2,
@@ -213,9 +210,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Father speaks to me.",
-      "audio": "audio/story_37/s2.wav",
-      "audio_hash": "c150d1ce71e6"
+      "gloss_en": "Father speaks to me."
     },
     {
       "idx": 3,
@@ -309,9 +304,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"I was born beside the mountain and river,\" he says.",
-      "audio": "audio/story_37/s3.wav",
-      "audio_hash": "09cfa2e78c04"
+      "gloss_en": "\"I was born beside the mountain and river,\" he says."
     },
     {
       "idx": 4,
@@ -355,55 +348,62 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The mountain is big and beautiful.",
-      "audio": "audio/story_37/s4.wav",
-      "audio_hash": "92665722c562"
+      "gloss_en": "The mountain is big and beautiful."
     },
     {
       "idx": 5,
       "tokens": [
         {
           "t": "川",
+          "role": "content",
           "r": "かわ",
-          "word_id": "W00111",
-          "role": "content"
+          "word_id": "W00111"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "音",
+          "role": "content",
+          "r": "おと",
+          "word_id": "W00109"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "長くて",
+          "role": "content",
           "r": "ながくて",
           "word_id": "W00074",
-          "role": "content",
           "inflection": {
             "base": "長い",
             "base_r": "ながい",
             "form": "te_form",
-            "grammar_id": "G029_kute"
+            "grammar_id": "G007_te_form"
           }
         },
         {
           "t": "静か",
+          "role": "content",
           "r": "しずか",
-          "word_id": "W00011",
-          "role": "content"
+          "word_id": "W00011"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The river is long and quiet.",
-      "audio": "audio/story_37/s5.wav",
-      "audio_hash": "6b4c93322625"
+      "gloss_en": "The river's sound is long and quiet."
     },
     {
       "idx": 6,
@@ -469,9 +469,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Father's name comes from mountain and river.",
-      "audio": "audio/story_37/s6.wav",
-      "audio_hash": "47b7fc8a6bcf"
+      "gloss_en": "Father's name comes from mountain and river."
     },
     {
       "idx": 7,
@@ -528,9 +526,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"It is a precious name,\" he says.",
-      "audio": "audio/story_37/s7.wav",
-      "audio_hash": "194d1d25d39c"
+      "gloss_en": "\"It is a precious name,\" he says."
     },
     {
       "idx": 8,
@@ -585,9 +581,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think of father's mountain.",
-      "audio": "audio/story_37/s8.wav",
-      "audio_hash": "d0fac9c28f64"
+      "gloss_en": "I think of father's mountain."
     },
     {
       "idx": 9,
@@ -642,9 +636,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think of father's river.",
-      "audio": "audio/story_37/s9.wav",
-      "audio_hash": "3117a4af1e76"
+      "gloss_en": "I think of father's river."
     },
     {
       "idx": 10,
@@ -718,9 +710,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Because the family's name is a precious memory, I am happy.",
-      "audio": "audio/story_37/s10.wav",
-      "audio_hash": "733a2f08899a"
+      "gloss_en": "Because the family's name is a precious memory, I am happy."
     },
     {
       "idx": 11,
@@ -753,9 +743,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Father smiles too.",
-      "audio": "audio/story_37/s11.wav",
-      "audio_hash": "6e72c32df34a"
+      "gloss_en": "Father smiles too."
     },
     {
       "idx": 12,
@@ -798,20 +786,8 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A morning of mountain and river.",
-      "audio": "audio/story_37/s12.wav",
-      "audio_hash": "40c818ed9174"
+      "gloss_en": "A morning of mountain and river."
     }
   ],
-  "word_audio": {
-    "W00110": "audio/story_37/w_W00110.wav",
-    "W00111": "audio/story_37/w_W00111.wav",
-    "W00112": "audio/story_37/w_W00112.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00110": "4862540a2997",
-    "W00111": "b5aae693581d",
-    "W00112": "8cc9a7b3b8e1"
-  }
+  "checksum": null
 }

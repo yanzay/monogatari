@@ -93,6 +93,8 @@
     "W00097",
     "W00115",
     "W00043",
+    "W00027",
+    "W00050",
     "W00041"
   ],
   "sentences": [
@@ -138,9 +140,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am at the bookstore.",
-      "audio": "audio/story_38/s0.wav",
-      "audio_hash": "003a9601c32b"
+      "gloss_en": "I am at the bookstore."
     },
     {
       "idx": 1,
@@ -184,9 +184,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The shop is small and quiet.",
-      "audio": "audio/story_38/s1.wav",
-      "audio_hash": "f64d120ffb19"
+      "gloss_en": "The shop is small and quiet."
     },
     {
       "idx": 2,
@@ -230,9 +228,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I like the shop.",
-      "audio": "audio/story_38/s2.wav",
-      "audio_hash": "21d1fa7dd76b"
+      "gloss_en": "I like the shop."
     },
     {
       "idx": 3,
@@ -277,9 +273,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Beside me, there is a person.",
-      "audio": "audio/story_38/s3.wav",
-      "audio_hash": "5d45e14740a2"
+      "gloss_en": "Beside me, there is a person."
     },
     {
       "idx": 4,
@@ -323,9 +317,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The person is reading a book.",
-      "audio": "audio/story_38/s4.wav",
-      "audio_hash": "150cc58b3cb6"
+      "gloss_en": "The person is reading a book."
     },
     {
       "idx": 5,
@@ -358,9 +350,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A quiet person.",
-      "audio": "audio/story_38/s5.wav",
-      "audio_hash": "bc5f60e055da"
+      "gloss_en": "A quiet person."
     },
     {
       "idx": 6,
@@ -404,9 +394,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I read a book too.",
-      "audio": "audio/story_38/s6.wav",
-      "audio_hash": "437a117e8950"
+      "gloss_en": "I read a book too."
     },
     {
       "idx": 7,
@@ -474,9 +462,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The person says, \"It is a good book, isn't it.\"",
-      "audio": "audio/story_38/s7.wav",
-      "audio_hash": "76666ee49167"
+      "gloss_en": "The person says, \"It is a good book, isn't it.\""
     },
     {
       "idx": 8,
@@ -504,9 +490,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A kind person.",
-      "audio": "audio/story_38/s8.wav",
-      "audio_hash": "2a4e9c51c58d"
+      "gloss_en": "A kind person."
     },
     {
       "idx": 9,
@@ -550,9 +534,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think of the person.",
-      "audio": "audio/story_38/s9.wav",
-      "audio_hash": "6527c8bd2d51"
+      "gloss_en": "I think of the person."
     },
     {
       "idx": 10,
@@ -602,9 +584,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I want to read books at the shop.",
-      "audio": "audio/story_38/s10.wav",
-      "audio_hash": "ceed00324498"
+      "gloss_en": "I want to read books at the shop."
     },
     {
       "idx": 11,
@@ -653,29 +633,48 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I want to see the person.",
-      "audio": "audio/story_38/s11.wav",
-      "audio_hash": "b3349e689d98"
+      "gloss_en": "I want to see the person."
     },
     {
       "idx": 12,
       "tokens": [
         {
+          "t": "風",
+          "role": "content",
+          "r": "かぜ",
+          "word_id": "W00027"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "一緒に",
+          "role": "content",
+          "r": "いっしょに",
+          "word_id": "W00050"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
           "t": "私",
+          "role": "content",
           "r": "わたし",
-          "word_id": "W00003",
-          "role": "content"
+          "word_id": "W00003"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "待ちます",
+          "role": "content",
           "r": "まちます",
           "word_id": "W00041",
-          "role": "content",
           "inflection": {
             "base": "待つ",
             "base_r": "まつ",
@@ -688,20 +687,8 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I wait.",
-      "audio": "audio/story_38/s12.wav",
-      "audio_hash": "e1ea3d56bb3a"
+      "gloss_en": "Together with the wind, I wait."
     }
   ],
-  "word_audio": {
-    "W00113": "audio/story_38/w_W00113.wav",
-    "W00114": "audio/story_38/w_W00114.wav",
-    "W00115": "audio/story_38/w_W00115.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00113": "50f5d65d5729",
-    "W00114": "226fdde70280",
-    "W00115": "ca26432b9f04"
-  }
+  "checksum": null
 }
