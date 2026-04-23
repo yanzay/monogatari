@@ -803,58 +803,67 @@
       "tokens": [
         {
           "t": "友達",
-          "r": "ともだち",
           "role": "content",
+          "r": "ともだち",
           "word_id": "W00022"
         },
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "町",
+          "role": "content",
+          "r": "まち",
+          "word_id": "W00201"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "本",
-          "r": "ほん",
           "role": "content",
+          "r": "ほん",
           "word_id": "W00033"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "の"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "店",
-          "r": "みせ",
           "role": "content",
+          "r": "みせ",
           "word_id": "W00084"
         },
         {
           "t": "へ",
           "role": "particle",
-          "grammar_id": "G050_he_direction",
-          "r": "え"
+          "grammar_id": "G050_he_direction"
         },
         {
           "t": "行きました",
-          "r": "いきました",
           "role": "content",
+          "r": "いきました",
           "word_id": "W00150",
           "inflection": {
-            "form": "polite_past",
-            "grammar_id": "G013_mashita_past",
             "base": "行く",
-            "base_r": "いく"
-          }
+            "base_r": "いく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend went to the bookstore."
+      "gloss_en": "The friend went to the bookstore in town."
     },
     {
       "idx": 13,
@@ -1171,12 +1180,11 @@
     "W00056",
     "W00098",
     "W00097",
+    "W00201",
     "W00084",
     "W00150",
     "W00067",
     "W00066",
     "W00132"
-  ],
-  "word_audio": {},
-  "word_audio_hash": {}
+  ]
 }

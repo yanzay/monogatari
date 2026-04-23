@@ -932,23 +932,33 @@
       "idx": 14,
       "tokens": [
         {
-          "t": "約束",
-          "r": "やくそく",
+          "t": "夕飯",
           "role": "content",
+          "r": "ゆうはん",
+          "word_id": "W00181"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "約束",
+          "role": "content",
+          "r": "やくそく",
           "word_id": "W00132"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a promise."
+      "gloss_en": "A dinner promise."
     },
     {
       "idx": 15,
@@ -1101,10 +1111,9 @@
     "W00010",
     "W00186",
     "W00146",
+    "W00181",
     "W00132",
     "W00066",
     "W00012"
-  ],
-  "word_audio": {},
-  "word_audio_hash": {}
+  ]
 }

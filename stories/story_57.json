@@ -200,48 +200,42 @@
       "tokens": [
         {
           "t": "でも",
-          "r": "でも",
-          "role": "aux",
-          "grammar_id": "G032_demo"
+          "role": "particle",
+          "grammar_id": "G032_demo",
+          "r": "でも"
         },
         {
           "t": "、",
           "role": "punct"
         },
         {
-          "t": "朝",
-          "r": "あさ",
+          "t": "昼",
           "role": "content",
-          "word_id": "W00015"
+          "r": "ひる",
+          "word_id": "W00182"
         },
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "明るい",
-          "r": "あかるい",
           "role": "content",
-          "word_id": "W00137",
-          "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+          "r": "あかるい",
+          "word_id": "W00137"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "But, the morning is bright."
+      "gloss_en": "But noon is bright."
     },
     {
       "idx": 3,
@@ -1035,15 +1029,25 @@
       "tokens": [
         {
           "t": "祖母",
-          "r": "そぼ",
           "role": "content",
+          "r": "そぼ",
           "word_id": "W00098"
         },
         {
           "t": "も",
           "role": "particle",
-          "grammar_id": "G009_mo_also",
-          "r": "も"
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "玄関",
+          "role": "content",
+          "r": "げんかん",
+          "word_id": "W00185"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "「",
@@ -1051,18 +1055,15 @@
         },
         {
           "t": "明るい",
-          "r": "あかるい",
           "role": "content",
+          "r": "あかるい",
           "word_id": "W00137",
-          "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "朝",
-          "r": "あさ",
           "role": "content",
+          "r": "あさ",
           "word_id": "W00015"
         },
         {
@@ -1072,27 +1073,27 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu",
-          "r": "と"
+          "grammar_id": "G014_to_omoimasu"
         },
         {
           "t": "言いました",
-          "r": "いいました",
           "role": "content",
+          "r": "いいました",
           "word_id": "W00097",
           "inflection": {
-            "form": "polite_past",
-            "grammar_id": "G013_mashita_past",
             "base": "言う",
-            "base_r": "いう"
-          }
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "Grandmother also said, \"a bright morning\"."
+      "gloss_en": "Grandmother, too, in the entryway said, \"A bright morning.\""
     },
     {
       "idx": 16,
@@ -1190,6 +1191,7 @@
     "W00113",
     "W00041",
     "W00072",
+    "W00182",
     "W00120",
     "W00056",
     "W00075",
@@ -1214,8 +1216,7 @@
     "W00188",
     "W00043",
     "W00098",
+    "W00185",
     "W00097"
-  ],
-  "word_audio": {},
-  "word_audio_hash": {}
+  ]
 }

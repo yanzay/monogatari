@@ -163,9 +163,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring evening.",
-      "audio": "audio/story_62/s0.wav",
-      "audio_hash": "fdecbcf80e9f"
+      "gloss_en": "It is a spring evening."
     },
     {
       "idx": 1,
@@ -217,9 +215,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am in the bookstore.",
-      "audio": "audio/story_62/s1.wav",
-      "audio_hash": "c162c793bf94"
+      "gloss_en": "I am in the bookstore."
     },
     {
       "idx": 2,
@@ -259,9 +255,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The neighbor is also there.",
-      "audio": "audio/story_62/s2.wav",
-      "audio_hash": "a8a27cf80a59"
+      "gloss_en": "The neighbor is also there."
     },
     {
       "idx": 3,
@@ -334,9 +328,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "That person shows me an old book.",
-      "audio": "audio/story_62/s3.wav",
-      "audio_hash": "7330c27a9d03"
+      "gloss_en": "That person shows me an old book."
     },
     {
       "idx": 4,
@@ -417,9 +409,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"It is a good book,\" that person says.",
-      "audio": "audio/story_62/s4.wav",
-      "audio_hash": "4f219ac7d41f"
+      "gloss_en": "\"It is a good book,\" that person says."
     },
     {
       "idx": 5,
@@ -463,9 +453,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I look at the book.",
-      "audio": "audio/story_62/s5.wav",
-      "audio_hash": "74aa98d4d8c1"
+      "gloss_en": "I look at the book."
     },
     {
       "idx": 6,
@@ -533,9 +521,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"It is old, isn't it,\" I say.",
-      "audio": "audio/story_62/s6.wav",
-      "audio_hash": "676ca31b5ae3"
+      "gloss_en": "\"It is old, isn't it,\" I say."
     },
     {
       "idx": 7,
@@ -609,9 +595,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"It is old, you know,\" that person says.",
-      "audio": "audio/story_62/s7.wav",
-      "audio_hash": "bcfd57fb645f"
+      "gloss_en": "\"It is old, you know,\" that person says."
     },
     {
       "idx": 8,
@@ -655,49 +639,50 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I read the book.",
-      "audio": "audio/story_62/s8.wav",
-      "audio_hash": "317bb7efd292"
+      "gloss_en": "I read the book."
     },
     {
       "idx": 9,
       "tokens": [
         {
           "t": "雲",
-          "r": "くも",
           "role": "content",
+          "r": "くも",
           "word_id": "W00092"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "色合い",
+          "role": "content",
+          "r": "いろあい",
+          "word_id": "W00198"
         },
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "明るい",
-          "r": "あかるい",
           "role": "content",
-          "word_id": "W00137",
-          "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+          "r": "あかるい",
+          "word_id": "W00137"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The clouds are bright.",
-      "audio": "audio/story_62/s9.wav",
-      "audio_hash": "eededd2fd440"
+      "gloss_en": "The cloud's shade is bright."
     },
     {
       "idx": 10,
@@ -771,9 +756,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"It is a beautiful book, isn't it,\" I say.",
-      "audio": "audio/story_62/s10.wav",
-      "audio_hash": "93af3db317f6"
+      "gloss_en": "\"It is a beautiful book, isn't it,\" I say."
     },
     {
       "idx": 11,
@@ -847,9 +830,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"It is beautiful, you know,\" that person says.",
-      "audio": "audio/story_62/s11.wav",
-      "audio_hash": "f91de53bc9f9"
+      "gloss_en": "\"It is beautiful, you know,\" that person says."
     },
     {
       "idx": 12,
@@ -897,9 +878,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A strong heart is happy.",
-      "audio": "audio/story_62/s12.wav",
-      "audio_hash": "5196195b738e"
+      "gloss_en": "A strong heart is happy."
     },
     {
       "idx": 13,
@@ -973,9 +952,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"I will come tomorrow too,\" I say.",
-      "audio": "audio/story_62/s13.wav",
-      "audio_hash": "e7ff441c9824"
+      "gloss_en": "\"I will come tomorrow too,\" I say."
     },
     {
       "idx": 14,
@@ -1046,9 +1023,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"Why am I happy?\" I think.",
-      "audio": "audio/story_62/s14.wav",
-      "audio_hash": "e7458867273d"
+      "gloss_en": "\"Why am I happy?\" I think."
     },
     {
       "idx": 15,
@@ -1106,9 +1081,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"Please,\" that person says.",
-      "audio": "audio/story_62/s15.wav",
-      "audio_hash": "3360aa91b05e"
+      "gloss_en": "\"Please,\" that person says."
     },
     {
       "idx": 16,
@@ -1182,83 +1155,84 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A spring evening, an old book, a new promise.",
-      "audio": "audio/story_62/s16.wav",
-      "audio_hash": "cf813c8921ec"
+      "gloss_en": "A spring evening, an old book, a new promise."
     },
     {
       "idx": 17,
       "tokens": [
         {
-          "t": "国",
-          "r": "くに",
+          "t": "本",
           "role": "content",
+          "r": "ほん",
+          "word_id": "W00033"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "国",
+          "role": "content",
+          "r": "くに",
           "word_id": "W00200",
           "is_new": true
         },
         {
-          "t": "が",
+          "t": "は",
           "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "あります",
-          "r": "あります",
+          "t": "美しい",
           "role": "content",
-          "word_id": "W00044",
-          "inflection": {
-            "base": "ある",
-            "base_r": "ある",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
+          "r": "うつくしい",
+          "word_id": "W00083"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "There is country.",
-      "audio": "audio/story_62/s17.mp3",
-      "audio_hash": "4165c14b914a"
+      "gloss_en": "The book's country is beautiful."
     },
     {
       "idx": 18,
       "tokens": [
         {
           "t": "町",
-          "r": "まち",
           "role": "content",
+          "r": "まち",
           "word_id": "W00201",
           "is_new": true
         },
         {
-          "t": "が",
+          "t": "も",
           "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "G009_mo_also"
         },
         {
-          "t": "あります",
-          "r": "あります",
+          "t": "美しい",
           "role": "content",
-          "word_id": "W00044",
-          "inflection": {
-            "base": "ある",
-            "base_r": "ある",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
+          "r": "うつくしい",
+          "word_id": "W00083"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "There is town.",
-      "audio": "audio/story_62/s18.mp3",
-      "audio_hash": "095583e216f2"
+      "gloss_en": "The town, too, is beautiful."
     }
   ],
   "new_words": [
@@ -1286,6 +1260,7 @@
     "W00006",
     "W00034",
     "W00092",
+    "W00198",
     "W00137",
     "W00083",
     "W00118",
@@ -1298,17 +1273,6 @@
     "W00066",
     "W00132",
     "W00200",
-    "W00044",
     "W00201"
-  ],
-  "word_audio": {
-    "W00153": "audio/story_62/w_W00153.wav",
-    "W00200": "audio/story_62/word_国.mp3",
-    "W00201": "audio/story_62/word_町.mp3"
-  },
-  "word_audio_hash": {
-    "W00153": "80d759bafa5c",
-    "W00200": "d1566afa505a",
-    "W00201": "fe053083dc87"
-  }
+  ]
 }

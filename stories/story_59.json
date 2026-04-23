@@ -530,38 +530,47 @@
       "tokens": [
         {
           "t": "雨",
-          "r": "あめ",
           "role": "content",
+          "r": "あめ",
           "word_id": "W00002"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "影",
+          "role": "content",
+          "r": "かげ",
+          "word_id": "W00188"
         },
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "嬉しくない",
-          "r": "うれしくない",
           "role": "content",
+          "r": "うれしくない",
           "word_id": "W00056",
           "inflection": {
-            "form": "i_adj_neg",
+            "form": "i_adj_negative",
             "grammar_id": "G038_kunai"
           }
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The rain is not happy."
+      "gloss_en": "The shadow of the rain is not happy."
     },
     {
       "idx": 11,
@@ -692,33 +701,40 @@
       "idx": 13,
       "tokens": [
         {
-          "t": "古い",
-          "r": "ふるい",
+          "t": "色々",
           "role": "content",
+          "r": "いろいろ",
+          "word_id": "W00189"
+        },
+        {
+          "t": "な",
+          "role": "aux",
+          "grammar_id": "G016_na_adjective"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "r": "ふるい",
           "word_id": "W00067",
-          "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "本",
-          "r": "ほん",
           "role": "content",
+          "r": "ほん",
           "word_id": "W00033"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "It is an old book."
+      "gloss_en": "Various old books."
     },
     {
       "idx": 14,
@@ -972,17 +988,17 @@
     "W00009",
     "W00012",
     "W00078",
+    "W00188",
     "W00056",
     "W00046",
     "W00131",
     "W00194",
     "W00150",
+    "W00189",
     "W00067",
     "W00193",
     "W00013",
     "W00120",
     "W00066"
-  ],
-  "word_audio": {},
-  "word_audio_hash": {}
+  ]
 }

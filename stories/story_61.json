@@ -846,38 +846,52 @@
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
           "role": "content",
+          "r": "わたし",
           "word_id": "W00003"
         },
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "悲しい",
-          "r": "かなしい",
           "role": "content",
+          "r": "かなしい",
           "word_id": "W00076",
-          "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+          "grammar_id": "G023_attributive"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "t": "夢",
+          "role": "content",
+          "r": "ゆめ",
+          "word_id": "W00194"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "r": "みます",
+          "word_id": "W00006",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I am sad."
+      "gloss_en": "I see a sad dream."
     },
     {
       "idx": 13,
@@ -1112,20 +1126,19 @@
       "tokens": [
         {
           "t": "春",
-          "r": "はる",
           "role": "content",
+          "r": "はる",
           "word_id": "W00072"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "の"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "夕方",
-          "r": "ゆうがた",
           "role": "content",
+          "r": "ゆうがた",
           "word_id": "W00018"
         },
         {
@@ -1133,20 +1146,32 @@
           "role": "punct"
         },
         {
-          "t": "温かい",
-          "r": "あたたかい",
+          "t": "お茶",
           "role": "content",
-          "word_id": "W00012",
-          "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+          "r": "おちゃ",
+          "word_id": "W00009"
         },
         {
-          "t": "お茶",
-          "r": "おちゃ",
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "匂い",
           "role": "content",
-          "word_id": "W00009"
+          "r": "におい",
+          "word_id": "W00196"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "味",
+          "role": "content",
+          "r": "あじ",
+          "word_id": "W00197"
         },
         {
           "t": "、",
@@ -1154,32 +1179,28 @@
         },
         {
           "t": "新しい",
-          "r": "あたらしい",
           "role": "content",
+          "r": "あたらしい",
           "word_id": "W00066",
-          "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "約束",
-          "r": "やくそく",
           "role": "content",
+          "r": "やくそく",
           "word_id": "W00132"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "A spring evening, warm tea, a new promise."
+      "gloss_en": "Spring evening, the smell and taste of tea, a new promise."
     }
   ],
   "new_words": [
@@ -1218,11 +1239,12 @@
     "W00022",
     "W00199",
     "W00076",
+    "W00194",
     "W00030",
     "W00050",
     "W00046",
+    "W00196",
+    "W00197",
     "W00132"
-  ],
-  "word_audio": {},
-  "word_audio_hash": {}
+  ]
 }

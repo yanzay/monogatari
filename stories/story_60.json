@@ -533,48 +533,53 @@
       "tokens": [
         {
           "t": "強い",
-          "r": "つよい",
           "role": "content",
+          "r": "つよい",
           "word_id": "W00118",
-          "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "風",
-          "r": "かぜ",
           "role": "content",
+          "r": "かぜ",
           "word_id": "W00027"
         },
         {
           "t": "も",
           "role": "particle",
-          "grammar_id": "G009_mo_also",
-          "r": "も"
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "時々",
-          "r": "ときどき",
           "role": "content",
+          "r": "ときどき",
           "word_id": "W00131"
         },
         {
-          "t": "吹きます",
-          "r": "ふきます",
+          "t": "少し",
           "role": "content",
+          "r": "すこし",
+          "word_id": "W00190"
+        },
+        {
+          "t": "吹きます",
+          "role": "content",
+          "r": "ふきます",
           "word_id": "W00151",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "base": "吹く",
+            "base_r": "ふく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "A strong wind also sometimes blows."
+      "gloss_en": "A strong wind also sometimes blows a little."
     },
     {
       "idx": 10,
@@ -736,20 +741,25 @@
       "tokens": [
         {
           "t": "雨",
-          "r": "あめ",
           "role": "content",
+          "r": "あめ",
           "word_id": "W00002"
         },
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "沢山",
+          "role": "content",
+          "r": "たくさん",
+          "word_id": "W00191"
         },
         {
           "t": "降りませんでした",
-          "r": "ふりませんでした",
           "role": "content",
+          "r": "ふりませんでした",
           "word_id": "W00107",
           "inflection": {
             "form": "masen_deshita",
@@ -761,7 +771,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It did not rain."
+      "gloss_en": "The rain did not fall a lot."
     },
     {
       "idx": 14,
@@ -812,9 +822,9 @@
       "tokens": [
         {
           "t": "でも",
-          "r": "でも",
-          "role": "aux",
-          "grammar_id": "G032_demo"
+          "role": "particle",
+          "grammar_id": "G032_demo",
+          "r": "でも"
         },
         {
           "t": "、",
@@ -822,44 +832,49 @@
         },
         {
           "t": "本",
-          "r": "ほん",
           "role": "content",
+          "r": "ほん",
           "word_id": "W00033"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "声",
+          "role": "content",
+          "r": "こえ",
+          "word_id": "W00193"
         },
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "いい",
-          "r": "いい",
           "role": "content",
-          "word_id": "W00013",
-          "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+          "r": "いい",
+          "word_id": "W00013"
         },
         {
           "t": "友達",
-          "r": "ともだち",
           "role": "content",
+          "r": "ともだち",
           "word_id": "W00022"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "But, books are good friends."
+      "gloss_en": "But the book's voice is a good friend."
     },
     {
       "idx": 16,
@@ -976,6 +991,7 @@
     "W00083",
     "W00118",
     "W00027",
+    "W00190",
     "W00151",
     "W00195",
     "W00092",
@@ -983,10 +999,10 @@
     "W00030",
     "W00041",
     "W00002",
+    "W00191",
     "W00107",
     "W00120",
+    "W00193",
     "W00013"
-  ],
-  "word_audio": {},
-  "word_audio_hash": {}
+  ]
 }
