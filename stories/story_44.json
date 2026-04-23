@@ -74,6 +74,7 @@
     "W00045",
     "W00087",
     "W00132",
+    "W00039",
     "W00128",
     "W00131",
     "W00093",
@@ -190,6 +191,17 @@
           "is_new": true
         },
         {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "r": "てがみ",
+          "word_id": "W00039"
+        },
+        {
           "t": "を",
           "role": "particle",
           "grammar_id": "G005_wo_object"
@@ -212,7 +224,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend searches for the promise."
+      "gloss_en": "The friend looks for the letter of the promise."
     },
     {
       "idx": 3,

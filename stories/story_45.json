@@ -98,6 +98,8 @@
     "W00044",
     "W00043",
     "W00129",
+    "W00082",
+    "W00081",
     "W00083"
   ],
   "sentences": [
@@ -600,6 +602,27 @@
       "idx": 11,
       "tokens": [
         {
+          "t": "暑かった",
+          "role": "content",
+          "r": "あつかった",
+          "word_id": "W00082",
+          "inflection": {
+            "form": "i_adj_past",
+            "grammar_id": "G047_i_adj_past"
+          }
+        },
+        {
+          "t": "夏",
+          "role": "content",
+          "r": "なつ",
+          "word_id": "W00081"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
           "t": "思い出",
           "r": "omoide",
           "role": "content",
@@ -654,7 +677,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Because the memories are beautiful, I am happy."
+      "gloss_en": "Memories of the hot summer are beautiful, so I am happy."
     },
     {
       "idx": 12,

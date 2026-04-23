@@ -59,8 +59,8 @@
       "tokens": [
         {
           "t": "駅",
-          "r": "えき",
           "role": "content",
+          "r": "えき",
           "word_id": "W00069"
         },
         {
@@ -69,9 +69,20 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "静か",
-          "r": "しずか",
+          "t": "雪",
           "role": "content",
+          "r": "ゆき",
+          "word_id": "W00063"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "r": "しずか",
           "word_id": "W00011"
         },
         {
@@ -84,7 +95,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The station is quiet."
+      "gloss_en": "The station is quiet with snow."
     },
     {
       "idx": 1,
@@ -886,6 +897,7 @@
     "W00041",
     "W00098",
     "W00051",
+    "W00063",
     "W00011",
     "W00070",
     "W00145",

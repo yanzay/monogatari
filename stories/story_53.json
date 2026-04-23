@@ -933,13 +933,15 @@
           "r": "を"
         },
         {
-          "t": "話します",
-          "r": "はなします",
+          "t": "書きます",
+          "r": "かきます",
           "role": "content",
-          "word_id": "W00094",
+          "word_id": "W00060",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
           }
         },
         {
@@ -969,7 +971,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think, \"what shall we talk about next week?\""
+      "gloss_en": "\"What will [we] write about next week?\" I think."
     },
     {
       "idx": 14,
@@ -1130,6 +1132,7 @@
     "W00009",
     "W00010",
     "W00146",
+    "W00060",
     "W00175",
     "W00177",
     "W00178"
