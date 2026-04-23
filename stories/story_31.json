@@ -510,7 +510,7 @@
         },
         {
           "t": "な",
-          "role": "aux",
+          "role": "particle",
           "grammar_id": "G016_na_adjective"
         },
         {
@@ -562,7 +562,7 @@
           "role": "content",
           "r": "あたたかい",
           "word_id": "W00012",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "お茶",
@@ -583,9 +583,10 @@
           "inflection": {
             "base": "飲む",
             "base_r": "のむ",
-            "form": "te_form",
-            "grammar_id": "G007_te_form"
-          }
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form"
         },
         {
           "t": "、",
@@ -614,9 +615,20 @@
       "idx": 12,
       "tokens": [
         {
-          "t": "カップ",
-          "r": "カップ",
+          "t": "私",
           "role": "content",
+          "r": "わたし",
+          "word_id": "W00003"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "カップ",
+          "role": "content",
+          "r": "カップ",
           "word_id": "W00167",
           "is_new": true
         },
@@ -627,14 +639,14 @@
         },
         {
           "t": "あります",
-          "r": "あります",
           "role": "content",
+          "r": "あります",
           "word_id": "W00044",
           "inflection": {
             "base": "ある",
             "base_r": "ある",
             "form": "polite_nonpast",
-            "verb_class": "godan"
+            "verb_class": "irregular_aru"
           },
           "grammar_id": "G026_masu_nonpast"
         },
@@ -643,7 +655,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is cup."
+      "gloss_en": "There is my cup."
     }
   ],
   "checksum": null

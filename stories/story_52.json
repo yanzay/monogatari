@@ -12,13 +12,13 @@
         "inflection": {
           "base": "入る",
           "base_r": "はいる",
-          "form": "te_form",
-          "grammar_id": "G007_te_form"
-        }
+          "form": "te",
+          "verb_class": "godan"
+        },
+        "grammar_id": "G007_te_form"
       },
       {
         "t": "ください",
-        "r": "kudasai",
         "role": "aux",
         "grammar_id": "G044_te_kudasai"
       },
@@ -35,31 +35,29 @@
     "tokens": [
       {
         "t": "本",
-        "r": "hon",
+        "r": "ほん",
         "role": "content",
         "word_id": "W00033"
       },
       {
         "t": "の",
         "role": "particle",
-        "grammar_id": "G015_no_possessive",
-        "r": "no"
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "店",
-        "r": "mise",
+        "r": "みせ",
         "role": "content",
         "word_id": "W00084"
       },
       {
         "t": "の",
         "role": "particle",
-        "grammar_id": "G015_no_possessive",
-        "r": "no"
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "人",
-        "r": "hito",
+        "r": "ひと",
         "role": "content",
         "word_id": "W00113"
       },
@@ -67,17 +65,17 @@
         "t": "は",
         "role": "particle",
         "grammar_id": "G001_wa_topic",
-        "r": "wa"
+        "r": "わ"
       },
       {
         "t": "来ます",
-        "r": "kimasu",
+        "r": "きます",
         "role": "content",
         "word_id": "W00040",
         "inflection": {
-          "form": "masu_polite_nonpast",
-          "grammar_id": "G026_masu_nonpast"
-        }
+          "form": "masu_polite_nonpast"
+        },
+        "grammar_id": "G026_masu_nonpast"
       },
       {
         "t": "。",
@@ -92,27 +90,25 @@
       "tokens": [
         {
           "t": "春",
-          "r": "haru",
+          "r": "はる",
           "role": "content",
           "word_id": "W00072"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "no"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "夕方",
-          "r": "yuugata",
+          "r": "ゆうがた",
           "role": "content",
           "word_id": "W00018"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "desu"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
@@ -126,31 +122,29 @@
       "tokens": [
         {
           "t": "本",
-          "r": "hon",
+          "r": "ほん",
           "role": "content",
           "word_id": "W00033"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "no"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "店",
-          "r": "mise",
+          "r": "みせ",
           "role": "content",
           "word_id": "W00084"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "no"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "人",
-          "r": "hito",
+          "r": "ひと",
           "role": "content",
           "word_id": "W00113"
         },
@@ -158,41 +152,39 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "no"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "家",
-          "r": "ie",
+          "r": "いえ",
           "role": "content",
           "word_id": "W00078"
         },
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location",
-          "r": "ni"
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "来ます",
-          "r": "kimasu",
+          "r": "きます",
           "role": "content",
           "word_id": "W00040",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "masu_polite_nonpast"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -206,7 +198,7 @@
       "tokens": [
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -214,29 +206,31 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "ドア",
-          "r": "doa",
+          "r": "どあ",
           "role": "content",
           "word_id": "W00025"
         },
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object",
-          "r": "wo"
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "見ます",
-          "r": "mimasu",
+          "r": "みます",
           "role": "content",
           "word_id": "W00006",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "見る",
+            "verb_class": "ichidan",
+            "base_r": "みる"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -254,7 +248,7 @@
         },
         {
           "t": "どうぞ",
-          "r": "douzo",
+          "r": "どうぞ",
           "role": "content",
           "word_id": "W00149",
           "is_new": true
@@ -271,13 +265,13 @@
           "inflection": {
             "base": "入る",
             "base_r": "はいる",
-            "form": "te_form",
-            "grammar_id": "G007_te_form"
-          }
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form"
         },
         {
           "t": "ください",
-          "r": "kudasai",
           "role": "aux",
           "grammar_id": "G044_te_kudasai",
           "is_new_grammar": true
@@ -289,12 +283,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu",
-          "r": "to"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -302,17 +295,20 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "言います",
-          "r": "iimasu",
+          "r": "いいます",
           "role": "content",
           "word_id": "W00097",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "言う",
+            "verb_class": "godan",
+            "base_r": "いう"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -326,31 +322,29 @@
       "tokens": [
         {
           "t": "本",
-          "r": "hon",
+          "r": "ほん",
           "role": "content",
           "word_id": "W00033"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "no"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "店",
-          "r": "mise",
+          "r": "みせ",
           "role": "content",
           "word_id": "W00084"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "no"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "人",
-          "r": "hito",
+          "r": "ひと",
           "role": "content",
           "word_id": "W00113"
         },
@@ -358,29 +352,31 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "部屋",
-          "r": "heya",
+          "r": "へや",
           "role": "content",
           "word_id": "W00075"
         },
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location",
-          "r": "ni"
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "入ります",
-          "r": "hairimasu",
+          "r": "はいります",
           "role": "content",
           "word_id": "W00080",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "入る",
+            "verb_class": "godan",
+            "base_r": "はいる"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -404,13 +400,13 @@
           "inflection": {
             "base": "座る",
             "base_r": "すわる",
-            "form": "te_form",
-            "grammar_id": "G007_te_form"
-          }
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form"
         },
         {
           "t": "ください",
-          "r": "kudasai",
           "role": "aux",
           "grammar_id": "G044_te_kudasai"
         },
@@ -421,12 +417,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu",
-          "r": "to"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -434,17 +429,20 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "言います",
-          "r": "iimasu",
+          "r": "いいます",
           "role": "content",
           "word_id": "W00097",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "言う",
+            "verb_class": "godan",
+            "base_r": "いう"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -458,31 +456,29 @@
       "tokens": [
         {
           "t": "本",
-          "r": "hon",
+          "r": "ほん",
           "role": "content",
           "word_id": "W00033"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "no"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "店",
-          "r": "mise",
+          "r": "みせ",
           "role": "content",
           "word_id": "W00084"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "no"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "人",
-          "r": "hito",
+          "r": "ひと",
           "role": "content",
           "word_id": "W00113"
         },
@@ -490,17 +486,20 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "座ります",
-          "r": "suwarimasu",
+          "r": "すわります",
           "role": "content",
           "word_id": "W00085",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "座る",
+            "verb_class": "godan",
+            "base_r": "すわる"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -514,7 +513,7 @@
       "tokens": [
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -522,39 +521,41 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "温かい",
-          "r": "atatakai",
+          "r": "あたたかい",
           "role": "content",
           "word_id": "W00012",
           "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+            "form": "attributive"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "お茶",
-          "r": "ocha",
+          "r": "おちゃ",
           "role": "content",
           "word_id": "W00009"
         },
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object",
-          "r": "wo"
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "見ます",
-          "r": "mimasu",
+          "r": "みます",
           "role": "content",
           "word_id": "W00006",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "見る",
+            "verb_class": "ichidan",
+            "base_r": "みる"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -572,15 +573,14 @@
         },
         {
           "t": "お茶",
-          "r": "ocha",
+          "r": "おちゃ",
           "role": "content",
           "word_id": "W00009"
         },
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object",
-          "r": "wo"
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "飲んで",
@@ -590,13 +590,13 @@
           "inflection": {
             "base": "飲む",
             "base_r": "のむ",
-            "form": "te_form",
-            "grammar_id": "G007_te_form"
-          }
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form"
         },
         {
           "t": "ください",
-          "r": "kudasai",
           "role": "aux",
           "grammar_id": "G044_te_kudasai"
         },
@@ -607,12 +607,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu",
-          "r": "to"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -620,17 +619,20 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "言います",
-          "r": "iimasu",
+          "r": "いいます",
           "role": "content",
           "word_id": "W00097",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "言う",
+            "verb_class": "godan",
+            "base_r": "いう"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -644,31 +646,29 @@
       "tokens": [
         {
           "t": "本",
-          "r": "hon",
+          "r": "ほん",
           "role": "content",
           "word_id": "W00033"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "no"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "店",
-          "r": "mise",
+          "r": "みせ",
           "role": "content",
           "word_id": "W00084"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "no"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "人",
-          "r": "hito",
+          "r": "ひと",
           "role": "content",
           "word_id": "W00113"
         },
@@ -676,29 +676,31 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "お茶",
-          "r": "ocha",
+          "r": "おちゃ",
           "role": "content",
           "word_id": "W00009"
         },
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object",
-          "r": "wo"
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "飲みます",
-          "r": "nomimasu",
+          "r": "のみます",
           "role": "content",
           "word_id": "W00010",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "飲む",
+            "verb_class": "godan",
+            "base_r": "のむ"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -738,9 +740,9 @@
           "role": "content",
           "word_id": "W00012",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -762,9 +764,12 @@
           "role": "content",
           "word_id": "W00097",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "言う",
+            "verb_class": "godan",
+            "base_r": "いう"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -866,9 +871,12 @@
           "role": "content",
           "word_id": "W00094",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "話す",
+            "verb_class": "godan",
+            "base_r": "はなす"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -882,7 +890,7 @@
       "tokens": [
         {
           "t": "約束",
-          "r": "yakusoku",
+          "r": "やくそく",
           "role": "content",
           "word_id": "W00132"
         },
@@ -890,19 +898,18 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "来週",
-          "r": "raishuu",
+          "r": "らいしゅう",
           "role": "content",
           "word_id": "W00146"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "desu"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
@@ -932,9 +939,9 @@
           "role": "content",
           "word_id": "W00056",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -953,19 +960,18 @@
       "tokens": [
         {
           "t": "春",
-          "r": "haru",
+          "r": "はる",
           "role": "content",
           "word_id": "W00072"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "no"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "夕方",
-          "r": "yuugata",
+          "r": "ゆうがた",
           "role": "content",
           "word_id": "W00018"
         },
@@ -975,17 +981,17 @@
         },
         {
           "t": "温かい",
-          "r": "atatakai",
+          "r": "あたたかい",
           "role": "content",
           "word_id": "W00012",
           "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+            "form": "attributive"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "お茶",
-          "r": "ocha",
+          "r": "おちゃ",
           "role": "content",
           "word_id": "W00009"
         },
@@ -995,39 +1001,36 @@
         },
         {
           "t": "本",
-          "r": "hon",
+          "r": "ほん",
           "role": "content",
           "word_id": "W00033"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "no"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "店",
-          "r": "mise",
+          "r": "みせ",
           "role": "content",
           "word_id": "W00084"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "no"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "人",
-          "r": "hito",
+          "r": "ひと",
           "role": "content",
           "word_id": "W00113"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "desu"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",

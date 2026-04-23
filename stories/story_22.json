@@ -9,7 +9,7 @@
         "r": "ふるい",
         "word_id": "W00067",
         "role": "content",
-        "grammar_id": "G023_attributive"
+        "grammar_id": "G022_i_adj"
       },
       {
         "t": "本",
@@ -39,7 +39,7 @@
         "r": "あたらしい",
         "word_id": "W00066",
         "role": "content",
-        "grammar_id": "G023_attributive"
+        "grammar_id": "G022_i_adj"
       },
       {
         "t": "朝",
@@ -72,7 +72,7 @@
     "W00068"
   ],
   "new_grammar": [
-    "G023_attributive"
+    "G022_i_adj"
   ],
   "all_words_used": [
     "W00067",
@@ -106,7 +106,7 @@
           "role": "content",
           "r": "さむい",
           "word_id": "W00062",
-          "grammar_id": "G023_attributive",
+          "grammar_id": "G022_i_adj",
           "is_new_grammar": true
         },
         {
@@ -136,7 +136,7 @@
           "r": "ふるい",
           "word_id": "W00067",
           "is_new": true,
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "本",
@@ -238,7 +238,7 @@
           "r": "ふるい",
           "word_id": "W00067",
           "role": "content",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "本",
@@ -341,7 +341,7 @@
           "role": "content",
           "r": "わかい",
           "word_id": "W00162",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "友達",
@@ -373,9 +373,10 @@
           "inflection": {
             "base": "見る",
             "base_r": "みる",
-            "form": "te_form",
-            "grammar_id": "G007_te_form"
-          }
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G007_te_form"
         },
         {
           "t": "、",
@@ -481,7 +482,7 @@
           "r": "あたらしい",
           "word_id": "W00066",
           "role": "content",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "本",
@@ -522,7 +523,7 @@
           "r": "ふるい",
           "word_id": "W00067",
           "role": "content",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "写真",
@@ -539,7 +540,7 @@
           "r": "あたらしい",
           "word_id": "W00066",
           "role": "content",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "本",

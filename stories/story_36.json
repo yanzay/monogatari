@@ -212,21 +212,20 @@
           "inflection": {
             "base": "寒い",
             "base_r": "さむい",
-            "form": "te_form",
-            "grammar_id": "G029_kute"
-          }
+            "form": "te"
+          },
+          "grammar_id": "G029_kute"
         },
         {
-          "t": "静かな",
-          "r": "しずかな",
+          "t": "静か",
+          "r": "しずか",
           "word_id": "W00011",
-          "role": "content",
-          "inflection": {
-            "base": "静か",
-            "base_r": "しずか",
-            "form": "attributive",
-            "grammar_id": "G016_na_adjective"
-          }
+          "role": "content"
+        },
+        {
+          "t": "な",
+          "role": "particle",
+          "grammar_id": "G016_na_adjective"
         },
         {
           "t": "夜",
@@ -631,9 +630,9 @@
           "inflection": {
             "base": "温かい",
             "base_r": "あたたかい",
-            "form": "te_form",
-            "grammar_id": "G029_kute"
-          }
+            "form": "te"
+          },
+          "grammar_id": "G029_kute"
         },
         {
           "t": "嬉しい",

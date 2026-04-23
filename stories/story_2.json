@@ -161,13 +161,13 @@
           "inflection": {
             "base": "濡れる",
             "base_r": "ぬれる",
-            "form": "te_form",
-            "grammar_id": "G007_te_form"
-          }
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G007_te_form"
         },
         {
           "t": "います",
-          "r": "います",
           "role": "aux",
           "grammar_id": "G008_te_iru"
         },
@@ -309,7 +309,7 @@
           "r": "いい",
           "word_id": "W00013",
           "role": "content",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "気分",

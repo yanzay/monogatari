@@ -6,7 +6,7 @@
     "tokens": [
       {
         "t": "鍵",
-        "r": "kagi",
+        "r": "かぎ",
         "role": "content",
         "word_id": "W00079"
       },
@@ -28,7 +28,7 @@
     "tokens": [
       {
         "t": "部屋",
-        "r": "heya",
+        "r": "へや",
         "role": "content",
         "word_id": "W00075"
       },
@@ -39,7 +39,7 @@
       },
       {
         "t": "探します",
-        "r": "sagashimasu",
+        "r": "さがします",
         "role": "content",
         "word_id": "W00128"
       },
@@ -85,7 +85,7 @@
       "tokens": [
         {
           "t": "夜",
-          "r": "yoru",
+          "r": "よる",
           "role": "content",
           "word_id": "W00030"
         },
@@ -106,7 +106,7 @@
       "tokens": [
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -117,7 +117,7 @@
         },
         {
           "t": "部屋",
-          "r": "heya",
+          "r": "へや",
           "role": "content",
           "word_id": "W00075"
         },
@@ -128,7 +128,7 @@
         },
         {
           "t": "来ます",
-          "r": "kimasu",
+          "r": "きます",
           "role": "content",
           "word_id": "W00040"
         },
@@ -144,7 +144,7 @@
       "tokens": [
         {
           "t": "カバン",
-          "r": "kaban",
+          "r": "かばん",
           "role": "content",
           "word_id": "W00130",
           "is_new": true
@@ -156,7 +156,7 @@
         },
         {
           "t": "机",
-          "r": "tsukue",
+          "r": "つくえ",
           "role": "content",
           "word_id": "W00037"
         },
@@ -167,7 +167,7 @@
         },
         {
           "t": "あります",
-          "r": "arimasu",
+          "r": "あります",
           "role": "content",
           "word_id": "W00044"
         },
@@ -192,7 +192,7 @@
         },
         {
           "t": "鍵",
-          "r": "kagi",
+          "r": "かぎ",
           "role": "content",
           "word_id": "W00079"
         },
@@ -219,7 +219,7 @@
       "tokens": [
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -230,7 +230,7 @@
         },
         {
           "t": "カバン",
-          "r": "kaban",
+          "r": "かばん",
           "role": "content",
           "word_id": "W00130"
         },
@@ -241,7 +241,7 @@
         },
         {
           "t": "探します",
-          "r": "sagashimasu",
+          "r": "さがします",
           "role": "content",
           "word_id": "W00128",
           "is_new": true
@@ -258,7 +258,7 @@
       "tokens": [
         {
           "t": "カバン",
-          "r": "kaban",
+          "r": "かばん",
           "role": "content",
           "word_id": "W00130"
         },
@@ -269,7 +269,7 @@
         },
         {
           "t": "鍵",
-          "r": "kagi",
+          "r": "かぎ",
           "role": "content",
           "word_id": "W00079"
         },
@@ -295,7 +295,7 @@
       "tokens": [
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -306,7 +306,7 @@
         },
         {
           "t": "椅子",
-          "r": "isu",
+          "r": "いす",
           "role": "content",
           "word_id": "W00036"
         },
@@ -317,7 +317,7 @@
         },
         {
           "t": "机",
-          "r": "tsukue",
+          "r": "つくえ",
           "role": "content",
           "word_id": "W00037"
         },
@@ -328,7 +328,7 @@
         },
         {
           "t": "見ます",
-          "r": "mimasu",
+          "r": "みます",
           "role": "content",
           "word_id": "W00006"
         },
@@ -361,9 +361,9 @@
           "inflection": {
             "base": "悲しい",
             "base_r": "かなしい",
-            "form": "te_form",
-            "grammar_id": "G007_te_form"
-          }
+            "form": "te"
+          },
+          "grammar_id": "G007_te_form"
         },
         {
           "t": "困ります",
@@ -391,7 +391,7 @@
       "tokens": [
         {
           "t": "部屋",
-          "r": "heya",
+          "r": "へや",
           "role": "content",
           "word_id": "W00075"
         },
@@ -402,7 +402,7 @@
         },
         {
           "t": "静か",
-          "r": "shizuka",
+          "r": "しずか",
           "role": "content",
           "word_id": "W00011"
         },
@@ -522,7 +522,7 @@
       "tokens": [
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -533,13 +533,13 @@
         },
         {
           "t": "嬉しい",
-          "r": "ureshii",
+          "r": "うれしい",
           "role": "content",
           "word_id": "W00056",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -564,7 +564,7 @@
         },
         {
           "t": "な",
-          "role": "aux",
+          "role": "particle",
           "grammar_id": "G016_na_adjective"
         },
         {
@@ -588,7 +588,7 @@
           "role": "content",
           "r": "ちいさい",
           "word_id": "W00055",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "鍵",

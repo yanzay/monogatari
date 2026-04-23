@@ -246,9 +246,9 @@
           "inflection": {
             "base": "古い",
             "base_r": "ふるい",
-            "form": "te_form",
-            "grammar_id": "G029_kute"
-          }
+            "form": "te"
+          },
+          "grammar_id": "G029_kute"
         },
         {
           "t": "静か",
@@ -359,9 +359,9 @@
           "inflection": {
             "base": "小さい",
             "base_r": "ちいさい",
-            "form": "te_form",
-            "grammar_id": "G029_kute"
-          }
+            "form": "te"
+          },
+          "grammar_id": "G029_kute"
         },
         {
           "t": "温かい",
@@ -447,21 +447,20 @@
           "inflection": {
             "base": "美しい",
             "base_r": "うつくしい",
-            "form": "te_form",
-            "grammar_id": "G029_kute"
-          }
+            "form": "te"
+          },
+          "grammar_id": "G029_kute"
         },
         {
-          "t": "静かな",
-          "r": "しずかな",
+          "t": "静か",
+          "r": "しずか",
           "word_id": "W00011",
-          "role": "content",
-          "inflection": {
-            "base": "静か",
-            "base_r": "しずか",
-            "form": "attributive",
-            "grammar_id": "G016_na_adjective"
-          }
+          "role": "content"
+        },
+        {
+          "t": "な",
+          "role": "particle",
+          "grammar_id": "G016_na_adjective"
         },
         {
           "t": "庭",
@@ -579,9 +578,9 @@
           "inflection": {
             "base": "古い",
             "base_r": "ふるい",
-            "form": "te_form",
-            "grammar_id": "G007_te_form"
-          }
+            "form": "te"
+          },
+          "grammar_id": "G007_te_form"
         },
         {
           "t": "大切",
@@ -591,7 +590,7 @@
         },
         {
           "t": "な",
-          "role": "aux",
+          "role": "particle",
           "grammar_id": "G016_na_adjective"
         },
         {

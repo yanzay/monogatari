@@ -10,9 +10,9 @@
         "role": "content",
         "word_id": "W00013",
         "inflection": {
-          "form": "attributive",
-          "grammar_id": "G023_attributive"
-        }
+          "form": "attributive"
+        },
+        "grammar_id": "G022_i_adj"
       },
       {
         "t": "本",
@@ -23,14 +23,12 @@
       {
         "t": "です",
         "role": "aux",
-        "grammar_id": "G003_desu",
-        "r": "です"
+        "grammar_id": "G003_desu"
       },
       {
         "t": "よ",
         "role": "particle",
-        "grammar_id": "G054_yo_emphasis",
-        "r": "よ"
+        "grammar_id": "G054_yo_emphasis"
       },
       {
         "t": "。",
@@ -52,8 +50,7 @@
       {
         "t": "の",
         "role": "particle",
-        "grammar_id": "G015_no_possessive",
-        "r": "の"
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "店",
@@ -64,8 +61,7 @@
       {
         "t": "の",
         "role": "particle",
-        "grammar_id": "G015_no_possessive",
-        "r": "の"
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "人",
@@ -76,8 +72,7 @@
       {
         "t": "は",
         "role": "particle",
-        "grammar_id": "G001_wa_topic",
-        "r": "は"
+        "grammar_id": "G001_wa_topic"
       },
       {
         "t": "私",
@@ -88,8 +83,7 @@
       {
         "t": "に",
         "role": "particle",
-        "grammar_id": "G004_ni_location",
-        "r": "に"
+        "grammar_id": "G004_ni_location"
       },
       {
         "t": "古い",
@@ -97,9 +91,9 @@
         "role": "content",
         "word_id": "W00067",
         "inflection": {
-          "form": "attributive",
-          "grammar_id": "G023_attributive"
-        }
+          "form": "attributive"
+        },
+        "grammar_id": "G022_i_adj"
       },
       {
         "t": "本",
@@ -110,8 +104,7 @@
       {
         "t": "を",
         "role": "particle",
-        "grammar_id": "G005_wo_object",
-        "r": "を"
+        "grammar_id": "G005_wo_object"
       },
       {
         "t": "見せます",
@@ -119,9 +112,12 @@
         "role": "content",
         "word_id": "W00153",
         "inflection": {
-          "form": "masu_polite_nonpast",
-          "grammar_id": "G026_masu_nonpast"
-        }
+          "form": "polite_nonpast",
+          "base": "見せる",
+          "verb_class": "ichidan",
+          "base_r": "みせる"
+        },
+        "grammar_id": "G026_masu_nonpast"
       },
       {
         "t": "。",
@@ -143,8 +139,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "の"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "夕方",
@@ -155,8 +150,7 @@
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
@@ -177,8 +171,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "本",
@@ -189,8 +182,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "の"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "店",
@@ -201,8 +193,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location",
-          "r": "に"
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "います",
@@ -229,8 +220,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "の"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "人",
@@ -241,8 +231,7 @@
         {
           "t": "も",
           "role": "particle",
-          "grammar_id": "G009_mo_also",
-          "r": "も"
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "います",
@@ -275,8 +264,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "私",
@@ -287,8 +275,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location",
-          "r": "に"
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "古い",
@@ -296,9 +283,9 @@
           "role": "content",
           "word_id": "W00067",
           "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+            "form": "attributive"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "本",
@@ -309,8 +296,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object",
-          "r": "を"
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "見せます",
@@ -318,10 +304,13 @@
           "role": "content",
           "word_id": "W00153",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
+            "form": "polite_nonpast",
+            "base": "見せる",
+            "verb_class": "ichidan",
+            "base_r": "みせる"
           },
-          "is_new": true
+          "is_new": true,
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -343,9 +332,9 @@
           "role": "content",
           "word_id": "W00013",
           "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+            "form": "attributive"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "本",
@@ -356,14 +345,12 @@
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "よ",
           "role": "particle",
           "grammar_id": "G054_yo_emphasis",
-          "r": "よ",
           "is_new_grammar": true
         },
         {
@@ -373,8 +360,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu",
-          "r": "と"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "あの",
@@ -391,8 +377,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "言います",
@@ -400,9 +385,12 @@
           "role": "content",
           "word_id": "W00097",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "言う",
+            "verb_class": "godan",
+            "base_r": "いう"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -423,8 +411,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "本",
@@ -435,8 +422,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object",
-          "r": "を"
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "見ます",
@@ -444,9 +430,12 @@
           "role": "content",
           "word_id": "W00006",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "見る",
+            "verb_class": "ichidan",
+            "base_r": "みる"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -468,21 +457,19 @@
           "role": "content",
           "word_id": "W00067",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "ね",
           "role": "particle",
-          "grammar_id": "G034_ne_confirm",
-          "r": "ね"
+          "grammar_id": "G034_ne_confirm"
         },
         {
           "t": "」",
@@ -491,8 +478,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu",
-          "r": "と"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "私",
@@ -503,8 +489,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "言います",
@@ -512,9 +497,12 @@
           "role": "content",
           "word_id": "W00097",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "言う",
+            "verb_class": "godan",
+            "base_r": "いう"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -536,21 +524,19 @@
           "role": "content",
           "word_id": "W00067",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "よ",
           "role": "particle",
-          "grammar_id": "G054_yo_emphasis",
-          "r": "よ"
+          "grammar_id": "G054_yo_emphasis"
         },
         {
           "t": "」",
@@ -559,8 +545,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu",
-          "r": "と"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "あの",
@@ -577,8 +562,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "言います",
@@ -586,9 +570,12 @@
           "role": "content",
           "word_id": "W00097",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "言う",
+            "verb_class": "godan",
+            "base_r": "いう"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -609,8 +596,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "本",
@@ -621,8 +607,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object",
-          "r": "を"
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "読みます",
@@ -630,9 +615,12 @@
           "role": "content",
           "word_id": "W00034",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "読む",
+            "verb_class": "godan",
+            "base_r": "よむ"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -699,7 +687,7 @@
         },
         {
           "t": "な",
-          "role": "aux",
+          "role": "particle",
           "grammar_id": "G016_na_adjective"
         },
         {
@@ -708,9 +696,9 @@
           "role": "content",
           "word_id": "W00083",
           "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+            "form": "attributive"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "本",
@@ -721,14 +709,12 @@
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "ね",
           "role": "particle",
-          "grammar_id": "G034_ne_confirm",
-          "r": "ね"
+          "grammar_id": "G034_ne_confirm"
         },
         {
           "t": "」",
@@ -737,8 +723,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu",
-          "r": "と"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "私",
@@ -749,8 +734,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "言います",
@@ -758,9 +742,12 @@
           "role": "content",
           "word_id": "W00097",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "言う",
+            "verb_class": "godan",
+            "base_r": "いう"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -782,21 +769,19 @@
           "role": "content",
           "word_id": "W00083",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "よ",
           "role": "particle",
-          "grammar_id": "G054_yo_emphasis",
-          "r": "よ"
+          "grammar_id": "G054_yo_emphasis"
         },
         {
           "t": "」",
@@ -805,8 +790,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu",
-          "r": "と"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "あの",
@@ -823,8 +807,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "言います",
@@ -832,9 +815,12 @@
           "role": "content",
           "word_id": "W00097",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "言う",
+            "verb_class": "godan",
+            "base_r": "いう"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -852,9 +838,9 @@
           "role": "content",
           "word_id": "W00118",
           "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+            "form": "attributive"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "心",
@@ -865,8 +851,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "嬉しい",
@@ -874,15 +859,14 @@
           "role": "content",
           "word_id": "W00056",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
@@ -907,8 +891,7 @@
         {
           "t": "も",
           "role": "particle",
-          "grammar_id": "G009_mo_also",
-          "r": "も"
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "来ます",
@@ -916,15 +899,14 @@
           "role": "content",
           "word_id": "W00040",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "masu_polite_nonpast"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "よ",
           "role": "particle",
-          "grammar_id": "G054_yo_emphasis",
-          "r": "よ"
+          "grammar_id": "G054_yo_emphasis"
         },
         {
           "t": "」",
@@ -933,8 +915,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu",
-          "r": "と"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "私",
@@ -945,8 +926,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "言います",
@@ -954,9 +934,12 @@
           "role": "content",
           "word_id": "W00097",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "言う",
+            "verb_class": "godan",
+            "base_r": "いう"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -985,21 +968,19 @@
           "role": "content",
           "word_id": "W00056",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "か",
           "role": "particle",
-          "grammar_id": "G037_ka_question",
-          "r": "か"
+          "grammar_id": "G037_ka_question"
         },
         {
           "t": "」",
@@ -1008,8 +989,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G014_to_omoimasu",
-          "r": "と"
+          "grammar_id": "G014_to_omoimasu"
         },
         {
           "t": "私",
@@ -1020,8 +1000,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "思います",
@@ -1056,8 +1035,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu",
-          "r": "と"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "あの",
@@ -1074,8 +1052,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "言います",
@@ -1083,9 +1060,12 @@
           "role": "content",
           "word_id": "W00097",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "言う",
+            "verb_class": "godan",
+            "base_r": "いう"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -1106,8 +1086,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "の"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "夕方",
@@ -1125,9 +1104,9 @@
           "role": "content",
           "word_id": "W00067",
           "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+            "form": "attributive"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "本",
@@ -1145,9 +1124,9 @@
           "role": "content",
           "word_id": "W00066",
           "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+            "form": "attributive"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "約束",
@@ -1158,8 +1137,7 @@
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",

@@ -6,13 +6,13 @@
     "tokens": [
       {
         "t": "待ちません",
-        "r": "machimasu",
+        "r": "まちます",
         "role": "content",
         "word_id": "W00041",
         "inflection": {
-          "form": "masen",
-          "grammar_id": "G036_masen"
-        }
+          "form": "masen"
+        },
+        "grammar_id": "G036_masen"
       }
     ]
   },
@@ -22,7 +22,7 @@
     "tokens": [
       {
         "t": "友達",
-        "r": "tomodachi",
+        "r": "ともだち",
         "role": "content",
         "word_id": "W00022"
       },
@@ -33,7 +33,7 @@
       },
       {
         "t": "すぐ",
-        "r": "sugu",
+        "r": "すぐ",
         "role": "content",
         "word_id": "W00133"
       },
@@ -44,7 +44,7 @@
       },
       {
         "t": "来ます",
-        "r": "kimasu",
+        "r": "きます",
         "role": "content",
         "word_id": "W00040"
       },
@@ -93,7 +93,7 @@
       "tokens": [
         {
           "t": "春",
-          "r": "haru",
+          "r": "はる",
           "role": "content",
           "word_id": "W00072"
         },
@@ -104,7 +104,7 @@
         },
         {
           "t": "夕方",
-          "r": "yuugata",
+          "r": "ゆうがた",
           "role": "content",
           "word_id": "W00018"
         },
@@ -125,7 +125,7 @@
       "tokens": [
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -136,7 +136,7 @@
         },
         {
           "t": "窓",
-          "r": "mado",
+          "r": "まど",
           "role": "content",
           "word_id": "W00004"
         },
@@ -147,7 +147,7 @@
         },
         {
           "t": "そば",
-          "r": "soba",
+          "r": "そば",
           "role": "content",
           "word_id": "W00045"
         },
@@ -158,7 +158,7 @@
         },
         {
           "t": "立ちます",
-          "r": "tachimasu",
+          "r": "たちます",
           "role": "content",
           "word_id": "W00087"
         },
@@ -231,7 +231,7 @@
       "tokens": [
         {
           "t": "時々",
-          "r": "tokidoki",
+          "r": "ときどき",
           "role": "content",
           "word_id": "W00131",
           "is_new": true
@@ -242,7 +242,7 @@
         },
         {
           "t": "電話",
-          "r": "denwa",
+          "r": "でんわ",
           "role": "content",
           "word_id": "W00093"
         },
@@ -253,7 +253,7 @@
         },
         {
           "t": "来ます",
-          "r": "kimasu",
+          "r": "きます",
           "role": "content",
           "word_id": "W00040"
         },
@@ -278,7 +278,7 @@
         },
         {
           "t": "電話",
-          "r": "denwa",
+          "r": "でんわ",
           "role": "content",
           "word_id": "W00093"
         },
@@ -304,7 +304,7 @@
       "tokens": [
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -315,14 +315,14 @@
         },
         {
           "t": "待ちません",
-          "r": "machimasu",
+          "r": "まちます",
           "role": "content",
           "word_id": "W00041",
           "inflection": {
-            "form": "masen",
-            "grammar_id": "G036_masen"
+            "form": "masen"
           },
-          "is_new_grammar": true
+          "is_new_grammar": true,
+          "grammar_id": "G036_masen"
         },
         {
           "t": "。",
@@ -336,7 +336,7 @@
       "tokens": [
         {
           "t": "友達",
-          "r": "tomodachi",
+          "r": "ともだち",
           "role": "content",
           "word_id": "W00022"
         },
@@ -347,7 +347,7 @@
         },
         {
           "t": "すぐ",
-          "r": "sugu",
+          "r": "すぐ",
           "role": "content",
           "word_id": "W00133",
           "is_new": true
@@ -359,7 +359,7 @@
         },
         {
           "t": "来ます",
-          "r": "kimasu",
+          "r": "きます",
           "role": "content",
           "word_id": "W00040"
         },
@@ -375,7 +375,7 @@
       "tokens": [
         {
           "t": "友達",
-          "r": "tomodachi",
+          "r": "ともだち",
           "role": "content",
           "word_id": "W00022"
         },
@@ -386,7 +386,7 @@
         },
         {
           "t": "花",
-          "r": "hana",
+          "r": "はな",
           "role": "content",
           "word_id": "W00024"
         },
@@ -397,7 +397,7 @@
         },
         {
           "t": "来ます",
-          "r": "kimasu",
+          "r": "きます",
           "role": "content",
           "word_id": "W00040"
         },
@@ -417,7 +417,7 @@
         },
         {
           "t": "元気",
-          "r": "genki",
+          "r": "げんき",
           "role": "content",
           "word_id": "W00058"
         },
@@ -442,7 +442,7 @@
         },
         {
           "t": "言います",
-          "r": "iimasu",
+          "r": "いいます",
           "role": "content",
           "word_id": "W00097"
         },
@@ -458,7 +458,7 @@
       "tokens": [
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -469,13 +469,13 @@
         },
         {
           "t": "嬉しい",
-          "r": "ureshii",
+          "r": "うれしい",
           "role": "content",
           "word_id": "W00056",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -494,7 +494,7 @@
       "tokens": [
         {
           "t": "二人",
-          "r": "futari",
+          "r": "ふたり",
           "role": "content",
           "word_id": "W00035"
         },
@@ -505,13 +505,13 @@
         },
         {
           "t": "一緒に",
-          "r": "isshoni",
+          "r": "いっしょに",
           "role": "content",
           "word_id": "W00050"
         },
         {
           "t": "話します",
-          "r": "hanashimasu",
+          "r": "はなします",
           "role": "content",
           "word_id": "W00094"
         },
@@ -527,7 +527,7 @@
       "tokens": [
         {
           "t": "約束",
-          "r": "yakusoku",
+          "r": "やくそく",
           "role": "content",
           "word_id": "W00132"
         },
@@ -538,13 +538,13 @@
         },
         {
           "t": "美しい",
-          "r": "utsukushii",
+          "r": "うつくしい",
           "role": "content",
           "word_id": "W00083",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -562,13 +562,13 @@
         },
         {
           "t": "嬉しい",
-          "r": "ureshii",
+          "r": "うれしい",
           "role": "content",
           "word_id": "W00056",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -587,7 +587,7 @@
       "tokens": [
         {
           "t": "春",
-          "r": "haru",
+          "r": "はる",
           "role": "content",
           "word_id": "W00072"
         },
@@ -598,7 +598,7 @@
         },
         {
           "t": "夕方",
-          "r": "yuugata",
+          "r": "ゆうがた",
           "role": "content",
           "word_id": "W00018"
         },
@@ -608,7 +608,7 @@
         },
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -619,13 +619,13 @@
         },
         {
           "t": "待ちません",
-          "r": "machimasu",
+          "r": "まちます",
           "role": "content",
           "word_id": "W00041",
           "inflection": {
-            "form": "masen",
-            "grammar_id": "G036_masen"
-          }
+            "form": "masen"
+          },
+          "grammar_id": "G036_masen"
         },
         {
           "t": "。",

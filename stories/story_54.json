@@ -10,9 +10,9 @@
         "role": "content",
         "word_id": "W00041",
         "inflection": {
-          "form": "polite_past_negative",
-          "grammar_id": "G046_masen_deshita"
-        }
+          "form": "polite_past_negative"
+        },
+        "grammar_id": "G046_masen_deshita"
       },
       {
         "t": "。",
@@ -34,8 +34,7 @@
       {
         "t": "の",
         "role": "particle",
-        "grammar_id": "G015_no_possessive",
-        "r": "の"
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "店",
@@ -46,8 +45,7 @@
       {
         "t": "の",
         "role": "particle",
-        "grammar_id": "G015_no_possessive",
-        "r": "の"
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "人",
@@ -58,8 +56,7 @@
       {
         "t": "は",
         "role": "particle",
-        "grammar_id": "G001_wa_topic",
-        "r": "は"
+        "grammar_id": "G001_wa_topic"
       },
       {
         "t": "来週",
@@ -77,9 +74,9 @@
         "role": "content",
         "word_id": "W00040",
         "inflection": {
-          "form": "masu_polite_nonpast",
-          "grammar_id": "G026_masu_nonpast"
-        }
+          "form": "masu_polite_nonpast"
+        },
+        "grammar_id": "G026_masu_nonpast"
       },
       {
         "t": "。",
@@ -101,8 +98,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "の"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "朝",
@@ -113,8 +109,7 @@
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
@@ -135,8 +130,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "静か",
@@ -144,15 +138,14 @@
           "role": "content",
           "word_id": "W00011",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G016_na_adjective"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G016_na_adjective"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "です"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
@@ -173,8 +166,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "本",
@@ -185,8 +177,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "の"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "店",
@@ -197,8 +188,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "の"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "人",
@@ -209,8 +199,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object",
-          "r": "を"
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "思います",
@@ -218,9 +207,12 @@
           "role": "content",
           "word_id": "W00043",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "思う",
+            "verb_class": "godan",
+            "base_r": "おもう"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -241,8 +233,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "「",
@@ -254,10 +245,10 @@
           "role": "content",
           "word_id": "W00041",
           "inflection": {
-            "form": "polite_past_negative",
-            "grammar_id": "G046_masen_deshita"
+            "form": "polite_past_negative"
           },
-          "is_new_grammar": true
+          "is_new_grammar": true,
+          "grammar_id": "G046_masen_deshita"
         },
         {
           "t": "」",
@@ -266,8 +257,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G014_to_omoimasu",
-          "r": "と"
+          "grammar_id": "G014_to_omoimasu"
         },
         {
           "t": "思います",
@@ -312,8 +302,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and",
-          "r": "と"
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "公園",
@@ -324,8 +313,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object",
-          "r": "を"
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "歩きました",
@@ -334,10 +322,11 @@
           "word_id": "W00017",
           "inflection": {
             "form": "polite_past",
-            "grammar_id": "G013_mashita_past",
             "base": "歩く",
-            "base_r": "あるく"
-          }
+            "base_r": "あるく",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
         },
         {
           "t": "。",
@@ -389,10 +378,11 @@
           "word_id": "W00006",
           "inflection": {
             "form": "polite_past",
-            "grammar_id": "G013_mashita_past",
             "base": "見る",
-            "base_r": "みる"
-          }
+            "base_r": "みる",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G013_mashita_past"
         },
         {
           "t": "。",
@@ -413,8 +403,7 @@
         {
           "t": "も",
           "role": "particle",
-          "grammar_id": "G009_mo_also",
-          "r": "も"
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "飲みました",
@@ -423,10 +412,11 @@
           "word_id": "W00010",
           "inflection": {
             "form": "polite_past",
-            "grammar_id": "G013_mashita_past",
             "base": "飲む",
-            "base_r": "のむ"
-          }
+            "base_r": "のむ",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
         },
         {
           "t": "。",
@@ -440,7 +430,6 @@
       "tokens": [
         {
           "t": "でも",
-          "r": "でも",
           "role": "aux",
           "grammar_id": "G032_demo"
         },
@@ -457,8 +446,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "の"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "店",
@@ -469,8 +457,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "の"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "人",
@@ -481,8 +468,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "来ませんでした",
@@ -490,9 +476,9 @@
           "role": "content",
           "word_id": "W00040",
           "inflection": {
-            "form": "polite_past_negative",
-            "grammar_id": "G046_masen_deshita"
-          }
+            "form": "polite_past_negative"
+          },
+          "grammar_id": "G046_masen_deshita"
         },
         {
           "t": "。",
@@ -544,10 +530,11 @@
           "word_id": "W00041",
           "inflection": {
             "form": "polite_past",
-            "grammar_id": "G013_mashita_past",
             "base": "待つ",
-            "base_r": "まつ"
-          }
+            "base_r": "まつ",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
         },
         {
           "t": "か",
@@ -581,7 +568,6 @@
       "tokens": [
         {
           "t": "でも",
-          "r": "でも",
           "role": "aux",
           "grammar_id": "G032_demo"
         },
@@ -598,8 +584,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "ありませんでした",
@@ -607,9 +592,9 @@
           "role": "content",
           "word_id": "W00044",
           "inflection": {
-            "form": "polite_past_negative",
-            "grammar_id": "G046_masen_deshita"
-          }
+            "form": "polite_past_negative"
+          },
+          "grammar_id": "G046_masen_deshita"
         },
         {
           "t": "。",
@@ -648,8 +633,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "時々",
@@ -664,10 +648,10 @@
           "word_id": "W00040",
           "inflection": {
             "form": "polite_past",
-            "grammar_id": "G013_mashita_past",
             "base": "来る",
             "base_r": "くる"
-          }
+          },
+          "grammar_id": "G013_mashita_past"
         },
         {
           "t": "。",
@@ -694,8 +678,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object",
-          "r": "を"
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "飲みました",
@@ -704,10 +687,11 @@
           "word_id": "W00010",
           "inflection": {
             "form": "polite_past",
-            "grammar_id": "G013_mashita_past",
             "base": "飲む",
-            "base_r": "のむ"
-          }
+            "base_r": "のむ",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
         },
         {
           "t": "。",
@@ -728,8 +712,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "の"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "心",
@@ -740,8 +723,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "「",
@@ -753,9 +735,12 @@
           "role": "content",
           "word_id": "W00041",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "待つ",
+            "verb_class": "godan",
+            "base_r": "まつ"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "」",
@@ -764,8 +749,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu",
-          "r": "と"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言いました",
@@ -774,10 +758,11 @@
           "word_id": "W00097",
           "inflection": {
             "form": "polite_past",
-            "grammar_id": "G013_mashita_past",
             "base": "言う",
-            "base_r": "いう"
-          }
+            "base_r": "いう",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
         },
         {
           "t": "。",
@@ -791,7 +776,6 @@
       "tokens": [
         {
           "t": "でも",
-          "r": "でも",
           "role": "aux",
           "grammar_id": "G032_demo"
         },
@@ -808,8 +792,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "待ちませんでした",
@@ -817,9 +800,9 @@
           "role": "content",
           "word_id": "W00041",
           "inflection": {
-            "form": "polite_past_negative",
-            "grammar_id": "G046_masen_deshita"
-          }
+            "form": "polite_past_negative"
+          },
+          "grammar_id": "G046_masen_deshita"
         },
         {
           "t": "。",
@@ -935,9 +918,9 @@
           "role": "content",
           "word_id": "W00012",
           "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+            "form": "attributive"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "お茶",
@@ -955,9 +938,9 @@
           "role": "content",
           "word_id": "W00074",
           "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+            "form": "attributive"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "夕飯",

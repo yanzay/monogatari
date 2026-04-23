@@ -6,17 +6,17 @@
     "tokens": [
       {
         "t": "寒くない",
-        "r": "samui",
+        "r": "さむい",
         "role": "content",
         "word_id": "W00062",
         "inflection": {
-          "form": "kunai",
-          "grammar_id": "G038_kunai"
-        }
+          "form": "kunai"
+        },
+        "grammar_id": "G038_kunai"
       },
       {
         "t": "朝",
-        "r": "asa",
+        "r": "あさ",
         "role": "content",
         "word_id": "W00015"
       }
@@ -28,7 +28,7 @@
     "tokens": [
       {
         "t": "春",
-        "r": "haru",
+        "r": "はる",
         "role": "content",
         "word_id": "W00072"
       },
@@ -39,7 +39,7 @@
       },
       {
         "t": "光",
-        "r": "hikari",
+        "r": "ひかり",
         "role": "content",
         "word_id": "W00139"
       },
@@ -89,7 +89,7 @@
       "tokens": [
         {
           "t": "春",
-          "r": "haru",
+          "r": "はる",
           "role": "content",
           "word_id": "W00072"
         },
@@ -100,7 +100,7 @@
         },
         {
           "t": "朝",
-          "r": "asa",
+          "r": "あさ",
           "role": "content",
           "word_id": "W00015"
         },
@@ -121,7 +121,7 @@
       "tokens": [
         {
           "t": "朝",
-          "r": "asa",
+          "r": "あさ",
           "role": "content",
           "word_id": "W00015"
         },
@@ -132,14 +132,14 @@
         },
         {
           "t": "寒くない",
-          "r": "samui",
+          "r": "さむい",
           "role": "content",
           "word_id": "W00062",
           "inflection": {
-            "form": "kunai",
-            "grammar_id": "G038_kunai"
+            "form": "kunai"
           },
-          "is_new_grammar": true
+          "is_new_grammar": true,
+          "grammar_id": "G038_kunai"
         },
         {
           "t": "です",
@@ -158,7 +158,7 @@
       "tokens": [
         {
           "t": "空気",
-          "r": "kuuki",
+          "r": "くうき",
           "role": "content",
           "word_id": "W00138",
           "is_new": true
@@ -170,14 +170,14 @@
         },
         {
           "t": "明るい",
-          "r": "akarui",
+          "r": "あかるい",
           "role": "content",
           "word_id": "W00137",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
+            "form": "plain_nonpast"
           },
-          "is_new": true
+          "is_new": true,
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -196,7 +196,7 @@
       "tokens": [
         {
           "t": "春",
-          "r": "haru",
+          "r": "はる",
           "role": "content",
           "word_id": "W00072"
         },
@@ -207,7 +207,7 @@
         },
         {
           "t": "光",
-          "r": "hikari",
+          "r": "ひかり",
           "role": "content",
           "word_id": "W00139",
           "is_new": true
@@ -219,13 +219,13 @@
         },
         {
           "t": "温かい",
-          "r": "atatakai",
+          "r": "あたたかい",
           "role": "content",
           "word_id": "W00012",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -244,7 +244,7 @@
       "tokens": [
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -255,7 +255,7 @@
         },
         {
           "t": "窓",
-          "r": "mado",
+          "r": "まど",
           "role": "content",
           "word_id": "W00004"
         },
@@ -266,7 +266,7 @@
         },
         {
           "t": "そば",
-          "r": "soba",
+          "r": "そば",
           "role": "content",
           "word_id": "W00045"
         },
@@ -277,7 +277,7 @@
         },
         {
           "t": "立ちます",
-          "r": "tachimasu",
+          "r": "たちます",
           "role": "content",
           "word_id": "W00087"
         },
@@ -293,7 +293,7 @@
       "tokens": [
         {
           "t": "鳥",
-          "r": "tori",
+          "r": "とり",
           "role": "content",
           "word_id": "W00054"
         },
@@ -304,7 +304,7 @@
         },
         {
           "t": "空",
-          "r": "sora",
+          "r": "そら",
           "role": "content",
           "word_id": "W00047"
         },
@@ -315,7 +315,7 @@
         },
         {
           "t": "います",
-          "r": "imasu",
+          "r": "います",
           "role": "content",
           "word_id": "W00029"
         },
@@ -331,7 +331,7 @@
       "tokens": [
         {
           "t": "部屋",
-          "r": "heya",
+          "r": "へや",
           "role": "content",
           "word_id": "W00075"
         },
@@ -342,7 +342,7 @@
         },
         {
           "t": "花",
-          "r": "hana",
+          "r": "はな",
           "role": "content",
           "word_id": "W00024"
         },
@@ -353,7 +353,7 @@
         },
         {
           "t": "あります",
-          "r": "arimasu",
+          "r": "あります",
           "role": "content",
           "word_id": "W00044"
         },
@@ -369,7 +369,7 @@
       "tokens": [
         {
           "t": "花",
-          "r": "hana",
+          "r": "はな",
           "role": "content",
           "word_id": "W00024"
         },
@@ -380,13 +380,13 @@
         },
         {
           "t": "美しい",
-          "r": "utsukushii",
+          "r": "うつくしい",
           "role": "content",
           "word_id": "W00083",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -405,7 +405,7 @@
       "tokens": [
         {
           "t": "冬",
-          "r": "fuyu",
+          "r": "ふゆ",
           "role": "content",
           "word_id": "W00095"
         },
@@ -416,7 +416,7 @@
         },
         {
           "t": "朝",
-          "r": "asa",
+          "r": "あさ",
           "role": "content",
           "word_id": "W00015"
         },
@@ -427,13 +427,13 @@
         },
         {
           "t": "寒い",
-          "r": "samui",
+          "r": "さむい",
           "role": "content",
           "word_id": "W00062",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -461,7 +461,7 @@
         },
         {
           "t": "春",
-          "r": "haru",
+          "r": "はる",
           "role": "content",
           "word_id": "W00072"
         },
@@ -472,7 +472,7 @@
         },
         {
           "t": "朝",
-          "r": "asa",
+          "r": "あさ",
           "role": "content",
           "word_id": "W00015"
         },
@@ -483,13 +483,13 @@
         },
         {
           "t": "寒くない",
-          "r": "samui",
+          "r": "さむい",
           "role": "content",
           "word_id": "W00062",
           "inflection": {
-            "form": "kunai",
-            "grammar_id": "G038_kunai"
-          }
+            "form": "kunai"
+          },
+          "grammar_id": "G038_kunai"
         },
         {
           "t": "です",
@@ -553,7 +553,7 @@
       "tokens": [
         {
           "t": "春",
-          "r": "haru",
+          "r": "はる",
           "role": "content",
           "word_id": "W00072"
         },
@@ -564,7 +564,7 @@
         },
         {
           "t": "来ます",
-          "r": "kimasu",
+          "r": "きます",
           "role": "content",
           "word_id": "W00040"
         },
@@ -579,7 +579,7 @@
         },
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -590,13 +590,13 @@
         },
         {
           "t": "待ちません",
-          "r": "machimasu",
+          "r": "まちます",
           "role": "content",
           "word_id": "W00041",
           "inflection": {
-            "form": "masen",
-            "grammar_id": "G036_masen"
-          }
+            "form": "masen"
+          },
+          "grammar_id": "G036_masen"
         },
         {
           "t": "。",
@@ -610,7 +610,7 @@
       "tokens": [
         {
           "t": "春",
-          "r": "haru",
+          "r": "はる",
           "role": "content",
           "word_id": "W00072"
         },
@@ -621,13 +621,13 @@
         },
         {
           "t": "美しい",
-          "r": "utsukushii",
+          "r": "うつくしい",
           "role": "content",
           "word_id": "W00083",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -651,7 +651,7 @@
       "tokens": [
         {
           "t": "春",
-          "r": "haru",
+          "r": "はる",
           "role": "content",
           "word_id": "W00072"
         },
@@ -662,13 +662,13 @@
         },
         {
           "t": "美しい",
-          "r": "utsukushii",
+          "r": "うつくしい",
           "role": "content",
           "word_id": "W00083",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -701,7 +701,7 @@
           "role": "content",
           "r": "あかるい",
           "word_id": "W00137",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "朝",
@@ -718,7 +718,7 @@
           "role": "content",
           "r": "あたたかい",
           "word_id": "W00012",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "光",

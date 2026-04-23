@@ -1,162 +1,95 @@
 # Monogatari
 
-A graded-reader for learning Japanese through Rovo-Dev-authored short stories,
-with guaranteed vocabulary control, click-to-lookup reading, audio playback,
-an integrated SRS reviewer, and offline support.
+A graded-reader app for learning Japanese through short stories with click-to-lookup vocabulary, integrated SRS, and per-token audio.
 
-> **Status:** M1–M7 implemented. See `docs/spec.md` for the full system spec.
+- **Reader** — a static web app (`index.html` + `js/app.js` + `css/style.css`). Open it in any browser; no server required.
+- **Library** — 67 hand-curated short stories under `stories/`, plus per-token audio under `audio/`.
+- **Authoring pipeline** — Python scripts under `pipeline/` that turn bilingual JP+EN text into a fully-tagged story JSON (vocabulary IDs, grammar IDs, inflections, glosses) and generate the matching audio.
 
-## Run the reader
+## Quickstart
 
-```bash
-python3 -m http.server 8000
-# open http://localhost:8000
-```
-
-The reader is a static page (HTML + CSS + vanilla JS). All learner state is
-persisted in `localStorage`. After the first visit, the service worker caches
-the app shell + the stories + audio you've opened so the reader works fully
-offline.
-
-## Author a new story
-
-The pipeline runs in five stages plus a deliberate quality gate, orchestrated
-by `pipeline/run.py`:
-
-```
-plan → write → validate → engagement review → ship (state updater) → audio
-```
+### Read
 
 ```bash
-# Step 1 — generate the planner prompt (Rovo Dev then writes plan.json
-#          in the active conversation)
-python3 pipeline/run.py --step 1 --n-new-words 3 --n-new-grammar 1 --theme "..."
-
-# Step 2 — validate the plan
-python3 pipeline/run.py --step 2
-
-# Step 3 — Rovo Dev authors story_raw.json based on the writer prompt;
-#          then this command validates it
-
-python3 pipeline/run.py --step 3
-
-# Step 3.5 — engagement review (the validator only proves the story is
-#            *legal* — this stage asks whether it's *worth reading*).
-#            Score 1–5 on hook / voice / originality / coherence / closure.
-#            Approval requires average ≥ 3.5 and every dimension ≥ 3.
-python3 pipeline/engagement_review.py --mode print     # writes review template
-# (edit pipeline/review.json — set scores, suggestions, approved:true)
-python3 pipeline/engagement_review.py --mode finalize  # validates the review
-
-# Step 4 — ship (validate state → check engagement-review approval →
-#                update state → manifest rebuild → audio build)
-python3 pipeline/run.py --step 4
-#   - default: synth backend (offline tones, deterministic)
-#   - real TTS: --tts-backend google --tts-encoding MP3
-#   - bypass review (emergencies only): --skip-engagement-review
+# Any static file server works
+python3 -m http.server 8080
+# Then open http://localhost:8080
 ```
 
-The engagement-review prompt + rubric live in
-`pipeline/engagement_review_prompt.md`. The reviewer is Rovo Dev — the
-same agent that authored the story. There is no external LLM call:
-the script renders the rubric, Rovo Dev fills in the review honestly
-in the active conversation, and `--mode finalize` validates the result
-and enforces the bar (avg ≥ 3.5, every dimension ≥ 3).
-
-## Audio: synth vs Google TTS
-
-Two backends are wired in `pipeline/audio_builder.py`:
-
-| Backend  | Network? | Output | Use when                                           |
-| -------- | -------- | ------ | -------------------------------------------------- |
-| `synth`  | no       | WAV    | offline dev / CI; deterministic; not intelligible. |
-| `google` | yes      | MP3 / WAV / OGG | real ja-JP voice via Google Cloud TTS.    |
-
-Google backend setup (one-time):
+### Author a new story
 
 ```bash
-python3 -m venv .venv && source .venv/bin/activate
-pip install google-cloud-texttospeech
-gcloud auth application-default login
-# then enable Cloud Text-to-Speech API for the project
+# 1. Install authoring deps (one-time)
+pip install -r requirements.txt
+
+# 2. Write your bilingual JP+EN spec
+cat > pipeline/inputs/story_68.json <<'EOF'
+{
+  "story_id": 68,
+  "title":    {"jp": "雨", "en": "Rain"},
+  "subtitle": {"jp": "静かな朝", "en": "A quiet morning"},
+  "sentences": [
+    {"jp": "今朝は雨です。",       "en": "This morning, it is raining."},
+    {"jp": "私は窓から外を見ます。", "en": "I look outside through the window."}
+  ]
+}
+EOF
+
+# 3. Convert text → story JSON
+python3 pipeline/text_to_story.py pipeline/inputs/story_68.json \
+    --out pipeline/story_raw.json --report pipeline/text_to_story.report.json
+
+# 4. Validate
+python3 pipeline/validate.py pipeline/story_raw.json
+
+# 5. Generate audio (requires Google Cloud TTS credentials)
+python3 pipeline/audio_builder.py pipeline/story_raw.json
+
+# 6. Ship: copy to stories/ and update state
+cp pipeline/story_raw.json stories/story_68.json
+python3 pipeline/state_updater.py stories/story_68.json
 ```
 
-Then:
+See [`docs/authoring.md`](docs/authoring.md) for the full workflow.
 
-```bash
-python pipeline/audio_builder.py stories/story_1.json \
-  --vocab data/vocab_state.json \
-  --backend google --voice ja-JP-Neural2-B --audio-encoding MP3 --force
-```
-
-Cost-safety: the builder is **idempotent** by default (skips existing files).
-Use `--dry-run` (or `MONOGATARI_TTS_DRY_RUN=1`) to print the planned API
-calls without billing.
-
-## Validation
-
-As of v0.20 (2026-04-22), pytest is the **single source of truth** for all
-checks (per-story validate, schemas, state integrity, surface↔grammar
-consistency, semantic-lint, pedagogical cadence + reinforcement, the legacy
-unit harness for `validate.py`, and more).
-
-```bash
-# All checks (~141 tests, runs the full validate.py per shipped story plus
-# every other invariant the project enforces).
-python3 -m pytest pipeline/tests -q
-
-# State validator (still a separate one-shot CLI; operates on raw vocab/
-# grammar state files outside the story corpus).
-python3 pipeline/validate_state.py
-
-# Single-story validator (still useful for pre-ship of an in-progress
-# story_raw.json that pytest has not yet seen on disk; pytest only
-# discovers shipped stories).
-python3 pipeline/validate.py pipeline/story_raw.json \
-  --vocab data/vocab_state.json --grammar data/grammar_state.json
-```
-
-## Repository layout
+## Layout
 
 ```
-index.html, css/, js/         reader app (single page)
-sw.js                         service worker (offline cache)
-
-stories/                      shipped story artifacts (JSON)
-audio/story_<N>/*.mp3         per-sentence + per-word audio
-
-data/
-  vocab_state.json            cumulative vocabulary
-  grammar_state.json          cumulative grammar points
-
-state_backups/                automatic backup before each ship
-
-pipeline/
-  planner.py / planner_prompt.md
-  writer.py  / writer_prompt.md
-  validate.py                 — single-story validator (used pre-ship and by pytest)
-  validate_state.py           — vocab/grammar state-file validator (CLI only)
-  tests/                      — pytest suite (per-story validate, schemas,
-                                cadence/reinforcement, legacy unit harness, …)
-  state_updater.py
-  audio_builder.py
-  run.py                      orchestrator (steps 1–4)
-
+index.html, js/, css/, sw.js     # Reader app (static)
+stories/story_*.json             # Shipped stories
+audio/story_*/                   # Per-sentence + per-word MP3
+data/                            # Cumulative vocab + grammar state
+pipeline/                        # Authoring tools
+  text_to_story.py               # JP+EN text → story JSON (the main authoring entry point)
+  text_to_story_roundtrip.py     # Regression harness
+  normalize_to_v2.py             # Schema normalizer (idempotent)
+  validate.py                    # Deterministic validator
+  audio_builder.py               # Google TTS audio generator
+  state_updater.py               # Update vocab_state + grammar_state after a new story
+  jp.py                          # Tokenizer (fugashi/UniDic) and inflection helpers
+  lookup.py                      # Vocab + grammar search CLI
+  tests/                         # pytest suite
 docs/
-  spec.md                     full system spec
-  authoring.md                authoring rules
+  spec.md                        # Data model and reader app spec
+  authoring.md                   # Authoring workflow
 ```
 
-## Defenses in depth
+## Tech
 
-- **`pipeline/validate.py`** — single-story validator (10 checks).
-- **`pipeline/validate_state.py`** — refuses to ship when vocab/grammar
-  state files contain placeholder / scaffold entries.
-- **`pipeline/state_updater.py`** — raises rather than write a placeholder
-  if a story introduces grammar without a full definition in plan.json.
-- **`js/app.js`** — UI shows a warning badge if a grammar entry is somehow
-  shipped incomplete (last line of defense).
+- **Reader**: vanilla JS, no build step, works offline (service worker)
+- **Tokenizer**: [fugashi](https://github.com/polm/fugashi) + UniDic
+- **Dictionary**: [jamdict](https://github.com/neocl/jamdict) (JMDict)
+- **Kana conversion**: [jaconv](https://github.com/ikegami-yukino/jaconv)
+- **Audio**: Google Cloud Text-to-Speech (Standard ja-JP voices)
+
+## Tests
+
+```bash
+python3 -m pytest pipeline/tests/
+```
+
+The pytest suite covers schema integrity, validator correctness, referential integrity (audio ↔ tokens), and pedagogical sanity (vocabulary reinforcement, grammar progression).
 
 ## License
 
-Private project for personal use.
+Personal-use project. Not yet licensed for redistribution.

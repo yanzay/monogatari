@@ -9,12 +9,17 @@ __pycache__/
 .idea/
 .vscode/
 
-# Pipeline scratch — these files are written by individual run.py steps
-# and rebuilt per story. Shipped artifacts live under stories/ and audio/.
-pipeline/plan.json
+# Pipeline scratch — intermediate outputs of individual authoring stages.
+# Shipped artifacts live under stories/ and audio/.
+pipeline/inputs/
 pipeline/story_raw.json
+pipeline/text_to_story.report.json
+pipeline/plan.json
 pipeline/review.json
 pipeline/review.md
+
+# Normalizer backups (kept locally for safety, not committed)
+state_backups/normalize_to_v2/
 
 # Service worker / browser caches (none here, but reserve)
 *.log

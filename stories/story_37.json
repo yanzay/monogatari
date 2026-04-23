@@ -95,16 +95,15 @@
       "idx": 0,
       "tokens": [
         {
-          "t": "静かな",
-          "r": "しずかな",
+          "t": "静か",
+          "r": "しずか",
           "word_id": "W00011",
-          "role": "content",
-          "inflection": {
-            "base": "静か",
-            "base_r": "しずか",
-            "form": "attributive",
-            "grammar_id": "G016_na_adjective"
-          }
+          "role": "content"
+        },
+        {
+          "t": "な",
+          "role": "particle",
+          "grammar_id": "G016_na_adjective"
         },
         {
           "t": "朝",
@@ -328,9 +327,9 @@
           "inflection": {
             "base": "大きい",
             "base_r": "おおきい",
-            "form": "te_form",
-            "grammar_id": "G029_kute"
-          }
+            "form": "te"
+          },
+          "grammar_id": "G029_kute"
         },
         {
           "t": "美しい",
@@ -383,9 +382,9 @@
           "inflection": {
             "base": "長い",
             "base_r": "ながい",
-            "form": "te_form",
-            "grammar_id": "G007_te_form"
-          }
+            "form": "te"
+          },
+          "grammar_id": "G007_te_form"
         },
         {
           "t": "静か",

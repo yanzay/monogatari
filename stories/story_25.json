@@ -34,7 +34,7 @@
         "r": "かなしい",
         "word_id": "W00076",
         "role": "content",
-        "grammar_id": "G023_attributive"
+        "grammar_id": "G022_i_adj"
       },
       {
         "t": "朝",
@@ -268,7 +268,7 @@
           "r": "ふるい",
           "word_id": "W00067",
           "role": "content",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "写真",
@@ -337,9 +337,10 @@
           "inflection": {
             "base": "笑う",
             "base_r": "わらう",
-            "form": "te_form",
-            "grammar_id": "G007_te_form"
-          }
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form"
         },
         {
           "t": "います",
@@ -471,9 +472,10 @@
           "inflection": {
             "base": "開ける",
             "base_r": "あける",
-            "form": "te_form",
-            "grammar_id": "G007_te_form"
-          }
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G007_te_form"
         },
         {
           "t": "、",
@@ -518,7 +520,7 @@
           "role": "content",
           "r": "かなしい",
           "word_id": "W00076",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "朝",
@@ -535,7 +537,7 @@
           "role": "content",
           "r": "いたい",
           "word_id": "W00163",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "心",
@@ -555,7 +557,7 @@
         },
         {
           "t": "な",
-          "role": "aux",
+          "role": "particle",
           "grammar_id": "G016_na_adjective"
         },
         {

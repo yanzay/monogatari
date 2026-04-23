@@ -181,9 +181,9 @@
             "base": "降る",
             "base_r": "ふる",
             "form": "polite_past",
-            "verb_class": "godan",
-            "grammar_id": "G013_mashita_past"
-          }
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
         },
         {
           "t": "。",
@@ -226,9 +226,9 @@
             "base": "渡す",
             "base_r": "わたす",
             "form": "polite_past",
-            "verb_class": "godan",
-            "grammar_id": "G013_mashita_past"
-          }
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
         },
         {
           "t": "。",
@@ -303,9 +303,9 @@
           "inflection": {
             "base": "書く",
             "base_r": "かく",
-            "form": "tai",
-            "grammar_id": "G031_tai"
-          }
+            "form": "tai"
+          },
+          "grammar_id": "G031_tai"
         },
         {
           "t": "です",
@@ -327,7 +327,7 @@
           "role": "content",
           "r": "いたい",
           "word_id": "W00163",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "心",
@@ -361,9 +361,9 @@
           "inflection": {
             "base": "小さい",
             "base_r": "ちいさい",
-            "form": "te_form",
-            "grammar_id": "G029_kute"
-          }
+            "form": "te"
+          },
+          "grammar_id": "G029_kute"
         },
         {
           "t": "静か",
@@ -425,9 +425,9 @@
             "base": "書く",
             "base_r": "かく",
             "form": "polite_past",
-            "verb_class": "godan",
-            "grammar_id": "G013_mashita_past"
-          }
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
         },
         {
           "t": "。",
@@ -484,9 +484,9 @@
             "base": "書く",
             "base_r": "かく",
             "form": "polite_past",
-            "verb_class": "godan",
-            "grammar_id": "G013_mashita_past"
-          }
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
         },
         {
           "t": "。",
@@ -500,7 +500,6 @@
       "tokens": [
         {
           "t": "でも",
-          "r": "でも",
           "grammar_id": "G032_demo",
           "role": "particle",
           "is_new_grammar": true
@@ -588,8 +587,7 @@
         {
           "t": "でも",
           "role": "particle",
-          "grammar_id": "G032_demo",
-          "r": "でも"
+          "grammar_id": "G032_demo"
         },
         {
           "t": "、",
@@ -603,7 +601,7 @@
         },
         {
           "t": "な",
-          "role": "aux",
+          "role": "particle",
           "grammar_id": "G016_na_adjective"
         },
         {
@@ -657,7 +655,7 @@
         },
         {
           "t": "な",
-          "role": "aux",
+          "role": "particle",
           "grammar_id": "G016_na_adjective"
         },
         {
@@ -676,7 +674,7 @@
           "role": "content",
           "r": "つよい",
           "word_id": "W00118",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "言葉",

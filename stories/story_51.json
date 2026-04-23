@@ -6,14 +6,14 @@
     "tokens": [
       {
         "t": "あの",
-        "r": "ano",
+        "r": "あの",
         "role": "content",
         "word_id": "W00147",
         "grammar_id": "G043_kosoado_pre_nominal"
       },
       {
         "t": "花",
-        "r": "hana",
+        "r": "はな",
         "role": "content",
         "word_id": "W00024"
       }
@@ -26,43 +26,44 @@
     "tokens": [
       {
         "t": "公園",
-        "r": "kouen",
+        "r": "こうえん",
         "role": "content",
         "word_id": "W00016"
       },
       {
         "t": "で",
         "role": "particle",
-        "grammar_id": "G017_de_means",
-        "r": "de"
+        "grammar_id": "G017_de_means"
       },
       {
         "t": "友達",
-        "r": "tomodachi",
+        "r": "ともだち",
         "role": "content",
         "word_id": "W00022"
       },
       {
         "t": "と",
         "role": "particle",
-        "grammar_id": "G010_to_and",
-        "r": "to"
+        "grammar_id": "G010_to_and"
       },
       {
         "t": "一緒に",
-        "r": "isshoni",
+        "r": "いっしょに",
         "role": "content",
         "word_id": "W00050"
       },
       {
         "t": "歩きます",
-        "r": "arukimasu",
+        "r": "あるきます",
         "role": "content",
         "word_id": "W00017",
         "inflection": {
-          "form": "masu_polite_nonpast",
-          "grammar_id": "G026_masu_nonpast"
-        }
+          "form": "polite_nonpast",
+          "base": "歩く",
+          "verb_class": "godan",
+          "base_r": "あるく"
+        },
+        "grammar_id": "G026_masu_nonpast"
       },
       {
         "t": "。",
@@ -77,27 +78,25 @@
       "tokens": [
         {
           "t": "春",
-          "r": "haru",
+          "r": "はる",
           "role": "content",
           "word_id": "W00072"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "no"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "夕方",
-          "r": "yuugata",
+          "r": "ゆうがた",
           "role": "content",
           "word_id": "W00018"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "desu"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
@@ -111,49 +110,46 @@
       "tokens": [
         {
           "t": "公園",
-          "r": "kouen",
+          "r": "こうえん",
           "role": "content",
           "word_id": "W00016"
         },
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location",
-          "r": "ni"
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "木",
-          "r": "ki",
+          "r": "き",
           "role": "content",
           "word_id": "W00007"
         },
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and",
-          "r": "to"
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "花",
-          "r": "hana",
+          "r": "はな",
           "role": "content",
           "word_id": "W00024"
         },
         {
           "t": "が",
           "role": "particle",
-          "grammar_id": "G002_ga_subject",
-          "r": "ga"
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "あります",
-          "r": "arimasu",
+          "r": "あります",
           "role": "content",
           "word_id": "W00044"
         },
@@ -169,7 +165,7 @@
       "tokens": [
         {
           "t": "友達",
-          "r": "tomodachi",
+          "r": "ともだち",
           "role": "content",
           "word_id": "W00022"
         },
@@ -177,7 +173,7 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "「",
@@ -185,7 +181,7 @@
         },
         {
           "t": "あの",
-          "r": "ano",
+          "r": "あの",
           "role": "content",
           "word_id": "W00147",
           "grammar_id": "G043_kosoado_pre_nominal",
@@ -194,7 +190,7 @@
         },
         {
           "t": "花",
-          "r": "hana",
+          "r": "はな",
           "role": "content",
           "word_id": "W00024"
         },
@@ -202,23 +198,22 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "嬉しい",
-          "r": "ureshii",
+          "r": "うれしい",
           "role": "content",
           "word_id": "W00056",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "desu"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "」",
@@ -227,18 +222,20 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu",
-          "r": "to"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
-          "r": "iimasu",
+          "r": "いいます",
           "role": "content",
           "word_id": "W00097",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "言う",
+            "verb_class": "godan",
+            "base_r": "いう"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -256,14 +253,14 @@
         },
         {
           "t": "あの",
-          "r": "ano",
+          "r": "あの",
           "role": "content",
           "word_id": "W00147",
           "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
           "t": "花",
-          "r": "hana",
+          "r": "はな",
           "role": "content",
           "word_id": "W00024"
         },
@@ -271,23 +268,22 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "赤い",
-          "r": "akai",
+          "r": "あかい",
           "role": "content",
           "word_id": "W00142",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "desu"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "」",
@@ -296,12 +292,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G014_to_omoimasu",
-          "r": "to"
+          "grammar_id": "G014_to_omoimasu"
         },
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -309,11 +304,11 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "思います",
-          "r": "omoimasu",
+          "r": "おもいます",
           "role": "aux",
           "grammar_id": "G014_to_omoimasu"
         },
@@ -329,7 +324,7 @@
       "tokens": [
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -337,7 +332,7 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "「",
@@ -345,7 +340,7 @@
         },
         {
           "t": "この",
-          "r": "kono",
+          "r": "この",
           "role": "content",
           "word_id": "W00148",
           "grammar_id": "G043_kosoado_pre_nominal",
@@ -353,7 +348,7 @@
         },
         {
           "t": "木",
-          "r": "ki",
+          "r": "き",
           "role": "content",
           "word_id": "W00007"
         },
@@ -361,23 +356,22 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "古い",
-          "r": "furui",
+          "r": "ふるい",
           "role": "content",
           "word_id": "W00067",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "desu"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "」",
@@ -386,18 +380,20 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu",
-          "r": "to"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
-          "r": "iimasu",
+          "r": "いいます",
           "role": "content",
           "word_id": "W00097",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "言う",
+            "verb_class": "godan",
+            "base_r": "いう"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -487,37 +483,35 @@
       "tokens": [
         {
           "t": "池",
-          "r": "ike",
+          "r": "いけ",
           "role": "content",
           "word_id": "W00103"
         },
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location",
-          "r": "ni"
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "鳥",
-          "r": "tori",
+          "r": "とり",
           "role": "content",
           "word_id": "W00054"
         },
         {
           "t": "が",
           "role": "particle",
-          "grammar_id": "G002_ga_subject",
-          "r": "ga"
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "います",
-          "r": "imasu",
+          "r": "います",
           "role": "content",
           "word_id": "W00029"
         },
@@ -537,27 +531,27 @@
         },
         {
           "t": "あの",
-          "r": "ano",
+          "r": "あの",
           "role": "content",
           "word_id": "W00147",
           "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
           "t": "鳥",
-          "r": "tori",
+          "r": "とり",
           "role": "content",
           "word_id": "W00054"
         },
         {
           "t": "何",
-          "r": "nani",
+          "r": "なに",
           "role": "content",
           "word_id": "W00135",
           "grammar_id": "G045_nan_what"
         },
         {
           "t": "何",
-          "r": "nani",
+          "r": "なに",
           "role": "content",
           "word_id": "W00135",
           "grammar_id": "G037_ka_question"
@@ -565,14 +559,12 @@
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "desu"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "か",
           "role": "particle",
-          "grammar_id": "G037_ka_question",
-          "r": "ka"
+          "grammar_id": "G037_ka_question"
         },
         {
           "t": "」",
@@ -581,12 +573,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu",
-          "r": "to"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "友達",
-          "r": "tomodachi",
+          "r": "ともだち",
           "role": "content",
           "word_id": "W00022"
         },
@@ -594,17 +585,20 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "言います",
-          "r": "iimasu",
+          "r": "いいます",
           "role": "content",
           "word_id": "W00097",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "言う",
+            "verb_class": "godan",
+            "base_r": "いう"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -622,25 +616,24 @@
         },
         {
           "t": "黒い",
-          "r": "kuroi",
+          "r": "くろい",
           "role": "content",
           "word_id": "W00141",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "鳥",
-          "r": "tori",
+          "r": "とり",
           "role": "content",
           "word_id": "W00054"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "desu"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "」",
@@ -649,12 +642,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu",
-          "r": "to"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -662,17 +654,20 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "言います",
-          "r": "iimasu",
+          "r": "いいます",
           "role": "content",
           "word_id": "W00097",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "言う",
+            "verb_class": "godan",
+            "base_r": "いう"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -686,7 +681,7 @@
       "tokens": [
         {
           "t": "友達",
-          "r": "tomodachi",
+          "r": "ともだち",
           "role": "content",
           "word_id": "W00022"
         },
@@ -697,7 +692,7 @@
         },
         {
           "t": "空",
-          "r": "sora",
+          "r": "そら",
           "role": "content",
           "word_id": "W00047"
         },
@@ -708,13 +703,16 @@
         },
         {
           "t": "見ます",
-          "r": "mimasu",
+          "r": "みます",
           "role": "content",
           "word_id": "W00006",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "見る",
+            "verb_class": "ichidan",
+            "base_r": "みる"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -728,15 +726,14 @@
       "tokens": [
         {
           "t": "友達",
-          "r": "tomodachi",
+          "r": "ともだち",
           "role": "content",
           "word_id": "W00022"
         },
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and",
-          "r": "to"
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "妹",
@@ -752,7 +749,7 @@
         },
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -760,23 +757,26 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "一緒に",
-          "r": "isshoni",
+          "r": "いっしょに",
           "role": "content",
           "word_id": "W00050"
         },
         {
           "t": "歩きます",
-          "r": "arukimasu",
+          "r": "あるきます",
           "role": "content",
           "word_id": "W00017",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "歩く",
+            "verb_class": "godan",
+            "base_r": "あるく"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -790,19 +790,18 @@
       "tokens": [
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "no"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "心",
-          "r": "kokoro",
+          "r": "こころ",
           "role": "content",
           "word_id": "W00120"
         },
@@ -810,23 +809,22 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "r": "わ"
         },
         {
           "t": "嬉しい",
-          "r": "ureshii",
+          "r": "うれしい",
           "role": "content",
           "word_id": "W00056",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "desu"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
@@ -840,7 +838,7 @@
       "tokens": [
         {
           "t": "友達",
-          "r": "tomodachi",
+          "r": "ともだち",
           "role": "content",
           "word_id": "W00022"
         },
@@ -855,21 +853,21 @@
         },
         {
           "t": "いつ",
-          "r": "itsu",
+          "r": "いつ",
           "role": "content",
           "word_id": "W00145",
           "grammar_id": "G042_itsu_when"
         },
         {
           "t": "この",
-          "r": "kono",
+          "r": "この",
           "role": "content",
           "word_id": "W00148",
           "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
           "t": "公園",
-          "r": "kouen",
+          "r": "こうえん",
           "role": "content",
           "word_id": "W00016"
         },
@@ -880,13 +878,13 @@
         },
         {
           "t": "来ます",
-          "r": "kimasu",
+          "r": "きます",
           "role": "content",
           "word_id": "W00040",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "masu_polite_nonpast"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "か",
@@ -904,13 +902,16 @@
         },
         {
           "t": "言います",
-          "r": "iimasu",
+          "r": "いいます",
           "role": "content",
           "word_id": "W00097",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "form": "polite_nonpast",
+            "base": "言う",
+            "verb_class": "godan",
+            "base_r": "いう"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -945,15 +946,14 @@
       "tokens": [
         {
           "t": "約束",
-          "r": "yakusoku",
+          "r": "やくそく",
           "role": "content",
           "word_id": "W00132"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "desu"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
@@ -967,7 +967,7 @@
       "tokens": [
         {
           "t": "春",
-          "r": "haru",
+          "r": "はる",
           "role": "content",
           "word_id": "W00072"
         },
@@ -978,7 +978,7 @@
         },
         {
           "t": "夕方",
-          "r": "yuugata",
+          "r": "ゆうがた",
           "role": "content",
           "word_id": "W00018"
         },
@@ -988,14 +988,14 @@
         },
         {
           "t": "あの",
-          "r": "ano",
+          "r": "あの",
           "role": "content",
           "word_id": "W00147",
           "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
           "t": "花",
-          "r": "hana",
+          "r": "はな",
           "role": "content",
           "word_id": "W00024"
         },
@@ -1005,7 +1005,7 @@
         },
         {
           "t": "空",
-          "r": "sora",
+          "r": "そら",
           "role": "content",
           "word_id": "W00047"
         },
@@ -1016,7 +1016,7 @@
         },
         {
           "t": "鳥",
-          "r": "tori",
+          "r": "とり",
           "role": "content",
           "word_id": "W00054"
         },

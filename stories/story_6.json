@@ -135,7 +135,8 @@
             "base": "見る",
             "base_r": "みる",
             "form": "polite_nonpast",
-            "word_id": "W00006"
+            "word_id": "W00006",
+            "verb_class": "ichidan"
           },
           "grammar_id": "G026_masu_nonpast"
         },
@@ -366,9 +367,20 @@
       "idx": 7,
       "tokens": [
         {
-          "t": "色",
-          "r": "いろ",
+          "t": "雨",
           "role": "content",
+          "r": "あめ",
+          "word_id": "W00002"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "色",
+          "role": "content",
+          "r": "いろ",
           "word_id": "W00156",
           "is_new": true
         },
@@ -379,14 +391,14 @@
         },
         {
           "t": "あります",
-          "r": "あります",
           "role": "content",
+          "r": "あります",
           "word_id": "W00044",
           "inflection": {
             "base": "ある",
             "base_r": "ある",
             "form": "polite_nonpast",
-            "verb_class": "godan"
+            "verb_class": "irregular_aru"
           },
           "grammar_id": "G026_masu_nonpast"
         },
@@ -395,7 +407,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is color."
+      "gloss_en": "There is the color of rain."
     }
   ]
 }

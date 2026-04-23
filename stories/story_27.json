@@ -32,7 +32,7 @@
         "r": "うつくしい",
         "word_id": "W00083",
         "role": "content",
-        "grammar_id": "G023_attributive"
+        "grammar_id": "G022_i_adj"
       },
       {
         "t": "花",
@@ -49,7 +49,7 @@
         "r": "あつい",
         "word_id": "W00082",
         "role": "content",
-        "grammar_id": "G023_attributive"
+        "grammar_id": "G022_i_adj"
       },
       {
         "t": "朝",
@@ -186,7 +186,7 @@
           "word_id": "W00083",
           "role": "content",
           "is_new": true,
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "花",
@@ -296,7 +296,7 @@
           "role": "content",
           "r": "いい",
           "word_id": "W00013",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "椅子",
@@ -381,9 +381,10 @@
           "inflection": {
             "base": "寝る",
             "base_r": "ねる",
-            "form": "te_form",
-            "grammar_id": "G007_te_form"
-          }
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G007_te_form"
         },
         {
           "t": "います",
@@ -405,7 +406,7 @@
           "r": "ちいさい",
           "word_id": "W00055",
           "role": "content",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "鳥",
@@ -603,7 +604,7 @@
           "r": "あつい",
           "word_id": "W00082",
           "role": "content",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "夏",
@@ -620,7 +621,7 @@
           "r": "うつくしい",
           "word_id": "W00083",
           "role": "content",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "庭",

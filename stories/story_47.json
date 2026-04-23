@@ -6,7 +6,7 @@
     "tokens": [
       {
         "t": "誰",
-        "r": "dare",
+        "r": "だれ",
         "role": "content",
         "word_id": "W00140",
         "grammar_id": "G039_dare_who"
@@ -18,7 +18,7 @@
       },
       {
         "t": "傘",
-        "r": "kasa",
+        "r": "かさ",
         "role": "content",
         "word_id": "W00116"
       }
@@ -30,17 +30,17 @@
     "tokens": [
       {
         "t": "黒い",
-        "r": "kuroi",
+        "r": "くろい",
         "role": "content",
         "word_id": "W00141",
         "inflection": {
-          "form": "plain_nonpast",
-          "grammar_id": "G022_i_adj"
-        }
+          "form": "plain_nonpast"
+        },
+        "grammar_id": "G022_i_adj"
       },
       {
         "t": "傘",
-        "r": "kasa",
+        "r": "かさ",
         "role": "content",
         "word_id": "W00116"
       },
@@ -99,7 +99,7 @@
       "tokens": [
         {
           "t": "雨",
-          "r": "ame",
+          "r": "あめ",
           "role": "content",
           "word_id": "W00002"
         },
@@ -110,7 +110,7 @@
         },
         {
           "t": "夕方",
-          "r": "yuugata",
+          "r": "ゆうがた",
           "role": "content",
           "word_id": "W00018"
         },
@@ -145,7 +145,7 @@
           "role": "content",
           "r": "くろい",
           "word_id": "W00141",
-          "grammar_id": "G023_attributive",
+          "grammar_id": "G022_i_adj",
           "is_new": true
         },
         {
@@ -195,7 +195,7 @@
       "tokens": [
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -206,7 +206,7 @@
         },
         {
           "t": "傘",
-          "r": "kasa",
+          "r": "かさ",
           "role": "content",
           "word_id": "W00116"
         },
@@ -217,14 +217,14 @@
         },
         {
           "t": "赤い",
-          "r": "akai",
+          "r": "あかい",
           "role": "content",
           "word_id": "W00142",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
+            "form": "plain_nonpast"
           },
-          "is_new": true
+          "is_new": true,
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -243,17 +243,17 @@
       "tokens": [
         {
           "t": "黒い",
-          "r": "kuroi",
+          "r": "くろい",
           "role": "content",
           "word_id": "W00141",
           "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+            "form": "attributive"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "傘",
-          "r": "kasa",
+          "r": "かさ",
           "role": "content",
           "word_id": "W00116"
         },
@@ -264,7 +264,7 @@
         },
         {
           "t": "誰",
-          "r": "dare",
+          "r": "だれ",
           "role": "content",
           "word_id": "W00140",
           "is_new": true,
@@ -278,7 +278,7 @@
         },
         {
           "t": "傘",
-          "r": "kasa",
+          "r": "かさ",
           "role": "content",
           "word_id": "W00116"
         },
@@ -304,7 +304,7 @@
       "tokens": [
         {
           "t": "友達",
-          "r": "tomodachi",
+          "r": "ともだち",
           "role": "content",
           "word_id": "W00022"
         },
@@ -315,7 +315,7 @@
         },
         {
           "t": "傘",
-          "r": "kasa",
+          "r": "かさ",
           "role": "content",
           "word_id": "W00116"
         },
@@ -341,7 +341,7 @@
       "tokens": [
         {
           "t": "友達",
-          "r": "tomodachi",
+          "r": "ともだち",
           "role": "content",
           "word_id": "W00022"
         },
@@ -352,7 +352,7 @@
         },
         {
           "t": "傘",
-          "r": "kasa",
+          "r": "かさ",
           "role": "content",
           "word_id": "W00116"
         },
@@ -363,13 +363,13 @@
         },
         {
           "t": "黒くない",
-          "r": "kuronai",
+          "r": "くろない",
           "role": "content",
           "word_id": "W00141",
           "inflection": {
-            "form": "kunai",
-            "grammar_id": "G038_kunai"
-          }
+            "form": "kunai"
+          },
+          "grammar_id": "G038_kunai"
         },
         {
           "t": "です",
@@ -388,7 +388,7 @@
       "tokens": [
         {
           "t": "祖母",
-          "r": "sobo",
+          "r": "そぼ",
           "role": "content",
           "word_id": "W00098"
         },
@@ -399,7 +399,7 @@
         },
         {
           "t": "傘",
-          "r": "kasa",
+          "r": "かさ",
           "role": "content",
           "word_id": "W00116"
         },
@@ -425,7 +425,7 @@
       "tokens": [
         {
           "t": "祖母",
-          "r": "sobo",
+          "r": "そぼ",
           "role": "content",
           "word_id": "W00098"
         },
@@ -436,7 +436,7 @@
         },
         {
           "t": "傘",
-          "r": "kasa",
+          "r": "かさ",
           "role": "content",
           "word_id": "W00116"
         },
@@ -447,13 +447,13 @@
         },
         {
           "t": "古い",
-          "r": "furui",
+          "r": "ふるい",
           "role": "content",
           "word_id": "W00067",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -472,17 +472,17 @@
       "tokens": [
         {
           "t": "黒い",
-          "r": "kuroi",
+          "r": "くろい",
           "role": "content",
           "word_id": "W00141",
           "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+            "form": "attributive"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "傘",
-          "r": "kasa",
+          "r": "かさ",
           "role": "content",
           "word_id": "W00116"
         },
@@ -493,13 +493,13 @@
         },
         {
           "t": "新しい",
-          "r": "atarashii",
+          "r": "あたらしい",
           "role": "content",
           "word_id": "W00066",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -578,7 +578,7 @@
       "tokens": [
         {
           "t": "本",
-          "r": "hon",
+          "r": "ほん",
           "role": "content",
           "word_id": "W00033"
         },
@@ -589,7 +589,7 @@
         },
         {
           "t": "店",
-          "r": "mise",
+          "r": "みせ",
           "role": "content",
           "word_id": "W00084"
         },
@@ -600,7 +600,7 @@
         },
         {
           "t": "人",
-          "r": "hito",
+          "r": "ひと",
           "role": "content",
           "word_id": "W00113"
         },
@@ -672,7 +672,7 @@
           "role": "content",
           "r": "いたい",
           "word_id": "W00163",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "心",
@@ -708,7 +708,7 @@
       "tokens": [
         {
           "t": "私",
-          "r": "watashi",
+          "r": "わたし",
           "role": "content",
           "word_id": "W00003"
         },
@@ -719,13 +719,13 @@
         },
         {
           "t": "嬉しい",
-          "r": "ureshii",
+          "r": "うれしい",
           "role": "content",
           "word_id": "W00056",
           "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+            "form": "plain_nonpast"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -747,7 +747,7 @@
           "role": "content",
           "r": "くろい",
           "word_id": "W00141",
-          "grammar_id": "G023_attributive"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "傘",
@@ -806,7 +806,7 @@
       "tokens": [
         {
           "t": "雨",
-          "r": "ame",
+          "r": "あめ",
           "role": "content",
           "word_id": "W00002"
         },
@@ -817,7 +817,7 @@
         },
         {
           "t": "夕方",
-          "r": "yuugata",
+          "r": "ゆうがた",
           "role": "content",
           "word_id": "W00018"
         },
@@ -827,17 +827,17 @@
         },
         {
           "t": "黒い",
-          "r": "kuroi",
+          "r": "くろい",
           "role": "content",
           "word_id": "W00141",
           "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
+            "form": "attributive"
+          },
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "傘",
-          "r": "kasa",
+          "r": "かさ",
           "role": "content",
           "word_id": "W00116"
         },
