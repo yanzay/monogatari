@@ -11,10 +11,16 @@ import pytest
 from _helpers import iter_tokens
 
 VALID_POS = {
-    "noun", "verb", "adjective", "i_adjective", "na_adjective", "adverb",
+    "noun", "verb", "i_adjective", "na_adjective", "adverb",
     "pronoun", "expression", "particle", "interjection", "conjunction",
     "counter", "prefix", "suffix",
 }
+# Note: the legacy bare "adjective" tag was deliberately removed on
+# 2026-04-23 in favour of the canonical i_adjective / na_adjective split.
+# The bare tag silently bypassed the inflection check (Check 5) because
+# validate.py couldn't pick the right conjugation table without an
+# explicit class. Keep this set strict — see test_vocab_adjective_pos_canonical
+# below for the migration guardrail.
 
 VALID_VERB_CLASS = {
     "ichidan", "godan", "irregular", "irregular_kuru", "irregular_suru",
@@ -22,6 +28,17 @@ VALID_VERB_CLASS = {
 }
 
 VALID_JLPT = {"N5", "N4", "N3", "N2", "N1"}
+
+# Known na-adjectives whose kana happens to end in い. Maintained explicitly
+# so the kana-shape heuristic doesn't false-positive against them. Add new
+# exceptions here only after consulting a reference.
+NA_ADJECTIVES_ENDING_IN_I = {
+    "きれい",   # きれい (clean, beautiful) — classic exception
+    "ゆうめい", # 有名 (famous) — though usually written 有名 (no い in stem)
+    "きらい",   # 嫌い (dislike)
+    "とくい",   # 得意 (good at)
+    "にがて",   # not い-ending but listed for reference
+}
 
 
 # ── Vocab integrity ─────────────────────────────────────────────────────
@@ -64,6 +81,79 @@ def test_vocab_pos_in_known_set(vocab):
     bad = [(wid, w["pos"]) for wid, w in vocab["words"].items()
            if w.get("pos") not in VALID_POS]
     assert not bad, f"Unknown POS values: {bad}\n  Valid: {sorted(VALID_POS)}"
+
+
+def test_vocab_adjective_pos_canonical(vocab):
+    """Adjectives must use the canonical i_adjective / na_adjective POS labels.
+
+    The bare "adjective" tag was removed from VALID_POS on 2026-04-23 because
+    it silently bypassed the validator's inflection check (Check 5) — without
+    an explicit i/na class, validate.py could not pick the right conjugation
+    table, so 寒くて vs 寒じゃなくて kinds of mistakes shipped unchecked.
+
+    This test is the explicit drift guardrail. It catches:
+      * Any new vocab entry that re-introduces pos="adjective".
+      * Any hyphenated variant (i-adjective / na-adjective) that bypasses the
+        VALID_POS set check (which only flags "not in set", not "looks like a
+        forbidden legacy form").
+    """
+    bad: list[str] = []
+    for wid, w in vocab["words"].items():
+        pos = w.get("pos", "")
+        if pos == "adjective":
+            bad.append(
+                f"{wid} ({w.get('surface')}): pos='adjective' is a forbidden "
+                f"legacy tag — use 'i_adjective' or 'na_adjective' instead "
+                f"(the canonical class enables Check 5 inflection validation)."
+            )
+        elif pos in ("i-adjective", "na-adjective"):
+            bad.append(
+                f"{wid} ({w.get('surface')}): pos={pos!r} uses the hyphenated "
+                f"legacy form — use {pos.replace('-', '_')!r} instead."
+            )
+    assert not bad, "Non-canonical adjective POS labels:\n  " + "\n  ".join(bad)
+
+
+def test_vocab_i_adjective_kana_consistency(vocab):
+    """i-adjectives must end in い in kana; na-adjectives must not (with whitelist).
+
+    A semantic guardrail against the actual mistake we just cleaned up:
+    several i-adjectives had been tagged as plain "adjective" (or worse, as
+    na_adjective), which broke conjugation handling. The shape of the kana
+    form is a reliable test:
+
+      * i-adjective dictionary form ALWAYS ends in い (e.g. 寒い → さむい).
+      * na-adjective dictionary form usually does NOT end in い
+        (e.g. 静か → しずか). The known い-ending na-adjectives are listed
+        in NA_ADJECTIVES_ENDING_IN_I above.
+
+    This is the kind of test that fails *loudly* when someone scaffolds a
+    new word and JMdict mislabels it, or when a manual edit gets the class
+    wrong. False-positives can be added to the whitelist deliberately.
+    """
+    bad: list[str] = []
+    for wid, w in vocab["words"].items():
+        pos = w.get("pos", "")
+        kana = (w.get("kana") or "").strip()
+        if not kana:
+            continue
+        ends_i = kana.endswith("い")
+
+        if pos == "i_adjective" and not ends_i:
+            bad.append(
+                f"{wid} ({w.get('surface')}, kana={kana!r}): tagged "
+                f"i_adjective but kana does not end in 'い'. Either the "
+                f"tag is wrong or this is a rare exception; in the latter "
+                f"case add a comment in vocab_state.json explaining why."
+            )
+        elif pos == "na_adjective" and ends_i and kana not in NA_ADJECTIVES_ENDING_IN_I:
+            bad.append(
+                f"{wid} ({w.get('surface')}, kana={kana!r}): tagged "
+                f"na_adjective but kana ends in 'い' and is not in the "
+                f"NA_ADJECTIVES_ENDING_IN_I whitelist. This is almost "
+                f"certainly an i-adjective; if not, whitelist it explicitly."
+            )
+    assert not bad, "i/na adjective POS does not match kana shape:\n  " + "\n  ".join(bad)
 
 
 def test_vocab_verb_class_in_known_set(vocab):

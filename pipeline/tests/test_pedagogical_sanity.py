@@ -168,6 +168,47 @@ def test_grammar_introduction_cadence(stories, root):
     assert not bad, "Grammar cadence violations:\n  " + "\n  ".join(bad)
 
 
+def test_vocabulary_introduction_cadence(stories, root):
+    """Vocabulary cadence — mirror of the grammar cadence test (Rule A only).
+
+    Hard rule (added 2026-04-23):
+
+      Every story past the bootstrap window 1..BOOTSTRAP_END must declare at
+      least MIN_NEW_WORDS_PER_STORY new vocabulary items. The pedagogical
+      motivation is the same as the grammar cadence: a graded reader that
+      stops growing its vocabulary stops being a graded reader.
+
+    Bootstrap stories are exempt because story 1 loads ~14 foundational nouns
+    in one shot, which would make a uniform per-story floor misleading.
+
+    No rolling-window minimum yet — the per-story floor is strictly stronger
+    than any reasonable window-min would be (3 per story = 15 per 5-story
+    window), so a window rule would be redundant.
+    """
+    sys.path.insert(0, str(root / "pipeline"))
+    from grammar_progression import (
+        BOOTSTRAP_END,
+        MIN_NEW_WORDS_PER_STORY,
+    )
+
+    bad: list[str] = []
+    for story in stories:
+        n = int(story["_id"].split("_")[1])
+        if n <= BOOTSTRAP_END:
+            continue  # bootstrap stories are exempt
+        new_words = story.get("new_words") or []
+        if len(new_words) < MIN_NEW_WORDS_PER_STORY:
+            bad.append(
+                f"story_{n}: introduces {len(new_words)} new vocabulary item(s) "
+                f"(minimum {MIN_NEW_WORDS_PER_STORY} after bootstrap): {new_words}"
+            )
+
+    assert not bad, (
+        "Vocabulary cadence violations (Check 3.7):\n  "
+        + "\n  ".join(bad)
+    )
+
+
 def test_introduced_grammar_is_reinforced(stories, root):
     """Every newly-introduced grammar point must be reinforced in the next stories.
 
@@ -332,6 +373,203 @@ def test_all_words_used_in_first_seen_order(stories):
         if seen != declared:
             bad.append(f"{story['_id']}:\n      declared: {declared}\n      actual:   {seen}")
     assert not bad, "all_words_used drift:\n  " + "\n  ".join(bad)
+
+
+def test_vocab_words_are_reinforced(stories, root):
+    """Rule R1 — Every newly-introduced word must be reinforced early.
+
+    A word declared in story_N's `new_words` must appear (as a `word_id` on
+    any content token) in at least VOCAB_REINFORCE_MIN_USES of the next
+    VOCAB_REINFORCE_WINDOW stories.
+
+    Rationale: introducing a word once and then leaving it unseen for the
+    entire reinforcement window means it was never truly in the curriculum.
+    Two appearances in the next ten stories is the minimum bar for the word
+    to have any chance of landing in long-term memory (cf. Nation 2022:
+    vocabulary needs ~10 spaced encounters for reliable incidental retention;
+    the early-window check seeds the first two of those encounters).
+
+    Stories near the end of the library may have a shorter look-ahead window;
+    in that case the test only requires that the word appears in
+    min(VOCAB_REINFORCE_MIN_USES, available_stories) of those stories — no
+    impossible bar, but no escape hatch either.
+
+    Words with a shorter available window than VOCAB_REINFORCE_MIN_USES are
+    skipped (the library is still young and hasn't had a chance to reinforce
+    them yet).
+    """
+    sys.path.insert(0, str(root / "pipeline"))
+    from grammar_progression import (
+        BOOTSTRAP_END,
+        VOCAB_REINFORCE_WINDOW,
+        VOCAB_REINFORCE_MIN_USES,
+    )
+
+    # Build per-story word-id usage map
+    by_n: dict[int, dict] = {}
+    for story in stories:
+        n = int(story["_id"].split("_")[1])
+        by_n[n] = story
+    if not by_n:
+        return
+
+    def word_ids_used(story: dict) -> set[str]:
+        used: set[str] = set()
+        for sec in ("title", "subtitle"):
+            for tok in (story.get(sec) or {}).get("tokens", []):
+                if tok.get("role") == "content" and tok.get("word_id"):
+                    used.add(tok["word_id"])
+        for sent in story.get("sentences", []):
+            for tok in sent.get("tokens", []):
+                if tok.get("role") == "content" and tok.get("word_id"):
+                    used.add(tok["word_id"])
+        return used
+
+    used: dict[int, set[str]] = {n: word_ids_used(s) for n, s in by_n.items()}
+
+    # Build per-story new_words map
+    intros: dict[int, list[str]] = {}
+    for n, story in by_n.items():
+        if n <= BOOTSTRAP_END:
+            continue  # bootstrap stories are exempt
+        ids = [w if isinstance(w, str) else w.get("id") or w.get("word_id", "")
+               for w in (story.get("new_words") or [])]
+        intros[n] = [i for i in ids if i]
+
+    bad: list[str] = []
+
+    for n, ids in intros.items():
+        if not ids:
+            continue
+        followups = [i for i in range(n + 1, n + 1 + VOCAB_REINFORCE_WINDOW)
+                     if i in by_n]
+        # Skip if the library doesn't yet have enough follow-up stories to judge
+        if len(followups) < VOCAB_REINFORCE_MIN_USES:
+            continue
+        required = min(VOCAB_REINFORCE_MIN_USES, len(followups))
+        for wid in ids:
+            hits = [i for i in followups if wid in used.get(i, set())]
+            if len(hits) < required:
+                bad.append(
+                    f"story_{n} introduced {wid} but it only reappears in "
+                    f"{len(hits)} of the next {len(followups)} stories "
+                    f"(stories {hits or 'none'}); needs ≥{required} for "
+                    f"early reinforcement to land."
+                )
+
+    assert not bad, (
+        "Vocabulary early-reinforcement violations (Rule R1):\n  "
+        + "\n  ".join(bad)
+    )
+
+
+def test_no_vocab_word_abandoned(stories, root):
+    """Rule R2 — No word may go unseen for more than VOCAB_MAX_GAP stories.
+
+    For every word in the library, we compute the longest consecutive gap
+    between uses across the full story sequence. If that gap exceeds
+    VOCAB_MAX_GAP stories, the word is considered abandoned.
+
+    Rationale: 20 stories without a single encounter is roughly 6-8 weeks
+    of reading at a typical pace. SLA research (Nation 2022; Waring & Takaki
+    2003) indicates that incidental vocabulary gains erode significantly
+    without recycling within that timeframe. A word that hasn't appeared in
+    20 stories either needs to be explicitly reintroduced or removed from the
+    vocabulary inventory.
+
+    Exemptions:
+    - Words introduced in the last VOCAB_ABANDON_GRACE stories (they simply
+      haven't had time to build up a gap yet).
+    - Words are only evaluated up to the last story in which they appear;
+      the "trailing gap" from last use to the end of the library is not
+      penalised here (that would punish every word introduced late, including
+      brand-new words). Rule R1 catches the "introduced and never seen again"
+      case for recently-introduced words; R2 focuses on mid-library dropouts.
+
+    """
+    sys.path.insert(0, str(root / "pipeline"))
+    from grammar_progression import VOCAB_MAX_GAP, VOCAB_ABANDON_GRACE
+
+    # Build per-story word-id usage map (content tokens only)
+    by_n: dict[int, dict] = {}
+    for story in stories:
+        n = int(story["_id"].split("_")[1])
+        by_n[n] = story
+    if not by_n:
+        return
+    max_n = max(by_n)
+
+    def word_ids_used(story: dict) -> set[str]:
+        used: set[str] = set()
+        for sec in ("title", "subtitle"):
+            for tok in (story.get(sec) or {}).get("tokens", []):
+                if tok.get("role") == "content" and tok.get("word_id"):
+                    used.add(tok["word_id"])
+        for sent in story.get("sentences", []):
+            for tok in sent.get("tokens", []):
+                if tok.get("role") == "content" and tok.get("word_id"):
+                    used.add(tok["word_id"])
+        return used
+
+    used_by_story: dict[int, set[str]] = {n: word_ids_used(s) for n, s in by_n.items()}
+
+    # For each word, collect the sorted list of story_ids in which it appears
+    word_appearances: dict[str, list[int]] = {}
+    for n, wids in used_by_story.items():
+        for wid in wids:
+            word_appearances.setdefault(wid, []).append(n)
+    for wid in word_appearances:
+        word_appearances[wid].sort()
+
+    # Collect intro story per word (from new_words fields)
+    word_intro: dict[str, int] = {}
+    for n, story in by_n.items():
+        for w in story.get("new_words") or []:
+            wid = w if isinstance(w, str) else w.get("id") or w.get("word_id", "")
+            if wid and wid not in word_intro:
+                word_intro[wid] = n
+
+    bad: list[str] = []
+
+    for wid, appearances in word_appearances.items():
+        intro_n = word_intro.get(wid, appearances[0])
+
+        # Grace period: skip words introduced in the last VOCAB_ABANDON_GRACE stories
+        if intro_n >= max_n - VOCAB_ABANDON_GRACE + 1:
+            continue
+
+        if len(appearances) < 2:
+            # Only one appearance — trailing gap from that story to max_n
+            last = appearances[0]
+            trailing_gap = max_n - last
+            if trailing_gap > VOCAB_MAX_GAP:
+                bad.append(
+                    f"{wid}: appeared only in story_{last}, then absent for "
+                    f"{trailing_gap} stories (through story_{max_n}); "
+                    f"max allowed gap is {VOCAB_MAX_GAP}."
+                )
+            continue
+
+        # Check gaps between consecutive appearances
+        max_internal_gap = 0
+        worst_pair: tuple[int, int] = (appearances[0], appearances[1])
+        for prev, curr in zip(appearances, appearances[1:]):
+            gap = curr - prev - 1  # stories *between* the two appearances
+            if gap > max_internal_gap:
+                max_internal_gap = gap
+                worst_pair = (prev, curr)
+
+        if max_internal_gap > VOCAB_MAX_GAP:
+            bad.append(
+                f"{wid}: gap of {max_internal_gap} stories between "
+                f"story_{worst_pair[0]} and story_{worst_pair[1]} "
+                f"(max allowed {VOCAB_MAX_GAP})."
+            )
+
+    assert not bad, (
+        f"Vocabulary abandonment violations (Rule R2, gap > {VOCAB_MAX_GAP} stories):\n  "
+        + "\n  ".join(sorted(bad))
+    )
 
 
 def test_sentence_idx_is_sequential(stories):

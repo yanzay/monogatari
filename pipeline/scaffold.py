@@ -145,14 +145,17 @@ def _enrich_word_from_jmdict(surface: str | None) -> dict | None:
     h = hits[0]
     kana = (h.kana[0] if h.kana else (derive_kana(surface) or surface)) or surface
     pos_label = (h.pos[0].lower() if h.pos else "")
+    # Canonical POS labels: i_adjective / na_adjective / noun / verb / etc.
+    # JMdict labels these as "adjective (keiyoushi)" / "adjective (i-)" /
+    # "adjective (na-)"; we collapse to the canonical underscore form.
     if "adjective" in pos_label and ("i-" in pos_label or "(keiyoushi)" in pos_label):
-        pos, vclass = "adjective", None
-    elif "adjective" in pos_label or "na-adjective" in pos_label:
-        pos, vclass = "adjective", None
+        pos, vclass, ac = "i_adjective", None, "i"
+    elif "na-adjective" in pos_label or "adjective" in pos_label:
+        pos, vclass, ac = "na_adjective", None, "na"
     elif "noun" in pos_label or "名詞" in pos_label:
-        pos, vclass = "noun", None
+        pos, vclass, ac = "noun", None, None
     else:
-        pos, vclass = "noun", None
+        pos, vclass, ac = "noun", None, None
 
     return {
         "surface": surface,
@@ -160,7 +163,7 @@ def _enrich_word_from_jmdict(surface: str | None) -> dict | None:
         "reading": kana_to_romaji(kana),
         "pos": pos,
         "verb_class": vclass,
-        "adj_class": "i" if "i-" in pos_label else ("na" if "na-" in pos_label else None) if pos == "adjective" else None,
+        "adj_class": ac,
         "meanings": [h.senses[0]] if h.senses else ["<primary English meaning>"],
         "_jmdict_pos": pos_label,  # diagnostic; you can delete this before shipping
     }

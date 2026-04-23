@@ -295,9 +295,17 @@ def expected_reading(word: dict, surface: str, inflection: Optional[dict]) -> Op
     if inflection and isinstance(inflection, dict):
         base = inflection.get("base_r") or inflection.get("base") or word.get("kana", "")
         form = inflection.get("form", "")
-        vclass = word.get("verb_class") or word.get("adj_class")
-        if word.get("pos") == "adjective":
-            vclass = word.get("adj_class", "") + "_adjective"
+        pos = word.get("pos", "")
+        # Canonical POS labels (i_adjective / na_adjective) carry the class
+        # directly. Fall back to adj_class for the legacy schema where
+        # pos == "adjective" + adj_class == "i" / "na" / "irregular".
+        if pos in ("i_adjective", "na_adjective"):
+            vclass = pos
+        elif pos == "adjective":
+            ac = word.get("adj_class", "")
+            vclass = (ac + "_adjective") if ac else None
+        else:
+            vclass = word.get("verb_class") or word.get("adj_class")
         return conjugate(base, form, vclass)
     return word.get("kana")
 
@@ -901,6 +909,39 @@ def validate(
     #     Reinforcement is now a LIBRARY-level concern handled by Check 6's
     #     starvation alarm and by the next planner's --weak word suggestions.
     bootstrap_story = len(story_new_words) >= 8 or len(story_new_grammar) >= 4
+
+    # ── Check 3.7: Vocabulary cadence floor (HARD error) ──────────────────
+    # After the bootstrap window, every story must introduce at least
+    # MIN_NEW_WORDS_PER_STORY new vocabulary items. A graded reader that
+    # stops growing vocabulary stops being a graded reader. Bootstrap
+    # stories (story_id <= BOOTSTRAP_END) are exempt because they load
+    # foundational vocabulary in bulk. See pipeline/grammar_progression.py
+    # for the constants and the rationale.
+    sid_for_vocab_cadence = story.get("story_id")
+    if isinstance(sid_for_vocab_cadence, int) and sid_for_vocab_cadence > 0:
+        try:
+            from grammar_progression import (
+                BOOTSTRAP_END as _BOOT_END,
+                MIN_NEW_WORDS_PER_STORY as _MIN_NEW_WORDS,
+            )
+            if sid_for_vocab_cadence > _BOOT_END:
+                if len(story_new_words) < _MIN_NEW_WORDS:
+                    result.add_error(
+                        "3.7",
+                        f"story {sid_for_vocab_cadence} introduces "
+                        f"{len(story_new_words)} new vocabulary item(s) "
+                        f"(minimum {_MIN_NEW_WORDS} per story after the "
+                        f"bootstrap window 1..{_BOOT_END}). A graded reader "
+                        f"that stops growing its vocabulary stops being a "
+                        f"graded reader; declare more new_words in the plan "
+                        f"or defer this story until vocabulary catches up."
+                    )
+        except Exception:
+            # Soft-skip if grammar_progression cannot be imported (e.g. test
+            # fixtures running validate() in isolation). The library-level
+            # pytest still enforces the rule.
+            pass
+
     new_word_min_uses    = 1                 # always 1 (new vocab) — see above.
     # Same-story new-grammar redundancy lowered to 1 on 2026-04-22 with the
     # introduction of Check 3.8 (library-wide reinforcement). The old "≥2 in
@@ -1314,6 +1355,135 @@ def validate(
             except Exception:
                 pass
     except ImportError:
+        pass
+
+    # ── Check 13: Anti-repetition opener guard (HARD error) ─────────────────
+    # Refuse a story if its sentence-0 opener template (first N chars of the
+    # joined JP) matches any of the previous K stories OR is on the library
+    # opener blocklist. Config lives in pipeline/forbidden_patterns.json.
+    try:
+        from pathlib import Path as _Path
+        cfg_path = _Path(__file__).resolve().parent / "forbidden_patterns.json"
+        if cfg_path.is_file():
+            cfg = json.loads(cfg_path.read_text(encoding="utf-8"))
+            rules = cfg.get("rules", {})
+            window = int(rules.get("consecutive_opener_window", 3))
+            n_chars = int(rules.get("consecutive_opener_template_max_chars", 8))
+            blocklist = list(rules.get("library_opener_blocklist", []))
+            grandfather_until = int(rules.get("grandfather_until_story_id", 0))
+
+            sid_for_opener = story.get("story_id")
+            grandfathered = (
+                isinstance(sid_for_opener, int)
+                and sid_for_opener > 0
+                and sid_for_opener <= grandfather_until
+            )
+
+            def _emit_check13(msg: str, loc: str = "sentence 0") -> None:
+                if grandfathered:
+                    result.add_warning(f"[Check 13 (grandfathered)] {loc}: {msg}")
+                else:
+                    result.add_error(13, msg, loc)
+
+            def _emit_check14(msg: str, loc: str = "title") -> None:
+                if grandfathered:
+                    result.add_warning(f"[Check 14 (grandfathered)] {loc}: {msg}")
+                else:
+                    result.add_error(14, msg, loc)
+
+            if (
+                isinstance(sid_for_opener, int)
+                and sid_for_opener > 0
+                and sentences
+                and sentences[0].get("tokens")
+            ):
+                s0_text = "".join(t.get("t", "") for t in sentences[0]["tokens"])
+                s0_template = s0_text[:n_chars]
+
+                # Blocklist check (always-on, station-keeping)
+                for banned in blocklist:
+                    if s0_text.startswith(banned):
+                        _emit_check13(
+                            f"Sentence 0 opens with the library-blocked template "
+                            f"'{banned}'. The opener must vary; pick a different "
+                            f"shape. Edit pipeline/forbidden_patterns.json only "
+                            f"with a justification comment."
+                        )
+                        break
+
+                # Sliding-window check vs. previous K stories
+                stories_dir = _Path(__file__).resolve().parent.parent / "stories"
+                prior_openers: list[tuple[int, str]] = []
+                if stories_dir.is_dir():
+                    for path in stories_dir.glob("story_*.json"):
+                        try:
+                            other_sid = int(path.stem.split("_")[1])
+                        except (ValueError, IndexError):
+                            continue
+                        if other_sid >= sid_for_opener or other_sid <= 0:
+                            continue
+                        try:
+                            other = json.loads(path.read_text(encoding="utf-8"))
+                        except Exception:
+                            continue
+                        other_sents = other.get("sentences") or []
+                        if not other_sents or not other_sents[0].get("tokens"):
+                            continue
+                        other_s0 = "".join(
+                            t.get("t", "") for t in other_sents[0]["tokens"]
+                        )
+                        prior_openers.append((other_sid, other_s0[:n_chars]))
+                prior_openers.sort(key=lambda x: -x[0])
+                for other_sid, other_template in prior_openers[:window]:
+                    if other_template and other_template == s0_template:
+                        _emit_check13(
+                            f"Sentence 0 opener template '{s0_template}' matches "
+                            f"story_{other_sid}'s opener verbatim (within the "
+                            f"last {window} stories). Pre-check item 5 of the "
+                            f"engagement-review prompt requires a fresh opener."
+                        )
+                        break
+
+            # ── Check 14: Title must not be the new-grammar surface form ────
+            if rules.get("title_must_not_equal_grammar_form", True):
+                title_text = ""
+                title = story.get("title") or {}
+                if isinstance(title, dict):
+                    title_text = title.get("jp") or "".join(
+                        t.get("t", "") for t in title.get("tokens", [])
+                    )
+                title_text = title_text.strip()
+                new_grammar = story.get("new_grammar") or []
+                if title_text and isinstance(new_grammar, list):
+                    grammar_table = grammar.get("points", {}) if isinstance(grammar, dict) else {}
+                    for gid in new_grammar:
+                        if not isinstance(gid, str):
+                            continue
+                        gpoint = grammar_table.get(gid) or {}
+                        gsurfaces = gpoint.get("surfaces") or gpoint.get("surface_forms") or []
+                        if isinstance(gsurfaces, str):
+                            gsurfaces = [gsurfaces]
+                        for surf in gsurfaces:
+                            if not isinstance(surf, str) or not surf:
+                                continue
+                            if title_text == surf or title_text.endswith(surf):
+                                # Allow title to *contain* the form mid-phrase,
+                                # but a bare title that is the form (or ends
+                                # with it after a noun) is the failure mode we
+                                # want to catch ("待ちません", "行きましょう",
+                                # "新しい傘がほしい" is borderline; require the
+                                # title surface to be at least 1.5x the form
+                                # surface to escape).
+                                if len(title_text) < int(len(surf) * 1.5):
+                                    _emit_check14(
+                                        f"Title '{title_text}' is essentially the "
+                                        f"new-grammar surface form '{surf}' "
+                                        f"(grammar {gid}). Re-title the story so "
+                                        f"the form is not the headline — the form "
+                                        f"should serve the plot, not be the plot."
+                                    )
+                                    break
+    except Exception:  # never let a guardrail crash the validator
         pass
 
     # ── Check 10: Round-trip ──────────────────────────────────────────────────

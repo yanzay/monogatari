@@ -159,6 +159,19 @@ MAX_NEW_PER_STORY = 1        # after bootstrap: at most one introduction per sto
 CADENCE_WINDOW = 5           # rolling window (stories) for the minimum rule
 MIN_NEW_PER_WINDOW = 1       # at least this many introductions per window
 
+# ── Vocabulary cadence (separate from the grammar cadence above) ──────────
+# After the bootstrap window, every story must introduce at least
+# MIN_NEW_WORDS_PER_STORY new vocabulary items. The pedagogical motivation
+# is the same as the grammar cadence: a graded reader that stops growing
+# its vocabulary stops being a graded reader. Three new content words per
+# story is the planner's long-standing default (see planner.py:--n-new-words)
+# and matches the rate at which the curated catalogs grow.
+#
+# Bootstrap stories (story_id <= BOOTSTRAP_END) are exempt because story 1
+# loads ~14 foundational nouns at once, which would make a uniform floor
+# misleading. After bootstrap the floor is hard.
+MIN_NEW_WORDS_PER_STORY = 3
+
 # Reinforcement window: a freshly-introduced grammar point must be re-used
 # (i.e. appear in at least one token) in at least MIN_REINFORCEMENT_USES of
 # the next REINFORCEMENT_WINDOW stories that follow its introduction.
@@ -170,6 +183,55 @@ MIN_REINFORCEMENT_USES = 1   # the point must appear in ≥1 of those 5 stories
                              # signal that the introduction has any future
                              # role; missing it means the point was a one-shot
                              # and the introduction was wasted)
+
+# ── Vocabulary reinforcement cadence ──────────────────────────────────────────
+#
+# Newly-introduced words also need early reinforcement — introducing a word
+# once and never revisiting it for dozens of stories defeats the purpose of
+# the spaced-repetition reading approach.
+#
+# Two complementary rules:
+#
+#   Rule R1 (early reinforcement):
+#     A word introduced in story_N must appear again in at least
+#     VOCAB_REINFORCE_MIN_USES of the next VOCAB_REINFORCE_WINDOW stories
+#     (story N+1 … N+W). This catches "one-and-done" introductions while
+#     the word is still warm in working memory.
+#
+#     Window: 10 stories. Minimum reuses: 2.
+#     Rationale: The grammar reinforcement window (5/1) is calibrated for
+#     grammar *structures*, which are reused implicitly via any sentence.
+#     Content vocabulary needs more deliberate repetition because it isn't
+#     automatically carried by every sentence. Ten stories gives the author
+#     enough runway to weave the word back in naturally without forcing it
+#     into every subsequent story. Two hits (not one) avoids the case where
+#     a word sneaks into one story and then disappears — two exposures in the
+#     window is the minimum signal that the word has an ongoing role.
+#     This maps to ENCOUNTERS_TO_NOTICE (10) as a long-run target; the
+#     early-window check is the on-ramp.
+#
+#   Rule R2 (no abandoned words):
+#     No word that has been in the library for more than VOCAB_MAX_GAP stories
+#     may go unseen for more than VOCAB_MAX_GAP consecutive stories.
+#     "In the library" means its last_seen_story is tracked, but here we
+#     compute it live from the story files so it cannot be gamed by a
+#     stale state entry.
+#
+#     Gap: 20 stories. Exemption: words introduced in the last
+#     VOCAB_ABANDON_GRACE stories (too new to have a gap yet).
+#     Rationale: 20 stories at ~3 sessions/week ≈ 7 weeks without a single
+#     encounter. Research (Nation 2022, Waring & Takaki 2003) suggests that
+#     without any recycling within 6–8 weeks, incidental reading gains are
+#     largely lost. A 20-story gap is therefore the outer bound consistent
+#     with maintaining vocabulary; beyond this the word is effectively
+#     abandoned and needs deliberate re-introduction.
+#
+VOCAB_REINFORCE_WINDOW   = 10   # look at the next 10 stories after introduction
+VOCAB_REINFORCE_MIN_USES = 2    # must appear in ≥2 of those 10 stories
+VOCAB_MAX_GAP            = 20   # no word unseen for more than 20 consecutive stories
+VOCAB_ABANDON_GRACE      = 10   # words introduced in the last N stories are exempt
+                                 # from the abandonment check (still building up)
+
 
 
 def cadence_max_per_story(story_id: int) -> int:
