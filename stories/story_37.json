@@ -6,20 +6,20 @@
     "tokens": [
       {
         "t": "父",
-        "r": "ちち",
+        "role": "content",
         "word_id": "W00096",
-        "role": "content"
+        "r": "ちち"
       },
       {
         "t": "の",
-        "grammar_id": "G015_no_possessive",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "名前",
-        "r": "なまえ",
+        "role": "content",
         "word_id": "W00061",
-        "role": "content"
+        "r": "なまえ"
       }
     ]
   },
@@ -29,35 +29,34 @@
     "tokens": [
       {
         "t": "山",
-        "r": "やま",
+        "role": "content",
         "word_id": "W00110",
-        "role": "content"
+        "r": "やま"
       },
       {
         "t": "と",
-        "grammar_id": "G010_to_and",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G010_to_and"
       },
       {
         "t": "川",
-        "r": "かわ",
+        "role": "content",
         "word_id": "W00111",
-        "role": "content"
+        "r": "かわ"
       },
       {
         "t": "と",
-        "grammar_id": "G010_to_and",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G010_to_and"
       },
       {
         "t": "父",
-        "r": "ちち",
+        "role": "content",
         "word_id": "W00096",
-        "role": "content"
+        "r": "ちち"
       }
     ]
   },
-  "plan_ref": "plan.json",
   "new_words": [
     "W00110",
     "W00111",
@@ -96,9 +95,9 @@
       "tokens": [
         {
           "t": "静か",
-          "r": "しずか",
+          "role": "content",
           "word_id": "W00011",
-          "role": "content"
+          "r": "しずか"
         },
         {
           "t": "な",
@@ -107,14 +106,14 @@
         },
         {
           "t": "朝",
-          "r": "あさ",
+          "role": "content",
           "word_id": "W00015",
-          "role": "content"
+          "r": "あさ"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
@@ -128,37 +127,38 @@
       "tokens": [
         {
           "t": "父",
-          "r": "ちち",
+          "role": "content",
           "word_id": "W00096",
-          "role": "content"
+          "r": "ちち"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "お茶",
-          "r": "おちゃ",
+          "role": "content",
           "word_id": "W00009",
-          "role": "content"
+          "r": "おちゃ"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "飲みます",
-          "r": "のみます",
-          "word_id": "W00010",
           "role": "content",
+          "word_id": "W00010",
+          "r": "のみます",
           "inflection": {
             "base": "飲む",
             "base_r": "のむ",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -172,37 +172,38 @@
       "tokens": [
         {
           "t": "父",
-          "r": "ちち",
+          "role": "content",
           "word_id": "W00096",
-          "role": "content"
+          "r": "ちち"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "話します",
-          "r": "はなします",
-          "word_id": "W00094",
           "role": "content",
+          "word_id": "W00094",
+          "r": "はなします",
           "inflection": {
             "base": "話す",
             "base_r": "はなす",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -220,62 +221,63 @@
         },
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "山",
-          "r": "やま",
-          "word_id": "W00110",
           "role": "content",
+          "word_id": "W00110",
+          "r": "やま",
           "is_new": true
         },
         {
           "t": "と",
-          "grammar_id": "G010_to_and",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "川",
-          "r": "かわ",
-          "word_id": "W00111",
           "role": "content",
+          "word_id": "W00111",
+          "r": "かわ",
           "is_new": true
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "そば",
-          "r": "そば",
+          "role": "content",
           "word_id": "W00045",
-          "role": "content"
+          "r": "そば"
         },
         {
           "t": "で",
-          "grammar_id": "G017_de_means",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "生まれます",
-          "r": "うまれます",
-          "word_id": "W00112",
           "role": "content",
+          "word_id": "W00112",
+          "r": "うまれます",
           "is_new": true,
           "inflection": {
             "base": "生まれる",
             "base_r": "うまれる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "」",
@@ -283,20 +285,21 @@
         },
         {
           "t": "と",
-          "grammar_id": "G028_to_iimasu",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "言います",
-          "r": "いいます",
-          "word_id": "W00097",
           "role": "content",
+          "word_id": "W00097",
+          "r": "いいます",
           "inflection": {
             "base": "言う",
             "base_r": "いう",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -310,37 +313,36 @@
       "tokens": [
         {
           "t": "山",
-          "r": "やま",
+          "role": "content",
           "word_id": "W00110",
-          "role": "content"
+          "r": "やま"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "大きくて",
-          "r": "おおきくて",
-          "word_id": "W00057",
           "role": "content",
+          "word_id": "W00057",
+          "r": "おおきくて",
           "inflection": {
-            "base": "大きい",
-            "base_r": "おおきい",
-            "form": "te"
+            "form": "i_adj_te"
           },
           "grammar_id": "G029_kute"
         },
         {
           "t": "美しい",
-          "r": "うつくしい",
+          "role": "content",
           "word_id": "W00083",
-          "role": "content"
+          "r": "うつくしい",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
@@ -355,8 +357,8 @@
         {
           "t": "川",
           "role": "content",
-          "r": "かわ",
-          "word_id": "W00111"
+          "word_id": "W00111",
+          "r": "かわ"
         },
         {
           "t": "の",
@@ -366,8 +368,8 @@
         {
           "t": "音",
           "role": "content",
-          "r": "おと",
-          "word_id": "W00109"
+          "word_id": "W00109",
+          "r": "おと"
         },
         {
           "t": "は",
@@ -377,20 +379,18 @@
         {
           "t": "長くて",
           "role": "content",
-          "r": "ながくて",
           "word_id": "W00074",
+          "r": "ながくて",
           "inflection": {
-            "base": "長い",
-            "base_r": "ながい",
-            "form": "te"
+            "form": "i_adj_te"
           },
-          "grammar_id": "G007_te_form"
+          "grammar_id": "G029_kute"
         },
         {
           "t": "静か",
           "role": "content",
-          "r": "しずか",
-          "word_id": "W00011"
+          "word_id": "W00011",
+          "r": "しずか"
         },
         {
           "t": "です",
@@ -409,59 +409,60 @@
       "tokens": [
         {
           "t": "父",
-          "r": "ちち",
+          "role": "content",
           "word_id": "W00096",
-          "role": "content"
+          "r": "ちち"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "名前",
-          "r": "なまえ",
+          "role": "content",
           "word_id": "W00061",
-          "role": "content"
+          "r": "なまえ"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "山",
-          "r": "やま",
+          "role": "content",
           "word_id": "W00110",
-          "role": "content"
+          "r": "やま"
         },
         {
           "t": "と",
-          "grammar_id": "G010_to_and",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "川",
-          "r": "かわ",
+          "role": "content",
           "word_id": "W00111",
-          "role": "content"
+          "r": "かわ"
         },
         {
           "t": "から",
-          "grammar_id": "G006_kara_from",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
         },
         {
           "t": "来ます",
-          "r": "きます",
-          "word_id": "W00040",
           "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
           "inflection": {
             "base": "来る",
             "base_r": "くる",
             "form": "polite_nonpast",
-            "verb_class": "irregular"
-          }
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -479,25 +480,25 @@
         },
         {
           "t": "大切",
-          "r": "たいせつ",
+          "role": "content",
           "word_id": "W00100",
-          "role": "content"
+          "r": "たいせつ"
         },
         {
           "t": "な",
-          "grammar_id": "G016_na_adjective",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G016_na_adjective"
         },
         {
           "t": "名前",
-          "r": "なまえ",
+          "role": "content",
           "word_id": "W00061",
-          "role": "content"
+          "r": "なまえ"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "」",
@@ -505,20 +506,21 @@
         },
         {
           "t": "と",
-          "grammar_id": "G028_to_iimasu",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "言います",
-          "r": "いいます",
-          "word_id": "W00097",
           "role": "content",
+          "word_id": "W00097",
+          "r": "いいます",
           "inflection": {
             "base": "言う",
             "base_r": "いう",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -532,48 +534,49 @@
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "父",
-          "r": "ちち",
+          "role": "content",
           "word_id": "W00096",
-          "role": "content"
+          "r": "ちち"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "山",
-          "r": "やま",
+          "role": "content",
           "word_id": "W00110",
-          "role": "content"
+          "r": "やま"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "思います",
-          "r": "おもいます",
-          "word_id": "W00043",
           "role": "content",
+          "word_id": "W00043",
+          "r": "おもいます",
           "inflection": {
             "base": "思う",
             "base_r": "おもう",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -587,48 +590,49 @@
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "父",
-          "r": "ちち",
+          "role": "content",
           "word_id": "W00096",
-          "role": "content"
+          "r": "ちち"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "川",
-          "r": "かわ",
+          "role": "content",
           "word_id": "W00111",
-          "role": "content"
+          "r": "かわ"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "思います",
-          "r": "おもいます",
-          "word_id": "W00043",
           "role": "content",
+          "word_id": "W00043",
+          "r": "おもいます",
           "inflection": {
             "base": "思う",
             "base_r": "おもう",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -642,52 +646,52 @@
       "tokens": [
         {
           "t": "家族",
-          "r": "かぞく",
+          "role": "content",
           "word_id": "W00088",
-          "role": "content"
+          "r": "かぞく"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "名前",
-          "r": "なまえ",
+          "role": "content",
           "word_id": "W00061",
-          "role": "content"
+          "r": "なまえ"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "大切",
-          "r": "たいせつ",
+          "role": "content",
           "word_id": "W00100",
-          "role": "content"
+          "r": "たいせつ"
         },
         {
           "t": "な",
-          "grammar_id": "G016_na_adjective",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G016_na_adjective"
         },
         {
           "t": "思い出",
-          "r": "おもいで",
+          "role": "content",
           "word_id": "W00099",
-          "role": "content"
+          "r": "おもいで"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "から",
-          "grammar_id": "G030_kara_reason",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
         },
         {
           "t": "、",
@@ -695,14 +699,15 @@
         },
         {
           "t": "嬉しい",
-          "r": "うれしい",
+          "role": "content",
           "word_id": "W00056",
-          "role": "content"
+          "r": "うれしい",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
@@ -716,26 +721,27 @@
       "tokens": [
         {
           "t": "父",
-          "r": "ちち",
+          "role": "content",
           "word_id": "W00096",
-          "role": "content"
+          "r": "ちち"
         },
         {
           "t": "も",
-          "grammar_id": "G009_mo_also",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "笑います",
-          "r": "わらいます",
-          "word_id": "W00053",
           "role": "content",
+          "word_id": "W00053",
+          "r": "わらいます",
           "inflection": {
             "base": "笑う",
             "base_r": "わらう",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -749,36 +755,36 @@
       "tokens": [
         {
           "t": "山",
-          "r": "やま",
+          "role": "content",
           "word_id": "W00110",
-          "role": "content"
+          "r": "やま"
         },
         {
           "t": "と",
-          "grammar_id": "G010_to_and",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "川",
-          "r": "かわ",
+          "role": "content",
           "word_id": "W00111",
-          "role": "content"
+          "r": "かわ"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "朝",
-          "r": "あさ",
+          "role": "content",
           "word_id": "W00015",
-          "role": "content"
+          "r": "あさ"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
@@ -788,5 +794,5 @@
       "gloss_en": "A morning of mountain and river."
     }
   ],
-  "checksum": null
+  "plan_ref": "plan.json"
 }

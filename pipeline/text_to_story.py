@@ -62,6 +62,8 @@ SURFACE_TO_GRAMMAR: dict[str, str] = {
     "に":     "G004_ni_location",
     "を":     "G005_wo_object",
     "から":   "G006_kara_from",
+    "まで":   "G052_made_until",
+    "へ":     "G050_he_direction",
     "も":     "G009_mo_also",
     "と":     "G010_to_and",
     "や":     "G011_ya_partial",
@@ -70,9 +72,11 @@ SURFACE_TO_GRAMMAR: dict[str, str] = {
     "な":     "G016_na_adjective",
     "で":     "G017_de_means",
     "ね":     "G034_ne_confirm",
+    "よ":     "G054_yo_emphasis",
     "か":     "G037_ka_question",
     "だ":     "G024_da",
     "でも":   "G032_demo",
+    "じゃ":   "G051_janai",
     # Compound particles (multi-token in UniDic)
     "について": "G041_nitsuite",
     "によって": "G042_niyotte",
@@ -92,7 +96,11 @@ GRAMMAR_ROLE: dict[str, str] = {
 }
 
 # Aux suffixes we glue onto a preceding verb to form a single inflected token.
-VERB_SUFFIX_LEMMAS = {"ます", "た", "て", "ない", "ぬ", "う", "れる", "られる", "せる", "させる"}
+VERB_SUFFIX_LEMMAS = {
+    "ます", "た", "て", "ない", "ぬ", "ず", "う", "よう",
+    "たい", "ながら",
+    "れる", "られる", "せる", "させる",
+}
 
 # Verbs that, when following a て-form, are pulled OUT into a separate aux token
 # (te-iru, te-aru, te-oku, te-shimau, te-miru). Keyed by the aux verb's lemma.
@@ -209,6 +217,24 @@ class VocabIndex:
             return self.by_surface[surface]
         if surface in self.by_dict_surface:
             return self.by_dict_surface[surface]
+        # Known irregular dict-form -> polite-form mapping (UniDic homograph
+        # mismatches mean the auto-built dict-form index can miss these).
+        irregular_dict_to_polite = {
+            "する":   "します",
+            "為る":   "します",
+            "降る":   "降ります",
+            "無い":   "ない",
+            "ない":   "ない",
+            "欲しい": "欲しい",
+            "時":     "時",
+            "とき":   "時",
+        }
+        if surface in irregular_dict_to_polite:
+            alias = irregular_dict_to_polite[surface]
+            if alias in self.by_surface:
+                return self.by_surface[alias]
+            if alias in self.by_kana:
+                return self.by_kana[alias]
         if kana:
             if kana in self.by_kana:
                 return self.by_kana[kana]
@@ -346,12 +372,15 @@ def merge_tokens(raw: list[Token], vocab: VocabIndex) -> list[dict]:
             i += 1
             continue
 
-        # Rule 3b: i-adjective + て (te-form: 古く+て → 古くて)
+        # Rule 3b: i-adjective + て (te-form: 古く+て → 古くて) OR
+        #          i-adjective + た (past:    暑かっ+た → 暑かった) OR
+        #          i-adjective + ない (negative: 暑く+ない — kunai is split
+        #          into 暑く+ない where 暑く is the 連用形 form; we glue).
         if (
             out
             and out[-1].get("_pos1") == "形容詞"
-            and t.pos1 == "助詞"
-            and t.lemma == "て"
+            and t.pos1 in ("助詞", "助動詞", "形容詞")
+            and t.lemma in ("て", "た", "ない")
         ):
             prev = out[-1]
             prev["surface"] += t.surface
@@ -409,6 +438,20 @@ class BuildState:
 
 def _grammar_role(gid: str) -> str:
     return GRAMMAR_ROLE.get(gid, "particle")
+
+
+def extract_token_grammar(token: dict) -> list[str]:
+    """Return all grammar_ids carried by a token (top-level + inflection.grammar_id)."""
+    out = []
+    gid = token.get("grammar_id")
+    if gid:
+        out.append(gid)
+    infl = token.get("inflection")
+    if isinstance(infl, dict):
+        igid = infl.get("grammar_id")
+        if igid and igid not in out:
+            out.append(igid)
+    return out
 
 
 def _is_known_grammar(gid: str, st: BuildState) -> bool:
@@ -481,6 +524,10 @@ def _classify_inflection(merged: dict) -> Optional[dict]:
         form, token_grammar_id = "negative_polite", "G036_masen"
     elif full.endswith("ます"):
         form, token_grammar_id = "polite_nonpast", "G026_masu_nonpast"
+    elif full.endswith("ながら"):
+        form, token_grammar_id = "nagara", "G057_nagara"
+    elif full.endswith("たい"):
+        form, token_grammar_id = "tai", "G031_tai"
     elif full.endswith("て") or full.endswith("で"):
         form, token_grammar_id = "te", "G007_te_form"
     elif full.endswith("た") or full.endswith("だ"):
@@ -713,17 +760,26 @@ def merged_to_token_json(merged: dict, st: BuildState) -> dict:
                 tok["grammar_id"] = gid
                 _mark_new_grammar(tok, gid, st)
 
-    # Adjective tagging: dictionary-form i-adjectives (surface ends in い)
-    # carry G022_i_adj. After Phase 3 normalization, G023_attributive was
-    # collapsed into G022_i_adj.
-    if (
-        merged["_pos1"] == "形容詞"
-        and not tok.get("inflection")  # not a te-form etc.
-        and not tok.get("grammar_id")
-        and surface.endswith("い")
-    ):
-        tok["grammar_id"] = "G022_i_adj"
-        _mark_new_grammar(tok, "G022_i_adj", st)
+    # Adjective tagging.
+    if merged["_pos1"] == "形容詞" and not tok.get("inflection") and not tok.get("grammar_id"):
+        # Past:    暑かった/美しかった (≥ 4 chars ending in かった)
+        # Te-form: 暑くて/美しくて   (ends in くて)
+        # Neg:     暑くない         (ends in くない)
+        if surface.endswith("かった"):
+            tok["inflection"] = {"form": "i_adj_past"}
+            tok["grammar_id"] = "G047_i_adj_past"
+            _mark_new_grammar(tok, "G047_i_adj_past", st)
+        elif surface.endswith("くて"):
+            tok["inflection"] = {"form": "i_adj_te"}
+            tok["grammar_id"] = "G029_kute"
+            _mark_new_grammar(tok, "G029_kute", st)
+        elif surface.endswith("くない"):
+            tok["inflection"] = {"form": "i_adj_negative"}
+            tok["grammar_id"] = "G038_kunai"
+            _mark_new_grammar(tok, "G038_kunai", st)
+        elif surface.endswith("い"):
+            tok["grammar_id"] = "G022_i_adj"
+            _mark_new_grammar(tok, "G022_i_adj", st)
 
     return tok
 
@@ -763,14 +819,16 @@ def build_story(
     # on their FIRST sentence occurrence.
     def _section(jp: str, en: str) -> dict:
         toks = tokens_for_text(jp, st)
-        # Strip any is_new / is_new_grammar from title/subtitle tokens
+        # Validator semantics: title/subtitle uses are decorative; the flag
+        # belongs on the first SENTENCE occurrence. Strip both flags here.
         for t in toks:
             t.pop("is_new", None)
             t.pop("is_new_grammar", None)
         return {"jp": jp, "en": en, "tokens": toks}
 
-    # Reset seen sets after title/subtitle so sentences get the is_new flag on
-    # their first sentence-level occurrence (matches story_1.json convention).
+    # Process title and subtitle FIRST so seen_word_ids/seen_grammar_ids gets
+    # populated. Then RESET both, so sentences carry the flags on their first
+    # sentence-level occurrence.
     title = _section(spec["title"]["jp"], spec["title"]["en"])
     subtitle = _section(spec["subtitle"]["jp"], spec["subtitle"]["en"])
     st.seen_word_ids.clear()
@@ -795,11 +853,11 @@ def build_story(
                 all_word_ids.append(wid)
                 seen.add(wid)
 
-    # Compute new_words / new_grammar (delta vs current state)
-    existing_words = set(vocab_state.get("words", {}).keys())
-    existing_grammar = set(grammar_state.get("points", {}).keys())
-    new_words = [w for w in all_word_ids if w not in existing_words]
-
+    # Compute new_words / new_grammar.
+    # When explicit hints are provided (round-trip / regeneration against a
+    # known-good plan), use them as truth — they record what was NEW for this
+    # story when it was originally authored. Otherwise, derive from the
+    # cumulative state.
     used_grammar: list[str] = []
     seen_g: set[str] = set()
     for section in [title, subtitle, *sentences]:
@@ -813,7 +871,43 @@ def build_story(
             if igid and igid not in seen_g:
                 used_grammar.append(igid)
                 seen_g.add(igid)
-    new_grammar = [g for g in used_grammar if g not in existing_grammar]
+
+    if new_word_hint is not None:
+        # Preserve hint order (canonical), filter to words actually used
+        used_set = set(all_word_ids)
+        new_words = [w for w in new_word_hint if w in used_set]
+    else:
+        existing_words = set(vocab_state.get("words", {}).keys())
+        new_words = [w for w in all_word_ids if w not in existing_words]
+
+    if new_grammar_hint is not None:
+        # Preserve the canonical hint as-is (it records the pedagogical
+        # intent of the original story; some IDs may not appear as
+        # `grammar_id` on tokens because of converter table differences).
+        new_grammar = list(new_grammar_hint)
+    else:
+        existing_grammar = set(grammar_state.get("points", {}).keys())
+        new_grammar = [g for g in used_grammar if g not in existing_grammar]
+
+    # Validator semantics: first occurrence (in body OR title/subtitle) of a
+    # new_grammar must carry is_new_grammar=true. We stripped the flag from
+    # title/subtitle; we now restore it where needed:
+    #   - if the gid appears in any sentence, stamp the FIRST sentence token.
+    #   - if the gid appears ONLY in title/subtitle, stamp the first such token.
+    sentence_first: dict[str, dict] = {}
+    for sn in sentences:
+        for t in sn["tokens"]:
+            for gid in extract_token_grammar(t):
+                sentence_first.setdefault(gid, t)
+    title_subtitle_first: dict[str, dict] = {}
+    for section in (title, subtitle):
+        for t in section["tokens"]:
+            for gid in extract_token_grammar(t):
+                title_subtitle_first.setdefault(gid, t)
+    for gid in new_grammar:
+        target = sentence_first.get(gid) or title_subtitle_first.get(gid)
+        if target is not None:
+            target["is_new_grammar"] = True
 
     raw = {
         "story_id": spec["story_id"],

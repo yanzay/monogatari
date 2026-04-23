@@ -6,27 +6,27 @@
     "tokens": [
       {
         "t": "寒い",
-        "r": "さむい",
-        "word_id": "W00062",
         "role": "content",
+        "word_id": "W00062",
+        "r": "さむい",
         "grammar_id": "G022_i_adj"
       },
       {
         "t": "朝",
-        "r": "あさ",
+        "role": "content",
         "word_id": "W00015",
-        "role": "content"
+        "r": "あさ"
       },
       {
         "t": "の",
-        "grammar_id": "G015_no_possessive",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "手紙",
-        "r": "てがみ",
+        "role": "content",
         "word_id": "W00039",
-        "role": "content"
+        "r": "てがみ"
       }
     ]
   },
@@ -36,27 +36,26 @@
     "tokens": [
       {
         "t": "友達",
-        "r": "ともだち",
+        "role": "content",
         "word_id": "W00022",
-        "role": "content"
+        "r": "ともだち"
       },
       {
         "t": "の",
-        "grammar_id": "G015_no_possessive",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "名前",
-        "r": "なまえ",
+        "role": "content",
         "word_id": "W00061",
-        "role": "content"
+        "r": "なまえ"
       }
     ]
   },
-  "plan_ref": "plan.json",
   "new_words": [
-    "W00060",
     "W00061",
+    "W00060",
     "W00062"
   ],
   "new_grammar": [],
@@ -82,13 +81,12 @@
   "sentences": [
     {
       "idx": 0,
-      "gloss_en": "This morning, outside is cold.",
       "tokens": [
         {
           "t": "今朝",
-          "r": "けさ",
+          "role": "content",
           "word_id": "W00001",
-          "role": "content"
+          "r": "けさ"
         },
         {
           "t": "、",
@@ -96,48 +94,48 @@
         },
         {
           "t": "外",
-          "r": "そと",
+          "role": "content",
           "word_id": "W00005",
-          "role": "content"
+          "r": "そと"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "寒い",
-          "r": "さむい",
-          "word_id": "W00062",
           "role": "content",
+          "word_id": "W00062",
+          "r": "さむい",
           "is_new": true,
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "This morning, outside is cold."
     },
     {
       "idx": 1,
-      "gloss_en": "I write a letter at the desk.",
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "、",
@@ -145,31 +143,31 @@
         },
         {
           "t": "机",
-          "r": "つくえ",
+          "role": "content",
           "word_id": "W00037",
-          "role": "content"
+          "r": "つくえ"
         },
         {
           "t": "で",
-          "grammar_id": "G017_de_means",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "手紙",
-          "r": "てがみ",
+          "role": "content",
           "word_id": "W00039",
-          "role": "content"
+          "r": "てがみ"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "書きます",
-          "r": "かきます",
-          "word_id": "W00060",
           "role": "content",
+          "word_id": "W00060",
+          "r": "かきます",
           "is_new": true,
           "inflection": {
             "base": "書く",
@@ -183,22 +181,22 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I write a letter at the desk."
     },
     {
       "idx": 2,
-      "gloss_en": "I write a warm letter to my friend.",
       "tokens": [
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "、",
@@ -206,27 +204,27 @@
         },
         {
           "t": "温かい",
-          "r": "あたたかい",
-          "word_id": "W00012",
           "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "手紙",
-          "r": "てがみ",
+          "role": "content",
           "word_id": "W00039",
-          "role": "content"
+          "r": "てがみ"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "書きます",
-          "r": "かきます",
-          "word_id": "W00060",
           "role": "content",
+          "word_id": "W00060",
+          "r": "かきます",
           "inflection": {
             "base": "書く",
             "base_r": "かく",
@@ -239,22 +237,22 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I write a warm letter to my friend."
     },
     {
       "idx": 3,
-      "gloss_en": "On the letter, I write my friend's name.",
       "tokens": [
         {
           "t": "手紙",
-          "r": "てがみ",
+          "role": "content",
           "word_id": "W00039",
-          "role": "content"
+          "r": "てがみ"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "、",
@@ -262,32 +260,32 @@
         },
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "名前",
-          "r": "なまえ",
-          "word_id": "W00061",
           "role": "content",
+          "word_id": "W00061",
+          "r": "なまえ",
           "is_new": true
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "書きます",
-          "r": "かきます",
-          "word_id": "W00060",
           "role": "content",
+          "word_id": "W00060",
+          "r": "かきます",
           "inflection": {
             "base": "書く",
             "base_r": "かく",
@@ -300,33 +298,33 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "On the letter, I write my friend's name."
     },
     {
       "idx": 4,
-      "gloss_en": "I write my name too.",
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "名前",
-          "r": "なまえ",
+          "role": "content",
           "word_id": "W00061",
-          "role": "content"
+          "r": "なまえ"
         },
         {
           "t": "も",
-          "grammar_id": "G009_mo_also",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "、",
@@ -334,9 +332,9 @@
         },
         {
           "t": "書きます",
-          "r": "かきます",
-          "word_id": "W00060",
           "role": "content",
+          "word_id": "W00060",
+          "r": "かきます",
           "inflection": {
             "base": "書く",
             "base_r": "かく",
@@ -349,28 +347,28 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I write my name too."
     },
     {
       "idx": 5,
-      "gloss_en": "Outside is cold; the tea is warm.",
       "tokens": [
         {
           "t": "外",
-          "r": "そと",
+          "role": "content",
           "word_id": "W00005",
-          "role": "content"
+          "r": "そと"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "寒い",
-          "r": "さむい",
-          "word_id": "W00062",
           "role": "content",
+          "word_id": "W00062",
+          "r": "さむい",
           "grammar_id": "G022_i_adj"
         },
         {
@@ -379,42 +377,42 @@
         },
         {
           "t": "お茶",
-          "r": "おちゃ",
+          "role": "content",
           "word_id": "W00009",
-          "role": "content"
+          "r": "おちゃ"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "温かい",
-          "r": "あたたかい",
-          "word_id": "W00012",
           "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "Outside is cold; the tea is warm."
     },
     {
       "idx": 6,
-      "gloss_en": "Tomorrow, the letter will be by my friend.",
       "tokens": [
         {
           "t": "明日",
-          "r": "あした",
+          "role": "content",
           "word_id": "W00046",
-          "role": "content"
+          "r": "あした"
         },
         {
           "t": "、",
@@ -422,63 +420,65 @@
         },
         {
           "t": "手紙",
-          "r": "てがみ",
+          "role": "content",
           "word_id": "W00039",
-          "role": "content"
+          "r": "てがみ"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "そば",
+          "role": "content",
           "word_id": "W00045",
-          "role": "content"
+          "r": "そば"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "あります",
-          "word_id": "W00044",
           "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
           "inflection": {
             "base": "ある",
             "base_r": "ある",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "Tomorrow, the letter will be by my friend."
     },
     {
       "idx": 7,
-      "gloss_en": "I think the friend is well.",
       "tokens": [
         {
           "t": "友達",
           "role": "content",
-          "r": "ともだち",
-          "word_id": "W00022"
+          "word_id": "W00022",
+          "r": "ともだち"
         },
         {
           "t": "は",
@@ -488,24 +488,24 @@
         {
           "t": "元気",
           "role": "content",
-          "r": "げんき",
-          "word_id": "W00058"
+          "word_id": "W00058",
+          "r": "げんき"
         },
         {
           "t": "だ",
           "role": "aux",
-          "grammar_id": "G003_desu"
+          "grammar_id": "G024_da"
         },
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G014_to_omoimasu"
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "思います",
           "role": "content",
-          "r": "おもいます",
           "word_id": "W00043",
+          "r": "おもいます",
           "inflection": {
             "base": "思う",
             "base_r": "おもう",
@@ -518,24 +518,24 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I think the friend is well."
     },
     {
       "idx": 8,
-      "gloss_en": "A cold morning, a warm letter.",
       "tokens": [
         {
           "t": "寒い",
-          "r": "さむい",
-          "word_id": "W00062",
           "role": "content",
+          "word_id": "W00062",
+          "r": "さむい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "朝",
-          "r": "あさ",
+          "role": "content",
           "word_id": "W00015",
-          "role": "content"
+          "r": "あさ"
         },
         {
           "t": "、",
@@ -543,28 +543,29 @@
         },
         {
           "t": "温かい",
-          "r": "あたたかい",
-          "word_id": "W00012",
           "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "手紙",
-          "r": "てがみ",
+          "role": "content",
           "word_id": "W00039",
-          "role": "content"
+          "r": "てがみ"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "A cold morning, a warm letter."
     }
   ],
-  "checksum": null
+  "plan_ref": "plan.json"
 }

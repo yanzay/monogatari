@@ -6,9 +6,9 @@
     "tokens": [
       {
         "t": "朝",
-        "r": "あさ",
         "role": "content",
-        "word_id": "W00015"
+        "word_id": "W00015",
+        "r": "あさ"
       },
       {
         "t": "の",
@@ -17,9 +17,9 @@
       },
       {
         "t": "猫",
-        "r": "ねこ",
         "role": "content",
-        "word_id": "W00028"
+        "word_id": "W00028",
+        "r": "ねこ"
       }
     ]
   },
@@ -29,9 +29,9 @@
     "tokens": [
       {
         "t": "椅子",
-        "r": "いす",
         "role": "content",
-        "word_id": "W00036"
+        "word_id": "W00036",
+        "r": "いす"
       },
       {
         "t": "の",
@@ -40,351 +40,16 @@
       },
       {
         "t": "猫",
-        "r": "ねこ",
         "role": "content",
-        "word_id": "W00028"
+        "word_id": "W00028",
+        "r": "ねこ"
       }
     ]
   },
-  "sentences": [
-    {
-      "idx": 0,
-      "gloss_en": "Morning — the cat is on the chair.",
-      "tokens": [
-        {
-          "t": "朝",
-          "r": "あさ",
-          "role": "content",
-          "word_id": "W00015"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "猫",
-          "r": "ねこ",
-          "role": "content",
-          "word_id": "W00028"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "椅子",
-          "r": "いす",
-          "role": "content",
-          "word_id": "W00036",
-          "is_new": true
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location",
-          "is_new_grammar": true
-        },
-        {
-          "t": "います",
-          "r": "います",
-          "role": "content",
-          "word_id": "W00029",
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "audio": "audio/story_9/s0.mp3",
-      "audio_hash": "e4ce559566ba"
-    },
-    {
-      "idx": 1,
-      "gloss_en": "I look at the cat.",
-      "tokens": [
-        {
-          "t": "私",
-          "r": "わたし",
-          "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "猫",
-          "r": "ねこ",
-          "role": "content",
-          "word_id": "W00028"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "見ます",
-          "r": "みます",
-          "role": "content",
-          "word_id": "W00006",
-          "inflection": {
-            "word_id": "W00006",
-            "base": "見る",
-            "base_r": "みる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "audio": "audio/story_9/s1.mp3",
-      "audio_hash": "9a939f0bd1a3"
-    },
-    {
-      "idx": 2,
-      "gloss_en": "And then — the cat is on the desk.",
-      "tokens": [
-        {
-          "t": "そして",
-          "role": "particle",
-          "grammar_id": "G012_soshite_then"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "猫",
-          "r": "ねこ",
-          "role": "content",
-          "word_id": "W00028"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "机",
-          "r": "つくえ",
-          "role": "content",
-          "word_id": "W00037",
-          "is_new": true
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "います",
-          "r": "います",
-          "role": "content",
-          "word_id": "W00029",
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "audio": "audio/story_9/s2.mp3",
-      "audio_hash": "a1c5b7d1f239"
-    },
-    {
-      "idx": 3,
-      "gloss_en": "The cat, too, is quiet.",
-      "tokens": [
-        {
-          "t": "猫",
-          "r": "ねこ",
-          "role": "content",
-          "word_id": "W00028"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "静か",
-          "r": "しずか",
-          "role": "content",
-          "word_id": "W00011"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "audio": "audio/story_9/s3.mp3",
-      "audio_hash": "45038b33df6d"
-    },
-    {
-      "idx": 4,
-      "gloss_en": "The cat looks at the book.",
-      "tokens": [
-        {
-          "t": "猫",
-          "r": "ねこ",
-          "role": "content",
-          "word_id": "W00028"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "本",
-          "r": "ほん",
-          "role": "content",
-          "word_id": "W00033"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "見ます",
-          "r": "みます",
-          "role": "content",
-          "word_id": "W00006",
-          "inflection": {
-            "word_id": "W00006",
-            "base": "見る",
-            "base_r": "みる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "audio": "audio/story_9/s4.mp3",
-      "audio_hash": "464f4501824f"
-    },
-    {
-      "idx": 5,
-      "gloss_en": "And then — the cat sleeps on the chair.",
-      "tokens": [
-        {
-          "t": "そして",
-          "role": "particle",
-          "grammar_id": "G012_soshite_then"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "猫",
-          "r": "ねこ",
-          "role": "content",
-          "word_id": "W00028"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "椅子",
-          "r": "いす",
-          "role": "content",
-          "word_id": "W00036"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "寝ます",
-          "r": "ねます",
-          "role": "content",
-          "word_id": "W00038",
-          "is_new": true,
-          "inflection": {
-            "word_id": "W00038",
-            "base": "寝る",
-            "base_r": "ねる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "audio": "audio/story_9/s5.mp3",
-      "audio_hash": "c825ecc2a57d"
-    },
-    {
-      "idx": 6,
-      "gloss_en": "On the chair, the cat is there.",
-      "tokens": [
-        {
-          "t": "椅子",
-          "r": "いす",
-          "role": "content",
-          "word_id": "W00036"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "猫",
-          "r": "ねこ",
-          "role": "content",
-          "word_id": "W00028"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "います",
-          "r": "います",
-          "role": "content",
-          "word_id": "W00029",
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "audio": "audio/story_9/s6.mp3",
-      "audio_hash": "6264b8823791"
-    }
-  ],
   "new_words": [
-    "W00036",
     "W00037",
-    "W00038"
+    "W00038",
+    "W00036"
   ],
   "new_grammar": [
     "G004_ni_location"
@@ -401,14 +66,340 @@
     "W00033",
     "W00038"
   ],
-  "word_audio": {
-    "W00036": "audio/story_9/w_W00036.mp3",
-    "W00037": "audio/story_9/w_W00037.mp3",
-    "W00038": "audio/story_9/w_W00038.mp3"
-  },
-  "word_audio_hash": {
-    "W00036": "e57f49ca9c81",
-    "W00037": "145676361e97",
-    "W00038": "b0a86c30044f"
-  }
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "猫",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "ねこ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "椅子",
+          "role": "content",
+          "word_id": "W00036",
+          "r": "いす",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location",
+          "is_new_grammar": true
+        },
+        {
+          "t": "います",
+          "role": "content",
+          "word_id": "W00029",
+          "r": "います",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Morning — the cat is on the chair."
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "猫",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "ねこ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I look at the cat."
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "そして",
+          "role": "particle",
+          "grammar_id": "G012_soshite_then"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "猫",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "ねこ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "机",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "つくえ",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "います",
+          "role": "content",
+          "word_id": "W00029",
+          "r": "います",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "And then — the cat is on the desk."
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "猫",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "ねこ"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The cat, too, is quiet."
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "猫",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "ねこ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The cat looks at the book."
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "そして",
+          "role": "particle",
+          "grammar_id": "G012_soshite_then"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "猫",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "ねこ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "椅子",
+          "role": "content",
+          "word_id": "W00036",
+          "r": "いす"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "寝ます",
+          "role": "content",
+          "word_id": "W00038",
+          "r": "ねます",
+          "is_new": true,
+          "inflection": {
+            "base": "寝る",
+            "base_r": "ねる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "And then — the cat sleeps on the chair."
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "椅子",
+          "role": "content",
+          "word_id": "W00036",
+          "r": "いす"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "猫",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "ねこ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "います",
+          "role": "content",
+          "word_id": "W00029",
+          "r": "います",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "On the chair, the cat is there."
+    }
+  ]
 }

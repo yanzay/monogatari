@@ -6,20 +6,20 @@
     "tokens": [
       {
         "t": "ベンチ",
-        "r": "ベンチ",
+        "role": "content",
         "word_id": "W00052",
-        "role": "content"
+        "r": "ベンチ"
       },
       {
         "t": "の",
-        "grammar_id": "G015_no_possessive",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "友達",
-        "r": "ともだち",
+        "role": "content",
         "word_id": "W00022",
-        "role": "content"
+        "r": "ともだち"
       }
     ]
   },
@@ -29,28 +29,27 @@
     "tokens": [
       {
         "t": "家族",
-        "r": "かぞく",
+        "role": "content",
         "word_id": "W00088",
-        "role": "content"
+        "r": "かぞく"
       },
       {
         "t": "の",
-        "grammar_id": "G015_no_possessive",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "写真",
-        "r": "しゃしん",
+        "role": "content",
         "word_id": "W00068",
-        "role": "content"
+        "r": "しゃしん"
       }
     ]
   },
-  "plan_ref": "plan.json",
   "new_words": [
-    "W00087",
+    "W00089",
     "W00088",
-    "W00089"
+    "W00087"
   ],
   "new_grammar": [
     "G024_da"
@@ -83,24 +82,23 @@
   "sentences": [
     {
       "idx": 0,
-      "gloss_en": "On a spring morning, I walk in the park.",
       "tokens": [
         {
           "t": "春",
-          "r": "はる",
+          "role": "content",
           "word_id": "W00072",
-          "role": "content"
+          "r": "はる"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "朝",
-          "r": "あさ",
+          "role": "content",
           "word_id": "W00015",
-          "role": "content"
+          "r": "あさ"
         },
         {
           "t": "、",
@@ -108,20 +106,20 @@
         },
         {
           "t": "公園",
-          "r": "こうえん",
+          "role": "content",
           "word_id": "W00016",
-          "role": "content"
+          "r": "こうえん"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "歩きます",
-          "r": "あるきます",
-          "word_id": "W00017",
           "role": "content",
+          "word_id": "W00017",
+          "r": "あるきます",
           "inflection": {
             "base": "歩く",
             "base_r": "あるく",
@@ -134,22 +132,22 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "On a spring morning, I walk in the park."
     },
     {
       "idx": 1,
-      "gloss_en": "An old friend sits on a bench.",
       "tokens": [
         {
           "t": "ベンチ",
-          "r": "ベンチ",
+          "role": "content",
           "word_id": "W00052",
-          "role": "content"
+          "r": "ベンチ"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "、",
@@ -157,27 +155,27 @@
         },
         {
           "t": "古い",
-          "r": "ふるい",
-          "word_id": "W00067",
           "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "が",
-          "grammar_id": "G002_ga_subject",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "座ります",
-          "r": "すわります",
-          "word_id": "W00085",
           "role": "content",
+          "word_id": "W00085",
+          "r": "すわります",
           "inflection": {
             "base": "座る",
             "base_r": "すわる",
@@ -190,22 +188,22 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "An old friend sits on a bench."
     },
     {
       "idx": 2,
-      "gloss_en": "I also sit on the bench.",
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "も",
-          "grammar_id": "G009_mo_also",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "、",
@@ -213,20 +211,20 @@
         },
         {
           "t": "ベンチ",
-          "r": "ベンチ",
+          "role": "content",
           "word_id": "W00052",
-          "role": "content"
+          "r": "ベンチ"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "座ります",
-          "r": "すわります",
-          "word_id": "W00085",
           "role": "content",
+          "word_id": "W00085",
+          "r": "すわります",
           "inflection": {
             "base": "座る",
             "base_r": "すわる",
@@ -239,17 +237,17 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I also sit on the bench."
     },
     {
       "idx": 3,
-      "gloss_en": "The two drink tea from the shop.",
       "tokens": [
         {
           "t": "二人",
           "role": "content",
-          "r": "ふたり",
-          "word_id": "W00035"
+          "word_id": "W00035",
+          "r": "ふたり"
         },
         {
           "t": "で",
@@ -263,8 +261,8 @@
         {
           "t": "店",
           "role": "content",
-          "r": "みせ",
-          "word_id": "W00084"
+          "word_id": "W00084",
+          "r": "みせ"
         },
         {
           "t": "の",
@@ -274,8 +272,8 @@
         {
           "t": "お茶",
           "role": "content",
-          "r": "おちゃ",
-          "word_id": "W00009"
+          "word_id": "W00009",
+          "r": "おちゃ"
         },
         {
           "t": "を",
@@ -285,8 +283,8 @@
         {
           "t": "飲みます",
           "role": "content",
-          "r": "のみます",
           "word_id": "W00010",
+          "r": "のみます",
           "inflection": {
             "base": "飲む",
             "base_r": "のむ",
@@ -299,51 +297,51 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The two drink tea from the shop."
     },
     {
       "idx": 4,
-      "gloss_en": "We look at a photo of my friend's family.",
       "tokens": [
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "家族",
-          "r": "かぞく",
-          "word_id": "W00088",
           "role": "content",
+          "word_id": "W00088",
+          "r": "かぞく",
           "is_new": true
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "写真",
-          "r": "しゃしん",
+          "role": "content",
           "word_id": "W00068",
-          "role": "content"
+          "r": "しゃしん"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "見ます",
-          "r": "みます",
-          "word_id": "W00006",
           "role": "content",
+          "word_id": "W00006",
+          "r": "みます",
           "inflection": {
             "base": "見る",
             "base_r": "みる",
@@ -356,22 +354,22 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "We look at a photo of my friend's family."
     },
     {
       "idx": 5,
-      "gloss_en": "In the photo, my friend's mother is there.",
       "tokens": [
         {
           "t": "写真",
-          "r": "しゃしん",
+          "role": "content",
           "word_id": "W00068",
-          "role": "content"
+          "r": "しゃしん"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "、",
@@ -379,64 +377,71 @@
         },
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "母",
-          "r": "はは",
-          "word_id": "W00089",
           "role": "content",
+          "word_id": "W00089",
+          "r": "はは",
           "is_new": true
         },
         {
           "t": "が",
-          "grammar_id": "G002_ga_subject",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "います",
-          "word_id": "W00029",
           "role": "content",
-          "grammar_id": "G021_aru_iru"
+          "word_id": "W00029",
+          "r": "います",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "In the photo, my friend's mother is there."
     },
     {
       "idx": 6,
-      "gloss_en": "My friend's mother is beautiful.",
       "tokens": [
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "母",
-          "r": "はは",
+          "role": "content",
           "word_id": "W00089",
-          "role": "content"
+          "r": "はは"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "、",
@@ -444,47 +449,47 @@
         },
         {
           "t": "美しい",
-          "r": "うつくしい",
-          "word_id": "W00083",
           "role": "content",
+          "word_id": "W00083",
+          "r": "うつくしい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "My friend's mother is beautiful."
     },
     {
       "idx": 7,
-      "gloss_en": "I think my friend's family is well.",
       "tokens": [
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "家族",
-          "r": "かぞく",
+          "role": "content",
           "word_id": "W00088",
-          "role": "content"
+          "r": "かぞく"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "、",
@@ -492,26 +497,26 @@
         },
         {
           "t": "元気",
-          "r": "げんき",
+          "role": "content",
           "word_id": "W00058",
-          "role": "content"
+          "r": "げんき"
         },
         {
           "t": "だ",
-          "grammar_id": "G024_da",
           "role": "aux",
+          "grammar_id": "G024_da",
           "is_new_grammar": true
         },
         {
           "t": "と",
-          "grammar_id": "G014_to_omoimasu",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "思います",
-          "r": "おもいます",
-          "word_id": "W00043",
           "role": "content",
+          "word_id": "W00043",
+          "r": "おもいます",
           "inflection": {
             "base": "思う",
             "base_r": "おもう",
@@ -524,22 +529,22 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I think my friend's family is well."
     },
     {
       "idx": 8,
-      "gloss_en": "I am happy too.",
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "も",
-          "grammar_id": "G009_mo_also",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "、",
@@ -547,36 +552,36 @@
         },
         {
           "t": "嬉しい",
-          "r": "うれしい",
-          "word_id": "W00056",
           "role": "content",
+          "word_id": "W00056",
+          "r": "うれしい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I am happy too."
     },
     {
       "idx": 9,
-      "gloss_en": "My friend stands up from the bench.",
       "tokens": [
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "、",
@@ -584,20 +589,20 @@
         },
         {
           "t": "ベンチ",
-          "r": "ベンチ",
+          "role": "content",
           "word_id": "W00052",
-          "role": "content"
+          "r": "ベンチ"
         },
         {
           "t": "から",
-          "grammar_id": "G006_kara_from",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
         },
         {
           "t": "立ちます",
-          "r": "たちます",
-          "word_id": "W00087",
           "role": "content",
+          "word_id": "W00087",
+          "r": "たちます",
           "is_new": true,
           "inflection": {
             "base": "立つ",
@@ -611,22 +616,22 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "My friend stands up from the bench."
     },
     {
       "idx": 10,
-      "gloss_en": "I stand up too.",
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "も",
-          "grammar_id": "G009_mo_also",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "、",
@@ -634,9 +639,9 @@
         },
         {
           "t": "立ちます",
-          "r": "たちます",
-          "word_id": "W00087",
           "role": "content",
+          "word_id": "W00087",
+          "r": "たちます",
           "inflection": {
             "base": "立つ",
             "base_r": "たつ",
@@ -649,8 +654,9 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I stand up too."
     }
   ],
-  "checksum": null
+  "plan_ref": "plan.json"
 }

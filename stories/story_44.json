@@ -6,11 +6,14 @@
     "tokens": [
       {
         "t": "待ちません",
-        "r": "まちます",
         "role": "content",
         "word_id": "W00041",
+        "r": "まちません",
         "inflection": {
-          "form": "masen"
+          "base": "待つ",
+          "base_r": "まつ",
+          "form": "negative_polite",
+          "verb_class": "godan"
         },
         "grammar_id": "G036_masen"
       }
@@ -22,9 +25,9 @@
     "tokens": [
       {
         "t": "友達",
-        "r": "ともだち",
         "role": "content",
-        "word_id": "W00022"
+        "word_id": "W00022",
+        "r": "ともだち"
       },
       {
         "t": "が",
@@ -33,9 +36,9 @@
       },
       {
         "t": "すぐ",
-        "r": "すぐ",
         "role": "content",
-        "word_id": "W00133"
+        "word_id": "W00133",
+        "r": "すぐ"
       },
       {
         "t": "に",
@@ -44,9 +47,16 @@
       },
       {
         "t": "来ます",
-        "r": "きます",
         "role": "content",
-        "word_id": "W00040"
+        "word_id": "W00040",
+        "r": "きます",
+        "inflection": {
+          "base": "来る",
+          "base_r": "くる",
+          "form": "polite_nonpast",
+          "verb_class": "irregular_kuru"
+        },
+        "grammar_id": "G026_masu_nonpast"
       },
       {
         "t": "。",
@@ -55,9 +65,9 @@
     ]
   },
   "new_words": [
-    "W00131",
     "W00132",
-    "W00133"
+    "W00133",
+    "W00131"
   ],
   "new_grammar": [
     "G036_masen"
@@ -78,6 +88,7 @@
     "W00128",
     "W00131",
     "W00093",
+    "W00044",
     "W00024",
     "W00058",
     "W00097",
@@ -93,9 +104,9 @@
       "tokens": [
         {
           "t": "春",
-          "r": "はる",
           "role": "content",
-          "word_id": "W00072"
+          "word_id": "W00072",
+          "r": "はる"
         },
         {
           "t": "の",
@@ -104,9 +115,9 @@
         },
         {
           "t": "夕方",
-          "r": "ゆうがた",
           "role": "content",
-          "word_id": "W00018"
+          "word_id": "W00018",
+          "r": "ゆうがた"
         },
         {
           "t": "です",
@@ -125,9 +136,9 @@
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
           "role": "content",
-          "word_id": "W00003"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "は",
@@ -136,9 +147,9 @@
         },
         {
           "t": "窓",
-          "r": "まど",
           "role": "content",
-          "word_id": "W00004"
+          "word_id": "W00004",
+          "r": "まど"
         },
         {
           "t": "の",
@@ -147,9 +158,9 @@
         },
         {
           "t": "そば",
-          "r": "そば",
           "role": "content",
-          "word_id": "W00045"
+          "word_id": "W00045",
+          "r": "そば"
         },
         {
           "t": "に",
@@ -158,9 +169,16 @@
         },
         {
           "t": "立ちます",
-          "r": "たちます",
           "role": "content",
-          "word_id": "W00087"
+          "word_id": "W00087",
+          "r": "たちます",
+          "inflection": {
+            "base": "立つ",
+            "base_r": "たつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -175,8 +193,8 @@
         {
           "t": "友達",
           "role": "content",
-          "r": "ともだち",
-          "word_id": "W00022"
+          "word_id": "W00022",
+          "r": "ともだち"
         },
         {
           "t": "は",
@@ -186,8 +204,8 @@
         {
           "t": "約束",
           "role": "content",
-          "r": "やくそく",
           "word_id": "W00132",
+          "r": "やくそく",
           "is_new": true
         },
         {
@@ -198,8 +216,8 @@
         {
           "t": "手紙",
           "role": "content",
-          "r": "てがみ",
-          "word_id": "W00039"
+          "word_id": "W00039",
+          "r": "てがみ"
         },
         {
           "t": "を",
@@ -209,8 +227,8 @@
         {
           "t": "探します",
           "role": "content",
-          "r": "さがします",
           "word_id": "W00128",
+          "r": "さがします",
           "inflection": {
             "base": "探す",
             "base_r": "さがす",
@@ -231,9 +249,9 @@
       "tokens": [
         {
           "t": "時々",
-          "r": "ときどき",
           "role": "content",
           "word_id": "W00131",
+          "r": "ときどき",
           "is_new": true
         },
         {
@@ -242,9 +260,9 @@
         },
         {
           "t": "電話",
-          "r": "でんわ",
           "role": "content",
-          "word_id": "W00093"
+          "word_id": "W00093",
+          "r": "でんわ"
         },
         {
           "t": "が",
@@ -253,9 +271,16 @@
         },
         {
           "t": "来ます",
-          "r": "きます",
           "role": "content",
-          "word_id": "W00040"
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -269,7 +294,7 @@
       "tokens": [
         {
           "t": "でも",
-          "role": "aux",
+          "role": "particle",
           "grammar_id": "G032_demo"
         },
         {
@@ -278,9 +303,9 @@
         },
         {
           "t": "電話",
-          "r": "でんわ",
           "role": "content",
-          "word_id": "W00093"
+          "word_id": "W00093",
+          "r": "でんわ"
         },
         {
           "t": "は",
@@ -289,8 +314,17 @@
         },
         {
           "t": "ありません",
-          "role": "aux",
-          "grammar_id": "G035_arimasen"
+          "role": "content",
+          "word_id": "W00044",
+          "r": "ありません",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G036_masen",
+          "is_new_grammar": true
         },
         {
           "t": "。",
@@ -304,9 +338,9 @@
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
           "role": "content",
-          "word_id": "W00003"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "は",
@@ -315,13 +349,15 @@
         },
         {
           "t": "待ちません",
-          "r": "まちます",
           "role": "content",
           "word_id": "W00041",
+          "r": "まちません",
           "inflection": {
-            "form": "masen"
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "negative_polite",
+            "verb_class": "godan"
           },
-          "is_new_grammar": true,
           "grammar_id": "G036_masen"
         },
         {
@@ -336,9 +372,9 @@
       "tokens": [
         {
           "t": "友達",
-          "r": "ともだち",
           "role": "content",
-          "word_id": "W00022"
+          "word_id": "W00022",
+          "r": "ともだち"
         },
         {
           "t": "は",
@@ -347,9 +383,9 @@
         },
         {
           "t": "すぐ",
-          "r": "すぐ",
           "role": "content",
           "word_id": "W00133",
+          "r": "すぐ",
           "is_new": true
         },
         {
@@ -359,9 +395,16 @@
         },
         {
           "t": "来ます",
-          "r": "きます",
           "role": "content",
-          "word_id": "W00040"
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -375,9 +418,9 @@
       "tokens": [
         {
           "t": "友達",
-          "r": "ともだち",
           "role": "content",
-          "word_id": "W00022"
+          "word_id": "W00022",
+          "r": "ともだち"
         },
         {
           "t": "は",
@@ -386,9 +429,9 @@
         },
         {
           "t": "花",
-          "r": "はな",
           "role": "content",
-          "word_id": "W00024"
+          "word_id": "W00024",
+          "r": "はな"
         },
         {
           "t": "と",
@@ -397,9 +440,16 @@
         },
         {
           "t": "来ます",
-          "r": "きます",
           "role": "content",
-          "word_id": "W00040"
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -417,9 +467,9 @@
         },
         {
           "t": "元気",
-          "r": "げんき",
           "role": "content",
-          "word_id": "W00058"
+          "word_id": "W00058",
+          "r": "げんき"
         },
         {
           "t": "です",
@@ -438,13 +488,20 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu"
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "言います",
-          "r": "いいます",
           "role": "content",
-          "word_id": "W00097"
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -458,9 +515,9 @@
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
           "role": "content",
-          "word_id": "W00003"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "は",
@@ -469,12 +526,9 @@
         },
         {
           "t": "嬉しい",
-          "r": "うれしい",
           "role": "content",
           "word_id": "W00056",
-          "inflection": {
-            "form": "plain_nonpast"
-          },
+          "r": "うれしい",
           "grammar_id": "G022_i_adj"
         },
         {
@@ -494,9 +548,9 @@
       "tokens": [
         {
           "t": "二人",
-          "r": "ふたり",
           "role": "content",
-          "word_id": "W00035"
+          "word_id": "W00035",
+          "r": "ふたり"
         },
         {
           "t": "は",
@@ -505,15 +559,22 @@
         },
         {
           "t": "一緒に",
-          "r": "いっしょに",
           "role": "content",
-          "word_id": "W00050"
+          "word_id": "W00050",
+          "r": "いっしょに"
         },
         {
           "t": "話します",
-          "r": "はなします",
           "role": "content",
-          "word_id": "W00094"
+          "word_id": "W00094",
+          "r": "はなします",
+          "inflection": {
+            "base": "話す",
+            "base_r": "はなす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -527,9 +588,9 @@
       "tokens": [
         {
           "t": "約束",
-          "r": "やくそく",
           "role": "content",
-          "word_id": "W00132"
+          "word_id": "W00132",
+          "r": "やくそく"
         },
         {
           "t": "は",
@@ -538,12 +599,9 @@
         },
         {
           "t": "美しい",
-          "r": "うつくしい",
           "role": "content",
           "word_id": "W00083",
-          "inflection": {
-            "form": "plain_nonpast"
-          },
+          "r": "うつくしい",
           "grammar_id": "G022_i_adj"
         },
         {
@@ -554,7 +612,7 @@
         {
           "t": "から",
           "role": "particle",
-          "grammar_id": "G030_kara_reason"
+          "grammar_id": "G006_kara_from"
         },
         {
           "t": "、",
@@ -562,12 +620,9 @@
         },
         {
           "t": "嬉しい",
-          "r": "うれしい",
           "role": "content",
           "word_id": "W00056",
-          "inflection": {
-            "form": "plain_nonpast"
-          },
+          "r": "うれしい",
           "grammar_id": "G022_i_adj"
         },
         {
@@ -587,9 +642,9 @@
       "tokens": [
         {
           "t": "春",
-          "r": "はる",
           "role": "content",
-          "word_id": "W00072"
+          "word_id": "W00072",
+          "r": "はる"
         },
         {
           "t": "の",
@@ -598,9 +653,9 @@
         },
         {
           "t": "夕方",
-          "r": "ゆうがた",
           "role": "content",
-          "word_id": "W00018"
+          "word_id": "W00018",
+          "r": "ゆうがた"
         },
         {
           "t": "、",
@@ -608,9 +663,9 @@
         },
         {
           "t": "私",
-          "r": "わたし",
           "role": "content",
-          "word_id": "W00003"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "は",
@@ -619,11 +674,14 @@
         },
         {
           "t": "待ちません",
-          "r": "まちます",
           "role": "content",
           "word_id": "W00041",
+          "r": "まちません",
           "inflection": {
-            "form": "masen"
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "negative_polite",
+            "verb_class": "godan"
           },
           "grammar_id": "G036_masen"
         },

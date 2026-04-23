@@ -6,9 +6,9 @@
     "tokens": [
       {
         "t": "友達",
-        "r": "ともだち",
         "role": "content",
-        "word_id": "W00022"
+        "word_id": "W00022",
+        "r": "ともだち"
       },
       {
         "t": "と",
@@ -17,23 +17,22 @@
       },
       {
         "t": "話した",
-        "r": "はなした",
         "role": "content",
         "word_id": "W00094",
+        "r": "はなした",
         "inflection": {
-          "form": "plain_past",
           "base": "話す",
           "base_r": "はなす",
+          "form": "past",
           "verb_class": "godan"
         },
-        "grammar_id": "G056_plain_past_pair"
+        "grammar_id": "G013_mashita_past"
       },
       {
         "t": "。",
         "role": "punct"
       }
-    ],
-    "gloss_en": "I talked with the friend."
+    ]
   },
   "subtitle": {
     "jp": "夕方、友達は私の家に来ました。",
@@ -41,9 +40,9 @@
     "tokens": [
       {
         "t": "夕方",
-        "r": "ゆうがた",
         "role": "content",
-        "word_id": "W00018"
+        "word_id": "W00018",
+        "r": "ゆうがた"
       },
       {
         "t": "、",
@@ -51,9 +50,9 @@
       },
       {
         "t": "友達",
-        "r": "ともだち",
         "role": "content",
-        "word_id": "W00022"
+        "word_id": "W00022",
+        "r": "ともだち"
       },
       {
         "t": "は",
@@ -62,9 +61,9 @@
       },
       {
         "t": "私",
-        "r": "わたし",
         "role": "content",
-        "word_id": "W00003"
+        "word_id": "W00003",
+        "r": "わたし"
       },
       {
         "t": "の",
@@ -73,9 +72,9 @@
       },
       {
         "t": "家",
-        "r": "いえ",
         "role": "content",
-        "word_id": "W00078"
+        "word_id": "W00078",
+        "r": "いえ"
       },
       {
         "t": "に",
@@ -84,13 +83,14 @@
       },
       {
         "t": "来ました",
-        "r": "きました",
         "role": "content",
         "word_id": "W00040",
+        "r": "きました",
         "inflection": {
-          "form": "polite_past",
           "base": "来る",
-          "base_r": "くる"
+          "base_r": "くる",
+          "form": "polite_past",
+          "verb_class": "irregular_kuru"
         },
         "grammar_id": "G013_mashita_past"
       },
@@ -98,1043 +98,12 @@
         "t": "。",
         "role": "punct"
       }
-    ],
-    "gloss_en": "In the evening, the friend came to my house."
+    ]
   },
-  "sentences": [
-    {
-      "idx": 0,
-      "tokens": [
-        {
-          "t": "春",
-          "r": "はる",
-          "role": "content",
-          "word_id": "W00072"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "朝",
-          "r": "あさ",
-          "role": "content",
-          "word_id": "W00015"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "It is a spring morning."
-    },
-    {
-      "idx": 1,
-      "tokens": [
-        {
-          "t": "私",
-          "r": "わたし",
-          "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "ノート",
-          "r": "ノート",
-          "role": "content",
-          "word_id": "W00154"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "書きます",
-          "r": "かきます",
-          "role": "content",
-          "word_id": "W00060",
-          "inflection": {
-            "form": "polite_nonpast",
-            "base": "書く",
-            "verb_class": "godan",
-            "base_r": "かく"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I write in the notebook."
-    },
-    {
-      "idx": 2,
-      "tokens": [
-        {
-          "t": "会社",
-          "r": "かいしゃ",
-          "role": "content",
-          "word_id": "W00205",
-          "is_new": true
-        },
-        {
-          "t": "から",
-          "role": "particle",
-          "grammar_id": "G006_kara_from"
-        },
-        {
-          "t": "友達",
-          "r": "ともだち",
-          "role": "content",
-          "word_id": "W00022"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "来ました",
-          "r": "きました",
-          "role": "content",
-          "word_id": "W00040",
-          "inflection": {
-            "form": "polite_past",
-            "base": "来る",
-            "base_r": "くる"
-          },
-          "grammar_id": "G013_mashita_past"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The friend came from the company."
-    },
-    {
-      "idx": 3,
-      "tokens": [
-        {
-          "t": "私",
-          "r": "わたし",
-          "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "ノート",
-          "r": "ノート",
-          "role": "content",
-          "word_id": "W00154"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "友達",
-          "r": "ともだち",
-          "role": "content",
-          "word_id": "W00022"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "来た",
-          "r": "きた",
-          "role": "content",
-          "word_id": "W00040",
-          "inflection": {
-            "form": "plain_past",
-            "base": "来る",
-            "base_r": "くる"
-          },
-          "is_new_grammar": true,
-          "grammar_id": "G056_plain_past_pair"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "書きます",
-          "r": "かきます",
-          "role": "content",
-          "word_id": "W00060",
-          "inflection": {
-            "form": "polite_nonpast",
-            "base": "書く",
-            "verb_class": "godan",
-            "base_r": "かく"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I write in the notebook, \"The friend came.\""
-    },
-    {
-      "idx": 4,
-      "tokens": [
-        {
-          "t": "友達",
-          "r": "ともだち",
-          "role": "content",
-          "word_id": "W00022"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "私",
-          "r": "わたし",
-          "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "お茶",
-          "r": "おちゃ",
-          "role": "content",
-          "word_id": "W00009"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "飲みました",
-          "r": "のみました",
-          "role": "content",
-          "word_id": "W00010",
-          "inflection": {
-            "form": "polite_past",
-            "base": "飲む",
-            "base_r": "のむ",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G013_mashita_past"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The friend and I drank tea."
-    },
-    {
-      "idx": 5,
-      "tokens": [
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "お茶",
-          "r": "おちゃ",
-          "role": "content",
-          "word_id": "W00009"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "飲んだ",
-          "r": "のんだ",
-          "role": "content",
-          "word_id": "W00010",
-          "inflection": {
-            "form": "plain_past",
-            "base": "飲む",
-            "base_r": "のむ",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G056_plain_past_pair"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        },
-        {
-          "t": "明日",
-          "r": "あした",
-          "role": "content",
-          "word_id": "W00046"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "飲む",
-          "r": "のむ",
-          "role": "content",
-          "word_id": "W00010",
-          "inflection": {
-            "form": "plain_nonpast",
-            "base": "飲む",
-            "base_r": "のむ",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G055_plain_nonpast_pair"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "ノート",
-          "r": "ノート",
-          "role": "content",
-          "word_id": "W00154"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "書きます",
-          "r": "かきます",
-          "role": "content",
-          "word_id": "W00060",
-          "inflection": {
-            "form": "polite_nonpast",
-            "base": "書く",
-            "verb_class": "godan",
-            "base_r": "かく"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I write in the notebook, \"We drank tea. Tomorrow I drink too.\""
-    },
-    {
-      "idx": 6,
-      "tokens": [
-        {
-          "t": "友達",
-          "r": "ともだち",
-          "role": "content",
-          "word_id": "W00022"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "私",
-          "r": "わたし",
-          "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "旅行",
-          "r": "りょこう",
-          "role": "content",
-          "word_id": "W00206",
-          "is_new": true
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "話しました",
-          "r": "はなしました",
-          "role": "content",
-          "word_id": "W00094",
-          "inflection": {
-            "form": "polite_past",
-            "base": "話す",
-            "base_r": "はなす",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G013_mashita_past"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The friend and I talked about travel."
-    },
-    {
-      "idx": 7,
-      "tokens": [
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "友達",
-          "r": "ともだち",
-          "role": "content",
-          "word_id": "W00022"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "話した",
-          "r": "はなした",
-          "role": "content",
-          "word_id": "W00094",
-          "inflection": {
-            "form": "plain_past",
-            "base": "話す",
-            "base_r": "はなす",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G056_plain_past_pair"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "書きます",
-          "r": "かきます",
-          "role": "content",
-          "word_id": "W00060",
-          "inflection": {
-            "form": "polite_nonpast",
-            "base": "書く",
-            "verb_class": "godan",
-            "base_r": "かく"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I write, \"I talked with the friend.\""
-    },
-    {
-      "idx": 8,
-      "tokens": [
-        {
-          "t": "友達",
-          "r": "ともだち",
-          "role": "content",
-          "word_id": "W00022"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "お金",
-          "r": "おかね",
-          "role": "content",
-          "word_id": "W00204",
-          "is_new": true
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "本",
-          "r": "ほん",
-          "role": "content",
-          "word_id": "W00033"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "買いました",
-          "r": "かいました",
-          "role": "content",
-          "word_id": "W00086",
-          "inflection": {
-            "base": "買う",
-            "base_r": "かう",
-            "form": "polite_past",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G013_mashita_past"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The friend bought books with money."
-    },
-    {
-      "idx": 9,
-      "tokens": [
-        {
-          "t": "私",
-          "r": "わたし",
-          "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "嬉しかった",
-          "r": "うれしかった",
-          "role": "content",
-          "word_id": "W00056",
-          "inflection": {
-            "form": "i_adj_past"
-          },
-          "grammar_id": "G047_i_adj_past"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I was happy."
-    },
-    {
-      "idx": 10,
-      "tokens": [
-        {
-          "t": "でも",
-          "role": "aux",
-          "grammar_id": "G032_demo"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "祖母",
-          "r": "そぼ",
-          "role": "content",
-          "word_id": "W00098"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "言いませんでした",
-          "r": "いいませんでした",
-          "role": "content",
-          "word_id": "W00097",
-          "inflection": {
-            "form": "masen_deshita",
-            "base": "言う",
-            "base_r": "いう"
-          },
-          "grammar_id": "G046_masen_deshita"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "But, I did not tell grandmother."
-    },
-    {
-      "idx": 11,
-      "tokens": [
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "祖母",
-          "r": "そぼ",
-          "role": "content",
-          "word_id": "W00098"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "言わなかった",
-          "r": "いわなかった",
-          "role": "content",
-          "word_id": "W00097",
-          "inflection": {
-            "form": "plain_past_negative",
-            "base": "言う",
-            "base_r": "いう"
-          },
-          "grammar_id": "G056_plain_past_pair"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "書きます",
-          "r": "かきます",
-          "role": "content",
-          "word_id": "W00060",
-          "inflection": {
-            "form": "polite_nonpast",
-            "base": "書く",
-            "verb_class": "godan",
-            "base_r": "かく"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I write, \"I did not tell grandmother.\""
-    },
-    {
-      "idx": 12,
-      "tokens": [
-        {
-          "t": "友達",
-          "role": "content",
-          "r": "ともだち",
-          "word_id": "W00022"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "町",
-          "role": "content",
-          "r": "まち",
-          "word_id": "W00201"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "本",
-          "role": "content",
-          "r": "ほん",
-          "word_id": "W00033"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "店",
-          "role": "content",
-          "r": "みせ",
-          "word_id": "W00084"
-        },
-        {
-          "t": "へ",
-          "role": "particle",
-          "grammar_id": "G050_he_direction"
-        },
-        {
-          "t": "行きました",
-          "role": "content",
-          "r": "いきました",
-          "word_id": "W00150",
-          "inflection": {
-            "base": "行く",
-            "base_r": "いく",
-            "form": "polite_past",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G013_mashita_past"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The friend went to the bookstore in town."
-    },
-    {
-      "idx": 13,
-      "tokens": [
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "友達",
-          "r": "ともだち",
-          "role": "content",
-          "word_id": "W00022"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "本",
-          "r": "ほん",
-          "role": "content",
-          "word_id": "W00033"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "店",
-          "r": "みせ",
-          "role": "content",
-          "word_id": "W00084"
-        },
-        {
-          "t": "へ",
-          "role": "particle",
-          "grammar_id": "G050_he_direction",
-          "r": "え"
-        },
-        {
-          "t": "行った",
-          "r": "いった",
-          "role": "content",
-          "word_id": "W00150",
-          "inflection": {
-            "form": "plain_past",
-            "base": "行く",
-            "base_r": "いく",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G056_plain_past_pair"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "ノート",
-          "r": "ノート",
-          "role": "content",
-          "word_id": "W00154"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "書きます",
-          "r": "かきます",
-          "role": "content",
-          "word_id": "W00060",
-          "inflection": {
-            "form": "polite_nonpast",
-            "base": "書く",
-            "verb_class": "godan",
-            "base_r": "かく"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I write in the notebook, \"The friend went to the bookstore.\""
-    },
-    {
-      "idx": 14,
-      "tokens": [
-        {
-          "t": "私",
-          "r": "わたし",
-          "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "本",
-          "r": "ほん",
-          "role": "content",
-          "word_id": "W00033"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "店",
-          "r": "みせ",
-          "role": "content",
-          "word_id": "W00084"
-        },
-        {
-          "t": "へ",
-          "role": "particle",
-          "grammar_id": "G050_he_direction",
-          "r": "え"
-        },
-        {
-          "t": "行きませんでした",
-          "r": "いきませんでした",
-          "role": "content",
-          "word_id": "W00150",
-          "inflection": {
-            "form": "masen_deshita",
-            "base": "行く",
-            "base_r": "いく"
-          },
-          "grammar_id": "G046_masen_deshita"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I did not go to the bookstore."
-    },
-    {
-      "idx": 15,
-      "tokens": [
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "私",
-          "r": "わたし",
-          "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "行かなかった",
-          "r": "いかなかった",
-          "role": "content",
-          "word_id": "W00150",
-          "inflection": {
-            "form": "plain_past_negative",
-            "base": "行く",
-            "base_r": "いく"
-          },
-          "grammar_id": "G056_plain_past_pair"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "書きます",
-          "r": "かきます",
-          "role": "content",
-          "word_id": "W00060",
-          "inflection": {
-            "form": "polite_nonpast",
-            "base": "書く",
-            "verb_class": "godan",
-            "base_r": "かく"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I write, \"I did not go.\""
-    },
-    {
-      "idx": 16,
-      "tokens": [
-        {
-          "t": "春",
-          "r": "はる",
-          "role": "content",
-          "word_id": "W00072"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "朝",
-          "r": "あさ",
-          "role": "content",
-          "word_id": "W00015"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "古い",
-          "r": "ふるい",
-          "role": "content",
-          "word_id": "W00067",
-          "inflection": {
-            "form": "attributive"
-          },
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "ノート",
-          "r": "ノート",
-          "role": "content",
-          "word_id": "W00154"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "新しい",
-          "r": "あたらしい",
-          "role": "content",
-          "word_id": "W00066",
-          "inflection": {
-            "form": "attributive"
-          },
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "約束",
-          "r": "やくそく",
-          "role": "content",
-          "word_id": "W00132"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "A spring morning, an old notebook, a new promise."
-    }
-  ],
   "new_words": [
     "W00204",
-    "W00205",
-    "W00206"
+    "W00206",
+    "W00205"
   ],
   "new_grammar": [
     "G056_plain_past_pair"
@@ -1167,5 +136,1045 @@
     "W00067",
     "W00066",
     "W00132"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "春",
+          "role": "content",
+          "word_id": "W00072",
+          "r": "はる"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is a spring morning."
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "ノート",
+          "role": "content",
+          "word_id": "W00154",
+          "r": "ノート"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "書きます",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "かきます",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I write in the notebook."
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "会社",
+          "role": "content",
+          "word_id": "W00205",
+          "r": "かいしゃ",
+          "is_new": true
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ました",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きました",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_past",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend came from the company."
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "ノート",
+          "role": "content",
+          "word_id": "W00154",
+          "r": "ノート"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "来た",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きた",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "past",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "書きます",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "かきます",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I write in the notebook, \"The friend came.\""
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00009",
+          "r": "おちゃ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "飲みました",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "のみました",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend and I drank tea."
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00009",
+          "r": "おちゃ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "飲んだ",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "のんだ",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "明日",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "あした"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "飲む",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "のむ"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "ノート",
+          "role": "content",
+          "word_id": "W00154",
+          "r": "ノート"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "書きます",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "かきます",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I write in the notebook, \"We drank tea. Tomorrow I drink too.\""
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "旅行",
+          "role": "content",
+          "word_id": "W00206",
+          "r": "りょこう",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "話しました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "はなしました",
+          "inflection": {
+            "base": "話す",
+            "base_r": "はなす",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend and I talked about travel."
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "話した",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "はなした",
+          "inflection": {
+            "base": "話す",
+            "base_r": "はなす",
+            "form": "past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "書きます",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "かきます",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I write, \"I talked with the friend.\""
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "お金",
+          "role": "content",
+          "word_id": "W00204",
+          "r": "おかね",
+          "is_new": true
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "買いました",
+          "role": "content",
+          "word_id": "W00086",
+          "r": "かいました",
+          "inflection": {
+            "base": "買う",
+            "base_r": "かう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend bought books with money."
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "嬉しかった",
+          "role": "content",
+          "word_id": "W00056",
+          "r": "うれしかった",
+          "inflection": {
+            "form": "i_adj_past"
+          },
+          "grammar_id": "G047_i_adj_past"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I was happy."
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "でも",
+          "role": "particle",
+          "grammar_id": "G032_demo"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "言いません",
+          "role": "content",
+          "word_id": "W00097",
+          "r": "いいません",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G036_masen"
+        },
+        {
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "G013_mashita_past",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But, I did not tell grandmother."
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "言わなかった",
+          "role": "content",
+          "word_id": "W00097",
+          "r": "いわなかった",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "書きます",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "かきます",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I write, \"I did not tell grandmother.\""
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "町",
+          "role": "content",
+          "word_id": "W00201",
+          "r": "まち"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "G050_he_direction"
+        },
+        {
+          "t": "行きました",
+          "role": "content",
+          "word_id": "W00150",
+          "r": "いきました",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend went to the bookstore in town."
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "G050_he_direction"
+        },
+        {
+          "t": "行った",
+          "role": "content",
+          "word_id": "W00150",
+          "r": "いった",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "ノート",
+          "role": "content",
+          "word_id": "W00154",
+          "r": "ノート"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "書きます",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "かきます",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I write in the notebook, \"The friend went to the bookstore.\""
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "G050_he_direction"
+        },
+        {
+          "t": "行きません",
+          "role": "content",
+          "word_id": "W00150",
+          "r": "いきません",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G036_masen"
+        },
+        {
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "G013_mashita_past",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I did not go to the bookstore."
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "行かなかった",
+          "role": "content",
+          "word_id": "W00150",
+          "r": "いかなかった",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "書きます",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "かきます",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I write, \"I did not go.\""
+    },
+    {
+      "idx": 16,
+      "tokens": [
+        {
+          "t": "春",
+          "role": "content",
+          "word_id": "W00072",
+          "r": "はる"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "ノート",
+          "role": "content",
+          "word_id": "W00154",
+          "r": "ノート"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "新しい",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "あたらしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "約束",
+          "role": "content",
+          "word_id": "W00132",
+          "r": "やくそく"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A spring morning, an old notebook, a new promise."
+    }
   ]
 }

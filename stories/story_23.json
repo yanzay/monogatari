@@ -6,20 +6,20 @@
     "tokens": [
       {
         "t": "駅",
-        "r": "えき",
+        "role": "content",
         "word_id": "W00069",
-        "role": "content"
+        "r": "えき"
       },
       {
         "t": "の",
-        "grammar_id": "G015_no_possessive",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "夕方",
-        "r": "ゆうがた",
+        "role": "content",
         "word_id": "W00018",
-        "role": "content"
+        "r": "ゆうがた"
       }
     ]
   },
@@ -29,28 +29,27 @@
     "tokens": [
       {
         "t": "雪",
-        "r": "ゆき",
+        "role": "content",
         "word_id": "W00063",
-        "role": "content"
+        "r": "ゆき"
       },
       {
         "t": "と",
-        "grammar_id": "G010_to_and",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G010_to_and"
       },
       {
         "t": "電車",
-        "r": "でんしゃ",
+        "role": "content",
         "word_id": "W00070",
-        "role": "content"
+        "r": "でんしゃ"
       }
     ]
   },
-  "plan_ref": "plan.json",
   "new_words": [
     "W00069",
-    "W00070",
-    "W00071"
+    "W00071",
+    "W00070"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -76,13 +75,12 @@
   "sentences": [
     {
       "idx": 0,
-      "gloss_en": "In the evening, the station is quiet.",
       "tokens": [
         {
           "t": "夕方",
-          "r": "ゆうがた",
+          "role": "content",
           "word_id": "W00018",
-          "role": "content"
+          "r": "ゆうがた"
         },
         {
           "t": "、",
@@ -90,47 +88,47 @@
         },
         {
           "t": "駅",
-          "r": "えき",
-          "word_id": "W00069",
           "role": "content",
+          "word_id": "W00069",
+          "r": "えき",
           "is_new": true
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "静か",
-          "r": "しずか",
+          "role": "content",
           "word_id": "W00011",
-          "role": "content"
+          "r": "しずか"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "In the evening, the station is quiet."
     },
     {
       "idx": 1,
-      "gloss_en": "I wait for my friend at the station.",
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "、",
@@ -138,31 +136,31 @@
         },
         {
           "t": "駅",
-          "r": "えき",
+          "role": "content",
           "word_id": "W00069",
-          "role": "content"
+          "r": "えき"
         },
         {
           "t": "で",
-          "grammar_id": "G017_de_means",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "待ちます",
-          "r": "まちます",
-          "word_id": "W00041",
           "role": "content",
+          "word_id": "W00041",
+          "r": "まちます",
           "inflection": {
             "base": "待つ",
             "base_r": "まつ",
@@ -175,17 +173,17 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I wait for my friend at the station."
     },
     {
       "idx": 2,
-      "gloss_en": "The station's new clock is large.",
       "tokens": [
         {
           "t": "駅",
           "role": "content",
-          "r": "えき",
-          "word_id": "W00069"
+          "word_id": "W00069",
+          "r": "えき"
         },
         {
           "t": "の",
@@ -195,14 +193,15 @@
         {
           "t": "新しい",
           "role": "content",
+          "word_id": "W00066",
           "r": "あたらしい",
-          "word_id": "W00066"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "時計",
           "role": "content",
-          "r": "とけい",
           "word_id": "W00071",
+          "r": "とけい",
           "is_new": true
         },
         {
@@ -213,8 +212,9 @@
         {
           "t": "大きい",
           "role": "content",
+          "word_id": "W00057",
           "r": "おおきい",
-          "word_id": "W00057"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -225,28 +225,28 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The station's new clock is large."
     },
     {
       "idx": 3,
-      "gloss_en": "I look at the clock; the snow comes.",
       "tokens": [
         {
           "t": "時計",
-          "r": "とけい",
+          "role": "content",
           "word_id": "W00071",
-          "role": "content"
+          "r": "とけい"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "見ます",
-          "r": "みます",
-          "word_id": "W00006",
           "role": "content",
+          "word_id": "W00006",
+          "r": "みます",
           "inflection": {
             "base": "見る",
             "base_r": "みる",
@@ -261,25 +261,25 @@
         },
         {
           "t": "雪",
-          "r": "ゆき",
+          "role": "content",
           "word_id": "W00063",
-          "role": "content"
+          "r": "ゆき"
         },
         {
           "t": "が",
-          "grammar_id": "G002_ga_subject",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "来ます",
-          "r": "きます",
-          "word_id": "W00040",
           "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
           "inflection": {
             "base": "来る",
             "base_r": "くる",
             "form": "polite_nonpast",
-            "verb_class": "ichidan"
+            "verb_class": "irregular_kuru"
           },
           "grammar_id": "G026_masu_nonpast"
         },
@@ -287,34 +287,34 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I look at the clock; the snow comes."
     },
     {
       "idx": 4,
-      "gloss_en": "The train comes.",
       "tokens": [
         {
           "t": "電車",
-          "r": "でんしゃ",
-          "word_id": "W00070",
           "role": "content",
+          "word_id": "W00070",
+          "r": "でんしゃ",
           "is_new": true
         },
         {
           "t": "が",
-          "grammar_id": "G002_ga_subject",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "来ます",
-          "r": "きます",
-          "word_id": "W00040",
           "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
           "inflection": {
             "base": "来る",
             "base_r": "くる",
             "form": "polite_nonpast",
-            "verb_class": "ichidan"
+            "verb_class": "irregular_kuru"
           },
           "grammar_id": "G026_masu_nonpast"
         },
@@ -322,22 +322,22 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The train comes."
     },
     {
       "idx": 5,
-      "gloss_en": "My friend comes from the train.",
       "tokens": [
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "、",
@@ -345,25 +345,25 @@
         },
         {
           "t": "電車",
-          "r": "でんしゃ",
+          "role": "content",
           "word_id": "W00070",
-          "role": "content"
+          "r": "でんしゃ"
         },
         {
           "t": "から",
-          "grammar_id": "G006_kara_from",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
         },
         {
           "t": "来ます",
-          "r": "きます",
-          "word_id": "W00040",
           "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
           "inflection": {
             "base": "来る",
             "base_r": "くる",
             "form": "polite_nonpast",
-            "verb_class": "ichidan"
+            "verb_class": "irregular_kuru"
           },
           "grammar_id": "G026_masu_nonpast"
         },
@@ -371,23 +371,22 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "My friend comes from the train."
     },
     {
       "idx": 6,
-      "gloss_en": "The two of us return home from the station.",
       "tokens": [
         {
           "t": "二人",
-          "r": "ふたり",
-          "word_id": "W00035",
           "role": "content",
-          "grammar_id": "G025_counters"
+          "word_id": "W00035",
+          "r": "ふたり"
         },
         {
           "t": "で",
-          "grammar_id": "G017_de_means",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "、",
@@ -395,20 +394,20 @@
         },
         {
           "t": "駅",
-          "r": "えき",
+          "role": "content",
           "word_id": "W00069",
-          "role": "content"
+          "r": "えき"
         },
         {
           "t": "から",
-          "grammar_id": "G006_kara_from",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
         },
         {
           "t": "帰ります",
-          "r": "かえります",
-          "word_id": "W00026",
           "role": "content",
+          "word_id": "W00026",
+          "r": "かえります",
           "inflection": {
             "base": "帰る",
             "base_r": "かえる",
@@ -421,28 +420,28 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The two of us return home from the station."
     },
     {
       "idx": 7,
-      "gloss_en": "The road is snow; the stars come out, too.",
       "tokens": [
         {
           "t": "道",
-          "r": "みち",
+          "role": "content",
           "word_id": "W00064",
-          "role": "content"
+          "r": "みち"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "雪",
-          "r": "ゆき",
+          "role": "content",
           "word_id": "W00063",
-          "role": "content"
+          "r": "ゆき"
         },
         {
           "t": "、",
@@ -450,25 +449,25 @@
         },
         {
           "t": "星",
-          "r": "ほし",
+          "role": "content",
           "word_id": "W00032",
-          "role": "content"
+          "r": "ほし"
         },
         {
           "t": "も",
-          "grammar_id": "G009_mo_also",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "来ます",
-          "r": "きます",
-          "word_id": "W00040",
           "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
           "inflection": {
             "base": "来る",
             "base_r": "くる",
             "form": "polite_nonpast",
-            "verb_class": "ichidan"
+            "verb_class": "irregular_kuru"
           },
           "grammar_id": "G026_masu_nonpast"
         },
@@ -476,17 +475,17 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The road is snow; the stars come out, too."
     },
     {
       "idx": 8,
-      "gloss_en": "Together, an evening of stars.",
       "tokens": [
         {
           "t": "一緒に",
-          "r": "いっしょに",
+          "role": "content",
           "word_id": "W00050",
-          "role": "content"
+          "r": "いっしょに"
         },
         {
           "t": "、",
@@ -494,32 +493,33 @@
         },
         {
           "t": "星",
-          "r": "ほし",
+          "role": "content",
           "word_id": "W00032",
-          "role": "content"
+          "r": "ほし"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "夕方",
-          "r": "ゆうがた",
+          "role": "content",
           "word_id": "W00018",
-          "role": "content"
+          "r": "ゆうがた"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "Together, an evening of stars."
     }
   ],
-  "checksum": null
+  "plan_ref": "plan.json"
 }

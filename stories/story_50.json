@@ -2,12 +2,13 @@
   "story_id": 50,
   "title": {
     "jp": "駅で待ちます",
+    "en": "Waiting at the Station",
     "tokens": [
       {
         "t": "駅",
-        "r": "えき",
         "role": "content",
-        "word_id": "W00069"
+        "word_id": "W00069",
+        "r": "えき"
       },
       {
         "t": "で",
@@ -16,9 +17,9 @@
       },
       {
         "t": "待ちます",
-        "r": "まちます",
         "role": "content",
         "word_id": "W00041",
+        "r": "まちます",
         "inflection": {
           "base": "待つ",
           "base_r": "まつ",
@@ -27,17 +28,17 @@
         },
         "grammar_id": "G026_masu_nonpast"
       }
-    ],
-    "en": "Waiting at the Station"
+    ]
   },
   "subtitle": {
     "jp": "祖母と子供",
+    "en": "Grandmother and a child",
     "tokens": [
       {
         "t": "祖母",
-        "r": "そぼ",
         "role": "content",
-        "word_id": "W00098"
+        "word_id": "W00098",
+        "r": "そぼ"
       },
       {
         "t": "と",
@@ -46,862 +47,19 @@
       },
       {
         "t": "子供",
-        "r": "こども",
         "role": "content",
-        "word_id": "W00051"
+        "word_id": "W00051",
+        "r": "こども"
       }
-    ],
-    "en": "Grandmother and a child"
+    ]
   },
-  "sentences": [
-    {
-      "idx": 0,
-      "tokens": [
-        {
-          "t": "駅",
-          "role": "content",
-          "r": "えき",
-          "word_id": "W00069"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "雪",
-          "role": "content",
-          "r": "ゆき",
-          "word_id": "W00063"
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "静か",
-          "role": "content",
-          "r": "しずか",
-          "word_id": "W00011"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The station is quiet with snow."
-    },
-    {
-      "idx": 1,
-      "tokens": [
-        {
-          "t": "子供",
-          "r": "こども",
-          "role": "content",
-          "word_id": "W00051"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "祖母",
-          "r": "そぼ",
-          "role": "content",
-          "word_id": "W00098"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "カバン",
-          "role": "content",
-          "r": "カバン",
-          "word_id": "W00130"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "電車",
-          "r": "でんしゃ",
-          "role": "content",
-          "word_id": "W00070"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "待ちます",
-          "r": "まちます",
-          "role": "content",
-          "word_id": "W00041",
-          "inflection": {
-            "base": "待つ",
-            "base_r": "まつ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The child and the grandmother wait with the bag for the train."
-    },
-    {
-      "idx": 2,
-      "tokens": [
-        {
-          "t": "子供",
-          "r": "こども",
-          "role": "content",
-          "word_id": "W00051"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "祖母",
-          "r": "そぼ",
-          "role": "content",
-          "word_id": "W00098"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "いつ",
-          "r": "いつ",
-          "role": "content",
-          "word_id": "W00145",
-          "is_new": true,
-          "grammar_id": "G042_itsu_when",
-          "is_new_grammar": true
-        },
-        {
-          "t": "電車",
-          "r": "でんしゃ",
-          "role": "content",
-          "word_id": "W00070"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "来ます",
-          "r": "きます",
-          "role": "content",
-          "word_id": "W00040",
-          "inflection": {
-            "base": "来る",
-            "base_r": "くる",
-            "form": "polite_nonpast",
-            "verb_class": "irregular_kuru"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "か",
-          "role": "particle",
-          "grammar_id": "G037_ka_question"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "言います",
-          "r": "いいます",
-          "role": "content",
-          "word_id": "W00097",
-          "inflection": {
-            "base": "言う",
-            "base_r": "いう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The child says to grandmother, \"When will the train come?\""
-    },
-    {
-      "idx": 3,
-      "tokens": [
-        {
-          "t": "祖母",
-          "r": "そぼ",
-          "role": "content",
-          "word_id": "W00098"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "子供",
-          "r": "こども",
-          "role": "content",
-          "word_id": "W00051"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "顔",
-          "r": "かお",
-          "role": "content",
-          "word_id": "W00122"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "見ます",
-          "r": "みます",
-          "role": "content",
-          "word_id": "W00006",
-          "inflection": {
-            "base": "見る",
-            "base_r": "みる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Grandmother looks at the child's face."
-    },
-    {
-      "idx": 4,
-      "tokens": [
-        {
-          "t": "祖母",
-          "r": "そぼ",
-          "role": "content",
-          "word_id": "W00098"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "来週",
-          "r": "らいしゅう",
-          "role": "content",
-          "word_id": "W00146",
-          "is_new": true
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "言います",
-          "r": "いいます",
-          "role": "content",
-          "word_id": "W00097",
-          "inflection": {
-            "base": "言う",
-            "base_r": "いう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Grandmother says, \"Next week.\""
-    },
-    {
-      "idx": 5,
-      "tokens": [
-        {
-          "t": "子供",
-          "r": "こども",
-          "role": "content",
-          "word_id": "W00051"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "強い",
-          "r": "つよい",
-          "role": "content",
-          "word_id": "W00118"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "から",
-          "role": "particle",
-          "grammar_id": "G030_kara_reason"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "待ちます",
-          "r": "まちます",
-          "role": "content",
-          "word_id": "W00041",
-          "inflection": {
-            "base": "待つ",
-            "base_r": "まつ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Because the child is strong, they wait."
-    },
-    {
-      "idx": 6,
-      "tokens": [
-        {
-          "t": "でも",
-          "role": "particle",
-          "grammar_id": "G032_demo"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "子供",
-          "role": "content",
-          "r": "こども",
-          "word_id": "W00051"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "帽子",
-          "role": "content",
-          "r": "ぼうし",
-          "word_id": "W00170"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "赤い",
-          "role": "content",
-          "r": "あかい",
-          "word_id": "W00142"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "But the child's hat is red."
-    },
-    {
-      "idx": 7,
-      "tokens": [
-        {
-          "t": "祖母",
-          "r": "そぼ",
-          "role": "content",
-          "word_id": "W00098"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "お茶",
-          "r": "おちゃ",
-          "role": "content",
-          "word_id": "W00009"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "飲みません",
-          "r": "のみません",
-          "role": "content",
-          "word_id": "W00010",
-          "inflection": {
-            "base": "飲む",
-            "base_r": "のむ",
-            "form": "polite_negative",
-            "verb_class": "godan",
-            "grammar_id": "G041_masenka_invitation"
-          },
-          "grammar_id": "G036_masen"
-        },
-        {
-          "t": "か",
-          "role": "particle",
-          "grammar_id": "G037_ka_question"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "言います",
-          "r": "いいます",
-          "role": "content",
-          "word_id": "W00097",
-          "inflection": {
-            "base": "言う",
-            "base_r": "いう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Grandmother says, \"Won't you have some tea?\""
-    },
-    {
-      "idx": 8,
-      "tokens": [
-        {
-          "t": "そして",
-          "role": "particle",
-          "grammar_id": "G012_soshite_then"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "祖母",
-          "r": "そぼ",
-          "role": "content",
-          "word_id": "W00098"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "すぐ",
-          "r": "すぐ",
-          "role": "content",
-          "word_id": "W00133"
-        },
-        {
-          "t": "来ます",
-          "r": "きます",
-          "role": "content",
-          "word_id": "W00040",
-          "inflection": {
-            "base": "来る",
-            "base_r": "くる",
-            "form": "polite_nonpast",
-            "verb_class": "irregular_kuru"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "ね",
-          "role": "particle",
-          "grammar_id": "G034_ne_confirm"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "言います",
-          "r": "いいます",
-          "role": "content",
-          "word_id": "W00097",
-          "inflection": {
-            "base": "言う",
-            "base_r": "いう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "And then grandmother says, \"It will come soon, won't it.\""
-    },
-    {
-      "idx": 9,
-      "tokens": [
-        {
-          "t": "子供",
-          "r": "こども",
-          "role": "content",
-          "word_id": "W00051"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "祖母",
-          "r": "そぼ",
-          "role": "content",
-          "word_id": "W00098"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "見ます",
-          "r": "みます",
-          "role": "content",
-          "word_id": "W00006",
-          "inflection": {
-            "base": "見る",
-            "base_r": "みる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The child looks at grandmother."
-    },
-    {
-      "idx": 10,
-      "tokens": [
-        {
-          "t": "そして",
-          "role": "particle",
-          "grammar_id": "G012_soshite_then"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "電車",
-          "role": "content",
-          "r": "でんしゃ",
-          "word_id": "W00070"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "走って",
-          "role": "content",
-          "r": "はしって",
-          "word_id": "W00102",
-          "inflection": {
-            "base": "走る",
-            "base_r": "はしる",
-            "form": "te",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G007_te_form"
-        },
-        {
-          "t": "来ます",
-          "role": "content",
-          "r": "きます",
-          "word_id": "W00040",
-          "inflection": {
-            "base": "来る",
-            "base_r": "くる",
-            "form": "polite_nonpast",
-            "verb_class": "irregular_kuru"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Then, the train comes running."
-    },
-    {
-      "idx": 11,
-      "tokens": [
-        {
-          "t": "子供",
-          "r": "こども",
-          "role": "content",
-          "word_id": "W00051"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "嬉しい",
-          "r": "うれしい",
-          "role": "content",
-          "word_id": "W00056"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The child is happy."
-    },
-    {
-      "idx": 12,
-      "tokens": [
-        {
-          "t": "祖母",
-          "r": "そぼ",
-          "role": "content",
-          "word_id": "W00098"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "嬉しい",
-          "r": "うれしい",
-          "role": "content",
-          "word_id": "W00056"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Grandmother is happy too."
-    },
-    {
-      "idx": 13,
-      "tokens": [
-        {
-          "t": "子供",
-          "r": "こども",
-          "role": "content",
-          "word_id": "W00051"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "祖母",
-          "r": "そぼ",
-          "role": "content",
-          "word_id": "W00098"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "隣",
-          "r": "となり",
-          "role": "content",
-          "word_id": "W00127"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "います",
-          "r": "います",
-          "role": "content",
-          "word_id": "W00029",
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The child is beside grandmother."
-    },
-    {
-      "idx": 14,
-      "tokens": [
-        {
-          "t": "兄",
-          "role": "content",
-          "r": "あに",
-          "word_id": "W00172",
-          "is_new": true
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "服",
-          "role": "content",
-          "r": "ふく",
-          "word_id": "W00168"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "どこ",
-          "role": "content",
-          "r": "どこ",
-          "word_id": "W00143"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "か",
-          "role": "aux",
-          "grammar_id": "G037_ka_question"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Where are the big brother's clothes?"
-    }
+  "new_words": [
+    "W00146",
+    "W00172",
+    "W00145"
+  ],
+  "new_grammar": [
+    "G042_itsu_when"
   ],
   "all_words_used": [
     "W00069",
@@ -932,12 +90,861 @@
     "W00168",
     "W00143"
   ],
-  "new_words": [
-    "W00145",
-    "W00146",
-    "W00172"
-  ],
-  "new_grammar": [
-    "G042_itsu_when"
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "駅",
+          "role": "content",
+          "word_id": "W00069",
+          "r": "えき"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "雪",
+          "role": "content",
+          "word_id": "W00063",
+          "r": "ゆき"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The station is quiet with snow."
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "子供",
+          "role": "content",
+          "word_id": "W00051",
+          "r": "こども"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "カバン",
+          "role": "content",
+          "word_id": "W00130",
+          "r": "かばん"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "電車",
+          "role": "content",
+          "word_id": "W00070",
+          "r": "でんしゃ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "待ちます",
+          "role": "content",
+          "word_id": "W00041",
+          "r": "まちます",
+          "inflection": {
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The child and the grandmother wait with the bag for the train."
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "子供",
+          "role": "content",
+          "word_id": "W00051",
+          "r": "こども"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "いつ",
+          "role": "content",
+          "word_id": "W00145",
+          "r": "いつ",
+          "is_new": true
+        },
+        {
+          "t": "電車",
+          "role": "content",
+          "word_id": "W00070",
+          "r": "でんしゃ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "言います",
+          "role": "content",
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The child says to grandmother, \"When will the train come?\""
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "子供",
+          "role": "content",
+          "word_id": "W00051",
+          "r": "こども"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "顔",
+          "role": "content",
+          "word_id": "W00122",
+          "r": "かお"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother looks at the child's face."
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "来週",
+          "role": "content",
+          "word_id": "W00146",
+          "r": "らいしゅう",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "言います",
+          "role": "content",
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother says, \"Next week.\""
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "子供",
+          "role": "content",
+          "word_id": "W00051",
+          "r": "こども"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "強い",
+          "role": "content",
+          "word_id": "W00118",
+          "r": "つよい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "待ちます",
+          "role": "content",
+          "word_id": "W00041",
+          "r": "まちます",
+          "inflection": {
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Because the child is strong, they wait."
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "でも",
+          "role": "particle",
+          "grammar_id": "G032_demo"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "子供",
+          "role": "content",
+          "word_id": "W00051",
+          "r": "こども"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "帽子",
+          "role": "content",
+          "word_id": "W00170",
+          "r": "ぼうし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "赤い",
+          "role": "content",
+          "word_id": "W00142",
+          "r": "あかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But the child's hat is red."
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00009",
+          "r": "おちゃ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "飲みません",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "のみません",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G036_masen"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "言います",
+          "role": "content",
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother says, \"Won't you have some tea?\""
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "そして",
+          "role": "particle",
+          "grammar_id": "G012_soshite_then"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "すぐ",
+          "role": "content",
+          "word_id": "W00133",
+          "r": "すぐ"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "ね",
+          "role": "particle",
+          "grammar_id": "G034_ne_confirm"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "言います",
+          "role": "content",
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "And then grandmother says, \"It will come soon, won't it.\""
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "子供",
+          "role": "content",
+          "word_id": "W00051",
+          "r": "こども"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The child looks at grandmother."
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "そして",
+          "role": "particle",
+          "grammar_id": "G012_soshite_then"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "電車",
+          "role": "content",
+          "word_id": "W00070",
+          "r": "でんしゃ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "走って",
+          "role": "content",
+          "word_id": "W00102",
+          "r": "はしって",
+          "inflection": {
+            "base": "走る",
+            "base_r": "はしる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Then, the train comes running."
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "子供",
+          "role": "content",
+          "word_id": "W00051",
+          "r": "こども"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "嬉しい",
+          "role": "content",
+          "word_id": "W00056",
+          "r": "うれしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The child is happy."
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "嬉しい",
+          "role": "content",
+          "word_id": "W00056",
+          "r": "うれしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother is happy too."
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "子供",
+          "role": "content",
+          "word_id": "W00051",
+          "r": "こども"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "隣",
+          "role": "content",
+          "word_id": "W00127",
+          "r": "となり"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "います",
+          "role": "content",
+          "word_id": "W00029",
+          "r": "います",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The child is beside grandmother."
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "兄",
+          "role": "content",
+          "word_id": "W00172",
+          "r": "あに",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "服",
+          "role": "content",
+          "word_id": "W00168",
+          "r": "ふく"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "どこ",
+          "role": "content",
+          "word_id": "W00143",
+          "r": "どこ"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Where are the big brother's clothes?"
+    }
   ]
 }

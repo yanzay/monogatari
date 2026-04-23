@@ -18,8 +18,9 @@ pipeline/plan.json
 pipeline/review.json
 pipeline/review.md
 
-# Normalizer backups (kept locally for safety, not committed)
+# Pipeline backups (kept locally for safety, not committed)
 state_backups/normalize_to_v2/
+state_backups/regenerate_all_stories/
 
 # Service worker / browser caches (none here, but reserve)
 *.log

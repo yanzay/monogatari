@@ -6,20 +6,20 @@
     "tokens": [
       {
         "t": "夕方",
-        "r": "ゆうがた",
+        "role": "content",
         "word_id": "W00018",
-        "role": "content"
+        "r": "ゆうがた"
       },
       {
         "t": "の",
-        "grammar_id": "G015_no_possessive",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "公園",
-        "r": "こうえん",
+        "role": "content",
         "word_id": "W00016",
-        "role": "content"
+        "r": "こうえん"
       }
     ]
   },
@@ -29,28 +29,27 @@
     "tokens": [
       {
         "t": "友達",
-        "r": "ともだち",
+        "role": "content",
         "word_id": "W00022",
-        "role": "content"
+        "r": "ともだち"
       },
       {
         "t": "と",
-        "grammar_id": "G010_to_and",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G010_to_and"
       },
       {
         "t": "外",
-        "r": "そと",
+        "role": "content",
         "word_id": "W00005",
-        "role": "content"
+        "r": "そと"
       }
     ]
   },
-  "plan_ref": "plan.json",
   "new_words": [
+    "W00018",
     "W00016",
-    "W00017",
-    "W00018"
+    "W00017"
   ],
   "new_grammar": [
     "G009_mo_also",
@@ -79,9 +78,9 @@
       "tokens": [
         {
           "t": "夕方",
-          "r": "ゆうがた",
-          "word_id": "W00018",
           "role": "content",
+          "word_id": "W00018",
+          "r": "ゆうがた",
           "is_new": true
         },
         {
@@ -90,74 +89,79 @@
         },
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "と",
-          "grammar_id": "G010_to_and",
           "role": "particle",
+          "grammar_id": "G010_to_and",
           "is_new_grammar": true
         },
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "公園",
-          "r": "こうえん",
-          "word_id": "W00016",
           "role": "content",
+          "word_id": "W00016",
+          "r": "こうえん",
           "is_new": true
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "歩きます",
-          "r": "あるきます",
-          "word_id": "W00017",
           "role": "content",
-          "is_new": true
+          "word_id": "W00017",
+          "r": "あるきます",
+          "is_new": true,
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "Evening — my friend and I walk through the park.",
-      "audio": "audio/story_2/s0.mp3",
-      "audio_hash": "ef4d275dfcd5"
+      "gloss_en": "Evening — my friend and I walk through the park."
     },
     {
       "idx": 1,
       "tokens": [
         {
           "t": "木",
-          "r": "き",
+          "role": "content",
           "word_id": "W00007",
-          "role": "content"
+          "r": "き"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "濡れて",
-          "r": "ぬれて",
-          "word_id": "W00008",
           "role": "content",
+          "word_id": "W00008",
+          "r": "ぬれて",
           "inflection": {
             "base": "濡れる",
             "base_r": "ぬれる",
@@ -176,29 +180,27 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The trees are wet.",
-      "audio": "audio/story_2/s1.mp3",
-      "audio_hash": "dd05be46cafc"
+      "gloss_en": "The trees are wet."
     },
     {
       "idx": 2,
       "tokens": [
         {
           "t": "公園",
-          "r": "こうえん",
+          "role": "content",
           "word_id": "W00016",
-          "role": "content"
+          "r": "こうえん"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "静か",
-          "r": "しずか",
+          "role": "content",
           "word_id": "W00011",
-          "role": "content"
+          "r": "しずか"
         },
         {
           "t": "です",
@@ -210,70 +212,73 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The park is quiet.",
-      "audio": "audio/story_2/s2.mp3",
-      "audio_hash": "64deea2e4198"
+      "gloss_en": "The park is quiet."
     },
     {
       "idx": 3,
       "tokens": [
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "も",
-          "grammar_id": "G009_mo_also",
           "role": "particle",
+          "grammar_id": "G009_mo_also",
           "is_new_grammar": true
         },
         {
           "t": "お茶",
-          "r": "おちゃ",
+          "role": "content",
           "word_id": "W00009",
-          "role": "content"
+          "r": "おちゃ"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "飲みます",
-          "r": "のみます",
+          "role": "content",
           "word_id": "W00010",
-          "role": "content"
+          "r": "のみます",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "My friend drinks tea, too.",
-      "audio": "audio/story_2/s3.mp3",
-      "audio_hash": "e93d756be838"
+      "gloss_en": "My friend drinks tea, too."
     },
     {
       "idx": 4,
       "tokens": [
         {
           "t": "お茶",
-          "r": "おちゃ",
+          "role": "content",
           "word_id": "W00009",
-          "role": "content"
+          "r": "おちゃ"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "温かい",
-          "r": "あたたかい",
-          "word_id": "W00012",
           "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
           "grammar_id": "G022_i_adj"
         },
         {
@@ -286,36 +291,34 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The tea is warm.",
-      "audio": "audio/story_2/s4.mp3",
-      "audio_hash": "f9c5e462ab89"
+      "gloss_en": "The tea is warm."
     },
     {
       "idx": 5,
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "も",
-          "grammar_id": "G009_mo_also",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "いい",
-          "r": "いい",
-          "word_id": "W00013",
           "role": "content",
+          "word_id": "W00013",
+          "r": "いい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "気分",
-          "r": "きぶん",
+          "role": "content",
           "word_id": "W00014",
-          "role": "content"
+          "r": "きぶん"
         },
         {
           "t": "です",
@@ -327,61 +330,54 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I feel good, too.",
-      "audio": "audio/story_2/s5.mp3",
-      "audio_hash": "966a51c16c72"
+      "gloss_en": "I feel good, too."
     },
     {
       "idx": 6,
       "tokens": [
         {
           "t": "夕方",
-          "r": "ゆうがた",
+          "role": "content",
           "word_id": "W00018",
-          "role": "content"
+          "r": "ゆうがた"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
           "role": "particle",
+          "grammar_id": "G015_no_possessive",
           "is_new_grammar": true
         },
         {
           "t": "公園",
-          "r": "こうえん",
+          "role": "content",
           "word_id": "W00016",
-          "role": "content"
+          "r": "こうえん"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "歩きます",
-          "r": "あるきます",
+          "role": "content",
           "word_id": "W00017",
-          "role": "content"
+          "r": "あるきます",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "We walk through the evening park.",
-      "audio": "audio/story_2/s6.mp3",
-      "audio_hash": "5bf8794c41d6"
+      "gloss_en": "We walk through the evening park."
     }
   ],
-  "word_audio": {
-    "W00016": "audio/story_2/w_W00016.mp3",
-    "W00017": "audio/story_2/w_W00017.mp3",
-    "W00018": "audio/story_2/w_W00018.mp3"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00016": "d4791fb11477",
-    "W00017": "508143ef81d5",
-    "W00018": "9ebe715902bc"
-  }
+  "plan_ref": "plan.json"
 }

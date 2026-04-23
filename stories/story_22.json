@@ -6,27 +6,27 @@
     "tokens": [
       {
         "t": "古い",
-        "r": "ふるい",
-        "word_id": "W00067",
         "role": "content",
+        "word_id": "W00067",
+        "r": "ふるい",
         "grammar_id": "G022_i_adj"
       },
       {
         "t": "本",
-        "r": "ほん",
+        "role": "content",
         "word_id": "W00033",
-        "role": "content"
+        "r": "ほん"
       },
       {
         "t": "の",
-        "grammar_id": "G015_no_possessive",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "写真",
-        "r": "しゃしん",
+        "role": "content",
         "word_id": "W00068",
-        "role": "content"
+        "r": "しゃしん"
       }
     ]
   },
@@ -36,16 +36,16 @@
     "tokens": [
       {
         "t": "新しい",
-        "r": "あたらしい",
-        "word_id": "W00066",
         "role": "content",
+        "word_id": "W00066",
+        "r": "あたらしい",
         "grammar_id": "G022_i_adj"
       },
       {
         "t": "朝",
-        "r": "あさ",
+        "role": "content",
         "word_id": "W00015",
-        "role": "content"
+        "r": "あさ"
       },
       {
         "t": "、",
@@ -53,19 +53,17 @@
       },
       {
         "t": "二人",
-        "r": "ふたり",
-        "word_id": "W00035",
         "role": "content",
-        "grammar_id": "G025_counters"
+        "word_id": "W00035",
+        "r": "ふたり"
       },
       {
         "t": "で",
-        "grammar_id": "G017_de_means",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G017_de_means"
       }
     ]
   },
-  "plan_ref": "plan.json",
   "new_words": [
     "W00066",
     "W00067",
@@ -99,21 +97,20 @@
   "sentences": [
     {
       "idx": 0,
-      "gloss_en": "Cold morning, on the desk is an old book.",
       "tokens": [
         {
           "t": "寒い",
           "role": "content",
-          "r": "さむい",
           "word_id": "W00062",
+          "r": "さむい",
           "grammar_id": "G022_i_adj",
           "is_new_grammar": true
         },
         {
           "t": "今朝",
           "role": "content",
-          "r": "けさ",
-          "word_id": "W00001"
+          "word_id": "W00001",
+          "r": "けさ"
         },
         {
           "t": "、",
@@ -122,8 +119,8 @@
         {
           "t": "机",
           "role": "content",
-          "r": "つくえ",
-          "word_id": "W00037"
+          "word_id": "W00037",
+          "r": "つくえ"
         },
         {
           "t": "に",
@@ -133,16 +130,16 @@
         {
           "t": "古い",
           "role": "content",
-          "r": "ふるい",
           "word_id": "W00067",
+          "r": "ふるい",
           "is_new": true,
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "本",
           "role": "content",
-          "r": "ほん",
-          "word_id": "W00033"
+          "word_id": "W00033",
+          "r": "ほん"
         },
         {
           "t": "が",
@@ -152,13 +149,13 @@
         {
           "t": "あります",
           "role": "content",
-          "r": "あります",
           "word_id": "W00044",
+          "r": "あります",
           "inflection": {
             "base": "ある",
             "base_r": "ある",
             "form": "polite_nonpast",
-            "verb_class": "irregular_aru"
+            "verb_class": "godan"
           },
           "grammar_id": "G026_masu_nonpast"
         },
@@ -166,34 +163,33 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "Cold morning, on the desk is an old book."
     },
     {
       "idx": 1,
-      "gloss_en": "I read the book with my friend, the two of us.",
       "tokens": [
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "と",
-          "grammar_id": "G010_to_and",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "二人",
-          "r": "ふたり",
-          "word_id": "W00035",
           "role": "content",
-          "grammar_id": "G025_counters"
+          "word_id": "W00035",
+          "r": "ふたり"
         },
         {
           "t": "で",
-          "grammar_id": "G017_de_means",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "、",
@@ -201,20 +197,20 @@
         },
         {
           "t": "本",
-          "r": "ほん",
+          "role": "content",
           "word_id": "W00033",
-          "role": "content"
+          "r": "ほん"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "読みます",
-          "r": "よみます",
-          "word_id": "W00034",
           "role": "content",
+          "word_id": "W00034",
+          "r": "よみます",
           "inflection": {
             "base": "読む",
             "base_r": "よむ",
@@ -227,29 +223,29 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I read the book with my friend, the two of us."
     },
     {
       "idx": 2,
-      "gloss_en": "Inside the old book, there is a photo.",
       "tokens": [
         {
           "t": "古い",
-          "r": "ふるい",
-          "word_id": "W00067",
           "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "本",
-          "r": "ほん",
+          "role": "content",
           "word_id": "W00033",
-          "role": "content"
+          "r": "ほん"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "、",
@@ -257,48 +253,49 @@
         },
         {
           "t": "写真",
-          "r": "しゃしん",
-          "word_id": "W00068",
           "role": "content",
+          "word_id": "W00068",
+          "r": "しゃしん",
           "is_new": true
         },
         {
           "t": "が",
-          "grammar_id": "G002_ga_subject",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "あります",
-          "word_id": "W00044",
           "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
           "inflection": {
             "base": "ある",
             "base_r": "ある",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "Inside the old book, there is a photo."
     },
     {
       "idx": 3,
-      "gloss_en": "The photo is of me and my friend.",
       "tokens": [
         {
           "t": "写真",
-          "r": "しゃしん",
+          "role": "content",
           "word_id": "W00068",
-          "role": "content"
+          "r": "しゃしん"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "、",
@@ -306,70 +303,70 @@
         },
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "と",
-          "grammar_id": "G010_to_and",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The photo is of me and my friend."
     },
     {
       "idx": 4,
-      "gloss_en": "The young friend looks at the photo and laughs.",
       "tokens": [
         {
           "t": "若い",
           "role": "content",
-          "r": "わかい",
           "word_id": "W00162",
+          "r": "わかい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "写真",
-          "r": "しゃしん",
+          "role": "content",
           "word_id": "W00068",
-          "role": "content"
+          "r": "しゃしん"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "見て",
-          "r": "みて",
-          "word_id": "W00006",
           "role": "content",
+          "word_id": "W00006",
+          "r": "みて",
           "inflection": {
             "base": "見る",
             "base_r": "みる",
@@ -384,9 +381,9 @@
         },
         {
           "t": "笑います",
-          "r": "わらいます",
-          "word_id": "W00053",
           "role": "content",
+          "word_id": "W00053",
+          "r": "わらいます",
           "inflection": {
             "base": "笑う",
             "base_r": "わらう",
@@ -399,24 +396,25 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The young friend looks at the photo and laughs."
     },
     {
       "idx": 5,
-      "gloss_en": "I write a name in the new book.",
       "tokens": [
         {
           "t": "新しい",
           "role": "content",
-          "r": "あたらしい",
           "word_id": "W00066",
-          "is_new": true
+          "r": "あたらしい",
+          "is_new": true,
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "本",
           "role": "content",
-          "r": "ほん",
-          "word_id": "W00033"
+          "word_id": "W00033",
+          "r": "ほん"
         },
         {
           "t": "に",
@@ -430,8 +428,8 @@
         {
           "t": "名前",
           "role": "content",
-          "r": "なまえ",
-          "word_id": "W00061"
+          "word_id": "W00061",
+          "r": "なまえ"
         },
         {
           "t": "を",
@@ -441,8 +439,8 @@
         {
           "t": "書きます",
           "role": "content",
-          "r": "かきます",
           "word_id": "W00060",
+          "r": "かきます",
           "inflection": {
             "base": "書く",
             "base_r": "かく",
@@ -455,23 +453,22 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I write a name in the new book."
     },
     {
       "idx": 6,
-      "gloss_en": "The two of us read the new book.",
       "tokens": [
         {
           "t": "二人",
-          "r": "ふたり",
-          "word_id": "W00035",
           "role": "content",
-          "grammar_id": "G025_counters"
+          "word_id": "W00035",
+          "r": "ふたり"
         },
         {
           "t": "で",
-          "grammar_id": "G017_de_means",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "、",
@@ -479,27 +476,27 @@
         },
         {
           "t": "新しい",
-          "r": "あたらしい",
-          "word_id": "W00066",
           "role": "content",
+          "word_id": "W00066",
+          "r": "あたらしい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "本",
-          "r": "ほん",
+          "role": "content",
           "word_id": "W00033",
-          "role": "content"
+          "r": "ほん"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "読みます",
-          "r": "よみます",
-          "word_id": "W00034",
           "role": "content",
+          "word_id": "W00034",
+          "r": "よみます",
           "inflection": {
             "base": "読む",
             "base_r": "よむ",
@@ -512,24 +509,24 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The two of us read the new book."
     },
     {
       "idx": 7,
-      "gloss_en": "An old photo, a new book.",
       "tokens": [
         {
           "t": "古い",
-          "r": "ふるい",
-          "word_id": "W00067",
           "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "写真",
-          "r": "しゃしん",
+          "role": "content",
           "word_id": "W00068",
-          "role": "content"
+          "r": "しゃしん"
         },
         {
           "t": "、",
@@ -537,32 +534,32 @@
         },
         {
           "t": "新しい",
-          "r": "あたらしい",
-          "word_id": "W00066",
           "role": "content",
+          "word_id": "W00066",
+          "r": "あたらしい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "本",
-          "r": "ほん",
+          "role": "content",
           "word_id": "W00033",
-          "role": "content"
+          "r": "ほん"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "An old photo, a new book."
     },
     {
       "idx": 8,
-      "gloss_en": "The two's morning, outside is snow.",
       "tokens": [
         {
           "t": "二人",
           "role": "content",
-          "r": "ふたり",
-          "word_id": "W00035"
+          "word_id": "W00035",
+          "r": "ふたり"
         },
         {
           "t": "の",
@@ -572,8 +569,8 @@
         {
           "t": "朝",
           "role": "content",
-          "r": "あさ",
-          "word_id": "W00015"
+          "word_id": "W00015",
+          "r": "あさ"
         },
         {
           "t": "、",
@@ -582,8 +579,8 @@
         {
           "t": "外",
           "role": "content",
-          "r": "そと",
-          "word_id": "W00005"
+          "word_id": "W00005",
+          "r": "そと"
         },
         {
           "t": "は",
@@ -593,8 +590,8 @@
         {
           "t": "雪",
           "role": "content",
-          "r": "ゆき",
-          "word_id": "W00063"
+          "word_id": "W00063",
+          "r": "ゆき"
         },
         {
           "t": "です",
@@ -605,8 +602,9 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The two's morning, outside is snow."
     }
   ],
-  "checksum": null
+  "plan_ref": "plan.json"
 }

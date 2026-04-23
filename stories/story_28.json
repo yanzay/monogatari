@@ -6,20 +6,20 @@
     "tokens": [
       {
         "t": "雨",
-        "r": "あめ",
+        "role": "content",
         "word_id": "W00002",
-        "role": "content"
+        "r": "あめ"
       },
       {
         "t": "の",
-        "grammar_id": "G015_no_possessive",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "店",
-        "r": "みせ",
+        "role": "content",
         "word_id": "W00084",
-        "role": "content"
+        "r": "みせ"
       }
     ]
   },
@@ -29,28 +29,26 @@
     "tokens": [
       {
         "t": "二人",
-        "r": "ふたり",
-        "word_id": "W00035",
         "role": "content",
-        "grammar_id": "G025_counters"
+        "word_id": "W00035",
+        "r": "ふたり"
       },
       {
         "t": "の",
-        "grammar_id": "G015_no_possessive",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "お茶",
-        "r": "おちゃ",
+        "role": "content",
         "word_id": "W00009",
-        "role": "content"
+        "r": "おちゃ"
       }
     ]
   },
-  "plan_ref": "plan.json",
   "new_words": [
-    "W00084",
     "W00085",
+    "W00084",
     "W00086"
   ],
   "new_grammar": [
@@ -83,20 +81,19 @@
   "sentences": [
     {
       "idx": 0,
-      "gloss_en": "Hot morning, rain comes.",
       "tokens": [
         {
           "t": "暑い",
           "role": "content",
-          "r": "あつい",
           "word_id": "W00082",
+          "r": "あつい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "朝",
           "role": "content",
-          "r": "あさ",
-          "word_id": "W00015"
+          "word_id": "W00015",
+          "r": "あさ"
         },
         {
           "t": "、",
@@ -105,8 +102,8 @@
         {
           "t": "雨",
           "role": "content",
-          "r": "あめ",
-          "word_id": "W00002"
+          "word_id": "W00002",
+          "r": "あめ"
         },
         {
           "t": "が",
@@ -116,67 +113,13 @@
         {
           "t": "来ます",
           "role": "content",
+          "word_id": "W00040",
           "r": "きます",
-          "word_id": "W00040"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ]
-    },
-    {
-      "idx": 1,
-      "gloss_en": "I enter the shop at the station.",
-      "tokens": [
-        {
-          "t": "私",
-          "r": "わたし",
-          "word_id": "W00003",
-          "role": "content"
-        },
-        {
-          "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "駅",
-          "r": "えき",
-          "word_id": "W00069",
-          "role": "content"
-        },
-        {
-          "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
-        },
-        {
-          "t": "店",
-          "r": "みせ",
-          "word_id": "W00084",
-          "role": "content",
-          "is_new": true
-        },
-        {
-          "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
-        },
-        {
-          "t": "入ります",
-          "r": "はいります",
-          "word_id": "W00080",
-          "role": "content",
           "inflection": {
-            "base": "入る",
-            "base_r": "はいる",
+            "base": "来る",
+            "base_r": "くる",
             "form": "polite_nonpast",
-            "verb_class": "godan"
+            "verb_class": "irregular_kuru"
           },
           "grammar_id": "G026_masu_nonpast",
           "is_new_grammar": true
@@ -185,22 +128,83 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "Hot morning, rain comes."
     },
     {
-      "idx": 2,
-      "gloss_en": "The shop is small.",
+      "idx": 1,
       "tokens": [
         {
-          "t": "店",
-          "r": "みせ",
-          "word_id": "W00084",
-          "role": "content"
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "駅",
+          "role": "content",
+          "word_id": "W00069",
+          "r": "えき"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "入ります",
+          "role": "content",
+          "word_id": "W00080",
+          "r": "はいります",
+          "inflection": {
+            "base": "入る",
+            "base_r": "はいる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I enter the shop at the station."
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "、",
@@ -208,36 +212,36 @@
         },
         {
           "t": "小さい",
-          "r": "ちいさい",
-          "word_id": "W00055",
           "role": "content",
+          "word_id": "W00055",
+          "r": "ちいさい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The shop is small."
     },
     {
       "idx": 3,
-      "gloss_en": "At the shop, I buy warm bread.",
       "tokens": [
         {
           "t": "店",
-          "r": "みせ",
+          "role": "content",
           "word_id": "W00084",
-          "role": "content"
+          "r": "みせ"
         },
         {
           "t": "で",
-          "grammar_id": "G017_de_means",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "、",
@@ -245,27 +249,27 @@
         },
         {
           "t": "温かい",
-          "r": "あたたかい",
-          "word_id": "W00012",
           "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "パン",
-          "r": "パン",
+          "role": "content",
           "word_id": "W00049",
-          "role": "content"
+          "r": "パン"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "買います",
-          "r": "かいます",
-          "word_id": "W00086",
           "role": "content",
+          "word_id": "W00086",
+          "r": "かいます",
           "is_new": true,
           "inflection": {
             "base": "買う",
@@ -279,22 +283,22 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "At the shop, I buy warm bread."
     },
     {
       "idx": 4,
-      "gloss_en": "I sit on a chair.",
       "tokens": [
         {
           "t": "椅子",
-          "r": "いす",
+          "role": "content",
           "word_id": "W00036",
-          "role": "content"
+          "r": "いす"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "、",
@@ -302,9 +306,9 @@
         },
         {
           "t": "座ります",
-          "r": "すわります",
-          "word_id": "W00085",
           "role": "content",
+          "word_id": "W00085",
+          "r": "すわります",
           "is_new": true,
           "inflection": {
             "base": "座る",
@@ -318,22 +322,22 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I sit on a chair."
     },
     {
       "idx": 5,
-      "gloss_en": "I wait for my friend.",
       "tokens": [
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "、",
@@ -341,9 +345,9 @@
         },
         {
           "t": "待ちます",
-          "r": "まちます",
-          "word_id": "W00041",
           "role": "content",
+          "word_id": "W00041",
+          "r": "まちます",
           "inflection": {
             "base": "待つ",
             "base_r": "まつ",
@@ -356,22 +360,22 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I wait for my friend."
     },
     {
       "idx": 6,
-      "gloss_en": "Outside, it is rain.",
       "tokens": [
         {
           "t": "外",
-          "r": "そと",
+          "role": "content",
           "word_id": "W00005",
-          "role": "content"
+          "r": "そと"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "、",
@@ -379,35 +383,35 @@
         },
         {
           "t": "雨",
-          "r": "あめ",
+          "role": "content",
           "word_id": "W00002",
-          "role": "content"
+          "r": "あめ"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "Outside, it is rain."
     },
     {
       "idx": 7,
-      "gloss_en": "My friend also comes to the shop.",
       "tokens": [
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "も",
-          "grammar_id": "G009_mo_also",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "、",
@@ -415,25 +419,25 @@
         },
         {
           "t": "店",
-          "r": "みせ",
+          "role": "content",
           "word_id": "W00084",
-          "role": "content"
+          "r": "みせ"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "来ます",
-          "r": "きます",
-          "word_id": "W00040",
           "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
           "inflection": {
             "base": "来る",
             "base_r": "くる",
             "form": "polite_nonpast",
-            "verb_class": "irregular"
+            "verb_class": "irregular_kuru"
           },
           "grammar_id": "G026_masu_nonpast"
         },
@@ -441,22 +445,22 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "My friend also comes to the shop."
     },
     {
       "idx": 8,
-      "gloss_en": "My friend also sits on a chair.",
       "tokens": [
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "も",
-          "grammar_id": "G009_mo_also",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "、",
@@ -464,20 +468,20 @@
         },
         {
           "t": "椅子",
-          "r": "いす",
+          "role": "content",
           "word_id": "W00036",
-          "role": "content"
+          "r": "いす"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "座ります",
-          "r": "すわります",
-          "word_id": "W00085",
           "role": "content",
+          "word_id": "W00085",
+          "r": "すわります",
           "inflection": {
             "base": "座る",
             "base_r": "すわる",
@@ -490,22 +494,22 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "My friend also sits on a chair."
     },
     {
       "idx": 9,
-      "gloss_en": "My friend buys tea.",
       "tokens": [
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "、",
@@ -513,20 +517,20 @@
         },
         {
           "t": "お茶",
-          "r": "おちゃ",
+          "role": "content",
           "word_id": "W00009",
-          "role": "content"
+          "r": "おちゃ"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "買います",
-          "r": "かいます",
-          "word_id": "W00086",
           "role": "content",
+          "word_id": "W00086",
+          "r": "かいます",
           "inflection": {
             "base": "買う",
             "base_r": "かう",
@@ -539,23 +543,22 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "My friend buys tea."
     },
     {
       "idx": 10,
-      "gloss_en": "We drink tea together.",
       "tokens": [
         {
           "t": "二人",
-          "r": "ふたり",
-          "word_id": "W00035",
           "role": "content",
-          "grammar_id": "G025_counters"
+          "word_id": "W00035",
+          "r": "ふたり"
         },
         {
           "t": "で",
-          "grammar_id": "G017_de_means",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "、",
@@ -563,26 +566,26 @@
         },
         {
           "t": "一緒に",
-          "r": "いっしょに",
+          "role": "content",
           "word_id": "W00050",
-          "role": "content"
+          "r": "いっしょに"
         },
         {
           "t": "お茶",
-          "r": "おちゃ",
+          "role": "content",
           "word_id": "W00009",
-          "role": "content"
+          "r": "おちゃ"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "飲みます",
-          "r": "のみます",
-          "word_id": "W00010",
           "role": "content",
+          "word_id": "W00010",
+          "r": "のみます",
           "inflection": {
             "base": "飲む",
             "base_r": "のむ",
@@ -595,17 +598,17 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "We drink tea together."
     },
     {
       "idx": 11,
-      "gloss_en": "Summer morning, a warm shop.",
       "tokens": [
         {
           "t": "夏",
           "role": "content",
-          "r": "なつ",
-          "word_id": "W00081"
+          "word_id": "W00081",
+          "r": "なつ"
         },
         {
           "t": "の",
@@ -615,8 +618,8 @@
         {
           "t": "朝",
           "role": "content",
-          "r": "あさ",
-          "word_id": "W00015"
+          "word_id": "W00015",
+          "r": "あさ"
         },
         {
           "t": "、",
@@ -625,15 +628,15 @@
         {
           "t": "温かい",
           "role": "content",
-          "r": "あたたかい",
           "word_id": "W00012",
+          "r": "あたたかい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "店",
           "role": "content",
-          "r": "みせ",
-          "word_id": "W00084"
+          "word_id": "W00084",
+          "r": "みせ"
         },
         {
           "t": "です",
@@ -644,8 +647,9 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "Summer morning, a warm shop."
     }
   ],
-  "checksum": null
+  "plan_ref": "plan.json"
 }

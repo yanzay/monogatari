@@ -6,9 +6,9 @@
     "tokens": [
       {
         "t": "朝ごはん",
-        "r": "あさごはん",
+        "role": "content",
         "word_id": "W00019",
-        "role": "content"
+        "r": "あさごはん"
       }
     ]
   },
@@ -18,28 +18,27 @@
     "tokens": [
       {
         "t": "卵",
-        "r": "たまご",
+        "role": "content",
         "word_id": "W00021",
-        "role": "content"
+        "r": "たまご"
       },
       {
         "t": "と",
-        "grammar_id": "G010_to_and",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G010_to_and"
       },
       {
         "t": "お茶",
-        "r": "おちゃ",
+        "role": "content",
         "word_id": "W00009",
-        "role": "content"
+        "r": "おちゃ"
       }
     ]
   },
-  "plan_ref": "plan.json",
   "new_words": [
     "W00019",
-    "W00020",
-    "W00021"
+    "W00021",
+    "W00020"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -63,9 +62,9 @@
       "tokens": [
         {
           "t": "朝",
-          "r": "あさ",
+          "role": "content",
           "word_id": "W00015",
-          "role": "content"
+          "r": "あさ"
         },
         {
           "t": "、",
@@ -73,9 +72,9 @@
         },
         {
           "t": "雨",
-          "r": "あめ",
+          "role": "content",
           "word_id": "W00002",
-          "role": "content"
+          "r": "あめ"
         },
         {
           "t": "です",
@@ -87,30 +86,28 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Morning — and rain.",
-      "audio": "audio/story_3/s0.mp3",
-      "audio_hash": "dd0c21f06f27"
+      "gloss_en": "Morning — and rain."
     },
     {
       "idx": 1,
       "tokens": [
         {
           "t": "卵",
-          "r": "たまご",
-          "word_id": "W00021",
           "role": "content",
+          "word_id": "W00021",
+          "r": "たまご",
           "is_new": true
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "温かい",
-          "r": "あたたかい",
-          "word_id": "W00012",
           "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
           "grammar_id": "G022_i_adj"
         },
         {
@@ -123,41 +120,39 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The eggs are warm.",
-      "audio": "audio/story_3/s1.mp3",
-      "audio_hash": "4654a34a88cd"
+      "gloss_en": "The eggs are warm."
     },
     {
       "idx": 2,
       "tokens": [
         {
           "t": "朝ごはん",
-          "r": "あさごはん",
-          "word_id": "W00019",
           "role": "content",
+          "word_id": "W00019",
+          "r": "あさごはん",
           "is_new": true
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "卵",
-          "r": "たまご",
+          "role": "content",
           "word_id": "W00021",
-          "role": "content"
+          "r": "たまご"
         },
         {
           "t": "と",
-          "grammar_id": "G010_to_and",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "お茶",
-          "r": "おちゃ",
+          "role": "content",
           "word_id": "W00009",
-          "role": "content"
+          "r": "おちゃ"
         },
         {
           "t": "です",
@@ -169,59 +164,62 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Breakfast is eggs and tea.",
-      "audio": "audio/story_3/s2.mp3",
-      "audio_hash": "5c77cd52a7b6"
+      "gloss_en": "Breakfast is eggs and tea."
     },
     {
       "idx": 3,
       "tokens": [
         {
           "t": "卵",
-          "r": "たまご",
+          "role": "content",
           "word_id": "W00021",
-          "role": "content"
+          "r": "たまご"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "食べます",
-          "r": "たべます",
-          "word_id": "W00020",
           "role": "content",
-          "is_new": true
+          "word_id": "W00020",
+          "r": "たべます",
+          "is_new": true,
+          "inflection": {
+            "base": "食べる",
+            "base_r": "たべる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I eat the eggs.",
-      "audio": "audio/story_3/s3.mp3",
-      "audio_hash": "edc7d577caed"
+      "gloss_en": "I eat the eggs."
     },
     {
       "idx": 4,
       "tokens": [
         {
           "t": "お茶",
-          "r": "おちゃ",
+          "role": "content",
           "word_id": "W00009",
-          "role": "content"
+          "r": "おちゃ"
         },
         {
           "t": "も",
-          "grammar_id": "G009_mo_also",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "温かい",
-          "r": "あたたかい",
-          "word_id": "W00012",
           "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
           "grammar_id": "G022_i_adj"
         },
         {
@@ -234,120 +232,128 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The tea is warm, too.",
-      "audio": "audio/story_3/s4.mp3",
-      "audio_hash": "266eccaaf505"
+      "gloss_en": "The tea is warm, too."
     },
     {
       "idx": 5,
       "tokens": [
         {
           "t": "朝ごはん",
-          "r": "あさごはん",
+          "role": "content",
           "word_id": "W00019",
-          "role": "content"
+          "r": "あさごはん"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "食べます",
-          "r": "たべます",
+          "role": "content",
           "word_id": "W00020",
-          "role": "content"
+          "r": "たべます",
+          "inflection": {
+            "base": "食べる",
+            "base_r": "たべる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I eat my breakfast.",
-      "audio": "audio/story_3/s5.mp3",
-      "audio_hash": "6ff229e2e51c"
+      "gloss_en": "I eat my breakfast."
     },
     {
       "idx": 6,
       "tokens": [
         {
           "t": "窓",
-          "r": "まど",
+          "role": "content",
           "word_id": "W00004",
-          "role": "content"
+          "r": "まど"
         },
         {
           "t": "から",
-          "grammar_id": "G006_kara_from",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
         },
         {
           "t": "外",
-          "r": "そと",
+          "role": "content",
           "word_id": "W00005",
-          "role": "content"
+          "r": "そと"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "見ます",
-          "r": "みます",
+          "role": "content",
           "word_id": "W00006",
-          "role": "content"
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I look outside through the window.",
-      "audio": "audio/story_3/s6.mp3",
-      "audio_hash": "bd5b852fb3fa"
+      "gloss_en": "I look outside through the window."
     },
     {
       "idx": 7,
       "tokens": [
         {
           "t": "雨",
-          "r": "あめ",
+          "role": "content",
           "word_id": "W00002",
-          "role": "content"
+          "r": "あめ"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "外",
-          "r": "そと",
+          "role": "content",
           "word_id": "W00005",
-          "role": "content"
+          "r": "そと"
         },
         {
           "t": "と",
-          "grammar_id": "G010_to_and",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "静か",
-          "r": "しずか",
+          "role": "content",
           "word_id": "W00011",
-          "role": "content"
+          "r": "しずか"
         },
         {
           "t": "な",
-          "grammar_id": "G016_na_adjective",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G016_na_adjective"
         },
         {
           "t": "朝",
-          "r": "あさ",
+          "role": "content",
           "word_id": "W00015",
-          "role": "content"
+          "r": "あさ"
         },
         {
           "t": "、",
@@ -355,16 +361,16 @@
         },
         {
           "t": "いい",
-          "r": "いい",
-          "word_id": "W00013",
           "role": "content",
+          "word_id": "W00013",
+          "r": "いい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "気分",
-          "r": "きぶん",
+          "role": "content",
           "word_id": "W00014",
-          "role": "content"
+          "r": "きぶん"
         },
         {
           "t": "です",
@@ -376,20 +382,8 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The rain-outside and the quiet morning — a good feeling.",
-      "audio": "audio/story_3/s7.mp3",
-      "audio_hash": "30706f14c577"
+      "gloss_en": "The rain-outside and the quiet morning — a good feeling."
     }
   ],
-  "word_audio": {
-    "W00019": "audio/story_3/w_W00019.mp3",
-    "W00020": "audio/story_3/w_W00020.mp3",
-    "W00021": "audio/story_3/w_W00021.mp3"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00019": "76693670fecf",
-    "W00020": "2fae54ba949d",
-    "W00021": "d9ac2c62ddd7"
-  }
+  "plan_ref": "plan.json"
 }

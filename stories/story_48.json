@@ -1,13 +1,14 @@
 {
   "story_id": 48,
   "title": {
+    "jp": "どこですか。",
+    "en": "Where Is It?",
     "tokens": [
       {
         "t": "どこ",
-        "r": "どこ",
         "role": "content",
         "word_id": "W00143",
-        "grammar_id": "G040_doko_where"
+        "r": "どこ"
       },
       {
         "t": "です",
@@ -23,30 +24,28 @@
         "t": "。",
         "role": "punct"
       }
-    ],
-    "gloss_en": "Where Is It?",
-    "jp": "どこですか。",
-    "en": "Where Is It?"
+    ]
   },
   "subtitle": {
+    "jp": "友達は本の店を探します。",
+    "en": "The friend looks for the bookstore.",
     "tokens": [
       {
         "t": "友達",
-        "r": "ともだち",
         "role": "content",
-        "word_id": "W00022"
+        "word_id": "W00022",
+        "r": "ともだち"
       },
       {
         "t": "は",
         "role": "particle",
-        "grammar_id": "G001_wa_topic",
-        "r": "わ"
+        "grammar_id": "G001_wa_topic"
       },
       {
         "t": "本",
-        "r": "ほん",
         "role": "content",
-        "word_id": "W00033"
+        "word_id": "W00033",
+        "r": "ほん"
       },
       {
         "t": "の",
@@ -55,9 +54,9 @@
       },
       {
         "t": "店",
-        "r": "みせ",
         "role": "content",
-        "word_id": "W00084"
+        "word_id": "W00084",
+        "r": "みせ"
       },
       {
         "t": "を",
@@ -66,14 +65,14 @@
       },
       {
         "t": "探します",
-        "r": "さがします",
         "role": "content",
         "word_id": "W00128",
+        "r": "さがします",
         "inflection": {
-          "form": "polite_nonpast",
           "base": "探す",
-          "verb_class": "godan",
-          "base_r": "さがす"
+          "base_r": "さがす",
+          "form": "polite_nonpast",
+          "verb_class": "godan"
         },
         "grammar_id": "G026_masu_nonpast"
       },
@@ -81,874 +80,15 @@
         "t": "。",
         "role": "punct"
       }
-    ],
-    "gloss_en": "The friend looks for the bookstore.",
-    "jp": "友達は本の店を探します。",
-    "en": "The friend looks for the bookstore."
+    ]
   },
-  "sentences": [
-    {
-      "idx": 0,
-      "tokens": [
-        {
-          "t": "春",
-          "r": "はる",
-          "role": "content",
-          "word_id": "W00072"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "夕方",
-          "r": "ゆうがた",
-          "role": "content",
-          "word_id": "W00018"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "It is a spring evening."
-    },
-    {
-      "idx": 1,
-      "tokens": [
-        {
-          "t": "友達",
-          "r": "ともだち",
-          "role": "content",
-          "word_id": "W00022"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "来ます",
-          "r": "きます",
-          "role": "content",
-          "word_id": "W00040",
-          "inflection": {
-            "form": "masu_polite_nonpast"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "A friend comes."
-    },
-    {
-      "idx": 2,
-      "tokens": [
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "本",
-          "r": "ほん",
-          "role": "content",
-          "word_id": "W00033"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "店",
-          "r": "みせ",
-          "role": "content",
-          "word_id": "W00084"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "わ"
-        },
-        {
-          "t": "どこ",
-          "r": "どこ",
-          "role": "content",
-          "word_id": "W00143",
-          "grammar_id": "G040_doko_where",
-          "is_new": true,
-          "is_new_grammar": true
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "か",
-          "role": "particle",
-          "grammar_id": "G037_ka_question"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "言います",
-          "r": "いいます",
-          "role": "content",
-          "word_id": "W00097",
-          "inflection": {
-            "form": "polite_nonpast",
-            "base": "言う",
-            "verb_class": "godan",
-            "base_r": "いう"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "\"Where is the bookstore?\" he says."
-    },
-    {
-      "idx": 3,
-      "tokens": [
-        {
-          "t": "私",
-          "r": "わたし",
-          "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "家",
-          "r": "いえ",
-          "role": "content",
-          "word_id": "W00078"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "庭",
-          "r": "にわ",
-          "role": "content",
-          "word_id": "W00059"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "It is the garden of my house."
-    },
-    {
-      "idx": 4,
-      "tokens": [
-        {
-          "t": "庭",
-          "role": "content",
-          "r": "にわ",
-          "word_id": "W00059"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "春",
-          "role": "content",
-          "r": "はる",
-          "word_id": "W00072"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "花",
-          "role": "content",
-          "r": "はな",
-          "word_id": "W00024"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "雲",
-          "role": "content",
-          "r": "くも",
-          "word_id": "W00092"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "あります",
-          "role": "content",
-          "r": "あります",
-          "word_id": "W00044",
-          "inflection": {
-            "base": "ある",
-            "base_r": "ある",
-            "form": "polite_nonpast",
-            "verb_class": "irregular_aru"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "In the garden are spring flowers and clouds."
-    },
-    {
-      "idx": 5,
-      "tokens": [
-        {
-          "t": "本",
-          "r": "ほん",
-          "role": "content",
-          "word_id": "W00033"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "店",
-          "r": "みせ",
-          "role": "content",
-          "word_id": "W00084"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "わ"
-        },
-        {
-          "t": "川",
-          "r": "かわ",
-          "role": "content",
-          "word_id": "W00111"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "後ろ",
-          "r": "うしろ",
-          "role": "content",
-          "word_id": "W00144",
-          "is_new": true
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The bookstore is behind the river."
-    },
-    {
-      "idx": 6,
-      "tokens": [
-        {
-          "t": "川",
-          "r": "かわ",
-          "role": "content",
-          "word_id": "W00111"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "後ろ",
-          "r": "うしろ",
-          "role": "content",
-          "word_id": "W00144"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "古い",
-          "r": "ふるい",
-          "role": "content",
-          "word_id": "W00067",
-          "inflection": {
-            "form": "attributive"
-          },
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "店",
-          "r": "みせ",
-          "role": "content",
-          "word_id": "W00084"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "あります",
-          "r": "あります",
-          "role": "content",
-          "grammar_id": "G021_aru_iru",
-          "word_id": "W00044"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Behind the river, there is an old store."
-    },
-    {
-      "idx": 7,
-      "tokens": [
-        {
-          "t": "友達",
-          "role": "content",
-          "r": "ともだち",
-          "word_id": "W00022"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "明るい",
-          "role": "content",
-          "r": "あかるい",
-          "word_id": "W00137"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The friend is bright."
-    },
-    {
-      "idx": 8,
-      "tokens": [
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "私",
-          "r": "わたし",
-          "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "探します",
-          "r": "さがします",
-          "role": "content",
-          "word_id": "W00128",
-          "inflection": {
-            "form": "polite_nonpast",
-            "base": "探す",
-            "verb_class": "godan",
-            "base_r": "さがす"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "言います",
-          "r": "いいます",
-          "role": "content",
-          "word_id": "W00097",
-          "inflection": {
-            "form": "polite_nonpast",
-            "base": "言う",
-            "verb_class": "godan",
-            "base_r": "いう"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "\"I will look too,\" he says."
-    },
-    {
-      "idx": 9,
-      "tokens": [
-        {
-          "t": "友達",
-          "r": "ともだち",
-          "role": "content",
-          "word_id": "W00022"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "わ"
-        },
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "店",
-          "r": "みせ",
-          "role": "content",
-          "word_id": "W00084"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "後ろ",
-          "r": "うしろ",
-          "role": "content",
-          "word_id": "W00144"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "わ"
-        },
-        {
-          "t": "どこ",
-          "r": "どこ",
-          "role": "content",
-          "word_id": "W00143",
-          "grammar_id": "G040_doko_where"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "か",
-          "role": "particle",
-          "grammar_id": "G037_ka_question"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "言います",
-          "r": "いいます",
-          "role": "content",
-          "word_id": "W00097",
-          "inflection": {
-            "form": "polite_nonpast",
-            "base": "言う",
-            "verb_class": "godan",
-            "base_r": "いう"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "\"Where is behind the store?\" the friend says."
-    },
-    {
-      "idx": 10,
-      "tokens": [
-        {
-          "t": "私",
-          "r": "わたし",
-          "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "誰",
-          "r": "だれ",
-          "role": "content",
-          "word_id": "W00140",
-          "grammar_id": "G039_dare_who"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "店",
-          "r": "みせ",
-          "role": "content",
-          "word_id": "W00084"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "か",
-          "role": "particle",
-          "grammar_id": "G037_ka_question"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G014_to_omoimasu"
-        },
-        {
-          "t": "思います",
-          "r": "おもいます",
-          "role": "aux",
-          "grammar_id": "G014_to_omoimasu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I think, \"whose store is it?\""
-    },
-    {
-      "idx": 11,
-      "tokens": [
-        {
-          "t": "光",
-          "role": "content",
-          "r": "ひかり",
-          "word_id": "W00139"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "約束",
-          "role": "content",
-          "r": "やくそく",
-          "word_id": "W00132"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "A luminous promise."
-    },
-    {
-      "idx": 12,
-      "tokens": [
-        {
-          "t": "友達",
-          "r": "ともだち",
-          "role": "content",
-          "word_id": "W00022"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "わ"
-        },
-        {
-          "t": "明日",
-          "r": "あした",
-          "role": "content",
-          "word_id": "W00046"
-        },
-        {
-          "t": "来ます",
-          "r": "きます",
-          "role": "content",
-          "word_id": "W00040",
-          "inflection": {
-            "form": "masu_polite_nonpast"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The friend comes tomorrow."
-    },
-    {
-      "idx": 13,
-      "tokens": [
-        {
-          "t": "でも",
-          "role": "aux",
-          "grammar_id": "G032_demo"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "私",
-          "r": "わたし",
-          "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "心",
-          "r": "こころ",
-          "role": "content",
-          "word_id": "W00120"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "わ"
-        },
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "どこ",
-          "r": "どこ",
-          "role": "content",
-          "word_id": "W00143",
-          "grammar_id": "G040_doko_where"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "か",
-          "role": "particle",
-          "grammar_id": "G037_ka_question"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "思います",
-          "r": "おもいます",
-          "role": "aux",
-          "grammar_id": "G014_to_omoimasu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "But my heart thinks, \"where is it?\""
-    },
-    {
-      "idx": 14,
-      "tokens": [
-        {
-          "t": "春",
-          "r": "はる",
-          "role": "content",
-          "word_id": "W00072"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "夕方",
-          "r": "ゆうがた",
-          "role": "content",
-          "word_id": "W00018"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "庭",
-          "r": "にわ",
-          "role": "content",
-          "word_id": "W00059"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "花",
-          "r": "はな",
-          "role": "content",
-          "word_id": "W00024"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Spring evening, garden flowers."
-    },
-    {
-      "idx": 15,
-      "tokens": [
-        {
-          "t": "友達",
-          "role": "content",
-          "r": "ともだち",
-          "word_id": "W00022"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "服",
-          "role": "content",
-          "r": "ふく",
-          "word_id": "W00168",
-          "is_new": true
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "あります",
-          "role": "content",
-          "r": "あります",
-          "word_id": "W00044",
-          "inflection": {
-            "base": "ある",
-            "base_r": "ある",
-            "form": "polite_nonpast",
-            "verb_class": "irregular_aru"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "There are the friend's clothes."
-    }
+  "new_words": [
+    "W00168",
+    "W00143",
+    "W00144"
+  ],
+  "new_grammar": [
+    "G040_doko_where"
   ],
   "all_words_used": [
     "W00143",
@@ -971,18 +111,888 @@
     "W00067",
     "W00137",
     "W00140",
+    "W00043",
     "W00139",
     "W00132",
     "W00046",
     "W00120",
     "W00168"
   ],
-  "new_words": [
-    "W00143",
-    "W00144",
-    "W00168"
-  ],
-  "new_grammar": [
-    "G040_doko_where"
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "春",
+          "role": "content",
+          "word_id": "W00072",
+          "r": "はる"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夕方",
+          "role": "content",
+          "word_id": "W00018",
+          "r": "ゆうがた"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is a spring evening."
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A friend comes."
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "どこ",
+          "role": "content",
+          "word_id": "W00143",
+          "r": "どこ",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "言います",
+          "role": "content",
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Where is the bookstore?\" he says."
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "庭",
+          "role": "content",
+          "word_id": "W00059",
+          "r": "にわ"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is the garden of my house."
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "庭",
+          "role": "content",
+          "word_id": "W00059",
+          "r": "にわ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "春",
+          "role": "content",
+          "word_id": "W00072",
+          "r": "はる"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "花",
+          "role": "content",
+          "word_id": "W00024",
+          "r": "はな"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "雲",
+          "role": "content",
+          "word_id": "W00092",
+          "r": "くも"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the garden are spring flowers and clouds."
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "川",
+          "role": "content",
+          "word_id": "W00111",
+          "r": "かわ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "後ろ",
+          "role": "content",
+          "word_id": "W00144",
+          "r": "うしろ",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The bookstore is behind the river."
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "川",
+          "role": "content",
+          "word_id": "W00111",
+          "r": "かわ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "後ろ",
+          "role": "content",
+          "word_id": "W00144",
+          "r": "うしろ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Behind the river, there is an old store."
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend is bright."
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "探します",
+          "role": "content",
+          "word_id": "W00128",
+          "r": "さがします",
+          "inflection": {
+            "base": "探す",
+            "base_r": "さがす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "言います",
+          "role": "content",
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"I will look too,\" he says."
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "後ろ",
+          "role": "content",
+          "word_id": "W00144",
+          "r": "うしろ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "どこ",
+          "role": "content",
+          "word_id": "W00143",
+          "r": "どこ"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "言います",
+          "role": "content",
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Where is behind the store?\" the friend says."
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "誰",
+          "role": "content",
+          "word_id": "W00140",
+          "r": "だれ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "思います",
+          "role": "content",
+          "word_id": "W00043",
+          "r": "おもいます",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I think, \"whose store is it?\""
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "光",
+          "role": "content",
+          "word_id": "W00139",
+          "r": "ひかり"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "約束",
+          "role": "content",
+          "word_id": "W00132",
+          "r": "やくそく"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A luminous promise."
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明日",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "あした"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend comes tomorrow."
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "でも",
+          "role": "particle",
+          "grammar_id": "G032_demo"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "心",
+          "role": "content",
+          "word_id": "W00120",
+          "r": "こころ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "どこ",
+          "role": "content",
+          "word_id": "W00143",
+          "r": "どこ"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "思います",
+          "role": "content",
+          "word_id": "W00043",
+          "r": "おもいます",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But my heart thinks, \"where is it?\""
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "春",
+          "role": "content",
+          "word_id": "W00072",
+          "r": "はる"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夕方",
+          "role": "content",
+          "word_id": "W00018",
+          "r": "ゆうがた"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "庭",
+          "role": "content",
+          "word_id": "W00059",
+          "r": "にわ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "花",
+          "role": "content",
+          "word_id": "W00024",
+          "r": "はな"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Spring evening, garden flowers."
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "服",
+          "role": "content",
+          "word_id": "W00168",
+          "r": "ふく",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There are the friend's clothes."
+    }
   ]
 }

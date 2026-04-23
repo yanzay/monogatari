@@ -6,20 +6,20 @@
     "tokens": [
       {
         "t": "公園",
-        "r": "こうえん",
+        "role": "content",
         "word_id": "W00016",
-        "role": "content"
+        "r": "こうえん"
       },
       {
         "t": "の",
-        "grammar_id": "G015_no_possessive",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "子供",
-        "r": "こども",
+        "role": "content",
         "word_id": "W00051",
-        "role": "content"
+        "r": "こども"
       }
     ]
   },
@@ -29,28 +29,27 @@
     "tokens": [
       {
         "t": "夕方",
-        "r": "ゆうがた",
+        "role": "content",
         "word_id": "W00018",
-        "role": "content"
+        "r": "ゆうがた"
       },
       {
         "t": "の",
-        "grammar_id": "G015_no_possessive",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "ベンチ",
-        "r": "ベンチ",
+        "role": "content",
         "word_id": "W00052",
-        "role": "content"
+        "r": "ベンチ"
       }
     ]
   },
-  "plan_ref": "plan.json",
   "new_words": [
     "W00051",
-    "W00052",
-    "W00053"
+    "W00053",
+    "W00052"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -76,13 +75,12 @@
   "sentences": [
     {
       "idx": 0,
-      "gloss_en": "In the evening, I walk in the park.",
       "tokens": [
         {
           "t": "夕方",
-          "r": "ゆうがた",
+          "role": "content",
           "word_id": "W00018",
-          "role": "content"
+          "r": "ゆうがた"
         },
         {
           "t": "、",
@@ -90,31 +88,31 @@
         },
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "公園",
-          "r": "こうえん",
+          "role": "content",
           "word_id": "W00016",
-          "role": "content"
+          "r": "こうえん"
         },
         {
           "t": "で",
-          "grammar_id": "G017_de_means",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "歩きます",
-          "r": "あるきます",
-          "word_id": "W00017",
           "role": "content",
+          "word_id": "W00017",
+          "r": "あるきます",
           "inflection": {
             "base": "歩く",
             "base_r": "あるく",
@@ -127,32 +125,33 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "In the evening, I walk in the park."
     },
     {
       "idx": 1,
-      "gloss_en": "Beside a tree, there is a bench.",
       "tokens": [
         {
           "t": "木",
-          "r": "き",
+          "role": "content",
           "word_id": "W00007",
-          "role": "content"
+          "r": "き"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "そば",
+          "role": "content",
           "word_id": "W00045",
-          "role": "content"
+          "r": "そば"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "、",
@@ -160,48 +159,49 @@
         },
         {
           "t": "ベンチ",
-          "r": "ベンチ",
-          "word_id": "W00052",
           "role": "content",
+          "word_id": "W00052",
+          "r": "ベンチ",
           "is_new": true
         },
         {
           "t": "が",
-          "grammar_id": "G002_ga_subject",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "あります",
-          "word_id": "W00044",
           "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
           "inflection": {
             "base": "ある",
             "base_r": "ある",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "Beside a tree, there is a bench."
     },
     {
       "idx": 2,
-      "gloss_en": "On the bench, there is a child.",
       "tokens": [
         {
           "t": "ベンチ",
-          "r": "ベンチ",
+          "role": "content",
           "word_id": "W00052",
-          "role": "content"
+          "r": "ベンチ"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "、",
@@ -209,65 +209,66 @@
         },
         {
           "t": "子供",
-          "r": "こども",
-          "word_id": "W00051",
           "role": "content",
+          "word_id": "W00051",
+          "r": "こども",
           "is_new": true
         },
         {
           "t": "が",
-          "grammar_id": "G002_ga_subject",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "います",
-          "word_id": "W00029",
           "role": "content",
+          "word_id": "W00029",
+          "r": "います",
           "inflection": {
             "base": "いる",
             "base_r": "いる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "On the bench, there is a child."
     },
     {
       "idx": 3,
-      "gloss_en": "The child is reading a book.",
       "tokens": [
         {
           "t": "子供",
-          "r": "こども",
+          "role": "content",
           "word_id": "W00051",
-          "role": "content"
+          "r": "こども"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "本",
-          "r": "ほん",
+          "role": "content",
           "word_id": "W00033",
-          "role": "content"
+          "r": "ほん"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "読んで",
-          "r": "よんで",
-          "word_id": "W00034",
           "role": "content",
+          "word_id": "W00034",
+          "r": "よんで",
           "inflection": {
             "base": "読む",
             "base_r": "よむ",
@@ -278,35 +279,35 @@
         },
         {
           "t": "います",
-          "grammar_id": "G008_te_iru",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G008_te_iru"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The child is reading a book."
     },
     {
       "idx": 4,
-      "gloss_en": "Seeing me, the child smiles.",
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "見て",
-          "r": "みて",
-          "word_id": "W00006",
           "role": "content",
+          "word_id": "W00006",
+          "r": "みて",
           "inflection": {
             "base": "見る",
             "base_r": "みる",
@@ -321,20 +322,20 @@
         },
         {
           "t": "子供",
-          "r": "こども",
+          "role": "content",
           "word_id": "W00051",
-          "role": "content"
+          "r": "こども"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "笑います",
-          "r": "わらいます",
-          "word_id": "W00053",
           "role": "content",
+          "word_id": "W00053",
+          "r": "わらいます",
           "is_new": true,
           "inflection": {
             "base": "笑う",
@@ -348,28 +349,28 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "Seeing me, the child smiles."
     },
     {
       "idx": 5,
-      "gloss_en": "I smile too.",
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "も",
-          "grammar_id": "G009_mo_also",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "笑います",
-          "r": "わらいます",
-          "word_id": "W00053",
           "role": "content",
+          "word_id": "W00053",
+          "r": "わらいます",
           "inflection": {
             "base": "笑う",
             "base_r": "わらう",
@@ -382,32 +383,33 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I smile too."
     },
     {
       "idx": 6,
-      "gloss_en": "I am beside the child too.",
       "tokens": [
         {
           "t": "子供",
-          "r": "こども",
+          "role": "content",
           "word_id": "W00051",
-          "role": "content"
+          "r": "こども"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "そば",
+          "role": "content",
           "word_id": "W00045",
-          "role": "content"
+          "r": "そば"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "、",
@@ -415,42 +417,43 @@
         },
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "も",
-          "grammar_id": "G009_mo_also",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "います",
-          "word_id": "W00029",
           "role": "content",
+          "word_id": "W00029",
+          "r": "います",
           "inflection": {
             "base": "いる",
             "base_r": "いる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I am beside the child too."
     },
     {
       "idx": 7,
-      "gloss_en": "The friend, too, makes a song.",
       "tokens": [
         {
           "t": "友達",
           "role": "content",
-          "r": "ともだち",
-          "word_id": "W00022"
+          "word_id": "W00022",
+          "r": "ともだち"
         },
         {
           "t": "も",
@@ -460,8 +463,8 @@
         {
           "t": "歌",
           "role": "content",
-          "r": "うた",
-          "word_id": "W00164"
+          "word_id": "W00164",
+          "r": "うた"
         },
         {
           "t": "を",
@@ -471,8 +474,8 @@
         {
           "t": "作ります",
           "role": "content",
-          "r": "つくります",
           "word_id": "W00048",
+          "r": "つくります",
           "inflection": {
             "base": "作る",
             "base_r": "つくる",
@@ -485,22 +488,22 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The friend, too, makes a song."
     },
     {
       "idx": 8,
-      "gloss_en": "Together on the bench, we laugh.",
       "tokens": [
         {
           "t": "ベンチ",
-          "r": "ベンチ",
+          "role": "content",
           "word_id": "W00052",
-          "role": "content"
+          "r": "ベンチ"
         },
         {
           "t": "で",
-          "grammar_id": "G017_de_means",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "、",
@@ -508,15 +511,15 @@
         },
         {
           "t": "一緒に",
-          "r": "いっしょに",
+          "role": "content",
           "word_id": "W00050",
-          "role": "content"
+          "r": "いっしょに"
         },
         {
           "t": "笑います",
-          "r": "わらいます",
-          "word_id": "W00053",
           "role": "content",
+          "word_id": "W00053",
+          "r": "わらいます",
           "inflection": {
             "base": "笑う",
             "base_r": "わらう",
@@ -529,8 +532,9 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "Together on the bench, we laugh."
     }
   ],
-  "checksum": null
+  "plan_ref": "plan.json"
 }

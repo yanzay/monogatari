@@ -6,9 +6,9 @@
     "tokens": [
       {
         "t": "夜",
-        "r": "よる",
         "role": "content",
-        "word_id": "W00030"
+        "word_id": "W00030",
+        "r": "よる"
       }
     ]
   },
@@ -18,9 +18,9 @@
     "tokens": [
       {
         "t": "月",
-        "r": "つき",
         "role": "content",
-        "word_id": "W00031"
+        "word_id": "W00031",
+        "r": "つき"
       },
       {
         "t": "と",
@@ -29,16 +29,16 @@
       },
       {
         "t": "星",
-        "r": "ほし",
         "role": "content",
-        "word_id": "W00032"
+        "word_id": "W00032",
+        "r": "ほし"
       }
     ]
   },
   "new_words": [
-    "W00030",
+    "W00032",
     "W00031",
-    "W00032"
+    "W00030"
   ],
   "new_grammar": [
     "G021_aru_iru"
@@ -59,13 +59,12 @@
   "sentences": [
     {
       "idx": 0,
-      "gloss_en": "Night — the moon is there.",
       "tokens": [
         {
           "t": "夜",
-          "r": "よる",
           "role": "content",
           "word_id": "W00030",
+          "r": "よる",
           "is_new": true
         },
         {
@@ -74,9 +73,9 @@
         },
         {
           "t": "月",
-          "r": "つき",
           "role": "content",
           "word_id": "W00031",
+          "r": "つき",
           "is_new": true
         },
         {
@@ -88,17 +87,17 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "Night — the moon is there."
     },
     {
       "idx": 1,
-      "gloss_en": "The moon is outside, beyond the window.",
       "tokens": [
         {
           "t": "月",
-          "r": "つき",
           "role": "content",
-          "word_id": "W00031"
+          "word_id": "W00031",
+          "r": "つき"
         },
         {
           "t": "は",
@@ -107,9 +106,9 @@
         },
         {
           "t": "窓",
-          "r": "まど",
           "role": "content",
-          "word_id": "W00004"
+          "word_id": "W00004",
+          "r": "まど"
         },
         {
           "t": "の",
@@ -118,9 +117,9 @@
         },
         {
           "t": "外",
-          "r": "そと",
           "role": "content",
-          "word_id": "W00005"
+          "word_id": "W00005",
+          "r": "そと"
         },
         {
           "t": "に",
@@ -129,21 +128,26 @@
         },
         {
           "t": "あります",
-          "r": "あります",
           "role": "content",
           "word_id": "W00044",
-          "grammar_id": "G021_aru_iru",
-          "is_new_grammar": true
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The moon is outside, beyond the window."
     },
     {
       "idx": 2,
-      "gloss_en": "And then, the moon and the stars are there.",
       "tokens": [
         {
           "t": "そして",
@@ -156,9 +160,9 @@
         },
         {
           "t": "月",
-          "r": "つき",
           "role": "content",
-          "word_id": "W00031"
+          "word_id": "W00031",
+          "r": "つき"
         },
         {
           "t": "や",
@@ -167,9 +171,9 @@
         },
         {
           "t": "星",
-          "r": "ほし",
           "role": "content",
           "word_id": "W00032",
+          "r": "ほし",
           "is_new": true
         },
         {
@@ -182,23 +186,29 @@
           "role": "content",
           "word_id": "W00044",
           "r": "あります",
-          "grammar_id": "G021_aru_iru"
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "And then, the moon and the stars are there."
     },
     {
       "idx": 3,
-      "gloss_en": "The moon and the stars are quiet.",
       "tokens": [
         {
           "t": "月",
-          "r": "つき",
           "role": "content",
-          "word_id": "W00031"
+          "word_id": "W00031",
+          "r": "つき"
         },
         {
           "t": "や",
@@ -207,9 +217,9 @@
         },
         {
           "t": "星",
-          "r": "ほし",
           "role": "content",
-          "word_id": "W00032"
+          "word_id": "W00032",
+          "r": "ほし"
         },
         {
           "t": "は",
@@ -218,9 +228,9 @@
         },
         {
           "t": "静か",
-          "r": "しずか",
           "role": "content",
-          "word_id": "W00011"
+          "word_id": "W00011",
+          "r": "しずか"
         },
         {
           "t": "です",
@@ -231,17 +241,17 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The moon and the stars are quiet."
     },
     {
       "idx": 4,
-      "gloss_en": "I look at the moon from the window.",
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
           "role": "content",
-          "word_id": "W00003"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "は",
@@ -250,9 +260,9 @@
         },
         {
           "t": "窓",
-          "r": "まど",
           "role": "content",
-          "word_id": "W00004"
+          "word_id": "W00004",
+          "r": "まど"
         },
         {
           "t": "から",
@@ -261,9 +271,9 @@
         },
         {
           "t": "月",
-          "r": "つき",
           "role": "content",
-          "word_id": "W00031"
+          "word_id": "W00031",
+          "r": "つき"
         },
         {
           "t": "を",
@@ -272,14 +282,13 @@
         },
         {
           "t": "見ます",
-          "r": "みます",
           "role": "content",
           "word_id": "W00006",
+          "r": "みます",
           "inflection": {
             "base": "見る",
             "base_r": "みる",
             "form": "polite_nonpast",
-            "word_id": "W00006",
             "verb_class": "ichidan"
           },
           "grammar_id": "G026_masu_nonpast"
@@ -288,11 +297,11 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I look at the moon from the window."
     },
     {
       "idx": 5,
-      "gloss_en": "And outside, it is windy.",
       "tokens": [
         {
           "t": "そして",
@@ -305,9 +314,9 @@
         },
         {
           "t": "外",
-          "r": "そと",
           "role": "content",
-          "word_id": "W00005"
+          "word_id": "W00005",
+          "r": "そと"
         },
         {
           "t": "は",
@@ -316,9 +325,9 @@
         },
         {
           "t": "風",
-          "r": "かぜ",
           "role": "content",
-          "word_id": "W00027"
+          "word_id": "W00027",
+          "r": "かぜ"
         },
         {
           "t": "です",
@@ -329,17 +338,17 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "And outside, it is windy."
     },
     {
       "idx": 6,
-      "gloss_en": "Moon, stars, and color — the night outside.",
       "tokens": [
         {
           "t": "月",
           "role": "content",
-          "r": "つき",
-          "word_id": "W00031"
+          "word_id": "W00031",
+          "r": "つき"
         },
         {
           "t": "と",
@@ -349,8 +358,8 @@
         {
           "t": "星",
           "role": "content",
-          "r": "ほし",
-          "word_id": "W00032"
+          "word_id": "W00032",
+          "r": "ほし"
         },
         {
           "t": "と",
@@ -360,8 +369,8 @@
         {
           "t": "色",
           "role": "content",
-          "r": "いろ",
-          "word_id": "W00156"
+          "word_id": "W00156",
+          "r": "いろ"
         },
         {
           "t": "、",
@@ -370,8 +379,8 @@
         {
           "t": "外",
           "role": "content",
-          "r": "そと",
-          "word_id": "W00005"
+          "word_id": "W00005",
+          "r": "そと"
         },
         {
           "t": "の",
@@ -381,14 +390,15 @@
         {
           "t": "夜",
           "role": "content",
-          "r": "よる",
-          "word_id": "W00030"
+          "word_id": "W00030",
+          "r": "よる"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "Moon, stars, and color — the night outside."
     }
   ]
 }

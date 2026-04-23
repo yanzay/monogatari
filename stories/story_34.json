@@ -6,20 +6,20 @@
     "tokens": [
       {
         "t": "犬",
-        "r": "いぬ",
+        "role": "content",
         "word_id": "W00101",
-        "role": "content"
+        "r": "いぬ"
       },
       {
         "t": "と",
-        "grammar_id": "G010_to_and",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G010_to_and"
       },
       {
         "t": "散歩",
-        "r": "さんぽ",
+        "role": "content",
         "word_id": "W00023",
-        "role": "content"
+        "r": "さんぽ"
       }
     ]
   },
@@ -29,33 +29,32 @@
     "tokens": [
       {
         "t": "公園",
-        "r": "こうえん",
+        "role": "content",
         "word_id": "W00016",
-        "role": "content"
+        "r": "こうえん"
       },
       {
         "t": "の",
-        "grammar_id": "G015_no_possessive",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "池",
-        "r": "いけ",
+        "role": "content",
         "word_id": "W00103",
-        "role": "content"
+        "r": "いけ"
       },
       {
         "t": "で",
-        "grammar_id": "G017_de_means",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G017_de_means"
       }
     ]
   },
-  "plan_ref": "plan.json",
   "new_words": [
-    "W00101",
+    "W00103",
     "W00102",
-    "W00103"
+    "W00101"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -85,8 +84,8 @@
         {
           "t": "冬",
           "role": "content",
-          "r": "ふゆ",
-          "word_id": "W00095"
+          "word_id": "W00095",
+          "r": "ふゆ"
         },
         {
           "t": "の",
@@ -96,8 +95,8 @@
         {
           "t": "公園",
           "role": "content",
-          "r": "こうえん",
-          "word_id": "W00016"
+          "word_id": "W00016",
+          "r": "こうえん"
         },
         {
           "t": "に",
@@ -107,8 +106,8 @@
         {
           "t": "います",
           "role": "content",
-          "r": "います",
           "word_id": "W00029",
+          "r": "います",
           "inflection": {
             "base": "いる",
             "base_r": "いる",
@@ -129,38 +128,39 @@
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "犬",
-          "r": "いぬ",
-          "word_id": "W00101",
           "role": "content",
+          "word_id": "W00101",
+          "r": "いぬ",
           "is_new": true
         },
         {
           "t": "も",
-          "grammar_id": "G009_mo_also",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "います",
-          "r": "います",
-          "word_id": "W00029",
           "role": "content",
+          "word_id": "W00029",
+          "r": "います",
           "inflection": {
             "base": "いる",
             "base_r": "いる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -174,37 +174,35 @@
       "tokens": [
         {
           "t": "犬",
-          "r": "いぬ",
+          "role": "content",
           "word_id": "W00101",
-          "role": "content"
+          "r": "いぬ"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "小さくて",
-          "r": "ちいさくて",
-          "word_id": "W00055",
           "role": "content",
+          "word_id": "W00055",
+          "r": "ちいさくて",
           "inflection": {
-            "base": "小さい",
-            "base_r": "ちいさい",
-            "form": "te"
+            "form": "i_adj_te"
           },
           "grammar_id": "G029_kute"
         },
         {
           "t": "元気",
-          "r": "げんき",
+          "role": "content",
           "word_id": "W00058",
-          "role": "content"
+          "r": "げんき"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
@@ -218,26 +216,27 @@
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "歩きます",
-          "r": "あるきます",
-          "word_id": "W00017",
           "role": "content",
+          "word_id": "W00017",
+          "r": "あるきます",
           "inflection": {
             "base": "歩く",
             "base_r": "あるく",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -251,27 +250,28 @@
       "tokens": [
         {
           "t": "犬",
-          "r": "いぬ",
+          "role": "content",
           "word_id": "W00101",
-          "role": "content"
+          "r": "いぬ"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "走ります",
-          "r": "はしります",
-          "word_id": "W00102",
           "role": "content",
+          "word_id": "W00102",
+          "r": "はしります",
           "is_new": true,
           "inflection": {
             "base": "走る",
             "base_r": "はしる",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -285,38 +285,39 @@
       "tokens": [
         {
           "t": "公園",
-          "r": "こうえん",
+          "role": "content",
           "word_id": "W00016",
-          "role": "content"
+          "r": "こうえん"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "池",
-          "r": "いけ",
-          "word_id": "W00103",
           "role": "content",
+          "word_id": "W00103",
+          "r": "いけ",
           "is_new": true
         },
         {
           "t": "が",
-          "grammar_id": "G002_ga_subject",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "あります",
-          "r": "あります",
-          "word_id": "W00044",
           "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
           "inflection": {
             "base": "ある",
             "base_r": "ある",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -330,37 +331,38 @@
       "tokens": [
         {
           "t": "犬",
-          "r": "いぬ",
+          "role": "content",
           "word_id": "W00101",
-          "role": "content"
+          "r": "いぬ"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "池",
-          "r": "いけ",
+          "role": "content",
           "word_id": "W00103",
-          "role": "content"
+          "r": "いけ"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "走ります",
-          "r": "はしります",
-          "word_id": "W00102",
           "role": "content",
+          "word_id": "W00102",
+          "r": "はしります",
           "inflection": {
             "base": "走る",
             "base_r": "はしる",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -374,48 +376,49 @@
       "tokens": [
         {
           "t": "池",
-          "r": "いけ",
+          "role": "content",
           "word_id": "W00103",
-          "role": "content"
+          "r": "いけ"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "そば",
-          "r": "そば",
+          "role": "content",
           "word_id": "W00045",
-          "role": "content"
+          "r": "そば"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "子供",
-          "r": "こども",
+          "role": "content",
           "word_id": "W00051",
-          "role": "content"
+          "r": "こども"
         },
         {
           "t": "が",
-          "grammar_id": "G002_ga_subject",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "います",
-          "r": "います",
-          "word_id": "W00029",
           "role": "content",
+          "word_id": "W00029",
+          "r": "います",
           "inflection": {
             "base": "いる",
             "base_r": "いる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -429,26 +432,27 @@
       "tokens": [
         {
           "t": "子供",
-          "r": "こども",
+          "role": "content",
           "word_id": "W00051",
-          "role": "content"
+          "r": "こども"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "笑います",
-          "r": "わらいます",
-          "word_id": "W00053",
           "role": "content",
+          "word_id": "W00053",
+          "r": "わらいます",
           "inflection": {
             "base": "笑う",
             "base_r": "わらう",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -466,9 +470,9 @@
         },
         {
           "t": "犬",
-          "r": "いぬ",
+          "role": "content",
           "word_id": "W00101",
-          "role": "content"
+          "r": "いぬ"
         },
         {
           "t": "」",
@@ -476,20 +480,21 @@
         },
         {
           "t": "と",
-          "grammar_id": "G028_to_iimasu",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "言います",
-          "r": "いいます",
-          "word_id": "W00097",
           "role": "content",
+          "word_id": "W00097",
+          "r": "いいます",
           "inflection": {
             "base": "言う",
             "base_r": "いう",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -503,26 +508,27 @@
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "も",
-          "grammar_id": "G009_mo_also",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "笑います",
-          "r": "わらいます",
-          "word_id": "W00053",
           "role": "content",
+          "word_id": "W00053",
+          "r": "わらいます",
           "inflection": {
             "base": "笑う",
             "base_r": "わらう",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -537,8 +543,8 @@
         {
           "t": "祖母",
           "role": "content",
-          "r": "そぼ",
-          "word_id": "W00098"
+          "word_id": "W00098",
+          "r": "そぼ"
         },
         {
           "t": "と",
@@ -548,26 +554,25 @@
         {
           "t": "小さくて",
           "role": "content",
-          "r": "ちいさくて",
           "word_id": "W00055",
+          "r": "ちいさくて",
           "inflection": {
-            "base": "小さい",
-            "base_r": "ちいさい",
-            "form": "te"
+            "form": "i_adj_te"
           },
-          "grammar_id": "G007_te_form"
+          "grammar_id": "G029_kute"
         },
         {
           "t": "嬉しい",
           "role": "content",
+          "word_id": "W00056",
           "r": "うれしい",
-          "word_id": "W00056"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "散歩",
           "role": "content",
-          "r": "さんぽ",
-          "word_id": "W00023"
+          "word_id": "W00023",
+          "r": "さんぽ"
         },
         {
           "t": "です",
@@ -582,5 +587,5 @@
       "gloss_en": "A small, happy walk with grandmother."
     }
   ],
-  "checksum": null
+  "plan_ref": "plan.json"
 }

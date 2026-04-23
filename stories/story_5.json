@@ -6,20 +6,20 @@
     "tokens": [
       {
         "t": "朝",
-        "r": "あさ",
+        "role": "content",
         "word_id": "W00015",
-        "role": "content"
+        "r": "あさ"
       },
       {
         "t": "の",
-        "grammar_id": "G015_no_possessive",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "散歩",
-        "r": "さんぽ",
+        "role": "content",
         "word_id": "W00023",
-        "role": "content"
+        "r": "さんぽ"
       }
     ]
   },
@@ -29,17 +29,23 @@
     "tokens": [
       {
         "t": "帰ります",
-        "r": "かえります",
+        "role": "content",
         "word_id": "W00026",
-        "role": "content"
+        "r": "かえります",
+        "inflection": {
+          "base": "帰る",
+          "base_r": "かえる",
+          "form": "polite_nonpast",
+          "verb_class": "godan"
+        },
+        "grammar_id": "G026_masu_nonpast"
       }
     ]
   },
-  "plan_ref": "plan.json",
   "new_words": [
     "W00025",
-    "W00026",
-    "W00027"
+    "W00027",
+    "W00026"
   ],
   "new_grammar": [
     "G012_soshite_then"
@@ -67,9 +73,9 @@
       "tokens": [
         {
           "t": "朝",
-          "r": "あさ",
+          "role": "content",
           "word_id": "W00015",
-          "role": "content"
+          "r": "あさ"
         },
         {
           "t": "、",
@@ -77,71 +83,76 @@
         },
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "公園",
-          "r": "こうえん",
+          "role": "content",
           "word_id": "W00016",
-          "role": "content"
+          "r": "こうえん"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "歩きます",
-          "r": "あるきます",
+          "role": "content",
           "word_id": "W00017",
-          "role": "content"
+          "r": "あるきます",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "Morning — I walk through the park.",
-      "audio": "audio/story_5/s0.mp3",
-      "audio_hash": "91eb1372d64b"
+      "gloss_en": "Morning — I walk through the park."
     },
     {
       "idx": 1,
       "tokens": [
         {
           "t": "木",
-          "r": "き",
+          "role": "content",
           "word_id": "W00007",
-          "role": "content"
+          "r": "き"
         },
         {
           "t": "と",
-          "grammar_id": "G010_to_and",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "花",
-          "r": "はな",
+          "role": "content",
           "word_id": "W00024",
-          "role": "content"
+          "r": "はな"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "静か",
-          "r": "しずか",
+          "role": "content",
           "word_id": "W00011",
-          "role": "content"
+          "r": "しずか"
         },
         {
           "t": "です",
@@ -153,17 +164,15 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The trees and flowers are quiet.",
-      "audio": "audio/story_5/s1.mp3",
-      "audio_hash": "cb0118ccaa5c"
+      "gloss_en": "The trees and flowers are quiet."
     },
     {
       "idx": 2,
       "tokens": [
         {
           "t": "そして",
-          "grammar_id": "G012_soshite_then",
           "role": "particle",
+          "grammar_id": "G012_soshite_then",
           "is_new_grammar": true
         },
         {
@@ -172,91 +181,101 @@
         },
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "帰ります",
-          "r": "かえります",
-          "word_id": "W00026",
           "role": "content",
-          "is_new": true
+          "word_id": "W00026",
+          "r": "かえります",
+          "is_new": true,
+          "inflection": {
+            "base": "帰る",
+            "base_r": "かえる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "And then I head home.",
-      "audio": "audio/story_5/s2.mp3",
-      "audio_hash": "dea64112066f"
+      "gloss_en": "And then I head home."
     },
     {
       "idx": 3,
       "tokens": [
         {
           "t": "ドア",
-          "r": "ドア",
-          "word_id": "W00025",
           "role": "content",
+          "word_id": "W00025",
+          "r": "ドア",
           "is_new": true
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "見ます",
-          "r": "みます",
+          "role": "content",
           "word_id": "W00006",
-          "role": "content"
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I see the door.",
-      "audio": "audio/story_5/s3.mp3",
-      "audio_hash": "f2cb4afc36fc"
+      "gloss_en": "I see the door."
     },
     {
       "idx": 4,
       "tokens": [
         {
           "t": "ドア",
-          "r": "ドア",
+          "role": "content",
           "word_id": "W00025",
-          "role": "content"
+          "r": "ドア"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "外",
-          "r": "そと",
+          "role": "content",
           "word_id": "W00005",
-          "role": "content"
+          "r": "そと"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "雨",
-          "r": "あめ",
+          "role": "content",
           "word_id": "W00002",
-          "role": "content"
+          "r": "あめ"
         },
         {
           "t": "です",
@@ -268,17 +287,15 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Outside the door, it's raining.",
-      "audio": "audio/story_5/s4.mp3",
-      "audio_hash": "959192987dee"
+      "gloss_en": "Outside the door, it's raining."
     },
     {
       "idx": 5,
       "tokens": [
         {
           "t": "そして",
-          "grammar_id": "G012_soshite_then",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G012_soshite_then"
         },
         {
           "t": "、",
@@ -286,9 +303,9 @@
         },
         {
           "t": "風",
-          "r": "かぜ",
-          "word_id": "W00027",
           "role": "content",
+          "word_id": "W00027",
+          "r": "かぜ",
           "is_new": true
         },
         {
@@ -301,29 +318,27 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "And then — wind.",
-      "audio": "audio/story_5/s5.mp3",
-      "audio_hash": "b674b3cbaf15"
+      "gloss_en": "And then — wind."
     },
     {
       "idx": 6,
       "tokens": [
         {
           "t": "風",
-          "r": "かぜ",
+          "role": "content",
           "word_id": "W00027",
-          "role": "content"
+          "r": "かぜ"
         },
         {
           "t": "と",
-          "grammar_id": "G010_to_and",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "雨",
-          "r": "あめ",
+          "role": "content",
           "word_id": "W00002",
-          "role": "content"
+          "r": "あめ"
         },
         {
           "t": "、",
@@ -331,16 +346,16 @@
         },
         {
           "t": "いい",
-          "r": "いい",
-          "word_id": "W00013",
           "role": "content",
+          "word_id": "W00013",
+          "r": "いい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "朝",
-          "r": "あさ",
+          "role": "content",
           "word_id": "W00015",
-          "role": "content"
+          "r": "あさ"
         },
         {
           "t": "です",
@@ -352,20 +367,8 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Wind and rain — a good morning.",
-      "audio": "audio/story_5/s6.mp3",
-      "audio_hash": "d0a60b9b469c"
+      "gloss_en": "Wind and rain — a good morning."
     }
   ],
-  "word_audio": {
-    "W00025": "audio/story_5/w_W00025.mp3",
-    "W00026": "audio/story_5/w_W00026.mp3",
-    "W00027": "audio/story_5/w_W00027.mp3"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00025": "baab70513536",
-    "W00026": "f300cccc263c",
-    "W00027": "b4478e3308e0"
-  }
+  "plan_ref": "plan.json"
 }

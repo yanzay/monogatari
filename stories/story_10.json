@@ -6,9 +6,9 @@
     "tokens": [
       {
         "t": "友達",
-        "r": "ともだち",
         "role": "content",
-        "word_id": "W00022"
+        "word_id": "W00022",
+        "r": "ともだち"
       },
       {
         "t": "から",
@@ -22,9 +22,9 @@
       },
       {
         "t": "手紙",
-        "r": "てがみ",
         "role": "content",
-        "word_id": "W00039"
+        "word_id": "W00039",
+        "r": "てがみ"
       }
     ]
   },
@@ -34,9 +34,9 @@
     "tokens": [
       {
         "t": "朝",
-        "r": "あさ",
         "role": "content",
-        "word_id": "W00015"
+        "word_id": "W00015",
+        "r": "あさ"
       },
       {
         "t": "の",
@@ -45,338 +45,12 @@
       },
       {
         "t": "風",
-        "r": "かぜ",
         "role": "content",
-        "word_id": "W00027"
+        "word_id": "W00027",
+        "r": "かぜ"
       }
     ]
   },
-  "sentences": [
-    {
-      "idx": 0,
-      "gloss_en": "Morning — the wind comes.",
-      "tokens": [
-        {
-          "t": "朝",
-          "r": "あさ",
-          "role": "content",
-          "word_id": "W00015"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "風",
-          "r": "かぜ",
-          "role": "content",
-          "word_id": "W00027"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "来ます",
-          "r": "きます",
-          "role": "content",
-          "word_id": "W00040",
-          "is_new": true,
-          "inflection": {
-            "word_id": "W00040",
-            "base": "来る",
-            "base_r": "くる",
-            "form": "polite_nonpast"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ]
-    },
-    {
-      "idx": 1,
-      "gloss_en": "A letter comes from my friend.",
-      "tokens": [
-        {
-          "t": "友達",
-          "r": "ともだち",
-          "role": "content",
-          "word_id": "W00022"
-        },
-        {
-          "t": "から",
-          "role": "particle",
-          "grammar_id": "G006_kara_from"
-        },
-        {
-          "t": "手紙",
-          "r": "てがみ",
-          "role": "content",
-          "word_id": "W00039",
-          "is_new": true
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "来ます",
-          "r": "きます",
-          "role": "content",
-          "word_id": "W00040",
-          "inflection": {
-            "word_id": "W00040",
-            "base": "来る",
-            "base_r": "くる",
-            "form": "polite_nonpast"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ]
-    },
-    {
-      "idx": 2,
-      "gloss_en": "I read the letter.",
-      "tokens": [
-        {
-          "t": "私",
-          "r": "わたし",
-          "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "手紙",
-          "r": "てがみ",
-          "role": "content",
-          "word_id": "W00039"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "読みます",
-          "r": "よみます",
-          "role": "content",
-          "word_id": "W00034",
-          "inflection": {
-            "word_id": "W00034",
-            "base": "読む",
-            "base_r": "よむ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ]
-    },
-    {
-      "idx": 3,
-      "gloss_en": "The morning is quiet.",
-      "tokens": [
-        {
-          "t": "朝",
-          "r": "あさ",
-          "role": "content",
-          "word_id": "W00015"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "静か",
-          "r": "しずか",
-          "role": "content",
-          "word_id": "W00011"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ]
-    },
-    {
-      "idx": 4,
-      "gloss_en": "I wait — for my friend's morning.",
-      "tokens": [
-        {
-          "t": "私",
-          "r": "わたし",
-          "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "友達",
-          "r": "ともだち",
-          "role": "content",
-          "word_id": "W00022"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "朝",
-          "r": "あさ",
-          "role": "content",
-          "word_id": "W00015"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "待ちます",
-          "r": "まちます",
-          "role": "content",
-          "word_id": "W00041",
-          "is_new": true,
-          "inflection": {
-            "word_id": "W00041",
-            "base": "待つ",
-            "base_r": "まつ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ]
-    },
-    {
-      "idx": 5,
-      "gloss_en": "And the friend, too, sleeps.",
-      "tokens": [
-        {
-          "t": "そして",
-          "role": "particle",
-          "grammar_id": "G012_soshite_then"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "友達",
-          "role": "content",
-          "r": "ともだち",
-          "word_id": "W00022"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "寝ます",
-          "role": "content",
-          "r": "ねます",
-          "word_id": "W00038"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ]
-    },
-    {
-      "idx": 6,
-      "gloss_en": "A letter from my friend — I wait.",
-      "tokens": [
-        {
-          "t": "友達",
-          "r": "ともだち",
-          "role": "content",
-          "word_id": "W00022"
-        },
-        {
-          "t": "から",
-          "role": "particle",
-          "grammar_id": "G006_kara_from"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "手紙",
-          "r": "てがみ",
-          "role": "content",
-          "word_id": "W00039"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "私",
-          "r": "わたし",
-          "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "待ちます",
-          "r": "まちます",
-          "role": "content",
-          "word_id": "W00041",
-          "inflection": {
-            "word_id": "W00041",
-            "base": "待つ",
-            "base_r": "まつ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ]
-    }
-  ],
   "new_words": [
     "W00039",
     "W00040",
@@ -394,5 +68,335 @@
     "W00011",
     "W00041",
     "W00038"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "風",
+          "role": "content",
+          "word_id": "W00027",
+          "r": "かぜ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "is_new": true,
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Morning — the wind comes."
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A letter comes from my friend."
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "読みます",
+          "role": "content",
+          "word_id": "W00034",
+          "r": "よみます",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I read the letter."
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The morning is quiet."
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "待ちます",
+          "role": "content",
+          "word_id": "W00041",
+          "r": "まちます",
+          "is_new": true,
+          "inflection": {
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I wait — for my friend's morning."
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "そして",
+          "role": "particle",
+          "grammar_id": "G012_soshite_then"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "寝ます",
+          "role": "content",
+          "word_id": "W00038",
+          "r": "ねます",
+          "inflection": {
+            "base": "寝る",
+            "base_r": "ねる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "And the friend, too, sleeps."
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "待ちます",
+          "role": "content",
+          "word_id": "W00041",
+          "r": "まちます",
+          "inflection": {
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A letter from my friend — I wait."
+    }
   ]
 }

@@ -6,22 +6,20 @@
     "tokens": [
       {
         "t": "一人",
-        "r": "ひとり",
-        "word_id": "W00065",
         "role": "content",
-        "grammar_id": "G025_counters",
-        "is_new_grammar": true
+        "word_id": "W00065",
+        "r": "ひとり"
       },
       {
         "t": "の",
-        "grammar_id": "G015_no_possessive",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
       },
       {
         "t": "部屋",
-        "r": "へや",
+        "role": "content",
         "word_id": "W00075",
-        "role": "content"
+        "r": "へや"
       }
     ]
   },
@@ -31,16 +29,16 @@
     "tokens": [
       {
         "t": "悲しい",
-        "r": "かなしい",
-        "word_id": "W00076",
         "role": "content",
+        "word_id": "W00076",
+        "r": "かなしい",
         "grammar_id": "G022_i_adj"
       },
       {
         "t": "朝",
-        "r": "あさ",
+        "role": "content",
         "word_id": "W00015",
-        "role": "content"
+        "r": "あさ"
       },
       {
         "t": "、",
@@ -48,28 +46,27 @@
       },
       {
         "t": "静か",
-        "r": "しずか",
+        "role": "content",
         "word_id": "W00011",
-        "role": "content"
+        "r": "しずか"
       },
       {
         "t": "な",
-        "grammar_id": "G016_na_adjective",
-        "role": "particle"
+        "role": "particle",
+        "grammar_id": "G016_na_adjective"
       },
       {
         "t": "雨",
-        "r": "あめ",
+        "role": "content",
         "word_id": "W00002",
-        "role": "content"
+        "r": "あめ"
       }
     ]
   },
-  "plan_ref": "plan.json",
   "new_words": [
+    "W00077",
     "W00075",
-    "W00076",
-    "W00077"
+    "W00076"
   ],
   "new_grammar": [
     "G025_counters"
@@ -101,13 +98,12 @@
   "sentences": [
     {
       "idx": 0,
-      "gloss_en": "This morning, the room is quiet.",
       "tokens": [
         {
           "t": "今朝",
-          "r": "けさ",
+          "role": "content",
           "word_id": "W00001",
-          "role": "content"
+          "r": "けさ"
         },
         {
           "t": "、",
@@ -115,47 +111,47 @@
         },
         {
           "t": "部屋",
-          "r": "へや",
-          "word_id": "W00075",
           "role": "content",
+          "word_id": "W00075",
+          "r": "へや",
           "is_new": true
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "静か",
-          "r": "しずか",
+          "role": "content",
           "word_id": "W00011",
-          "role": "content"
+          "r": "しずか"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "This morning, the room is quiet."
     },
     {
       "idx": 1,
-      "gloss_en": "My friend leaves the room.",
       "tokens": [
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "、",
@@ -163,20 +159,20 @@
         },
         {
           "t": "部屋",
-          "r": "へや",
+          "role": "content",
           "word_id": "W00075",
-          "role": "content"
+          "r": "へや"
         },
         {
           "t": "から",
-          "grammar_id": "G006_kara_from",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
         },
         {
           "t": "出ます",
-          "r": "でます",
-          "word_id": "W00077",
           "role": "content",
+          "word_id": "W00077",
+          "r": "でます",
           "is_new": true,
           "inflection": {
             "base": "出る",
@@ -190,17 +186,17 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "My friend leaves the room."
     },
     {
       "idx": 2,
-      "gloss_en": "I, on a long morning, am alone.",
       "tokens": [
         {
           "t": "私",
           "role": "content",
-          "r": "わたし",
-          "word_id": "W00003"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "は",
@@ -214,14 +210,15 @@
         {
           "t": "長い",
           "role": "content",
+          "word_id": "W00074",
           "r": "ながい",
-          "word_id": "W00074"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "朝",
           "role": "content",
-          "r": "あさ",
-          "word_id": "W00015"
+          "word_id": "W00015",
+          "r": "あさ"
         },
         {
           "t": "、",
@@ -230,8 +227,8 @@
         {
           "t": "一人",
           "role": "content",
-          "r": "ひとり",
-          "word_id": "W00065"
+          "word_id": "W00065",
+          "r": "ひとり"
         },
         {
           "t": "です",
@@ -242,22 +239,22 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I, on a long morning, am alone."
     },
     {
       "idx": 3,
-      "gloss_en": "On the desk is an old photo.",
       "tokens": [
         {
           "t": "机",
-          "r": "つくえ",
+          "role": "content",
           "word_id": "W00037",
-          "role": "content"
+          "r": "つくえ"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "、",
@@ -265,65 +262,66 @@
         },
         {
           "t": "古い",
-          "r": "ふるい",
-          "word_id": "W00067",
           "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "写真",
-          "r": "しゃしん",
+          "role": "content",
           "word_id": "W00068",
-          "role": "content"
+          "r": "しゃしん"
         },
         {
           "t": "が",
-          "grammar_id": "G002_ga_subject",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "あります",
-          "word_id": "W00044",
           "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
           "inflection": {
             "base": "ある",
             "base_r": "ある",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "On the desk is an old photo."
     },
     {
       "idx": 4,
-      "gloss_en": "The friend in the photo is smiling.",
       "tokens": [
         {
           "t": "写真",
-          "r": "しゃしん",
+          "role": "content",
           "word_id": "W00068",
-          "role": "content"
+          "r": "しゃしん"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "友達",
-          "r": "ともだち",
+          "role": "content",
           "word_id": "W00022",
-          "role": "content"
+          "r": "ともだち"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "、",
@@ -331,9 +329,9 @@
         },
         {
           "t": "笑って",
-          "r": "わらって",
-          "word_id": "W00053",
           "role": "content",
+          "word_id": "W00053",
+          "r": "わらって",
           "inflection": {
             "base": "笑う",
             "base_r": "わらう",
@@ -344,29 +342,29 @@
         },
         {
           "t": "います",
-          "grammar_id": "G008_te_iru",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G008_te_iru"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The friend in the photo is smiling."
     },
     {
       "idx": 5,
-      "gloss_en": "I am sad.",
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
+          "role": "content",
           "word_id": "W00003",
-          "role": "content"
+          "r": "わたし"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "、",
@@ -374,32 +372,32 @@
         },
         {
           "t": "悲しい",
-          "r": "かなしい",
-          "word_id": "W00076",
           "role": "content",
+          "word_id": "W00076",
+          "r": "かなしい",
           "is_new": true,
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I am sad."
     },
     {
       "idx": 6,
-      "gloss_en": "Outside is a spring rain.",
       "tokens": [
         {
           "t": "外",
           "role": "content",
-          "r": "そと",
-          "word_id": "W00005"
+          "word_id": "W00005",
+          "r": "そと"
         },
         {
           "t": "は",
@@ -413,8 +411,8 @@
         {
           "t": "春",
           "role": "content",
-          "r": "はる",
-          "word_id": "W00072"
+          "word_id": "W00072",
+          "r": "はる"
         },
         {
           "t": "の",
@@ -424,8 +422,8 @@
         {
           "t": "雨",
           "role": "content",
-          "r": "あめ",
-          "word_id": "W00002"
+          "word_id": "W00002",
+          "r": "あめ"
         },
         {
           "t": "です",
@@ -436,17 +434,17 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "Outside is a spring rain."
     },
     {
       "idx": 7,
-      "gloss_en": "I, too, open the door and leave the room.",
       "tokens": [
         {
           "t": "私",
           "role": "content",
-          "r": "わたし",
-          "word_id": "W00003"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "も",
@@ -456,8 +454,8 @@
         {
           "t": "ドア",
           "role": "content",
-          "r": "ドア",
-          "word_id": "W00025"
+          "word_id": "W00025",
+          "r": "ドア"
         },
         {
           "t": "を",
@@ -467,8 +465,8 @@
         {
           "t": "開けて",
           "role": "content",
-          "r": "あけて",
           "word_id": "W00073",
+          "r": "あけて",
           "inflection": {
             "base": "開ける",
             "base_r": "あける",
@@ -484,8 +482,8 @@
         {
           "t": "部屋",
           "role": "content",
-          "r": "へや",
-          "word_id": "W00075"
+          "word_id": "W00075",
+          "r": "へや"
         },
         {
           "t": "から",
@@ -495,8 +493,8 @@
         {
           "t": "出ます",
           "role": "content",
-          "r": "でます",
           "word_id": "W00077",
+          "r": "でます",
           "inflection": {
             "base": "出る",
             "base_r": "でる",
@@ -509,24 +507,24 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I, too, open the door and leave the room."
     },
     {
       "idx": 8,
-      "gloss_en": "A sad morning, a painful heart, a quiet rain.",
       "tokens": [
         {
           "t": "悲しい",
           "role": "content",
-          "r": "かなしい",
           "word_id": "W00076",
+          "r": "かなしい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "朝",
           "role": "content",
-          "r": "あさ",
-          "word_id": "W00015"
+          "word_id": "W00015",
+          "r": "あさ"
         },
         {
           "t": "、",
@@ -535,15 +533,15 @@
         {
           "t": "痛い",
           "role": "content",
-          "r": "いたい",
           "word_id": "W00163",
+          "r": "いたい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "心",
           "role": "content",
-          "r": "こころ",
-          "word_id": "W00120"
+          "word_id": "W00120",
+          "r": "こころ"
         },
         {
           "t": "、",
@@ -552,8 +550,8 @@
         {
           "t": "静か",
           "role": "content",
-          "r": "しずか",
-          "word_id": "W00011"
+          "word_id": "W00011",
+          "r": "しずか"
         },
         {
           "t": "な",
@@ -563,8 +561,8 @@
         {
           "t": "雨",
           "role": "content",
-          "r": "あめ",
-          "word_id": "W00002"
+          "word_id": "W00002",
+          "r": "あめ"
         },
         {
           "t": "です",
@@ -575,8 +573,9 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "A sad morning, a painful heart, a quiet rain."
     }
   ],
-  "checksum": null
+  "plan_ref": "plan.json"
 }

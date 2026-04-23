@@ -6,9 +6,9 @@
     "tokens": [
       {
         "t": "鍵",
-        "r": "かぎ",
         "role": "content",
-        "word_id": "W00079"
+        "word_id": "W00079",
+        "r": "かぎ"
       },
       {
         "t": "が",
@@ -17,8 +17,16 @@
       },
       {
         "t": "ありません",
-        "role": "aux",
-        "grammar_id": "G035_arimasen"
+        "role": "content",
+        "word_id": "W00044",
+        "r": "ありません",
+        "inflection": {
+          "base": "ある",
+          "base_r": "ある",
+          "form": "negative_polite",
+          "verb_class": "godan"
+        },
+        "grammar_id": "G036_masen"
       }
     ]
   },
@@ -28,9 +36,9 @@
     "tokens": [
       {
         "t": "部屋",
-        "r": "へや",
         "role": "content",
-        "word_id": "W00075"
+        "word_id": "W00075",
+        "r": "へや"
       },
       {
         "t": "を",
@@ -39,9 +47,16 @@
       },
       {
         "t": "探します",
-        "r": "さがします",
         "role": "content",
-        "word_id": "W00128"
+        "word_id": "W00128",
+        "r": "さがします",
+        "inflection": {
+          "base": "探す",
+          "base_r": "さがす",
+          "form": "polite_nonpast",
+          "verb_class": "godan"
+        },
+        "grammar_id": "G026_masu_nonpast"
       },
       {
         "t": "。",
@@ -59,6 +74,7 @@
   ],
   "all_words_used": [
     "W00079",
+    "W00044",
     "W00075",
     "W00128",
     "W00030",
@@ -66,7 +82,6 @@
     "W00040",
     "W00130",
     "W00037",
-    "W00044",
     "W00036",
     "W00006",
     "W00076",
@@ -85,9 +100,9 @@
       "tokens": [
         {
           "t": "夜",
-          "r": "よる",
           "role": "content",
-          "word_id": "W00030"
+          "word_id": "W00030",
+          "r": "よる"
         },
         {
           "t": "です",
@@ -106,9 +121,9 @@
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
           "role": "content",
-          "word_id": "W00003"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "は",
@@ -117,9 +132,9 @@
         },
         {
           "t": "部屋",
-          "r": "へや",
           "role": "content",
-          "word_id": "W00075"
+          "word_id": "W00075",
+          "r": "へや"
         },
         {
           "t": "に",
@@ -128,9 +143,16 @@
         },
         {
           "t": "来ます",
-          "r": "きます",
           "role": "content",
-          "word_id": "W00040"
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -144,9 +166,9 @@
       "tokens": [
         {
           "t": "カバン",
-          "r": "かばん",
           "role": "content",
           "word_id": "W00130",
+          "r": "かばん",
           "is_new": true
         },
         {
@@ -156,9 +178,9 @@
         },
         {
           "t": "机",
-          "r": "つくえ",
           "role": "content",
-          "word_id": "W00037"
+          "word_id": "W00037",
+          "r": "つくえ"
         },
         {
           "t": "に",
@@ -167,9 +189,16 @@
         },
         {
           "t": "あります",
-          "r": "あります",
           "role": "content",
-          "word_id": "W00044"
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -183,7 +212,7 @@
       "tokens": [
         {
           "t": "でも",
-          "role": "aux",
+          "role": "particle",
           "grammar_id": "G032_demo"
         },
         {
@@ -192,9 +221,9 @@
         },
         {
           "t": "鍵",
-          "r": "かぎ",
           "role": "content",
-          "word_id": "W00079"
+          "word_id": "W00079",
+          "r": "かぎ"
         },
         {
           "t": "は",
@@ -203,9 +232,16 @@
         },
         {
           "t": "ありません",
-          "role": "aux",
-          "grammar_id": "G035_arimasen",
-          "is_new_grammar": true
+          "role": "content",
+          "word_id": "W00044",
+          "r": "ありません",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G036_masen"
         },
         {
           "t": "。",
@@ -219,9 +255,9 @@
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
           "role": "content",
-          "word_id": "W00003"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "は",
@@ -230,9 +266,9 @@
         },
         {
           "t": "カバン",
-          "r": "かばん",
           "role": "content",
-          "word_id": "W00130"
+          "word_id": "W00130",
+          "r": "かばん"
         },
         {
           "t": "を",
@@ -241,10 +277,17 @@
         },
         {
           "t": "探します",
-          "r": "さがします",
           "role": "content",
           "word_id": "W00128",
-          "is_new": true
+          "r": "さがします",
+          "is_new": true,
+          "inflection": {
+            "base": "探す",
+            "base_r": "さがす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -258,9 +301,9 @@
       "tokens": [
         {
           "t": "カバン",
-          "r": "かばん",
           "role": "content",
-          "word_id": "W00130"
+          "word_id": "W00130",
+          "r": "かばん"
         },
         {
           "t": "に",
@@ -269,9 +312,9 @@
         },
         {
           "t": "鍵",
-          "r": "かぎ",
           "role": "content",
-          "word_id": "W00079"
+          "word_id": "W00079",
+          "r": "かぎ"
         },
         {
           "t": "は",
@@ -280,8 +323,16 @@
         },
         {
           "t": "ありません",
-          "role": "aux",
-          "grammar_id": "G035_arimasen"
+          "role": "content",
+          "word_id": "W00044",
+          "r": "ありません",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G036_masen"
         },
         {
           "t": "。",
@@ -295,9 +346,9 @@
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
           "role": "content",
-          "word_id": "W00003"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "は",
@@ -306,9 +357,9 @@
         },
         {
           "t": "椅子",
-          "r": "いす",
           "role": "content",
-          "word_id": "W00036"
+          "word_id": "W00036",
+          "r": "いす"
         },
         {
           "t": "と",
@@ -317,9 +368,9 @@
         },
         {
           "t": "机",
-          "r": "つくえ",
           "role": "content",
-          "word_id": "W00037"
+          "word_id": "W00037",
+          "r": "つくえ"
         },
         {
           "t": "を",
@@ -328,9 +379,16 @@
         },
         {
           "t": "見ます",
-          "r": "みます",
           "role": "content",
-          "word_id": "W00006"
+          "word_id": "W00006",
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -345,8 +403,8 @@
         {
           "t": "私",
           "role": "content",
-          "r": "わたし",
-          "word_id": "W00003"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "は",
@@ -356,28 +414,26 @@
         {
           "t": "悲しくて",
           "role": "content",
-          "r": "かなしくて",
           "word_id": "W00076",
+          "r": "かなしくて",
           "inflection": {
-            "base": "悲しい",
-            "base_r": "かなしい",
-            "form": "te"
+            "form": "i_adj_te"
           },
-          "grammar_id": "G007_te_form"
+          "grammar_id": "G029_kute"
         },
         {
           "t": "困ります",
           "role": "content",
-          "r": "こまります",
           "word_id": "W00129",
+          "r": "こまります",
+          "is_new": true,
           "inflection": {
             "base": "困る",
             "base_r": "こまる",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast",
-          "is_new": true
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
@@ -391,9 +447,9 @@
       "tokens": [
         {
           "t": "部屋",
-          "r": "へや",
           "role": "content",
-          "word_id": "W00075"
+          "word_id": "W00075",
+          "r": "へや"
         },
         {
           "t": "は",
@@ -402,9 +458,9 @@
         },
         {
           "t": "静か",
-          "r": "しずか",
           "role": "content",
-          "word_id": "W00011"
+          "word_id": "W00011",
+          "r": "しずか"
         },
         {
           "t": "です",
@@ -433,8 +489,8 @@
         {
           "t": "私",
           "role": "content",
-          "r": "わたし",
-          "word_id": "W00003"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "は",
@@ -444,8 +500,8 @@
         {
           "t": "知ります",
           "role": "content",
-          "r": "しります",
           "word_id": "W00126",
+          "r": "しります",
           "inflection": {
             "base": "知る",
             "base_r": "しる",
@@ -467,8 +523,8 @@
         {
           "t": "鍵",
           "role": "content",
-          "r": "かぎ",
-          "word_id": "W00079"
+          "word_id": "W00079",
+          "r": "かぎ"
         },
         {
           "t": "は",
@@ -478,8 +534,8 @@
         {
           "t": "本",
           "role": "content",
-          "r": "ほん",
-          "word_id": "W00033"
+          "word_id": "W00033",
+          "r": "ほん"
         },
         {
           "t": "の",
@@ -489,8 +545,8 @@
         {
           "t": "隣",
           "role": "content",
-          "r": "となり",
-          "word_id": "W00127"
+          "word_id": "W00127",
+          "r": "となり"
         },
         {
           "t": "に",
@@ -500,13 +556,13 @@
         {
           "t": "あります",
           "role": "content",
-          "r": "あります",
           "word_id": "W00044",
+          "r": "あります",
           "inflection": {
             "base": "ある",
             "base_r": "ある",
             "form": "polite_nonpast",
-            "verb_class": "irregular_aru"
+            "verb_class": "godan"
           },
           "grammar_id": "G026_masu_nonpast"
         },
@@ -522,9 +578,9 @@
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
           "role": "content",
-          "word_id": "W00003"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "は",
@@ -533,12 +589,9 @@
         },
         {
           "t": "嬉しい",
-          "r": "うれしい",
           "role": "content",
           "word_id": "W00056",
-          "inflection": {
-            "form": "plain_nonpast"
-          },
+          "r": "うれしい",
           "grammar_id": "G022_i_adj"
         },
         {
@@ -559,8 +612,8 @@
         {
           "t": "静か",
           "role": "content",
-          "r": "しずか",
-          "word_id": "W00011"
+          "word_id": "W00011",
+          "r": "しずか"
         },
         {
           "t": "な",
@@ -570,8 +623,8 @@
         {
           "t": "夜",
           "role": "content",
-          "r": "よる",
-          "word_id": "W00030"
+          "word_id": "W00030",
+          "r": "よる"
         },
         {
           "t": "、",
@@ -580,21 +633,21 @@
         {
           "t": "同じ",
           "role": "content",
-          "r": "おなじ",
-          "word_id": "W00124"
+          "word_id": "W00124",
+          "r": "おなじ"
         },
         {
           "t": "小さい",
           "role": "content",
-          "r": "ちいさい",
           "word_id": "W00055",
+          "r": "ちいさい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "鍵",
           "role": "content",
-          "r": "かぎ",
-          "word_id": "W00079"
+          "word_id": "W00079",
+          "r": "かぎ"
         },
         {
           "t": "です",

@@ -6,9 +6,9 @@
     "tokens": [
       {
         "t": "本",
-        "r": "ほん",
         "role": "content",
-        "word_id": "W00033"
+        "word_id": "W00033",
+        "r": "ほん"
       },
       {
         "t": "と",
@@ -17,9 +17,9 @@
       },
       {
         "t": "友達",
-        "r": "ともだち",
         "role": "content",
-        "word_id": "W00022"
+        "word_id": "W00022",
+        "r": "ともだち"
       }
     ]
   },
@@ -29,10 +29,9 @@
     "tokens": [
       {
         "t": "二人",
-        "r": "ふたり",
         "role": "content",
         "word_id": "W00035",
-        "grammar_id": "G025_counters"
+        "r": "ふたり"
       },
       {
         "t": "で",
@@ -41,14 +40,13 @@
       },
       {
         "t": "読みます",
-        "r": "よみます",
         "role": "content",
         "word_id": "W00034",
+        "r": "よみます",
         "inflection": {
           "base": "読む",
           "base_r": "よむ",
           "form": "polite_nonpast",
-          "word_id": "W00034",
           "verb_class": "godan"
         },
         "grammar_id": "G026_masu_nonpast"
@@ -56,8 +54,8 @@
     ]
   },
   "new_words": [
-    "W00033",
     "W00034",
+    "W00033",
     "W00035"
   ],
   "new_grammar": [],
@@ -79,13 +77,12 @@
   "sentences": [
     {
       "idx": 0,
-      "gloss_en": "Morning — the two of us are at the park.",
       "tokens": [
         {
           "t": "朝",
-          "r": "あさ",
           "role": "content",
-          "word_id": "W00015"
+          "word_id": "W00015",
+          "r": "あさ"
         },
         {
           "t": "、",
@@ -93,11 +90,10 @@
         },
         {
           "t": "二人",
-          "r": "ふたり",
           "role": "content",
           "word_id": "W00035",
-          "is_new": true,
-          "grammar_id": "G025_counters"
+          "r": "ふたり",
+          "is_new": true
         },
         {
           "t": "は",
@@ -106,9 +102,9 @@
         },
         {
           "t": "公園",
-          "r": "こうえん",
           "role": "content",
-          "word_id": "W00016"
+          "word_id": "W00016",
+          "r": "こうえん"
         },
         {
           "t": "に",
@@ -117,26 +113,32 @@
         },
         {
           "t": "います",
-          "r": "います",
           "role": "content",
           "word_id": "W00029",
-          "grammar_id": "G021_aru_iru"
+          "r": "います",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "Morning — the two of us are at the park."
     },
     {
       "idx": 1,
-      "gloss_en": "I read a book.",
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
           "role": "content",
-          "word_id": "W00003"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "は",
@@ -145,9 +147,9 @@
         },
         {
           "t": "本",
-          "r": "ほん",
           "role": "content",
           "word_id": "W00033",
+          "r": "ほん",
           "is_new": true
         },
         {
@@ -157,15 +159,14 @@
         },
         {
           "t": "読みます",
-          "r": "よみます",
           "role": "content",
           "word_id": "W00034",
+          "r": "よみます",
           "is_new": true,
           "inflection": {
             "base": "読む",
             "base_r": "よむ",
             "form": "polite_nonpast",
-            "word_id": "W00034",
             "verb_class": "godan"
           },
           "grammar_id": "G026_masu_nonpast"
@@ -174,17 +175,17 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "I read a book."
     },
     {
       "idx": 2,
-      "gloss_en": "My friend, too, reads a book.",
       "tokens": [
         {
           "t": "友達",
-          "r": "ともだち",
           "role": "content",
-          "word_id": "W00022"
+          "word_id": "W00022",
+          "r": "ともだち"
         },
         {
           "t": "も",
@@ -193,9 +194,9 @@
         },
         {
           "t": "本",
-          "r": "ほん",
           "role": "content",
-          "word_id": "W00033"
+          "word_id": "W00033",
+          "r": "ほん"
         },
         {
           "t": "を",
@@ -204,14 +205,13 @@
         },
         {
           "t": "読みます",
-          "r": "よみます",
           "role": "content",
           "word_id": "W00034",
+          "r": "よみます",
           "inflection": {
             "base": "読む",
             "base_r": "よむ",
             "form": "polite_nonpast",
-            "word_id": "W00034",
             "verb_class": "godan"
           },
           "grammar_id": "G026_masu_nonpast"
@@ -220,17 +220,17 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "My friend, too, reads a book."
     },
     {
       "idx": 3,
-      "gloss_en": "The park is quiet.",
       "tokens": [
         {
           "t": "公園",
-          "r": "こうえん",
           "role": "content",
-          "word_id": "W00016"
+          "word_id": "W00016",
+          "r": "こうえん"
         },
         {
           "t": "は",
@@ -239,9 +239,9 @@
         },
         {
           "t": "静か",
-          "r": "しずか",
           "role": "content",
-          "word_id": "W00011"
+          "word_id": "W00011",
+          "r": "しずか"
         },
         {
           "t": "です",
@@ -252,17 +252,17 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The park is quiet."
     },
     {
       "idx": 4,
-      "gloss_en": "The color of the friend's book is nice.",
       "tokens": [
         {
           "t": "友達",
           "role": "content",
-          "r": "ともだち",
-          "word_id": "W00022"
+          "word_id": "W00022",
+          "r": "ともだち"
         },
         {
           "t": "の",
@@ -272,8 +272,8 @@
         {
           "t": "本",
           "role": "content",
-          "r": "ほん",
-          "word_id": "W00033"
+          "word_id": "W00033",
+          "r": "ほん"
         },
         {
           "t": "の",
@@ -283,8 +283,8 @@
         {
           "t": "色",
           "role": "content",
-          "r": "いろ",
-          "word_id": "W00156"
+          "word_id": "W00156",
+          "r": "いろ"
         },
         {
           "t": "は",
@@ -294,8 +294,9 @@
         {
           "t": "いい",
           "role": "content",
+          "word_id": "W00013",
           "r": "いい",
-          "word_id": "W00013"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -306,11 +307,11 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The color of the friend's book is nice."
     },
     {
       "idx": 5,
-      "gloss_en": "And then, there is also tea.",
       "tokens": [
         {
           "t": "そして",
@@ -323,9 +324,9 @@
         },
         {
           "t": "お茶",
-          "r": "おちゃ",
           "role": "content",
-          "word_id": "W00009"
+          "word_id": "W00009",
+          "r": "おちゃ"
         },
         {
           "t": "も",
@@ -337,24 +338,29 @@
           "role": "content",
           "word_id": "W00044",
           "r": "あります",
-          "grammar_id": "G021_aru_iru"
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "And then, there is also tea."
     },
     {
       "idx": 6,
-      "gloss_en": "The two of us read a book together.",
       "tokens": [
         {
           "t": "二人",
-          "r": "ふたり",
           "role": "content",
           "word_id": "W00035",
-          "grammar_id": "G025_counters"
+          "r": "ふたり"
         },
         {
           "t": "で",
@@ -363,9 +369,9 @@
         },
         {
           "t": "本",
-          "r": "ほん",
           "role": "content",
-          "word_id": "W00033"
+          "word_id": "W00033",
+          "r": "ほん"
         },
         {
           "t": "を",
@@ -374,15 +380,23 @@
         },
         {
           "t": "読みます",
-          "r": "よみます",
           "role": "content",
-          "word_id": "W00034"
+          "word_id": "W00034",
+          "r": "よみます",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The two of us read a book together."
     }
   ]
 }

@@ -6,9 +6,9 @@
     "tokens": [
       {
         "t": "夜",
-        "r": "よる",
         "role": "content",
-        "word_id": "W00030"
+        "word_id": "W00030",
+        "r": "よる"
       },
       {
         "t": "の",
@@ -17,9 +17,9 @@
       },
       {
         "t": "空",
-        "r": "そら",
         "role": "content",
-        "word_id": "W00047"
+        "word_id": "W00047",
+        "r": "そら"
       }
     ]
   },
@@ -29,9 +29,9 @@
     "tokens": [
       {
         "t": "星",
-        "r": "ほし",
         "role": "content",
-        "word_id": "W00032"
+        "word_id": "W00032",
+        "r": "ほし"
       },
       {
         "t": "と",
@@ -40,16 +40,16 @@
       },
       {
         "t": "月",
-        "r": "つき",
         "role": "content",
-        "word_id": "W00031"
+        "word_id": "W00031",
+        "r": "つき"
       }
     ]
   },
   "new_words": [
+    "W00166",
     "W00047",
-    "W00165",
-    "W00166"
+    "W00165"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -70,19 +70,19 @@
     "W00165",
     "W00014",
     "W00037",
+    "W00036",
     "W00009",
     "W00166"
   ],
   "sentences": [
     {
       "idx": 0,
-      "gloss_en": "Tomorrow night, I will walk outside.",
       "tokens": [
         {
           "t": "明日",
-          "r": "あした",
           "role": "content",
-          "word_id": "W00046"
+          "word_id": "W00046",
+          "r": "あした"
         },
         {
           "t": "の",
@@ -91,9 +91,9 @@
         },
         {
           "t": "夜",
-          "r": "よる",
           "role": "content",
-          "word_id": "W00030"
+          "word_id": "W00030",
+          "r": "よる"
         },
         {
           "t": "、",
@@ -101,9 +101,9 @@
         },
         {
           "t": "私",
-          "r": "わたし",
           "role": "content",
-          "word_id": "W00003"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "は",
@@ -112,9 +112,9 @@
         },
         {
           "t": "歩きます",
-          "r": "あるきます",
           "role": "content",
           "word_id": "W00017",
+          "r": "あるきます",
           "inflection": {
             "base": "歩く",
             "base_r": "あるく",
@@ -127,23 +127,24 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "Tomorrow night, I will walk outside."
     },
     {
       "idx": 1,
-      "gloss_en": "After walking, I look at the sky.",
       "tokens": [
         {
           "t": "歩いて",
-          "r": "あるいて",
           "role": "content",
           "word_id": "W00017",
+          "r": "あるいて",
           "inflection": {
             "base": "歩く",
             "base_r": "あるく",
             "form": "te",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G007_te_form"
         },
         {
           "t": "から",
@@ -156,9 +157,9 @@
         },
         {
           "t": "空",
-          "r": "そら",
           "role": "content",
           "word_id": "W00047",
+          "r": "そら",
           "is_new": true
         },
         {
@@ -168,9 +169,9 @@
         },
         {
           "t": "見ます",
-          "r": "みます",
           "role": "content",
           "word_id": "W00006",
+          "r": "みます",
           "inflection": {
             "base": "見る",
             "base_r": "みる",
@@ -183,17 +184,17 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "After walking, I look at the sky."
     },
     {
       "idx": 2,
-      "gloss_en": "There is a star in the sky.",
       "tokens": [
         {
           "t": "空",
-          "r": "そら",
           "role": "content",
-          "word_id": "W00047"
+          "word_id": "W00047",
+          "r": "そら"
         },
         {
           "t": "に",
@@ -202,9 +203,9 @@
         },
         {
           "t": "星",
-          "r": "ほし",
           "role": "content",
-          "word_id": "W00032"
+          "word_id": "W00032",
+          "r": "ほし"
         },
         {
           "t": "が",
@@ -213,26 +214,32 @@
         },
         {
           "t": "あります",
-          "r": "あります",
           "role": "content",
           "word_id": "W00044",
-          "grammar_id": "G021_aru_iru"
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "There is a star in the sky."
     },
     {
       "idx": 3,
-      "gloss_en": "The moon is also in the sky.",
       "tokens": [
         {
           "t": "月",
-          "r": "つき",
           "role": "content",
-          "word_id": "W00031"
+          "word_id": "W00031",
+          "r": "つき"
         },
         {
           "t": "も",
@@ -241,9 +248,9 @@
         },
         {
           "t": "空",
-          "r": "そら",
           "role": "content",
-          "word_id": "W00047"
+          "word_id": "W00047",
+          "r": "そら"
         },
         {
           "t": "に",
@@ -252,26 +259,32 @@
         },
         {
           "t": "あります",
-          "r": "あります",
           "role": "content",
           "word_id": "W00044",
-          "grammar_id": "G021_aru_iru"
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The moon is also in the sky."
     },
     {
       "idx": 4,
-      "gloss_en": "After looking at the stars, I go home.",
       "tokens": [
         {
           "t": "星",
-          "r": "ほし",
           "role": "content",
-          "word_id": "W00032"
+          "word_id": "W00032",
+          "r": "ほし"
         },
         {
           "t": "を",
@@ -280,15 +293,16 @@
         },
         {
           "t": "見て",
-          "r": "みて",
           "role": "content",
           "word_id": "W00006",
+          "r": "みて",
           "inflection": {
             "base": "見る",
             "base_r": "みる",
             "form": "te",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G007_te_form"
         },
         {
           "t": "から",
@@ -301,9 +315,9 @@
         },
         {
           "t": "ドア",
-          "r": "ドア",
           "role": "content",
-          "word_id": "W00025"
+          "word_id": "W00025",
+          "r": "ドア"
         },
         {
           "t": "に",
@@ -312,9 +326,9 @@
         },
         {
           "t": "帰ります",
-          "r": "かえります",
           "role": "content",
           "word_id": "W00026",
+          "r": "かえります",
           "inflection": {
             "base": "帰る",
             "base_r": "かえる",
@@ -327,17 +341,17 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "After looking at the stars, I go home."
     },
     {
       "idx": 5,
-      "gloss_en": "The night sky is quiet.",
       "tokens": [
         {
           "t": "夜",
-          "r": "よる",
           "role": "content",
-          "word_id": "W00030"
+          "word_id": "W00030",
+          "r": "よる"
         },
         {
           "t": "の",
@@ -346,9 +360,9 @@
         },
         {
           "t": "空",
-          "r": "そら",
           "role": "content",
-          "word_id": "W00047"
+          "word_id": "W00047",
+          "r": "そら"
         },
         {
           "t": "は",
@@ -357,9 +371,9 @@
         },
         {
           "t": "静か",
-          "r": "しずか",
           "role": "content",
-          "word_id": "W00011"
+          "word_id": "W00011",
+          "r": "しずか"
         },
         {
           "t": "です",
@@ -370,17 +384,17 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The night sky is quiet."
     },
     {
       "idx": 6,
-      "gloss_en": "The stars are good too.",
       "tokens": [
         {
           "t": "星",
-          "r": "ほし",
           "role": "content",
-          "word_id": "W00032"
+          "word_id": "W00032",
+          "r": "ほし"
         },
         {
           "t": "も",
@@ -391,6 +405,7 @@
           "t": "いい",
           "role": "content",
           "word_id": "W00013",
+          "r": "いい",
           "grammar_id": "G022_i_adj"
         },
         {
@@ -402,17 +417,17 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "The stars are good too."
     },
     {
       "idx": 7,
-      "gloss_en": "Moon, stars, song, and music — a good feeling.",
       "tokens": [
         {
           "t": "月",
           "role": "content",
-          "r": "つき",
-          "word_id": "W00031"
+          "word_id": "W00031",
+          "r": "つき"
         },
         {
           "t": "と",
@@ -422,8 +437,8 @@
         {
           "t": "星",
           "role": "content",
-          "r": "ほし",
-          "word_id": "W00032"
+          "word_id": "W00032",
+          "r": "ほし"
         },
         {
           "t": "と",
@@ -433,8 +448,8 @@
         {
           "t": "歌",
           "role": "content",
-          "r": "うた",
-          "word_id": "W00164"
+          "word_id": "W00164",
+          "r": "うた"
         },
         {
           "t": "と",
@@ -444,8 +459,8 @@
         {
           "t": "音楽",
           "role": "content",
-          "r": "おんがく",
           "word_id": "W00165",
+          "r": "おんがく",
           "is_new": true
         },
         {
@@ -455,14 +470,15 @@
         {
           "t": "いい",
           "role": "content",
+          "word_id": "W00013",
           "r": "いい",
-          "word_id": "W00013"
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "気分",
           "role": "content",
-          "r": "きぶん",
-          "word_id": "W00014"
+          "word_id": "W00014",
+          "r": "きぶん"
         },
         {
           "t": "です",
@@ -473,22 +489,23 @@
           "t": "。",
           "role": "punct"
         }
-      ]
+      ],
+      "gloss_en": "Moon, stars, song, and music — a good feeling."
     },
     {
       "idx": 8,
       "tokens": [
         {
           "t": "机",
-          "r": "つくえ",
           "role": "content",
-          "word_id": "W00037"
+          "word_id": "W00037",
+          "r": "つくえ"
         },
         {
           "t": "椅子",
           "role": "content",
-          "r": "いす",
-          "word_id": "W00036"
+          "word_id": "W00036",
+          "r": "いす"
         },
         {
           "t": "と",
@@ -507,9 +524,9 @@
         },
         {
           "t": "お茶",
-          "r": "おちゃ",
           "role": "content",
-          "word_id": "W00009"
+          "word_id": "W00009",
+          "r": "おちゃ"
         },
         {
           "t": "と",
@@ -518,9 +535,9 @@
         },
         {
           "t": "皿",
-          "r": "さら",
           "role": "content",
           "word_id": "W00166",
+          "r": "さら",
           "is_new": true
         },
         {
@@ -530,10 +547,16 @@
         },
         {
           "t": "あります",
-          "r": "あります",
           "role": "content",
           "word_id": "W00044",
-          "grammar_id": "G021_aru_iru"
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
