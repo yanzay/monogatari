@@ -1,0 +1,1103 @@
+{
+  "story_id": 67,
+  "title": {
+    "jp": "だから雪が好きです。",
+    "en": "So I Love the Snow.",
+    "tokens": [
+      {
+        "t": "だから",
+        "r": "だから",
+        "role": "aux",
+        "grammar_id": "G059_dakara"
+      },
+      {
+        "t": "雪",
+        "r": "ゆき",
+        "role": "content",
+        "word_id": "W00063"
+      },
+      {
+        "t": "が",
+        "role": "particle",
+        "grammar_id": "G002_ga_subject",
+        "r": "が"
+      },
+      {
+        "t": "好き",
+        "r": "すき",
+        "role": "content",
+        "word_id": "W00114"
+      },
+      {
+        "t": "です",
+        "role": "aux",
+        "grammar_id": "G003_desu",
+        "r": "です"
+      },
+      {
+        "t": "。",
+        "role": "punct"
+      }
+    ],
+    "gloss_en": "So I love the snow."
+  },
+  "subtitle": {
+    "jp": "冬の朝、雪が降ります。",
+    "en": "A winter morning — snow falls.",
+    "tokens": [
+      {
+        "t": "冬",
+        "r": "ふゆ",
+        "role": "content",
+        "word_id": "W00095"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "G015_no_possessive",
+        "r": "の"
+      },
+      {
+        "t": "朝",
+        "r": "あさ",
+        "role": "content",
+        "word_id": "W00015"
+      },
+      {
+        "t": "、",
+        "role": "punct"
+      },
+      {
+        "t": "雪",
+        "r": "ゆき",
+        "role": "content",
+        "word_id": "W00063"
+      },
+      {
+        "t": "が",
+        "role": "particle",
+        "grammar_id": "G002_ga_subject",
+        "r": "が"
+      },
+      {
+        "t": "降ります",
+        "r": "ふります",
+        "role": "content",
+        "word_id": "W00107",
+        "inflection": {
+          "form": "masu_polite_nonpast",
+          "grammar_id": "G026_masu_nonpast"
+        }
+      },
+      {
+        "t": "。",
+        "role": "punct"
+      }
+    ],
+    "gloss_en": "A winter morning — snow falls."
+  },
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "冬",
+          "r": "ふゆ",
+          "role": "content",
+          "word_id": "W00095"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "role": "content",
+          "word_id": "W00015"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is a winter morning.",
+      "audio": "audio/story_67/s0.wav",
+      "audio_hash": "4baa92b0ef37"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "雪",
+          "r": "ゆき",
+          "role": "content",
+          "word_id": "W00063"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject",
+          "r": "が"
+        },
+        {
+          "t": "降ります",
+          "r": "ふります",
+          "role": "content",
+          "word_id": "W00107",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Snow falls.",
+      "audio": "audio/story_67/s1.wav",
+      "audio_hash": "de5660a198f5"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "窓",
+          "r": "まど",
+          "role": "content",
+          "word_id": "W00004"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location",
+          "r": "に"
+        },
+        {
+          "t": "立ちます",
+          "r": "たちます",
+          "role": "content",
+          "word_id": "W00087",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I stand at the window.",
+      "audio": "audio/story_67/s2.wav",
+      "audio_hash": "3c8ae591bc7c"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "庭",
+          "r": "にわ",
+          "role": "content",
+          "word_id": "W00059"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "雪",
+          "r": "ゆき",
+          "role": "content",
+          "word_id": "W00063"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The garden is snow.",
+      "audio": "audio/story_67/s3.wav",
+      "audio_hash": "076493251738"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "雪",
+          "r": "ゆき",
+          "role": "content",
+          "word_id": "W00063"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "role": "content",
+          "word_id": "W00011"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The snow is quiet.",
+      "audio": "audio/story_67/s4.wav",
+      "audio_hash": "9f269cf45d3f"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "だから",
+          "r": "だから",
+          "role": "aux",
+          "grammar_id": "G059_dakara",
+          "is_new_grammar": true
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "雪",
+          "r": "ゆき",
+          "role": "content",
+          "word_id": "W00063"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject",
+          "r": "が"
+        },
+        {
+          "t": "好き",
+          "r": "すき",
+          "role": "content",
+          "word_id": "W00114"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "So I love the snow.",
+      "audio": "audio/story_67/s5.wav",
+      "audio_hash": "8e802db0c132"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also",
+          "r": "も"
+        },
+        {
+          "t": "雪",
+          "r": "ゆき",
+          "role": "content",
+          "word_id": "W00063"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject",
+          "r": "が"
+        },
+        {
+          "t": "好き",
+          "r": "すき",
+          "role": "content",
+          "word_id": "W00114"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother also loves the snow.",
+      "audio": "audio/story_67/s6.wav",
+      "audio_hash": "d95c9cb13099"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "雪",
+          "r": "ゆき",
+          "role": "content",
+          "word_id": "W00063"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "美しい",
+          "r": "うつくしい",
+          "role": "content",
+          "word_id": "W00083",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "と"
+        },
+        {
+          "t": "言いました",
+          "r": "いいました",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "polite_past",
+            "grammar_id": "G013_mashita_past",
+            "base": "言う",
+            "base_r": "いう"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother said, \"The snow is beautiful.\"",
+      "audio": "audio/story_67/s7.wav",
+      "audio_hash": "b46daa657605"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "だから",
+          "r": "だから",
+          "role": "aux",
+          "grammar_id": "G059_dakara"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object",
+          "r": "を"
+        },
+        {
+          "t": "思います",
+          "r": "おもいます",
+          "role": "content",
+          "word_id": "W00043",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "So I think of grandmother.",
+      "audio": "audio/story_67/s8.wav",
+      "audio_hash": "095168c85b5c"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "雪",
+          "r": "ゆき",
+          "role": "content",
+          "word_id": "W00063"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "role": "content",
+          "word_id": "W00015"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "空",
+          "r": "そら",
+          "role": "content",
+          "word_id": "W00047"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "美しい",
+          "r": "うつくしい",
+          "role": "content",
+          "word_id": "W00083",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A snowy morning — the sky is beautiful.",
+      "audio": "audio/story_67/s9.wav",
+      "audio_hash": "cc8268bacd4c"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "来週",
+          "r": "らいしゅう",
+          "role": "content",
+          "word_id": "W00146"
+        },
+        {
+          "t": "来ます",
+          "r": "きます",
+          "role": "content",
+          "word_id": "W00040",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend comes next week.",
+      "audio": "audio/story_67/s10.wav",
+      "audio_hash": "dc21a502c346"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "だから",
+          "r": "だから",
+          "role": "aux",
+          "grammar_id": "G059_dakara"
+        },
+        {
+          "t": "心",
+          "r": "こころ",
+          "role": "content",
+          "word_id": "W00120"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "role": "content",
+          "word_id": "W00011"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "So my heart is quiet.",
+      "audio": "audio/story_67/s11.wav",
+      "audio_hash": "4d280572dc96"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "新しい",
+          "r": "あたらしい",
+          "role": "content",
+          "word_id": "W00066",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject",
+          "r": "が"
+        },
+        {
+          "t": "ほしい",
+          "r": "ほしい",
+          "role": "aux",
+          "grammar_id": "G057_ga_hoshii"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I want a new book.",
+      "audio": "audio/story_67/s12.wav",
+      "audio_hash": "6323be1c6616"
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "本",
+          "r": "ほん",
+          "role": "content",
+          "word_id": "W00033"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "店",
+          "r": "みせ",
+          "role": "content",
+          "word_id": "W00084"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "G050_he_direction",
+          "r": "え"
+        },
+        {
+          "t": "行きたい",
+          "r": "いきたい",
+          "role": "content",
+          "word_id": "W00150",
+          "inflection": {
+            "form": "tai",
+            "grammar_id": "G031_tai",
+            "base": "行く",
+            "base_r": "いく"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I want to go to the bookstore.",
+      "audio": "audio/story_67/s13.wav",
+      "audio_hash": "db35dc6a22ee"
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "入って",
+          "r": "はいって",
+          "role": "content",
+          "word_id": "W00080",
+          "inflection": {
+            "form": "te_form",
+            "grammar_id": "G007_te_form",
+            "base": "入る",
+            "base_r": "はいる"
+          }
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also",
+          "r": "も"
+        },
+        {
+          "t": "いい",
+          "r": "いい",
+          "role": "content",
+          "word_id": "W00013",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G058_temo_ii"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question",
+          "r": "か"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "と"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "言います",
+          "r": "いいます",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"May I come in?\" I will say.",
+      "audio": "audio/story_67/s14.wav",
+      "audio_hash": "c3040c9791f2"
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "雪",
+          "r": "ゆき",
+          "role": "content",
+          "word_id": "W00063"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "強い",
+          "r": "つよい",
+          "role": "content",
+          "word_id": "W00118",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "風",
+          "r": "かぜ",
+          "role": "content",
+          "word_id": "W00027"
+        },
+        {
+          "t": "じゃない",
+          "r": "じゃない",
+          "role": "aux",
+          "grammar_id": "G051_janai"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Snow is not a strong wind.",
+      "audio": "audio/story_67/s15.wav",
+      "audio_hash": "118d7d087d31"
+    },
+    {
+      "idx": 16,
+      "tokens": [
+        {
+          "t": "雪",
+          "r": "ゆき",
+          "role": "content",
+          "word_id": "W00063"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "手紙",
+          "r": "てがみ",
+          "role": "content",
+          "word_id": "W00039"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Snow is a letter.",
+      "audio": "audio/story_67/s16.wav",
+      "audio_hash": "234be16b771d"
+    },
+    {
+      "idx": 17,
+      "tokens": [
+        {
+          "t": "だから",
+          "r": "だから",
+          "role": "aux",
+          "grammar_id": "G059_dakara"
+        },
+        {
+          "t": "明日",
+          "r": "あした",
+          "role": "content",
+          "word_id": "W00046"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also",
+          "r": "も"
+        },
+        {
+          "t": "雪",
+          "r": "ゆき",
+          "role": "content",
+          "word_id": "W00063"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object",
+          "r": "を"
+        },
+        {
+          "t": "見ます",
+          "r": "みます",
+          "role": "content",
+          "word_id": "W00006",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "So tomorrow I will also see the snow.",
+      "audio": "audio/story_67/s17.wav",
+      "audio_hash": "203813013cc5"
+    },
+    {
+      "idx": 18,
+      "tokens": [
+        {
+          "t": "雪",
+          "r": "ゆき",
+          "role": "content",
+          "word_id": "W00063"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "温かい",
+          "r": "あたたかい",
+          "role": "content",
+          "word_id": "W00012",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "心",
+          "r": "こころ",
+          "role": "content",
+          "word_id": "W00120"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "いい",
+          "r": "いい",
+          "role": "content",
+          "word_id": "W00013",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "role": "content",
+          "word_id": "W00015"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Snow, warm heart, good morning.",
+      "audio": "audio/story_67/s18.wav",
+      "audio_hash": "d9ab0be537c4"
+    }
+  ],
+  "new_words": [],
+  "new_grammar": [
+    "G059_dakara"
+  ],
+  "all_words_used": [
+    "W00063",
+    "W00114",
+    "W00095",
+    "W00015",
+    "W00107",
+    "W00003",
+    "W00004",
+    "W00087",
+    "W00059",
+    "W00011",
+    "W00098",
+    "W00083",
+    "W00097",
+    "W00043",
+    "W00047",
+    "W00022",
+    "W00146",
+    "W00040",
+    "W00120",
+    "W00066",
+    "W00033",
+    "W00084",
+    "W00150",
+    "W00080",
+    "W00013",
+    "W00118",
+    "W00027",
+    "W00039",
+    "W00046",
+    "W00006",
+    "W00012"
+  ],
+  "word_audio": {},
+  "word_audio_hash": {}
+}
