@@ -151,9 +151,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Beside the book, there is also tea.",
-      "audio": "audio/story_13/s1.mp3",
-      "audio_hash": "0dc00740e445"
+      "gloss_en": "Beside the book, there is also tea."
     },
     {
       "idx": 2,
@@ -222,7 +220,7 @@
       "tokens": [
         {
           "t": "そして",
-          "role": "aux",
+          "role": "particle",
           "grammar_id": "G012_soshite_then"
         },
         {
@@ -230,9 +228,15 @@
           "role": "punct"
         },
         {
-          "t": "雨",
-          "r": "あめ",
+          "t": "早い",
           "role": "content",
+          "r": "はやい",
+          "word_id": "W00159"
+        },
+        {
+          "t": "雨",
+          "role": "content",
+          "r": "あめ",
           "word_id": "W00002"
         },
         {
@@ -242,25 +246,16 @@
         },
         {
           "t": "来ます",
-          "r": "きます",
           "role": "content",
-          "word_id": "W00040",
-          "inflection": {
-            "base": "来る",
-            "base_r": "くる",
-            "form": "polite_nonpast",
-            "verb_class": "irregular_kuru"
-          },
-          "grammar_id": "G026_masu_nonpast"
+          "r": "きます",
+          "word_id": "W00040"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "And then, the rain comes.",
-      "audio": "audio/story_13/s3.mp3",
-      "audio_hash": "660868ca5028"
+      "gloss_en": "Then, an early rain comes."
     },
     {
       "idx": 4,
@@ -305,9 +300,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I look at the window.",
-      "audio": "audio/story_13/s4.mp3",
-      "audio_hash": "631070aab605"
+      "gloss_en": "I look at the window."
     },
     {
       "idx": 5,
@@ -317,9 +310,15 @@
           "role": "punct"
         },
         {
-          "t": "雨",
-          "r": "あめ",
+          "t": "青い",
           "role": "content",
+          "r": "あおい",
+          "word_id": "W00158"
+        },
+        {
+          "t": "雨",
+          "role": "content",
+          "r": "あめ",
           "word_id": "W00002"
         },
         {
@@ -329,8 +328,8 @@
         },
         {
           "t": "静か",
-          "r": "しずか",
           "role": "content",
+          "r": "しずか",
           "word_id": "W00011"
         },
         {
@@ -349,8 +348,8 @@
         },
         {
           "t": "思います",
-          "r": "おもいます",
           "role": "content",
+          "r": "おもいます",
           "word_id": "W00043",
           "inflection": {
             "base": "思う",
@@ -365,9 +364,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"The rain is quiet,\" I think.",
-      "audio": "audio/story_13/s5.mp3",
-      "audio_hash": "3a1a2dd4317b"
+      "gloss_en": "I think, \"the blue rain is quiet.\""
     },
     {
       "idx": 6,
@@ -444,17 +441,15 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "When I read the book, I drink tea.",
-      "audio": "audio/story_13/s6.mp3",
-      "audio_hash": "ee8320c7cdc0"
+      "gloss_en": "When I read the book, I drink tea."
     },
     {
       "idx": 7,
       "tokens": [
         {
           "t": "本",
-          "r": "ほん",
           "role": "content",
+          "r": "ほん",
           "word_id": "W00033"
         },
         {
@@ -464,8 +459,8 @@
         },
         {
           "t": "お茶",
-          "r": "おちゃ",
           "role": "content",
+          "r": "おちゃ",
           "word_id": "W00009"
         },
         {
@@ -474,20 +469,15 @@
           "grammar_id": "G010_to_and"
         },
         {
-          "t": "雨",
-          "r": "あめ",
+          "t": "白い",
           "role": "content",
-          "word_id": "W00002"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "r": "しろい",
+          "word_id": "W00157"
         },
         {
           "t": "朝",
-          "r": "あさ",
           "role": "content",
+          "r": "あさ",
           "word_id": "W00015"
         },
         {
@@ -500,9 +490,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A morning of book, tea, and rain.",
-      "audio": "audio/story_13/s7.mp3",
-      "audio_hash": "46f33c4201d1"
+      "gloss_en": "Book, tea, and a white morning."
     }
   ],
   "all_words_used": [
@@ -517,27 +505,20 @@
     "W00162",
     "W00003",
     "W00034",
+    "W00159",
     "W00040",
     "W00004",
     "W00006",
+    "W00158",
     "W00011",
     "W00043",
-    "W00010"
+    "W00010",
+    "W00157"
   ],
   "new_words": [
     "W00045",
     "W00161",
     "W00162"
   ],
-  "new_grammar": [],
-  "word_audio": {
-    "W00045": "audio/story_13/w_W00045.mp3",
-    "W00161": "audio/story_13/word_軽い.mp3",
-    "W00162": "audio/story_13/word_若い.mp3"
-  },
-  "word_audio_hash": {
-    "W00045": "a7dbc110c61b",
-    "W00161": "08cbe22167b8",
-    "W00162": "7a0063f6700e"
-  }
+  "new_grammar": []
 }

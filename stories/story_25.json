@@ -9,7 +9,8 @@
         "r": "ひとり",
         "word_id": "W00065",
         "role": "content",
-        "grammar_id": "G025_counters"
+        "grammar_id": "G025_counters",
+        "is_new_grammar": true
       },
       {
         "t": "の",
@@ -84,12 +85,16 @@
     "W00022",
     "W00077",
     "W00003",
+    "W00074",
     "W00037",
     "W00067",
     "W00068",
     "W00044",
     "W00053",
-    "W00005"
+    "W00005",
+    "W00072",
+    "W00025",
+    "W00073"
   ],
   "sentences": [
     {
@@ -133,9 +138,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_25/s0.wav",
-      "audio_hash": "4a6cc9886b74"
+      ]
     },
     {
       "idx": 1,
@@ -185,24 +188,38 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_25/s1.wav",
-      "audio_hash": "069895f90432"
+      ]
     },
     {
       "idx": 2,
-      "gloss_en": "I am alone.",
+      "gloss_en": "I, on a long morning, am alone.",
       "tokens": [
         {
           "t": "私",
+          "role": "content",
           "r": "わたし",
-          "word_id": "W00003",
-          "role": "content"
+          "word_id": "W00003"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "長い",
+          "role": "content",
+          "r": "ながい",
+          "word_id": "W00074"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "r": "あさ",
+          "word_id": "W00015"
         },
         {
           "t": "、",
@@ -210,24 +227,20 @@
         },
         {
           "t": "一人",
-          "r": "ひとり",
-          "word_id": "W00065",
           "role": "content",
-          "grammar_id": "G025_counters",
-          "is_new_grammar": true
+          "r": "ひとり",
+          "word_id": "W00065"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_25/s2.wav",
-      "audio_hash": "1ee1f2d5b709"
+      ]
     },
     {
       "idx": 3,
@@ -282,9 +295,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_25/s3.wav",
-      "audio_hash": "641e81c543ae"
+      ]
     },
     {
       "idx": 4,
@@ -337,9 +348,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_25/s4.wav",
-      "audio_hash": "3d609923d0d0"
+      ]
     },
     {
       "idx": 5,
@@ -377,62 +386,92 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_25/s5.wav",
-      "audio_hash": "d01b3c638ffc"
+      ]
     },
     {
       "idx": 6,
-      "gloss_en": "Outside is rain.",
+      "gloss_en": "Outside is a spring rain.",
       "tokens": [
         {
           "t": "外",
+          "role": "content",
           "r": "そと",
-          "word_id": "W00005",
-          "role": "content"
+          "word_id": "W00005"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "、",
           "role": "punct"
         },
         {
+          "t": "春",
+          "role": "content",
+          "r": "はる",
+          "word_id": "W00072"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
           "t": "雨",
+          "role": "content",
           "r": "あめ",
-          "word_id": "W00002",
-          "role": "content"
+          "word_id": "W00002"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_25/s6.wav",
-      "audio_hash": "ba9481b35d74"
+      ]
     },
     {
       "idx": 7,
-      "gloss_en": "I leave the room too.",
+      "gloss_en": "I, too, open the door and leave the room.",
       "tokens": [
         {
           "t": "私",
+          "role": "content",
           "r": "わたし",
-          "word_id": "W00003",
-          "role": "content"
+          "word_id": "W00003"
         },
         {
           "t": "も",
-          "grammar_id": "G009_mo_also",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "ドア",
+          "role": "content",
+          "r": "ドア",
+          "word_id": "W00025"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "開けて",
+          "role": "content",
+          "r": "あけて",
+          "word_id": "W00073",
+          "inflection": {
+            "base": "開ける",
+            "base_r": "あける",
+            "form": "te_form",
+            "grammar_id": "G007_te_form"
+          }
         },
         {
           "t": "、",
@@ -440,20 +479,20 @@
         },
         {
           "t": "部屋",
+          "role": "content",
           "r": "へや",
-          "word_id": "W00075",
-          "role": "content"
+          "word_id": "W00075"
         },
         {
           "t": "から",
-          "grammar_id": "G006_kara_from",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
         },
         {
           "t": "出ます",
+          "role": "content",
           "r": "でます",
           "word_id": "W00077",
-          "role": "content",
           "inflection": {
             "base": "出る",
             "base_r": "でる",
@@ -466,9 +505,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_25/s7.wav",
-      "audio_hash": "ade5a8949143"
+      ]
     },
     {
       "idx": 8,
@@ -517,20 +554,8 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_25/s8.wav",
-      "audio_hash": "f4aa8b4d305f"
+      ]
     }
   ],
-  "word_audio": {
-    "W00075": "audio/story_25/w_W00075.wav",
-    "W00076": "audio/story_25/w_W00076.wav",
-    "W00077": "audio/story_25/w_W00077.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00075": "02c744ed8d58",
-    "W00076": "a48ae393fb13",
-    "W00077": "6828df841461"
-  }
+  "checksum": null
 }

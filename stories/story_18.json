@@ -72,7 +72,7 @@
     "W00006",
     "W00029",
     "W00008",
-    "W00036",
+    "W00052",
     "W00028",
     "W00038",
     "W00037",
@@ -129,9 +129,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_18/s0.wav",
-      "audio_hash": "16311c0eb8c7"
+      ]
     },
     {
       "idx": 1,
@@ -180,9 +178,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_18/s1.wav",
-      "audio_hash": "3e04008f5302"
+      ]
     },
     {
       "idx": 2,
@@ -239,9 +235,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_18/s2.wav",
-      "audio_hash": "397aad596e8f"
+      ]
     },
     {
       "idx": 3,
@@ -290,24 +284,22 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_18/s3.wav",
-      "audio_hash": "9627c98a0f14"
+      ]
     },
     {
       "idx": 4,
-      "gloss_en": "On the chair, the cat is sleeping.",
+      "gloss_en": "On the bench, the cat is sleeping.",
       "tokens": [
         {
-          "t": "椅子",
-          "r": "いす",
-          "word_id": "W00036",
-          "role": "content"
+          "t": "ベンチ",
+          "role": "content",
+          "r": "ベンチ",
+          "word_id": "W00052"
         },
         {
           "t": "で",
-          "grammar_id": "G017_de_means",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "、",
@@ -315,20 +307,20 @@
         },
         {
           "t": "猫",
+          "role": "content",
           "r": "ねこ",
-          "word_id": "W00028",
-          "role": "content"
+          "word_id": "W00028"
         },
         {
           "t": "が",
-          "grammar_id": "G002_ga_subject",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "寝て",
+          "role": "content",
           "r": "ねて",
           "word_id": "W00038",
-          "role": "content",
           "inflection": {
             "base": "寝る",
             "base_r": "ねる",
@@ -338,16 +330,14 @@
         },
         {
           "t": "います",
-          "grammar_id": "G008_te_iru",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G008_te_iru"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_18/s4.wav",
-      "audio_hash": "ba0c2a2e602e"
+      ]
     },
     {
       "idx": 5,
@@ -417,9 +407,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_18/s5.wav",
-      "audio_hash": "ab21f154edb3"
+      ]
     },
     {
       "idx": 6,
@@ -460,9 +448,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_18/s6.wav",
-      "audio_hash": "1c92227ea006"
+      ]
     },
     {
       "idx": 7,
@@ -497,9 +483,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_18/s7.wav",
-      "audio_hash": "5c29e5352c54"
+      ]
     },
     {
       "idx": 8,
@@ -542,20 +526,8 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_18/s8.wav",
-      "audio_hash": "5a24cce05ab9"
+      ]
     }
   ],
-  "word_audio": {
-    "W00054": "audio/story_18/w_W00054.wav",
-    "W00055": "audio/story_18/w_W00055.wav",
-    "W00056": "audio/story_18/w_W00056.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00054": "8754cc62cbb1",
-    "W00055": "6c458331fdb8",
-    "W00056": "b0660d875cea"
-  }
+  "checksum": null
 }

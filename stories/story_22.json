@@ -81,6 +81,7 @@
     "W00066",
     "W00015",
     "W00035",
+    "W00062",
     "W00001",
     "W00037",
     "W00044",
@@ -89,18 +90,29 @@
     "W00003",
     "W00006",
     "W00053",
-    "W00012"
+    "W00061",
+    "W00060",
+    "W00005",
+    "W00063"
   ],
   "sentences": [
     {
       "idx": 0,
-      "gloss_en": "This morning, an old book is on the desk.",
+      "gloss_en": "Cold morning, on the desk is an old book.",
       "tokens": [
         {
+          "t": "寒い",
+          "role": "content",
+          "r": "さむい",
+          "word_id": "W00062",
+          "grammar_id": "G023_attributive",
+          "is_new_grammar": true
+        },
+        {
           "t": "今朝",
+          "role": "content",
           "r": "けさ",
-          "word_id": "W00001",
-          "role": "content"
+          "word_id": "W00001"
         },
         {
           "t": "、",
@@ -108,54 +120,52 @@
         },
         {
           "t": "机",
+          "role": "content",
           "r": "つくえ",
-          "word_id": "W00037",
-          "role": "content"
+          "word_id": "W00037"
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "古い",
+          "role": "content",
           "r": "ふるい",
           "word_id": "W00067",
-          "role": "content",
           "is_new": true,
-          "grammar_id": "G023_attributive",
-          "is_new_grammar": true
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "本",
+          "role": "content",
           "r": "ほん",
-          "word_id": "W00033",
-          "role": "content"
+          "word_id": "W00033"
         },
         {
           "t": "が",
-          "grammar_id": "G002_ga_subject",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "あります",
-          "word_id": "W00044",
           "role": "content",
+          "r": "あります",
+          "word_id": "W00044",
           "inflection": {
             "base": "ある",
             "base_r": "ある",
             "form": "polite_nonpast",
-            "verb_class": "godan"
+            "verb_class": "irregular_aru"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_22/s0.wav",
-      "audio_hash": "8d17449d00b2"
+      ]
     },
     {
       "idx": 1,
@@ -216,9 +226,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_22/s1.wav",
-      "audio_hash": "680e3e7c097e"
+      ]
     },
     {
       "idx": 2,
@@ -274,9 +282,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_22/s2.wav",
-      "audio_hash": "b19b25a22531"
+      ]
     },
     {
       "idx": 3,
@@ -323,9 +329,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_22/s3.wav",
-      "audio_hash": "17359f6c0bd3"
+      ]
     },
     {
       "idx": 4,
@@ -386,67 +390,63 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_22/s4.wav",
-      "audio_hash": "f7982801c9e8"
+      ]
     },
     {
       "idx": 5,
-      "gloss_en": "A new book is also on the desk.",
+      "gloss_en": "I write a name in the new book.",
       "tokens": [
         {
           "t": "新しい",
+          "role": "content",
           "r": "あたらしい",
           "word_id": "W00066",
-          "role": "content",
-          "is_new": true,
-          "grammar_id": "G023_attributive"
+          "is_new": true
         },
         {
           "t": "本",
+          "role": "content",
           "r": "ほん",
-          "word_id": "W00033",
-          "role": "content"
+          "word_id": "W00033"
         },
         {
-          "t": "も",
-          "grammar_id": "G009_mo_also",
-          "role": "particle"
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "、",
           "role": "punct"
         },
         {
-          "t": "机",
-          "r": "つくえ",
-          "word_id": "W00037",
-          "role": "content"
-        },
-        {
-          "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
-        },
-        {
-          "t": "あります",
-          "word_id": "W00044",
+          "t": "名前",
           "role": "content",
+          "r": "なまえ",
+          "word_id": "W00061"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "書きます",
+          "role": "content",
+          "r": "かきます",
+          "word_id": "W00060",
           "inflection": {
-            "base": "ある",
-            "base_r": "ある",
+            "base": "書く",
+            "base_r": "かく",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_22/s5.wav",
-      "audio_hash": "2aa5a7a9a389"
+      ]
     },
     {
       "idx": 6,
@@ -503,9 +503,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_22/s6.wav",
-      "audio_hash": "115336b17eb6"
+      ]
     },
     {
       "idx": 7,
@@ -545,71 +543,61 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_22/s7.wav",
-      "audio_hash": "a614196477b1"
+      ]
     },
     {
       "idx": 8,
-      "gloss_en": "The morning of the two of us is warm.",
+      "gloss_en": "The two's morning, outside is snow.",
       "tokens": [
         {
           "t": "二人",
-          "r": "ふたり",
-          "word_id": "W00035",
           "role": "content",
-          "grammar_id": "G025_counters"
+          "r": "ふたり",
+          "word_id": "W00035"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "朝",
+          "role": "content",
           "r": "あさ",
-          "word_id": "W00015",
-          "role": "content"
-        },
-        {
-          "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "word_id": "W00015"
         },
         {
           "t": "、",
           "role": "punct"
         },
         {
-          "t": "温かい",
-          "r": "あたたかい",
-          "word_id": "W00012",
+          "t": "外",
           "role": "content",
-          "grammar_id": "G022_i_adj"
+          "r": "そと",
+          "word_id": "W00005"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "雪",
+          "role": "content",
+          "r": "ゆき",
+          "word_id": "W00063"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_22/s8.wav",
-      "audio_hash": "9fb199e9ed90"
+      ]
     }
   ],
-  "word_audio": {
-    "W00066": "audio/story_22/w_W00066.wav",
-    "W00067": "audio/story_22/w_W00067.wav",
-    "W00068": "audio/story_22/w_W00068.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00066": "08468ea02e6f",
-    "W00067": "4f0311747e23",
-    "W00068": "9c3250ff63e1"
-  }
+  "checksum": null
 }

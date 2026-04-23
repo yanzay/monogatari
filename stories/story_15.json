@@ -66,6 +66,7 @@
     "W00026",
     "W00011",
     "W00013",
+    "W00164",
     "W00165",
     "W00014",
     "W00037",
@@ -126,9 +127,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_15/s0.mp3",
-      "audio_hash": "b3ae6f5c7187"
+      ]
     },
     {
       "idx": 1,
@@ -184,9 +183,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_15/s1.mp3",
-      "audio_hash": "159895757b1d"
+      ]
     },
     {
       "idx": 2,
@@ -225,9 +222,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_15/s2.mp3",
-      "audio_hash": "15c33e8b26ca"
+      ]
     },
     {
       "idx": 3,
@@ -266,9 +261,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_15/s3.mp3",
-      "audio_hash": "0086389e0117"
+      ]
     },
     {
       "idx": 4,
@@ -334,9 +327,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_15/s4.mp3",
-      "audio_hash": "af1d3d2f2497"
+      ]
     },
     {
       "idx": 5,
@@ -379,9 +370,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_15/s5.mp3",
-      "audio_hash": "64b051d6ff4e"
+      ]
     },
     {
       "idx": 6,
@@ -413,18 +402,16 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_15/s6.mp3",
-      "audio_hash": "4d480bbaebfa"
+      ]
     },
     {
       "idx": 7,
-      "gloss_en": "Moon and stars and music — a good feeling.",
+      "gloss_en": "Moon, stars, song, and music — a good feeling.",
       "tokens": [
         {
           "t": "月",
-          "r": "つき",
           "role": "content",
+          "r": "つき",
           "word_id": "W00031"
         },
         {
@@ -434,8 +421,8 @@
         },
         {
           "t": "星",
-          "r": "ほし",
           "role": "content",
+          "r": "ほし",
           "word_id": "W00032"
         },
         {
@@ -444,9 +431,20 @@
           "grammar_id": "G010_to_and"
         },
         {
-          "t": "音楽",
-          "r": "おんがく",
+          "t": "歌",
           "role": "content",
+          "r": "うた",
+          "word_id": "W00164"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "音楽",
+          "role": "content",
+          "r": "おんがく",
           "word_id": "W00165",
           "is_new": true
         },
@@ -457,13 +455,13 @@
         {
           "t": "いい",
           "role": "content",
-          "word_id": "W00013",
-          "grammar_id": "G023_attributive"
+          "r": "いい",
+          "word_id": "W00013"
         },
         {
           "t": "気分",
-          "r": "きぶん",
           "role": "content",
+          "r": "きぶん",
           "word_id": "W00014"
         },
         {
@@ -533,15 +531,5 @@
       ],
       "gloss_en": "On the desk there are tea and dishes."
     }
-  ],
-  "word_audio": {
-    "W00047": "audio/story_15/w_W00047.mp3",
-    "W00165": "audio/story_15/word_音楽.mp3",
-    "W00166": "audio/story_15/word_皿.mp3"
-  },
-  "word_audio_hash": {
-    "W00047": "2f8267a89ad5",
-    "W00165": "14b31fd94b35",
-    "W00166": "24f3a61ecd52"
-  }
+  ]
 }

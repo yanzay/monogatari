@@ -59,6 +59,7 @@
     "W00064",
     "W00065",
     "W00030",
+    "W00062",
     "W00005",
     "W00003",
     "W00026",
@@ -67,18 +68,26 @@
     "W00031",
     "W00047",
     "W00057",
-    "W00055"
+    "W00055",
+    "W00061",
+    "W00060"
   ],
   "sentences": [
     {
       "idx": 0,
-      "gloss_en": "At night, outside is snow.",
+      "gloss_en": "Cold night, outside is snow.",
       "tokens": [
         {
+          "t": "寒い",
+          "role": "content",
+          "r": "さむい",
+          "word_id": "W00062"
+        },
+        {
           "t": "夜",
+          "role": "content",
           "r": "よる",
-          "word_id": "W00030",
-          "role": "content"
+          "word_id": "W00030"
         },
         {
           "t": "、",
@@ -86,34 +95,32 @@
         },
         {
           "t": "外",
+          "role": "content",
           "r": "そと",
-          "word_id": "W00005",
-          "role": "content"
+          "word_id": "W00005"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "雪",
+          "role": "content",
           "r": "ゆき",
           "word_id": "W00063",
-          "role": "content",
           "is_new": true
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_21/s0.wav",
-      "audio_hash": "c1e353d9b174"
+      ]
     },
     {
       "idx": 1,
@@ -164,9 +171,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_21/s1.wav",
-      "audio_hash": "45576014504e"
+      ]
     },
     {
       "idx": 2,
@@ -199,9 +204,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_21/s2.wav",
-      "audio_hash": "aff0d067ebad"
+      ]
     },
     {
       "idx": 3,
@@ -249,9 +252,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_21/s3.wav",
-      "audio_hash": "a414aa05fad0"
+      ]
     },
     {
       "idx": 4,
@@ -299,9 +300,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_21/s4.wav",
-      "audio_hash": "0e08264d94d6"
+      ]
     },
     {
       "idx": 5,
@@ -334,9 +333,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_21/s5.wav",
-      "audio_hash": "5a07cf44f41a"
+      ]
     },
     {
       "idx": 6,
@@ -369,9 +366,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_21/s6.wav",
-      "audio_hash": "81c69089e09b"
+      ]
     },
     {
       "idx": 7,
@@ -419,70 +414,74 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_21/s7.wav",
-      "audio_hash": "2239e792aded"
+      ]
     },
     {
       "idx": 8,
-      "gloss_en": "A solitary night is quiet.",
+      "gloss_en": "Alone at night, I write a name.",
       "tokens": [
         {
           "t": "一人",
-          "r": "ひとり",
-          "word_id": "W00065",
           "role": "content",
-          "grammar_id": "G025_counters"
+          "r": "ひとり",
+          "word_id": "W00065"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "夜",
+          "role": "content",
           "r": "よる",
-          "word_id": "W00030",
-          "role": "content"
-        },
-        {
-          "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "word_id": "W00030"
         },
         {
           "t": "、",
           "role": "punct"
         },
         {
-          "t": "静か",
-          "r": "しずか",
-          "word_id": "W00011",
-          "role": "content"
+          "t": "私",
+          "role": "content",
+          "r": "わたし",
+          "word_id": "W00003"
         },
         {
-          "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "名前",
+          "role": "content",
+          "r": "なまえ",
+          "word_id": "W00061"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "書きます",
+          "role": "content",
+          "r": "かきます",
+          "word_id": "W00060",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_21/s8.wav",
-      "audio_hash": "ea747c3ae3ef"
+      ]
     }
   ],
-  "word_audio": {
-    "W00063": "audio/story_21/w_W00063.wav",
-    "W00064": "audio/story_21/w_W00064.wav",
-    "W00065": "audio/story_21/w_W00065.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00063": "53058fe2e03c",
-    "W00064": "00a9d5bd97c2",
-    "W00065": "45b3f27e3a97"
-  }
+  "checksum": null
 }

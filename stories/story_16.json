@@ -102,9 +102,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the morning, I make bread.",
-      "audio": "audio/story_16/s0.mp3",
-      "audio_hash": "a898ad9e7af9"
+      "gloss_en": "In the morning, I make bread."
     },
     {
       "idx": 1,
@@ -147,9 +145,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "And then, the friend comes.",
-      "audio": "audio/story_16/s1.mp3",
-      "audio_hash": "d76aca4ac7f9"
+      "gloss_en": "And then, the friend comes."
     },
     {
       "idx": 2,
@@ -206,9 +202,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us drink tea at the park.",
-      "audio": "audio/story_16/s2.mp3",
-      "audio_hash": "f6875e46cdf6"
+      "gloss_en": "The two of us drink tea at the park."
     },
     {
       "idx": 3,
@@ -240,16 +234,14 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The sky is calm.",
-      "audio": "audio/story_16/s3.mp3",
-      "audio_hash": "c88c987752eb"
+      "gloss_en": "The sky is calm."
     },
     {
       "idx": 4,
       "tokens": [
         {
           "t": "そして",
-          "role": "aux",
+          "role": "particle",
           "grammar_id": "G012_soshite_then"
         },
         {
@@ -258,8 +250,8 @@
         },
         {
           "t": "風",
-          "r": "かぜ",
           "role": "content",
+          "r": "かぜ",
           "word_id": "W00027"
         },
         {
@@ -269,9 +261,20 @@
         },
         {
           "t": "雨",
-          "r": "あめ",
           "role": "content",
+          "r": "あめ",
           "word_id": "W00002"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "音楽",
+          "role": "content",
+          "r": "おんがく",
+          "word_id": "W00165"
         },
         {
           "t": "が",
@@ -280,25 +283,16 @@
         },
         {
           "t": "来ます",
-          "r": "きます",
           "role": "content",
-          "word_id": "W00040",
-          "inflection": {
-            "base": "来る",
-            "base_r": "くる",
-            "form": "polite_nonpast",
-            "verb_class": "irregular_kuru"
-          },
-          "grammar_id": "G026_masu_nonpast"
+          "r": "きます",
+          "word_id": "W00040"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "And then, the wind and the rain come.",
-      "audio": "audio/story_16/s4.mp3",
-      "audio_hash": "fe644892b6eb"
+      "gloss_en": "Then wind, rain, and music come."
     },
     {
       "idx": 5,
@@ -341,17 +335,15 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "With the wind, the sky becomes rain.",
-      "audio": "audio/story_16/s5.mp3",
-      "audio_hash": "bc8fe04e9713"
+      "gloss_en": "With the wind, the sky becomes rain."
     },
     {
       "idx": 6,
       "tokens": [
         {
           "t": "二人",
-          "r": "ふたり",
           "role": "content",
+          "r": "ふたり",
           "word_id": "W00035"
         },
         {
@@ -361,15 +353,26 @@
         },
         {
           "t": "一緒に",
-          "r": "いっしょに",
           "role": "content",
+          "r": "いっしょに",
           "word_id": "W00050",
           "is_new": true
         },
         {
-          "t": "パン",
-          "r": "パン",
+          "t": "皿",
           "role": "content",
+          "r": "さら",
+          "word_id": "W00166"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "パン",
+          "role": "content",
+          "r": "パン",
           "word_id": "W00049"
         },
         {
@@ -379,25 +382,16 @@
         },
         {
           "t": "食べます",
-          "r": "たべます",
           "role": "content",
-          "word_id": "W00020",
-          "inflection": {
-            "base": "食べる",
-            "base_r": "たべる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
+          "r": "たべます",
+          "word_id": "W00020"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us eat the bread together.",
-      "audio": "audio/story_16/s6.mp3",
-      "audio_hash": "0545d6b735d0"
+      "gloss_en": "The two together eat the bread on the plate."
     },
     {
       "idx": 7,
@@ -471,17 +465,15 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"A rainy morning is good,\" I think.",
-      "audio": "audio/story_16/s7.mp3",
-      "audio_hash": "e091146151ad"
+      "gloss_en": "\"A rainy morning is good,\" I think."
     },
     {
       "idx": 8,
       "tokens": [
         {
           "t": "公園",
-          "r": "こうえん",
           "role": "content",
+          "r": "こうえん",
           "word_id": "W00016"
         },
         {
@@ -491,8 +483,8 @@
         },
         {
           "t": "雨",
-          "r": "あめ",
           "role": "content",
+          "r": "あめ",
           "word_id": "W00002"
         },
         {
@@ -501,9 +493,20 @@
           "grammar_id": "G010_to_and"
         },
         {
-          "t": "パン",
-          "r": "パン",
+          "t": "歌",
           "role": "content",
+          "r": "うた",
+          "word_id": "W00164"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "パン",
+          "role": "content",
+          "r": "パン",
           "word_id": "W00049"
         },
         {
@@ -513,8 +516,8 @@
         },
         {
           "t": "朝",
-          "r": "あさ",
           "role": "content",
+          "r": "あさ",
           "word_id": "W00015"
         },
         {
@@ -527,9 +530,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A morning of park, rain, and bread.",
-      "audio": "audio/story_16/s8.mp3",
-      "audio_hash": "687fd754ee14"
+      "gloss_en": "A morning of park, rain, song, and bread."
     }
   ],
   "all_words_used": [
@@ -547,10 +548,13 @@
     "W00011",
     "W00027",
     "W00002",
+    "W00165",
     "W00050",
+    "W00166",
     "W00020",
     "W00013",
-    "W00043"
+    "W00043",
+    "W00164"
   ],
   "new_words": [
     "W00048",
@@ -559,15 +563,5 @@
   ],
   "new_grammar": [
     "G017_de_means"
-  ],
-  "word_audio": {
-    "W00048": "audio/story_16/w_W00048.mp3",
-    "W00049": "audio/story_16/w_W00049.mp3",
-    "W00050": "audio/story_16/w_W00050.mp3"
-  },
-  "word_audio_hash": {
-    "W00048": "12482e624367",
-    "W00049": "433c68371a3d",
-    "W00050": "e912796943ea"
-  }
+  ]
 }

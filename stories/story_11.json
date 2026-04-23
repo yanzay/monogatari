@@ -232,7 +232,7 @@
     },
     {
       "idx": 4,
-      "gloss_en": "And then, I drank warm tea.",
+      "gloss_en": "Then, drinking warm tea, I waited for the moon.",
       "tokens": [
         {
           "t": "そして",
@@ -245,14 +245,14 @@
         },
         {
           "t": "温かい",
-          "r": "あたたかい",
           "role": "content",
+          "r": "あたたかい",
           "word_id": "W00012"
         },
         {
           "t": "お茶",
-          "r": "おちゃ",
           "role": "content",
+          "r": "おちゃ",
           "word_id": "W00009"
         },
         {
@@ -261,17 +261,45 @@
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "飲みました",
-          "r": "のみました",
+          "t": "飲んで",
           "role": "content",
+          "r": "のんで",
           "word_id": "W00010",
-          "grammar_id": "G013_mashita_past",
           "inflection": {
-            "word_id": "W00010",
             "base": "飲む",
             "base_r": "のむ",
-            "form": "polite_past"
-          }
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "月",
+          "role": "content",
+          "r": "つき",
+          "word_id": "W00031"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "待ちました",
+          "role": "content",
+          "r": "まちました",
+          "word_id": "W00041",
+          "inflection": {
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
         },
         {
           "t": "。",
@@ -440,6 +468,7 @@
     "W00012",
     "W00009",
     "W00010",
+    "W00041",
     "W00004",
     "W00006",
     "W00011"

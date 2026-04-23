@@ -67,6 +67,7 @@
     "W00001",
     "W00040",
     "W00003",
+    "W00066",
     "W00012",
     "W00059",
     "W00024",
@@ -77,7 +78,9 @@
     "W00021",
     "W00049",
     "W00064",
-    "W00074"
+    "W00074",
+    "W00069",
+    "W00070"
   ],
   "sentences": [
     {
@@ -123,61 +126,63 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_24/s0.wav",
-      "audio_hash": "d05f48ac769a"
+      ]
     },
     {
       "idx": 1,
-      "gloss_en": "I open the window.",
+      "gloss_en": "I open the new window.",
       "tokens": [
         {
           "t": "私",
+          "role": "content",
           "r": "わたし",
-          "word_id": "W00003",
-          "role": "content"
+          "word_id": "W00003"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "、",
           "role": "punct"
         },
         {
+          "t": "新しい",
+          "role": "content",
+          "r": "あたらしい",
+          "word_id": "W00066"
+        },
+        {
           "t": "窓",
+          "role": "content",
           "r": "まど",
-          "word_id": "W00004",
-          "role": "content"
+          "word_id": "W00004"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "開けます",
+          "role": "content",
           "r": "あけます",
           "word_id": "W00073",
-          "role": "content",
-          "is_new": true,
           "inflection": {
             "base": "開ける",
             "base_r": "あける",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_24/s1.wav",
-      "audio_hash": "ff701435d0a3"
+      ]
     },
     {
       "idx": 2,
@@ -225,9 +230,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_24/s2.wav",
-      "audio_hash": "372af9336ced"
+      ]
     },
     {
       "idx": 3,
@@ -275,9 +278,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_24/s3.wav",
-      "audio_hash": "7c91d23c2b8e"
+      ]
     },
     {
       "idx": 4,
@@ -326,9 +327,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_24/s4.wav",
-      "audio_hash": "918bba1588c8"
+      ]
     },
     {
       "idx": 5,
@@ -377,9 +376,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_24/s5.wav",
-      "audio_hash": "a410b99d9700"
+      ]
     },
     {
       "idx": 6,
@@ -426,9 +423,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_24/s6.wav",
-      "audio_hash": "be480213e61b"
+      ]
     },
     {
       "idx": 7,
@@ -462,37 +457,55 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_24/s7.wav",
-      "audio_hash": "7698e123240b"
+      ]
     },
     {
       "idx": 8,
-      "gloss_en": "A long spring road, a warm morning.",
+      "gloss_en": "Long spring road, station's train, warm morning.",
       "tokens": [
         {
           "t": "長い",
-          "r": "ながい",
-          "word_id": "W00074",
           "role": "content",
-          "grammar_id": "G023_attributive"
+          "r": "ながい",
+          "word_id": "W00074"
         },
         {
           "t": "春",
+          "role": "content",
           "r": "はる",
-          "word_id": "W00072",
-          "role": "content"
+          "word_id": "W00072"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "道",
+          "role": "content",
           "r": "みち",
-          "word_id": "W00064",
-          "role": "content"
+          "word_id": "W00064"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "駅",
+          "role": "content",
+          "r": "えき",
+          "word_id": "W00069"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "電車",
+          "role": "content",
+          "r": "でんしゃ",
+          "word_id": "W00070"
         },
         {
           "t": "、",
@@ -500,35 +513,22 @@
         },
         {
           "t": "温かい",
-          "r": "あたたかい",
-          "word_id": "W00012",
           "role": "content",
-          "grammar_id": "G023_attributive"
+          "r": "あたたかい",
+          "word_id": "W00012"
         },
         {
           "t": "朝",
+          "role": "content",
           "r": "あさ",
-          "word_id": "W00015",
-          "role": "content"
+          "word_id": "W00015"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_24/s8.wav",
-      "audio_hash": "6581ec66b239"
+      ]
     }
   ],
-  "word_audio": {
-    "W00072": "audio/story_24/w_W00072.wav",
-    "W00073": "audio/story_24/w_W00073.wav",
-    "W00074": "audio/story_24/w_W00074.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00072": "b3c33b7abaf0",
-    "W00073": "02d2300d4ce0",
-    "W00074": "e0d1f089aa4c"
-  }
+  "checksum": null
 }

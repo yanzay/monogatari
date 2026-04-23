@@ -63,10 +63,13 @@
     "W00042",
     "W00022",
     "W00040",
+    "W00162",
     "W00163",
     "W00034",
     "W00046",
+    "W00160",
     "W00033",
+    "W00161",
     "W00019",
     "W00020",
     "W00009",
@@ -138,9 +141,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_14/s0.mp3",
-      "audio_hash": "595880ef6ffe"
+      ]
     },
     {
       "idx": 1,
@@ -195,18 +196,22 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_14/s1.mp3",
-      "audio_hash": "e6418f9cb897"
+      ]
     },
     {
       "idx": 2,
-      "gloss_en": "I read a painful letter.",
+      "gloss_en": "Young me reads the painful letter.",
       "tokens": [
         {
-          "t": "私",
-          "r": "わたし",
+          "t": "若い",
           "role": "content",
+          "r": "わかい",
+          "word_id": "W00162"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "r": "わたし",
           "word_id": "W00003"
         },
         {
@@ -216,15 +221,15 @@
         },
         {
           "t": "痛い",
-          "r": "いたい",
           "role": "content",
+          "r": "いたい",
           "word_id": "W00163",
           "is_new": true
         },
         {
           "t": "手紙",
-          "r": "てがみ",
           "role": "content",
+          "r": "てがみ",
           "word_id": "W00039"
         },
         {
@@ -234,16 +239,9 @@
         },
         {
           "t": "読みます",
-          "r": "よみます",
           "role": "content",
-          "word_id": "W00034",
-          "inflection": {
-            "base": "読む",
-            "base_r": "よむ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
+          "r": "よみます",
+          "word_id": "W00034"
         },
         {
           "t": "。",
@@ -253,12 +251,12 @@
     },
     {
       "idx": 3,
-      "gloss_en": "Tomorrow, I will read the book too.",
+      "gloss_en": "Tomorrow I will read a heavy book, too.",
       "tokens": [
         {
           "t": "明日",
-          "r": "あした",
           "role": "content",
+          "r": "あした",
           "word_id": "W00046",
           "is_new": true
         },
@@ -268,8 +266,8 @@
         },
         {
           "t": "私",
-          "r": "わたし",
           "role": "content",
+          "r": "わたし",
           "word_id": "W00003"
         },
         {
@@ -278,9 +276,15 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "本",
-          "r": "ほん",
+          "t": "重い",
           "role": "content",
+          "r": "おもい",
+          "word_id": "W00160"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "r": "ほん",
           "word_id": "W00033"
         },
         {
@@ -290,33 +294,24 @@
         },
         {
           "t": "読みます",
-          "r": "よみます",
           "role": "content",
-          "word_id": "W00034",
-          "inflection": {
-            "base": "読む",
-            "base_r": "よむ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
+          "r": "よみます",
+          "word_id": "W00034"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_14/s3.mp3",
-      "audio_hash": "dba4ec4fa8ea"
+      ]
     },
     {
       "idx": 4,
-      "gloss_en": "Tomorrow, too, I will eat breakfast.",
+      "gloss_en": "Tomorrow, too, I will eat a light breakfast.",
       "tokens": [
         {
           "t": "明日",
-          "r": "あした",
           "role": "content",
+          "r": "あした",
           "word_id": "W00046"
         },
         {
@@ -325,9 +320,15 @@
           "grammar_id": "G009_mo_also"
         },
         {
-          "t": "朝ごはん",
-          "r": "あさごはん",
+          "t": "軽い",
           "role": "content",
+          "r": "かるい",
+          "word_id": "W00161"
+        },
+        {
+          "t": "朝ごはん",
+          "role": "content",
+          "r": "あさごはん",
           "word_id": "W00019"
         },
         {
@@ -337,24 +338,15 @@
         },
         {
           "t": "食べます",
-          "r": "たべます",
           "role": "content",
-          "word_id": "W00020",
-          "inflection": {
-            "base": "食べる",
-            "base_r": "たべる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
+          "r": "たべます",
+          "word_id": "W00020"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_14/s4.mp3",
-      "audio_hash": "b81ec88e12a2"
+      ]
     },
     {
       "idx": 5,
@@ -394,9 +386,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_14/s5.mp3",
-      "audio_hash": "f93aa5d3eeb4"
+      ]
     },
     {
       "idx": 6,
@@ -436,9 +426,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_14/s6.mp3",
-      "audio_hash": "2b6782fd440c"
+      ]
     },
     {
       "idx": 7,
@@ -499,15 +487,5 @@
         }
       ]
     }
-  ],
-  "word_audio": {
-    "W00046": "audio/story_14/w_W00046.mp3",
-    "W00163": "audio/story_14/word_痛い.mp3",
-    "W00164": "audio/story_14/word_歌.mp3"
-  },
-  "word_audio_hash": {
-    "W00046": "6450d5f86685",
-    "W00163": "3460ae1de30f",
-    "W00164": "602c513e5ff7"
-  }
+  ]
 }

@@ -62,6 +62,7 @@
     "W00003",
     "W00022",
     "W00041",
+    "W00066",
     "W00071",
     "W00057",
     "W00006",
@@ -114,9 +115,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_23/s0.wav",
-      "audio_hash": "e89f11c55eb0"
+      ]
     },
     {
       "idx": 1,
@@ -176,56 +175,57 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_23/s1.wav",
-      "audio_hash": "bc4acd872cc6"
+      ]
     },
     {
       "idx": 2,
-      "gloss_en": "The station's clock is big.",
+      "gloss_en": "The station's new clock is large.",
       "tokens": [
         {
           "t": "駅",
+          "role": "content",
           "r": "えき",
-          "word_id": "W00069",
-          "role": "content"
+          "word_id": "W00069"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "新しい",
+          "role": "content",
+          "r": "あたらしい",
+          "word_id": "W00066"
         },
         {
           "t": "時計",
+          "role": "content",
           "r": "とけい",
           "word_id": "W00071",
-          "role": "content",
           "is_new": true
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "大きい",
-          "r": "おおきい",
-          "word_id": "W00057",
           "role": "content",
-          "grammar_id": "G022_i_adj"
+          "r": "おおきい",
+          "word_id": "W00057"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_23/s2.wav",
-      "audio_hash": "ad35654fe9eb"
+      ]
     },
     {
       "idx": 3,
@@ -287,9 +287,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_23/s3.wav",
-      "audio_hash": "27da672ca487"
+      ]
     },
     {
       "idx": 4,
@@ -324,9 +322,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_23/s4.wav",
-      "audio_hash": "7b6d3c9877a6"
+      ]
     },
     {
       "idx": 5,
@@ -375,9 +371,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_23/s5.wav",
-      "audio_hash": "b853f823112f"
+      ]
     },
     {
       "idx": 6,
@@ -427,9 +421,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_23/s6.wav",
-      "audio_hash": "60e401b9b033"
+      ]
     },
     {
       "idx": 7,
@@ -484,9 +476,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_23/s7.wav",
-      "audio_hash": "a7203dbd3b3a"
+      ]
     },
     {
       "idx": 8,
@@ -528,20 +518,8 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_23/s8.wav",
-      "audio_hash": "80092f9e2e4c"
+      ]
     }
   ],
-  "word_audio": {
-    "W00069": "audio/story_23/w_W00069.wav",
-    "W00070": "audio/story_23/w_W00070.wav",
-    "W00071": "audio/story_23/w_W00071.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00069": "53e5e276999d",
-    "W00070": "92e4d1d0c7a5",
-    "W00071": "6fd2f3add204"
-  }
+  "checksum": null
 }

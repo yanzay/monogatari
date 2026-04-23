@@ -69,7 +69,8 @@
     "W00006",
     "W00053",
     "W00022",
-    "W00040",
+    "W00164",
+    "W00048",
     "W00050"
   ],
   "sentences": [
@@ -126,9 +127,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_17/s0.wav",
-      "audio_hash": "b8c2a1f4859f"
+      ]
     },
     {
       "idx": 1,
@@ -187,9 +186,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_17/s1.wav",
-      "audio_hash": "2254e8c415ad"
+      ]
     },
     {
       "idx": 2,
@@ -238,9 +235,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_17/s2.wav",
-      "audio_hash": "1f261bebc45e"
+      ]
     },
     {
       "idx": 3,
@@ -289,9 +284,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_17/s3.wav",
-      "audio_hash": "0b6126063999"
+      ]
     },
     {
       "idx": 4,
@@ -353,9 +346,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_17/s4.wav",
-      "audio_hash": "cfa647083876"
+      ]
     },
     {
       "idx": 5,
@@ -389,9 +380,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_17/s5.wav",
-      "audio_hash": "0e5bbf70022d"
+      ]
     },
     {
       "idx": 6,
@@ -449,35 +438,44 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_17/s6.wav",
-      "audio_hash": "23add995b36c"
+      ]
     },
     {
       "idx": 7,
-      "gloss_en": "A friend comes too.",
+      "gloss_en": "The friend, too, makes a song.",
       "tokens": [
         {
           "t": "友達",
+          "role": "content",
           "r": "ともだち",
-          "word_id": "W00022",
-          "role": "content"
+          "word_id": "W00022"
         },
         {
           "t": "も",
-          "grammar_id": "G009_mo_also",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
         },
         {
-          "t": "来ます",
-          "r": "きます",
-          "word_id": "W00040",
+          "t": "歌",
           "role": "content",
+          "r": "うた",
+          "word_id": "W00164"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "作ります",
+          "role": "content",
+          "r": "つくります",
+          "word_id": "W00048",
           "inflection": {
-            "base": "来る",
-            "base_r": "くる",
+            "base": "作る",
+            "base_r": "つくる",
             "form": "polite_nonpast",
-            "verb_class": "ichidan"
+            "verb_class": "godan"
           },
           "grammar_id": "G026_masu_nonpast"
         },
@@ -485,9 +483,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_17/s7.wav",
-      "audio_hash": "d18f9c0a9f3c"
+      ]
     },
     {
       "idx": 8,
@@ -531,20 +527,8 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_17/s8.wav",
-      "audio_hash": "5996441eea45"
+      ]
     }
   ],
-  "word_audio": {
-    "W00051": "audio/story_17/w_W00051.wav",
-    "W00052": "audio/story_17/w_W00052.wav",
-    "W00053": "audio/story_17/w_W00053.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00051": "6fb0aaad480a",
-    "W00052": "b4292723cbc2",
-    "W00053": "d522ca2b885e"
-  }
+  "checksum": null
 }

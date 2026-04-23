@@ -135,17 +135,15 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The cat is on the chair.",
-      "audio": "audio/story_12/s1.mp3",
-      "audio_hash": "409dc95c0802"
+      "gloss_en": "The cat is on the chair."
     },
     {
       "idx": 2,
       "tokens": [
         {
           "t": "猫",
-          "r": "ねこ",
           "role": "content",
+          "r": "ねこ",
           "word_id": "W00028"
         },
         {
@@ -154,9 +152,15 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "窓",
-          "r": "まど",
+          "t": "白い",
           "role": "content",
+          "r": "しろい",
+          "word_id": "W00157"
+        },
+        {
+          "t": "窓",
+          "role": "content",
+          "r": "まど",
           "word_id": "W00004"
         },
         {
@@ -166,25 +170,16 @@
         },
         {
           "t": "見ます",
-          "r": "みます",
           "role": "content",
-          "word_id": "W00006",
-          "inflection": {
-            "base": "見る",
-            "base_r": "みる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
+          "r": "みます",
+          "word_id": "W00006"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The cat watches the window.",
-      "audio": "audio/story_12/s2.mp3",
-      "audio_hash": "65d9396553c5"
+      "gloss_en": "The cat looks at the white window."
     },
     {
       "idx": 3,
@@ -268,9 +263,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"The cat is watching the rain,\" I think.",
-      "audio": "audio/story_12/s3.mp3",
-      "audio_hash": "423a65f1c375"
+      "gloss_en": "\"The cat is watching the rain,\" I think."
     },
     {
       "idx": 4,
@@ -324,9 +317,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "And then, the cat looks at me.",
-      "audio": "audio/story_12/s4.mp3",
-      "audio_hash": "131058640794"
+      "gloss_en": "And then, the cat looks at me."
     },
     {
       "idx": 5,
@@ -382,17 +373,15 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The cat watches my tea.",
-      "audio": "audio/story_12/s5.mp3",
-      "audio_hash": "152f16cadb9f"
+      "gloss_en": "The cat watches my tea."
     },
     {
       "idx": 6,
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
           "role": "content",
+          "r": "わたし",
           "word_id": "W00003"
         },
         {
@@ -402,8 +391,8 @@
         },
         {
           "t": "お茶",
-          "r": "おちゃ",
           "role": "content",
+          "r": "おちゃ",
           "word_id": "W00009"
         },
         {
@@ -412,26 +401,34 @@
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "飲みます",
-          "r": "のみます",
+          "t": "飲んで",
           "role": "content",
+          "r": "のんで",
           "word_id": "W00010",
           "inflection": {
             "base": "飲む",
             "base_r": "のむ",
-            "form": "polite_nonpast",
+            "form": "te",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "待ちます",
+          "role": "content",
+          "r": "まちます",
+          "word_id": "W00041"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I drink tea.",
-      "audio": "audio/story_12/s6.mp3",
-      "audio_hash": "27b769a8aec7"
+      "gloss_en": "I drink tea and wait."
     },
     {
       "idx": 7,
@@ -494,12 +491,14 @@
     "W00040",
     "W00036",
     "W00029",
+    "W00157",
     "W00004",
     "W00006",
     "W00003",
     "W00043",
     "W00009",
     "W00010",
+    "W00041",
     "W00160"
   ],
   "new_words": [
@@ -509,15 +508,5 @@
   ],
   "new_grammar": [
     "G014_to_omoimasu"
-  ],
-  "word_audio": {
-    "W00043": "audio/story_12/w_W00043.mp3",
-    "W00159": "audio/story_12/word_早い.mp3",
-    "W00160": "audio/story_12/word_重い.mp3"
-  },
-  "word_audio_hash": {
-    "W00043": "9bbb1560e41a",
-    "W00159": "78fe8aac2ad5",
-    "W00160": "9d8151ec3b9a"
-  }
+  ]
 }

@@ -80,6 +80,7 @@
     "W00048",
     "W00040",
     "W00058",
+    "W00052",
     "W00042",
     "W00051",
     "W00043",
@@ -127,9 +128,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_19/s0.wav",
-      "audio_hash": "e82dad427f17"
+      ]
     },
     {
       "idx": 1,
@@ -185,9 +184,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_19/s1.wav",
-      "audio_hash": "29a8ded1e6de"
+      ]
     },
     {
       "idx": 2,
@@ -243,9 +240,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_19/s2.wav",
-      "audio_hash": "45809573df75"
+      ]
     },
     {
       "idx": 3,
@@ -278,35 +273,33 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_19/s3.wav",
-      "audio_hash": "f2f09b8ced27"
+      ]
     },
     {
       "idx": 4,
-      "gloss_en": "The garden's sky is big.",
+      "gloss_en": "The garden's bench is large.",
       "tokens": [
         {
           "t": "庭",
+          "role": "content",
           "r": "にわ",
-          "word_id": "W00059",
-          "role": "content"
+          "word_id": "W00059"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "空",
-          "r": "そら",
-          "word_id": "W00047",
-          "role": "content"
+          "t": "ベンチ",
+          "role": "content",
+          "r": "ベンチ",
+          "word_id": "W00052"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "、",
@@ -314,24 +307,21 @@
         },
         {
           "t": "大きい",
+          "role": "content",
           "r": "おおきい",
           "word_id": "W00057",
-          "role": "content",
-          "is_new": true,
-          "grammar_id": "G022_i_adj"
+          "is_new": true
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_19/s4.wav",
-      "audio_hash": "de84de19a6bf"
+      ]
     },
     {
       "idx": 5,
@@ -391,9 +381,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_19/s5.wav",
-      "audio_hash": "dadae2f1406d"
+      ]
     },
     {
       "idx": 6,
@@ -443,9 +431,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_19/s6.wav",
-      "audio_hash": "2ea65582d39d"
+      ]
     },
     {
       "idx": 7,
@@ -483,9 +469,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_19/s7.wav",
-      "audio_hash": "4a183623e622"
+      ]
     },
     {
       "idx": 8,
@@ -539,20 +523,8 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_19/s8.wav",
-      "audio_hash": "b3137ce1d186"
+      ]
     }
   ],
-  "word_audio": {
-    "W00057": "audio/story_19/w_W00057.wav",
-    "W00058": "audio/story_19/w_W00058.wav",
-    "W00059": "audio/story_19/w_W00059.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00057": "f4d626e791cd",
-    "W00058": "7fc6e83611c6",
-    "W00059": "81b3ed91bd5c"
-  }
+  "checksum": null
 }
