@@ -1,0 +1,1033 @@
+{
+  "story_id": 49,
+  "title": {
+    "jp": "お茶を飲みませんか。",
+    "en": "Won't You Have Tea?",
+    "tokens": [
+      {
+        "t": "お茶",
+        "r": "ocha",
+        "role": "content",
+        "word_id": "W00009"
+      },
+      {
+        "t": "を",
+        "role": "particle",
+        "grammar_id": "G005_wo_object",
+        "r": "wo"
+      },
+      {
+        "t": "飲みません",
+        "r": "nomimasu",
+        "role": "content",
+        "word_id": "W00010",
+        "inflection": {
+          "form": "masen",
+          "grammar_id": "G041_masenka_invitation"
+        }
+      },
+      {
+        "t": "か",
+        "role": "particle",
+        "grammar_id": "G037_ka_question",
+        "r": "ka"
+      },
+      {
+        "t": "。",
+        "role": "punct"
+      }
+    ],
+    "gloss_en": "Won't you have tea?"
+  },
+  "subtitle": {
+    "jp": "友達は私の家に来ます。",
+    "en": "The friend comes to my house.",
+    "tokens": [
+      {
+        "t": "友達",
+        "r": "tomodachi",
+        "role": "content",
+        "word_id": "W00022"
+      },
+      {
+        "t": "は",
+        "role": "particle",
+        "grammar_id": "G001_wa_topic",
+        "r": "wa"
+      },
+      {
+        "t": "私",
+        "r": "watashi",
+        "role": "content",
+        "word_id": "W00003"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "G015_no_possessive",
+        "r": "no"
+      },
+      {
+        "t": "家",
+        "r": "ie",
+        "role": "content",
+        "word_id": "W00078"
+      },
+      {
+        "t": "に",
+        "role": "particle",
+        "grammar_id": "G004_ni_location",
+        "r": "ni"
+      },
+      {
+        "t": "来ます",
+        "r": "kimasu",
+        "role": "content",
+        "word_id": "W00040",
+        "inflection": {
+          "form": "masu_polite_nonpast",
+          "grammar_id": "G026_masu_nonpast"
+        }
+      },
+      {
+        "t": "。",
+        "role": "punct"
+      }
+    ],
+    "gloss_en": "The friend comes to my house."
+  },
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "haru",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "no"
+        },
+        {
+          "t": "夕方",
+          "r": "yuugata",
+          "role": "content",
+          "word_id": "W00018"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is a spring evening.",
+      "audio": "audio/story_49/s0.wav",
+      "audio_hash": "fdecbcf80e9f"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "tomodachi",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "no"
+        },
+        {
+          "t": "家",
+          "r": "ie",
+          "role": "content",
+          "word_id": "W00078"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "no"
+        },
+        {
+          "t": "ドア",
+          "r": "doa",
+          "role": "content",
+          "word_id": "W00025"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location",
+          "r": "ni"
+        },
+        {
+          "t": "います",
+          "r": "imasu",
+          "role": "content",
+          "word_id": "W00029"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend is at my house's door.",
+      "audio": "audio/story_49/s1.wav",
+      "audio_hash": "bf26f1a6aad8"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "お茶",
+          "r": "ocha",
+          "role": "content",
+          "word_id": "W00009"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object",
+          "r": "wo"
+        },
+        {
+          "t": "飲みません",
+          "r": "nomimasu",
+          "role": "content",
+          "word_id": "W00010",
+          "inflection": {
+            "form": "masen",
+            "grammar_id": "G041_masenka_invitation"
+          },
+          "is_new_grammar": true
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question",
+          "r": "ka"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "to"
+        },
+        {
+          "t": "言います",
+          "r": "iimasu",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Won't you have tea?\" I say.",
+      "audio": "audio/story_49/s2.wav",
+      "audio_hash": "ae503cedaa01"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "tomodachi",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "嬉しい",
+          "r": "ureshii",
+          "role": "content",
+          "word_id": "W00056",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend is happy.",
+      "audio": "audio/story_49/s3.wav",
+      "audio_hash": "d521f7f66f53"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "tomodachi",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and",
+          "r": "to"
+        },
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "お茶",
+          "r": "ocha",
+          "role": "content",
+          "word_id": "W00009"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object",
+          "r": "wo"
+        },
+        {
+          "t": "飲みます",
+          "r": "nomimasu",
+          "role": "content",
+          "word_id": "W00010",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend and I drink tea.",
+      "audio": "audio/story_49/s4.wav",
+      "audio_hash": "8010b5a1967e"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "お茶",
+          "r": "ocha",
+          "role": "content",
+          "word_id": "W00009"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "温かい",
+          "r": "atatakai",
+          "role": "content",
+          "word_id": "W00012",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The tea is warm.",
+      "audio": "audio/story_49/s5.wav",
+      "audio_hash": "f9c5e462ab89"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "庭",
+          "r": "niwa",
+          "role": "content",
+          "word_id": "W00059"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object",
+          "r": "wo"
+        },
+        {
+          "t": "見ません",
+          "r": "mimasu",
+          "role": "content",
+          "word_id": "W00006",
+          "inflection": {
+            "form": "masen",
+            "grammar_id": "G041_masenka_invitation"
+          }
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question",
+          "r": "ka"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "to"
+        },
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "言います",
+          "r": "iimasu",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Won't you look at the garden?\" I say.",
+      "audio": "audio/story_49/s6.wav",
+      "audio_hash": "753abdd1f054"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "庭",
+          "r": "niwa",
+          "role": "content",
+          "word_id": "W00059"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "後ろ",
+          "r": "ushiro",
+          "role": "content",
+          "word_id": "W00144"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "春",
+          "r": "haru",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "花",
+          "r": "hana",
+          "role": "content",
+          "word_id": "W00024"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "r": "arimasu",
+          "role": "content",
+          "word_id": "W00044"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Behind the garden, there are spring flowers.",
+      "audio": "audio/story_49/s7.wav",
+      "audio_hash": "54bab7508eaa"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "tomodachi",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and",
+          "r": "to"
+        },
+        {
+          "t": "一緒に",
+          "r": "isshoni",
+          "role": "content",
+          "word_id": "W00050"
+        },
+        {
+          "t": "花",
+          "r": "hana",
+          "role": "content",
+          "word_id": "W00024"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object",
+          "r": "wo"
+        },
+        {
+          "t": "見ます",
+          "r": "mimasu",
+          "role": "content",
+          "word_id": "W00006",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Together with the friend, I look at the flowers.",
+      "audio": "audio/story_49/s8.wav",
+      "audio_hash": "e477a37e3c9f"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "tomodachi",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "顔",
+          "r": "kao",
+          "role": "content",
+          "word_id": "W00122"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "嬉しい",
+          "r": "ureshii",
+          "role": "content",
+          "word_id": "W00056",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend's face is happy.",
+      "audio": "audio/story_49/s9.wav",
+      "audio_hash": "92caf3841f6f"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "no"
+        },
+        {
+          "t": "心",
+          "r": "kokoro",
+          "role": "content",
+          "word_id": "W00120"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "温かい",
+          "r": "atatakai",
+          "role": "content",
+          "word_id": "W00012",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My heart is warm.",
+      "audio": "audio/story_49/s10.wav",
+      "audio_hash": "60752119f2ba"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "watashi",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "赤い",
+          "r": "akai",
+          "role": "content",
+          "word_id": "W00142",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "花",
+          "r": "hana",
+          "role": "content",
+          "word_id": "W00024"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "覚えます",
+          "r": "oboemasu",
+          "role": "content",
+          "word_id": "W00123",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I remember the red flowers.",
+      "audio": "audio/story_49/s11.wav",
+      "audio_hash": "594d3603dc0b"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "明日",
+          "r": "ashita",
+          "role": "content",
+          "word_id": "W00046"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also",
+          "r": "mo"
+        },
+        {
+          "t": "来ません",
+          "r": "kimasu",
+          "role": "content",
+          "word_id": "W00040",
+          "inflection": {
+            "form": "masen",
+            "grammar_id": "G041_masenka_invitation"
+          }
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question",
+          "r": "ka"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "to"
+        },
+        {
+          "t": "言います",
+          "r": "iimasu",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Won't you come tomorrow too?\" I say.",
+      "audio": "audio/story_49/s12.wav",
+      "audio_hash": "e002919272c5"
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "tomodachi",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "明日",
+          "r": "ashita",
+          "role": "content",
+          "word_id": "W00046"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "どこ",
+          "r": "doko",
+          "role": "content",
+          "word_id": "W00143",
+          "grammar_id": "G040_doko_where"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "言います",
+          "r": "iimasu",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend says, \"where will tomorrow be?\"",
+      "audio": "audio/story_49/s13.wav",
+      "audio_hash": "5c95a673ee03"
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "友達",
+          "r": "tomodachi",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "wa"
+        },
+        {
+          "t": "歩きます",
+          "r": "arukimasu",
+          "role": "content",
+          "word_id": "W00017",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend walks.",
+      "audio": "audio/story_49/s14.wav",
+      "audio_hash": "2a628edc3e0a"
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "haru",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夕方",
+          "r": "yuugata",
+          "role": "content",
+          "word_id": "W00018"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "温かい",
+          "r": "atatakai",
+          "role": "content",
+          "word_id": "W00012",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "お茶",
+          "r": "ocha",
+          "role": "content",
+          "word_id": "W00009"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "新しい",
+          "r": "atarashii",
+          "role": "content",
+          "word_id": "W00066",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "約束",
+          "r": "yakusoku",
+          "role": "content",
+          "word_id": "W00132"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Spring evening, warm tea, a new promise.",
+      "audio": "audio/story_49/s15.wav",
+      "audio_hash": "66c33b540680"
+    }
+  ],
+  "new_words": [],
+  "new_grammar": [
+    "G041_masenka_invitation"
+  ],
+  "all_words_used": [
+    "W00009",
+    "W00010",
+    "W00022",
+    "W00003",
+    "W00078",
+    "W00040",
+    "W00072",
+    "W00018",
+    "W00025",
+    "W00029",
+    "W00097",
+    "W00056",
+    "W00012",
+    "W00059",
+    "W00006",
+    "W00144",
+    "W00024",
+    "W00044",
+    "W00050",
+    "W00122",
+    "W00120",
+    "W00142",
+    "W00123",
+    "W00046",
+    "W00143",
+    "W00017",
+    "W00066",
+    "W00132"
+  ],
+  "word_audio": {},
+  "word_audio_hash": {}
+}
