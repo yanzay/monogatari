@@ -39,7 +39,9 @@
     "W00123",
     "W00124"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G035_arimasen"
+  ],
   "all_words_used": [
     "W00072",
     "W00033",
@@ -60,7 +62,8 @@
     "W00120",
     "W00056",
     "W00013",
-    "W00119",
+    "W00079",
+    "W00044",
     "W00121",
     "W00100",
     "W00034",
@@ -93,7 +96,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is spring."
+      "gloss_en": "It is spring.",
+      "audio": "audio/story_41/s0.mp3",
+      "audio_hash": "732c4f6f1d5b"
     },
     {
       "idx": 1,
@@ -149,7 +154,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I came to the bookstore."
+      "gloss_en": "I came to the bookstore.",
+      "audio": "audio/story_41/s1.mp3",
+      "audio_hash": "47350de49bd9"
     },
     {
       "idx": 2,
@@ -191,7 +198,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The shop is small and quiet."
+      "gloss_en": "The shop is small and quiet.",
+      "audio": "audio/story_41/s2.mp3",
+      "audio_hash": "f64d120ffb19"
     },
     {
       "idx": 3,
@@ -225,7 +234,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend is here too."
+      "gloss_en": "The friend is here too.",
+      "audio": "audio/story_41/s3.mp3",
+      "audio_hash": "915c911775ce"
     },
     {
       "idx": 4,
@@ -295,7 +306,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend said, \"a kind person, isn't it.\""
+      "gloss_en": "The friend said, \"a kind person, isn't it.\"",
+      "audio": "audio/story_41/s4.mp3",
+      "audio_hash": "af76d75f7762"
     },
     {
       "idx": 5,
@@ -342,7 +355,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I remember the face."
+      "gloss_en": "I remember the face.",
+      "audio": "audio/story_41/s5.mp3",
+      "audio_hash": "cdce57cd0a71"
     },
     {
       "idx": 6,
@@ -370,7 +385,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The same face."
+      "gloss_en": "The same face.",
+      "audio": "audio/story_41/s6.mp3",
+      "audio_hash": "c90c010a8cdd"
     },
     {
       "idx": 7,
@@ -410,7 +427,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A strong heart is happy."
+      "gloss_en": "A strong heart is happy.",
+      "audio": "audio/story_41/s7.mp3",
+      "audio_hash": "c82c6782db36"
     },
     {
       "idx": 8,
@@ -480,59 +499,46 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The person said, \"a good book, isn't it.\""
+      "gloss_en": "The person said, \"a good book, isn't it.\"",
+      "audio": "audio/story_41/s8.mp3",
+      "audio_hash": "e053eb38633d"
     },
     {
       "idx": 9,
       "tokens": [
         {
-          "t": "でも",
-          "role": "particle",
-          "grammar_id": "G032_demo"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "私",
+          "t": "鍵",
           "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
+          "word_id": "W00079",
+          "r": "かぎ"
         },
         {
-          "t": "の",
+          "t": "が",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "G002_ga_subject"
         },
         {
-          "t": "返事",
+          "t": "ありません",
           "role": "content",
-          "word_id": "W00119",
-          "r": "へんじ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "静か",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
+          "word_id": "W00044",
+          "r": "ありません",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G035_arimasen",
+          "is_new_grammar": true
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "But my reply is quiet."
+      "gloss_en": "There is no key.",
+      "audio": "audio/story_41/s9.mp3",
+      "audio_hash": "abd8bfa33f52"
     },
     {
       "idx": 10,
@@ -580,7 +586,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Because the words are small, they are precious."
+      "gloss_en": "Because the words are small, they are precious.",
+      "audio": "audio/story_41/s10.mp3",
+      "audio_hash": "b9dd8be49712"
     },
     {
       "idx": 11,
@@ -630,7 +638,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I want to read a book."
+      "gloss_en": "I want to read a book.",
+      "audio": "audio/story_41/s11.mp3",
+      "audio_hash": "ed3c64b35091"
     },
     {
       "idx": 12,
@@ -673,7 +683,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The face of the spring shop."
+      "gloss_en": "The face of the spring shop.",
+      "audio": "audio/story_41/s12.mp3",
+      "audio_hash": "ec7d94b818be"
     },
     {
       "idx": 13,
@@ -733,7 +745,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "At school, the child begins their work."
+      "gloss_en": "At school, the child begins their work.",
+      "audio": "audio/story_41/s13.mp3",
+      "audio_hash": "5bffcc5cd35a"
     },
     {
       "idx": 14,
@@ -780,7 +794,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The town's river is quiet."
+      "gloss_en": "The town's river is quiet.",
+      "audio": "audio/story_41/s14.mp3",
+      "audio_hash": "a81ad0b7aabc"
     },
     {
       "idx": 15,
@@ -821,7 +837,19 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A new spring is born."
+      "gloss_en": "A new spring is born.",
+      "audio": "audio/story_41/s15.mp3",
+      "audio_hash": "5fd33f8ccde5"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00122": "audio/story_41/w_W00122.mp3",
+    "W00123": "audio/story_41/w_W00123.mp3",
+    "W00124": "audio/story_41/w_W00124.mp3"
+  },
+  "word_audio_hash": {
+    "W00122": "1021854feee3",
+    "W00123": "a75819d759da",
+    "W00124": "e6f3a3ce6a81"
+  }
 }

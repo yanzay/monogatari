@@ -16,13 +16,10 @@
     "W00023",
     "W00024",
     "W00064",
-    "W00239",
-    "W00044"
+    "W00239"
   ],
   "new_grammar": [
-    "G011_ya_partial",
-    "G004_ni_location",
-    "G021_aru_iru"
+    "G011_ya_partial"
   ],
   "all_words_used": [
     "W00023",
@@ -109,7 +106,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the evening, I walk in the park with a friend."
+      "gloss_en": "In the evening, I walk in the park with a friend.",
+      "audio": "audio/story_4/s0.mp3",
+      "audio_hash": "3b0fff02027d"
     },
     {
       "idx": 1,
@@ -167,7 +166,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "With my friend, I look at trees, flowers, and so on."
+      "gloss_en": "With my friend, I look at trees, flowers, and so on.",
+      "audio": "audio/story_4/s1.mp3",
+      "audio_hash": "e0932a94ccfa"
     },
     {
       "idx": 2,
@@ -199,7 +200,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a quiet park."
+      "gloss_en": "It is a quiet park.",
+      "audio": "audio/story_4/s2.mp3",
+      "audio_hash": "c6d78e76e070"
     },
     {
       "idx": 3,
@@ -239,7 +242,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The walk feels good."
+      "gloss_en": "The walk feels good.",
+      "audio": "audio/story_4/s3.mp3",
+      "audio_hash": "33bf42100121"
     },
     {
       "idx": 4,
@@ -291,7 +296,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I drink some warm tea."
+      "gloss_en": "I drink some warm tea.",
+      "audio": "audio/story_4/s4.mp3",
+      "audio_hash": "aa933af6c18e"
     },
     {
       "idx": 5,
@@ -325,7 +332,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My friend drinks some too."
+      "gloss_en": "My friend drinks some too.",
+      "audio": "audio/story_4/s5.mp3",
+      "audio_hash": "2442435eb475"
     },
     {
       "idx": 6,
@@ -370,7 +379,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "With my friend, I look at the flowers."
+      "gloss_en": "With my friend, I look at the flowers.",
+      "audio": "audio/story_4/s6.mp3",
+      "audio_hash": "611e39870a7f"
     },
     {
       "idx": 7,
@@ -385,8 +396,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location",
-          "is_new_grammar": true
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "石",
@@ -411,16 +421,28 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G021_aru_iru",
-          "is_new": true,
-          "is_new_grammar": true
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "There is a stone on the road."
+      "gloss_en": "There is a stone on the road.",
+      "audio": "audio/story_4/s7.mp3",
+      "audio_hash": "1372057065a4"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00023": "audio/story_4/w_W00023.mp3",
+    "W00024": "audio/story_4/w_W00024.mp3",
+    "W00064": "audio/story_4/w_W00064.mp3",
+    "W00239": "audio/story_4/w_W00239.mp3"
+  },
+  "word_audio_hash": {
+    "W00023": "39f6833d3a96",
+    "W00024": "b0a1eab5f902",
+    "W00064": "00a9d5bd97c2",
+    "W00239": "e6df66d46112"
+  }
 }

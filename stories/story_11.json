@@ -53,7 +53,11 @@
     "W00011",
     "W00101",
     "W00005",
-    "W00029"
+    "W00029",
+    "W00078",
+    "W00026",
+    "W00036",
+    "W00085"
   ],
   "sentences": [
     {
@@ -92,7 +96,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Yesterday, it was raining."
+      "gloss_en": "Yesterday, it was raining.",
+      "audio": "audio/story_11/s0.mp3",
+      "audio_hash": "1f4693870577"
     },
     {
       "idx": 1,
@@ -147,7 +153,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "At night, a letter came from a friend."
+      "gloss_en": "At night, a letter came from a friend.",
+      "audio": "audio/story_11/s1.mp3",
+      "audio_hash": "069dce5be290"
     },
     {
       "idx": 2,
@@ -181,7 +189,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It was a white letter."
+      "gloss_en": "It was a white letter.",
+      "audio": "audio/story_11/s2.mp3",
+      "audio_hash": "d5d1c407071a"
     },
     {
       "idx": 3,
@@ -226,7 +236,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I read the letter."
+      "gloss_en": "I read the letter.",
+      "audio": "audio/story_11/s3.mp3",
+      "audio_hash": "d7ebb2406fda"
     },
     {
       "idx": 4,
@@ -304,7 +316,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Then, drinking warm tea, I waited for the moon."
+      "gloss_en": "Then, drinking warm tea, I waited for the moon.",
+      "audio": "audio/story_11/s4.mp3",
+      "audio_hash": "69d937a5bca9"
     },
     {
       "idx": 5,
@@ -371,7 +385,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I looked at the rain and the moon from the window."
+      "gloss_en": "I looked at the rain and the moon from the window.",
+      "audio": "audio/story_11/s5.mp3",
+      "audio_hash": "d698e4c4c6a4"
     },
     {
       "idx": 6,
@@ -416,7 +432,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It was a blue moon and stars."
+      "gloss_en": "It was a blue moon and stars.",
+      "audio": "audio/story_11/s6.mp3",
+      "audio_hash": "081d3ed01a16"
     },
     {
       "idx": 7,
@@ -453,7 +471,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It was a quiet night."
+      "gloss_en": "It was a quiet night.",
+      "audio": "audio/story_11/s7.mp3",
+      "audio_hash": "08995d800de9"
     },
     {
       "idx": 8,
@@ -498,7 +518,102 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The dog is outside."
+      "gloss_en": "The dog is outside.",
+      "audio": "audio/story_11/s8.mp3",
+      "audio_hash": "9cc8d0b9fbca"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "帰ります",
+          "role": "content",
+          "word_id": "W00026",
+          "r": "かえります",
+          "inflection": {
+            "base": "帰る",
+            "base_r": "かえる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I return home.",
+      "audio": "audio/story_11/s9.mp3",
+      "audio_hash": "9327d9d13b85"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "椅子",
+          "role": "content",
+          "word_id": "W00036",
+          "r": "いす"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "座ります",
+          "role": "content",
+          "word_id": "W00085",
+          "r": "すわります",
+          "inflection": {
+            "base": "座る",
+            "base_r": "すわる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I sit on a chair.",
+      "audio": "audio/story_11/s10.mp3",
+      "audio_hash": "6a67e245f553"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00042": "audio/story_11/w_W00042.mp3",
+    "W00157": "audio/story_11/w_W00157.mp3",
+    "W00158": "audio/story_11/w_W00158.mp3"
+  },
+  "word_audio_hash": {
+    "W00042": "655d11bd2af0",
+    "W00157": "79222b578b29",
+    "W00158": "35bff7c363db"
+  }
 }

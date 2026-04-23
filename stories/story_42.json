@@ -63,7 +63,9 @@
     "W00215",
     "W00089",
     "W00019",
-    "W00020"
+    "W00020",
+    "W00093",
+    "W00044"
   ],
   "sentences": [
     {
@@ -96,7 +98,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring evening."
+      "gloss_en": "It is a spring evening.",
+      "audio": "audio/story_42/s0.mp3",
+      "audio_hash": "fdecbcf80e9f"
     },
     {
       "idx": 1,
@@ -141,7 +145,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend went home."
+      "gloss_en": "The friend went home.",
+      "audio": "audio/story_42/s1.mp3",
+      "audio_hash": "1d2ee1d0c26b"
     },
     {
       "idx": 2,
@@ -192,7 +198,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us are walking on the road."
+      "gloss_en": "The two of us are walking on the road.",
+      "audio": "audio/story_42/s2.mp3",
+      "audio_hash": "3ea43c9bbfaa"
     },
     {
       "idx": 3,
@@ -249,7 +257,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The person is beside me."
+      "gloss_en": "The person is beside me.",
+      "audio": "audio/story_42/s3.mp3",
+      "audio_hash": "916f24a4025c"
     },
     {
       "idx": 4,
@@ -316,7 +326,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think of (them as) \"Mr./Ms. Kind Person.\""
+      "gloss_en": "I think of (them as) \"Mr./Ms. Kind Person.\"",
+      "audio": "audio/story_42/s4.mp3",
+      "audio_hash": "090d6783ad24"
     },
     {
       "idx": 5,
@@ -367,7 +379,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I know the person."
+      "gloss_en": "I know the person.",
+      "audio": "audio/story_42/s5.mp3",
+      "audio_hash": "c609c76997f8"
     },
     {
       "idx": 6,
@@ -394,7 +408,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The same road."
+      "gloss_en": "The same road.",
+      "audio": "audio/story_42/s6.mp3",
+      "audio_hash": "a7a92888b0a6"
     },
     {
       "idx": 7,
@@ -427,7 +443,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The reply is small."
+      "gloss_en": "The reply is small.",
+      "audio": "audio/story_42/s7.mp3",
+      "audio_hash": "b20929d19fdd"
     },
     {
       "idx": 8,
@@ -479,7 +497,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But the heart is warm and happy."
+      "gloss_en": "But the heart is warm and happy.",
+      "audio": "audio/story_42/s8.mp3",
+      "audio_hash": "79e5914e5bc7"
     },
     {
       "idx": 9,
@@ -523,7 +543,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The moon is out, isn't it."
+      "gloss_en": "The moon is out, isn't it.",
+      "audio": "audio/story_42/s9.mp3",
+      "audio_hash": "d642c90fc953"
     },
     {
       "idx": 10,
@@ -585,7 +607,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us are looking at the mountain and the moon."
+      "gloss_en": "The two of us are looking at the mountain and the moon.",
+      "audio": "audio/story_42/s10.mp3",
+      "audio_hash": "2974bc3fbf07"
     },
     {
       "idx": 11,
@@ -630,7 +654,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I want to walk together."
+      "gloss_en": "I want to walk together.",
+      "audio": "audio/story_42/s11.mp3",
+      "audio_hash": "4e2e0c0894aa"
     },
     {
       "idx": 12,
@@ -674,7 +700,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A quiet road of two."
+      "gloss_en": "A quiet road of two.",
+      "audio": "audio/story_42/s12.mp3",
+      "audio_hash": "582ef0f89950"
     },
     {
       "idx": 13,
@@ -726,7 +754,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The heater makes a small sound."
+      "gloss_en": "The heater makes a small sound.",
+      "audio": "audio/story_42/s13.mp3",
+      "audio_hash": "39807eec795c"
     },
     {
       "idx": 14,
@@ -771,7 +801,55 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Mother eats breakfast."
+      "gloss_en": "Mother eats breakfast.",
+      "audio": "audio/story_42/s14.mp3",
+      "audio_hash": "125bcf80b32a"
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "電話",
+          "role": "content",
+          "word_id": "W00093",
+          "r": "でんわ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "ありません",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "ありません",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G035_arimasen"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is no phone call.",
+      "audio": "audio/story_42/s15.mp3",
+      "audio_hash": "2f8fab144bcc"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00127": "audio/story_42/w_W00127.mp3",
+    "W00125": "audio/story_42/w_W00125.mp3",
+    "W00126": "audio/story_42/w_W00126.mp3"
+  },
+  "word_audio_hash": {
+    "W00127": "face8e8973e0",
+    "W00125": "93663a351728",
+    "W00126": "eca82fe9a0fb"
+  }
 }

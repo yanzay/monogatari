@@ -52,7 +52,9 @@
     "W00240",
     "W00137",
     "W00101",
-    "W00102"
+    "W00102",
+    "W00009",
+    "W00010"
   ],
   "sentences": [
     {
@@ -96,7 +98,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the evening, the station is quiet."
+      "gloss_en": "In the evening, the station is quiet.",
+      "audio": "audio/story_23/s0.mp3",
+      "audio_hash": "e89f11c55eb0"
     },
     {
       "idx": 1,
@@ -156,7 +160,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I wait for my friend at the station."
+      "gloss_en": "I wait for my friend at the station.",
+      "audio": "audio/story_23/s1.mp3",
+      "audio_hash": "bc4acd872cc6"
     },
     {
       "idx": 2,
@@ -208,7 +214,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The station's new clock is large."
+      "gloss_en": "The station's new clock is large.",
+      "audio": "audio/story_23/s2.mp3",
+      "audio_hash": "6a597a6e7a14"
     },
     {
       "idx": 3,
@@ -270,7 +278,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I look at the clock; the snow comes."
+      "gloss_en": "I look at the clock; the snow comes.",
+      "audio": "audio/story_23/s3.mp3",
+      "audio_hash": "27da672ca487"
     },
     {
       "idx": 4,
@@ -305,7 +315,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The train comes."
+      "gloss_en": "The train comes.",
+      "audio": "audio/story_23/s4.mp3",
+      "audio_hash": "7b6d3c9877a6"
     },
     {
       "idx": 5,
@@ -354,7 +366,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My friend comes from the train."
+      "gloss_en": "My friend comes from the train.",
+      "audio": "audio/story_23/s5.mp3",
+      "audio_hash": "b853f823112f"
     },
     {
       "idx": 6,
@@ -404,7 +418,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us return home from the station."
+      "gloss_en": "The two of us return home from the station.",
+      "audio": "audio/story_23/s6.mp3",
+      "audio_hash": "60e401b9b033"
     },
     {
       "idx": 7,
@@ -459,7 +475,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The road is snow; the stars come out, too."
+      "gloss_en": "The road is snow; the stars come out, too.",
+      "audio": "audio/story_23/s7.mp3",
+      "audio_hash": "a7203dbd3b3a"
     },
     {
       "idx": 8,
@@ -501,7 +519,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Together, an evening of stars."
+      "gloss_en": "Together, an evening of stars.",
+      "audio": "audio/story_23/s8.mp3",
+      "audio_hash": "80092f9e2e4c"
     },
     {
       "idx": 9,
@@ -534,7 +554,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The sun is bright."
+      "gloss_en": "The sun is bright.",
+      "audio": "audio/story_23/s9.mp3",
+      "audio_hash": "7dfbbbda2d1b"
     },
     {
       "idx": 10,
@@ -580,7 +602,68 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The dog runs on the road."
+      "gloss_en": "The dog runs on the road.",
+      "audio": "audio/story_23/s10.mp3",
+      "audio_hash": "36e9467565c5"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "一緒に",
+          "role": "content",
+          "word_id": "W00050",
+          "r": "いっしょに"
+        },
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00009",
+          "r": "おちゃ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "飲みません",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "のみません",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G041_masenka_invitation"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Won't you have tea with me?",
+      "audio": "audio/story_23/s11.mp3",
+      "audio_hash": "40339f4fa952"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00069": "audio/story_23/w_W00069.mp3",
+    "W00071": "audio/story_23/w_W00071.mp3",
+    "W00070": "audio/story_23/w_W00070.mp3",
+    "W00102": "audio/story_23/w_W00102.mp3"
+  },
+  "word_audio_hash": {
+    "W00069": "53e5e276999d",
+    "W00071": "6fd2f3add204",
+    "W00070": "92e4d1d0c7a5",
+    "W00102": "24d5c7ca0c19"
+  }
 }

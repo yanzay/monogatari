@@ -26,7 +26,7 @@
   "new_words": [
     "W00093",
     "W00094",
-    "W00167"
+    "W00098"
   ],
   "new_grammar": [
     "G027_ni_tsuite"
@@ -58,7 +58,10 @@
     "W00167",
     "W00079",
     "W00037",
-    "W00241"
+    "W00241",
+    "W00246",
+    "W00061",
+    "W00098"
   ],
   "sentences": [
     {
@@ -104,7 +107,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "This morning, the phone rings."
+      "gloss_en": "This morning, the phone rings.",
+      "audio": "audio/story_31/s0.mp3",
+      "audio_hash": "23cf2bc904cc"
     },
     {
       "idx": 1,
@@ -125,7 +130,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It's the friend."
+      "gloss_en": "It's the friend.",
+      "audio": "audio/story_31/s1.mp3",
+      "audio_hash": "4399b0bf373f"
     },
     {
       "idx": 2,
@@ -170,7 +177,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I drink tea."
+      "gloss_en": "I drink tea.",
+      "audio": "audio/story_31/s2.mp3",
+      "audio_hash": "27b769a8aec7"
     },
     {
       "idx": 3,
@@ -205,7 +214,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend talks."
+      "gloss_en": "The friend talks.",
+      "audio": "audio/story_31/s3.mp3",
+      "audio_hash": "f17dfc90dd52"
     },
     {
       "idx": 4,
@@ -240,7 +251,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "[She] talks about [her] mother."
+      "gloss_en": "[She] talks about [her] mother.",
+      "audio": "audio/story_31/s4.mp3",
+      "audio_hash": "752a691bc8aa"
     },
     {
       "idx": 5,
@@ -272,7 +285,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Mother is well."
+      "gloss_en": "Mother is well.",
+      "audio": "audio/story_31/s5.mp3",
+      "audio_hash": "5b2893dad27c"
     },
     {
       "idx": 6,
@@ -328,7 +343,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I talk about the autumn garden."
+      "gloss_en": "I talk about the autumn garden.",
+      "audio": "audio/story_31/s6.mp3",
+      "audio_hash": "f7ddb2ab7216"
     },
     {
       "idx": 7,
@@ -373,7 +390,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There are leaves in the garden."
+      "gloss_en": "There are leaves in the garden.",
+      "audio": "audio/story_31/s7.mp3",
+      "audio_hash": "d394bc015ddd"
     },
     {
       "idx": 8,
@@ -423,7 +442,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think the friend is well."
+      "gloss_en": "I think the friend is well.",
+      "audio": "audio/story_31/s8.mp3",
+      "audio_hash": "7e44153ac1fd"
     },
     {
       "idx": 9,
@@ -467,7 +488,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Tomorrow, I'll write a letter."
+      "gloss_en": "Tomorrow, I'll write a letter.",
+      "audio": "audio/story_31/s9.mp3",
+      "audio_hash": "d557f79e4045"
     },
     {
       "idx": 10,
@@ -522,7 +545,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A quiet morning — there are clouds."
+      "gloss_en": "A quiet morning — there are clouds.",
+      "audio": "audio/story_31/s10.mp3",
+      "audio_hash": "561d7e0d55f1"
     },
     {
       "idx": 11,
@@ -580,7 +605,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Drinking warm tea, I stand up."
+      "gloss_en": "Drinking warm tea, I stand up.",
+      "audio": "audio/story_31/s11.mp3",
+      "audio_hash": "c1144d105ff1"
     },
     {
       "idx": 12,
@@ -600,8 +627,7 @@
           "t": "カップ",
           "role": "content",
           "word_id": "W00167",
-          "r": "カップ",
-          "is_new": true
+          "r": "カップ"
         },
         {
           "t": "が",
@@ -626,7 +652,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is my cup."
+      "gloss_en": "There is my cup.",
+      "audio": "audio/story_31/s12.mp3",
+      "audio_hash": "ee98face0bb1"
     },
     {
       "idx": 13,
@@ -671,7 +699,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The key is on the desk."
+      "gloss_en": "The key is on the desk.",
+      "audio": "audio/story_31/s13.mp3",
+      "audio_hash": "cb8708091bc3"
     },
     {
       "idx": 14,
@@ -716,7 +746,101 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The guest drinks tea."
+      "gloss_en": "The guest drinks tea.",
+      "audio": "audio/story_31/s14.mp3",
+      "audio_hash": "046439ccbdbb"
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "ペン",
+          "role": "content",
+          "word_id": "W00246",
+          "r": "ぺん"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "名前",
+          "role": "content",
+          "word_id": "W00061",
+          "r": "なまえ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "書きます",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "かきます",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I write a name with a pen.",
+      "audio": "audio/story_31/s15.mp3",
+      "audio_hash": "5bbc73048511"
+    },
+    {
+      "idx": 16,
+      "tokens": [
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "元気",
+          "role": "content",
+          "word_id": "W00058",
+          "r": "げんき"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My grandmother is well.",
+      "audio": "audio/story_31/s16.mp3",
+      "audio_hash": "9eb0e2aee2d0"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00093": "audio/story_31/w_W00093.mp3",
+    "W00094": "audio/story_31/w_W00094.mp3",
+    "W00098": "audio/story_31/w_W00098.mp3"
+  },
+  "word_audio_hash": {
+    "W00093": "5154b7cf78ed",
+    "W00094": "bcaa051f1894",
+    "W00098": "1fb2101ff72a"
+  }
 }

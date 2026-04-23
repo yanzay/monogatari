@@ -35,8 +35,7 @@
     "W00059"
   ],
   "new_grammar": [
-    "G024_da",
-    "G018_toki_when"
+    "G024_da"
   ],
   "all_words_used": [
     "W00033",
@@ -115,7 +114,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On the desk there is a light book."
+      "gloss_en": "On the desk there is a light book.",
+      "audio": "audio/story_13/s0.mp3",
+      "audio_hash": "8c8e40b6ed10"
     },
     {
       "idx": 1,
@@ -176,7 +177,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Beside the book, there is also tea."
+      "gloss_en": "Beside the book, there is also tea.",
+      "audio": "audio/story_13/s1.mp3",
+      "audio_hash": "0dc00740e445"
     },
     {
       "idx": 2,
@@ -239,7 +242,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the morning, young me reads the book."
+      "gloss_en": "In the morning, young me reads the book.",
+      "audio": "audio/story_13/s2.mp3",
+      "audio_hash": "c855484b89c4"
     },
     {
       "idx": 3,
@@ -289,7 +294,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Then, an early rain comes."
+      "gloss_en": "Then, an early rain comes.",
+      "audio": "audio/story_13/s3.mp3",
+      "audio_hash": "bf412d114051"
     },
     {
       "idx": 4,
@@ -334,7 +341,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I look at the window."
+      "gloss_en": "I look at the window.",
+      "audio": "audio/story_13/s4.mp3",
+      "audio_hash": "631070aab605"
     },
     {
       "idx": 5,
@@ -400,7 +409,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think, \"the blue rain is quiet.\""
+      "gloss_en": "I think, \"the blue rain is quiet.\"",
+      "audio": "audio/story_13/s5.mp3",
+      "audio_hash": "62c4be953d76"
     },
     {
       "idx": 6,
@@ -417,37 +428,21 @@
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "読む",
+          "t": "読んで",
           "role": "content",
           "word_id": "W00034",
-          "r": "よむ",
+          "r": "よんで",
           "inflection": {
             "base": "読む",
             "base_r": "よむ",
-            "form": "plain_nonpast",
+            "form": "te",
             "verb_class": "godan"
-          }
-        },
-        {
-          "t": "とき",
-          "role": "particle",
-          "grammar_id": "G018_toki_when",
-          "is_new_grammar": true
+          },
+          "grammar_id": "G007_te_form"
         },
         {
           "t": "、",
           "role": "punct"
-        },
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "お茶",
@@ -478,7 +473,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "When I read the book, I drink tea."
+      "gloss_en": "I read the book and drink tea.",
+      "audio": "audio/story_13/s6.mp3",
+      "audio_hash": "398b8f18473e"
     },
     {
       "idx": 7,
@@ -528,7 +525,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Book, tea, and a white morning."
+      "gloss_en": "Book, tea, and a white morning.",
+      "audio": "audio/story_13/s7.mp3",
+      "audio_hash": "44d80a6b1a1f"
     },
     {
       "idx": 8,
@@ -585,7 +584,21 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is a stone and a path in the garden."
+      "gloss_en": "There is a stone and a path in the garden.",
+      "audio": "audio/story_13/s8.mp3",
+      "audio_hash": "be1b12d6d21f"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00045": "audio/story_13/w_W00045.mp3",
+    "W00161": "audio/story_13/w_W00161.mp3",
+    "W00162": "audio/story_13/w_W00162.mp3",
+    "W00059": "audio/story_13/w_W00059.mp3"
+  },
+  "word_audio_hash": {
+    "W00045": "a7dbc110c61b",
+    "W00161": "08cbe22167b8",
+    "W00162": "7a0063f6700e",
+    "W00059": "81b3ed91bd5c"
+  }
 }

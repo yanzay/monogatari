@@ -27,7 +27,7 @@
     "W00052",
     "W00053",
     "W00050",
-    "W00085"
+    "W00056"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -49,13 +49,15 @@
     "W00164",
     "W00048",
     "W00050",
-    "W00036",
+    "W00035",
     "W00085",
     "W00013",
     "W00043",
     "W00166",
     "W00237",
-    "W00039"
+    "W00039",
+    "W00040",
+    "W00056"
   ],
   "sentences": [
     {
@@ -111,7 +113,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the evening, I walk in the park."
+      "gloss_en": "In the evening, I walk in the park.",
+      "audio": "audio/story_17/s0.mp3",
+      "audio_hash": "b8c2a1f4859f"
     },
     {
       "idx": 1,
@@ -172,7 +176,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Beside a tree, there is a bench."
+      "gloss_en": "Beside a tree, there is a bench.",
+      "audio": "audio/story_17/s1.mp3",
+      "audio_hash": "2254e8c415ad"
     },
     {
       "idx": 2,
@@ -221,7 +227,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On the bench, there is a child."
+      "gloss_en": "On the bench, there is a child.",
+      "audio": "audio/story_17/s2.mp3",
+      "audio_hash": "1f261bebc45e"
     },
     {
       "idx": 3,
@@ -271,7 +279,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The child is reading a book."
+      "gloss_en": "The child is reading a book.",
+      "audio": "audio/story_17/s3.mp3",
+      "audio_hash": "0b6126063999"
     },
     {
       "idx": 4,
@@ -334,7 +344,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Seeing me, the child smiles."
+      "gloss_en": "Seeing me, the child smiles.",
+      "audio": "audio/story_17/s4.mp3",
+      "audio_hash": "cfa647083876"
     },
     {
       "idx": 5,
@@ -368,7 +380,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I smile too."
+      "gloss_en": "I smile too.",
+      "audio": "audio/story_17/s5.mp3",
+      "audio_hash": "0e5bbf70022d"
     },
     {
       "idx": 6,
@@ -428,7 +442,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am beside the child too."
+      "gloss_en": "I am beside the child too.",
+      "audio": "audio/story_17/s6.mp3",
+      "audio_hash": "23add995b36c"
     },
     {
       "idx": 7,
@@ -473,7 +489,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend, too, makes a song."
+      "gloss_en": "The friend, too, makes a song.",
+      "audio": "audio/story_17/s7.mp3",
+      "audio_hash": "c22538acc341"
     },
     {
       "idx": 8,
@@ -518,64 +536,35 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Together on the bench, we laugh."
+      "gloss_en": "Together on the bench, we laugh.",
+      "audio": "audio/story_17/s8.mp3",
+      "audio_hash": "5996441eea45"
     },
     {
       "idx": 9,
       "tokens": [
         {
-          "t": "公園",
+          "t": "二人",
           "role": "content",
-          "word_id": "W00016",
-          "r": "こうえん"
+          "word_id": "W00035",
+          "r": "ふたり",
+          "grammar_id": "G025_counters"
         },
         {
-          "t": "の",
+          "t": "で",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "G017_de_means"
         },
         {
-          "t": "椅子",
+          "t": "ベンチ",
           "role": "content",
-          "word_id": "W00036",
-          "r": "いす"
+          "word_id": "W00052",
+          "r": "ベンチ"
         },
         {
           "t": "に",
           "role": "particle",
           "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "子供",
-          "role": "content",
-          "word_id": "W00051",
-          "r": "こども"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "一緒に",
-          "role": "content",
-          "word_id": "W00050",
-          "r": "いっしょに"
         },
         {
           "t": "座ります",
@@ -588,15 +577,16 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast",
-          "is_new": true
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "On a park chair, the child and I sit together."
+      "gloss_en": "The two of us sit on the bench.",
+      "audio": "audio/story_17/s9.mp3",
+      "audio_hash": "9851e33b17a7"
     },
     {
       "idx": 10,
@@ -655,7 +645,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think, \"good.\""
+      "gloss_en": "I think, \"good.\"",
+      "audio": "audio/story_17/s10.mp3",
+      "audio_hash": "887e863e27dc"
     },
     {
       "idx": 11,
@@ -711,7 +703,124 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is a letter on the plate."
+      "gloss_en": "There is a letter on the plate.",
+      "audio": "audio/story_17/s11.mp3",
+      "audio_hash": "3c755d0fc75e"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G030_kara_reason"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "嬉しい",
+          "role": "content",
+          "word_id": "W00056",
+          "r": "うれしい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Because my friend is coming, I am happy.",
+      "audio": "audio/story_17/s12.mp3",
+      "audio_hash": "df1ba20e6883"
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "歩く",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "あるく",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "plain_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "とき",
+          "role": "particle",
+          "grammar_id": "G018_toki_when"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "いい",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "いい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "When I walk, it is good.",
+      "audio": "audio/story_17/s13.mp3",
+      "audio_hash": "091162f98f77"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00052": "audio/story_17/w_W00052.mp3",
+    "W00053": "audio/story_17/w_W00053.mp3",
+    "W00050": "audio/story_17/w_W00050.mp3",
+    "W00056": "audio/story_17/w_W00056.mp3"
+  },
+  "word_audio_hash": {
+    "W00052": "b4292723cbc2",
+    "W00053": "d522ca2b885e",
+    "W00050": "e912796943ea",
+    "W00056": "b0660d875cea"
+  }
 }

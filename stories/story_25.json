@@ -28,7 +28,9 @@
     "W00077",
     "W00120"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G032_demo"
+  ],
   "all_words_used": [
     "W00065",
     "W00075",
@@ -101,7 +103,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "This morning, the room is quiet."
+      "gloss_en": "This morning, the room is quiet.",
+      "audio": "audio/story_25/s0.mp3",
+      "audio_hash": "4a6cc9886b74"
     },
     {
       "idx": 1,
@@ -151,7 +155,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My friend leaves the room."
+      "gloss_en": "My friend leaves the room.",
+      "audio": "audio/story_25/s1.mp3",
+      "audio_hash": "069895f90432"
     },
     {
       "idx": 2,
@@ -205,7 +211,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I, on a long morning, am alone."
+      "gloss_en": "I, on a long morning, am alone.",
+      "audio": "audio/story_25/s2.mp3",
+      "audio_hash": "059db0e00597"
     },
     {
       "idx": 3,
@@ -261,7 +269,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On the desk is an old photo."
+      "gloss_en": "On the desk is an old photo.",
+      "audio": "audio/story_25/s3.mp3",
+      "audio_hash": "641e81c543ae"
     },
     {
       "idx": 4,
@@ -315,7 +325,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend in the photo is smiling."
+      "gloss_en": "The friend in the photo is smiling.",
+      "audio": "audio/story_25/s4.mp3",
+      "audio_hash": "3d609923d0d0"
     },
     {
       "idx": 5,
@@ -352,7 +364,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am sad."
+      "gloss_en": "I am sad.",
+      "audio": "audio/story_25/s5.mp3",
+      "audio_hash": "d01b3c638ffc"
     },
     {
       "idx": 6,
@@ -399,7 +413,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Outside is a spring rain."
+      "gloss_en": "Outside is a spring rain.",
+      "audio": "audio/story_25/s6.mp3",
+      "audio_hash": "9606ee20de3a"
     },
     {
       "idx": 7,
@@ -472,7 +488,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I, too, open the door and leave the room."
+      "gloss_en": "I, too, open the door and leave the room.",
+      "audio": "audio/story_25/s7.mp3",
+      "audio_hash": "78acccc19f03"
     },
     {
       "idx": 8,
@@ -539,7 +557,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A sad morning, a painful heart, a quiet rain."
+      "gloss_en": "A sad morning, a painful heart, a quiet rain.",
+      "audio": "audio/story_25/s8.mp3",
+      "audio_hash": "9f58eded102e"
     },
     {
       "idx": 9,
@@ -584,7 +604,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I sit on the chair."
+      "gloss_en": "I sit on the chair.",
+      "audio": "audio/story_25/s9.mp3",
+      "audio_hash": "050f0ce6f862"
     },
     {
       "idx": 10,
@@ -640,7 +662,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is tea on the desk."
+      "gloss_en": "There is tea on the desk.",
+      "audio": "audio/story_25/s10.mp3",
+      "audio_hash": "6903c1ae86a8"
     },
     {
       "idx": 11,
@@ -674,7 +698,63 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I eat breakfast."
+      "gloss_en": "I eat breakfast.",
+      "audio": "audio/story_25/s11.mp3",
+      "audio_hash": "6ff229e2e51c"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "でも",
+          "role": "particle",
+          "grammar_id": "G032_demo",
+          "is_new_grammar": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "外",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "そと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But outside is quiet.",
+      "audio": "audio/story_25/s12.mp3",
+      "audio_hash": "a58d892943b1"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00075": "audio/story_25/w_W00075.mp3",
+    "W00077": "audio/story_25/w_W00077.mp3",
+    "W00120": "audio/story_25/w_W00120.mp3"
+  },
+  "word_audio_hash": {
+    "W00075": "02c744ed8d58",
+    "W00077": "6828df841461",
+    "W00120": "082c4ae74277"
+  }
 }

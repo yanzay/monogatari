@@ -161,7 +161,7 @@ def test_sentence_idx_is_sequential(stories):
 # honest library-wide first-occurrence semantics. The logic is preserved
 # verbatim so we can re-enable / adjust later — just flip the skip flag.
 
-PEDAGOGICAL_CADENCE_ENABLED = False
+PEDAGOGICAL_CADENCE_ENABLED = True
 
 _skip_cadence = pytest.mark.skipif(
     not PEDAGOGICAL_CADENCE_ENABLED,

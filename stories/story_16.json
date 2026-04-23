@@ -29,7 +29,9 @@
     "W00240",
     "W00137"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G030_kara_reason"
+  ],
   "all_words_used": [
     "W00016",
     "W00049",
@@ -113,7 +115,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the morning, I make bread."
+      "gloss_en": "In the morning, I make bread.",
+      "audio": "audio/story_16/s0.mp3",
+      "audio_hash": "a898ad9e7af9"
     },
     {
       "idx": 1,
@@ -156,7 +160,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "And then, the friend comes."
+      "gloss_en": "And then, the friend comes.",
+      "audio": "audio/story_16/s1.mp3",
+      "audio_hash": "d76aca4ac7f9"
     },
     {
       "idx": 2,
@@ -213,7 +219,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us drink tea at the park."
+      "gloss_en": "The two of us drink tea at the park.",
+      "audio": "audio/story_16/s2.mp3",
+      "audio_hash": "f6875e46cdf6"
     },
     {
       "idx": 3,
@@ -252,7 +260,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I go ahead and eat the bread."
+      "gloss_en": "I go ahead and eat the bread.",
+      "audio": "audio/story_16/s3.mp3",
+      "audio_hash": "237891b4d02e"
     },
     {
       "idx": 4,
@@ -284,7 +294,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The sky is calm."
+      "gloss_en": "The sky is calm.",
+      "audio": "audio/story_16/s4.mp3",
+      "audio_hash": "c88c987752eb"
     },
     {
       "idx": 5,
@@ -349,7 +361,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Then wind, rain, and music come."
+      "gloss_en": "Then wind, rain, and music come.",
+      "audio": "audio/story_16/s5.mp3",
+      "audio_hash": "91aba6041e41"
     },
     {
       "idx": 6,
@@ -392,7 +406,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "With the wind, the sky becomes rain."
+      "gloss_en": "With the wind, the sky becomes rain.",
+      "audio": "audio/story_16/s6.mp3",
+      "audio_hash": "bc8fe04e9713"
     },
     {
       "idx": 7,
@@ -449,7 +465,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two eat the bread on the plate."
+      "gloss_en": "The two eat the bread on the plate.",
+      "audio": "audio/story_16/s7.mp3",
+      "audio_hash": "e3d71ca01576"
     },
     {
       "idx": 8,
@@ -525,7 +543,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"A rainy morning is good,\" I think."
+      "gloss_en": "\"A rainy morning is good,\" I think.",
+      "audio": "audio/story_16/s8.mp3",
+      "audio_hash": "e091146151ad"
     },
     {
       "idx": 9,
@@ -590,7 +610,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A morning of park, rain, song, and bread."
+      "gloss_en": "A morning of park, rain, song, and bread.",
+      "audio": "audio/story_16/s9.mp3",
+      "audio_hash": "b7dc530938a6"
     },
     {
       "idx": 10,
@@ -636,7 +658,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Light bread and warm tea."
+      "gloss_en": "Light bread and warm tea.",
+      "audio": "audio/story_16/s10.mp3",
+      "audio_hash": "4c38ddca0cbc"
     },
     {
       "idx": 11,
@@ -671,7 +695,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The sun is bright."
+      "gloss_en": "The sun is bright.",
+      "audio": "audio/story_16/s11.mp3",
+      "audio_hash": "7dfbbbda2d1b"
     },
     {
       "idx": 12,
@@ -703,7 +729,78 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The garden is quiet."
+      "gloss_en": "The garden is quiet.",
+      "audio": "audio/story_16/s12.mp3",
+      "audio_hash": "4a4f0ae11333"
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あめ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G030_kara_reason",
+          "is_new_grammar": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Because the rain comes, it is quiet.",
+      "audio": "audio/story_16/s13.mp3",
+      "audio_hash": "26940127bac8"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00049": "audio/story_16/w_W00049.mp3",
+    "W00048": "audio/story_16/w_W00048.mp3",
+    "W00240": "audio/story_16/w_W00240.mp3",
+    "W00137": "audio/story_16/w_W00137.mp3"
+  },
+  "word_audio_hash": {
+    "W00049": "433c68371a3d",
+    "W00048": "12482e624367",
+    "W00240": "c11aab85ea03",
+    "W00137": "53b4a762f917"
+  }
 }

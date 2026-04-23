@@ -21,8 +21,8 @@
   },
   "new_words": [
     "W00079",
-    "W00078",
-    "W00080"
+    "W00080",
+    "W00083"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -46,7 +46,11 @@
     "W00034",
     "W00056",
     "W00229",
-    "W00033"
+    "W00033",
+    "W00050",
+    "W00017",
+    "W00047",
+    "W00083"
   ],
   "sentences": [
     {
@@ -73,8 +77,7 @@
           "t": "家",
           "role": "content",
           "word_id": "W00078",
-          "r": "いえ",
-          "is_new": true
+          "r": "いえ"
         },
         {
           "t": "に",
@@ -99,7 +102,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Long evening, I go home."
+      "gloss_en": "Long evening, I go home.",
+      "audio": "audio/story_26/s0.mp3",
+      "audio_hash": "3baed20e5adb"
     },
     {
       "idx": 1,
@@ -160,7 +165,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is a key in the door of the house."
+      "gloss_en": "There is a key in the door of the house.",
+      "audio": "audio/story_26/s1.mp3",
+      "audio_hash": "5b3f8883773d"
     },
     {
       "idx": 2,
@@ -193,7 +200,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The key is small."
+      "gloss_en": "The key is small.",
+      "audio": "audio/story_26/s2.mp3",
+      "audio_hash": "865d31bffb31"
     },
     {
       "idx": 3,
@@ -242,7 +251,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "With the key, I open the door."
+      "gloss_en": "With the key, I open the door.",
+      "audio": "audio/story_26/s3.mp3",
+      "audio_hash": "e883b7f46c65"
     },
     {
       "idx": 4,
@@ -304,7 +315,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I enter the house alone."
+      "gloss_en": "I enter the house alone.",
+      "audio": "audio/story_26/s4.mp3",
+      "audio_hash": "7349825ebf13"
     },
     {
       "idx": 5,
@@ -347,7 +360,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I enter the room too."
+      "gloss_en": "I enter the room too.",
+      "audio": "audio/story_26/s5.mp3",
+      "audio_hash": "72cf633ad343"
     },
     {
       "idx": 6,
@@ -380,7 +395,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The room is warm."
+      "gloss_en": "The room is warm.",
+      "audio": "audio/story_26/s6.mp3",
+      "audio_hash": "b5b743315591"
     },
     {
       "idx": 7,
@@ -440,7 +457,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On the desk is a letter from my friend."
+      "gloss_en": "On the desk is a letter from my friend.",
+      "audio": "audio/story_26/s7.mp3",
+      "audio_hash": "791243f807e4"
     },
     {
       "idx": 8,
@@ -500,7 +519,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I read the letter at the desk."
+      "gloss_en": "I read the letter at the desk.",
+      "audio": "audio/story_26/s8.mp3",
+      "audio_hash": "0be3d6bb6846"
     },
     {
       "idx": 9,
@@ -537,7 +558,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am happy."
+      "gloss_en": "I am happy.",
+      "audio": "audio/story_26/s9.mp3",
+      "audio_hash": "d77f9378798f"
     },
     {
       "idx": 10,
@@ -582,7 +605,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A small key, a warm home."
+      "gloss_en": "A small key, a warm home.",
+      "audio": "audio/story_26/s10.mp3",
+      "audio_hash": "15b75d688af7"
     },
     {
       "idx": 11,
@@ -627,7 +652,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I place the key on the desk."
+      "gloss_en": "I place the key on the desk.",
+      "audio": "audio/story_26/s11.mp3",
+      "audio_hash": "9b4ab9b4dcf4"
     },
     {
       "idx": 12,
@@ -672,7 +699,91 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I put the book on the desk."
+      "gloss_en": "I put the book on the desk.",
+      "audio": "audio/story_26/s12.mp3",
+      "audio_hash": "86d40c11c117"
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "一緒に",
+          "role": "content",
+          "word_id": "W00050",
+          "r": "いっしょに"
+        },
+        {
+          "t": "歩きません",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "あるきません",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G041_masenka_invitation"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Won't you walk with me?",
+      "audio": "audio/story_26/s13.mp3",
+      "audio_hash": "a825d7d94e38"
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "空",
+          "role": "content",
+          "word_id": "W00047",
+          "r": "そら"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "美しい",
+          "role": "content",
+          "word_id": "W00083",
+          "r": "うつくしい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The sky is beautiful.",
+      "audio": "audio/story_26/s14.mp3",
+      "audio_hash": "cedd2fc4da9b"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00079": "audio/story_26/w_W00079.mp3",
+    "W00080": "audio/story_26/w_W00080.mp3",
+    "W00083": "audio/story_26/w_W00083.mp3"
+  },
+  "word_audio_hash": {
+    "W00079": "1c59564ec66e",
+    "W00080": "466016d47860",
+    "W00083": "5b3f69361d46"
+  }
 }

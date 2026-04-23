@@ -28,7 +28,9 @@
     "W00086",
     "W00241"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G049_ga_but"
+  ],
   "all_words_used": [
     "W00002",
     "W00084",
@@ -61,9 +63,7 @@
     "W00160",
     "W00190",
     "W00241",
-    "W00011",
-    "W00137",
-    "W00066"
+    "W00011"
   ],
   "sentences": [
     {
@@ -115,7 +115,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Hot morning, rain comes."
+      "gloss_en": "Hot morning, rain comes.",
+      "audio": "audio/story_28/s0.mp3",
+      "audio_hash": "2b7cb01aa61d"
     },
     {
       "idx": 1,
@@ -176,7 +178,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I enter the shop at the station."
+      "gloss_en": "I enter the shop at the station.",
+      "audio": "audio/story_28/s1.mp3",
+      "audio_hash": "7b36e794ba35"
     },
     {
       "idx": 2,
@@ -213,7 +217,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The shop is small."
+      "gloss_en": "The shop is small.",
+      "audio": "audio/story_28/s2.mp3",
+      "audio_hash": "f2eaaf4c6f46"
     },
     {
       "idx": 3,
@@ -270,7 +276,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "At the shop, I buy warm bread."
+      "gloss_en": "At the shop, I buy warm bread.",
+      "audio": "audio/story_28/s3.mp3",
+      "audio_hash": "de219a379ad4"
     },
     {
       "idx": 4,
@@ -308,7 +316,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I sit on a chair."
+      "gloss_en": "I sit on a chair.",
+      "audio": "audio/story_28/s4.mp3",
+      "audio_hash": "843c4f765e00"
     },
     {
       "idx": 5,
@@ -346,7 +356,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I wait for my friend."
+      "gloss_en": "I wait for my friend.",
+      "audio": "audio/story_28/s5.mp3",
+      "audio_hash": "034e8042ac1f"
     },
     {
       "idx": 6,
@@ -382,7 +394,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Outside, it is rain."
+      "gloss_en": "Outside, it is rain.",
+      "audio": "audio/story_28/s6.mp3",
+      "audio_hash": "ba9481b35d74"
     },
     {
       "idx": 7,
@@ -431,7 +445,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My friend also comes to the shop."
+      "gloss_en": "My friend also comes to the shop.",
+      "audio": "audio/story_28/s7.mp3",
+      "audio_hash": "0d1c73541992"
     },
     {
       "idx": 8,
@@ -480,7 +496,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My friend also sits on a chair."
+      "gloss_en": "My friend also sits on a chair.",
+      "audio": "audio/story_28/s8.mp3",
+      "audio_hash": "74ea44b464fe"
     },
     {
       "idx": 9,
@@ -529,7 +547,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My friend buys tea."
+      "gloss_en": "My friend buys tea.",
+      "audio": "audio/story_28/s9.mp3",
+      "audio_hash": "10a55d75d8bc"
     },
     {
       "idx": 10,
@@ -585,7 +605,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "We drink tea together."
+      "gloss_en": "We drink tea together.",
+      "audio": "audio/story_28/s10.mp3",
+      "audio_hash": "db24e9e705ed"
     },
     {
       "idx": 11,
@@ -634,7 +656,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Summer morning, a warm shop."
+      "gloss_en": "Summer morning, a warm shop.",
+      "audio": "audio/story_28/s11.mp3",
+      "audio_hash": "3d80f0fd37ca"
     },
     {
       "idx": 12,
@@ -697,7 +721,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Beside the train, there is a big clock."
+      "gloss_en": "Beside the train, there is a big clock.",
+      "audio": "audio/story_28/s12.mp3",
+      "audio_hash": "7a3c03a30b3c"
     },
     {
       "idx": 13,
@@ -741,7 +767,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Rainy air is heavy."
+      "gloss_en": "Rainy air is heavy.",
+      "audio": "audio/story_28/s13.mp3",
+      "audio_hash": "771033e71ab5"
     },
     {
       "idx": 14,
@@ -808,49 +836,39 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A little rain comes, and the customer is quiet."
+      "gloss_en": "A little rain comes, and the customer is quiet.",
+      "audio": "audio/story_28/s14.mp3",
+      "audio_hash": "5827269d35b9"
     },
     {
       "idx": 15,
       "tokens": [
         {
-          "t": "明るい",
+          "t": "雨",
           "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
-          "grammar_id": "G022_i_adj"
+          "word_id": "W00002",
+          "r": "あめ"
         },
         {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
-          "t": "は",
+          "t": "が",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G049_ga_but",
+          "is_new_grammar": true
         },
         {
           "t": "、",
           "role": "punct"
         },
         {
-          "t": "空気",
+          "t": "温かい",
           "role": "content",
-          "word_id": "W00138",
-          "r": "くうき"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "新しい",
-          "role": "content",
-          "word_id": "W00066",
-          "r": "あたらしい",
+          "word_id": "W00012",
+          "r": "あたたかい",
           "grammar_id": "G022_i_adj"
         },
         {
@@ -863,7 +881,19 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On a bright morning, the air is new."
+      "gloss_en": "It is raining, but it is warm.",
+      "audio": "audio/story_28/s15.mp3",
+      "audio_hash": "b4efd5a827de"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00084": "audio/story_28/w_W00084.mp3",
+    "W00086": "audio/story_28/w_W00086.mp3",
+    "W00241": "audio/story_28/w_W00241.mp3"
+  },
+  "word_audio_hash": {
+    "W00084": "aaded36a8302",
+    "W00086": "04b8813cfd82",
+    "W00241": "db52c2725a85"
+  }
 }

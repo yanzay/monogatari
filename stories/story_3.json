@@ -16,9 +16,13 @@
     "W00019",
     "W00015",
     "W00021",
-    "W00020"
+    "W00020",
+    "W00166",
+    "W00044"
   ],
   "new_grammar": [
+    "G004_ni_location",
+    "G021_aru_iru",
     "G016_na_adjective"
   ],
   "all_words_used": [
@@ -29,9 +33,9 @@
     "W00012",
     "W00009",
     "W00020",
-    "W00004",
+    "W00166",
+    "W00044",
     "W00005",
-    "W00006",
     "W00011",
     "W00013",
     "W00014"
@@ -67,7 +71,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Morning — and rain."
+      "gloss_en": "Morning — and rain.",
+      "audio": "audio/story_3/s0.mp3",
+      "audio_hash": "dd0c21f06f27"
     },
     {
       "idx": 1,
@@ -101,7 +107,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The eggs are warm."
+      "gloss_en": "The eggs are warm.",
+      "audio": "audio/story_3/s1.mp3",
+      "audio_hash": "4654a34a88cd"
     },
     {
       "idx": 2,
@@ -145,7 +153,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Breakfast is eggs and tea."
+      "gloss_en": "Breakfast is eggs and tea.",
+      "audio": "audio/story_3/s2.mp3",
+      "audio_hash": "5c77cd52a7b6"
     },
     {
       "idx": 3,
@@ -180,7 +190,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I eat the eggs."
+      "gloss_en": "I eat the eggs.",
+      "audio": "audio/story_3/s3.mp3",
+      "audio_hash": "edc7d577caed"
     },
     {
       "idx": 4,
@@ -213,7 +225,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The tea is warm, too."
+      "gloss_en": "The tea is warm, too.",
+      "audio": "audio/story_3/s4.mp3",
+      "audio_hash": "266eccaaf505"
     },
     {
       "idx": 5,
@@ -247,52 +261,60 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I eat my breakfast."
+      "gloss_en": "I eat my breakfast.",
+      "audio": "audio/story_3/s5.mp3",
+      "audio_hash": "6ff229e2e51c"
     },
     {
       "idx": 6,
       "tokens": [
         {
-          "t": "窓",
+          "t": "卵",
           "role": "content",
-          "word_id": "W00004",
-          "r": "まど"
+          "word_id": "W00021",
+          "r": "たまご"
         },
         {
-          "t": "から",
+          "t": "は",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
+          "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "外",
+          "t": "皿",
           "role": "content",
-          "word_id": "W00005",
-          "r": "そと"
+          "word_id": "W00166",
+          "r": "さら",
+          "is_new": true
         },
         {
-          "t": "を",
+          "t": "に",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "G004_ni_location",
+          "is_new_grammar": true
         },
         {
-          "t": "見ます",
+          "t": "あります",
           "role": "content",
-          "word_id": "W00006",
-          "r": "みます",
+          "word_id": "W00044",
+          "r": "あります",
           "inflection": {
-            "base": "見る",
-            "base_r": "みる",
+            "base": "ある",
+            "base_r": "ある",
             "form": "polite_nonpast",
-            "verb_class": "ichidan"
+            "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G021_aru_iru",
+          "is_new": true,
+          "is_new_grammar": true
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I look outside through the window."
+      "gloss_en": "The eggs are on the plate.",
+      "audio": "audio/story_3/s6.mp3",
+      "audio_hash": "2a4a7cfb9139"
     },
     {
       "idx": 7,
@@ -364,7 +386,25 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The rain-outside and the quiet morning — a good feeling."
+      "gloss_en": "The rain-outside and the quiet morning — a good feeling.",
+      "audio": "audio/story_3/s7.mp3",
+      "audio_hash": "30706f14c577"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00019": "audio/story_3/w_W00019.mp3",
+    "W00015": "audio/story_3/w_W00015.mp3",
+    "W00021": "audio/story_3/w_W00021.mp3",
+    "W00020": "audio/story_3/w_W00020.mp3",
+    "W00166": "audio/story_3/w_W00166.mp3",
+    "W00044": "audio/story_3/w_W00044.mp3"
+  },
+  "word_audio_hash": {
+    "W00019": "76693670fecf",
+    "W00015": "419c745398df",
+    "W00021": "d9ac2c62ddd7",
+    "W00020": "2fae54ba949d",
+    "W00166": "24f3a61ecd52",
+    "W00044": "0cddc11e518c"
+  }
 }

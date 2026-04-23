@@ -45,7 +45,10 @@
     "W00035",
     "W00239",
     "W00237",
-    "W00054"
+    "W00054",
+    "W00246",
+    "W00039",
+    "W00060"
   ],
   "sentences": [
     {
@@ -102,7 +105,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Morning — the cat is on the chair."
+      "gloss_en": "Morning — the cat is on the chair.",
+      "audio": "audio/story_9/s0.mp3",
+      "audio_hash": "e4ce559566ba"
     },
     {
       "idx": 1,
@@ -147,7 +152,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I look at the cat."
+      "gloss_en": "I look at the cat.",
+      "audio": "audio/story_9/s1.mp3",
+      "audio_hash": "9a939f0bd1a3"
     },
     {
       "idx": 2,
@@ -202,7 +209,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "And then — the cat is on the desk."
+      "gloss_en": "And then — the cat is on the desk.",
+      "audio": "audio/story_9/s2.mp3",
+      "audio_hash": "a1c5b7d1f239"
     },
     {
       "idx": 3,
@@ -234,7 +243,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The cat, too, is quiet."
+      "gloss_en": "The cat, too, is quiet.",
+      "audio": "audio/story_9/s3.mp3",
+      "audio_hash": "45038b33df6d"
     },
     {
       "idx": 4,
@@ -279,7 +290,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The cat looks at the book."
+      "gloss_en": "The cat looks at the book.",
+      "audio": "audio/story_9/s4.mp3",
+      "audio_hash": "464f4501824f"
     },
     {
       "idx": 5,
@@ -334,7 +347,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "And then — the cat sleeps on the chair."
+      "gloss_en": "And then — the cat sleeps on the chair.",
+      "audio": "audio/story_9/s5.mp3",
+      "audio_hash": "c825ecc2a57d"
     },
     {
       "idx": 6,
@@ -379,7 +394,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On the chair, the cat is there."
+      "gloss_en": "On the chair, the cat is there.",
+      "audio": "audio/story_9/s6.mp3",
+      "audio_hash": "6264b8823791"
     },
     {
       "idx": 7,
@@ -433,7 +450,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The cat and I, the two of us — it is morning."
+      "gloss_en": "The cat and I, the two of us — it is morning.",
+      "audio": "audio/story_9/s7.mp3",
+      "audio_hash": "27f73852d424"
     },
     {
       "idx": 8,
@@ -491,7 +510,70 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On the stone is a bird."
+      "gloss_en": "On the stone is a bird.",
+      "audio": "audio/story_9/s8.mp3",
+      "audio_hash": "bf049977c40f"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "ペン",
+          "role": "content",
+          "word_id": "W00246",
+          "r": "ぺん"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "書きます",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "かきます",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I write a letter with a pen.",
+      "audio": "audio/story_9/s9.mp3",
+      "audio_hash": "38fc7ac6d9d3"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00036": "audio/story_9/w_W00036.mp3",
+    "W00037": "audio/story_9/w_W00037.mp3",
+    "W00038": "audio/story_9/w_W00038.mp3",
+    "W00237": "audio/story_9/w_W00237.mp3",
+    "W00054": "audio/story_9/w_W00054.mp3"
+  },
+  "word_audio_hash": {
+    "W00036": "e57f49ca9c81",
+    "W00037": "145676361e97",
+    "W00038": "b0a86c30044f",
+    "W00237": "db5ba671d244",
+    "W00054": "8754cc62cbb1"
+  }
 }

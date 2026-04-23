@@ -26,12 +26,10 @@
   "new_words": [
     "W00095",
     "W00096",
-    "W00097"
+    "W00115"
   ],
   "new_grammar": [
-    "G034_ne_confirm",
-    "G028_to_iimasu",
-    "G037_ka_question"
+    "G034_ne_confirm"
   ],
   "all_words_used": [
     "W00095",
@@ -63,7 +61,9 @@
     "W00078",
     "W00053",
     "W00064",
-    "W00102"
+    "W00102",
+    "W00022",
+    "W00115"
   ],
   "sentences": [
     {
@@ -97,7 +97,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a winter morning."
+      "gloss_en": "It is a winter morning.",
+      "audio": "audio/story_32/s0.mp3",
+      "audio_hash": "4baa92b0ef37"
     },
     {
       "idx": 1,
@@ -125,7 +127,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a cold morning."
+      "gloss_en": "It is a cold morning.",
+      "audio": "audio/story_32/s1.mp3",
+      "audio_hash": "77d201c18e44"
     },
     {
       "idx": 2,
@@ -170,7 +174,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I eat an egg."
+      "gloss_en": "I eat an egg.",
+      "audio": "audio/story_32/s2.mp3",
+      "audio_hash": "559117eea2ee"
     },
     {
       "idx": 3,
@@ -215,7 +221,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I also drink a cup of tea."
+      "gloss_en": "I also drink a cup of tea.",
+      "audio": "audio/story_32/s3.mp3",
+      "audio_hash": "7b5e9a56fe72"
     },
     {
       "idx": 4,
@@ -261,7 +269,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A phone call comes from father."
+      "gloss_en": "A phone call comes from father.",
+      "audio": "audio/story_32/s4.mp3",
+      "audio_hash": "b7737059e635"
     },
     {
       "idx": 5,
@@ -301,8 +311,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu",
-          "is_new_grammar": true
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
@@ -315,15 +324,16 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast",
-          "is_new": true
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "\"Cold morning breakfast, isn't it,\" he says."
+      "gloss_en": "\"Cold morning breakfast, isn't it,\" he says.",
+      "audio": "audio/story_32/s5.mp3",
+      "audio_hash": "3699de686cd4"
     },
     {
       "idx": 6,
@@ -368,7 +378,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "He says my name."
+      "gloss_en": "He says my name.",
+      "audio": "audio/story_32/s6.mp3",
+      "audio_hash": "cb7b67fe1e56"
     },
     {
       "idx": 7,
@@ -391,8 +403,7 @@
         {
           "t": "か",
           "role": "particle",
-          "grammar_id": "G037_ka_question",
-          "is_new_grammar": true
+          "grammar_id": "G037_ka_question"
         },
         {
           "t": "」",
@@ -421,7 +432,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"Are you well?\" he says."
+      "gloss_en": "\"Are you well?\" he says.",
+      "audio": "audio/story_32/s7.mp3",
+      "audio_hash": "4b7ab2aec373"
     },
     {
       "idx": 8,
@@ -470,7 +483,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "About family, he says a name."
+      "gloss_en": "About family, he says a name.",
+      "audio": "audio/story_32/s8.mp3",
+      "audio_hash": "5e9009581636"
     },
     {
       "idx": 9,
@@ -498,7 +513,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "He leaves."
+      "gloss_en": "He leaves.",
+      "audio": "audio/story_32/s9.mp3",
+      "audio_hash": "70dc43621f9d"
     },
     {
       "idx": 10,
@@ -539,7 +556,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I drink the warm tea."
+      "gloss_en": "I drink the warm tea.",
+      "audio": "audio/story_32/s10.mp3",
+      "audio_hash": "1c92227ea006"
     },
     {
       "idx": 11,
@@ -578,7 +597,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A joyful autumn and winter."
+      "gloss_en": "A joyful autumn and winter.",
+      "audio": "audio/story_32/s11.mp3",
+      "audio_hash": "973362869a1b"
     },
     {
       "idx": 12,
@@ -622,7 +643,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Summer mornings are hot."
+      "gloss_en": "Summer mornings are hot.",
+      "audio": "audio/story_32/s12.mp3",
+      "audio_hash": "9efa0ded6ef1"
     },
     {
       "idx": 13,
@@ -650,7 +673,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am a little sad."
+      "gloss_en": "I am a little sad.",
+      "audio": "audio/story_32/s13.mp3",
+      "audio_hash": "25df8a19752d"
     },
     {
       "idx": 14,
@@ -706,7 +731,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In a bright house, the family laughs."
+      "gloss_en": "In a bright house, the family laughs.",
+      "audio": "audio/story_32/s14.mp3",
+      "audio_hash": "57a33eb3b2fd"
     },
     {
       "idx": 15,
@@ -751,7 +778,55 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I run on the road."
+      "gloss_en": "I run on the road.",
+      "audio": "audio/story_32/s15.mp3",
+      "audio_hash": "17a6bf7d5686"
+    },
+    {
+      "idx": 16,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "優しい",
+          "role": "content",
+          "word_id": "W00115",
+          "r": "やさしい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend is kind.",
+      "audio": "audio/story_32/s16.mp3",
+      "audio_hash": "7cf1a01a3825"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00095": "audio/story_32/w_W00095.mp3",
+    "W00096": "audio/story_32/w_W00096.mp3",
+    "W00115": "audio/story_32/w_W00115.mp3"
+  },
+  "word_audio_hash": {
+    "W00095": "0868fbc8c0bd",
+    "W00096": "ca4c64d9ae27",
+    "W00115": "ca26432b9f04"
+  }
 }

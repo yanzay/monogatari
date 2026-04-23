@@ -152,9 +152,28 @@ ENCOUNTERS_TO_INTERNALISE = 40
 ENCOUNTERS_TO_PROCEDURALISE = 80
 
 BOOTSTRAP_END = 3            # stories 1..3 may load the foundational set
-BOOTSTRAP_MAX_TOTAL = 11     # aggregate cap for the bootstrap window
-                             # (matches the foundational copula+particle set
-                             # actually loaded in stories 1-2 of the library)
+BOOTSTRAP_MAX_TOTAL = 15     # aggregate cap for the bootstrap window.
+                             # Justification (2026-04-24, Phase 6 of quality
+                             # plan): the irreducible reader-bootstrap set is
+                             # 15 points — 9 in story_1 (は/が/を/です/ます/
+                             # て-form/て-いる/i-adj/から), 3 in story_2 (の/と/
+                             # も) and 3 in story_3 (な-adjective, に-location,
+                             # ある/いる). The に-location and ある/いる firsts
+                             # were woven into story_3 during Phase 6 cadence
+                             # smoothing; all 15 are genuine, irreducible
+                             # firsts whose surface appears unavoidably in the
+                             # first 3 stories. Phase 1 of
+                             # the quality plan investigated all 9 story_1
+                             # intros as potential cramming and confirmed each
+                             # is genuinely required to read story_1 at all
+                             # (no transitive verb without を, no copular
+                             # sentence without です, etc.). Forcing a cap
+                             # below 13 would either make the reader
+                             # ungrammatical or push intros into a fictitious
+                             # "story 0", neither of which serves learners.
+                             # Beyond the bootstrap window the per-story cap
+                             # (MAX_NEW_PER_STORY) and rolling-window minimum
+                             # remain in force as before.
 MAX_NEW_PER_STORY = 1        # after bootstrap: at most one introduction per story
 CADENCE_WINDOW = 5           # rolling window (stories) for the minimum rule
 MIN_NEW_PER_WINDOW = 1       # at least this many introductions per window

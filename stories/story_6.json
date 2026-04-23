@@ -15,9 +15,14 @@
   "new_words": [
     "W00028",
     "W00029",
-    "W00156"
+    "W00156",
+    "W00246",
+    "W00039",
+    "W00060"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G017_de_means"
+  ],
   "all_words_used": [
     "W00028",
     "W00015",
@@ -33,7 +38,10 @@
     "W00026",
     "W00024",
     "W00156",
-    "W00044"
+    "W00044",
+    "W00246",
+    "W00039",
+    "W00060"
   ],
   "sentences": [
     {
@@ -65,7 +73,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Morning — it is raining."
+      "gloss_en": "Morning — it is raining.",
+      "audio": "audio/story_6/s0.mp3",
+      "audio_hash": "dd0c21f06f27"
     },
     {
       "idx": 1,
@@ -121,7 +131,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I look outside through the window."
+      "gloss_en": "I look outside through the window.",
+      "audio": "audio/story_6/s1.mp3",
+      "audio_hash": "b8f1563bfb7d"
     },
     {
       "idx": 2,
@@ -178,7 +190,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On a walk-morning, the cat is there."
+      "gloss_en": "On a walk-morning, the cat is there.",
+      "audio": "audio/story_6/s2.mp3",
+      "audio_hash": "5b5c163e9d88"
     },
     {
       "idx": 3,
@@ -210,7 +224,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The cat is quiet."
+      "gloss_en": "The cat is quiet.",
+      "audio": "audio/story_6/s3.mp3",
+      "audio_hash": "39dd5b01d267"
     },
     {
       "idx": 4,
@@ -266,7 +282,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the rainy window, a cat is there."
+      "gloss_en": "In the rainy window, a cat is there.",
+      "audio": "audio/story_6/s4.mp3",
+      "audio_hash": "2c9c3c44d9f0"
     },
     {
       "idx": 5,
@@ -320,7 +338,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Then, the cat goes back through the door."
+      "gloss_en": "Then, the cat goes back through the door.",
+      "audio": "audio/story_6/s5.mp3",
+      "audio_hash": "58a1a7240b26"
     },
     {
       "idx": 6,
@@ -365,7 +385,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The cat looks at the flowers."
+      "gloss_en": "The cat looks at the flowers.",
+      "audio": "audio/story_6/s6.mp3",
+      "audio_hash": "6e747271e3e6"
     },
     {
       "idx": 7,
@@ -411,7 +433,76 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is the color of rain."
+      "gloss_en": "There is the color of rain.",
+      "audio": "audio/story_6/s7.mp3",
+      "audio_hash": "6b1418855d53"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "ペン",
+          "role": "content",
+          "word_id": "W00246",
+          "r": "ぺん",
+          "is_new": true
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means",
+          "is_new_grammar": true
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "書きます",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "かきます",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I write a letter with a pen.",
+      "audio": "audio/story_6/s8.mp3",
+      "audio_hash": "38fc7ac6d9d3"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00028": "audio/story_6/w_W00028.mp3",
+    "W00029": "audio/story_6/w_W00029.mp3",
+    "W00156": "audio/story_6/w_W00156.mp3",
+    "W00246": "audio/story_6/w_W00246.mp3",
+    "W00039": "audio/story_6/w_W00039.mp3",
+    "W00060": "audio/story_6/w_W00060.mp3"
+  },
+  "word_audio_hash": {
+    "W00028": "a810bf845a30",
+    "W00029": "85ed84cd6356",
+    "W00156": "2b3611f71ddd",
+    "W00246": "f97642d4309f",
+    "W00039": "417294942007",
+    "W00060": "4fa915ccc337"
+  }
 }

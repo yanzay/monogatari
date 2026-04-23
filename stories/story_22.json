@@ -33,9 +33,11 @@
   "new_words": [
     "W00067",
     "W00068",
-    "W00072"
+    "W00190"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G041_masenka_invitation"
+  ],
   "all_words_used": [
     "W00067",
     "W00033",
@@ -65,9 +67,9 @@
     "W00237",
     "W00039",
     "W00229",
-    "W00072",
-    "W00159",
-    "W00043"
+    "W00190",
+    "W00050",
+    "W00017"
   ],
   "sentences": [
     {
@@ -138,7 +140,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Cold morning, on the desk is an old book."
+      "gloss_en": "Cold morning, on the desk is an old book.",
+      "audio": "audio/story_22/s0.mp3",
+      "audio_hash": "5d145134f564"
     },
     {
       "idx": 1,
@@ -199,7 +203,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I read the book with my friend, the two of us."
+      "gloss_en": "I read the book with my friend, the two of us.",
+      "audio": "audio/story_22/s1.mp3",
+      "audio_hash": "680e3e7c097e"
     },
     {
       "idx": 2,
@@ -256,7 +262,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Inside the old book, there is a photo."
+      "gloss_en": "Inside the old book, there is a photo.",
+      "audio": "audio/story_22/s2.mp3",
+      "audio_hash": "b19b25a22531"
     },
     {
       "idx": 3,
@@ -303,7 +311,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The photo is of me and my friend."
+      "gloss_en": "The photo is of me and my friend.",
+      "audio": "audio/story_22/s3.mp3",
+      "audio_hash": "17359f6c0bd3"
     },
     {
       "idx": 4,
@@ -372,7 +382,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The young friend looks at the photo and laughs."
+      "gloss_en": "The young friend looks at the photo and laughs.",
+      "audio": "audio/story_22/s4.mp3",
+      "audio_hash": "6472c88634ed"
     },
     {
       "idx": 5,
@@ -428,7 +440,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I write a name in the new book."
+      "gloss_en": "I write a name in the new book.",
+      "audio": "audio/story_22/s5.mp3",
+      "audio_hash": "401c8c11dcfc"
     },
     {
       "idx": 6,
@@ -485,7 +499,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us read the new book."
+      "gloss_en": "The two of us read the new book.",
+      "audio": "audio/story_22/s6.mp3",
+      "audio_hash": "115336b17eb6"
     },
     {
       "idx": 7,
@@ -525,7 +541,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "An old photo, a new book."
+      "gloss_en": "An old photo, a new book.",
+      "audio": "audio/story_22/s7.mp3",
+      "audio_hash": "a614196477b1"
     },
     {
       "idx": 8,
@@ -579,7 +597,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two's morning, outside is snow."
+      "gloss_en": "The two's morning, outside is snow.",
+      "audio": "audio/story_22/s8.mp3",
+      "audio_hash": "25dd5aa9e21e"
     },
     {
       "idx": 9,
@@ -631,7 +651,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The child sits on the white chair."
+      "gloss_en": "The child sits on the white chair.",
+      "audio": "audio/story_22/s9.mp3",
+      "audio_hash": "17369d28f29a"
     },
     {
       "idx": 10,
@@ -694,73 +716,87 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I place an old letter on the plate."
+      "gloss_en": "I place an old letter on the plate.",
+      "audio": "audio/story_22/s10.mp3",
+      "audio_hash": "f12e0edc08d2"
     },
     {
       "idx": 11,
       "tokens": [
         {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "春",
+          "t": "少し",
           "role": "content",
-          "word_id": "W00072",
-          "r": "はる",
+          "word_id": "W00190",
+          "r": "すこし",
           "is_new": true
         },
         {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "早い",
+          "t": "寒い",
           "role": "content",
-          "word_id": "W00159",
-          "r": "はやい",
+          "word_id": "W00062",
+          "r": "さむい",
           "grammar_id": "G022_i_adj"
         },
         {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G014_to_omoimasu"
-        },
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "思います",
+          "t": "です",
           "role": "aux",
-          "word_id": "W00043",
-          "r": "おもいます",
-          "inflection": {
-            "base": "思う",
-            "base_r": "おもう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I think, \"spring is early.\""
+      "gloss_en": "It is a little cold.",
+      "audio": "audio/story_22/s11.mp3",
+      "audio_hash": "7d3f63ad7013"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "一緒に",
+          "role": "content",
+          "word_id": "W00050",
+          "r": "いっしょに"
+        },
+        {
+          "t": "歩きません",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "あるきません",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G041_masenka_invitation",
+          "is_new_grammar": true
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Won't you walk with me?",
+      "audio": "audio/story_22/s12.mp3",
+      "audio_hash": "a825d7d94e38"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00067": "audio/story_22/w_W00067.mp3",
+    "W00068": "audio/story_22/w_W00068.mp3",
+    "W00190": "audio/story_22/w_W00190.mp3"
+  },
+  "word_audio_hash": {
+    "W00067": "4f0311747e23",
+    "W00068": "9c3250ff63e1",
+    "W00190": "7b6eba65f987"
+  }
 }

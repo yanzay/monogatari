@@ -24,11 +24,13 @@
     ]
   },
   "new_words": [
-    "W00063",
     "W00065",
-    "W00251"
+    "W00251",
+    "W00089"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G037_ka_question"
+  ],
   "all_words_used": [
     "W00063",
     "W00064",
@@ -46,7 +48,12 @@
     "W00055",
     "W00061",
     "W00060",
-    "W00251"
+    "W00251",
+    "W00022",
+    "W00040",
+    "W00058",
+    "W00043",
+    "W00089"
   ],
   "sentences": [
     {
@@ -84,8 +91,7 @@
           "t": "雪",
           "role": "content",
           "word_id": "W00063",
-          "r": "ゆき",
-          "is_new": true
+          "r": "ゆき"
         },
         {
           "t": "です",
@@ -97,7 +103,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Cold night, outside is snow."
+      "gloss_en": "Cold night, outside is snow.",
+      "audio": "audio/story_21/s0.mp3",
+      "audio_hash": "563634da99c7"
     },
     {
       "idx": 1,
@@ -148,7 +156,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I walk home alone."
+      "gloss_en": "I walk home alone.",
+      "audio": "audio/story_21/s1.mp3",
+      "audio_hash": "45576014504e"
     },
     {
       "idx": 2,
@@ -180,7 +190,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The road is quiet."
+      "gloss_en": "The road is quiet.",
+      "audio": "audio/story_21/s2.mp3",
+      "audio_hash": "aff0d067ebad"
     },
     {
       "idx": 3,
@@ -229,7 +241,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is snow on the road."
+      "gloss_en": "There is snow on the road.",
+      "audio": "audio/story_21/s3.mp3",
+      "audio_hash": "a414aa05fad0"
     },
     {
       "idx": 4,
@@ -278,7 +292,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The moon is in the sky."
+      "gloss_en": "The moon is in the sky.",
+      "audio": "audio/story_21/s4.mp3",
+      "audio_hash": "0e08264d94d6"
     },
     {
       "idx": 5,
@@ -311,7 +327,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The moon is big."
+      "gloss_en": "The moon is big.",
+      "audio": "audio/story_21/s5.mp3",
+      "audio_hash": "5a07cf44f41a"
     },
     {
       "idx": 6,
@@ -344,7 +362,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The snow is small."
+      "gloss_en": "The snow is small.",
+      "audio": "audio/story_21/s6.mp3",
+      "audio_hash": "81c69089e09b"
     },
     {
       "idx": 7,
@@ -392,7 +412,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A snowy road, the moon's sky."
+      "gloss_en": "A snowy road, the moon's sky.",
+      "audio": "audio/story_21/s7.mp3",
+      "audio_hash": "2239e792aded"
     },
     {
       "idx": 8,
@@ -459,7 +481,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Alone at night, I write a name."
+      "gloss_en": "Alone at night, I write a name.",
+      "audio": "audio/story_21/s8.mp3",
+      "audio_hash": "93c93e5137cc"
     },
     {
       "idx": 9,
@@ -503,7 +527,156 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The road's corner is quiet."
+      "gloss_en": "The road's corner is quiet.",
+      "audio": "audio/story_21/s9.mp3",
+      "audio_hash": "913b34988827"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "来ません",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きません",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "negative_polite",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G036_masen"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend does not come.",
+      "audio": "audio/story_21/s10.mp3",
+      "audio_hash": "0b5394f824d4"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "元気",
+          "role": "content",
+          "word_id": "W00058",
+          "r": "げんき"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question",
+          "is_new_grammar": true
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G014_to_omoimasu"
+        },
+        {
+          "t": "思います",
+          "role": "aux",
+          "word_id": "W00043",
+          "r": "おもいます",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "'Are you well?' I think.",
+      "audio": "audio/story_21/s11.mp3",
+      "audio_hash": "c33c2508cb4c"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "はは",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "元気",
+          "role": "content",
+          "word_id": "W00058",
+          "r": "げんき"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend's mother is well.",
+      "audio": "audio/story_21/s12.mp3",
+      "audio_hash": "aee379c20763"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00065": "audio/story_21/w_W00065.mp3",
+    "W00251": "audio/story_21/w_W00251.mp3",
+    "W00089": "audio/story_21/w_W00089.mp3"
+  },
+  "word_audio_hash": {
+    "W00065": "45b3f27e3a97",
+    "W00251": "beddda2bcf24",
+    "W00089": "1a3205c3a91e"
+  }
 }

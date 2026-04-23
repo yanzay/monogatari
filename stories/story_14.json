@@ -39,7 +39,6 @@
     "W00158",
     "W00004",
     "W00006",
-    "W00042",
     "W00022",
     "W00040",
     "W00162",
@@ -57,7 +56,9 @@
     "W00011",
     "W00037",
     "W00237",
-    "W00044"
+    "W00044",
+    "W00246",
+    "W00060"
   ],
   "sentences": [
     {
@@ -131,21 +132,13 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "At night, I look at the moon through the blue window."
+      "gloss_en": "At night, I look at the moon through the blue window.",
+      "audio": "audio/story_14/s0.mp3",
+      "audio_hash": "1a9418dc6386"
     },
     {
       "idx": 1,
       "tokens": [
-        {
-          "t": "昨日",
-          "role": "content",
-          "word_id": "W00042",
-          "r": "きのう"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
         {
           "t": "友達",
           "role": "content",
@@ -186,7 +179,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Yesterday, a letter came from my friend."
+      "gloss_en": "A letter came from a friend.",
+      "audio": "audio/story_14/s1.mp3",
+      "audio_hash": "6fde3b6bce59"
     },
     {
       "idx": 2,
@@ -246,7 +241,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Young me reads the painful letter."
+      "gloss_en": "Young me reads the painful letter.",
+      "audio": "audio/story_14/s2.mp3",
+      "audio_hash": "dd45f343733c"
     },
     {
       "idx": 3,
@@ -309,7 +306,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Tomorrow I will read a heavy book, too."
+      "gloss_en": "Tomorrow I will read a heavy book, too.",
+      "audio": "audio/story_14/s3.mp3",
+      "audio_hash": "caf13a1dc340"
     },
     {
       "idx": 4,
@@ -361,7 +360,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Tomorrow, too, I will eat a light breakfast."
+      "gloss_en": "Tomorrow, too, I will eat a light breakfast.",
+      "audio": "audio/story_14/s4.mp3",
+      "audio_hash": "15f9b7e09ba3"
     },
     {
       "idx": 5,
@@ -401,7 +402,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I'll go ahead and have some tea now."
+      "gloss_en": "I'll go ahead and have some tea now.",
+      "audio": "audio/story_14/s5.mp3",
+      "audio_hash": "f93aa5d3eeb4"
     },
     {
       "idx": 6,
@@ -440,7 +443,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I'll go ahead and look at the letter, too."
+      "gloss_en": "I'll go ahead and look at the letter, too.",
+      "audio": "audio/story_14/s6.mp3",
+      "audio_hash": "2b6782fd440c"
     },
     {
       "idx": 7,
@@ -499,7 +504,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Even at night, the moon's song is quiet."
+      "gloss_en": "Even at night, the moon's song is quiet.",
+      "audio": "audio/story_14/s7.mp3",
+      "audio_hash": "49023ee055d7"
     },
     {
       "idx": 8,
@@ -555,7 +562,66 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is a book on the desk."
+      "gloss_en": "There is a book on the desk.",
+      "audio": "audio/story_14/s8.mp3",
+      "audio_hash": "e570ed06657d"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "ペン",
+          "role": "content",
+          "word_id": "W00246",
+          "r": "ぺん"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "書きます",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "かきます",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I write a letter with a pen.",
+      "audio": "audio/story_14/s9.mp3",
+      "audio_hash": "38fc7ac6d9d3"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00163": "audio/story_14/w_W00163.mp3",
+    "W00046": "audio/story_14/w_W00046.mp3",
+    "W00164": "audio/story_14/w_W00164.mp3"
+  },
+  "word_audio_hash": {
+    "W00163": "3460ae1de30f",
+    "W00046": "6450d5f86685",
+    "W00164": "602c513e5ff7"
+  }
 }

@@ -282,6 +282,17 @@ def regen_one(
         "思います": "G014_to_omoimasu",
         "言います": "G028_to_iimasu",
     }
+    # Post-pass C surfaces: clause-level constructs detected by sentence shape.
+    # G030_kara_reason: clause-final から after a verb/adj/です stem (reason clause)
+    #   — distinguished from G006_kara_from (locative/temporal から after a noun).
+    # G036_masen: polite-negative verb ending ません (e.g. 来ません、待ちません).
+    #   — only tag the ません token; role must be content (not already aux).
+    # G041_masenka_invitation: ませんか sentence-final invitation.
+    # G049_ga_but: clause-conjunctive が meaning "but" — tag the が token that
+    #   immediately follows a predicate (verb/adj/です stem) and precedes another clause.
+    MASEN_SURFACE    = "ません"
+    MASENKA_SURFACE  = "ませんか"
+    KA_SURFACE       = "か"
     for sn in regen.get("sentences", []):
         toks = sn.get("tokens", [])
         # Pass A: simple surface-based retagging
@@ -318,6 +329,71 @@ def regen_one(
                         toks[k]["grammar_id"] = quot_gid
                         toks[j]["role"] = "aux"
                         break
+        # Pass C: clause-level constructs.
+        for j, tok in enumerate(toks):
+            t = tok.get("t", "")
+            # G041_masenka_invitation — ませんか (invitation)
+            # Handles both fused single-token 「ませんか」 and the more common
+            # two-token split 「ません」+「か」where か is sentence-final.
+            if t == MASENKA_SURFACE:
+                tok["grammar_id"] = "G041_masenka_invitation"
+            elif tok.get("role") == "content" and (
+                    t == MASEN_SURFACE or t.endswith(MASEN_SURFACE)):
+                # G035_arimasen — negative existence: ありません (or compound あり
+                # ません). Must not override an already-correct tag from Pass A.
+                base = (tok.get("inflection") or {}).get("base", "")
+                if t in {"ありません"} or base in {"ある", "有る"}:
+                    # Only set if not already tagged more specifically by Pass A
+                    cur = tok.get("grammar_id") or ""
+                    if cur in (None, "", "G026_masu_nonpast", "G036_masen"):
+                        tok["grammar_id"] = "G035_arimasen"
+                else:
+                    # Check if the next token is sentence-final か (invitation)
+                    nxt = toks[j + 1] if j + 1 < len(toks) else None
+                    nxt2 = toks[j + 2] if j + 2 < len(toks) else None
+                    # 〜ません + か (sentence-final) = G041_masenka_invitation.
+                    # Tag only the verb token as G041; the particle か retains
+                    # its G037_ka_question tag (they co-occur legitimately).
+                    if (nxt is not None and nxt.get("t") == KA_SURFACE
+                            and (nxt2 is None or nxt2.get("t") in {"。", "？", "!"})):
+                        tok["grammar_id"] = "G041_masenka_invitation"
+                        # do NOT retag か — leave it as G037_ka_question
+                    else:
+                        # G036_masen — standalone polite negative (来ません, 待ちません…)
+                        tok["grammar_id"] = "G036_masen"
+            # G030_kara_reason — から after a predicate (not a plain noun)
+            # Heuristic: the token immediately before から is not role=content
+            # with a noun-like grammar_id (i.e. it is a verb/adj/copula surface).
+            elif t == "から" and tok.get("role") == "particle":
+                prev = toks[j - 1] if j > 0 else None
+                if prev is not None:
+                    prev_role = prev.get("role", "")
+                    prev_gid  = prev.get("grammar_id") or ""
+                    # Locative/temporal から follows a noun content token tagged
+                    # with no grammar_id or a noun-like id (G006 already set).
+                    # Reason から follows a predicate: verb (content with masu/
+                    # plain base) or copula (です/だ).
+                    prev_t = prev.get("t", "")
+                    is_predicate = (
+                        prev_t in {"です", "だ", "ます"}
+                        or prev_t.endswith("ます")  # e.g. 来ます, 歩きます
+                        or prev_t.endswith("ません")  # negative predicate
+                        or prev_t.endswith("した")   # past predicate
+                        or prev_role in {"aux"}
+                        or (prev_role == "content" and prev_gid not in (None, "", "G006_kara_from")
+                            and not prev_gid.startswith("G00"))  # noun/location gids tend to be low
+                    )
+                    if is_predicate:
+                        tok["grammar_id"] = "G030_kara_reason"
+            # G049_ga_but — clause-conjunctive が (follows predicate, precedes clause)
+            elif t == "が" and tok.get("role") == "particle":
+                prev = toks[j - 1] if j > 0 else None
+                nxt  = toks[j + 1] if j + 1 < len(toks) else None
+                if prev is not None and nxt is not None:
+                    prev_t = prev.get("t", "")
+                    # Contrastive が follows a predicate surface
+                    if prev_t in {"です", "だ", "ます", "せん"} or prev.get("role") == "aux":
+                        tok["grammar_id"] = "G049_ga_but"
     strip_audio(regen)
     return spec, regen, report
 

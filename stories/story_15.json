@@ -26,11 +26,12 @@
   "new_words": [
     "W00047",
     "W00165",
-    "W00166",
     "W00066",
     "W00051"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G018_toki_when"
+  ],
   "all_words_used": [
     "W00030",
     "W00047",
@@ -110,7 +111,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Tomorrow night, I will walk outside."
+      "gloss_en": "Tomorrow night, I will walk outside.",
+      "audio": "audio/story_15/s0.mp3",
+      "audio_hash": "b3ae6f5c7187"
     },
     {
       "idx": 1,
@@ -167,7 +170,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "After walking, I look at the sky."
+      "gloss_en": "After walking, I look at the sky.",
+      "audio": "audio/story_15/s1.mp3",
+      "audio_hash": "159895757b1d"
     },
     {
       "idx": 2,
@@ -212,7 +217,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is a star in the sky."
+      "gloss_en": "There is a star in the sky.",
+      "audio": "audio/story_15/s2.mp3",
+      "audio_hash": "15c33e8b26ca"
     },
     {
       "idx": 3,
@@ -257,7 +264,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The moon is also in the sky."
+      "gloss_en": "The moon is also in the sky.",
+      "audio": "audio/story_15/s3.mp3",
+      "audio_hash": "0086389e0117"
     },
     {
       "idx": 4,
@@ -324,7 +333,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "After looking at the stars, I go home."
+      "gloss_en": "After looking at the stars, I go home.",
+      "audio": "audio/story_15/s4.mp3",
+      "audio_hash": "af1d3d2f2497"
     },
     {
       "idx": 5,
@@ -344,7 +355,8 @@
         {
           "t": "とき",
           "role": "particle",
-          "grammar_id": "G018_toki_when"
+          "grammar_id": "G018_toki_when",
+          "is_new_grammar": true
         },
         {
           "t": "、",
@@ -403,7 +415,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "When I walk, I think: \"the night is quiet.\""
+      "gloss_en": "When I walk, I think: \"the night is quiet.\"",
+      "audio": "audio/story_15/s5.mp3",
+      "audio_hash": "4c5ba53fbf33"
     },
     {
       "idx": 6,
@@ -436,7 +450,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The stars are good too."
+      "gloss_en": "The stars are good too.",
+      "audio": "audio/story_15/s6.mp3",
+      "audio_hash": "4d480bbaebfa"
     },
     {
       "idx": 7,
@@ -508,7 +524,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Moon, stars, song, and music — a good feeling."
+      "gloss_en": "Moon, stars, song, and music — a good feeling.",
+      "audio": "audio/story_15/s7.mp3",
+      "audio_hash": "df6654905dd4"
     },
     {
       "idx": 8,
@@ -539,8 +557,7 @@
           "t": "皿",
           "role": "content",
           "word_id": "W00166",
-          "r": "さら",
-          "is_new": true
+          "r": "さら"
         },
         {
           "t": "が",
@@ -565,7 +582,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On the desk are tea and a plate."
+      "gloss_en": "On the desk are tea and a plate.",
+      "audio": "audio/story_15/s8.mp3",
+      "audio_hash": "2f98a622cb0c"
     },
     {
       "idx": 9,
@@ -620,7 +639,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think, \"The night is new.\""
+      "gloss_en": "I think, \"The night is new.\"",
+      "audio": "audio/story_15/s9.mp3",
+      "audio_hash": "0ff4e0facee0"
     },
     {
       "idx": 10,
@@ -690,7 +711,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think, \"the tea is good.\""
+      "gloss_en": "I think, \"the tea is good.\"",
+      "audio": "audio/story_15/s10.mp3",
+      "audio_hash": "77b26042cc6e"
     },
     {
       "idx": 11,
@@ -730,7 +753,21 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The small child is quiet."
+      "gloss_en": "The small child is quiet.",
+      "audio": "audio/story_15/s11.mp3",
+      "audio_hash": "dfb8d8e30a0c"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00047": "audio/story_15/w_W00047.mp3",
+    "W00165": "audio/story_15/w_W00165.mp3",
+    "W00066": "audio/story_15/w_W00066.mp3",
+    "W00051": "audio/story_15/w_W00051.mp3"
+  },
+  "word_audio_hash": {
+    "W00047": "2f8267a89ad5",
+    "W00165": "14b31fd94b35",
+    "W00066": "08468ea02e6f",
+    "W00051": "6fb0aaad480a"
+  }
 }

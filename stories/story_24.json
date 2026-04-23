@@ -26,7 +26,7 @@
   "new_words": [
     "W00073",
     "W00074",
-    "W00190"
+    "W00090"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -61,7 +61,8 @@
     "W00137",
     "W00138",
     "W00251",
-    "W00036"
+    "W00036",
+    "W00090"
   ],
   "sentences": [
     {
@@ -106,7 +107,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "This morning, spring comes."
+      "gloss_en": "This morning, spring comes.",
+      "audio": "audio/story_24/s0.mp3",
+      "audio_hash": "d05f48ac769a"
     },
     {
       "idx": 1,
@@ -163,7 +166,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I open the new window."
+      "gloss_en": "I open the new window.",
+      "audio": "audio/story_24/s1.mp3",
+      "audio_hash": "7c442ecd839a"
     },
     {
       "idx": 2,
@@ -211,7 +216,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The spring morning is warm."
+      "gloss_en": "The spring morning is warm.",
+      "audio": "audio/story_24/s2.mp3",
+      "audio_hash": "372af9336ced"
     },
     {
       "idx": 3,
@@ -260,7 +267,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There are flowers in the garden."
+      "gloss_en": "There are flowers in the garden.",
+      "audio": "audio/story_24/s3.mp3",
+      "audio_hash": "7c91d23c2b8e"
     },
     {
       "idx": 4,
@@ -309,7 +318,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I open the door, too."
+      "gloss_en": "I open the door, too.",
+      "audio": "audio/story_24/s4.mp3",
+      "audio_hash": "918bba1588c8"
     },
     {
       "idx": 5,
@@ -365,7 +376,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the garden, I eat a light breakfast."
+      "gloss_en": "In the garden, I eat a light breakfast.",
+      "audio": "audio/story_24/s5.mp3",
+      "audio_hash": "98228f289c86"
     },
     {
       "idx": 6,
@@ -412,7 +425,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Breakfast is an egg and bread."
+      "gloss_en": "Breakfast is an egg and bread.",
+      "audio": "audio/story_24/s6.mp3",
+      "audio_hash": "be480213e61b"
     },
     {
       "idx": 7,
@@ -446,7 +461,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The road is long."
+      "gloss_en": "The road is long.",
+      "audio": "audio/story_24/s7.mp3",
+      "audio_hash": "7698e123240b"
     },
     {
       "idx": 8,
@@ -518,7 +535,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Long spring road, station's train, warm morning."
+      "gloss_en": "Long spring road, station's train, warm morning.",
+      "audio": "audio/story_24/s8.mp3",
+      "audio_hash": "0f1e732ad48a"
     },
     {
       "idx": 9,
@@ -558,7 +577,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Together we wait for spring."
+      "gloss_en": "Together we wait for spring.",
+      "audio": "audio/story_24/s9.mp3",
+      "audio_hash": "a9ca4175f68d"
     },
     {
       "idx": 10,
@@ -593,8 +614,7 @@
           "t": "少し",
           "role": "content",
           "word_id": "W00190",
-          "r": "すこし",
-          "is_new": true
+          "r": "すこし"
         },
         {
           "t": "悲しい",
@@ -613,7 +633,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The rain is quiet and a little sad."
+      "gloss_en": "The rain is quiet and a little sad.",
+      "audio": "audio/story_24/s10.mp3",
+      "audio_hash": "eb6f0271233b"
     },
     {
       "idx": 11,
@@ -652,7 +674,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bright air is quiet."
+      "gloss_en": "The bright air is quiet.",
+      "audio": "audio/story_24/s11.mp3",
+      "audio_hash": "476692654525"
     },
     {
       "idx": 12,
@@ -697,7 +721,56 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is a chair on the corner."
+      "gloss_en": "There is a chair on the corner.",
+      "audio": "audio/story_24/s12.mp3",
+      "audio_hash": "eb96065352ad"
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "秋",
+          "role": "content",
+          "word_id": "W00090",
+          "r": "あき",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Autumn comes.",
+      "audio": "audio/story_24/s13.mp3",
+      "audio_hash": "0b1853b40c32"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00073": "audio/story_24/w_W00073.mp3",
+    "W00074": "audio/story_24/w_W00074.mp3",
+    "W00090": "audio/story_24/w_W00090.mp3"
+  },
+  "word_audio_hash": {
+    "W00073": "02d2300d4ce0",
+    "W00074": "e0d1f089aa4c",
+    "W00090": "5a2e5e4b12a4"
+  }
 }
