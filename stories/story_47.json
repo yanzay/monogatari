@@ -8,7 +8,9 @@
         "t": "誰",
         "role": "content",
         "word_id": "W00140",
-        "r": "だれ"
+        "r": "だれ",
+        "grammar_id": "G039_dare_who",
+        "is_new_grammar": true
       },
       {
         "t": "の",
@@ -53,8 +55,8 @@
   },
   "new_words": [
     "W00141",
-    "W00142",
-    "W00140"
+    "W00140",
+    "W00142"
   ],
   "new_grammar": [
     "G039_dare_who"
@@ -71,7 +73,6 @@
     "W00003",
     "W00142",
     "W00022",
-    "W00217",
     "W00098",
     "W00067",
     "W00066",
@@ -351,17 +352,14 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "黒く",
+          "t": "黒くない",
           "role": "content",
           "word_id": "W00141",
-          "r": "くろく"
-        },
-        {
-          "t": "ない",
-          "role": "content",
-          "word_id": "W00217",
-          "r": "ない",
-          "grammar_id": "G022_i_adj"
+          "r": "くろくない",
+          "inflection": {
+            "form": "i_adj_negative"
+          },
+          "grammar_id": "G038_kunai"
         },
         {
           "t": "です",

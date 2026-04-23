@@ -65,9 +65,9 @@
     ]
   },
   "new_words": [
-    "W00132",
+    "W00131",
     "W00133",
-    "W00131"
+    "W00132"
   ],
   "new_grammar": [
     "G036_masen"
@@ -323,8 +323,7 @@
             "form": "negative_polite",
             "verb_class": "godan"
           },
-          "grammar_id": "G036_masen",
-          "is_new_grammar": true
+          "grammar_id": "G035_arimasen"
         },
         {
           "t": "。",
@@ -358,7 +357,8 @@
             "form": "negative_polite",
             "verb_class": "godan"
           },
-          "grammar_id": "G036_masen"
+          "grammar_id": "G036_masen",
+          "is_new_grammar": true
         },
         {
           "t": "。",
@@ -488,11 +488,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {
@@ -605,14 +605,9 @@
           "grammar_id": "G022_i_adj"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "から",
+          "t": "ですから",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
+          "grammar_id": "G059_dakara"
         },
         {
           "t": "、",

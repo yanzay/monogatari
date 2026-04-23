@@ -77,12 +77,11 @@ SURFACE_TO_GRAMMAR: dict[str, str] = {
     "だ":     "G024_da",
     "でも":   "G032_demo",
     "じゃ":   "G051_janai",
+    "とき":   "G018_toki_when",  # temporal subordinator (when written in kana)
     # Compound particles (multi-token in UniDic)
-    "について": "G041_nitsuite",
-    "によって": "G042_niyotte",
-    "として":   "G043_toshite",
-    "のために": "G044_notameni",
-    "ために":   "G044_notameni",
+    "について": "G027_ni_tsuite",
+    "だから":   "G059_dakara",
+    "ですから": "G059_dakara",
 }
 
 GRAMMAR_ROLE: dict[str, str] = {
@@ -101,15 +100,18 @@ VERB_SUFFIX_LEMMAS = {
     "たい", "ながら",
     "れる", "られる", "せる", "させる",
 }
+# `です` is glued to a verb only when the verb already ends in ません
+# (forms 〜ませんでした). Standalone です/でした stays separate.
 
 # Verbs that, when following a て-form, are pulled OUT into a separate aux token
 # (te-iru, te-aru, te-oku, te-shimau, te-miru). Keyed by the aux verb's lemma.
 TE_AUX_VERBS = {
-    "居る":   ("G008_te_iru",   "いる"),
-    "有る":   ("G018_te_aru",   "ある"),
-    "置く":   ("G019_te_oku",   "おく"),
-    "仕舞う": ("G020_te_shimau","しまう"),
-    "見る":   ("G027_te_miru",  "みる"),
+    "居る":   ("G008_te_iru",     "いる"),
+    "有る":   ("G018_te_aru",     "ある"),
+    "置く":   ("G019_te_oku",     "おく"),
+    "仕舞う": ("G020_te_shimau",  "しまう"),
+    "見る":   ("G027_te_miru",    "みる"),
+    "下さる": ("G044_te_kudasai", "ください"),
 }
 
 # Reading overrides: UniDic returns formal readings for some pronouns/words.
@@ -315,10 +317,34 @@ def merge_tokens(raw: list[Token], vocab: VocabIndex) -> list[dict]:
         if matched:
             continue
 
-        # Rule 1: でし + た → でした (copula past)
+        # Rule 0b: じゃ + ない (+ です) → じゃない / じゃないです
+        # (G051_janai). Glue 2 or 3 tokens into one aux.
+        if (
+            t.surface == "じゃ" and t.lemma == "だ"
+            and i + 1 < n and raw[i + 1].surface == "ない"
+        ):
+            m = _new_merged(t)
+            m["surface"] = "じゃない"
+            m["_aux"].append(raw[i + 1])
+            m["_force_role"] = "aux"
+            m["_force_grammar_id"] = "G051_janai"
+            m["_lemma"] = "じゃない"
+            j = i + 2
+            if j < n and raw[j].surface == "です":
+                m["surface"] += raw[j].surface
+                m["_aux"].append(raw[j])
+                j += 1
+            out.append(m)
+            i = j
+            continue
+
+        # Rule 1: でし + た → でした (copula past) — but ONLY when not
+        # following a verb (in which case でし is a suffix glued to make
+        # 〜ませんでした).
         if (
             t.surface == "でし" and t.lemma == "です"
             and i + 1 < n and raw[i + 1].surface == "た"
+            and not (out and out[-1].get("_pos1") == "動詞")
         ):
             m = _new_merged(t)
             m["surface"] = "でした"
@@ -372,15 +398,37 @@ def merge_tokens(raw: list[Token], vocab: VocabIndex) -> list[dict]:
             i += 1
             continue
 
+        # Rule 3a: ませんでした glue — when previous verb already ends in
+        # ません, pull in でし+た (or でした) as a single past-negative.
+        if (
+            out
+            and out[-1].get("_pos1") == "動詞"
+            and out[-1]["surface"].endswith("ません")
+            and t.surface in ("でし", "でした")
+            and t.lemma == "です"
+        ):
+            prev = out[-1]
+            prev["surface"] += t.surface
+            prev["_aux"].append(t)
+            # Consume the trailing た if でし
+            if t.surface == "でし" and i + 1 < n and raw[i + 1].surface == "た":
+                prev["surface"] += raw[i + 1].surface
+                prev["_aux"].append(raw[i + 1])
+                i += 2
+            else:
+                i += 1
+            continue
+
         # Rule 3b: i-adjective + て (te-form: 古く+て → 古くて) OR
         #          i-adjective + た (past:    暑かっ+た → 暑かった) OR
-        #          i-adjective + ない (negative: 暑く+ない — kunai is split
-        #          into 暑く+ない where 暑く is the 連用形 form; we glue).
+        #          i-adjective + ない (negative: 寒く+ない → 寒くない;
+        #          UniDic gives the negative aux ない as i-adjective with
+        #          lemma 無い, hence the lemma alternation).
         if (
             out
             and out[-1].get("_pos1") == "形容詞"
             and t.pos1 in ("助詞", "助動詞", "形容詞")
-            and t.lemma in ("て", "た", "ない")
+            and t.lemma in ("て", "た", "ない", "無い")
         ):
             prev = out[-1]
             prev["surface"] += t.surface
@@ -517,13 +565,22 @@ def _classify_inflection(merged: dict) -> Optional[dict]:
     form: Optional[str] = None
     token_grammar_id: Optional[str] = None
     if full.endswith("ませんでした"):
-        form, token_grammar_id = "negative_polite_past", "G013_mashita_past"
+        form, token_grammar_id = "polite_past_negative", "G046_masen_deshita"
+    elif full.endswith("ましょう") or full.endswith("ましょうか"):
+        form, token_grammar_id = "volitional_polite", "G048_masho"
     elif full.endswith("ました"):
         form, token_grammar_id = "polite_past", "G013_mashita_past"
     elif full.endswith("ません"):
-        form, token_grammar_id = "negative_polite", "G036_masen"
+        # Special-case ありません → G035_arimasen (lexical existence-negation
+        # for inanimate things), not G036_masen.
+        if full == "ありません" or full.endswith("ありません"):
+            form, token_grammar_id = "negative_polite", "G035_arimasen"
+        else:
+            form, token_grammar_id = "negative_polite", "G036_masen"
     elif full.endswith("ます"):
         form, token_grammar_id = "polite_nonpast", "G026_masu_nonpast"
+    elif full.endswith("なかった"):
+        form, token_grammar_id = "plain_past_negative", "G056_plain_past_pair"
     elif full.endswith("ながら"):
         form, token_grammar_id = "nagara", "G057_nagara"
     elif full.endswith("たい"):
@@ -717,8 +774,14 @@ def merged_to_token_json(merged: dict, st: BuildState) -> dict:
         _mark_new_grammar(tok, gid, st)
         return tok
 
-    # Pure grammar surface match (particles / copula / discourse)
-    if merged["_pos1"] in ("助詞", "助動詞", "接続詞") and surface in SURFACE_TO_GRAMMAR:
+    # Pure grammar surface match (particles / copula / discourse).
+    # The very few nominal surfaces that act as grammar markers (とき, だから)
+    # are also accepted from 名詞/接続詞.
+    GRAMMAR_NOMINAL_SURFACES = {"とき", "だから", "ですから"}
+    if (
+        merged["_pos1"] in ("助詞", "助動詞", "接続詞")
+        and surface in SURFACE_TO_GRAMMAR
+    ) or surface in GRAMMAR_NOMINAL_SURFACES and surface in SURFACE_TO_GRAMMAR:
         gid = SURFACE_TO_GRAMMAR[surface]
         tok = {"t": surface, "role": _grammar_role(gid), "grammar_id": gid}
         _mark_new_grammar(tok, gid, st)
@@ -751,9 +814,71 @@ def merged_to_token_json(merged: dict, st: BuildState) -> dict:
     cls = _classify_inflection(merged)
     if cls:
         infl = cls["inflection"]
-        # Drop inflection for plain dictionary-form verbs (no aux suffixes)
-        # — canonical only emits inflection when a non-dictionary form fired.
+        # Drop inflection for plain dictionary-form verbs ONLY when the vocab
+        # record's surface IS already the dictionary form (so token surface
+        # matches vocab surface). For verbs stored as polite form (the bulk
+        # of the library), a dictionary-form usage MUST carry an inflection
+        # block with form="plain_nonpast" so the validator can recognize it
+        # as a deliberate plain-form variant.
+        is_plain_form_of_polite_vocab = (
+            infl["form"] == "dictionary"
+            and word and word.get("pos") == "verb"
+            and word.get("surface", "").endswith("ます")
+        )
+        if is_plain_form_of_polite_vocab:
+            infl["form"] = "plain_nonpast"
+            # Don't auto-tag G055_plain_nonpast_pair — it's not introduced
+            # until late in the corpus. The regenerator's carry-over pass
+            # will add it from canonical when appropriate.
+            cls["token_grammar_id"] = None
         if infl["form"] != "dictionary":
+            # If we have a vocab record for this verb, prefer its truth:
+            # vocab.kana is the polite-form kana (e.g. ふります for W00107).
+            # We need base_r in plain dict form. Reconstruct from vocab.kana
+            # by stripping ます and back-conjugating per verb_class.
+            if word and word.get("kana") and word.get("pos") == "verb":
+                vocab_kana = word["kana"]
+                if vocab_kana.endswith("ます"):
+                    stem = vocab_kana[:-2]
+                    vc = word.get("verb_class") or infl.get("verb_class")
+                    if vc == "ichidan":
+                        infl["base_r"] = stem + "る"
+                    elif vc == "godan":
+                        infl["base_r"] = _godan_to_dict(stem, "")
+                    elif vc == "irregular_kuru":
+                        infl["base_r"] = "くる"
+                    elif vc == "irregular_suru":
+                        infl["base_r"] = "する"
+                    elif vc == "irregular_aru":
+                        infl["base_r"] = "ある"
+                # Use the vocab record's surface dict-form too (strip ます).
+                # For godan: vocab surface ends in masu-stem (i-row) kana such
+                # as 思い・行き・飲み — we replace the trailing kana with the
+                # dict-form ending derived from base_r.
+                vocab_surf = word.get("surface", "")
+                if vocab_surf.endswith("ます"):
+                    surface_stem = vocab_surf[:-2]
+                    vc = word.get("verb_class") or infl.get("verb_class")
+                    if vc == "ichidan":
+                        # 見ます → stem 見 → 見る
+                        infl["base"] = surface_stem + "る"
+                    elif vc == "godan":
+                        # Replace trailing kana of stem with dict-form ending.
+                        # 思い → 思う, 行き → 行く, 飲み → 飲む.
+                        ending = (infl.get("base_r") or "")[-1:]
+                        if surface_stem and ending:
+                            if not has_kanji(surface_stem[-1]):
+                                # last char is the masu-stem kana → replace it
+                                infl["base"] = surface_stem[:-1] + ending
+                            else:
+                                # all-kanji stem (rare) → append
+                                infl["base"] = surface_stem + ending
+                    elif vc == "irregular_kuru":
+                        infl["base"] = "来る"
+                    elif vc == "irregular_suru":
+                        infl["base"] = surface_stem + "する" if surface_stem else "する"
+                    elif vc == "irregular_aru":
+                        infl["base"] = "ある"
             tok["inflection"] = infl
             gid = cls["token_grammar_id"]
             if gid:

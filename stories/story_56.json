@@ -8,7 +8,14 @@
         "t": "行きましょう",
         "role": "content",
         "word_id": "W00150",
-        "r": "いきましょう"
+        "r": "いきましょう",
+        "inflection": {
+          "base": "行く",
+          "base_r": "いく",
+          "form": "volitional_polite",
+          "verb_class": "godan"
+        },
+        "grammar_id": "G048_masho"
       },
       {
         "t": "。",
@@ -84,9 +91,9 @@
     ]
   },
   "new_words": [
+    "W00150",
     "W00186",
-    "W00185",
-    "W00150"
+    "W00185"
   ],
   "new_grammar": [
     "G048_masho"
@@ -272,7 +279,15 @@
           "role": "content",
           "word_id": "W00150",
           "r": "いきましょう",
-          "is_new": true
+          "is_new": true,
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "volitional_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G048_masho",
+          "is_new_grammar": true
         },
         {
           "t": "」",
@@ -281,11 +296,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {
@@ -503,7 +518,14 @@
           "t": "歩きましょう",
           "role": "content",
           "word_id": "W00017",
-          "r": "あるきましょう"
+          "r": "あるきましょう",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "volitional_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G048_masho"
         },
         {
           "t": "」",
@@ -619,7 +641,8 @@
           "t": "あの",
           "role": "content",
           "word_id": "W00147",
-          "r": "あの"
+          "r": "あの",
+          "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
           "t": "古い",
@@ -824,7 +847,14 @@
           "t": "飲みましょう",
           "role": "content",
           "word_id": "W00010",
-          "r": "のみましょう"
+          "r": "のみましょう",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "volitional_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G048_masho"
         },
         {
           "t": "」",
@@ -916,7 +946,14 @@
           "t": "行きましょう",
           "role": "content",
           "word_id": "W00150",
-          "r": "いきましょう"
+          "r": "いきましょう",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "volitional_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G048_masho"
         },
         {
           "t": "。",

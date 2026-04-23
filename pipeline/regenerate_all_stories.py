@@ -23,6 +23,7 @@ import shutil
 import sys
 from datetime import datetime
 from pathlib import Path
+from typing import Optional
 
 ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(Path(__file__).parent))
@@ -60,6 +61,167 @@ def strip_audio(story: dict) -> None:
                 tok.pop(f, None)
 
 
+def _refresh_vocab_metadata(vocab: dict, stories_dir: Path) -> None:
+    """Recompute occurrences / first_story / last_seen_story for every word
+    by scanning all shipped stories. Mirrors state_updater semantics:
+    occurrences = number of stories the word appears in (not raw token count).
+    """
+    word_ids = set(vocab.get("words", {}).keys())
+    # `occurrences` mirrors state_updater semantics: one increment per story
+    # the word appears in, counting `sentences` only.
+    sent_seen_in: dict[str, list[str]] = {wid: [] for wid in word_ids}
+    # `first_story` / `last_seen_story` count ANY appearance (incl. title/subtitle)
+    any_seen_in: dict[str, list[str]] = {wid: [] for wid in word_ids}
+    for path in sorted(stories_dir.glob("story_*.json"), key=lambda p: int(p.stem.split("_")[1])):
+        story = json.loads(path.read_text(encoding="utf-8"))
+        sid = path.stem
+        sent_used: set[str] = set()
+        any_used: set[str] = set()
+        for sn in story.get("sentences", []):
+            for t in sn.get("tokens", []):
+                wid = t.get("word_id")
+                if wid and wid in word_ids:
+                    sent_used.add(wid)
+                    any_used.add(wid)
+        for sect in ("title", "subtitle"):
+            for t in story.get(sect, {}).get("tokens", []):
+                wid = t.get("word_id")
+                if wid and wid in word_ids:
+                    any_used.add(wid)
+        for wid in sent_used:
+            sent_seen_in[wid].append(sid)
+        for wid in any_used:
+            any_seen_in[wid].append(sid)
+    for wid, w in vocab["words"].items():
+        sents = sent_seen_in.get(wid, [])
+        any_ = any_seen_in.get(wid, [])
+        if sents or any_:
+            w["occurrences"] = len(sents)
+            if any_:
+                w["first_story"] = any_[0]
+                w["last_seen_story"] = any_[-1]
+
+
+def _all_section_tokens(story: dict) -> list[tuple[str, dict]]:
+    """Walk all tokens in (section_name, token) pairs, in document order."""
+    out = []
+    for sect_name in ("title", "subtitle"):
+        for t in story.get(sect_name, {}).get("tokens", []):
+            out.append((sect_name, t))
+    for sn in story.get("sentences", []):
+        for t in sn.get("tokens", []):
+            out.append((f"sentence_{sn.get('idx')}", t))
+    return out
+
+
+def _carry_over_canonical_grammar(
+    canon: dict,
+    regen: dict,
+    hint_grammar: set[str],
+    mark_new_set: Optional[set[str]] = None,
+) -> int:
+    """
+    For each grammar_id in hint_grammar that isn't tagged on ANY regen token,
+    find canonical's first occurrence (by section + surface), then locate the
+    matching surface in regen and copy the grammar_id over.
+
+    Returns the number of tags carried over.
+    """
+    # Build set of grammar_ids already present in regen
+    present_in_regen: set[str] = set()
+    for _, t in _all_section_tokens(regen):
+        gid = t.get("grammar_id")
+        if gid:
+            present_in_regen.add(gid)
+        infl = t.get("inflection")
+        if isinstance(infl, dict) and infl.get("grammar_id"):
+            present_in_regen.add(infl["grammar_id"])
+
+    missing = hint_grammar - present_in_regen
+    if not missing:
+        return 0
+
+    n_carried = 0
+    for gid in missing:
+        # Find canon's first token carrying this gid
+        canon_loc = None
+        for sect, t in _all_section_tokens(canon):
+            if t.get("grammar_id") == gid or (
+                isinstance(t.get("inflection"), dict)
+                and t["inflection"].get("grammar_id") == gid
+            ):
+                canon_loc = (sect, t)
+                break
+        if not canon_loc:
+            continue
+        sect_name, canon_tok = canon_loc
+        canon_surface = canon_tok.get("t")
+
+        # Find matching regen token by section + surface
+        regen_target = None
+        for sect, t in _all_section_tokens(regen):
+            if sect == sect_name and t.get("t") == canon_surface:
+                regen_target = t
+                break
+        # Fallback: any section with same surface
+        if regen_target is None:
+            for _, t in _all_section_tokens(regen):
+                if t.get("t") == canon_surface:
+                    regen_target = t
+                    break
+        if regen_target is None:
+            continue
+
+        # Morphological aux tags that the converter often slaps on a verb
+        # token; if canonical instead used a more specific LEXICAL tag (like
+        # G021_aru_iru), we should override.
+        # When canonical assigns a more specific lexical/discourse tag, allow
+        # overriding the converter's generic morphological/particle tag.
+        REPLACEABLE_AUX = {
+            # Morphological aux on verbs
+            "G026_masu_nonpast", "G013_mashita_past",
+            "G036_masen", "G046_masen_deshita",
+            "G022_i_adj",
+            # Generic particles overridable by specific patterns
+            # (e.g. と→G014_to_omoimasu in と思います context)
+            "G010_to_and", "G006_kara_from", "G005_wo_object",
+            "G001_wa_topic", "G002_ga_subject", "G009_mo_also",
+            "G017_de_means", "G004_ni_location",
+        }
+        # Copy the grammar_id; respect canonical's placement (token-level
+        # vs inside inflection)
+        if canon_tok.get("grammar_id") == gid:
+            existing = regen_target.get("grammar_id")
+            if not existing or existing in REPLACEABLE_AUX:
+                regen_target["grammar_id"] = gid
+                n_carried += 1
+        else:
+            # gid was inside canon's inflection block
+            infl = regen_target.setdefault("inflection", {})
+            if not infl.get("grammar_id"):
+                infl["grammar_id"] = gid
+                n_carried += 1
+
+        # Mark is_new_grammar only if this gid is genuinely new in this story
+        # (i.e., it appears in the new_grammar list). Reinforcement uses MUST
+        # NOT carry the flag.
+        if mark_new_set and gid in mark_new_set:
+            first_sentence_tok = None
+            for sect, t in _all_section_tokens(regen):
+                if not sect.startswith("sentence_"):
+                    continue
+                if t.get("grammar_id") == gid or (
+                    isinstance(t.get("inflection"), dict)
+                    and t["inflection"].get("grammar_id") == gid
+                ):
+                    first_sentence_tok = t
+                    break
+            target_for_flag = first_sentence_tok or regen_target
+            target_for_flag["is_new_grammar"] = True
+
+    return n_carried
+
+
 def regen_one(canon_path: Path, vocab: dict, grammar: dict) -> tuple[dict, dict, dict]:
     """Regenerate one story. Returns (bilingual_spec, regenerated, report)."""
     canon = json.loads(canon_path.read_text(encoding="utf-8"))
@@ -71,6 +233,41 @@ def regen_one(canon_path: Path, vocab: dict, grammar: dict) -> tuple[dict, dict,
         new_word_hint=new_words_hint,
         new_grammar_hint=new_grammar_hint,
     )
+    # Carry over any grammar tags the converter didn't know how to emit.
+    # This covers BOTH new_grammar (Check 4) AND reinforcement uses (Check 3.8).
+    # The text is unchanged; we only attach grammar_ids to surface-matching
+    # tokens. Build the full set of canonical grammar_ids in this story.
+    canon_all_gids: set[str] = set()
+    for _, t in _all_section_tokens(canon):
+        if t.get("grammar_id"):
+            canon_all_gids.add(t["grammar_id"])
+        if isinstance(t.get("inflection"), dict) and t["inflection"].get("grammar_id"):
+            canon_all_gids.add(t["inflection"]["grammar_id"])
+    n = _carry_over_canonical_grammar(
+        canon, regen, canon_all_gids, mark_new_set=new_grammar_hint,
+    )
+    if n:
+        report.setdefault("carried_grammar", n)
+    # Demote 思います / 言います to role=aux when an earlier token in the
+    # SAME sentence is と tagged with G014_to_omoimasu / G028_to_iimasu.
+    # Canonical treats these as quotative aux verbs in this construction
+    # even when the topic (e.g. 私は) intervenes between と and the verb.
+    AUX_AFTER_TO = {
+        "思います": "G014_to_omoimasu",
+        "言います": "G028_to_iimasu",
+    }
+    for sn in regen.get("sentences", []):
+        toks = sn.get("tokens", [])
+        # Find a と with the relevant gid first; then any subsequent
+        # 思います/言います in the same sentence becomes aux.
+        active_gids: set[str] = set()
+        for tok in toks:
+            if tok.get("t") == "と":
+                gid = tok.get("grammar_id")
+                if gid in ("G014_to_omoimasu", "G028_to_iimasu"):
+                    active_gids.add(gid)
+            if tok.get("t") in AUX_AFTER_TO and AUX_AFTER_TO[tok["t"]] in active_gids:
+                tok["role"] = "aux"
     # Preserve any plan_ref from canonical (informational only)
     if "plan_ref" in canon and "plan_ref" not in regen:
         regen["plan_ref"] = canon["plan_ref"]
@@ -165,17 +362,36 @@ def main() -> int:
                     vocab["words"][w["id"]] = rec
                     minted_records.append(rec)
 
-    if args.apply and minted_records:
-        # Persist minted vocab back to data/vocab_state.json
+    if args.apply:
+        # Recompute occurrences / first_story / last_seen_story for all words
+        # by scanning the regenerated stories. This keeps vocab_state in sync
+        # with the actual library and satisfies the state-integrity tests.
         vpath = ROOT / "data" / "vocab_state.json"
+        _refresh_vocab_metadata(vocab, ROOT / "stories")
+        # Update next_word_id to max+1
+        max_n = max(int(k[1:]) for k in vocab["words"].keys() if k.startswith("W"))
+        vocab["next_word_id"] = f"W{max_n + 1:05d}"
+        # Strip JMdict semicolons in meanings (split on '; ' → take first)
+        # for ALL words (handles both freshly minted and previously appended).
+        for w in vocab["words"].values():
+            cleaned = []
+            for m in w.get("meanings", []):
+                if isinstance(m, str) and "; " in m:
+                    cleaned.append(m.split("; ")[0].strip())
+                else:
+                    cleaned.append(m)
+            w["meanings"] = cleaned
+            # Drop the _minted_by marker if present
+            w.pop("_minted_by", None)
         vpath.write_text(
             json.dumps(vocab, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
         )
-        print()
-        print(f"Appended {len(minted_records)} minted vocab record(s) to vocab_state.json:")
-        for r in minted_records:
-            print(f"  + {r['id']}  {r['surface']:6s} ({r.get('pos')})  {r['meanings'][0][:50]}")
+        if minted_records:
+            print()
+            print(f"Appended {len(minted_records)} minted vocab record(s) to vocab_state.json:")
+            for r in minted_records:
+                print(f"  + {r['id']}  {r['surface']:6s} ({r.get('pos')})  {r['meanings'][0][:50]}")
 
     print()
     print(f"Total stories:    {n_total}")

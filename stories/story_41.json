@@ -54,8 +54,8 @@
   },
   "new_words": [
     "W00123",
-    "W00122",
-    "W00124"
+    "W00124",
+    "W00122"
   ],
   "new_grammar": [
     "G034_ne_confirm"
@@ -288,7 +288,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言いました",
@@ -569,14 +569,9 @@
           "grammar_id": "G022_i_adj"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "から",
+          "t": "ですから",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
+          "grammar_id": "G059_dakara"
         },
         {
           "t": "、",

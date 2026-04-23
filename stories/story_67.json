@@ -5,14 +5,9 @@
     "en": "So I Love the Snow.",
     "tokens": [
       {
-        "t": "だ",
-        "role": "aux",
-        "grammar_id": "G024_da"
-      },
-      {
-        "t": "から",
+        "t": "だから",
         "role": "particle",
-        "grammar_id": "G006_kara_from"
+        "grammar_id": "G059_dakara"
       },
       {
         "t": "雪",
@@ -85,7 +80,7 @@
         "r": "ふります",
         "inflection": {
           "base": "降る",
-          "base_r": "おりる",
+          "base_r": "ふる",
           "form": "polite_nonpast",
           "verb_class": "ichidan"
         },
@@ -99,8 +94,8 @@
   },
   "new_words": [
     "W00212",
-    "W00213",
-    "W00214"
+    "W00214",
+    "W00213"
   ],
   "new_grammar": [
     "G059_dakara"
@@ -129,14 +124,13 @@
     "W00120",
     "W00066",
     "W00033",
-    "W00220",
+    "W00217",
     "W00084",
     "W00150",
     "W00080",
     "W00013",
     "W00118",
     "W00027",
-    "W00217",
     "W00039",
     "W00046",
     "W00006",
@@ -196,7 +190,7 @@
           "r": "ふります",
           "inflection": {
             "base": "降る",
-            "base_r": "おりる",
+            "base_r": "ふる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
@@ -317,7 +311,8 @@
           "t": "静か",
           "role": "content",
           "word_id": "W00011",
-          "r": "しずか"
+          "r": "しずか",
+          "grammar_id": "G016_na_adjective"
         },
         {
           "t": "です",
@@ -335,14 +330,10 @@
       "idx": 5,
       "tokens": [
         {
-          "t": "だ",
-          "role": "aux",
-          "grammar_id": "G024_da"
-        },
-        {
-          "t": "から",
+          "t": "だから",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
+          "grammar_id": "G059_dakara",
+          "is_new_grammar": true
         },
         {
           "t": "私",
@@ -470,7 +461,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言いました",
@@ -496,14 +487,9 @@
       "idx": 8,
       "tokens": [
         {
-          "t": "だ",
-          "role": "aux",
-          "grammar_id": "G024_da"
-        },
-        {
-          "t": "から",
+          "t": "だから",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
+          "grammar_id": "G059_dakara"
         },
         {
           "t": "私",
@@ -646,14 +632,9 @@
       "idx": 11,
       "tokens": [
         {
-          "t": "だ",
-          "role": "aux",
-          "grammar_id": "G024_da"
-        },
-        {
-          "t": "から",
+          "t": "だから",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
+          "grammar_id": "G059_dakara"
         },
         {
           "t": "心",
@@ -719,9 +700,9 @@
         {
           "t": "ほしい",
           "role": "content",
-          "word_id": "W00220",
+          "word_id": "W00217",
           "r": "ほしい",
-          "grammar_id": "G022_i_adj"
+          "grammar_id": "G057_ga_hoshii"
         },
         {
           "t": "です",
@@ -815,7 +796,7 @@
           "role": "content",
           "word_id": "W00013",
           "r": "いい",
-          "grammar_id": "G022_i_adj"
+          "grammar_id": "G058_temo_ii"
         },
         {
           "t": "です",
@@ -895,21 +876,9 @@
           "r": "かぜ"
         },
         {
-          "t": "じゃ",
-          "role": "particle",
-          "grammar_id": "G051_janai"
-        },
-        {
-          "t": "ない",
-          "role": "content",
-          "word_id": "W00217",
-          "r": "ない",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
+          "t": "じゃないです",
           "role": "aux",
-          "grammar_id": "G003_desu"
+          "grammar_id": "G051_janai"
         },
         {
           "t": "。",
@@ -954,14 +923,9 @@
       "idx": 17,
       "tokens": [
         {
-          "t": "だ",
-          "role": "aux",
-          "grammar_id": "G024_da"
-        },
-        {
-          "t": "から",
+          "t": "だから",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
+          "grammar_id": "G059_dakara"
         },
         {
           "t": "明日",

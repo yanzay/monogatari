@@ -11,16 +11,9 @@
         "r": "しずか"
       },
       {
-        "t": "じゃ",
-        "role": "particle",
+        "t": "じゃない",
+        "role": "aux",
         "grammar_id": "G051_janai"
-      },
-      {
-        "t": "ない",
-        "role": "content",
-        "word_id": "W00217",
-        "r": "ない",
-        "grammar_id": "G022_i_adj"
       },
       {
         "t": "夜",
@@ -56,7 +49,7 @@
         "r": "ふります",
         "inflection": {
           "base": "降る",
-          "base_r": "おりる",
+          "base_r": "ふる",
           "form": "polite_nonpast",
           "verb_class": "ichidan"
         },
@@ -98,15 +91,14 @@
   },
   "new_words": [
     "W00194",
-    "W00193",
-    "W00151"
+    "W00151",
+    "W00193"
   ],
   "new_grammar": [
     "G051_janai"
   ],
   "all_words_used": [
     "W00011",
-    "W00217",
     "W00030",
     "W00002",
     "W00107",
@@ -193,7 +185,7 @@
           "r": "ふります",
           "inflection": {
             "base": "降る",
-            "base_r": "おりる",
+            "base_r": "ふる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
@@ -262,22 +254,10 @@
           "r": "しずか"
         },
         {
-          "t": "じゃ",
-          "role": "particle",
+          "t": "じゃないです",
+          "role": "aux",
           "grammar_id": "G051_janai",
           "is_new_grammar": true
-        },
-        {
-          "t": "ない",
-          "role": "content",
-          "word_id": "W00217",
-          "r": "ない",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
@@ -307,21 +287,9 @@
           "r": "げんき"
         },
         {
-          "t": "じゃ",
-          "role": "particle",
-          "grammar_id": "G051_janai"
-        },
-        {
-          "t": "ない",
-          "role": "content",
-          "word_id": "W00217",
-          "r": "ない",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
+          "t": "じゃないです",
           "role": "aux",
-          "grammar_id": "G003_desu"
+          "grammar_id": "G051_janai"
         },
         {
           "t": "。",
@@ -345,27 +313,17 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "来ません",
+          "t": "来ませんでした",
           "role": "content",
           "word_id": "W00040",
-          "r": "きません",
+          "r": "きませんでした",
           "inflection": {
             "base": "来る",
             "base_r": "くる",
-            "form": "negative_polite",
+            "form": "polite_past_negative",
             "verb_class": "irregular_kuru"
           },
-          "grammar_id": "G036_masen"
-        },
-        {
-          "t": "でした",
-          "role": "aux",
-          "grammar_id": "G013_mashita_past",
-          "inflection": {
-            "base": "です",
-            "base_r": "です",
-            "form": "polite_past"
-          }
+          "grammar_id": "G046_masen_deshita"
         },
         {
           "t": "。",
@@ -411,27 +369,17 @@
           "grammar_id": "G009_mo_also"
         },
         {
-          "t": "来ません",
+          "t": "来ませんでした",
           "role": "content",
           "word_id": "W00040",
-          "r": "きません",
+          "r": "きませんでした",
           "inflection": {
             "base": "来る",
             "base_r": "くる",
-            "form": "negative_polite",
+            "form": "polite_past_negative",
             "verb_class": "irregular_kuru"
           },
-          "grammar_id": "G036_masen"
-        },
-        {
-          "t": "でした",
-          "role": "aux",
-          "grammar_id": "G013_mashita_past",
-          "inflection": {
-            "base": "です",
-            "base_r": "です",
-            "form": "polite_past"
-          }
+          "grammar_id": "G046_masen_deshita"
         },
         {
           "t": "。",
@@ -527,7 +475,7 @@
         {
           "t": "が",
           "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "G049_ga_but"
         },
         {
           "t": "吹きます",
@@ -607,17 +555,14 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "嬉しく",
+          "t": "嬉しくない",
           "role": "content",
           "word_id": "W00056",
-          "r": "うれしく"
-        },
-        {
-          "t": "ない",
-          "role": "content",
-          "word_id": "W00217",
-          "r": "ない",
-          "grammar_id": "G022_i_adj"
+          "r": "うれしくない",
+          "inflection": {
+            "form": "i_adj_negative"
+          },
+          "grammar_id": "G038_kunai"
         },
         {
           "t": "です",
@@ -676,7 +621,7 @@
             "form": "negative_polite",
             "verb_class": "godan"
           },
-          "grammar_id": "G036_masen"
+          "grammar_id": "G035_arimasen"
         },
         {
           "t": "。",
@@ -878,7 +823,7 @@
             "form": "negative_polite",
             "verb_class": "godan"
           },
-          "grammar_id": "G036_masen"
+          "grammar_id": "G035_arimasen"
         },
         {
           "t": "。",
@@ -908,21 +853,9 @@
           "r": "しずか"
         },
         {
-          "t": "じゃ",
-          "role": "particle",
-          "grammar_id": "G051_janai"
-        },
-        {
-          "t": "ない",
-          "role": "content",
-          "word_id": "W00217",
-          "r": "ない",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
+          "t": "じゃないです",
           "role": "aux",
-          "grammar_id": "G003_desu"
+          "grammar_id": "G051_janai"
         },
         {
           "t": "が",

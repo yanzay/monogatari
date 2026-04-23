@@ -25,9 +25,10 @@
       {
         "t": "ほしい",
         "role": "content",
-        "word_id": "W00220",
+        "word_id": "W00217",
         "r": "ほしい",
-        "grammar_id": "G022_i_adj"
+        "grammar_id": "G057_ga_hoshii",
+        "is_new_grammar": true
       },
       {
         "t": "。",
@@ -87,9 +88,9 @@
     ]
   },
   "new_words": [
-    "W00155",
     "W00208",
-    "W00207"
+    "W00207",
+    "W00155"
   ],
   "new_grammar": [
     "G057_ga_hoshii"
@@ -97,7 +98,7 @@
   "all_words_used": [
     "W00066",
     "W00116",
-    "W00220",
+    "W00217",
     "W00067",
     "W00002",
     "W00155",
@@ -180,7 +181,7 @@
           "r": "ふります",
           "inflection": {
             "base": "降る",
-            "base_r": "おりる",
+            "base_r": "ふる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
@@ -302,7 +303,7 @@
         {
           "t": "ほしい",
           "role": "content",
-          "word_id": "W00220",
+          "word_id": "W00217",
           "r": "ほしい",
           "grammar_id": "G022_i_adj"
         },
@@ -391,7 +392,7 @@
         {
           "t": "ほしい",
           "role": "content",
-          "word_id": "W00220",
+          "word_id": "W00217",
           "r": "ほしい",
           "grammar_id": "G022_i_adj"
         },
@@ -402,7 +403,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "書きます",
@@ -491,7 +492,8 @@
           "t": "何",
           "role": "content",
           "word_id": "W00135",
-          "r": "なに"
+          "r": "なに",
+          "grammar_id": "G045_nan_what"
         },
         {
           "t": "が",
@@ -501,7 +503,7 @@
         {
           "t": "ほしい",
           "role": "content",
-          "word_id": "W00220",
+          "word_id": "W00217",
           "r": "ほしい",
           "grammar_id": "G022_i_adj"
         },
@@ -583,7 +585,7 @@
         {
           "t": "ほしい",
           "role": "content",
-          "word_id": "W00220",
+          "word_id": "W00217",
           "r": "ほしい",
           "grammar_id": "G022_i_adj"
         },
@@ -660,7 +662,14 @@
           "t": "行きましょう",
           "role": "content",
           "word_id": "W00150",
-          "r": "いきましょう"
+          "r": "いきましょう",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "volitional_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G048_masho"
         },
         {
           "t": "」",
@@ -945,7 +954,8 @@
             "base": "買う",
             "base_r": "かう",
             "form": "past",
-            "verb_class": "godan"
+            "verb_class": "godan",
+            "grammar_id": "G056_plain_past_pair"
           },
           "grammar_id": "G013_mashita_past"
         },

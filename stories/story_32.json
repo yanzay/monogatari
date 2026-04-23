@@ -54,9 +54,9 @@
     ]
   },
   "new_words": [
-    "W00096",
     "W00095",
-    "W00097"
+    "W00097",
+    "W00096"
   ],
   "new_grammar": [
     "G028_to_iimasu"
@@ -319,11 +319,12 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu",
+          "is_new_grammar": true
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "is_new": true,
@@ -451,7 +452,7 @@
         {
           "t": "について",
           "role": "particle",
-          "grammar_id": "G041_nitsuite"
+          "grammar_id": "G027_ni_tsuite"
         },
         {
           "t": "、",

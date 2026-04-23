@@ -137,7 +137,7 @@
           "r": "ふります",
           "inflection": {
             "base": "降る",
-            "base_r": "おりる",
+            "base_r": "ふる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
@@ -419,11 +419,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {
@@ -448,7 +448,8 @@
           "t": "二人",
           "role": "content",
           "word_id": "W00035",
-          "r": "ふたり"
+          "r": "ふたり",
+          "grammar_id": "G025_counters"
         },
         {
           "t": "で",
@@ -530,14 +531,9 @@
           "grammar_id": "G022_i_adj"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "から",
+          "t": "ですから",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
+          "grammar_id": "G059_dakara"
         },
         {
           "t": "、",

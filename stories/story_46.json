@@ -5,17 +5,14 @@
     "en": "A Not-Cold Morning",
     "tokens": [
       {
-        "t": "寒く",
+        "t": "寒くない",
         "role": "content",
         "word_id": "W00062",
-        "r": "さむく"
-      },
-      {
-        "t": "ない",
-        "role": "content",
-        "word_id": "W00217",
-        "r": "ない",
-        "grammar_id": "G022_i_adj"
+        "r": "さむくない",
+        "inflection": {
+          "form": "i_adj_negative"
+        },
+        "grammar_id": "G038_kunai"
       },
       {
         "t": "朝",
@@ -53,16 +50,15 @@
     ]
   },
   "new_words": [
-    "W00139",
     "W00137",
-    "W00138"
+    "W00138",
+    "W00139"
   ],
   "new_grammar": [
     "G038_kunai"
   ],
   "all_words_used": [
     "W00062",
-    "W00217",
     "W00015",
     "W00072",
     "W00139",
@@ -135,17 +131,15 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "寒く",
+          "t": "寒くない",
           "role": "content",
           "word_id": "W00062",
-          "r": "さむく"
-        },
-        {
-          "t": "ない",
-          "role": "content",
-          "word_id": "W00217",
-          "r": "ない",
-          "grammar_id": "G022_i_adj"
+          "r": "さむくない",
+          "inflection": {
+            "form": "i_adj_negative"
+          },
+          "grammar_id": "G038_kunai",
+          "is_new_grammar": true
         },
         {
           "t": "です",
@@ -497,17 +491,14 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "寒く",
+          "t": "寒くない",
           "role": "content",
           "word_id": "W00062",
-          "r": "さむく"
-        },
-        {
-          "t": "ない",
-          "role": "content",
-          "word_id": "W00217",
-          "r": "ない",
-          "grammar_id": "G022_i_adj"
+          "r": "さむくない",
+          "inflection": {
+            "form": "i_adj_negative"
+          },
+          "grammar_id": "G038_kunai"
         },
         {
           "t": "です",
@@ -596,7 +587,7 @@
         {
           "t": "から",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
+          "grammar_id": "G030_kara_reason"
         },
         {
           "t": "、",

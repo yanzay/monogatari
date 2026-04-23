@@ -36,7 +36,7 @@
       {
         "t": "について",
         "role": "particle",
-        "grammar_id": "G041_nitsuite"
+        "grammar_id": "G027_ni_tsuite"
       },
       {
         "t": "話します",
@@ -54,9 +54,9 @@
     ]
   },
   "new_words": [
+    "W00094",
     "W00167",
-    "W00093",
-    "W00094"
+    "W00093"
   ],
   "new_grammar": [
     "G027_ni_tsuite"
@@ -247,7 +247,8 @@
         {
           "t": "について",
           "role": "particle",
-          "grammar_id": "G041_nitsuite"
+          "grammar_id": "G027_ni_tsuite",
+          "is_new_grammar": true
         },
         {
           "t": "話します",
@@ -335,7 +336,7 @@
         {
           "t": "について",
           "role": "particle",
-          "grammar_id": "G041_nitsuite"
+          "grammar_id": "G027_ni_tsuite"
         },
         {
           "t": "話します",
@@ -430,11 +431,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G014_to_omoimasu"
         },
         {
           "t": "思います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00043",
           "r": "おもいます",
           "inflection": {

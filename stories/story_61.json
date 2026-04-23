@@ -8,7 +8,9 @@
         "t": "なぜ",
         "role": "content",
         "word_id": "W00152",
-        "r": "なぜ"
+        "r": "なぜ",
+        "grammar_id": "G053_naze_why",
+        "is_new_grammar": true
       },
       {
         "t": "来ます",
@@ -102,8 +104,8 @@
   },
   "new_words": [
     "W00152",
-    "W00198",
-    "W00199"
+    "W00199",
+    "W00198"
   ],
   "new_grammar": [
     "G053_naze_why"
@@ -138,7 +140,6 @@
     "W00199",
     "W00076",
     "W00194",
-    "W00217",
     "W00043",
     "W00030",
     "W00050",
@@ -342,7 +343,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "祖母",
@@ -357,7 +358,7 @@
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {
@@ -399,7 +400,8 @@
           "t": "静か",
           "role": "content",
           "word_id": "W00011",
-          "r": "しずか"
+          "r": "しずか",
+          "grammar_id": "G016_na_adjective"
         },
         {
           "t": "です",
@@ -438,14 +440,9 @@
           "r": "すき"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "から",
+          "t": "ですから",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
+          "grammar_id": "G059_dakara"
         },
         {
           "t": "」",
@@ -701,14 +698,9 @@
           "r": "ともだち"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "から",
+          "t": "ですから",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
+          "grammar_id": "G059_dakara"
         },
         {
           "t": "」",
@@ -942,26 +934,14 @@
           "r": "しずか"
         },
         {
-          "t": "じゃ",
-          "role": "particle",
-          "grammar_id": "G051_janai"
-        },
-        {
-          "t": "ない",
-          "role": "content",
-          "word_id": "W00217",
-          "r": "ない",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
+          "t": "じゃないです",
           "role": "aux",
-          "grammar_id": "G003_desu"
+          "grammar_id": "G051_janai"
         },
         {
           "t": "から",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
+          "grammar_id": "G030_kara_reason"
         },
         {
           "t": "」",
@@ -970,11 +950,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G014_to_omoimasu"
         },
         {
           "t": "思います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00043",
           "r": "おもいます",
           "inflection": {

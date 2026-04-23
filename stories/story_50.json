@@ -54,9 +54,9 @@
     ]
   },
   "new_words": [
+    "W00145",
     "W00146",
-    "W00172",
-    "W00145"
+    "W00172"
   ],
   "new_grammar": [
     "G042_itsu_when"
@@ -235,7 +235,9 @@
           "role": "content",
           "word_id": "W00145",
           "r": "いつ",
-          "is_new": true
+          "is_new": true,
+          "grammar_id": "G042_itsu_when",
+          "is_new_grammar": true
         },
         {
           "t": "電車",
@@ -273,11 +275,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {
@@ -432,14 +434,9 @@
           "grammar_id": "G022_i_adj"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "から",
+          "t": "ですから",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
+          "grammar_id": "G059_dakara"
         },
         {
           "t": "、",
@@ -556,7 +553,8 @@
             "base": "飲む",
             "base_r": "のむ",
             "form": "negative_polite",
-            "verb_class": "godan"
+            "verb_class": "godan",
+            "grammar_id": "G041_masenka_invitation"
           },
           "grammar_id": "G036_masen"
         },
@@ -888,7 +886,7 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",

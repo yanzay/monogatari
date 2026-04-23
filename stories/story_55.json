@@ -67,9 +67,9 @@
     ]
   },
   "new_words": [
-    "W00182",
     "W00183",
-    "W00184"
+    "W00184",
+    "W00182"
   ],
   "new_grammar": [
     "G047_i_adj_past"
@@ -584,7 +584,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言いました",
@@ -660,7 +660,8 @@
           "t": "あの",
           "role": "content",
           "word_id": "W00147",
-          "r": "あの"
+          "r": "あの",
+          "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
           "t": "年",
@@ -758,27 +759,17 @@
           "r": "ときどき"
         },
         {
-          "t": "いません",
+          "t": "いませんでした",
           "role": "content",
           "word_id": "W00029",
-          "r": "いません",
+          "r": "いませんでした",
           "inflection": {
             "base": "いる",
             "base_r": "いる",
-            "form": "negative_polite",
+            "form": "polite_past_negative",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G036_masen"
-        },
-        {
-          "t": "でした",
-          "role": "aux",
-          "grammar_id": "G013_mashita_past",
-          "inflection": {
-            "base": "です",
-            "base_r": "です",
-            "form": "polite_past"
-          }
+          "grammar_id": "G046_masen_deshita"
         },
         {
           "t": "。",

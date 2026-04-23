@@ -54,8 +54,8 @@
     ]
   },
   "new_words": [
-    "W00109",
     "W00108",
+    "W00109",
     "W00107"
   ],
   "new_grammar": [],
@@ -75,7 +75,7 @@
     "W00041",
     "W00025",
     "W00109",
-    "W00216",
+    "W00215",
     "W00104",
     "W00080",
     "W00097",
@@ -134,7 +134,7 @@
           "is_new": true,
           "inflection": {
             "base": "降る",
-            "base_r": "おりる",
+            "base_r": "ふる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
@@ -170,7 +170,7 @@
         {
           "t": "から",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
+          "grammar_id": "G030_kara_reason"
         },
         {
           "t": "外",
@@ -319,7 +319,7 @@
         {
           "t": "します",
           "role": "content",
-          "word_id": "W00216",
+          "word_id": "W00215",
           "r": "します",
           "inflection": {
             "base": "する",
@@ -407,11 +407,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {
@@ -497,14 +497,9 @@
           "grammar_id": "G022_i_adj"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "から",
+          "t": "ですから",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
+          "grammar_id": "G059_dakara"
         },
         {
           "t": "、",

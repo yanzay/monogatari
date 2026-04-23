@@ -26,7 +26,8 @@
           "form": "negative_polite",
           "verb_class": "godan"
         },
-        "grammar_id": "G036_masen"
+        "grammar_id": "G041_masenka_invitation",
+        "is_new_grammar": true
       },
       {
         "t": "か",
@@ -96,9 +97,9 @@
     ]
   },
   "new_words": [
+    "W00171",
     "W00169",
-    "W00170",
-    "W00171"
+    "W00170"
   ],
   "new_grammar": [
     "G041_masenka_invitation"
@@ -279,11 +280,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {
@@ -860,7 +861,8 @@
           "t": "どこ",
           "role": "content",
           "word_id": "W00143",
-          "r": "どこ"
+          "r": "どこ",
+          "grammar_id": "G040_doko_where"
         },
         {
           "t": "です",

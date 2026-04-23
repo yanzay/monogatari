@@ -8,7 +8,9 @@
         "t": "あの",
         "role": "content",
         "word_id": "W00147",
-        "r": "あの"
+        "r": "あの",
+        "grammar_id": "G043_kosoado_pre_nominal",
+        "is_new_grammar": true
       },
       {
         "t": "花",
@@ -70,8 +72,8 @@
     ]
   },
   "new_words": [
-    "W00148",
     "W00173",
+    "W00148",
     "W00147"
   ],
   "new_grammar": [
@@ -99,7 +101,7 @@
     "W00103",
     "W00054",
     "W00029",
-    "W00218",
+    "W00216",
     "W00141",
     "W00047",
     "W00006",
@@ -258,11 +260,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {
@@ -323,7 +325,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G014_to_omoimasu"
         },
         {
           "t": "私",
@@ -338,7 +340,7 @@
         },
         {
           "t": "思います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00043",
           "r": "おもいます",
           "inflection": {
@@ -581,7 +583,7 @@
         {
           "t": "何何",
           "role": "content",
-          "word_id": "W00218",
+          "word_id": "W00216",
           "r": "なになに"
         },
         {
@@ -873,7 +875,8 @@
           "t": "いつ",
           "role": "content",
           "word_id": "W00145",
-          "r": "いつ"
+          "r": "いつ",
+          "grammar_id": "G042_itsu_when"
         },
         {
           "t": "この",

@@ -47,8 +47,8 @@
     ]
   },
   "new_words": [
-    "W00159",
     "W00043",
+    "W00159",
     "W00160"
   ],
   "new_grammar": [
@@ -163,7 +163,7 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -273,7 +273,8 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G014_to_omoimasu",
+          "is_new_grammar": true
         },
         {
           "t": "私",
@@ -288,7 +289,7 @@
         },
         {
           "t": "思います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00043",
           "r": "おもいます",
           "is_new": true,

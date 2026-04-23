@@ -27,7 +27,8 @@
         "role": "content",
         "word_id": "W00013",
         "r": "いい",
-        "grammar_id": "G022_i_adj"
+        "grammar_id": "G058_temo_ii",
+        "is_new_grammar": true
       },
       {
         "t": "です",
@@ -113,9 +114,9 @@
     ]
   },
   "new_words": [
-    "W00210",
+    "W00209",
     "W00211",
-    "W00209"
+    "W00210"
   ],
   "new_grammar": [
     "G058_temo_ii"
@@ -149,7 +150,7 @@
     "W00210",
     "W00153",
     "W00209",
-    "W00220",
+    "W00217",
     "W00148",
     "W00086",
     "W00154",
@@ -383,7 +384,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "あの",
@@ -736,7 +737,13 @@
           "t": "飲ん",
           "role": "content",
           "word_id": "W00010",
-          "r": "のん"
+          "r": "のん",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "plain_nonpast",
+            "verb_class": "godan"
+          }
         },
         {
           "t": "でも",
@@ -1009,9 +1016,9 @@
         {
           "t": "ほしい",
           "role": "content",
-          "word_id": "W00220",
+          "word_id": "W00217",
           "r": "ほしい",
-          "grammar_id": "G022_i_adj"
+          "grammar_id": "G057_ga_hoshii"
         },
         {
           "t": "です",
@@ -1060,7 +1067,7 @@
             "form": "past",
             "verb_class": "godan"
           },
-          "grammar_id": "G013_mashita_past"
+          "grammar_id": "G056_plain_past_pair"
         },
         {
           "t": "」",

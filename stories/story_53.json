@@ -8,7 +8,9 @@
         "t": "何",
         "role": "content",
         "word_id": "W00135",
-        "r": "なに"
+        "r": "なに",
+        "grammar_id": "G045_nan_what",
+        "is_new_grammar": true
       },
       {
         "t": "の",
@@ -95,8 +97,8 @@
   },
   "new_words": [
     "W00177",
-    "W00178",
-    "W00176"
+    "W00176",
+    "W00178"
   ],
   "new_grammar": [
     "G045_nan_what"
@@ -120,7 +122,6 @@
     "W00083",
     "W00149",
     "W00006",
-    "W00219",
     "W00148",
     "W00024",
     "W00066",
@@ -354,11 +355,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {
@@ -383,7 +384,8 @@
           "t": "あの",
           "role": "content",
           "word_id": "W00147",
-          "r": "あの"
+          "r": "あの",
+          "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
           "t": "人",
@@ -479,9 +481,8 @@
         },
         {
           "t": "ください",
-          "role": "content",
-          "word_id": "W00219",
-          "r": "ください"
+          "role": "aux",
+          "grammar_id": "G044_te_kudasai"
         },
         {
           "t": "」",
@@ -966,11 +967,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G014_to_omoimasu"
         },
         {
           "t": "思います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00043",
           "r": "おもいます",
           "inflection": {

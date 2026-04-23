@@ -53,8 +53,8 @@
   },
   "new_words": [
     "W00161",
-    "W00045",
-    "W00162"
+    "W00162",
+    "W00045"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -76,7 +76,6 @@
     "W00158",
     "W00011",
     "W00043",
-    "W00215",
     "W00010",
     "W00157"
   ],
@@ -125,7 +124,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
@@ -396,11 +395,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G014_to_omoimasu"
         },
         {
           "t": "思います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00043",
           "r": "おもいます",
           "inflection": {
@@ -436,13 +435,18 @@
           "t": "読む",
           "role": "content",
           "word_id": "W00034",
-          "r": "よむ"
+          "r": "よむ",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "plain_nonpast",
+            "verb_class": "godan"
+          }
         },
         {
           "t": "とき",
-          "role": "content",
-          "word_id": "W00215",
-          "r": "とき"
+          "role": "particle",
+          "grammar_id": "G018_toki_when"
         },
         {
           "t": "、",

@@ -152,7 +152,8 @@
         {
           "t": "から",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
+          "grammar_id": "G030_kara_reason",
+          "is_new_grammar": true
         },
         {
           "t": "手紙",
@@ -349,14 +350,9 @@
           "r": "げんき"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "から",
+          "t": "ですから",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
+          "grammar_id": "G059_dakara"
         },
         {
           "t": "、",
@@ -474,14 +470,9 @@
           "r": "みち"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "から",
+          "t": "ですから",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
+          "grammar_id": "G059_dakara"
         },
         {
           "t": "、",
@@ -577,7 +568,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "書きます",

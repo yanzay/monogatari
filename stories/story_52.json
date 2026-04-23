@@ -19,9 +19,8 @@
       },
       {
         "t": "ください",
-        "role": "content",
-        "word_id": "W00219",
-        "r": "ください"
+        "role": "aux",
+        "grammar_id": "G044_te_kudasai"
       },
       {
         "t": "。",
@@ -86,16 +85,15 @@
     ]
   },
   "new_words": [
+    "W00149",
     "W00175",
-    "W00174",
-    "W00149"
+    "W00174"
   ],
   "new_grammar": [
     "G044_te_kudasai"
   ],
   "all_words_used": [
     "W00080",
-    "W00219",
     "W00033",
     "W00084",
     "W00113",
@@ -313,9 +311,9 @@
         },
         {
           "t": "ください",
-          "role": "content",
-          "word_id": "W00219",
-          "r": "ください"
+          "role": "aux",
+          "grammar_id": "G044_te_kudasai",
+          "is_new_grammar": true
         },
         {
           "t": "」",
@@ -324,7 +322,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "私",
@@ -339,7 +337,7 @@
         },
         {
           "t": "言います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00097",
           "r": "いいます",
           "inflection": {
@@ -446,9 +444,8 @@
         },
         {
           "t": "ください",
-          "role": "content",
-          "word_id": "W00219",
-          "r": "ください"
+          "role": "aux",
+          "grammar_id": "G044_te_kudasai"
         },
         {
           "t": "」",
@@ -631,9 +628,8 @@
         },
         {
           "t": "ください",
-          "role": "content",
-          "word_id": "W00219",
-          "r": "ください"
+          "role": "aux",
+          "grammar_id": "G044_te_kudasai"
         },
         {
           "t": "」",
@@ -749,7 +745,8 @@
           "t": "あの",
           "role": "content",
           "word_id": "W00147",
-          "r": "あの"
+          "r": "あの",
+          "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
           "t": "人",

@@ -5,27 +5,17 @@
     "en": "I Did Not Wait.",
     "tokens": [
       {
-        "t": "待ちません",
+        "t": "待ちませんでした",
         "role": "content",
         "word_id": "W00041",
-        "r": "まちません",
+        "r": "まちませんでした",
         "inflection": {
           "base": "待つ",
           "base_r": "まつ",
-          "form": "negative_polite",
+          "form": "polite_past_negative",
           "verb_class": "godan"
         },
-        "grammar_id": "G036_masen"
-      },
-      {
-        "t": "でした",
-        "role": "aux",
-        "grammar_id": "G013_mashita_past",
-        "inflection": {
-          "base": "です",
-          "base_r": "です",
-          "form": "polite_past"
-        }
+        "grammar_id": "G046_masen_deshita"
       },
       {
         "t": "。",
@@ -100,8 +90,8 @@
     ]
   },
   "new_words": [
-    "W00179",
     "W00181",
+    "W00179",
     "W00180"
   ],
   "new_grammar": [
@@ -195,7 +185,8 @@
           "t": "静か",
           "role": "content",
           "word_id": "W00011",
-          "r": "しずか"
+          "r": "しずか",
+          "grammar_id": "G016_na_adjective"
         },
         {
           "t": "です",
@@ -295,27 +286,18 @@
           "role": "punct"
         },
         {
-          "t": "待ちません",
+          "t": "待ちませんでした",
           "role": "content",
           "word_id": "W00041",
-          "r": "まちません",
+          "r": "まちませんでした",
           "inflection": {
             "base": "待つ",
             "base_r": "まつ",
-            "form": "negative_polite",
+            "form": "polite_past_negative",
             "verb_class": "godan"
           },
-          "grammar_id": "G036_masen"
-        },
-        {
-          "t": "でした",
-          "role": "aux",
-          "grammar_id": "G013_mashita_past",
-          "inflection": {
-            "base": "です",
-            "base_r": "です",
-            "form": "polite_past"
-          }
+          "grammar_id": "G046_masen_deshita",
+          "is_new_grammar": true
         },
         {
           "t": "」",
@@ -324,11 +306,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G014_to_omoimasu"
         },
         {
           "t": "思います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00043",
           "r": "おもいます",
           "inflection": {
@@ -353,7 +335,8 @@
           "t": "あの",
           "role": "content",
           "word_id": "W00147",
-          "r": "あの"
+          "r": "あの",
+          "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
           "t": "日",
@@ -544,27 +527,17 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "来ません",
+          "t": "来ませんでした",
           "role": "content",
           "word_id": "W00040",
-          "r": "きません",
+          "r": "きませんでした",
           "inflection": {
             "base": "来る",
             "base_r": "くる",
-            "form": "negative_polite",
+            "form": "polite_past_negative",
             "verb_class": "irregular_kuru"
           },
-          "grammar_id": "G036_masen"
-        },
-        {
-          "t": "でした",
-          "role": "aux",
-          "grammar_id": "G013_mashita_past",
-          "inflection": {
-            "base": "です",
-            "base_r": "です",
-            "form": "polite_past"
-          }
+          "grammar_id": "G046_masen_deshita"
         },
         {
           "t": "。",
@@ -601,7 +574,8 @@
           "t": "何",
           "role": "content",
           "word_id": "W00135",
-          "r": "なに"
+          "r": "なに",
+          "grammar_id": "G045_nan_what"
         },
         {
           "t": "を",
@@ -679,27 +653,17 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "ありません",
+          "t": "ありませんでした",
           "role": "content",
           "word_id": "W00044",
-          "r": "ありません",
+          "r": "ありませんでした",
           "inflection": {
             "base": "ある",
             "base_r": "ある",
-            "form": "negative_polite",
+            "form": "polite_past_negative",
             "verb_class": "godan"
           },
-          "grammar_id": "G036_masen"
-        },
-        {
-          "t": "でした",
-          "role": "aux",
-          "grammar_id": "G013_mashita_past",
-          "inflection": {
-            "base": "です",
-            "base_r": "です",
-            "form": "polite_past"
-          }
+          "grammar_id": "G046_masen_deshita"
         },
         {
           "t": "。",
@@ -854,7 +818,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
         },
         {
           "t": "言いました",
@@ -900,27 +864,17 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "待ちません",
+          "t": "待ちませんでした",
           "role": "content",
           "word_id": "W00041",
-          "r": "まちません",
+          "r": "まちませんでした",
           "inflection": {
             "base": "待つ",
             "base_r": "まつ",
-            "form": "negative_polite",
+            "form": "polite_past_negative",
             "verb_class": "godan"
           },
-          "grammar_id": "G036_masen"
-        },
-        {
-          "t": "でした",
-          "role": "aux",
-          "grammar_id": "G013_mashita_past",
-          "inflection": {
-            "base": "です",
-            "base_r": "です",
-            "form": "polite_past"
-          }
+          "grammar_id": "G046_masen_deshita"
         },
         {
           "t": "。",

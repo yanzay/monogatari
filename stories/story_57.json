@@ -13,7 +13,8 @@
       {
         "t": "が",
         "role": "particle",
-        "grammar_id": "G002_ga_subject"
+        "grammar_id": "G049_ga_but",
+        "is_new_grammar": true
       },
       {
         "t": "降ります",
@@ -22,7 +23,7 @@
         "r": "ふります",
         "inflection": {
           "base": "降る",
-          "base_r": "おりる",
+          "base_r": "ふる",
           "form": "polite_nonpast",
           "verb_class": "ichidan"
         },
@@ -124,8 +125,8 @@
     ]
   },
   "new_words": [
-    "W00187",
     "W00189",
+    "W00187",
     "W00188"
   ],
   "new_grammar": [
@@ -224,7 +225,7 @@
           "r": "ふります",
           "inflection": {
             "base": "降る",
-            "base_r": "おりる",
+            "base_r": "ふる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
@@ -300,7 +301,7 @@
           "r": "ふります",
           "inflection": {
             "base": "降る",
-            "base_r": "おりる",
+            "base_r": "ふる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
@@ -562,7 +563,8 @@
           "t": "いつ",
           "role": "content",
           "word_id": "W00145",
-          "r": "いつ"
+          "r": "いつ",
+          "grammar_id": "G042_itsu_when"
         },
         {
           "t": "来ます",
@@ -589,11 +591,11 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G014_to_omoimasu"
         },
         {
           "t": "思います",
-          "role": "content",
+          "role": "aux",
           "word_id": "W00043",
           "r": "おもいます",
           "inflection": {
@@ -632,7 +634,7 @@
           "r": "ふります",
           "inflection": {
             "base": "降る",
-            "base_r": "おりる",
+            "base_r": "ふる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
@@ -852,7 +854,14 @@
           "t": "行きましょう",
           "role": "content",
           "word_id": "W00150",
-          "r": "いきましょう"
+          "r": "いきましょう",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "volitional_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G048_masho"
         },
         {
           "t": "。",
