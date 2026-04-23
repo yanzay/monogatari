@@ -79,6 +79,7 @@
     "W00045",
     "W00036",
     "W00003",
+    "W00013",
     "W00009",
     "W00010",
     "W00028",
@@ -123,9 +124,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_27/s0.wav",
-      "audio_hash": "8fcbd14128ca"
+      ]
     },
     {
       "idx": 1,
@@ -159,9 +158,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_27/s1.wav",
-      "audio_hash": "037a2035bae1"
+      ]
     },
     {
       "idx": 2,
@@ -217,9 +214,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_27/s2.wav",
-      "audio_hash": "283f1cac02d4"
+      ]
     },
     {
       "idx": 3,
@@ -278,35 +273,40 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_27/s3.wav",
-      "audio_hash": "1849f90107b0"
+      ]
     },
     {
       "idx": 4,
-      "gloss_en": "I drink tea on the chair.",
+      "gloss_en": "I drink tea on a nice chair.",
       "tokens": [
         {
           "t": "私",
+          "role": "content",
           "r": "わたし",
-          "word_id": "W00003",
-          "role": "content"
+          "word_id": "W00003"
         },
         {
           "t": "は",
-          "grammar_id": "G001_wa_topic",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "いい",
+          "role": "content",
+          "r": "いい",
+          "word_id": "W00013",
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "椅子",
+          "role": "content",
           "r": "いす",
-          "word_id": "W00036",
-          "role": "content"
+          "word_id": "W00036"
         },
         {
           "t": "で",
-          "grammar_id": "G017_de_means",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "、",
@@ -314,20 +314,20 @@
         },
         {
           "t": "お茶",
+          "role": "content",
           "r": "おちゃ",
-          "word_id": "W00009",
-          "role": "content"
+          "word_id": "W00009"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "飲みます",
+          "role": "content",
           "r": "のみます",
           "word_id": "W00010",
-          "role": "content",
           "inflection": {
             "base": "飲む",
             "base_r": "のむ",
@@ -340,9 +340,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_27/s4.wav",
-      "audio_hash": "bf57d94a7f01"
+      ]
     },
     {
       "idx": 5,
@@ -395,9 +393,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_27/s5.wav",
-      "audio_hash": "992b2afa0820"
+      ]
     },
     {
       "idx": 6,
@@ -442,9 +438,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_27/s6.wav",
-      "audio_hash": "c011035aea57"
+      ]
     },
     {
       "idx": 7,
@@ -497,9 +491,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_27/s7.wav",
-      "audio_hash": "3f100b99c646"
+      ]
     },
     {
       "idx": 8,
@@ -545,9 +537,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_27/s8.wav",
-      "audio_hash": "a28317efbedf"
+      ]
     },
     {
       "idx": 9,
@@ -584,9 +574,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_27/s9.wav",
-      "audio_hash": "20b17f72b4c2"
+      ]
     },
     {
       "idx": 10,
@@ -631,20 +619,8 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_27/s10.wav",
-      "audio_hash": "0a13d7352b12"
+      ]
     }
   ],
-  "word_audio": {
-    "W00081": "audio/story_27/w_W00081.wav",
-    "W00082": "audio/story_27/w_W00082.wav",
-    "W00083": "audio/story_27/w_W00083.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00081": "8482432c0274",
-    "W00082": "6236e6c9aee4",
-    "W00083": "5b3f69361d46"
-  }
+  "checksum": null
 }

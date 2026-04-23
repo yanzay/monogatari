@@ -54,6 +54,7 @@
     "W00079",
     "W00078",
     "W00039",
+    "W00074",
     "W00018",
     "W00026",
     "W00025",
@@ -71,13 +72,20 @@
   "sentences": [
     {
       "idx": 0,
-      "gloss_en": "In the evening, I return home.",
+      "gloss_en": "Long evening, I go home.",
       "tokens": [
         {
+          "t": "長い",
+          "role": "content",
+          "r": "ながい",
+          "word_id": "W00074",
+          "grammar_id": "G023_attributive"
+        },
+        {
           "t": "夕方",
+          "role": "content",
           "r": "ゆうがた",
-          "word_id": "W00018",
-          "role": "content"
+          "word_id": "W00018"
         },
         {
           "t": "、",
@@ -85,21 +93,21 @@
         },
         {
           "t": "家",
+          "role": "content",
           "r": "いえ",
           "word_id": "W00078",
-          "role": "content",
           "is_new": true
         },
         {
           "t": "に",
-          "grammar_id": "G004_ni_location",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "帰ります",
+          "role": "content",
           "r": "かえります",
           "word_id": "W00026",
-          "role": "content",
           "inflection": {
             "base": "帰る",
             "base_r": "かえる",
@@ -112,9 +120,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_26/s0.wav",
-      "audio_hash": "ef0639f4fc1d"
+      ]
     },
     {
       "idx": 1,
@@ -174,9 +180,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_26/s1.wav",
-      "audio_hash": "5b3f8883773d"
+      ]
     },
     {
       "idx": 2,
@@ -209,9 +213,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_26/s2.wav",
-      "audio_hash": "865d31bffb31"
+      ]
     },
     {
       "idx": 3,
@@ -260,9 +262,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_26/s3.wav",
-      "audio_hash": "e883b7f46c65"
+      ]
     },
     {
       "idx": 4,
@@ -299,22 +299,20 @@
           "r": "はいります",
           "word_id": "W00080",
           "role": "content",
-          "is_new": true,
           "inflection": {
             "base": "入る",
             "base_r": "はいる",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_26/s4.wav",
-      "audio_hash": "6cae53a15619"
+      ]
     },
     {
       "idx": 5,
@@ -357,9 +355,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_26/s5.wav",
-      "audio_hash": "72cf633ad343"
+      ]
     },
     {
       "idx": 6,
@@ -392,9 +388,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_26/s6.wav",
-      "audio_hash": "b5b743315591"
+      ]
     },
     {
       "idx": 7,
@@ -453,9 +447,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_26/s7.wav",
-      "audio_hash": "791243f807e4"
+      ]
     },
     {
       "idx": 8,
@@ -515,9 +507,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_26/s8.wav",
-      "audio_hash": "0be3d6bb6846"
+      ]
     },
     {
       "idx": 9,
@@ -554,9 +544,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_26/s9.wav",
-      "audio_hash": "d77f9378798f"
+      ]
     },
     {
       "idx": 10,
@@ -601,20 +589,8 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_26/s10.wav",
-      "audio_hash": "15b75d688af7"
+      ]
     }
   ],
-  "word_audio": {
-    "W00078": "audio/story_26/w_W00078.wav",
-    "W00079": "audio/story_26/w_W00079.wav",
-    "W00080": "audio/story_26/w_W00080.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00078": "c8ae97be80f3",
-    "W00079": "1c59564ec66e",
-    "W00080": "466016d47860"
-  }
+  "checksum": null
 }

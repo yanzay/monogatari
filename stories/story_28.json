@@ -61,6 +61,7 @@
     "W00084",
     "W00035",
     "W00009",
+    "W00082",
     "W00015",
     "W00040",
     "W00003",
@@ -76,18 +77,26 @@
     "W00041",
     "W00005",
     "W00050",
-    "W00010"
+    "W00010",
+    "W00081"
   ],
   "sentences": [
     {
       "idx": 0,
-      "gloss_en": "In the morning, rain comes.",
+      "gloss_en": "Hot morning, rain comes.",
       "tokens": [
         {
+          "t": "暑い",
+          "role": "content",
+          "r": "あつい",
+          "word_id": "W00082",
+          "grammar_id": "G023_attributive"
+        },
+        {
           "t": "朝",
+          "role": "content",
           "r": "あさ",
-          "word_id": "W00015",
-          "role": "content"
+          "word_id": "W00015"
         },
         {
           "t": "、",
@@ -95,36 +104,26 @@
         },
         {
           "t": "雨",
+          "role": "content",
           "r": "あめ",
-          "word_id": "W00002",
-          "role": "content"
+          "word_id": "W00002"
         },
         {
           "t": "が",
-          "grammar_id": "G002_ga_subject",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "来ます",
-          "r": "きます",
-          "word_id": "W00040",
           "role": "content",
-          "inflection": {
-            "base": "来る",
-            "base_r": "くる",
-            "form": "polite_nonpast",
-            "verb_class": "irregular"
-          },
-          "grammar_id": "G026_masu_nonpast",
-          "is_new_grammar": true
+          "r": "きます",
+          "word_id": "W00040"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_28/s0.wav",
-      "audio_hash": "180bead7e6f3"
+      ]
     },
     {
       "idx": 1,
@@ -179,15 +178,14 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G026_masu_nonpast",
+          "is_new_grammar": true
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_28/s1.wav",
-      "audio_hash": "7b36e794ba35"
+      ]
     },
     {
       "idx": 2,
@@ -224,9 +222,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_28/s2.wav",
-      "audio_hash": "f2eaaf4c6f46"
+      ]
     },
     {
       "idx": 3,
@@ -283,9 +279,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_28/s3.wav",
-      "audio_hash": "de219a379ad4"
+      ]
     },
     {
       "idx": 4,
@@ -324,9 +318,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_28/s4.wav",
-      "audio_hash": "843c4f765e00"
+      ]
     },
     {
       "idx": 5,
@@ -364,9 +356,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_28/s5.wav",
-      "audio_hash": "034e8042ac1f"
+      ]
     },
     {
       "idx": 6,
@@ -402,9 +392,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_28/s6.wav",
-      "audio_hash": "ba9481b35d74"
+      ]
     },
     {
       "idx": 7,
@@ -453,9 +441,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_28/s7.wav",
-      "audio_hash": "0d1c73541992"
+      ]
     },
     {
       "idx": 8,
@@ -504,9 +490,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_28/s8.wav",
-      "audio_hash": "74ea44b464fe"
+      ]
     },
     {
       "idx": 9,
@@ -555,9 +539,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_28/s9.wav",
-      "audio_hash": "10a55d75d8bc"
+      ]
     },
     {
       "idx": 10,
@@ -613,30 +595,28 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_28/s10.wav",
-      "audio_hash": "db24e9e705ed"
+      ]
     },
     {
       "idx": 11,
-      "gloss_en": "A rainy morning, a warm shop.",
+      "gloss_en": "Summer morning, a warm shop.",
       "tokens": [
         {
-          "t": "雨",
-          "r": "あめ",
-          "word_id": "W00002",
-          "role": "content"
+          "t": "夏",
+          "role": "content",
+          "r": "なつ",
+          "word_id": "W00081"
         },
         {
           "t": "の",
-          "grammar_id": "G015_no_possessive",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "朝",
+          "role": "content",
           "r": "あさ",
-          "word_id": "W00015",
-          "role": "content"
+          "word_id": "W00015"
         },
         {
           "t": "、",
@@ -644,40 +624,28 @@
         },
         {
           "t": "温かい",
+          "role": "content",
           "r": "あたたかい",
           "word_id": "W00012",
-          "role": "content",
           "grammar_id": "G023_attributive"
         },
         {
           "t": "店",
+          "role": "content",
           "r": "みせ",
-          "word_id": "W00084",
-          "role": "content"
+          "word_id": "W00084"
         },
         {
           "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_28/s11.wav",
-      "audio_hash": "18a6640e86c9"
+      ]
     }
   ],
-  "word_audio": {
-    "W00084": "audio/story_28/w_W00084.wav",
-    "W00085": "audio/story_28/w_W00085.wav",
-    "W00086": "audio/story_28/w_W00086.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00084": "aaded36a8302",
-    "W00085": "f2c1e1c6a5fb",
-    "W00086": "04b8813cfd82"
-  }
+  "checksum": null
 }

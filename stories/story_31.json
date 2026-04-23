@@ -84,7 +84,9 @@
     "W00060",
     "W00011",
     "W00015",
+    "W00092",
     "W00012",
+    "W00087",
     "W00167"
   ],
   "sentences": [
@@ -131,9 +133,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_31/s0.wav",
-      "audio_hash": "23cf2bc904cc"
+      ]
     },
     {
       "idx": 1,
@@ -154,9 +154,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_31/s1.wav",
-      "audio_hash": "4399b0bf373f"
+      ]
     },
     {
       "idx": 2,
@@ -201,9 +199,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_31/s2.wav",
-      "audio_hash": "27b769a8aec7"
+      ]
     },
     {
       "idx": 3,
@@ -238,9 +234,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_31/s3.wav",
-      "audio_hash": "f17dfc90dd52"
+      ]
     },
     {
       "idx": 4,
@@ -275,9 +269,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_31/s4.wav",
-      "audio_hash": "752a691bc8aa"
+      ]
     },
     {
       "idx": 5,
@@ -309,9 +301,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_31/s5.wav",
-      "audio_hash": "5b2893dad27c"
+      ]
     },
     {
       "idx": 6,
@@ -367,9 +357,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_31/s6.wav",
-      "audio_hash": "f7ddb2ab7216"
+      ]
     },
     {
       "idx": 7,
@@ -414,9 +402,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_31/s7.wav",
-      "audio_hash": "d394bc015ddd"
+      ]
     },
     {
       "idx": 8,
@@ -466,9 +452,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_31/s8.wav",
-      "audio_hash": "7e44153ac1fd"
+      ]
     },
     {
       "idx": 9,
@@ -512,74 +496,109 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_31/s9.wav",
-      "audio_hash": "d557f79e4045"
+      ]
     },
     {
       "idx": 10,
-      "gloss_en": "It's a quiet morning.",
+      "gloss_en": "A quiet morning — there are clouds.",
       "tokens": [
         {
           "t": "静か",
+          "role": "content",
           "r": "しずか",
-          "word_id": "W00011",
-          "role": "content"
+          "word_id": "W00011"
         },
         {
           "t": "な",
-          "grammar_id": "G016_na_adjective",
-          "role": "particle"
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "朝",
+          "role": "content",
           "r": "あさ",
-          "word_id": "W00015",
-          "role": "content"
+          "word_id": "W00015"
         },
         {
-          "t": "です",
-          "grammar_id": "G003_desu",
-          "role": "aux"
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "雲",
+          "role": "content",
+          "r": "くも",
+          "word_id": "W00092"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "r": "あります",
+          "word_id": "W00044",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_aru"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_31/s10.wav",
-      "audio_hash": "c645bc0d361b"
+      ]
     },
     {
       "idx": 11,
-      "gloss_en": "I drink the warm tea.",
+      "gloss_en": "Drinking warm tea, I stand up.",
       "tokens": [
         {
           "t": "温かい",
+          "role": "content",
           "r": "あたたかい",
           "word_id": "W00012",
-          "role": "content",
-          "grammar_id": "G022_i_adj"
+          "grammar_id": "G023_attributive"
         },
         {
           "t": "お茶",
+          "role": "content",
           "r": "おちゃ",
-          "word_id": "W00009",
-          "role": "content"
+          "word_id": "W00009"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
-          "t": "飲みます",
-          "r": "のみます",
-          "word_id": "W00010",
+          "t": "飲んで",
           "role": "content",
+          "r": "のんで",
+          "word_id": "W00010",
           "inflection": {
             "base": "飲む",
             "base_r": "のむ",
+            "form": "te_form",
+            "grammar_id": "G007_te_form"
+          }
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "立ちます",
+          "role": "content",
+          "r": "たちます",
+          "word_id": "W00087",
+          "inflection": {
+            "base": "立つ",
+            "base_r": "たつ",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
@@ -589,9 +608,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_31/s11.wav",
-      "audio_hash": "1c92227ea006"
+      ]
     },
     {
       "idx": 12,
@@ -626,20 +643,8 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is cup.",
-      "audio": "audio/story_31/s12.mp3",
-      "audio_hash": "3f13d421f234"
+      "gloss_en": "There is cup."
     }
   ],
-  "word_audio": {
-    "W00093": "audio/story_31/w_W00093.wav",
-    "W00094": "audio/story_31/w_W00094.wav",
-    "W00167": "audio/story_31/word_カップ.mp3"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00093": "5154b7cf78ed",
-    "W00094": "bcaa051f1894",
-    "W00167": "508a4fc5d30e"
-  }
+  "checksum": null
 }

@@ -68,6 +68,7 @@
     "W00085",
     "W00003",
     "W00035",
+    "W00084",
     "W00009",
     "W00010",
     "W00006",
@@ -133,9 +134,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_29/s0.wav",
-      "audio_hash": "b34bbc5ad81f"
+      ]
     },
     {
       "idx": 1,
@@ -191,9 +190,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_29/s1.wav",
-      "audio_hash": "35c99284e7bf"
+      ]
     },
     {
       "idx": 2,
@@ -242,46 +239,54 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_29/s2.wav",
-      "audio_hash": "75ae675f83b8"
+      ]
     },
     {
       "idx": 3,
-      "gloss_en": "We drink tea together.",
+      "gloss_en": "The two drink tea from the shop.",
       "tokens": [
         {
           "t": "二人",
-          "r": "ふたり",
-          "word_id": "W00035",
           "role": "content",
-          "grammar_id": "G025_counters"
+          "r": "ふたり",
+          "word_id": "W00035"
         },
         {
           "t": "で",
-          "grammar_id": "G017_de_means",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "、",
           "role": "punct"
         },
         {
+          "t": "店",
+          "role": "content",
+          "r": "みせ",
+          "word_id": "W00084"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
           "t": "お茶",
+          "role": "content",
           "r": "おちゃ",
-          "word_id": "W00009",
-          "role": "content"
+          "word_id": "W00009"
         },
         {
           "t": "を",
-          "grammar_id": "G005_wo_object",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "飲みます",
+          "role": "content",
           "r": "のみます",
           "word_id": "W00010",
-          "role": "content",
           "inflection": {
             "base": "飲む",
             "base_r": "のむ",
@@ -294,9 +299,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_29/s3.wav",
-      "audio_hash": "ff24031ec611"
+      ]
     },
     {
       "idx": 4,
@@ -353,9 +356,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_29/s4.wav",
-      "audio_hash": "3366200d1e2f"
+      ]
     },
     {
       "idx": 5,
@@ -409,9 +410,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_29/s5.wav",
-      "audio_hash": "149b91fe747f"
+      ]
     },
     {
       "idx": 6,
@@ -459,9 +458,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_29/s6.wav",
-      "audio_hash": "c1f73e5a475e"
+      ]
     },
     {
       "idx": 7,
@@ -527,9 +524,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_29/s7.wav",
-      "audio_hash": "3cd66f13ae79"
+      ]
     },
     {
       "idx": 8,
@@ -566,9 +561,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_29/s8.wav",
-      "audio_hash": "20b17f72b4c2"
+      ]
     },
     {
       "idx": 9,
@@ -618,9 +611,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_29/s9.wav",
-      "audio_hash": "a4411871937b"
+      ]
     },
     {
       "idx": 10,
@@ -658,20 +649,8 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_29/s10.wav",
-      "audio_hash": "f6549d4e3dd8"
+      ]
     }
   ],
-  "word_audio": {
-    "W00087": "audio/story_29/w_W00087.wav",
-    "W00088": "audio/story_29/w_W00088.wav",
-    "W00089": "audio/story_29/w_W00089.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00087": "9177805f84b0",
-    "W00088": "3c659f5514a2",
-    "W00089": "1a3205c3a91e"
-  }
+  "checksum": null
 }

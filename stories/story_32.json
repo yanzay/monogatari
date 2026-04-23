@@ -71,8 +71,10 @@
     "W00003",
     "W00021",
     "W00020",
+    "W00167",
     "W00009",
     "W00010",
+    "W00093",
     "W00040",
     "W00061",
     "W00058",
@@ -113,9 +115,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a winter morning.",
-      "audio": "audio/story_32/s0.wav",
-      "audio_hash": "4baa92b0ef37"
+      "gloss_en": "It is a winter morning."
     },
     {
       "idx": 1,
@@ -142,9 +142,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a cold morning.",
-      "audio": "audio/story_32/s1.wav",
-      "audio_hash": "77d201c18e44"
+      "gloss_en": "It is a cold morning."
     },
     {
       "idx": 2,
@@ -188,80 +186,91 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I eat an egg.",
-      "audio": "audio/story_32/s2.wav",
-      "audio_hash": "559117eea2ee"
+      "gloss_en": "I eat an egg."
     },
     {
       "idx": 3,
       "tokens": [
         {
+          "t": "カップ",
+          "role": "content",
+          "r": "カップ",
+          "word_id": "W00167"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
           "t": "お茶",
+          "role": "content",
           "r": "おちゃ",
-          "word_id": "W00009",
-          "role": "content"
+          "word_id": "W00009"
         },
         {
           "t": "も",
-          "grammar_id": "G009_mo_also",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "飲みます",
+          "role": "content",
           "r": "のみます",
           "word_id": "W00010",
-          "role": "content",
           "inflection": {
             "base": "飲む",
             "base_r": "のむ",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I drink tea too.",
-      "audio": "audio/story_32/s3.wav",
-      "audio_hash": "1ff7399d6917"
+      "gloss_en": "I also drink a cup of tea."
     },
     {
       "idx": 4,
       "tokens": [
         {
           "t": "父",
+          "role": "content",
           "r": "ちち",
           "word_id": "W00096",
-          "role": "content",
           "is_new": true
         },
         {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "電話",
+          "role": "content",
+          "r": "でんわ",
+          "word_id": "W00093"
+        },
+        {
           "t": "が",
-          "grammar_id": "G002_ga_subject",
-          "role": "particle"
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "来ます",
-          "r": "きます",
-          "word_id": "W00040",
           "role": "content",
-          "inflection": {
-            "base": "来る",
-            "base_r": "くる",
-            "form": "polite_nonpast",
-            "verb_class": "irregular"
-          }
+          "r": "きます",
+          "word_id": "W00040"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "Father comes in.",
-      "audio": "audio/story_32/s4.wav",
-      "audio_hash": "c151962b1e8e"
+      "gloss_en": "A phone call comes from father."
     },
     {
       "idx": 5,
@@ -320,9 +329,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"Cold morning breakfast, isn't it,\" he says.",
-      "audio": "audio/story_32/s5.wav",
-      "audio_hash": "3699de686cd4"
+      "gloss_en": "\"Cold morning breakfast, isn't it,\" he says."
     },
     {
       "idx": 6,
@@ -366,9 +373,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "He says my name.",
-      "audio": "audio/story_32/s6.wav",
-      "audio_hash": "cb7b67fe1e56"
+      "gloss_en": "He says my name."
     },
     {
       "idx": 7,
@@ -419,9 +424,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"Are you well?\" he says.",
-      "audio": "audio/story_32/s7.wav",
-      "audio_hash": "4b7ab2aec373"
+      "gloss_en": "\"Are you well?\" he says."
     },
     {
       "idx": 8,
@@ -469,9 +472,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "About family, he says a name.",
-      "audio": "audio/story_32/s8.wav",
-      "audio_hash": "5e9009581636"
+      "gloss_en": "About family, he says a name."
     },
     {
       "idx": 9,
@@ -499,9 +500,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "He leaves.",
-      "audio": "audio/story_32/s9.wav",
-      "audio_hash": "70dc43621f9d"
+      "gloss_en": "He leaves."
     },
     {
       "idx": 10,
@@ -540,9 +539,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I drink the warm tea.",
-      "audio": "audio/story_32/s10.wav",
-      "audio_hash": "1c92227ea006"
+      "gloss_en": "I drink the warm tea."
     },
     {
       "idx": 11,
@@ -569,20 +566,8 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a happy winter.",
-      "audio": "audio/story_32/s11.wav",
-      "audio_hash": "44bc3cd760c0"
+      "gloss_en": "It is a happy winter."
     }
   ],
-  "word_audio": {
-    "W00095": "audio/story_32/w_W00095.wav",
-    "W00096": "audio/story_32/w_W00096.wav",
-    "W00097": "audio/story_32/w_W00097.wav"
-  },
-  "checksum": null,
-  "word_audio_hash": {
-    "W00095": "0868fbc8c0bd",
-    "W00096": "ca4c64d9ae27",
-    "W00097": "698d88735952"
-  }
+  "checksum": null
 }
