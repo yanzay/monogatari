@@ -759,21 +759,37 @@
       "tokens": [
         {
           "t": "私",
-          "r": "わたし",
           "role": "content",
+          "r": "わたし",
           "word_id": "W00003"
         },
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "時々",
-          "r": "ときどき",
           "role": "content",
+          "r": "ときどき",
           "word_id": "W00131"
+        },
+        {
+          "t": "祖母",
+          "role": "content",
+          "r": "そぼ",
+          "word_id": "W00098"
+        },
+        {
+          "t": "さん",
+          "role": "content",
+          "r": "さん",
+          "word_id": "W00125"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "手紙",
@@ -782,38 +798,29 @@
           "word_id": "W00039"
         },
         {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "祖母",
-          "r": "そぼ",
-          "role": "content",
-          "word_id": "W00098"
-        },
-        {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object",
-          "r": "を"
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "思います",
-          "r": "おもいます",
           "role": "content",
+          "r": "おもいます",
           "word_id": "W00043",
           "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "Sometimes I think of grandmother's letters."
+      "gloss_en": "Sometimes I think of grandmother-san's letters."
     },
     {
       "idx": 14,
@@ -982,6 +989,7 @@
     "W00178",
     "W00183",
     "W00131",
+    "W00125",
     "W00039",
     "W00006"
   ]
