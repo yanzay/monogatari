@@ -69,6 +69,7 @@
     "W00055",
     "W00012",
     "W00059",
+    "W00091",
     "W00024",
     "W00083",
     "W00096"
@@ -395,6 +396,17 @@
           "role": "particle"
         },
         {
+          "t": "葉",
+          "role": "content",
+          "r": "は",
+          "word_id": "W00091"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
           "t": "花",
           "r": "はな",
           "word_id": "W00024",
@@ -422,7 +434,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There are flowers in the garden."
+      "gloss_en": "In the garden are leaves and flowers."
     },
     {
       "idx": 8,

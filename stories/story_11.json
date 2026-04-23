@@ -376,7 +376,7 @@
     },
     {
       "idx": 6,
-      "gloss_en": "It was a blue moon.",
+      "gloss_en": "It was a blue moon and stars.",
       "tokens": [
         {
           "t": "青い",
@@ -384,6 +384,17 @@
           "role": "content",
           "word_id": "W00158",
           "is_new": true
+        },
+        {
+          "t": "星",
+          "role": "content",
+          "r": "ほし",
+          "word_id": "W00032"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "月",

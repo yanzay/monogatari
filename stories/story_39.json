@@ -76,6 +76,7 @@
     "W00097",
     "W00035",
     "W00101",
+    "W00102",
     "W00040",
     "W00094",
     "W00056"
@@ -534,13 +535,13 @@
           "role": "punct"
         },
         {
-          "t": "歩きます",
-          "r": "あるきます",
-          "word_id": "W00017",
+          "t": "走ります",
+          "r": "はしります",
+          "word_id": "W00102",
           "role": "content",
           "inflection": {
-            "base": "歩く",
-            "base_r": "あるく",
+            "base": "走る",
+            "base_r": "はしる",
             "form": "polite_nonpast",
             "verb_class": "godan"
           }
@@ -550,7 +551,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Because the rain is strong, we walk."
+      "gloss_en": "Because the rain is strong, we run."
     },
     {
       "idx": 10,

@@ -85,6 +85,7 @@
     "W00012",
     "W00056",
     "W00035",
+    "W00167",
     "W00009",
     "W00010",
     "W00055"
@@ -536,6 +537,17 @@
           "role": "particle"
         },
         {
+          "t": "カップ",
+          "role": "content",
+          "r": "カップ",
+          "word_id": "W00167"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
           "t": "お茶",
           "r": "おちゃ",
           "word_id": "W00009",
@@ -563,7 +575,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us drink tea."
+      "gloss_en": "The two drink tea from cups."
     },
     {
       "idx": 11,

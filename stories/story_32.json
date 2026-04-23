@@ -81,7 +81,8 @@
     "W00088",
     "W00077",
     "W00012",
-    "W00056"
+    "W00056",
+    "W00090"
   ],
   "sentences": [
     {
@@ -551,6 +552,17 @@
           "role": "content"
         },
         {
+          "t": "秋",
+          "role": "content",
+          "r": "あき",
+          "word_id": "W00090"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
           "t": "冬",
           "r": "ふゆ",
           "word_id": "W00095",
@@ -566,7 +578,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a happy winter."
+      "gloss_en": "A joyful autumn and winter."
     }
   ],
   "checksum": null

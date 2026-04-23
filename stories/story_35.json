@@ -80,6 +80,7 @@
     "W00003",
     "W00034",
     "W00104",
+    "W00093",
     "W00058",
     "W00056",
     "W00057",
@@ -320,6 +321,17 @@
           "role": "content"
         },
         {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "電話",
+          "role": "content",
+          "r": "でんわ",
+          "word_id": "W00093"
+        },
+        {
           "t": "は",
           "grammar_id": "G001_wa_topic",
           "role": "particle"
@@ -372,7 +384,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Because mother is well, I am happy."
+      "gloss_en": "Mother's call is well, so I am happy."
     },
     {
       "idx": 6,
