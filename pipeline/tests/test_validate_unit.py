@@ -769,17 +769,16 @@ def run_tests():
 
     s = make_valid_story()
     s["story_id"] = 1
-    s["sentences"] = s["sentences"][:5]  # 5 sentences (below target plateau)
+    s["sentences"] = s["sentences"][:4]  # 4 sentences (below band 5-9 for target 7)
     r = validate(s, VOCAB, GRAMMAR)
-    check("story 1 with 5 sentences → check 7 error (band 6-8)",
+    check("story 1 with 4 sentences → check 7 error (band 5-9)",
           errors_for_check(r, 7))
 
-    # Story 11 (first +1 step, target 8): 7 sentences should fail (out of band 7-9... wait band is 7-9).
-    # Use a clearer test: story 21 (target 10, band 9-11) with 7 sentences should fail.
+    # Story 21 (target 10, band 8-12 with ±2 tolerance): 5 sentences should fail.
     s = make_valid_story()
     s["story_id"] = 21
     r = validate(s, VOCAB, GRAMMAR)  # has 5 sentences
-    check("story 21 with 5 sentences → check 7 error (band 9-11)",
+    check("story 21 with 5 sentences → check 7 error (band 8-12)",
           errors_for_check(r, 7))
 
     # Story_id 0 (test fixture sentinel) should bypass progression and use the
