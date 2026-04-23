@@ -56,7 +56,8 @@
   "plan_ref": "plan.json",
   "new_words": [
     "W00093",
-    "W00094"
+    "W00094",
+    "W00167"
   ],
   "new_grammar": [
     "G027_ni_tsuite"
@@ -83,7 +84,8 @@
     "W00060",
     "W00011",
     "W00015",
-    "W00012"
+    "W00012",
+    "W00167"
   ],
   "sentences": [
     {
@@ -158,7 +160,7 @@
     },
     {
       "idx": 2,
-      "gloss_en": "I drink tea, and I talk with the friend.",
+      "gloss_en": "I drink tea.",
       "tokens": [
         {
           "t": "私",
@@ -590,15 +592,54 @@
       ],
       "audio": "audio/story_31/s11.wav",
       "audio_hash": "1c92227ea006"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "カップ",
+          "r": "カップ",
+          "role": "content",
+          "word_id": "W00167",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "r": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is cup.",
+      "audio": "audio/story_31/s12.mp3",
+      "audio_hash": "3f13d421f234"
     }
   ],
   "word_audio": {
     "W00093": "audio/story_31/w_W00093.wav",
-    "W00094": "audio/story_31/w_W00094.wav"
+    "W00094": "audio/story_31/w_W00094.wav",
+    "W00167": "audio/story_31/word_カップ.mp3"
   },
   "checksum": null,
   "word_audio_hash": {
     "W00093": "5154b7cf78ed",
-    "W00094": "bcaa051f1894"
+    "W00094": "bcaa051f1894",
+    "W00167": "508a4fc5d30e"
   }
 }

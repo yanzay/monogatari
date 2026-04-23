@@ -869,6 +869,18 @@
           "grammar_id": "G010_to_and"
         },
         {
+          "t": "弟",
+          "r": "おとうと",
+          "role": "content",
+          "word_id": "W00174",
+          "is_new": true
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
           "t": "私",
           "r": "わたし",
           "role": "content",
@@ -894,9 +906,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "This person and I talk.",
-      "audio": "audio/story_52/s12.wav",
-      "audio_hash": "56c929bf47bf"
+      "gloss_en": "This person, (my) younger brother, and I talk."
     },
     {
       "idx": 13,
@@ -938,10 +948,11 @@
       "idx": 14,
       "tokens": [
         {
-          "t": "人",
-          "r": "ひと",
+          "t": "先生",
+          "r": "せんせい",
           "role": "content",
-          "word_id": "W00113"
+          "word_id": "W00175",
+          "is_new": true
         },
         {
           "t": "は",
@@ -968,9 +979,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The person is happy.",
-      "audio": "audio/story_52/s14.wav",
-      "audio_hash": "2f625251764a"
+      "gloss_en": "The teacher is happy."
     },
     {
       "idx": 15,
@@ -1064,7 +1073,9 @@
     }
   ],
   "new_words": [
-    "W00149"
+    "W00149",
+    "W00174",
+    "W00175"
   ],
   "new_grammar": [
     "G044_te_kudasai"
@@ -1092,9 +1103,11 @@
     "W00120",
     "W00056",
     "W00148",
+    "W00174",
     "W00094",
     "W00132",
-    "W00146"
+    "W00146",
+    "W00175"
   ],
   "word_audio": {
     "W00149": "audio/story_52/w_W00149.wav"

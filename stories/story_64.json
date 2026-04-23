@@ -137,9 +137,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring morning.",
-      "audio": "audio/story_64/s0.wav",
-      "audio_hash": "03fcfb532d5c"
+      "gloss_en": "It is a spring morning."
     },
     {
       "idx": 1,
@@ -183,18 +181,17 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I write in the notebook.",
-      "audio": "audio/story_64/s1.wav",
-      "audio_hash": "e02af145f6cc"
+      "gloss_en": "I write in the notebook."
     },
     {
       "idx": 2,
       "tokens": [
         {
-          "t": "学校",
-          "r": "がっこう",
+          "t": "会社",
+          "r": "かいしゃ",
           "role": "content",
-          "word_id": "W00104"
+          "word_id": "W00205",
+          "is_new": true
         },
         {
           "t": "から",
@@ -231,9 +228,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend came from school.",
-      "audio": "audio/story_64/s2.wav",
-      "audio_hash": "a996638a3175"
+      "gloss_en": "The friend came from the company."
     },
     {
       "idx": 3,
@@ -316,9 +311,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I write in the notebook, \"The friend came.\"",
-      "audio": "audio/story_64/s3.wav",
-      "audio_hash": "f4bb6721595d"
+      "gloss_en": "I write in the notebook, \"The friend came.\""
     },
     {
       "idx": 4,
@@ -376,9 +369,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend and I drank tea.",
-      "audio": "audio/story_64/s4.wav",
-      "audio_hash": "dcddc4b818d6"
+      "gloss_en": "The friend and I drank tea."
     },
     {
       "idx": 5,
@@ -476,9 +467,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I write in the notebook, \"We drank tea. Tomorrow I drink too.\"",
-      "audio": "audio/story_64/s5.wav",
-      "audio_hash": "09862e07733d"
+      "gloss_en": "I write in the notebook, \"We drank tea. Tomorrow I drink too.\""
     },
     {
       "idx": 6,
@@ -508,6 +497,19 @@
           "r": "は"
         },
         {
+          "t": "旅行",
+          "r": "りょこう",
+          "role": "content",
+          "word_id": "W00206",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object",
+          "r": "を"
+        },
+        {
           "t": "話しました",
           "r": "はなしました",
           "role": "content",
@@ -524,9 +526,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend and I talked.",
-      "audio": "audio/story_64/s6.wav",
-      "audio_hash": "50daac78847d"
+      "gloss_en": "The friend and I talked about travel."
     },
     {
       "idx": 7,
@@ -584,9 +584,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I write, \"I talked with the friend.\"",
-      "audio": "audio/story_64/s7.wav",
-      "audio_hash": "d03017f2e3e5"
+      "gloss_en": "I write, \"I talked with the friend.\""
     },
     {
       "idx": 8,
@@ -604,34 +602,23 @@
           "r": "は"
         },
         {
+          "t": "お金",
+          "r": "おかね",
+          "role": "content",
+          "word_id": "W00204",
+          "is_new": true
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means",
+          "r": "で"
+        },
+        {
           "t": "本",
           "r": "ほん",
           "role": "content",
           "word_id": "W00033"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "の"
-        },
-        {
-          "t": "店",
-          "r": "みせ",
-          "role": "content",
-          "word_id": "W00084"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "r": "の"
-        },
-        {
-          "t": "人",
-          "r": "ひと",
-          "role": "content",
-          "word_id": "W00113"
         },
         {
           "t": "を",
@@ -640,15 +627,16 @@
           "r": "を"
         },
         {
-          "t": "見ました",
-          "r": "みました",
+          "t": "買いました",
+          "r": "かいました",
           "role": "content",
-          "word_id": "W00006",
+          "word_id": "W00086",
           "inflection": {
+            "base": "買う",
+            "base_r": "かう",
             "form": "polite_past",
             "grammar_id": "G013_mashita_past",
-            "base": "見る",
-            "base_r": "みる"
+            "verb_class": "godan"
           }
         },
         {
@@ -656,9 +644,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend saw the bookstore person.",
-      "audio": "audio/story_64/s8.wav",
-      "audio_hash": "29902e216775"
+      "gloss_en": "The friend bought books with money."
     },
     {
       "idx": 9,
@@ -696,9 +682,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I was happy.",
-      "audio": "audio/story_64/s9.wav",
-      "audio_hash": "64c5a4a192c0"
+      "gloss_en": "I was happy."
     },
     {
       "idx": 10,
@@ -748,9 +732,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But, I did not tell grandmother.",
-      "audio": "audio/story_64/s10.wav",
-      "audio_hash": "8a490b770b94"
+      "gloss_en": "But, I did not tell grandmother."
     },
     {
       "idx": 11,
@@ -814,9 +796,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I write, \"I did not tell grandmother.\"",
-      "audio": "audio/story_64/s11.wav",
-      "audio_hash": "555b74e3fd08"
+      "gloss_en": "I write, \"I did not tell grandmother.\""
     },
     {
       "idx": 12,
@@ -874,9 +854,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend went to the bookstore.",
-      "audio": "audio/story_64/s12.wav",
-      "audio_hash": "55daa5137f2b"
+      "gloss_en": "The friend went to the bookstore."
     },
     {
       "idx": 13,
@@ -970,9 +948,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I write in the notebook, \"The friend went to the bookstore.\"",
-      "audio": "audio/story_64/s13.wav",
-      "audio_hash": "4938dd207729"
+      "gloss_en": "I write in the notebook, \"The friend went to the bookstore.\""
     },
     {
       "idx": 14,
@@ -1030,9 +1006,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I did not go to the bookstore.",
-      "audio": "audio/story_64/s14.wav",
-      "audio_hash": "d72b2dac76d0"
+      "gloss_en": "I did not go to the bookstore."
     },
     {
       "idx": 15,
@@ -1090,9 +1064,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I write, \"I did not go.\"",
-      "audio": "audio/story_64/s15.wav",
-      "audio_hash": "afb1ea806cac"
+      "gloss_en": "I write, \"I did not go.\""
     },
     {
       "idx": 16,
@@ -1166,12 +1138,14 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A spring morning, an old notebook, a new promise.",
-      "audio": "audio/story_64/s16.wav",
-      "audio_hash": "45c0bbbf0907"
+      "gloss_en": "A spring morning, an old notebook, a new promise."
     }
   ],
-  "new_words": [],
+  "new_words": [
+    "W00204",
+    "W00205",
+    "W00206"
+  ],
   "new_grammar": [
     "G056_plain_past_pair"
   ],
@@ -1186,17 +1160,18 @@
     "W00015",
     "W00154",
     "W00060",
-    "W00104",
+    "W00205",
     "W00009",
     "W00010",
     "W00046",
+    "W00206",
+    "W00204",
     "W00033",
-    "W00084",
-    "W00113",
-    "W00006",
+    "W00086",
     "W00056",
     "W00098",
     "W00097",
+    "W00084",
     "W00150",
     "W00067",
     "W00066",

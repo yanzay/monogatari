@@ -885,10 +885,11 @@
           "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
-          "t": "人",
-          "r": "ひと",
+          "t": "学生",
+          "r": "がくせい",
           "role": "content",
-          "word_id": "W00113"
+          "word_id": "W00176",
+          "is_new": true
         },
         {
           "t": "は",
@@ -933,9 +934,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bookstore person and I drink warm tea.",
-      "audio": "audio/story_53/s12.wav",
-      "audio_hash": "d3ecb0f1981e"
+      "gloss_en": "(My) student and I drink warm tea."
     },
     {
       "idx": 13,
@@ -1012,10 +1011,11 @@
       "idx": 14,
       "tokens": [
         {
-          "t": "約束",
-          "r": "やくそく",
+          "t": "時間",
+          "r": "じかん",
           "role": "content",
-          "word_id": "W00132"
+          "word_id": "W00177",
+          "is_new": true
         },
         {
           "t": "は",
@@ -1040,18 +1040,17 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The promise is next week.",
-      "audio": "audio/story_53/s14.wav",
-      "audio_hash": "09539a4cd18b"
+      "gloss_en": "The time is next week."
     },
     {
       "idx": 15,
       "tokens": [
         {
-          "t": "春",
-          "r": "はる",
+          "t": "年",
+          "r": "とし",
           "role": "content",
-          "word_id": "W00072"
+          "word_id": "W00178",
+          "is_new": true
         },
         {
           "t": "の",
@@ -1116,12 +1115,14 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Spring morning, old book, warm tea.",
-      "audio": "audio/story_53/s15.wav",
-      "audio_hash": "e0fd44514d9c"
+      "gloss_en": "A morning of the year, an old book, warm tea."
     }
   ],
-  "new_words": [],
+  "new_words": [
+    "W00176",
+    "W00177",
+    "W00178"
+  ],
   "new_grammar": [
     "G045_nan_what"
   ],
@@ -1151,11 +1152,13 @@
     "W00142",
     "W00120",
     "W00056",
+    "W00176",
     "W00012",
     "W00009",
     "W00010",
     "W00146",
-    "W00132"
+    "W00177",
+    "W00178"
   ],
   "word_audio": {},
   "word_audio_hash": {}

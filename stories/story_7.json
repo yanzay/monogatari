@@ -53,7 +53,8 @@
     "W00011",
     "W00003",
     "W00006",
-    "W00027"
+    "W00027",
+    "W00156"
   ],
   "sentences": [
     {
@@ -87,9 +88,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_7/s0.mp3",
-      "audio_hash": "64319473834e"
+      ]
     },
     {
       "idx": 1,
@@ -140,9 +139,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_7/s1.mp3",
-      "audio_hash": "f6168fb5a7b4"
+      ]
     },
     {
       "idx": 2,
@@ -191,9 +188,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_7/s2.mp3",
-      "audio_hash": "a60439d4148a"
+      ]
     },
     {
       "idx": 3,
@@ -236,9 +231,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_7/s3.mp3",
-      "audio_hash": "ad0acbb21cbe"
+      ]
     },
     {
       "idx": 4,
@@ -294,9 +287,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_7/s4.mp3",
-      "audio_hash": "d8ae2c5c45a1"
+      ]
     },
     {
       "idx": 5,
@@ -337,18 +328,16 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_7/s5.mp3",
-      "audio_hash": "eb222b06f7d2"
+      ]
     },
     {
       "idx": 6,
-      "gloss_en": "Moon and stars — outside, the night.",
+      "gloss_en": "Moon, stars, and color — the night outside.",
       "tokens": [
         {
           "t": "月",
-          "r": "つき",
           "role": "content",
+          "r": "つき",
           "word_id": "W00031"
         },
         {
@@ -358,9 +347,20 @@
         },
         {
           "t": "星",
-          "r": "ほし",
           "role": "content",
+          "r": "ほし",
           "word_id": "W00032"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "色",
+          "role": "content",
+          "r": "いろ",
+          "word_id": "W00156"
         },
         {
           "t": "、",
@@ -368,8 +368,8 @@
         },
         {
           "t": "外",
-          "r": "そと",
           "role": "content",
+          "r": "そと",
           "word_id": "W00005"
         },
         {
@@ -379,27 +379,15 @@
         },
         {
           "t": "夜",
-          "r": "よる",
           "role": "content",
+          "r": "よる",
           "word_id": "W00030"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_7/s6.mp3",
-      "audio_hash": "5f0b392016f3"
+      ]
     }
-  ],
-  "word_audio": {
-    "W00030": "audio/story_7/w_W00030.mp3",
-    "W00031": "audio/story_7/w_W00031.mp3",
-    "W00032": "audio/story_7/w_W00032.mp3"
-  },
-  "word_audio_hash": {
-    "W00030": "a519542a5fb4",
-    "W00031": "1625179badc0",
-    "W00032": "83e9c51b3d7a"
-  }
+  ]
 }

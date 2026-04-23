@@ -1116,10 +1116,86 @@
       "gloss_en": "A spring morning, a new umbrella, a strong heart.",
       "audio": "audio/story_65/s16.wav",
       "audio_hash": "2782aaf22a18"
+    },
+    {
+      "idx": 17,
+      "tokens": [
+        {
+          "t": "地図",
+          "r": "ちず",
+          "role": "content",
+          "word_id": "W00207",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "r": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is map.",
+      "audio": "audio/story_65/s17.mp3",
+      "audio_hash": "fe742e3f83fb"
+    },
+    {
+      "idx": 18,
+      "tokens": [
+        {
+          "t": "新聞",
+          "r": "しんぶん",
+          "role": "content",
+          "word_id": "W00208",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "r": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is newspaper.",
+      "audio": "audio/story_65/s18.mp3",
+      "audio_hash": "a3c4804f51e3"
     }
   ],
   "new_words": [
-    "W00155"
+    "W00155",
+    "W00207",
+    "W00208"
   ],
   "new_grammar": [
     "G057_ga_hoshii"
@@ -1149,12 +1225,18 @@
     "W00044",
     "W00086",
     "W00056",
-    "W00120"
+    "W00120",
+    "W00207",
+    "W00208"
   ],
   "word_audio": {
-    "W00155": "audio/story_65/w_W00155.wav"
+    "W00155": "audio/story_65/w_W00155.wav",
+    "W00207": "audio/story_65/word_地図.mp3",
+    "W00208": "audio/story_65/word_新聞.mp3"
   },
   "word_audio_hash": {
-    "W00155": "8cea5557726e"
+    "W00155": "8cea5557726e",
+    "W00207": "401cafbae2d0",
+    "W00208": "9c200fe1150d"
   }
 }

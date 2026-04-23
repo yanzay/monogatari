@@ -24,19 +24,31 @@
     ]
   },
   "subtitle": {
-    "jp": "雨と月",
-    "en": "Rain and the moon",
+    "jp": "白い手紙と青い月",
+    "en": "A white letter and a blue moon",
     "tokens": [
       {
-        "t": "雨",
-        "r": "あめ",
+        "t": "白い",
+        "r": "しろい",
         "role": "content",
-        "word_id": "W00002"
+        "word_id": "W00157"
+      },
+      {
+        "t": "手紙",
+        "r": "てがみ",
+        "role": "content",
+        "word_id": "W00039"
       },
       {
         "t": "と",
         "role": "particle",
         "grammar_id": "G010_to_and"
+      },
+      {
+        "t": "青い",
+        "r": "あおい",
+        "role": "content",
+        "word_id": "W00158"
       },
       {
         "t": "月",
@@ -83,75 +95,17 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_11/s0.mp3",
-      "audio_hash": "1f4693870577"
+      ]
     },
     {
       "idx": 1,
-      "gloss_en": "In the morning, I waited for a letter.",
+      "gloss_en": "At night, a letter came from a friend.",
       "tokens": [
         {
-          "t": "朝",
-          "r": "あさ",
+          "t": "夜",
+          "r": "よる",
           "role": "content",
-          "word_id": "W00015"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "私",
-          "r": "わたし",
-          "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "手紙",
-          "r": "てがみ",
-          "role": "content",
-          "word_id": "W00039"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "待ちました",
-          "r": "まちました",
-          "role": "content",
-          "word_id": "W00041",
-          "grammar_id": "G013_mashita_past",
-          "inflection": {
-            "word_id": "W00041",
-            "base": "待つ",
-            "base_r": "まつ",
-            "form": "polite_past"
-          }
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "audio": "audio/story_11/s1.mp3",
-      "audio_hash": "0434d834f95a"
-    },
-    {
-      "idx": 2,
-      "gloss_en": "And then, a letter came from my friend.",
-      "tokens": [
-        {
-          "t": "そして",
-          "role": "particle",
-          "grammar_id": "G012_soshite_then"
+          "word_id": "W00030"
         },
         {
           "t": "、",
@@ -196,9 +150,40 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_11/s2.mp3",
-      "audio_hash": "74a5334de22c"
+      ]
+    },
+    {
+      "idx": 2,
+      "gloss_en": "It was a white letter.",
+      "tokens": [
+        {
+          "t": "白い",
+          "r": "しろい",
+          "role": "content",
+          "word_id": "W00157",
+          "is_new": true
+        },
+        {
+          "t": "手紙",
+          "r": "てがみ",
+          "role": "content",
+          "word_id": "W00039"
+        },
+        {
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "G013_mashita_past",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ]
     },
     {
       "idx": 3,
@@ -243,106 +228,48 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_11/s3.mp3",
-      "audio_hash": "d7ebb2406fda"
+      ]
     },
     {
       "idx": 4,
-      "gloss_en": "My friend's morning, too, was quiet.",
+      "gloss_en": "And then, I drank warm tea.",
       "tokens": [
         {
-          "t": "友達",
-          "r": "ともだち",
-          "role": "content",
-          "word_id": "W00022"
-        },
-        {
-          "t": "の",
+          "t": "そして",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "朝",
-          "r": "あさ",
-          "role": "content",
-          "word_id": "W00015"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "静か",
-          "r": "しずか",
-          "role": "content",
-          "word_id": "W00011"
-        },
-        {
-          "t": "でした",
-          "role": "aux",
-          "grammar_id": "G013_mashita_past",
-          "inflection": {
-            "base": "です",
-            "base_r": "です",
-            "form": "polite_past"
-          }
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "audio": "audio/story_11/s4.mp3",
-      "audio_hash": "3b8af4727b90"
-    },
-    {
-      "idx": 5,
-      "gloss_en": "Yesterday night, the wind came.",
-      "tokens": [
-        {
-          "t": "昨日",
-          "r": "きのう",
-          "role": "content",
-          "word_id": "W00042"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "夜",
-          "r": "よる",
-          "role": "content",
-          "word_id": "W00030"
+          "grammar_id": "G012_soshite_then"
         },
         {
           "t": "、",
           "role": "punct"
         },
         {
-          "t": "風",
-          "r": "かぜ",
+          "t": "温かい",
+          "r": "あたたかい",
           "role": "content",
-          "word_id": "W00027"
+          "word_id": "W00012"
         },
         {
-          "t": "が",
+          "t": "お茶",
+          "r": "おちゃ",
+          "role": "content",
+          "word_id": "W00009"
+        },
+        {
+          "t": "を",
           "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "G005_wo_object"
         },
         {
-          "t": "来ました",
-          "r": "きました",
+          "t": "飲みました",
+          "r": "のみました",
           "role": "content",
-          "word_id": "W00040",
+          "word_id": "W00010",
           "grammar_id": "G013_mashita_past",
           "inflection": {
-            "word_id": "W00040",
-            "base": "来る",
-            "base_r": "くる",
+            "word_id": "W00010",
+            "base": "飲む",
+            "base_r": "のむ",
             "form": "polite_past"
           }
         },
@@ -350,13 +277,11 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_11/s5.mp3",
-      "audio_hash": "f2ea03f930b7"
+      ]
     },
     {
-      "idx": 6,
-      "gloss_en": "I saw the moon.",
+      "idx": 5,
+      "gloss_en": "I looked at the rain and the moon from the window.",
       "tokens": [
         {
           "t": "私",
@@ -368,6 +293,28 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "窓",
+          "r": "まど",
+          "role": "content",
+          "word_id": "W00004"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "雨",
+          "r": "あめ",
+          "role": "content",
+          "word_id": "W00002"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "月",
@@ -397,14 +344,19 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_11/s6.mp3",
-      "audio_hash": "88dfbddbcea3"
+      ]
     },
     {
-      "idx": 7,
-      "gloss_en": "Moon and letter — it was a quiet night.",
+      "idx": 6,
+      "gloss_en": "It was a blue moon.",
       "tokens": [
+        {
+          "t": "青い",
+          "r": "あおい",
+          "role": "content",
+          "word_id": "W00158",
+          "is_new": true
+        },
         {
           "t": "月",
           "r": "つき",
@@ -412,20 +364,25 @@
           "word_id": "W00031"
         },
         {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "G013_mashita_past",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
         },
         {
-          "t": "手紙",
-          "r": "てがみ",
-          "role": "content",
-          "word_id": "W00039"
-        },
-        {
-          "t": "、",
+          "t": "。",
           "role": "punct"
-        },
+        }
+      ]
+    },
+    {
+      "idx": 7,
+      "gloss_en": "It was a quiet night.",
+      "tokens": [
         {
           "t": "静か",
           "r": "しずか",
@@ -457,13 +414,13 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_11/s7.mp3",
-      "audio_hash": "8c00913c7699"
+      ]
     }
   ],
   "new_words": [
-    "W00042"
+    "W00042",
+    "W00157",
+    "W00158"
   ],
   "new_grammar": [
     "G013_mashita_past"
@@ -471,23 +428,20 @@
   "all_words_used": [
     "W00042",
     "W00039",
-    "W00002",
+    "W00157",
+    "W00158",
     "W00031",
-    "W00015",
-    "W00003",
-    "W00041",
+    "W00002",
+    "W00030",
     "W00022",
     "W00040",
+    "W00003",
     "W00034",
-    "W00011",
-    "W00030",
-    "W00027",
-    "W00006"
-  ],
-  "word_audio": {
-    "W00042": "audio/story_11/w_W00042.mp3"
-  },
-  "word_audio_hash": {
-    "W00042": "655d11bd2af0"
-  }
+    "W00012",
+    "W00009",
+    "W00010",
+    "W00004",
+    "W00006",
+    "W00011"
+  ]
 }

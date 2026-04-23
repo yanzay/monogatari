@@ -129,9 +129,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a winter morning.",
-      "audio": "audio/story_67/s0.wav",
-      "audio_hash": "4baa92b0ef37"
+      "gloss_en": "It is a winter morning."
     },
     {
       "idx": 1,
@@ -163,9 +161,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Snow falls.",
-      "audio": "audio/story_67/s1.wav",
-      "audio_hash": "de5660a198f5"
+      "gloss_en": "Snow falls."
     },
     {
       "idx": 2,
@@ -209,9 +205,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I stand at the window.",
-      "audio": "audio/story_67/s2.wav",
-      "audio_hash": "3c8ae591bc7c"
+      "gloss_en": "I stand at the window."
     },
     {
       "idx": 3,
@@ -223,6 +217,19 @@
           "word_id": "W00059"
         },
         {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "緑",
+          "r": "みどり",
+          "role": "content",
+          "word_id": "W00212",
+          "is_new": true
+        },
+        {
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic",
@@ -245,30 +252,33 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The garden is snow.",
-      "audio": "audio/story_67/s3.wav",
-      "audio_hash": "076493251738"
+      "gloss_en": "The garden's green is snow."
     },
     {
       "idx": 4,
       "tokens": [
         {
-          "t": "雪",
-          "r": "ゆき",
+          "t": "家具",
+          "r": "かぐ",
           "role": "content",
-          "word_id": "W00063"
+          "word_id": "W00213",
+          "is_new": true
         },
         {
-          "t": "は",
+          "t": "も",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "は"
+          "grammar_id": "G009_mo_also",
+          "r": "も"
         },
         {
           "t": "静か",
           "r": "しずか",
           "role": "content",
-          "word_id": "W00011"
+          "word_id": "W00011",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G016_na_adjective"
+          }
         },
         {
           "t": "です",
@@ -281,9 +291,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The snow is quiet.",
-      "audio": "audio/story_67/s4.wav",
-      "audio_hash": "9f269cf45d3f"
+      "gloss_en": "The furniture is also quiet."
     },
     {
       "idx": 5,
@@ -336,9 +344,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "So I love the snow.",
-      "audio": "audio/story_67/s5.wav",
-      "audio_hash": "8e802db0c132"
+      "gloss_en": "So I love the snow."
     },
     {
       "idx": 6,
@@ -384,9 +390,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Grandmother also loves the snow.",
-      "audio": "audio/story_67/s6.wav",
-      "audio_hash": "d95c9cb13099"
+      "gloss_en": "Grandmother also loves the snow."
     },
     {
       "idx": 7,
@@ -456,9 +460,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Grandmother said, \"The snow is beautiful.\"",
-      "audio": "audio/story_67/s7.wav",
-      "audio_hash": "b46daa657605"
+      "gloss_en": "Grandmother said, \"The snow is beautiful.\""
     },
     {
       "idx": 8,
@@ -508,9 +510,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "So I think of grandmother.",
-      "audio": "audio/story_67/s8.wav",
-      "audio_hash": "095168c85b5c"
+      "gloss_en": "So I think of grandmother."
     },
     {
       "idx": 9,
@@ -538,10 +538,11 @@
           "role": "punct"
         },
         {
-          "t": "空",
-          "r": "そら",
+          "t": "天気",
+          "r": "てんき",
           "role": "content",
-          "word_id": "W00047"
+          "word_id": "W00214",
+          "is_new": true
         },
         {
           "t": "は",
@@ -570,9 +571,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A snowy morning — the sky is beautiful.",
-      "audio": "audio/story_67/s9.wav",
-      "audio_hash": "cc8268bacd4c"
+      "gloss_en": "A snowy morning — the weather is beautiful."
     },
     {
       "idx": 10,
@@ -610,9 +609,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend comes next week.",
-      "audio": "audio/story_67/s10.wav",
-      "audio_hash": "dc21a502c346"
+      "gloss_en": "The friend comes next week."
     },
     {
       "idx": 11,
@@ -652,9 +649,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "So my heart is quiet.",
-      "audio": "audio/story_67/s11.wav",
-      "audio_hash": "4d280572dc96"
+      "gloss_en": "So my heart is quiet."
     },
     {
       "idx": 12,
@@ -710,9 +705,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I want a new book.",
-      "audio": "audio/story_67/s12.wav",
-      "audio_hash": "6323be1c6616"
+      "gloss_en": "I want a new book."
     },
     {
       "idx": 13,
@@ -764,9 +757,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I want to go to the bookstore.",
-      "audio": "audio/story_67/s13.wav",
-      "audio_hash": "db35dc6a22ee"
+      "gloss_en": "I want to go to the bookstore."
     },
     {
       "idx": 14,
@@ -852,9 +843,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"May I come in?\" I will say.",
-      "audio": "audio/story_67/s14.wav",
-      "audio_hash": "c3040c9791f2"
+      "gloss_en": "\"May I come in?\" I will say."
     },
     {
       "idx": 15,
@@ -904,9 +893,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Snow is not a strong wind.",
-      "audio": "audio/story_67/s15.wav",
-      "audio_hash": "118d7d087d31"
+      "gloss_en": "Snow is not a strong wind."
     },
     {
       "idx": 16,
@@ -940,9 +927,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Snow is a letter.",
-      "audio": "audio/story_67/s16.wav",
-      "audio_hash": "234be16b771d"
+      "gloss_en": "Snow is a letter."
     },
     {
       "idx": 17,
@@ -992,9 +977,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "So tomorrow I will also see the snow.",
-      "audio": "audio/story_67/s17.wav",
-      "audio_hash": "203813013cc5"
+      "gloss_en": "So tomorrow I will also see the snow."
     },
     {
       "idx": 18,
@@ -1056,12 +1039,14 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Snow, warm heart, good morning.",
-      "audio": "audio/story_67/s18.wav",
-      "audio_hash": "d9ab0be537c4"
+      "gloss_en": "Snow, warm heart, good morning."
     }
   ],
-  "new_words": [],
+  "new_words": [
+    "W00212",
+    "W00213",
+    "W00214"
+  ],
   "new_grammar": [
     "G059_dakara"
   ],
@@ -1075,12 +1060,14 @@
     "W00004",
     "W00087",
     "W00059",
+    "W00212",
+    "W00213",
     "W00011",
     "W00098",
     "W00083",
     "W00097",
     "W00043",
-    "W00047",
+    "W00214",
     "W00022",
     "W00146",
     "W00040",

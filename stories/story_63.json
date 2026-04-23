@@ -1156,10 +1156,86 @@
       "gloss_en": "A spring evening, an old notebook, a warm heart.",
       "audio": "audio/story_63/s16.wav",
       "audio_hash": "6137f9368cbf"
+    },
+    {
+      "idx": 17,
+      "tokens": [
+        {
+          "t": "村",
+          "r": "むら",
+          "role": "content",
+          "word_id": "W00202",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "r": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is village.",
+      "audio": "audio/story_63/s17.mp3",
+      "audio_hash": "1e23d67169e4"
+    },
+    {
+      "idx": 18,
+      "tokens": [
+        {
+          "t": "駐車場",
+          "r": "ちゅうしゃじょう",
+          "role": "content",
+          "word_id": "W00203",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "r": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is parking lot.",
+      "audio": "audio/story_63/s18.mp3",
+      "audio_hash": "98b1425d08ba"
     }
   ],
   "new_words": [
-    "W00154"
+    "W00154",
+    "W00202",
+    "W00203"
   ],
   "new_grammar": [
     "G055_plain_nonpast_pair"
@@ -1195,12 +1271,19 @@
     "W00083",
     "W00034",
     "W00022",
-    "W00012"
+    "W00012",
+    "W00202",
+    "W00044",
+    "W00203"
   ],
   "word_audio": {
-    "W00154": "audio/story_63/w_W00154.wav"
+    "W00154": "audio/story_63/w_W00154.wav",
+    "W00202": "audio/story_63/word_村.mp3",
+    "W00203": "audio/story_63/word_駐車場.mp3"
   },
   "word_audio_hash": {
-    "W00154": "f476f0590332"
+    "W00154": "f476f0590332",
+    "W00202": "32bd97013331",
+    "W00203": "798fa88035fb"
   }
 }

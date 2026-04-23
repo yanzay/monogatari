@@ -37,7 +37,8 @@
   },
   "new_words": [
     "W00028",
-    "W00029"
+    "W00029",
+    "W00156"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -48,8 +49,14 @@
     "W00003",
     "W00005",
     "W00006",
+    "W00023",
     "W00029",
-    "W00011"
+    "W00011",
+    "W00025",
+    "W00026",
+    "W00024",
+    "W00156",
+    "W00044"
   ],
   "sentences": [
     {
@@ -81,9 +88,7 @@
           "role": "punct"
         }
       ],
-      "idx": 0,
-      "audio": "audio/story_6/s0.mp3",
-      "audio_hash": "dd0c21f06f27"
+      "idx": 0
     },
     {
       "gloss_en": "I look outside through the window.",
@@ -139,17 +144,27 @@
           "role": "punct"
         }
       ],
-      "idx": 1,
-      "audio": "audio/story_6/s1.mp3",
-      "audio_hash": "b8f1563bfb7d"
+      "idx": 1
     },
     {
-      "gloss_en": "And then — a cat is there.",
+      "gloss_en": "On a walk-morning, the cat is there.",
       "tokens": [
         {
-          "t": "そして",
-          "role": "aux",
-          "grammar_id": "G012_soshite_then"
+          "t": "散歩",
+          "role": "content",
+          "r": "さんぽ",
+          "word_id": "W00023"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "r": "あさ",
+          "word_id": "W00015"
         },
         {
           "t": "、",
@@ -157,8 +172,8 @@
         },
         {
           "t": "猫",
-          "r": "ねこ",
           "role": "content",
+          "r": "ねこ",
           "word_id": "W00028",
           "is_new": true
         },
@@ -170,18 +185,16 @@
         {
           "t": "います",
           "role": "content",
+          "r": "います",
           "word_id": "W00029",
-          "is_new": true,
-          "grammar_id": "G021_aru_iru"
+          "is_new": true
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "idx": 2,
-      "audio": "audio/story_6/s2.mp3",
-      "audio_hash": "de290fa46a17"
+      "idx": 2
     },
     {
       "gloss_en": "The cat is quiet.",
@@ -213,9 +226,7 @@
           "role": "punct"
         }
       ],
-      "idx": 3,
-      "audio": "audio/story_6/s3.mp3",
-      "audio_hash": "39dd5b01d267"
+      "idx": 3
     },
     {
       "gloss_en": "In the rainy window, a cat is there.",
@@ -264,16 +275,14 @@
           "role": "punct"
         }
       ],
-      "idx": 4,
-      "audio": "audio/story_6/s4.mp3",
-      "audio_hash": "2c9c3c44d9f0"
+      "idx": 4
     },
     {
-      "gloss_en": "And then, the cat looks at me.",
+      "gloss_en": "Then, the cat goes back through the door.",
       "tokens": [
         {
           "t": "そして",
-          "role": "aux",
+          "role": "particle",
           "grammar_id": "G012_soshite_then"
         },
         {
@@ -282,8 +291,8 @@
         },
         {
           "t": "猫",
-          "r": "ねこ",
           "role": "content",
+          "r": "ねこ",
           "word_id": "W00028"
         },
         {
@@ -292,10 +301,48 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "私",
-          "r": "わたし",
+          "t": "ドア",
           "role": "content",
-          "word_id": "W00003"
+          "r": "ドア",
+          "word_id": "W00025"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "帰ります",
+          "role": "content",
+          "r": "かえります",
+          "word_id": "W00026"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "idx": 5
+    },
+    {
+      "gloss_en": "The cat looks at the flowers.",
+      "tokens": [
+        {
+          "t": "猫",
+          "role": "content",
+          "r": "ねこ",
+          "word_id": "W00028"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "花",
+          "role": "content",
+          "r": "はな",
+          "word_id": "W00024"
         },
         {
           "t": "を",
@@ -304,14 +351,42 @@
         },
         {
           "t": "見ます",
-          "r": "みます",
           "role": "content",
-          "word_id": "W00006",
+          "r": "みます",
+          "word_id": "W00006"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "idx": 6
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "色",
+          "r": "いろ",
+          "role": "content",
+          "word_id": "W00156",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "r": "あります",
+          "role": "content",
+          "word_id": "W00044",
           "inflection": {
-            "base": "見る",
-            "base_r": "みる",
+            "base": "ある",
+            "base_r": "ある",
             "form": "polite_nonpast",
-            "word_id": "W00006"
+            "verb_class": "godan"
           },
           "grammar_id": "G026_masu_nonpast"
         },
@@ -320,57 +395,7 @@
           "role": "punct"
         }
       ],
-      "idx": 5,
-      "audio": "audio/story_6/s5.mp3",
-      "audio_hash": "131058640794"
-    },
-    {
-      "gloss_en": "The cat looks at the window.",
-      "tokens": [
-        {
-          "t": "猫",
-          "r": "ねこ",
-          "role": "content",
-          "word_id": "W00028"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "窓",
-          "r": "まど",
-          "role": "content",
-          "word_id": "W00004"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "見ます",
-          "r": "みます",
-          "role": "content",
-          "word_id": "W00006"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "idx": 6,
-      "audio": "audio/story_6/s6.mp3",
-      "audio_hash": "65d9396553c5"
+      "gloss_en": "There is color."
     }
-  ],
-  "word_audio": {
-    "W00028": "audio/story_6/w_W00028.mp3",
-    "W00029": "audio/story_6/w_W00029.mp3"
-  },
-  "word_audio_hash": {
-    "W00028": "a810bf845a30",
-    "W00029": "85ed84cd6356"
-  }
+  ]
 }

@@ -1,15 +1,13 @@
 {
   "story_id": 16,
   "title": {
-    "jp": "二人の朝ごはん",
-    "en": "Breakfast for Two",
+    "jp": "公園のパン",
     "tokens": [
       {
-        "t": "二人",
-        "r": "ふたり",
+        "t": "公園",
+        "r": "こうえん",
         "role": "content",
-        "word_id": "W00035",
-        "grammar_id": "G025_counters"
+        "word_id": "W00016"
       },
       {
         "t": "の",
@@ -17,22 +15,22 @@
         "grammar_id": "G015_no_possessive"
       },
       {
-        "t": "朝ごはん",
-        "r": "あさごはん",
-        "role": "content",
-        "word_id": "W00019"
-      }
-    ]
-  },
-  "subtitle": {
-    "jp": "パンと卵",
-    "en": "Bread and an egg",
-    "tokens": [
-      {
         "t": "パン",
         "r": "パン",
         "role": "content",
         "word_id": "W00049"
+      }
+    ],
+    "en": "Bread in the Park"
+  },
+  "subtitle": {
+    "jp": "友達と二人",
+    "tokens": [
+      {
+        "t": "友達",
+        "r": "ともだち",
+        "role": "content",
+        "word_id": "W00022"
       },
       {
         "t": "と",
@@ -40,143 +38,33 @@
         "grammar_id": "G010_to_and"
       },
       {
-        "t": "卵",
-        "r": "たまご",
+        "t": "二人",
+        "r": "ふたり",
         "role": "content",
-        "word_id": "W00021"
+        "word_id": "W00035"
       }
-    ]
+    ],
+    "en": "With my friend, the two of us"
   },
-  "new_words": [
-    "W00048",
-    "W00049",
-    "W00050"
-  ],
-  "new_grammar": [
-    "G017_de_means"
-  ],
-  "all_words_used": [
-    "W00035",
-    "W00019",
-    "W00049",
-    "W00021",
-    "W00001",
-    "W00022",
-    "W00040",
-    "W00037",
-    "W00041",
-    "W00048",
-    "W00003",
-    "W00012",
-    "W00009",
-    "W00050",
-    "W00020",
-    "W00015"
-  ],
   "sentences": [
     {
       "idx": 0,
-      "gloss_en": "This morning, a friend comes over.",
       "tokens": [
         {
-          "t": "今朝",
-          "r": "けさ",
+          "t": "朝",
+          "r": "あさ",
           "role": "content",
-          "word_id": "W00001"
+          "word_id": "W00015"
         },
         {
           "t": "、",
           "role": "punct"
         },
         {
-          "t": "友達",
-          "r": "ともだち",
+          "t": "私",
+          "r": "わたし",
           "role": "content",
-          "word_id": "W00022"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "来ます",
-          "r": "きます",
-          "role": "content",
-          "word_id": "W00040",
-          "inflection": {
-            "base": "来る",
-            "base_r": "くる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "audio": "audio/story_16/s0.mp3",
-      "audio_hash": "d470741e829c"
-    },
-    {
-      "idx": 1,
-      "gloss_en": "I wait for my friend at the desk.",
-      "tokens": [
-        {
-          "t": "机",
-          "r": "つくえ",
-          "role": "content",
-          "word_id": "W00037"
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means",
-          "is_new_grammar": true
-        },
-        {
-          "t": "友達",
-          "r": "ともだち",
-          "role": "content",
-          "word_id": "W00022"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "待ちます",
-          "r": "まちます",
-          "role": "content",
-          "word_id": "W00041",
-          "inflection": {
-            "base": "待つ",
-            "base_r": "まつ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "audio": "audio/story_16/s1.mp3",
-      "audio_hash": "f6709cc2f5c4"
-    },
-    {
-      "idx": 2,
-      "gloss_en": "My friend makes bread and an egg.",
-      "tokens": [
-        {
-          "t": "友達",
-          "r": "ともだち",
-          "role": "content",
-          "word_id": "W00022"
+          "word_id": "W00003"
         },
         {
           "t": "は",
@@ -189,17 +77,6 @@
           "role": "content",
           "word_id": "W00049",
           "is_new": true
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "卵",
-          "r": "たまご",
-          "role": "content",
-          "word_id": "W00021"
         },
         {
           "t": "を",
@@ -225,13 +102,346 @@
           "role": "punct"
         }
       ],
+      "gloss_en": "In the morning, I make bread.",
+      "audio": "audio/story_16/s0.mp3",
+      "audio_hash": "a898ad9e7af9"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "そして",
+          "role": "aux",
+          "grammar_id": "G012_soshite_then"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "友達",
+          "r": "ともだち",
+          "role": "content",
+          "word_id": "W00022"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ます",
+          "r": "きます",
+          "role": "content",
+          "word_id": "W00040",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "And then, the friend comes.",
+      "audio": "audio/story_16/s1.mp3",
+      "audio_hash": "d76aca4ac7f9"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "二人",
+          "r": "ふたり",
+          "role": "content",
+          "word_id": "W00035"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "公園",
+          "r": "こうえん",
+          "role": "content",
+          "word_id": "W00016"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means",
+          "is_new_grammar": true
+        },
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "role": "content",
+          "word_id": "W00009"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "飲みます",
+          "r": "のみます",
+          "role": "content",
+          "word_id": "W00010",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The two of us drink tea at the park.",
       "audio": "audio/story_16/s2.mp3",
-      "audio_hash": "446754bd41ca"
+      "audio_hash": "f6875e46cdf6"
     },
     {
       "idx": 3,
-      "gloss_en": "I make warm tea.",
       "tokens": [
+        {
+          "t": "空",
+          "r": "そら",
+          "role": "content",
+          "word_id": "W00047"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "r": "しずか",
+          "role": "content",
+          "word_id": "W00011"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The sky is calm.",
+      "audio": "audio/story_16/s3.mp3",
+      "audio_hash": "c88c987752eb"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "そして",
+          "role": "aux",
+          "grammar_id": "G012_soshite_then"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "風",
+          "r": "かぜ",
+          "role": "content",
+          "word_id": "W00027"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "雨",
+          "r": "あめ",
+          "role": "content",
+          "word_id": "W00002"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ます",
+          "r": "きます",
+          "role": "content",
+          "word_id": "W00040",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "And then, the wind and the rain come.",
+      "audio": "audio/story_16/s4.mp3",
+      "audio_hash": "fe644892b6eb"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "風",
+          "r": "かぜ",
+          "role": "content",
+          "word_id": "W00027"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "空",
+          "r": "そら",
+          "role": "content",
+          "word_id": "W00047"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "雨",
+          "r": "あめ",
+          "role": "content",
+          "word_id": "W00002"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "With the wind, the sky becomes rain.",
+      "audio": "audio/story_16/s5.mp3",
+      "audio_hash": "bc8fe04e9713"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "二人",
+          "r": "ふたり",
+          "role": "content",
+          "word_id": "W00035"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "一緒に",
+          "r": "いっしょに",
+          "role": "content",
+          "word_id": "W00050",
+          "is_new": true
+        },
+        {
+          "t": "パン",
+          "r": "パン",
+          "role": "content",
+          "word_id": "W00049"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "食べます",
+          "r": "たべます",
+          "role": "content",
+          "word_id": "W00020",
+          "inflection": {
+            "base": "食べる",
+            "base_r": "たべる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The two of us eat the bread together.",
+      "audio": "audio/story_16/s6.mp3",
+      "audio_hash": "0545d6b735d0"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "雨",
+          "r": "あめ",
+          "role": "content",
+          "word_id": "W00002"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "role": "content",
+          "word_id": "W00015"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "いい",
+          "role": "content",
+          "word_id": "W00013"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G014_to_omoimasu"
+        },
         {
           "t": "私",
           "r": "わたし",
@@ -244,31 +454,13 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "温かい",
-          "r": "あたたかい",
+          "t": "思います",
+          "r": "おもいます",
           "role": "content",
-          "word_id": "W00012",
-          "grammar_id": "G023_attributive"
-        },
-        {
-          "t": "お茶",
-          "r": "おちゃ",
-          "role": "content",
-          "word_id": "W00009"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "作ります",
-          "r": "つくります",
-          "role": "content",
-          "word_id": "W00048",
+          "word_id": "W00043",
           "inflection": {
-            "base": "作る",
-            "base_r": "つくる",
+            "base": "思う",
+            "base_r": "おもう",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
@@ -279,200 +471,35 @@
           "role": "punct"
         }
       ],
-      "audio": "audio/story_16/s3.mp3",
-      "audio_hash": "4a583bfb48cf"
-    },
-    {
-      "idx": 4,
-      "gloss_en": "The two of us eat breakfast together at the desk.",
-      "tokens": [
-        {
-          "t": "二人",
-          "r": "ふたり",
-          "role": "content",
-          "word_id": "W00035",
-          "grammar_id": "G025_counters"
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "机",
-          "r": "つくえ",
-          "role": "content",
-          "word_id": "W00037"
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "一緒に",
-          "r": "いっしょに",
-          "role": "content",
-          "word_id": "W00050",
-          "is_new": true
-        },
-        {
-          "t": "朝ごはん",
-          "r": "あさごはん",
-          "role": "content",
-          "word_id": "W00019"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "食べます",
-          "r": "たべます",
-          "role": "content",
-          "word_id": "W00020",
-          "inflection": {
-            "base": "食べる",
-            "base_r": "たべる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "audio": "audio/story_16/s4.mp3",
-      "audio_hash": "e5c1296bd8de"
-    },
-    {
-      "idx": 5,
-      "gloss_en": "The bread is warm.",
-      "tokens": [
-        {
-          "t": "パン",
-          "r": "パン",
-          "role": "content",
-          "word_id": "W00049"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "温かい",
-          "r": "あたたかい",
-          "role": "content",
-          "word_id": "W00012",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "audio": "audio/story_16/s5.mp3",
-      "audio_hash": "728a4e2d5623"
-    },
-    {
-      "idx": 6,
-      "gloss_en": "The tea is also warm.",
-      "tokens": [
-        {
-          "t": "お茶",
-          "r": "おちゃ",
-          "role": "content",
-          "word_id": "W00009"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "温かい",
-          "r": "あたたかい",
-          "role": "content",
-          "word_id": "W00012",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "audio": "audio/story_16/s6.mp3",
-      "audio_hash": "266eccaaf505"
-    },
-    {
-      "idx": 7,
-      "gloss_en": "My friend eats the egg.",
-      "tokens": [
-        {
-          "t": "友達",
-          "r": "ともだち",
-          "role": "content",
-          "word_id": "W00022"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "卵",
-          "r": "たまご",
-          "role": "content",
-          "word_id": "W00021"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "食べます",
-          "r": "たべます",
-          "role": "content",
-          "word_id": "W00020",
-          "inflection": {
-            "base": "食べる",
-            "base_r": "たべる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
+      "gloss_en": "\"A rainy morning is good,\" I think.",
       "audio": "audio/story_16/s7.mp3",
-      "audio_hash": "e556f04ee7a1"
+      "audio_hash": "e091146151ad"
     },
     {
       "idx": 8,
-      "gloss_en": "Bread, an egg, a friend — a warm morning together.",
       "tokens": [
+        {
+          "t": "公園",
+          "r": "こうえん",
+          "role": "content",
+          "word_id": "W00016"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "雨",
+          "r": "あめ",
+          "role": "content",
+          "word_id": "W00002"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
         {
           "t": "パン",
           "r": "パン",
@@ -480,41 +507,9 @@
           "word_id": "W00049"
         },
         {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "卵",
-          "r": "たまご",
-          "role": "content",
-          "word_id": "W00021"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "友達",
-          "r": "ともだち",
-          "role": "content",
-          "word_id": "W00022"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "一緒に",
-          "r": "いっしょに",
-          "role": "content",
-          "word_id": "W00050"
-        },
-        {
-          "t": "温かい",
-          "r": "あたたかい",
-          "role": "content",
-          "word_id": "W00012",
-          "grammar_id": "G023_attributive"
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "朝",
@@ -523,15 +518,48 @@
           "word_id": "W00015"
         },
         {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
           "t": "。",
           "role": "punct"
         }
       ],
+      "gloss_en": "A morning of park, rain, and bread.",
       "audio": "audio/story_16/s8.mp3",
-      "audio_hash": "e0fe2db1bc7c"
+      "audio_hash": "687fd754ee14"
     }
   ],
-  "checksum": null,
+  "all_words_used": [
+    "W00016",
+    "W00049",
+    "W00022",
+    "W00035",
+    "W00015",
+    "W00003",
+    "W00048",
+    "W00040",
+    "W00009",
+    "W00010",
+    "W00047",
+    "W00011",
+    "W00027",
+    "W00002",
+    "W00050",
+    "W00020",
+    "W00013",
+    "W00043"
+  ],
+  "new_words": [
+    "W00048",
+    "W00049",
+    "W00050"
+  ],
+  "new_grammar": [
+    "G017_de_means"
+  ],
   "word_audio": {
     "W00048": "audio/story_16/w_W00048.mp3",
     "W00049": "audio/story_16/w_W00049.mp3",

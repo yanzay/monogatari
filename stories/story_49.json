@@ -718,10 +718,11 @@
           }
         },
         {
-          "t": "花",
-          "r": "hana",
+          "t": "帽子",
+          "r": "ぼうし",
           "role": "content",
-          "word_id": "W00024"
+          "word_id": "W00170",
+          "is_new": true
         },
         {
           "t": "を",
@@ -743,7 +744,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I remember the red flowers.",
+      "gloss_en": "I remember the red hat.",
       "audio": "audio/story_49/s11.wav",
       "audio_hash": "594d3603dc0b"
     },
@@ -890,34 +891,52 @@
       "tokens": [
         {
           "t": "友達",
-          "r": "tomodachi",
+          "r": "ともだち",
           "role": "content",
           "word_id": "W00022"
         },
         {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "姉",
+          "r": "あね",
+          "role": "content",
+          "word_id": "W00171",
+          "is_new": true
+        },
+        {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "wa"
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "靴",
+          "r": "くつ",
+          "role": "content",
+          "word_id": "W00169",
+          "is_new": true
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "歩きます",
-          "r": "arukimasu",
+          "r": "あるきます",
           "role": "content",
           "word_id": "W00017",
-          "inflection": {
-            "form": "masu_polite_nonpast",
-            "grammar_id": "G026_masu_nonpast"
-          }
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend walks.",
-      "audio": "audio/story_49/s14.wav",
-      "audio_hash": "2a628edc3e0a"
+      "gloss_en": "The friend and (my) older sister walk in shoes."
     },
     {
       "idx": 15,
@@ -994,7 +1013,11 @@
       "audio_hash": "66c33b540680"
     }
   ],
-  "new_words": [],
+  "new_words": [
+    "W00171",
+    "W00169",
+    "W00170"
+  ],
   "new_grammar": [
     "G041_masenka_invitation"
   ],
@@ -1021,9 +1044,12 @@
     "W00122",
     "W00120",
     "W00142",
+    "W00170",
     "W00123",
     "W00046",
     "W00143",
+    "W00171",
+    "W00169",
     "W00017",
     "W00066",
     "W00132"

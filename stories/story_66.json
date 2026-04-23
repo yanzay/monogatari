@@ -155,9 +155,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring evening.",
-      "audio": "audio/story_66/s0.wav",
-      "audio_hash": "fdecbcf80e9f"
+      "gloss_en": "It is a spring evening."
     },
     {
       "idx": 1,
@@ -197,9 +195,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am in my room.",
-      "audio": "audio/story_66/s1.wav",
-      "audio_hash": "8777e980fc99"
+      "gloss_en": "I am in my room."
     },
     {
       "idx": 2,
@@ -233,9 +229,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The room is quiet.",
-      "audio": "audio/story_66/s2.wav",
-      "audio_hash": "ea653bf37d81"
+      "gloss_en": "The room is quiet."
     },
     {
       "idx": 3,
@@ -299,9 +293,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bookstore person is at the door.",
-      "audio": "audio/story_66/s3.wav",
-      "audio_hash": "5f563b841fbd"
+      "gloss_en": "The bookstore person is at the door."
     },
     {
       "idx": 4,
@@ -396,9 +388,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"May I come in?\" that person said.",
-      "audio": "audio/story_66/s4.wav",
-      "audio_hash": "f92eb4cbb463"
+      "gloss_en": "\"May I come in?\" that person said."
     },
     {
       "idx": 5,
@@ -480,9 +470,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"You may come in,\" I said.",
-      "audio": "audio/story_66/s5.wav",
-      "audio_hash": "6ced7e0321a5"
+      "gloss_en": "\"You may come in,\" I said."
     },
     {
       "idx": 6,
@@ -534,9 +522,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "That person came into the room.",
-      "audio": "audio/story_66/s6.wav",
-      "audio_hash": "2c14f748d97c"
+      "gloss_en": "That person came into the room."
     },
     {
       "idx": 7,
@@ -612,9 +598,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"May I sit?\" he said.",
-      "audio": "audio/story_66/s7.wav",
-      "audio_hash": "648a7ae88518"
+      "gloss_en": "\"May I sit?\" he said."
     },
     {
       "idx": 8,
@@ -668,9 +652,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"Please do,\" I said.",
-      "audio": "audio/story_66/s8.wav",
-      "audio_hash": "5fc3dda1d48a"
+      "gloss_en": "\"Please do,\" I said."
     },
     {
       "idx": 9,
@@ -710,9 +692,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "That person sat down.",
-      "audio": "audio/story_66/s9.wav",
-      "audio_hash": "992906826219"
+      "gloss_en": "That person sat down."
     },
     {
       "idx": 10,
@@ -800,9 +780,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"May I drink tea?\" he said.",
-      "audio": "audio/story_66/s10.wav",
-      "audio_hash": "e5fd889f8a8e"
+      "gloss_en": "\"May I drink tea?\" he said."
     },
     {
       "idx": 11,
@@ -872,9 +850,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "That person and I drank tea together.",
-      "audio": "audio/story_66/s11.wav",
-      "audio_hash": "05c7254f2372"
+      "gloss_en": "That person and I drank tea together."
     },
     {
       "idx": 12,
@@ -920,9 +896,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend also ran to the house.",
-      "audio": "audio/story_66/s12.wav",
-      "audio_hash": "b944b9a820e1"
+      "gloss_en": "The friend also ran to the house."
     },
     {
       "idx": 13,
@@ -962,6 +936,30 @@
           "word_id": "W00033"
         },
         {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and",
+          "r": "と"
+        },
+        {
+          "t": "黄色い",
+          "r": "きいろい",
+          "role": "content",
+          "word_id": "W00211",
+          "is_new": true,
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "辞書",
+          "r": "じしょ",
+          "role": "content",
+          "word_id": "W00210",
+          "is_new": true
+        },
+        {
           "t": "を",
           "role": "particle",
           "grammar_id": "G005_wo_object",
@@ -984,9 +982,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "That person showed a new book.",
-      "audio": "audio/story_66/s13.wav",
-      "audio_hash": "8d946df4643f"
+      "gloss_en": "That person showed a new book and a yellow dictionary."
     },
     {
       "idx": 14,
@@ -1004,20 +1000,11 @@
           "r": "は"
         },
         {
-          "t": "新しい",
-          "r": "あたらしい",
+          "t": "雑誌",
+          "r": "ざっし",
           "role": "content",
-          "word_id": "W00066",
-          "inflection": {
-            "form": "attributive",
-            "grammar_id": "G023_attributive"
-          }
-        },
-        {
-          "t": "本",
-          "r": "ほん",
-          "role": "content",
-          "word_id": "W00033"
+          "word_id": "W00209",
+          "is_new": true
         },
         {
           "t": "が",
@@ -1042,9 +1029,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I want a new book.",
-      "audio": "audio/story_66/s14.wav",
-      "audio_hash": "6323be1c6616"
+      "gloss_en": "I want a magazine."
     },
     {
       "idx": 15,
@@ -1110,9 +1095,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"I bought this book,\" he said.",
-      "audio": "audio/story_66/s15.wav",
-      "audio_hash": "4a425fed2e90"
+      "gloss_en": "\"I bought this book,\" he said."
     },
     {
       "idx": 16,
@@ -1194,9 +1177,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I write in the notebook, \"Someone came.\"",
-      "audio": "audio/story_66/s16.wav",
-      "audio_hash": "e9f641d63efb"
+      "gloss_en": "I write in the notebook, \"Someone came.\""
     },
     {
       "idx": 17,
@@ -1234,9 +1215,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My heart is warm.",
-      "audio": "audio/story_66/s17.wav",
-      "audio_hash": "2f09effac390"
+      "gloss_en": "My heart is warm."
     },
     {
       "idx": 18,
@@ -1310,12 +1289,14 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A spring evening, a new book, warm tea.",
-      "audio": "audio/story_66/s18.wav",
-      "audio_hash": "be8099cffb86"
+      "gloss_en": "A spring evening, a new book, warm tea."
     }
   ],
-  "new_words": [],
+  "new_words": [
+    "W00209",
+    "W00210",
+    "W00211"
+  ],
   "new_grammar": [
     "G058_temo_ii"
   ],
@@ -1344,7 +1325,10 @@
     "W00022",
     "W00102",
     "W00066",
+    "W00211",
+    "W00210",
     "W00153",
+    "W00209",
     "W00148",
     "W00086",
     "W00154",

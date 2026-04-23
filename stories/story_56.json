@@ -123,9 +123,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring evening.",
-      "audio": "audio/story_56/s0.wav",
-      "audio_hash": "fdecbcf80e9f"
+      "gloss_en": "It is a spring evening."
     },
     {
       "idx": 1,
@@ -185,6 +183,19 @@
           "word_id": "W00078"
         },
         {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "玄関",
+          "r": "げんかん",
+          "role": "content",
+          "word_id": "W00185",
+          "is_new": true
+        },
+        {
           "t": "に",
           "role": "particle",
           "grammar_id": "G004_ni_location",
@@ -205,9 +216,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bookstore person comes to my house.",
-      "audio": "audio/story_56/s1.wav",
-      "audio_hash": "079c5399c612"
+      "gloss_en": "The bookstore person comes to the entryway of my house."
     },
     {
       "idx": 2,
@@ -265,9 +274,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "(He) says, \"let's go to the park.\"",
-      "audio": "audio/story_56/s2.wav",
-      "audio_hash": "ddb8702de585"
+      "gloss_en": "(He) says, \"let's go to the park.\""
     },
     {
       "idx": 3,
@@ -317,9 +324,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My heart is happy.",
-      "audio": "audio/story_56/s3.wav",
-      "audio_hash": "b224b0eb608f"
+      "gloss_en": "My heart is happy."
     },
     {
       "idx": 4,
@@ -399,9 +404,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bookstore person and I go to the park.",
-      "audio": "audio/story_56/s4.wav",
-      "audio_hash": "9e644df4e712"
+      "gloss_en": "The bookstore person and I go to the park."
     },
     {
       "idx": 5,
@@ -453,9 +456,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the park, there was the friend.",
-      "audio": "audio/story_56/s5.wav",
-      "audio_hash": "e73dd2e721ee"
+      "gloss_en": "In the park, there was the friend."
     },
     {
       "idx": 6,
@@ -517,9 +518,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend says, \"let's walk together.\"",
-      "audio": "audio/story_56/s6.wav",
-      "audio_hash": "e86944e2ebef"
+      "gloss_en": "The friend says, \"let's walk together.\""
     },
     {
       "idx": 7,
@@ -599,9 +598,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend, the bookstore person, and I walk.",
-      "audio": "audio/story_56/s7.wav",
-      "audio_hash": "bc755b1cc50d"
+      "gloss_en": "The friend, the bookstore person, and I walk."
     },
     {
       "idx": 8,
@@ -646,9 +643,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is that old tree.",
-      "audio": "audio/story_56/s8.wav",
-      "audio_hash": "ac4d5b6885bf"
+      "gloss_en": "There is that old tree."
     },
     {
       "idx": 9,
@@ -729,9 +724,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I say, \"that tree is beautiful.\"",
-      "audio": "audio/story_56/s9.wav",
-      "audio_hash": "2c595f10fcfa"
+      "gloss_en": "I say, \"that tree is beautiful.\""
     },
     {
       "idx": 10,
@@ -777,9 +770,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the pond there is a bird.",
-      "audio": "audio/story_56/s10.wav",
-      "audio_hash": "84f58b556452"
+      "gloss_en": "In the pond there is a bird."
     },
     {
       "idx": 11,
@@ -854,18 +845,17 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "That person says, \"let's drink tea.\"",
-      "audio": "audio/story_56/s11.wav",
-      "audio_hash": "15c7f8414b22"
+      "gloss_en": "That person says, \"let's drink tea.\""
     },
     {
       "idx": 12,
       "tokens": [
         {
-          "t": "私",
-          "r": "わたし",
+          "t": "廊下",
+          "r": "ろうか",
           "role": "content",
-          "word_id": "W00003"
+          "word_id": "W00186",
+          "is_new": true
         },
         {
           "t": "は",
@@ -874,49 +864,27 @@
           "r": "は"
         },
         {
-          "t": "時々",
-          "r": "ときどき",
+          "t": "古い",
+          "r": "ふるい",
           "role": "content",
-          "word_id": "W00131"
-        },
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "行きませんでした",
-          "r": "いきませんでした",
-          "role": "content",
-          "word_id": "W00150",
+          "word_id": "W00067",
           "inflection": {
-            "form": "polite_past_negative",
-            "grammar_id": "G046_masen_deshita"
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
           }
         },
         {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G014_to_omoimasu",
-          "r": "と"
-        },
-        {
-          "t": "思いました",
-          "r": "おもいました",
+          "t": "です",
           "role": "aux",
-          "grammar_id": "G013_mashita_past"
+          "grammar_id": "G003_desu",
+          "r": "です"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I sometimes thought, \"I did not go (there)\".",
-      "audio": "audio/story_56/s12.wav",
-      "audio_hash": "81bd74aa4cce"
+      "gloss_en": "The hallway is old."
     },
     {
       "idx": 13,
@@ -958,9 +926,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But, let's go next week too.",
-      "audio": "audio/story_56/s13.wav",
-      "audio_hash": "02c5f1cd6624"
+      "gloss_en": "But, let's go next week too."
     },
     {
       "idx": 14,
@@ -982,9 +948,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a promise.",
-      "audio": "audio/story_56/s14.wav",
-      "audio_hash": "d338ce761233"
+      "gloss_en": "It is a promise."
     },
     {
       "idx": 15,
@@ -1022,9 +986,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The park was beautiful.",
-      "audio": "audio/story_56/s15.wav",
-      "audio_hash": "f5294628322d"
+      "gloss_en": "The park was beautiful."
     },
     {
       "idx": 16,
@@ -1098,13 +1060,13 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Spring evening, a new promise, a warm heart.",
-      "audio": "audio/story_56/s16.wav",
-      "audio_hash": "299d2cde46f0"
+      "gloss_en": "Spring evening, a new promise, a warm heart."
     }
   ],
   "new_words": [
-    "W00150"
+    "W00150",
+    "W00185",
+    "W00186"
   ],
   "new_grammar": [
     "G048_masho"
@@ -1119,6 +1081,7 @@
     "W00018",
     "W00003",
     "W00078",
+    "W00185",
     "W00040",
     "W00097",
     "W00120",
@@ -1136,16 +1099,12 @@
     "W00054",
     "W00009",
     "W00010",
-    "W00131",
+    "W00186",
     "W00146",
     "W00132",
     "W00066",
     "W00012"
   ],
-  "word_audio": {
-    "W00150": "audio/story_56/w_W00150.wav"
-  },
-  "word_audio_hash": {
-    "W00150": "7144d48b86b3"
-  }
+  "word_audio": {},
+  "word_audio_hash": {}
 }

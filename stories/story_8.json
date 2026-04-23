@@ -70,6 +70,7 @@
     "W00029",
     "W00003",
     "W00011",
+    "W00156",
     "W00013",
     "W00009",
     "W00044"
@@ -124,9 +125,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_8/s0.mp3",
-      "audio_hash": "bb6a46e8a8cf"
+      ]
     },
     {
       "idx": 1,
@@ -173,9 +172,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_8/s1.mp3",
-      "audio_hash": "317bb7efd292"
+      ]
     },
     {
       "idx": 2,
@@ -220,9 +217,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_8/s2.mp3",
-      "audio_hash": "11fb16d65ebd"
+      ]
     },
     {
       "idx": 3,
@@ -254,18 +249,16 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_8/s3.mp3",
-      "audio_hash": "64deea2e4198"
+      ]
     },
     {
       "idx": 4,
-      "gloss_en": "My friend's book is good.",
+      "gloss_en": "The color of the friend's book is nice.",
       "tokens": [
         {
           "t": "友達",
-          "r": "ともだち",
           "role": "content",
+          "r": "ともだち",
           "word_id": "W00022"
         },
         {
@@ -275,9 +268,20 @@
         },
         {
           "t": "本",
-          "r": "ほん",
           "role": "content",
+          "r": "ほん",
           "word_id": "W00033"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "色",
+          "role": "content",
+          "r": "いろ",
+          "word_id": "W00156"
         },
         {
           "t": "は",
@@ -287,8 +291,8 @@
         {
           "t": "いい",
           "role": "content",
-          "word_id": "W00013",
-          "grammar_id": "G022_i_adj"
+          "r": "いい",
+          "word_id": "W00013"
         },
         {
           "t": "です",
@@ -299,9 +303,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_8/s4.mp3",
-      "audio_hash": "a2fe4c30d807"
+      ]
     },
     {
       "idx": 5,
@@ -338,9 +340,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_8/s5.mp3",
-      "audio_hash": "298e40f525cc"
+      ]
     },
     {
       "idx": 6,
@@ -379,19 +379,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_8/s6.mp3",
-      "audio_hash": "01d2a29dc5c1"
+      ]
     }
-  ],
-  "word_audio": {
-    "W00033": "audio/story_8/w_W00033.mp3",
-    "W00034": "audio/story_8/w_W00034.mp3",
-    "W00035": "audio/story_8/w_W00035.mp3"
-  },
-  "word_audio_hash": {
-    "W00033": "83831c3f910c",
-    "W00034": "56c0478444db",
-    "W00035": "8981f8b72b35"
-  }
+  ]
 }

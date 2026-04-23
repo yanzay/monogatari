@@ -161,9 +161,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring morning.",
-      "audio": "audio/story_57/s0.wav",
-      "audio_hash": "03fcfb532d5c"
+      "gloss_en": "It is a spring morning."
     },
     {
       "idx": 1,
@@ -195,9 +193,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Rain falls.",
-      "audio": "audio/story_57/s1.wav",
-      "audio_hash": "ab3864b4899e"
+      "gloss_en": "Rain falls."
     },
     {
       "idx": 2,
@@ -245,9 +241,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But, the morning is bright.",
-      "audio": "audio/story_57/s2.wav",
-      "audio_hash": "eba7a87f9c76"
+      "gloss_en": "But, the morning is bright."
     },
     {
       "idx": 3,
@@ -330,9 +324,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It rains, but my heart is happy.",
-      "audio": "audio/story_57/s3.wav",
-      "audio_hash": "24dd599181fa"
+      "gloss_en": "It rains, but my heart is happy."
     },
     {
       "idx": 4,
@@ -414,9 +406,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The room is quiet, but I look at the book.",
-      "audio": "audio/story_57/s4.wav",
-      "audio_hash": "449dbd286b63"
+      "gloss_en": "The room is quiet, but I look at the book."
     },
     {
       "idx": 5,
@@ -454,9 +444,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The book is old.",
-      "audio": "audio/story_57/s5.wav",
-      "audio_hash": "b02cc2a7fb1c"
+      "gloss_en": "The book is old."
     },
     {
       "idx": 6,
@@ -504,9 +492,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But, the book is beautiful.",
-      "audio": "audio/story_57/s6.wav",
-      "audio_hash": "7e6f68ffc2f6"
+      "gloss_en": "But, the book is beautiful."
     },
     {
       "idx": 7,
@@ -607,9 +593,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think, \"when will the bookstore person come?\"",
-      "audio": "audio/story_57/s7.wav",
-      "audio_hash": "5ffd81d9f6e9"
+      "gloss_en": "I think, \"when will the bookstore person come?\""
     },
     {
       "idx": 8,
@@ -673,9 +657,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It rains, but I wait.",
-      "audio": "audio/story_57/s8.wav",
-      "audio_hash": "bdc39b591cec"
+      "gloss_en": "It rains, but I wait."
     },
     {
       "idx": 9,
@@ -691,6 +673,32 @@
           "role": "particle",
           "grammar_id": "G015_no_possessive",
           "r": "の"
+        },
+        {
+          "t": "橋",
+          "r": "はし",
+          "role": "content",
+          "word_id": "W00187",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "色々な",
+          "r": "いろいろな",
+          "role": "content",
+          "word_id": "W00189",
+          "is_new": true,
+          "inflection": {
+            "base": "色々",
+            "base_r": "いろいろ",
+            "form": "attributive",
+            "grammar_id": "G016_na_adjective"
+          }
         },
         {
           "t": "花",
@@ -725,9 +733,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The garden flowers are beautiful.",
-      "audio": "audio/story_57/s9.wav",
-      "audio_hash": "3a3be49762a2"
+      "gloss_en": "The various flowers by the garden's bridge are beautiful."
     },
     {
       "idx": 10,
@@ -811,9 +817,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bookstore person doesnt come, but there is a promise.",
-      "audio": "audio/story_57/s10.wav",
-      "audio_hash": "07558eed487c"
+      "gloss_en": "The bookstore person doesnt come, but there is a promise."
     },
     {
       "idx": 11,
@@ -843,9 +847,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Next week, let's go.",
-      "audio": "audio/story_57/s11.wav",
-      "audio_hash": "ef390871fec6"
+      "gloss_en": "Next week, let's go."
     },
     {
       "idx": 12,
@@ -899,9 +901,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I drink warm tea.",
-      "audio": "audio/story_57/s12.wav",
-      "audio_hash": "aa933af6c18e"
+      "gloss_en": "I drink warm tea."
     },
     {
       "idx": 13,
@@ -973,9 +973,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The garden is rainy, but the heart is bright.",
-      "audio": "audio/story_57/s13.wav",
-      "audio_hash": "7511ac070b08"
+      "gloss_en": "The garden is rainy, but the heart is bright."
     },
     {
       "idx": 14,
@@ -995,6 +993,19 @@
           "r": "なつ",
           "role": "content",
           "word_id": "W00081"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "影",
+          "r": "かげ",
+          "role": "content",
+          "word_id": "W00188",
+          "is_new": true
         },
         {
           "t": "を",
@@ -1017,9 +1028,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think of the beautiful summer.",
-      "audio": "audio/story_57/s14.wav",
-      "audio_hash": "54b164a80fff"
+      "gloss_en": "I think of the shadow of the beautiful summer."
     },
     {
       "idx": 15,
@@ -1083,9 +1092,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Grandmother also said, \"a bright morning\".",
-      "audio": "audio/story_57/s15.wav",
-      "audio_hash": "becc066d1498"
+      "gloss_en": "Grandmother also said, \"a bright morning\"."
     },
     {
       "idx": 16,
@@ -1161,12 +1168,14 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Rainy morning, bright heart, next week's promise.",
-      "audio": "audio/story_57/s16.wav",
-      "audio_hash": "d5a3cc94f1f6"
+      "gloss_en": "Rainy morning, bright heart, next week's promise."
     }
   ],
-  "new_words": [],
+  "new_words": [
+    "W00187",
+    "W00188",
+    "W00189"
+  ],
   "new_grammar": [
     "G049_ga_but"
   ],
@@ -1191,6 +1200,8 @@
     "W00145",
     "W00040",
     "W00059",
+    "W00187",
+    "W00189",
     "W00024",
     "W00132",
     "W00044",
@@ -1200,6 +1211,7 @@
     "W00009",
     "W00010",
     "W00081",
+    "W00188",
     "W00043",
     "W00098",
     "W00097"

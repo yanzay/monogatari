@@ -24,27 +24,27 @@
     "en": "A Rainy Morning"
   },
   "subtitle": {
-    "jp": "猫と私",
+    "jp": "静かな猫",
     "tokens": [
+      {
+        "t": "静か",
+        "r": "しずか",
+        "role": "content",
+        "word_id": "W00011"
+      },
+      {
+        "t": "な",
+        "role": "aux",
+        "grammar_id": "G016_na_adjective"
+      },
       {
         "t": "猫",
         "r": "ねこ",
         "role": "content",
         "word_id": "W00028"
-      },
-      {
-        "t": "と",
-        "role": "particle",
-        "grammar_id": "G010_to_and"
-      },
-      {
-        "t": "私",
-        "r": "わたし",
-        "role": "content",
-        "word_id": "W00003"
       }
     ],
-    "en": "The cat and I"
+    "en": "A quiet cat"
   },
   "sentences": [
     {
@@ -61,10 +61,92 @@
           "role": "punct"
         },
         {
-          "t": "私",
-          "r": "わたし",
+          "t": "早い",
+          "r": "はやい",
           "role": "content",
-          "word_id": "W00003"
+          "word_id": "W00159",
+          "is_new": true
+        },
+        {
+          "t": "雨",
+          "r": "あめ",
+          "role": "content",
+          "word_id": "W00002"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ます",
+          "r": "きます",
+          "role": "content",
+          "word_id": "W00040",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "This morning, an early rain comes."
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "猫",
+          "r": "ねこ",
+          "role": "content",
+          "word_id": "W00028"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "椅子",
+          "r": "いす",
+          "role": "content",
+          "word_id": "W00036"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "います",
+          "r": "います",
+          "role": "content",
+          "word_id": "W00029",
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The cat is on the chair.",
+      "audio": "audio/story_12/s1.mp3",
+      "audio_hash": "409dc95c0802"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "猫",
+          "r": "ねこ",
+          "role": "content",
+          "word_id": "W00028"
         },
         {
           "t": "は",
@@ -100,23 +182,27 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "This morning, I look at the window.",
-      "audio": "audio/story_12/s0.mp3",
-      "audio_hash": "b0f1b418adfc"
+      "gloss_en": "The cat watches the window.",
+      "audio": "audio/story_12/s2.mp3",
+      "audio_hash": "65d9396553c5"
     },
     {
-      "idx": 1,
+      "idx": 3,
       "tokens": [
         {
-          "t": "風",
-          "r": "かぜ",
-          "role": "content",
-          "word_id": "W00027"
+          "t": "「",
+          "role": "punct"
         },
         {
-          "t": "と",
+          "t": "猫",
+          "r": "ねこ",
+          "role": "content",
+          "word_id": "W00028"
+        },
+        {
+          "t": "は",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "雨",
@@ -125,61 +211,43 @@
           "word_id": "W00002"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "It is wind and rain.",
-      "audio": "audio/story_12/s1.mp3",
-      "audio_hash": "fb532e62f8e4"
-    },
-    {
-      "idx": 2,
-      "tokens": [
-        {
-          "t": "猫",
-          "r": "ねこ",
-          "role": "content",
-          "word_id": "W00028"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "窓",
-          "r": "まど",
-          "role": "content",
-          "word_id": "W00004"
-        },
-        {
           "t": "を",
           "role": "particle",
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "見る",
-          "r": "みる",
+          "t": "見ます",
+          "r": "みます",
           "role": "content",
           "word_id": "W00006",
           "inflection": {
             "base": "見る",
             "base_r": "みる",
-            "form": "plain_nonpast",
+            "form": "polite_nonpast",
             "verb_class": "ichidan"
-          }
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "」",
+          "role": "punct"
         },
         {
           "t": "と",
           "role": "particle",
           "grammar_id": "G014_to_omoimasu",
           "is_new_grammar": true
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "思います",
@@ -200,190 +268,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think the cat is looking at the window too.",
-      "audio": "audio/story_12/s2.mp3",
-      "audio_hash": "89cc2d7d4208"
-    },
-    {
-      "idx": 3,
-      "tokens": [
-        {
-          "t": "猫",
-          "r": "ねこ",
-          "role": "content",
-          "word_id": "W00028"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "椅子",
-          "r": "いす",
-          "role": "content",
-          "word_id": "W00036"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "います",
-          "role": "content",
-          "word_id": "W00029",
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The cat is on the chair.",
+      "gloss_en": "\"The cat is watching the rain,\" I think.",
       "audio": "audio/story_12/s3.mp3",
-      "audio_hash": "9c449bd7b286"
+      "audio_hash": "423a65f1c375"
     },
     {
       "idx": 4,
-      "tokens": [
-        {
-          "t": "猫",
-          "r": "ねこ",
-          "role": "content",
-          "word_id": "W00028"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "昨日",
-          "r": "きのう",
-          "role": "content",
-          "word_id": "W00042"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "椅子",
-          "r": "いす",
-          "role": "content",
-          "word_id": "W00036"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "いました",
-          "role": "content",
-          "word_id": "W00029",
-          "inflection": {
-            "base": "いる",
-            "base_r": "いる",
-            "form": "polite_past",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G013_mashita_past"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The cat was on the chair yesterday, too.",
-      "audio": "audio/story_12/s4.mp3",
-      "audio_hash": "c54db9ab4a9b"
-    },
-    {
-      "idx": 5,
-      "tokens": [
-        {
-          "t": "私",
-          "r": "わたし",
-          "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "猫",
-          "r": "ねこ",
-          "role": "content",
-          "word_id": "W00028"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "いい",
-          "role": "content",
-          "word_id": "W00013",
-          "grammar_id": "G023_attributive"
-        },
-        {
-          "t": "友達",
-          "r": "ともだち",
-          "role": "content",
-          "word_id": "W00022"
-        },
-        {
-          "t": "だ",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G014_to_omoimasu"
-        },
-        {
-          "t": "思います",
-          "r": "おもいます",
-          "role": "content",
-          "word_id": "W00043",
-          "inflection": {
-            "base": "思う",
-            "base_r": "おもう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I think the cat is a good friend.",
-      "audio": "audio/story_12/s5.mp3",
-      "audio_hash": "ed9d776dc1ff"
-    },
-    {
-      "idx": 6,
       "tokens": [
         {
           "t": "そして",
@@ -406,13 +296,24 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "寝ます",
-          "r": "ねます",
+          "t": "私",
+          "r": "わたし",
           "role": "content",
-          "word_id": "W00038",
+          "word_id": "W00003"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "r": "みます",
+          "role": "content",
+          "word_id": "W00006",
           "inflection": {
-            "base": "寝る",
-            "base_r": "ねる",
+            "base": "見る",
+            "base_r": "みる",
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
@@ -423,18 +324,29 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "And then the cat sleeps.",
-      "audio": "audio/story_12/s6.mp3",
-      "audio_hash": "50d991adc395"
+      "gloss_en": "And then, the cat looks at me.",
+      "audio": "audio/story_12/s4.mp3",
+      "audio_hash": "131058640794"
     },
     {
-      "idx": 7,
+      "idx": 5,
       "tokens": [
         {
-          "t": "風",
-          "r": "かぜ",
+          "t": "猫",
+          "r": "ねこ",
           "role": "content",
-          "word_id": "W00027"
+          "word_id": "W00028"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
         },
         {
           "t": "の",
@@ -442,29 +354,71 @@
           "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "朝",
-          "r": "あさ",
+          "t": "お茶",
+          "r": "おちゃ",
           "role": "content",
-          "word_id": "W00015"
+          "word_id": "W00009"
         },
         {
-          "t": "だ",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "と",
+          "t": "を",
           "role": "particle",
-          "grammar_id": "G014_to_omoimasu"
+          "grammar_id": "G005_wo_object"
         },
         {
-          "t": "思います",
-          "r": "おもいます",
+          "t": "見ます",
+          "r": "みます",
           "role": "content",
-          "word_id": "W00043",
+          "word_id": "W00006",
           "inflection": {
-            "base": "思う",
-            "base_r": "おもう",
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The cat watches my tea.",
+      "audio": "audio/story_12/s5.mp3",
+      "audio_hash": "152f16cadb9f"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "role": "content",
+          "word_id": "W00009"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "飲みます",
+          "r": "のみます",
+          "role": "content",
+          "word_id": "W00010",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
@@ -475,38 +429,95 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think — it is a windy morning.",
-      "audio": "audio/story_12/s7.mp3",
-      "audio_hash": "d6594d89eb4d"
+      "gloss_en": "I drink tea.",
+      "audio": "audio/story_12/s6.mp3",
+      "audio_hash": "27b769a8aec7"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "重い",
+          "r": "おもい",
+          "role": "content",
+          "word_id": "W00160",
+          "is_new": true
+        },
+        {
+          "t": "雨",
+          "r": "あめ",
+          "role": "content",
+          "word_id": "W00002"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "猫",
+          "r": "ねこ",
+          "role": "content",
+          "word_id": "W00028"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "role": "content",
+          "word_id": "W00015"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Heavy rain, and cat, and morning."
     }
   ],
   "all_words_used": [
     "W00002",
     "W00015",
+    "W00011",
     "W00028",
-    "W00003",
     "W00001",
-    "W00004",
-    "W00006",
-    "W00027",
-    "W00043",
+    "W00159",
+    "W00040",
     "W00036",
     "W00029",
-    "W00042",
-    "W00013",
-    "W00022",
-    "W00038"
+    "W00004",
+    "W00006",
+    "W00003",
+    "W00043",
+    "W00009",
+    "W00010",
+    "W00160"
   ],
   "new_words": [
-    "W00043"
+    "W00043",
+    "W00159",
+    "W00160"
   ],
   "new_grammar": [
     "G014_to_omoimasu"
   ],
   "word_audio": {
-    "W00043": "audio/story_12/w_W00043.mp3"
+    "W00043": "audio/story_12/w_W00043.mp3",
+    "W00159": "audio/story_12/word_早い.mp3",
+    "W00160": "audio/story_12/word_重い.mp3"
   },
   "word_audio_hash": {
-    "W00043": "9bbb1560e41a"
+    "W00043": "9bbb1560e41a",
+    "W00159": "78fe8aac2ad5",
+    "W00160": "9d8151ec3b9a"
   }
 }

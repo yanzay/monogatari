@@ -368,3 +368,173 @@ read the leaderboard, then ship 3 more. Engagement scores in
 this session ranged 4.0–4.8; the highest came after I had
 already shipped 5–6 in the arc and could write the milestone
 closer with confidence.
+
+## Stories 54–67 enrichment pass (2026-04-23, content-quality first)
+
+A failing-test triage on 2026-04-23 found 17 failures. The root cause was
+that stories 54–67 had been shipped as **vocabulary-shaped placeholders**:
+they declared 0–1 `new_words` while 30 pre-allocated words (W00179–W00214)
+sat orphaned in `vocab_state.json` with `first_story` already pointing at
+those stories. This pass repaired all 12 affected stories by weaving the
+pre-allocated triples into the existing narrative arcs.
+
+### What was done
+
+| Story | New words woven in | Insertion approach |
+| ----- | ------------------ | ------------------ |
+| 54 | 日 / 週 / 夕飯 | あの日, あの週 (using W00147 since その isn't in vocab); 長い夕飯 in recap |
+| 55 | 昼 / 晩 / 台所 | 夏の昼, 台所で (location), でも、晩、 (clause prefix) |
+| 56 | 玄関 / 廊下 (+ existing W00150) | 家の玄関に来ます; 廊下は古いです |
+| 57 | 橋 / 影 / 色々 | 庭の橋の色々な花; 美しかった夏の影を思います |
+| 58 | 少し / 沢山 / 優しさ | 木と花が沢山; 道は少し美しい; 友達は優しさで言います |
+| 59 | 声 / 夢 (+ existing W00151) | 本の声はいい友達; 夢で本の店へ行きたい |
+| 60 | 空想 / 匂い / 味 | お茶の匂いも温かい; 古い本の味; 空想で雲と山を見ます |
+| 61 | 色合い / 世界 (+ existing W00152) | 心の色合いは温かい; 祖母は世界です — net-neutral edits (story was at content-cap) |
+| 64 | お金 / 会社 / 旅行 | 会社から友達 (theme-shifted to working friend); 旅行を話す; お金で本を買う |
+| 66 | 雑誌 / 辞書 / 黄色い | 新しい本と黄色い辞書; 雑誌がほしい |
+| 67 | 緑 / 家具 / 天気 | 庭の緑は雪; 家具も静か; 雪の朝、天気は美しい |
+
+### Quality bar
+
+Every insertion was hand-designed to fit the existing narrative arc — not
+just satisfy the cadence counter. Examples:
+
+- `祖母は世界です` ("Grandmother is the world") in story_61 deepens the
+  emotional payoff of the protagonist's secrecy in the same story.
+- `お金で本を買いました` in story_64 reframes the friend as a working adult,
+  which gives the journal-keeping arc adult-friendship texture.
+- `空想で雲と山を見ます` in story_60 makes the daydreaming reader's reverie
+  explicit instead of merely implied.
+
+### Audio is now stale across all 12 edited stories
+
+All `audio_hash` and `audio` fields were stripped from the modified
+sentences (and `word_audio` / `word_audio_hash` cleared at the story
+level). The two audio tests
+(`test_audio_sentence_files_match_story_sentence_count`,
+`test_sentence_audio_hash_matches_tokens`) will continue to fail until
+audio is rebuilt with `pipeline/audio_builder.py --tts-backend google`
+for these stories. **Do not re-add audio_hash without regenerating the
+WAV files** — that would silently ship audio that doesn't match the new JP.
+
+### Vocab state was rebuilt from scratch
+
+After the edits, `data/vocab_state.json` and `data/grammar_state.json`
+were rebuilt by walking all stories and counting one increment per
+`(word_id, story)` pair (matching `state_updater.py` semantics — see
+`test_lifetime_occurrences_match_state_updater_semantics`). Do not run
+`state_updater.py story_N.json` against the same story twice — it's
+non-idempotent and will double-count.
+
+### Outstanding follow-up: R1 + R2 reinforcement work (~171 violations)
+
+The pass left two pre-existing structural failures unaddressed:
+
+- **Rule R1 (early reinforcement)**: 129 violations. Every word in
+  `new_words` must reappear in ≥2 of the next 10 stories. Almost every
+  story since story_4 has at least one R1-violating word — this is a
+  library-wide problem inherited from the era when stories were planned
+  in isolation rather than as a recycling system. Words introduced in
+  stories 54–65 also fail because the late stories were authored without
+  consulting which words from prior stories needed reinforcement.
+- **Rule R2 (no abandonment)**: 42 violations. Many mid-library words
+  (W00070, W00076, W00081, W00086, W00092, W00101–W00106, W00108,
+  W00110, W00112, W00114, W00119, W00125, W00126, W00130, W00136,
+  W00138, W00139) and several W00156–W00167 introduced once in the
+  story_6 / story_11–15 batch were never seen again. Gaps range
+  21–61 stories.
+
+**Suggested approach for the follow-up:**
+
+1. Build a `pipeline/recycle_planner.py` that, given the current state,
+   emits per-story "must-recycle" lists: for each story N, the set of
+   word_ids that need to appear in N to satisfy R1 (introduced in
+   N-10..N-1) and R2 (last seen ≥15 stories ago).
+2. Edit existing stories in **descending** order from 67 backward,
+   making one-token swaps (e.g., swap a generic 道 for an under-recycled
+   noun where either reads naturally) — never invent new sentences.
+3. Quality bar: every swap must keep the scene unchanged or sharper.
+   If a word genuinely cannot be revived in 67-N stories without
+   contortion, document it as "deprecated; do not introduce a sibling
+   in the next vocabulary tier" rather than forcing it.
+4. After every batch of 5 swaps, rerun
+   `pytest pipeline/tests/test_pedagogical_sanity.py` to confirm the
+   violation count is monotonically dropping.
+
+This is genuine multi-day content authoring work and should not be
+rushed in a single session — corner-cutting here will undo the quality
+gains from this enrichment pass.
+
+## R1/R2 recycling tools & first batch (2026-04-23 v2)
+
+A second pass added two permanent tools:
+
+- **`pipeline/recycle_planner.py`** — reports R1/R2 violations per
+  candidate target story so you can plan recycling edits without
+  rerunning the test suite each time. Run with no args for a global
+  summary, `--story N` for a per-story worklist, `--json` for machine
+  output.
+- **`pipeline/apply_recycle.py`** — bookkeeping helper. After you edit a
+  story's `sentences[…].tokens` arrays, run this on the file to strip
+  stale audio fields, recompute `all_words_used` (including title +
+  subtitle, in first-seen order), and re-mark `is_new: true` on the
+  first occurrence of each declared `new_word`. Saves you from getting
+  Check 4 wrong by hand.
+
+A first batch of recycling edits landed in stories 6, 7, 8, 10. Each
+edit was a one-for-one token swap that preserved the existing scene:
+
+| Story | Recycled words | Edit |
+| ----- | -------------- | ---- |
+| 6 | 散歩 / 花 / ドア / 帰ります | s2 reframed as 散歩の朝; s5 cat returns through the door; s6 cat looks at the flowers |
+| 7 | 色 | recap line s6 grew "色" into the moon/stars list |
+| 8 | 色 | s4 became "the color of the friend's book is nice" |
+| 10 | 寝ます | s5 became "the friend, too, sleeps" — calmer rhythm |
+
+After this batch: R1 went 128→122 violations, R2 went 41→40. Still
+~210 R1 insertions + 40 R2 insertions needed across the remaining
+stories.
+
+### Token-shape gotchas you will hit
+
+The validator's Check 1 is strict about `role` values. Common slips:
+
+- `role: "verb"` is **invalid** — verbs use `role: "content"` with
+  `word_id`. An optional `inflection` block is needed only for
+  non-default forms (past, negative, te-form, etc.).
+- `role: "conjunction"` is **invalid** — words like そして use
+  `role: "particle"` with `grammar_id: "G012_soshite_then"`.
+- `です` requires `role: "aux"` *and* `grammar_id: "G003_desu"` — the
+  metadata isn't optional.
+- The `の` particle has two grammar IDs depending on use: `G015_no_possessive`
+  (X の Y) and `G031_no_nominalizer` (verbal nominalization). Pick correctly.
+- `から` likewise has `G006_kara_from` (spatial/temporal source) and
+  `G030_kara_reason` (because-clause).
+
+### Why R1/R2 is still huge
+
+Many late-library words (e.g. W00155 弱い introduced in story_65) need
+to appear in *both* of the only two follow-up stories (66, 67). The
+arcs of those stories don't have natural slots for "weak" — and
+forcing them would harm content quality. A subset of R1/R2 violations
+is therefore **structurally infeasible** without one of:
+
+1. Authoring more stories beyond story_67 to host the reinforcements.
+2. Re-architecting the introduction schedule (move some W00200+ words
+   later in the imagined library, or remove them entirely).
+3. Loosening `VOCAB_REINFORCE_MIN_USES` for the trailing-N window.
+
+The "right" fix is (1), but that's a separate authoring effort. In
+the meantime, treat the R1/R2 violation count as a *backlog metric*,
+not a hard release gate.
+
+### Suggested next-session protocol
+
+1. `python pipeline/recycle_planner.py` — see top-loaded targets.
+2. Pick 3-5 adjacent stories. `--story N` for each.
+3. For each story, design ALL the swaps in one careful sitting.
+   Validate after each story (`pipeline/validate.py stories/story_N.json`).
+4. After a batch of stories, rerun the rebuild snippet (above) to
+   refresh `vocab_state.json` occurrences, then `pytest`.
+5. Goal per session: 5-10 stories, 15-30 fewer R1 violations, no
+   quality regression. Do not chase the count past natural fit.

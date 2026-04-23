@@ -764,6 +764,18 @@
           "r": "to"
         },
         {
+          "t": "妹",
+          "r": "いもうと",
+          "role": "content",
+          "word_id": "W00173",
+          "is_new": true
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
           "t": "私",
           "r": "watashi",
           "role": "content",
@@ -796,9 +808,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend and I walk together.",
-      "audio": "audio/story_51/s10.wav",
-      "audio_hash": "1bb1c6d6c143"
+      "gloss_en": "The friend, (my) younger sister, and I walk together."
     },
     {
       "idx": 11,
@@ -942,41 +952,22 @@
       "idx": 13,
       "tokens": [
         {
-          "t": "私",
-          "r": "watashi",
-          "role": "content",
-          "word_id": "W00003"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic",
-          "r": "wa"
-        },
-        {
           "t": "嬉しい",
-          "r": "ureshii",
+          "r": "うれしい",
           "role": "content",
-          "word_id": "W00056",
-          "inflection": {
-            "form": "plain_nonpast",
-            "grammar_id": "G022_i_adj"
-          }
+          "word_id": "W00056"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
-          "r": "desu"
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I am happy.",
-      "audio": "audio/story_51/s13.wav",
-      "audio_hash": "5c29e5352c54"
+      "gloss_en": "Happy."
     },
     {
       "idx": 14,
@@ -1077,7 +1068,8 @@
   ],
   "new_words": [
     "W00147",
-    "W00148"
+    "W00148",
+    "W00173"
   ],
   "new_grammar": [
     "G043_kosoado_pre_nominal"
@@ -1107,6 +1099,7 @@
     "W00141",
     "W00047",
     "W00006",
+    "W00173",
     "W00120",
     "W00145",
     "W00040",

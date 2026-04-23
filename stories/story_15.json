@@ -47,7 +47,9 @@
     ]
   },
   "new_words": [
-    "W00047"
+    "W00047",
+    "W00165",
+    "W00166"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -64,7 +66,11 @@
     "W00026",
     "W00011",
     "W00013",
-    "W00014"
+    "W00165",
+    "W00014",
+    "W00037",
+    "W00009",
+    "W00166"
   ],
   "sentences": [
     {
@@ -413,7 +419,7 @@
     },
     {
       "idx": 7,
-      "gloss_en": "The moon and the stars — a good feeling.",
+      "gloss_en": "Moon and stars and music — a good feeling.",
       "tokens": [
         {
           "t": "月",
@@ -431,6 +437,18 @@
           "r": "ほし",
           "role": "content",
           "word_id": "W00032"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "音楽",
+          "r": "おんがく",
+          "role": "content",
+          "word_id": "W00165",
+          "is_new": true
         },
         {
           "t": "、",
@@ -457,15 +475,73 @@
           "t": "。",
           "role": "punct"
         }
+      ]
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "机",
+          "r": "つくえ",
+          "role": "content",
+          "word_id": "W00037"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "role": "content",
+          "word_id": "W00009"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "皿",
+          "r": "さら",
+          "role": "content",
+          "word_id": "W00166",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "r": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
       ],
-      "audio": "audio/story_15/s7.mp3",
-      "audio_hash": "41fb7b262165"
+      "gloss_en": "On the desk there are tea and dishes."
     }
   ],
   "word_audio": {
-    "W00047": "audio/story_15/w_W00047.mp3"
+    "W00047": "audio/story_15/w_W00047.mp3",
+    "W00165": "audio/story_15/word_音楽.mp3",
+    "W00166": "audio/story_15/word_皿.mp3"
   },
   "word_audio_hash": {
-    "W00047": "2f8267a89ad5"
+    "W00047": "2f8267a89ad5",
+    "W00165": "14b31fd94b35",
+    "W00166": "24f3a61ecd52"
   }
 }

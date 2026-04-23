@@ -24,8 +24,8 @@
     ]
   },
   "subtitle": {
-    "jp": "月と窓",
-    "en": "The moon and the window",
+    "jp": "月の歌",
+    "en": "Song of the moon",
     "tokens": [
       {
         "t": "月",
@@ -34,32 +34,36 @@
         "word_id": "W00031"
       },
       {
-        "t": "と",
+        "t": "の",
         "role": "particle",
-        "grammar_id": "G010_to_and"
+        "grammar_id": "G015_no_possessive"
       },
       {
-        "t": "窓",
-        "r": "まど",
+        "t": "歌",
+        "r": "うた",
         "role": "content",
-        "word_id": "W00004"
+        "word_id": "W00164"
       }
     ]
   },
   "new_words": [
-    "W00046"
+    "W00046",
+    "W00163",
+    "W00164"
   ],
   "new_grammar": [],
   "all_words_used": [
     "W00031",
     "W00039",
-    "W00004",
+    "W00164",
     "W00030",
     "W00003",
+    "W00004",
     "W00006",
     "W00042",
     "W00022",
     "W00040",
+    "W00163",
     "W00034",
     "W00046",
     "W00033",
@@ -197,7 +201,7 @@
     },
     {
       "idx": 2,
-      "gloss_en": "I read the letter.",
+      "gloss_en": "I read a painful letter.",
       "tokens": [
         {
           "t": "私",
@@ -209,6 +213,13 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "痛い",
+          "r": "いたい",
+          "role": "content",
+          "word_id": "W00163",
+          "is_new": true
         },
         {
           "t": "手紙",
@@ -238,9 +249,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_14/s2.mp3",
-      "audio_hash": "58d5004a9dfc"
+      ]
     },
     {
       "idx": 3,
@@ -433,7 +442,7 @@
     },
     {
       "idx": 7,
-      "gloss_en": "Tonight too, the moon is quiet.",
+      "gloss_en": "Even at night, the moon's song is quiet.",
       "tokens": [
         {
           "t": "夜",
@@ -457,6 +466,18 @@
           "word_id": "W00031"
         },
         {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "歌",
+          "r": "うた",
+          "role": "content",
+          "word_id": "W00164",
+          "is_new": true
+        },
+        {
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
@@ -476,15 +497,17 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_14/s7.mp3",
-      "audio_hash": "417e3ea8b3fd"
+      ]
     }
   ],
   "word_audio": {
-    "W00046": "audio/story_14/w_W00046.mp3"
+    "W00046": "audio/story_14/w_W00046.mp3",
+    "W00163": "audio/story_14/word_痛い.mp3",
+    "W00164": "audio/story_14/word_歌.mp3"
   },
   "word_audio_hash": {
-    "W00046": "6450d5f86685"
+    "W00046": "6450d5f86685",
+    "W00163": "3460ae1de30f",
+    "W00164": "602c513e5ff7"
   }
 }

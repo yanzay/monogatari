@@ -533,7 +533,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"It is old, isnt it,\" I say.",
+      "gloss_en": "\"It is old, isn't it,\" I say.",
       "audio": "audio/story_62/s6.wav",
       "audio_hash": "676ca31b5ae3"
     },
@@ -771,7 +771,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"It is a beautiful book, isnt it,\" I say.",
+      "gloss_en": "\"It is a beautiful book, isn't it,\" I say.",
       "audio": "audio/story_62/s10.wav",
       "audio_hash": "93af3db317f6"
     },
@@ -1185,10 +1185,86 @@
       "gloss_en": "A spring evening, an old book, a new promise.",
       "audio": "audio/story_62/s16.wav",
       "audio_hash": "cf813c8921ec"
+    },
+    {
+      "idx": 17,
+      "tokens": [
+        {
+          "t": "国",
+          "r": "くに",
+          "role": "content",
+          "word_id": "W00200",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "r": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is country.",
+      "audio": "audio/story_62/s17.mp3",
+      "audio_hash": "4165c14b914a"
+    },
+    {
+      "idx": 18,
+      "tokens": [
+        {
+          "t": "町",
+          "r": "まち",
+          "role": "content",
+          "word_id": "W00201",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "r": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is town.",
+      "audio": "audio/story_62/s18.mp3",
+      "audio_hash": "095583e216f2"
     }
   ],
   "new_words": [
-    "W00153"
+    "W00153",
+    "W00200",
+    "W00201"
   ],
   "new_grammar": [
     "G054_yo_emphasis"
@@ -1220,12 +1296,19 @@
     "W00152",
     "W00149",
     "W00066",
-    "W00132"
+    "W00132",
+    "W00200",
+    "W00044",
+    "W00201"
   ],
   "word_audio": {
-    "W00153": "audio/story_62/w_W00153.wav"
+    "W00153": "audio/story_62/w_W00153.wav",
+    "W00200": "audio/story_62/word_国.mp3",
+    "W00201": "audio/story_62/word_町.mp3"
   },
   "word_audio_hash": {
-    "W00153": "80d759bafa5c"
+    "W00153": "80d759bafa5c",
+    "W00200": "d1566afa505a",
+    "W00201": "fe053083dc87"
   }
 }

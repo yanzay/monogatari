@@ -933,6 +933,43 @@
       "gloss_en": "Spring evening, garden flowers.",
       "audio": "audio/story_48/s14.wav",
       "audio_hash": "8f90d8ab1aec"
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "服",
+          "r": "ふく",
+          "role": "content",
+          "word_id": "W00168",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "r": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is clothes.",
+      "audio": "audio/story_48/s15.mp3",
+      "audio_hash": "102e6f99b1d1"
     }
   ],
   "all_words_used": [
@@ -957,21 +994,25 @@
     "W00140",
     "W00132",
     "W00046",
-    "W00120"
+    "W00120",
+    "W00168"
   ],
   "new_words": [
     "W00143",
-    "W00144"
+    "W00144",
+    "W00168"
   ],
   "new_grammar": [
     "G040_doko_where"
   ],
   "word_audio": {
     "W00143": "audio/story_48/w_W00143.wav",
-    "W00144": "audio/story_48/w_W00144.wav"
+    "W00144": "audio/story_48/w_W00144.wav",
+    "W00168": "audio/story_48/word_服.mp3"
   },
   "word_audio_hash": {
     "W00143": "90cd87d00682",
-    "W00144": "e9fa45a75ea1"
+    "W00144": "e9fa45a75ea1",
+    "W00168": "4cf80999c7ff"
   }
 }

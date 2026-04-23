@@ -95,9 +95,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_10/s0.mp3",
-      "audio_hash": "3f0eba4ea541"
+      ]
     },
     {
       "idx": 1,
@@ -143,9 +141,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_10/s1.mp3",
-      "audio_hash": "2dd26c1d74a1"
+      ]
     },
     {
       "idx": 2,
@@ -190,9 +186,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_10/s2.mp3",
-      "audio_hash": "58d5004a9dfc"
+      ]
     },
     {
       "idx": 3,
@@ -224,9 +218,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_10/s3.mp3",
-      "audio_hash": "7402a512a4ed"
+      ]
     },
     {
       "idx": 4,
@@ -283,17 +275,14 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_10/s4.mp3",
-      "audio_hash": "11af9750f86a"
+      ]
     },
     {
       "idx": 5,
-      "gloss_en": "And then, the friend drinks tea too.",
+      "gloss_en": "And the friend, too, sleeps.",
       "tokens": [
         {
           "t": "そして",
-          "r": "そして",
           "role": "particle",
           "grammar_id": "G012_soshite_then"
         },
@@ -303,8 +292,8 @@
         },
         {
           "t": "友達",
-          "r": "ともだち",
           "role": "content",
+          "r": "ともだち",
           "word_id": "W00022"
         },
         {
@@ -313,36 +302,16 @@
           "grammar_id": "G009_mo_also"
         },
         {
-          "t": "お茶",
-          "r": "おちゃ",
+          "t": "寝ます",
           "role": "content",
-          "word_id": "W00009"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "飲みます",
-          "r": "のみます",
-          "role": "content",
-          "word_id": "W00010",
-          "inflection": {
-            "word_id": "W00010",
-            "base": "飲む",
-            "base_r": "のむ",
-            "form": "polite_nonpast"
-          },
-          "grammar_id": "G026_masu_nonpast"
+          "r": "ねます",
+          "word_id": "W00038"
         },
         {
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_10/s5.mp3",
-      "audio_hash": "a75648d67c02"
+      ]
     },
     {
       "idx": 6,
@@ -402,9 +371,7 @@
           "t": "。",
           "role": "punct"
         }
-      ],
-      "audio": "audio/story_10/s6.mp3",
-      "audio_hash": "3f6233cfe1af"
+      ]
     }
   ],
   "new_words": [
@@ -423,17 +390,6 @@
     "W00034",
     "W00011",
     "W00041",
-    "W00009",
-    "W00010"
-  ],
-  "word_audio": {
-    "W00039": "audio/story_10/w_W00039.mp3",
-    "W00040": "audio/story_10/w_W00040.mp3",
-    "W00041": "audio/story_10/w_W00041.mp3"
-  },
-  "word_audio_hash": {
-    "W00039": "417294942007",
-    "W00040": "486e64d755bd",
-    "W00041": "45720855fc5e"
-  }
+    "W00038"
+  ]
 }
