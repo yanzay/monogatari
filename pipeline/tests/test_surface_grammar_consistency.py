@@ -45,6 +45,7 @@ EXPECTED_PAIRS: dict[tuple[str, str], str] = {
 POLYSEMOUS: dict[tuple[str, str], set[str]] = {
     ("particle", "と"): {"G010_to_and", "G014_to_omoimasu", "G028_to_iimasu"},  # and-list vs quote / says
     ("particle", "から"): {"G006_kara_from", "G030_kara_reason"},  # noun-from vs clause-because
+    ("particle", "が"): {"G002_ga_subject", "G049_ga_but"},  # subject marker vs clause-but (v0.22)
     ("aux", "です"): {"G003_desu"},
     ("aux", "だ"): {"G003_desu", "G024_da"},  # plain copula (G024 added v0.16)
     ("aux", "でした"): {"G003_desu", "G013_mashita_past"},  # past copula
