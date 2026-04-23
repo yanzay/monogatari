@@ -1,0 +1,956 @@
+{
+  "story_id": 55,
+  "title": {
+    "jp": "暑かった夏。",
+    "en": "The Summer That Was Hot.",
+    "tokens": [
+      {
+        "t": "暑かった",
+        "r": "あつかった",
+        "role": "content",
+        "word_id": "W00082",
+        "inflection": {
+          "form": "i_adj_past",
+          "grammar_id": "G047_i_adj_past"
+        }
+      },
+      {
+        "t": "夏",
+        "r": "なつ",
+        "role": "content",
+        "word_id": "W00081"
+      },
+      {
+        "t": "。",
+        "role": "punct"
+      }
+    ],
+    "gloss_en": "The hot summer (the summer that was hot)."
+  },
+  "subtitle": {
+    "jp": "祖母と一緒にいました。",
+    "en": "I was with grandmother.",
+    "tokens": [
+      {
+        "t": "祖母",
+        "r": "そぼ",
+        "role": "content",
+        "word_id": "W00098"
+      },
+      {
+        "t": "と",
+        "role": "particle",
+        "grammar_id": "G010_to_and",
+        "r": "と"
+      },
+      {
+        "t": "一緒に",
+        "r": "いっしょに",
+        "role": "content",
+        "word_id": "W00050"
+      },
+      {
+        "t": "いました",
+        "r": "いました",
+        "role": "content",
+        "word_id": "W00029",
+        "inflection": {
+          "form": "polite_past",
+          "grammar_id": "G013_mashita_past",
+          "base": "いる",
+          "base_r": "いる"
+        }
+      },
+      {
+        "t": "。",
+        "role": "punct"
+      }
+    ],
+    "gloss_en": "I was together with grandmother."
+  },
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "はる",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "role": "content",
+          "word_id": "W00015"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is a spring morning.",
+      "audio": "audio/story_55/s0.wav",
+      "audio_hash": "03fcfb532d5c"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "夏",
+          "r": "なつ",
+          "role": "content",
+          "word_id": "W00081"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object",
+          "r": "を"
+        },
+        {
+          "t": "思います",
+          "r": "おもいます",
+          "role": "content",
+          "word_id": "W00043",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I think of summer.",
+      "audio": "audio/story_55/s1.wav",
+      "audio_hash": "e28c0ad5ea8b"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "夏",
+          "r": "なつ",
+          "role": "content",
+          "word_id": "W00081"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "暑かった",
+          "r": "あつかった",
+          "role": "content",
+          "word_id": "W00082",
+          "inflection": {
+            "form": "i_adj_past",
+            "grammar_id": "G047_i_adj_past"
+          },
+          "is_new_grammar": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The summer was hot.",
+      "audio": "audio/story_55/s2.wav",
+      "audio_hash": "81b694b6e0fb"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "家",
+          "r": "いえ",
+          "role": "content",
+          "word_id": "W00078"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "庭",
+          "r": "にわ",
+          "role": "content",
+          "word_id": "W00059"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "美しかった",
+          "r": "うつくしかった",
+          "role": "content",
+          "word_id": "W00083",
+          "inflection": {
+            "form": "i_adj_past",
+            "grammar_id": "G047_i_adj_past"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother's house garden was beautiful.",
+      "audio": "audio/story_55/s3.wav",
+      "audio_hash": "1393ad424a72"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "庭",
+          "r": "にわ",
+          "role": "content",
+          "word_id": "W00059"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location",
+          "r": "に"
+        },
+        {
+          "t": "古い",
+          "r": "ふるい",
+          "role": "content",
+          "word_id": "W00067",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "木",
+          "r": "き",
+          "role": "content",
+          "word_id": "W00007"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject",
+          "r": "が"
+        },
+        {
+          "t": "ありました",
+          "r": "ありました",
+          "role": "content",
+          "word_id": "W00044",
+          "inflection": {
+            "form": "polite_past",
+            "grammar_id": "G013_mashita_past",
+            "base": "ある",
+            "base_r": "ある"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the garden, there was an old tree.",
+      "audio": "audio/story_55/s4.wav",
+      "audio_hash": "9ffa6468cfc5"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "木",
+          "r": "き",
+          "role": "content",
+          "word_id": "W00007"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "古かった",
+          "r": "ふるかった",
+          "role": "content",
+          "word_id": "W00067",
+          "inflection": {
+            "form": "i_adj_past",
+            "grammar_id": "G047_i_adj_past"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The tree was old.",
+      "audio": "audio/story_55/s5.wav",
+      "audio_hash": "c9972dd93774"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "池",
+          "r": "いけ",
+          "role": "content",
+          "word_id": "W00103"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location",
+          "r": "に"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "鳥",
+          "r": "とり",
+          "role": "content",
+          "word_id": "W00054"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject",
+          "r": "が"
+        },
+        {
+          "t": "いました",
+          "r": "いました",
+          "role": "content",
+          "word_id": "W00029",
+          "inflection": {
+            "form": "polite_past",
+            "grammar_id": "G013_mashita_past",
+            "base": "いる",
+            "base_r": "いる"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the pond there was a bird.",
+      "audio": "audio/story_55/s6.wav",
+      "audio_hash": "29c19c8c2203"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and",
+          "r": "と"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "role": "content",
+          "word_id": "W00009"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object",
+          "r": "を"
+        },
+        {
+          "t": "飲みました",
+          "r": "のみました",
+          "role": "content",
+          "word_id": "W00010",
+          "inflection": {
+            "form": "polite_past",
+            "grammar_id": "G013_mashita_past",
+            "base": "飲む",
+            "base_r": "のむ"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother and I drank tea.",
+      "audio": "audio/story_55/s7.wav",
+      "audio_hash": "277a95c83a9b"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "お茶",
+          "r": "おちゃ",
+          "role": "content",
+          "word_id": "W00009"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also",
+          "r": "も"
+        },
+        {
+          "t": "温かかった",
+          "r": "あたたかかった",
+          "role": "content",
+          "word_id": "W00012",
+          "inflection": {
+            "form": "i_adj_past",
+            "grammar_id": "G047_i_adj_past"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The tea was warm too.",
+      "audio": "audio/story_55/s8.wav",
+      "audio_hash": "b3e86a6e1ab7"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "夏",
+          "r": "なつ",
+          "role": "content",
+          "word_id": "W00081"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "嬉しい",
+          "r": "うれしい",
+          "role": "content",
+          "word_id": "W00056",
+          "inflection": {
+            "form": "plain_nonpast",
+            "grammar_id": "G022_i_adj"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "r": "と"
+        },
+        {
+          "t": "言いました",
+          "r": "いいました",
+          "role": "content",
+          "word_id": "W00097",
+          "inflection": {
+            "form": "polite_past",
+            "grammar_id": "G013_mashita_past",
+            "base": "言う",
+            "base_r": "いう"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother said, \"summer is happy.\"",
+      "audio": "audio/story_55/s9.wav",
+      "audio_hash": "159b2dfdca22"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "心",
+          "r": "こころ",
+          "role": "content",
+          "word_id": "W00120"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "嬉しかった",
+          "r": "うれしかった",
+          "role": "content",
+          "word_id": "W00056",
+          "inflection": {
+            "form": "i_adj_past",
+            "grammar_id": "G047_i_adj_past"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My heart was happy.",
+      "audio": "audio/story_55/s10.wav",
+      "audio_hash": "f0be9ebcbc41"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "あの",
+          "r": "あの",
+          "role": "content",
+          "word_id": "W00147",
+          "grammar_id": "G043_kosoado_pre_nominal"
+        },
+        {
+          "t": "夏",
+          "r": "なつ",
+          "role": "content",
+          "word_id": "W00081"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "美しかった",
+          "r": "うつくしかった",
+          "role": "content",
+          "word_id": "W00083",
+          "inflection": {
+            "form": "i_adj_past",
+            "grammar_id": "G047_i_adj_past"
+          }
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "That summer was beautiful.",
+      "audio": "audio/story_55/s11.wav",
+      "audio_hash": "b3ce2e609733"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "でも",
+          "r": "でも",
+          "role": "aux",
+          "grammar_id": "G032_demo"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "時々",
+          "r": "ときどき",
+          "role": "content",
+          "word_id": "W00131"
+        },
+        {
+          "t": "いませんでした",
+          "r": "いませんでした",
+          "role": "content",
+          "word_id": "W00029",
+          "inflection": {
+            "form": "polite_past_negative",
+            "grammar_id": "G046_masen_deshita"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But grandmother sometimes was not there.",
+      "audio": "audio/story_55/s12.wav",
+      "audio_hash": "22701455061e"
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "時々",
+          "r": "ときどき",
+          "role": "content",
+          "word_id": "W00131"
+        },
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object",
+          "r": "を"
+        },
+        {
+          "t": "思います",
+          "r": "おもいます",
+          "role": "content",
+          "word_id": "W00043",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I sometimes think of grandmother.",
+      "audio": "audio/story_55/s13.wav",
+      "audio_hash": "61d11ffe6785"
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "春",
+          "r": "はる",
+          "role": "content",
+          "word_id": "W00072"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "r": "の"
+        },
+        {
+          "t": "朝",
+          "r": "あさ",
+          "role": "content",
+          "word_id": "W00015"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "r": "わたし",
+          "role": "content",
+          "word_id": "W00003"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "r": "は"
+        },
+        {
+          "t": "古い",
+          "r": "ふるい",
+          "role": "content",
+          "word_id": "W00067",
+          "inflection": {
+            "form": "attributive",
+            "grammar_id": "G023_attributive"
+          }
+        },
+        {
+          "t": "木",
+          "r": "き",
+          "role": "content",
+          "word_id": "W00007"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object",
+          "r": "を"
+        },
+        {
+          "t": "見ます",
+          "r": "みます",
+          "role": "content",
+          "word_id": "W00006",
+          "inflection": {
+            "form": "masu_polite_nonpast",
+            "grammar_id": "G026_masu_nonpast"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Spring morning, I look at the old tree.",
+      "audio": "audio/story_55/s14.wav",
+      "audio_hash": "cd84a49d01dd"
+    },
+    {
+      "idx": 15,
+      "tokens": [
+        {
+          "t": "暑かった",
+          "r": "あつかった",
+          "role": "content",
+          "word_id": "W00082",
+          "inflection": {
+            "form": "i_adj_past",
+            "grammar_id": "G047_i_adj_past"
+          }
+        },
+        {
+          "t": "夏",
+          "r": "なつ",
+          "role": "content",
+          "word_id": "W00081"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "美しかった",
+          "r": "うつくしかった",
+          "role": "content",
+          "word_id": "W00083",
+          "inflection": {
+            "form": "i_adj_past",
+            "grammar_id": "G047_i_adj_past"
+          }
+        },
+        {
+          "t": "祖母",
+          "r": "そぼ",
+          "role": "content",
+          "word_id": "W00098"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "r": "です"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The hot summer, the beautiful grandmother.",
+      "audio": "audio/story_55/s15.wav",
+      "audio_hash": "89a423f64868"
+    }
+  ],
+  "new_words": [],
+  "new_grammar": [
+    "G047_i_adj_past"
+  ],
+  "all_words_used": [
+    "W00082",
+    "W00081",
+    "W00098",
+    "W00050",
+    "W00029",
+    "W00072",
+    "W00015",
+    "W00003",
+    "W00043",
+    "W00078",
+    "W00059",
+    "W00083",
+    "W00067",
+    "W00007",
+    "W00044",
+    "W00103",
+    "W00054",
+    "W00009",
+    "W00010",
+    "W00012",
+    "W00056",
+    "W00097",
+    "W00120",
+    "W00147",
+    "W00131",
+    "W00006"
+  ],
+  "word_audio": {},
+  "word_audio_hash": {}
+}
