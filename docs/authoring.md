@@ -13,7 +13,8 @@ pipeline/inputs/story_N.bilingual.json   ← THE source of truth (you edit this)
         │
 stories/story_N.json                     ← derived artifact (do not hand-edit)
         │
-        ▼ validate.py → audio_builder.py → build_manifest.py → pytest
+        ▼ validate.py → audio_builder.py → pytest
+                  (stories/index.json is refreshed by the regenerator above)
         │
 shipped
 ```
@@ -60,7 +61,7 @@ Create `pipeline/inputs/story_<N>.bilingual.json`. This file is the source of tr
 
 ```json
 {
-  "story_id": 68,
+  "story_id": 56,
   "title":    {"jp": "雨", "en": "Rain"},
   "sentences": [
     {"jp": "今朝は雨です。",         "en": "This morning, it is raining."},
@@ -101,7 +102,7 @@ The script is idempotent: a second `--apply` produces no changes when nothing ha
 For a single story (faster iteration), invoke the converter directly:
 
 ```bash
-python3 pipeline/text_to_story.py pipeline/inputs/story_68.bilingual.json \
+python3 pipeline/text_to_story.py pipeline/inputs/story_56.bilingual.json \
     --out pipeline/story_raw.json --report pipeline/text_to_story.report.json
 ```
 
@@ -110,7 +111,7 @@ python3 pipeline/text_to_story.py pipeline/inputs/story_68.bilingual.json \
 ## Step 3 — Validate
 
 ```bash
-python3 pipeline/validate.py stories/story_68.json
+python3 pipeline/validate.py stories/story_56.json
 ```
 
 The validator runs the deterministic checks listed in [`spec.md` §5](spec.md#5-validator-deterministic). Common failure modes and fixes:
@@ -126,19 +127,21 @@ Edit `pipeline/inputs/story_<N>.bilingual.json`, re-run step 2, re-validate. Ite
 ## Step 4 — Generate audio
 
 ```bash
-python3 pipeline/audio_builder.py stories/story_68.json
+python3 pipeline/audio_builder.py stories/story_56.json
 ```
 
-This calls Google Cloud TTS once per sentence and once per **new** word_id (existing word audio is reused from `audio/`). Output goes to `audio/story_68/`. The script writes audio paths and SHA hashes back into the story JSON.
+This calls Google Cloud TTS once per sentence and once per **new** word_id (existing word audio is reused from `audio/`). Output goes to `audio/story_56/`. The script writes audio paths and SHA hashes back into the story JSON.
 
 ## Step 5 — Ship
 
 ```bash
-python3 pipeline/build_manifest.py    # rebuilds stories/index.json
 python3 -m pytest pipeline/tests/     # final gate
 ```
 
-`vocab_state.json` and `grammar_state.json` were already refreshed by the regenerator in step 2; you don't need to run `state_updater.py` separately when using the regenerator.
+`vocab_state.json`, `grammar_state.json`, and `stories/index.json` are all
+refreshed automatically by the regenerator in step 2; you don't need to run
+`state_updater.py` or `build_manifest.py` separately when using the
+regenerator.
 
 ## Authoring tools
 

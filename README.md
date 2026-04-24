@@ -3,7 +3,7 @@
 A graded-reader app for learning Japanese through short stories with click-to-lookup vocabulary, integrated SRS, and per-token audio.
 
 - **Reader** — a static web app (`index.html` + `js/app.js` + `css/style.css`). Open it in any browser; no server required.
-- **Library** — 67 hand-curated short stories under `stories/`, plus per-token audio under `audio/`.
+- **Library** — 55 hand-curated short stories under `stories/`, plus per-token audio under `audio/`.
 - **Authoring pipeline** — Python scripts under `pipeline/` that turn bilingual JP+EN text into a fully-tagged story JSON (vocabulary IDs, grammar IDs, inflections, glosses) and generate the matching audio.
 
 ## Quickstart
@@ -44,9 +44,9 @@ python3 -m http.server 8080
 pip install -r requirements.txt
 
 # 2. Write your bilingual JP+EN spec — this is the source of truth
-cat > pipeline/inputs/story_68.bilingual.json <<'EOF'
+cat > pipeline/inputs/story_56.bilingual.json <<'EOF'
 {
-  "story_id": 68,
+  "story_id": 56,
   "title":    {"jp": "雨", "en": "Rain"},
   "sentences": [
     {"jp": "今朝は雨です。",       "en": "This morning, it is raining."},
@@ -59,17 +59,16 @@ EOF
 python3 pipeline/regenerate_all_stories.py --apply
 
 # 4. Validate
-python3 pipeline/validate.py stories/story_68.json
+python3 pipeline/validate.py stories/story_56.json
 
 # 5. Generate audio (requires Google Cloud TTS credentials)
-python3 pipeline/audio_builder.py stories/story_68.json
+python3 pipeline/audio_builder.py stories/story_56.json
 
-# 6. Refresh manifest + run tests
-python3 pipeline/build_manifest.py
+# 6. Run tests (the manifest stories/index.json is refreshed automatically by step 3)
 python3 -m pytest pipeline/tests/
 ```
 
-The bilingual spec is the only thing humans edit. `stories/story_68.json` is a derived artifact of `pipeline/inputs/story_68.bilingual.json` and is regenerated on demand. See [`docs/authoring.md`](docs/authoring.md) for the full workflow.
+The bilingual spec is the only thing humans edit. `stories/story_56.json` is a derived artifact of `pipeline/inputs/story_56.bilingual.json` and is regenerated on demand. See [`docs/authoring.md`](docs/authoring.md) for the full workflow.
 
 ## Layout
 

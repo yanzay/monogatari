@@ -432,9 +432,6 @@ def test_no_orphan_grammar_points(stories, grammar):
         "G030_kara_reason",       # から as causal vs から as origin
         "G041_masenka_invitation",# ませんか as invitation vs question
         "G049_ga_but",            # が as `but` clause-conjunction vs subject
-        "G055_plain_nonpast_pair",# plain dict-form deliberate pair w/ polite
-        "G057_ga_hoshii",         # NPがほしい construction
-        "G058_temo_ii",           # ~てもいい permission
     }
     used: set[str] = set()
     for story in stories:

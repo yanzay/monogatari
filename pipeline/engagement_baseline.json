@@ -5,7 +5,7 @@
     "approve_bar": "average >= 3.5 AND every dimension >= 3",
     "reviewer": "rovo-dev",
     "first_reviewed_at": "2026-04-22T01:22:00Z",
-    "last_revised_at": "2026-04-22T12:08:00Z",
+    "last_revised_at": "2026-04-24T17:48:00Z",
     "history": [
       "2026-04-22 — initial baseline established (stories 1-4)",
       "2026-04-22 — stories 2 and 3 revised after baseline put them under the bar (2.8 and 3.4)",
@@ -15,11 +15,13 @@
       "2026-04-22 — story 7 (夜) authored end-to-end with the new tooling (scaffold --new-word-surfaces auto-filled 夜/月/星 from JMdict; precheck --fix auto-computed all_words_used). First night-set story; gives G011_ya_partial real semantic work (was in state since story 4, only used twice). Cleared the bar on first pass (avg 4.4).",
       "2026-04-22 — story 8 (本と友達) authored end-to-end. First multi-person scene with parallel actions in the library. Gives G009_mo_also (formerly 4 spread-thin uses) 3 fresh load-bearing semantic uses in one tight a/b/a/b/c construction. Cleared the bar on first pass (avg 4.6, ties stories 5 and 6 for #1).",
       "2026-04-22 — story 9 (朝の猫) authored end-to-end. First story to use a recurring character (cat from story 6) — a real arrival of multi-story narrative continuity. Gives G004_ni_location (was the lowest-used grammar at 1 use across 8 stories) real semantic work — every sentence answers 'where?'. Sleeping-cat compound-noun closer is a new syntactic pattern. Cleared the bar on first pass (avg 4.4).",
-      "2026-04-22 — story 10 (友達からの手紙) authored end-to-end. First story to exercise the new fugashi-classified irregular_kuru verb path (来ます). Gives G006_kara_from real semantic work — letter FROM the friend, friend FROM far away. First off-stage character communication: friend exists only via the letter, not as a present body. Closer breaks the 'X, feeling です' pattern (used in 5 of 9 prior stories) — ends on the verb 待ちます (open-ended waiting). Cleared the bar on first pass (avg 4.6, ties stories 5/6/8 for #1). Validates with zero warnings — first ship after the v0.8 inflection-engine consolidation."
+      "2026-04-22 — story 10 (友達からの手紙) authored end-to-end. First story to exercise the new fugashi-classified irregular_kuru verb path (来ます). Gives G006_kara_from real semantic work — letter FROM the friend, friend FROM far away. First off-stage character communication: friend exists only via the letter, not as a present body. Closer breaks the 'X, feeling です' pattern (used in 5 of 9 prior stories) — ends on the verb 待ちます (open-ended waiting). Cleared the bar on first pass (avg 4.6, ties stories 5/6/8 for #1). Validates with zero warnings — first ship after the v0.8 inflection-engine consolidation.",
+      "2026-04-24 — library trimmed to 55 stories; reviews 56-67 removed and leaderboard recomputed (dense ranking)."
     ],
     "last_regenerated": "2026-04-22 15:30",
     "stories_covered": 12,
-    "n_stories": 67
+    "n_stories": 67,
+    "note": "Legacy 5-axis baseline. Authoritative library scoring is docs/story_scores.json (7-axis, comprehensive-2.1)."
   },
   "reviews": [
     {
@@ -1795,348 +1797,6 @@
         "Could benefit from a present-tense action sentence to break the flashback"
       ],
       "suggestions": []
-    },
-    {
-      "story_id": 56,
-      "title_jp": "行きましょう。",
-      "title_en": "Let's Go.",
-      "scores": {
-        "hook": 5,
-        "voice": 5,
-        "originality": 5,
-        "coherence": 5,
-        "closure": 5
-      },
-      "average": 5.0,
-      "approved": true,
-      "highlights": [
-        "First date — narrator and bookstore person finally GO somewhere together (the park)",
-        "New verb 行きます (W00150) introduced naturally with new grammar 〜ましょう",
-        "Four 〜ましょう forms across the story:",
-        "  s2 公園に行きましょう (bookstore person — initial invitation)",
-        "  s6 一緒に歩きましょう (friend — joins)",
-        "  s11 お茶を飲みましょう (bookstore person again — pivots)",
-        "  s13 来週も行きましょう (narrator — accepts the future)",
-        "Echoes story 51 (same park, あの古い木 returns from s8 / G043 reinforce)",
-        "Reinforces G046_masen_deshita (s12 行きませんでした — narrator hadnt gone in a while)",
-        "Reinforces G047_i_adj_past (s15 美しかった — the park was beautiful)",
-        "First story with three speakers (narrator, friend, bookstore person) acting in concert",
-        "Closer s16 春の夕方、新しい約束、温かい心です — three-noun chain, future-leaning"
-      ],
-      "weaknesses": [
-        "Three speakers + many ましょう forms make the dialogue dense — could vary verb register",
-        "No sensory detail beyond visual; could add a physical body sensation"
-      ],
-      "suggestions": []
-    },
-    {
-      "story_id": 57,
-      "title_jp": "雨が降りますが、明るい朝。",
-      "title_en": "Rain Falls, But a Bright Morning.",
-      "scores": {
-        "hook": 5,
-        "voice": 5,
-        "originality": 4,
-        "coherence": 5,
-        "closure": 5
-      },
-      "average": 4.8,
-      "approved": true,
-      "highlights": [
-        "Title 雨が降りますが、明るい朝 carries the new grammar in its pivot — が-but as the structural device",
-        "Five clause-が-but constructions weave contradiction throughout: s3 (rain but heart happy), s4 (room quiet but I read), s8 (rain but I wait), s10 (he doesnt come but theres a promise), s13 (garden rainy but heart bright)",
-        "Disambiguation handled — particle が has TWO valid meanings now (subject + but), added to POLYSEMOUS allowed set",
-        "Reuses 雨 W00002, 降ります W00107 (under-practiced), 明るい W00137 (last seen story 46)",
-        "Reinforces G048_masho (s11 来週、行きましょう), G047_i_adj_past (s14 美しかった夏), G013_mashita_past (s15 言いました), G036_masen (s10 来ません)",
-        "Grandmother returns in s15 — verbs of speech across generations",
-        "Closer s16 雨の朝、明るい心、来週の約束です — three-noun chain pattern, future-leaning"
-      ],
-      "weaknesses": [
-        "Vocab overlap with story 54 (56% Jaccard) — both retrospective tea+room scenes; could rotate setting harder",
-        "Five が-but sentences in 16 sentences is heavy saturation — pedagogically clear but rhythmically dense"
-      ],
-      "suggestions": []
-    },
-    {
-      "story_id": 58,
-      "title_jp": "本の店へ。",
-      "title_en": "To the Bookstore.",
-      "scores": {
-        "hook": 5,
-        "voice": 4,
-        "originality": 4,
-        "coherence": 5,
-        "closure": 4
-      },
-      "average": 4.4,
-      "approved": true,
-      "highlights": [
-        "Title 本の店へ uses the new grammar and is shockingly minimal — bare destination",
-        "Four へ-uses anchor the journey: title (toward bookstore), s2 (toward bookstore), s4 (toward river), s7 (toward park), s8 (toward bookstore)",
-        "Echoes the ましょう invitation form (s7) — friend invites narrator to detour",
-        "Tension between motion verbs (going, walking) and waiting (s9) — narrator both moves and stays",
-        "Reuses 行きます W00150, 歩きます W00017, 道 W00064 (under-practiced motion vocab)",
-        "Reinforces G031_tai (s8 行きたい), G032_demo (s8), G028_to_iimasu (s7, s10), G034_ne_confirm (s10), G013_mashita_past (s12)"
-      ],
-      "weaknesses": [
-        "Vocab overlap with story 56 (56% Jaccard) — both park-walking stories; could rotate harder",
-        "No new words this story; relies entirely on grammar novelty for freshness"
-      ],
-      "suggestions": []
-    },
-    {
-      "story_id": 59,
-      "title_jp": "静かじゃない夜。",
-      "title_en": "A Not-Quiet Night.",
-      "scores": {
-        "hook": 5,
-        "voice": 5,
-        "originality": 4,
-        "coherence": 4,
-        "closure": 4
-      },
-      "average": 4.4,
-      "approved": true,
-      "highlights": [
-        "Title 静かじゃない夜 puts new grammar (じゃない) in the hook position",
-        "Five じゃない/じゃありません constructions: s3 (room not quiet), s4 (I am not well), s11 (tomorrow is not rain), s14 (book is not a person), s15 (heart is not quiet)",
-        "Two new words land naturally: 風 W00151 + 吹きます W00152 — storm vocabulary",
-        "Mood pivot in s8 (でも、お茶は温かいです) — first warmth in the dark",
-        "Reuses 静か W00011 (occ 34!), 元気 W00058, 悲しい W00076 (under-practiced — clears starvation)",
-        "Reinforces G046_masen_deshita (s5, s6 didnt come), G049_ga_but (s9, s14, s15), G038_kunai (s10), G032_demo (s8, s11)",
-        "Closer s16 雨の夜、新しい本、温かい心 — three-noun chain, paradoxical comfort"
-      ],
-      "weaknesses": [
-        "Heavy negation density (5 じゃない + 1 くない + 2 ませんでした) makes the rhythm weighty",
-        "No new setting — house at night repeats from earlier stories"
-      ],
-      "suggestions": []
-    },
-    {
-      "story_id": 60,
-      "title_jp": "夕方まで。",
-      "title_en": "Until Evening.",
-      "scores": {
-        "hook": 5,
-        "voice": 5,
-        "originality": 4,
-        "coherence": 5,
-        "closure": 5
-      },
-      "average": 4.8,
-      "approved": true,
-      "highlights": [
-        "Title 夕方まで minimal — bare endpoint, the new grammar carries the whole image",
-        "Five まで constructions: s3 (morning to evening), s6 (until next week), s10 (until evening), s12 (until night), s16 (morning to evening closer)",
-        "Reading book is the through-line — first prolonged solitary activity in the library",
-        "New verb 読みます W00152 — long overdue, used 6 times naturally",
-        "Reuses 朝/夕方/夜 (time vocab cluster) — まで anchored to existing time markers",
-        "Reinforces G006_kara_from (s3, s16 朝から), G036_masen (s6 来ません), G046_masen_deshita (s13), G051_janai (s14), G032_demo (s15)",
-        "Closer s16 朝から夕方まで、古い本、温かいお茶 — uses まで to bookend the day"
-      ],
-      "weaknesses": [
-        "Vocab overlap with story 57 (57% Jaccard) — both quiet-day-at-home stories",
-        "Lonely 風 (s9) and 雨 (s13) — single-sentence motifs that could be cut or echoed"
-      ],
-      "suggestions": []
-    },
-    {
-      "story_id": 61,
-      "title_jp": "なぜ来ますか。",
-      "title_en": "Why Do You Come?",
-      "scores": {
-        "hook": 5,
-        "voice": 5,
-        "originality": 5,
-        "coherence": 5,
-        "closure": 5
-      },
-      "average": 5.0,
-      "approved": true,
-      "highlights": [
-        "Title なぜ来ますか puts grandmothers question first — interrogative as hook",
-        "Three なぜ-questions land like soft hammers: s3 (why bookstore), s7 (why happy), s11 (why dont you tell me)",
-        "Each pair: question + answer-with-から — pedagogical pattern made narrative",
-        "Grandmother named the romance arc — the narrator never has",
-        "New word なぜ W00152 (interrogative pronoun)",
-        "Reuses 祖母 W00098 heavily, 好き W00114 (under-practiced — first appearance since story 35)",
-        "Reinforces G030_kara_reason (s5, s9, s13), G028_to_iimasu (5+ quotes), G050_he_direction (s3), G051_janai (s13), G036_masen (s11), G037_ka_question (every quote)",
-        "Closer s16 春の夕方、温かいお茶、新しい約束です — three-noun chain, acknowledges the future"
-      ],
-      "weaknesses": [
-        "Heavy quote density — 5 of 17 sentences are direct dialogue. Risks dialogue-as-padding feel.",
-        "Setting reuses grandmothers tea — could rotate but the family beat needed it"
-      ],
-      "suggestions": []
-    },
-    {
-      "story_id": 62,
-      "title_jp": "いい本ですよ。",
-      "title_en": "It's a Good Book, You Know.",
-      "scores": {
-        "hook": 5,
-        "voice": 5,
-        "originality": 5,
-        "coherence": 5,
-        "closure": 5
-      },
-      "average": 5.0,
-      "approved": true,
-      "highlights": [
-        "Title いい本ですよ — the new grammar IS the title; よ as soft assertion",
-        "Four よ-uses: s4 (good book), s7 (its old), s11 (its beautiful), s13 (Ill come tomorrow — narrators initiative!)",
-        "Two ね-uses pair against three よ-uses: s6 (古いですね), s10 (美しい本ですね) — telling vs asking, contrast pedagogically clear",
-        "New verb 見せます W00153 — to show (long overdue, fits any showing context)",
-        "Narrator finally takes initiative in s13 (Ill come tomorrow) — answers grandmothers question from story 61",
-        "Echoes story 53 (first morning conversation) but flipped: in 53 narrator was passive, here narrator commits",
-        "Reuses 美しい W00083, 古い W00067 (heart of old-book aesthetic), どうぞ W00149",
-        "Reinforces G034_ne_confirm, G028_to_iimasu (every quote), G023_attributive (book modifications)",
-        "Closer s16 春の夕方、古い本、新しい約束 — three-noun chain, the new promise echoes story 61"
-      ],
-      "weaknesses": [
-        "Heavy quote density — 6 of 17 sentences are direct dialogue; could use more interior beat",
-        "Setting reuses bookstore — natural but third store-scene this batch"
-      ],
-      "suggestions": []
-    },
-    {
-      "story_id": 63,
-      "title_jp": "ノートを書く。",
-      "title_en": "Writing in the Notebook.",
-      "scores": {
-        "hook": 5,
-        "voice": 5,
-        "originality": 5,
-        "coherence": 4,
-        "closure": 5
-      },
-      "average": 4.8,
-      "approved": true,
-      "highlights": [
-        "Title ノートを書く — first non-polite verb in any title; the new grammar IS the texture",
-        "Plain forms appear ONLY inside 「」 journal quotes — the contrast IS the lesson",
-        "Five plain forms used:",
-        "  s4 行く (dict) — Tomorrow I go to the bookstore",
-        "  s7 来る (dict) — Tomorrow he also comes",
-        "  s9 言わない (plain neg) — I will not tell grandmother",
-        "  s11 待たない (plain neg) — I will not wait",
-        "  s13 書く (dict) — I write",
-        "Diary register opens — narrator gains an interior voice distinct from polite narration",
-        "Reuses 書きます W00060, 心 W00120, ノート W00154 (new but heavy use)",
-        "Reinforces G028_to_iimasu (every quote frame), G050_he_direction (s4),",
-        "  G049_ga_but (s10), G052_made_until + G006_kara_from (subtitle)",
-        "Closer s16 春の夕方、古いノート、温かい心 — three-noun chain"
-      ],
-      "weaknesses": [
-        "Vocab overlap with story 61 (57%) — both interior-voice scenes; could rotate setting harder",
-        "Plain forms only appear inside quotes — pedagogically clear but slightly artificial"
-      ],
-      "suggestions": []
-    },
-    {
-      "story_id": 64,
-      "title_jp": "友達と話した。",
-      "title_en": "I Talked With the Friend.",
-      "scores": {
-        "hook": 5,
-        "voice": 5,
-        "originality": 4,
-        "coherence": 5,
-        "closure": 5
-      },
-      "average": 4.8,
-      "approved": true,
-      "highlights": [
-        "Title 友達と話した — first plain past in any title",
-        "Six plain-past forms used (4 affirmative + 2 negative):",
-        "  s3 来た (came), s5 飲んだ (drank), s7 話した (talked), s13 行った (went, irregular)",
-        "  s11 言わなかった (did not tell), s15 行かなかった (did not go)",
-        "Dual register pedagogy: outside quotes uses ました; inside quotes uses 〜た",
-        "  s2 vs s3 (came), s4 vs s5 (drank), s6 vs s7 (talked), s10 vs s11 (didnt tell)",
-        "Story 63s notebook returns — narrators interior voice continues",
-        "Reuses ノート W00154 + 書きます W00060 heavily",
-        "Reinforces G013_mashita_past (every narration), G046_masen_deshita (s10, s14)",
-        "Reinforces G055_plain_nonpast_pair (last storys grammar still in journal entries)",
-        "Reinforces G050_he_direction (s12, s13, s14), G047_i_adj_past (s9 嬉しかった)",
-        "Closer s16 春の朝、古いノート、新しい約束 — three-noun chain"
-      ],
-      "weaknesses": [
-        "Vocab overlap with story 63 is 59% — both notebook scenes; could rotate setting harder next story",
-        "Heavy quote density — 5 of 17 sentences are direct dialogue/journal"
-      ],
-      "suggestions": []
-    },
-    {
-      "story_id": 65,
-      "title_jp": "新しい傘がほしい。",
-      "title_en": "I Want a New Umbrella.",
-      "scores": {
-        "hook": 4,
-        "voice": 4,
-        "originality": 5,
-        "coherence": 4,
-        "closure": 4
-      },
-      "average": 4.2,
-      "approved": true,
-      "highlights": [
-        "Three がほしい uses anchor desire — narrator wants new, strong, big umbrella",
-        "Quoted speech with friend — conversation continues from story 64",
-        "Notebook returns: closes with plain past 買った in journal",
-        "Buy-and-return arc: rain → old → desire → store → purchase → joy"
-      ],
-      "weaknesses": [
-        "Vocabulary overlap with story 63 (notebook+writing); store visit grounds it"
-      ],
-      "suggestions": []
-    },
-    {
-      "story_id": 66,
-      "title_jp": "入ってもいいですか。",
-      "title_en": "May I Come In?",
-      "scores": {
-        "hook": 5,
-        "voice": 5,
-        "originality": 5,
-        "coherence": 4,
-        "closure": 4
-      },
-      "average": 4.6,
-      "approved": true,
-      "highlights": [
-        "First permission asked-and-granted exchange in the library",
-        "Bookstore person crosses threshold into the home — romance arc moves indoors",
-        "Three permission asks (enter, sit, drink) shape the visit as small ritual",
-        "どうぞ returns from story 52 — narrator now has the welcoming word"
-      ],
-      "weaknesses": [
-        "Dense quoted speech (4 quoted exchanges); reader will need to track who says what"
-      ],
-      "suggestions": []
-    },
-    {
-      "story_id": 67,
-      "title_jp": "だから雪が好きです。",
-      "title_en": "So I Love the Snow.",
-      "scores": {
-        "hook": 5,
-        "voice": 4,
-        "originality": 4,
-        "coherence": 5,
-        "closure": 4
-      },
-      "average": 4.4,
-      "approved": true,
-      "highlights": [
-        "Four だから sentence-starts give the story a chain-of-reasoning shape",
-        "Snow returns as central image — completes seasonal arc started in story 36",
-        "Grandmother appears in memory carrying her quote about beauty",
-        "Window-stander vantage echoes story 47/41 — narrator at the edge of a season"
-      ],
-      "weaknesses": [
-        "Dense reasoning chain may feel formulaic if read closely; mitigated by sensory details (white sky, quiet snow)"
-      ],
-      "suggestions": []
     }
   ],
   "leaderboard": [
@@ -2156,332 +1816,269 @@
       "rank": 1
     },
     {
-      "story_id": 56,
-      "average": 5.0,
-      "rank": 1
-    },
-    {
-      "story_id": 61,
-      "average": 5.0,
-      "rank": 1
-    },
-    {
-      "story_id": 62,
-      "average": 5.0,
-      "rank": 1
-    },
-    {
       "story_id": 30,
       "average": 4.8,
-      "rank": 7
+      "rank": 4
     },
     {
       "story_id": 36,
       "average": 4.8,
-      "rank": 7
+      "rank": 4
     },
     {
       "story_id": 38,
       "average": 4.8,
-      "rank": 7
+      "rank": 4
     },
     {
       "story_id": 40,
       "average": 4.8,
-      "rank": 7
+      "rank": 4
     },
     {
       "story_id": 47,
       "average": 4.8,
-      "rank": 7
+      "rank": 4
     },
     {
       "story_id": 50,
       "average": 4.8,
-      "rank": 7
+      "rank": 4
     },
     {
       "story_id": 51,
       "average": 4.8,
-      "rank": 7
+      "rank": 4
     },
     {
       "story_id": 53,
       "average": 4.8,
-      "rank": 7
+      "rank": 4
     },
     {
       "story_id": 54,
       "average": 4.8,
-      "rank": 7
-    },
-    {
-      "story_id": 57,
-      "average": 4.8,
-      "rank": 7
-    },
-    {
-      "story_id": 60,
-      "average": 4.8,
-      "rank": 7
-    },
-    {
-      "story_id": 63,
-      "average": 4.8,
-      "rank": 7
-    },
-    {
-      "story_id": 64,
-      "average": 4.8,
-      "rank": 7
+      "rank": 4
     },
     {
       "story_id": 5,
       "average": 4.6,
-      "rank": 20
+      "rank": 13
     },
     {
       "story_id": 6,
       "average": 4.6,
-      "rank": 20
+      "rank": 13
     },
     {
       "story_id": 8,
       "average": 4.6,
-      "rank": 20
+      "rank": 13
     },
     {
       "story_id": 10,
       "average": 4.6,
-      "rank": 20
+      "rank": 13
     },
     {
       "story_id": 25,
       "average": 4.6,
-      "rank": 20
+      "rank": 13
     },
     {
       "story_id": 29,
       "average": 4.6,
-      "rank": 20
+      "rank": 13
     },
     {
       "story_id": 41,
       "average": 4.6,
-      "rank": 20
+      "rank": 13
     },
     {
       "story_id": 46,
       "average": 4.6,
-      "rank": 20
+      "rank": 13
     },
     {
       "story_id": 48,
       "average": 4.6,
-      "rank": 20
+      "rank": 13
     },
     {
       "story_id": 49,
       "average": 4.6,
-      "rank": 20
-    },
-    {
-      "story_id": 66,
-      "average": 4.6,
-      "rank": 20
+      "rank": 13
     },
     {
       "story_id": 4,
       "average": 4.4,
-      "rank": 31
+      "rank": 23
     },
     {
       "story_id": 7,
       "average": 4.4,
-      "rank": 31
+      "rank": 23
     },
     {
       "story_id": 9,
       "average": 4.4,
-      "rank": 31
+      "rank": 23
     },
     {
       "story_id": 11,
       "average": 4.4,
-      "rank": 31
+      "rank": 23
     },
     {
       "story_id": 35,
       "average": 4.4,
-      "rank": 31
+      "rank": 23
     },
     {
       "story_id": 37,
       "average": 4.4,
-      "rank": 31
+      "rank": 23
     },
     {
       "story_id": 39,
       "average": 4.4,
-      "rank": 31
+      "rank": 23
     },
     {
       "story_id": 45,
       "average": 4.4,
-      "rank": 31
-    },
-    {
-      "story_id": 58,
-      "average": 4.4,
-      "rank": 31
-    },
-    {
-      "story_id": 59,
-      "average": 4.4,
-      "rank": 31
-    },
-    {
-      "story_id": 67,
-      "average": 4.4,
-      "rank": 31
+      "rank": 23
     },
     {
       "story_id": 2,
       "average": 4.2,
-      "rank": 42
+      "rank": 31
     },
     {
       "story_id": 12,
       "average": 4.2,
-      "rank": 42
+      "rank": 31
     },
     {
       "story_id": 19,
       "average": 4.2,
-      "rank": 42
+      "rank": 31
     },
     {
       "story_id": 20,
       "average": 4.2,
-      "rank": 42
+      "rank": 31
     },
     {
       "story_id": 22,
       "average": 4.2,
-      "rank": 42
+      "rank": 31
     },
     {
       "story_id": 24,
       "average": 4.2,
-      "rank": 42
+      "rank": 31
     },
     {
       "story_id": 26,
       "average": 4.2,
-      "rank": 42
+      "rank": 31
     },
     {
       "story_id": 27,
       "average": 4.2,
-      "rank": 42
+      "rank": 31
     },
     {
       "story_id": 28,
       "average": 4.2,
-      "rank": 42
+      "rank": 31
     },
     {
       "story_id": 33,
       "average": 4.2,
-      "rank": 42
+      "rank": 31
     },
     {
       "story_id": 34,
       "average": 4.2,
-      "rank": 42
+      "rank": 31
     },
     {
       "story_id": 44,
       "average": 4.2,
-      "rank": 42
-    },
-    {
-      "story_id": 65,
-      "average": 4.2,
-      "rank": 42
+      "rank": 31
     },
     {
       "story_id": 3,
       "average": 4.0,
-      "rank": 55
+      "rank": 43
     },
     {
       "story_id": 14,
       "average": 4.0,
-      "rank": 55
+      "rank": 43
     },
     {
       "story_id": 15,
       "average": 4.0,
-      "rank": 55
+      "rank": 43
     },
     {
       "story_id": 16,
       "average": 4.0,
-      "rank": 55
+      "rank": 43
     },
     {
       "story_id": 21,
       "average": 4.0,
-      "rank": 55
+      "rank": 43
     },
     {
       "story_id": 23,
       "average": 4.0,
-      "rank": 55
+      "rank": 43
     },
     {
       "story_id": 32,
       "average": 4.0,
-      "rank": 55
+      "rank": 43
     },
     {
       "story_id": 43,
       "average": 4.0,
-      "rank": 55
+      "rank": 43
     },
     {
       "story_id": 1,
       "average": 3.8,
-      "rank": 63
+      "rank": 51
     },
     {
       "story_id": 13,
       "average": 3.8,
-      "rank": 63
+      "rank": 51
     },
     {
       "story_id": 17,
       "average": 3.8,
-      "rank": 63
+      "rank": 51
     },
     {
       "story_id": 18,
       "average": 3.8,
-      "rank": 63
+      "rank": 51
     },
     {
       "story_id": 31,
       "average": 3.6,
-      "rank": 67
+      "rank": 55
     }
   ],
   "next_actions": [
-    "All 15 stories now pass the engagement bar (avg ≥ 3.5; every dimension ≥ 3).",
-    "Underused N5 grammar still worth load-bearing use: G004_ni_location (still atmospheric only) and G006_kara_from (only 2 uses, both in story 10).",
-    "First N4 grammar (G014_to_omoimasu) introduced in story 12. Next-best N4 candidates per the catalog: 〜たい (want), 〜ことができる (can do), 〜たら (when/if).",
-    "Stories 4 / 5 / 6 / 7 / 8 / 11 / 12 all rate 4.4+; revisit candidates if needed: story 1 (3.8) and story 3 (4.0) — but neither is below the 3.5 bar.",
-    "Closure motif 'X、いい朝です' has been reused 5 times. Future stories should diversify the closer pattern.",
-    "Authoring guidance now embedded in pipeline/authoring_rules.md Section 6 (engagement & voice) — ships with writer prompt."
+    "Library trimmed to 55 stories on 2026-04-24; reviews 56-67 removed and the leaderboard recomputed (dense ranking).",
+    "Canonical story scoring now lives in docs/story_scores.json (7-axis comprehensive-2.1 rubric); this baseline is preserved as the legacy 5-axis hook/voice/originality/coherence/closure track.",
+    "All 55 shipped stories sit at avg ≥ 3.5 on this baseline; engagement floor test is green."
   ]
 }

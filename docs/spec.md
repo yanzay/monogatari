@@ -52,9 +52,9 @@ Cumulative vocabulary across all shipped stories.
 ```jsonc
 {
   "version": 1,
-  "updated_at": "2026-04-23T22:00:00Z",
-  "last_story_id": 67,
-  "next_word_id": "W00251",
+  "updated_at": "2026-04-24T17:48:00Z",
+  "last_story_id": 55,
+  "next_word_id": "W00252",
   "words": {
     "W00001": {
       "id": "W00001",
@@ -65,8 +65,8 @@ Cumulative vocabulary across all shipped stories.
       "verb_class": "godan",             // verbs only
       "meanings":   ["this morning"],
       "first_story":     "story_1",
-      "last_seen_story": "story_31",
-      "occurrences":     9,
+      "last_seen_story": "story_54",
+      "occurrences":     13,
       "notes": "Special reading けさ (NOT いまあさ)…"
     }
   }

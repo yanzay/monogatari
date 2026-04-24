@@ -565,6 +565,17 @@ def main() -> int:
                     minted_records.append(rec)
 
     if args.apply:
+        # Refresh the reader-app manifest (stories/index.json) so it always
+        # reflects the current shipped library after a regen. Done here rather
+        # than as a separate post-step so authors never ship a stale manifest.
+        from build_manifest import build as _build_manifest
+        _idx_path = ROOT / "stories" / "index.json"
+        _manifest = _build_manifest(ROOT / "stories")
+        _idx_path.write_text(
+            json.dumps(_manifest, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        print(f"Refreshed stories/index.json ({len(_manifest['stories'])} stories)")
         # Honest library-wide first-occurrence pass for is_new / is_new_grammar
         # and per-story new_words / new_grammar arrays. Runs after every story
         # has been written so the walk sees the final shipped state.
