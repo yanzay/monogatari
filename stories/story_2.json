@@ -40,12 +40,13 @@
     "W00003",
     "W00022",
     "W00017",
+    "W00002",
     "W00007",
     "W00008",
     "W00011",
+    "W00012",
     "W00009",
     "W00010",
-    "W00012",
     "W00013",
     "W00014"
   ],
@@ -119,11 +120,25 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Evening — my friend and I walk through the park."
+      "gloss_en": "In the evening, my friend and I walk through the park.",
+      "audio": "audio/story_2/s0.mp3",
+      "audio_hash": "ef4d275dfcd5"
     },
     {
       "idx": 1,
       "tokens": [
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あめ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "is_new_grammar": true
+        },
         {
           "t": "木",
           "role": "content",
@@ -158,11 +173,24 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The trees are wet."
+      "gloss_en": "The rain-soaked trees are wet.",
+      "audio": "audio/story_2/s1.mp3",
+      "audio_hash": "fa5d31017ee9"
     },
     {
       "idx": 2,
       "tokens": [
+        {
+          "t": "夕方",
+          "role": "content",
+          "word_id": "W00018",
+          "r": "ゆうがた"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
         {
           "t": "公園",
           "role": "content",
@@ -190,10 +218,66 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The park is quiet."
+      "gloss_en": "The evening park is quiet.",
+      "audio": "audio/story_2/s2.mp3",
+      "audio_hash": "617cfbfb4d3c"
     },
     {
       "idx": 3,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "温かい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00009",
+          "r": "おちゃ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "飲みます",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "のみます",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I drink warm tea.",
+      "audio": "audio/story_2/s3.mp3",
+      "audio_hash": "aa933af6c18e"
+    },
+    {
+      "idx": 4,
       "tokens": [
         {
           "t": "友達",
@@ -236,40 +320,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My friend drinks tea, too."
-    },
-    {
-      "idx": 4,
-      "tokens": [
-        {
-          "t": "お茶",
-          "role": "content",
-          "word_id": "W00009",
-          "r": "おちゃ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "温かい",
-          "role": "content",
-          "word_id": "W00012",
-          "r": "あたたかい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The tea is warm."
+      "gloss_en": "My friend drinks tea, too.",
+      "audio": "audio/story_2/s4.mp3",
+      "audio_hash": "e93d756be838"
     },
     {
       "idx": 5,
@@ -306,55 +359,56 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "I feel good, too."
-    },
-    {
-      "idx": 6,
-      "tokens": [
-        {
-          "t": "夕方",
-          "role": "content",
-          "word_id": "W00018",
-          "r": "ゆうがた"
         },
         {
-          "t": "の",
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "も",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "is_new_grammar": true
+          "grammar_id": "G009_mo_also"
         },
         {
-          "t": "公園",
+          "t": "いい",
           "role": "content",
-          "word_id": "W00016",
-          "r": "こうえん"
+          "word_id": "W00013",
+          "r": "いい",
+          "grammar_id": "G022_i_adj"
         },
         {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "歩きます",
+          "t": "気分",
           "role": "content",
-          "word_id": "W00017",
-          "r": "あるきます",
-          "inflection": {
-            "base": "歩く",
-            "base_r": "あるく",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
+          "word_id": "W00014",
+          "r": "きぶん"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "We walk through the evening park."
+      "gloss_en": "I feel good. My friend feels good, too.",
+      "audio": "audio/story_2/s5.mp3",
+      "audio_hash": "c68a174655a0"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00018": "audio/story_2/w_W00018.mp3",
+    "W00016": "audio/story_2/w_W00016.mp3",
+    "W00022": "audio/story_2/w_W00022.mp3",
+    "W00017": "audio/story_2/w_W00017.mp3"
+  },
+  "word_audio_hash": {
+    "W00018": "9ebe715902bc",
+    "W00016": "d4791fb11477",
+    "W00022": "93015cdfdcb0",
+    "W00017": "508143ef81d5"
+  }
 }

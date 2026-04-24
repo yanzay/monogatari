@@ -32,8 +32,8 @@
   },
   "new_words": [
     "W00062",
-    "W00061",
-    "W00063"
+    "W00063",
+    "W00061"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -42,6 +42,8 @@
     "W00039",
     "W00001",
     "W00005",
+    "W00063",
+    "W00040",
     "W00003",
     "W00037",
     "W00060",
@@ -53,9 +55,7 @@
     "W00045",
     "W00044",
     "W00058",
-    "W00246",
     "W00043",
-    "W00063",
     "W00163"
   ],
   "sentences": [
@@ -99,9 +99,40 @@
         {
           "t": "。",
           "role": "punct"
+        },
+        {
+          "t": "雪",
+          "role": "content",
+          "word_id": "W00063",
+          "r": "ゆき",
+          "is_new": true
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
         }
       ],
-      "gloss_en": "This morning, outside is cold."
+      "gloss_en": "This morning, outside is cold. Snow comes, too.",
+      "audio": "audio/story_20/s0.mp3",
+      "audio_hash": "471a87449698"
     },
     {
       "idx": 1,
@@ -116,10 +147,6 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "、",
-          "role": "punct"
         },
         {
           "t": "机",
@@ -161,7 +188,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I write a letter at the desk."
+      "gloss_en": "I write a letter at the desk.",
+      "audio": "audio/story_20/s1.mp3",
+      "audio_hash": "5f5a55e52d0d"
     },
     {
       "idx": 2,
@@ -176,10 +205,6 @@
           "t": "に",
           "role": "particle",
           "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "、",
-          "role": "punct"
         },
         {
           "t": "温かい",
@@ -217,7 +242,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I write a warm letter to my friend."
+      "gloss_en": "I write a warm letter to my friend.",
+      "audio": "audio/story_20/s2.mp3",
+      "audio_hash": "46d38db46f69"
     },
     {
       "idx": 3,
@@ -278,7 +305,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On the letter, I write my friend's name."
+      "gloss_en": "On the letter, I write my friend's name.",
+      "audio": "audio/story_20/s3.mp3",
+      "audio_hash": "8efd23168f7d"
     },
     {
       "idx": 4,
@@ -306,10 +335,6 @@
           "grammar_id": "G009_mo_also"
         },
         {
-          "t": "、",
-          "role": "punct"
-        },
-        {
           "t": "書きます",
           "role": "content",
           "word_id": "W00060",
@@ -327,7 +352,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I write my name too."
+      "gloss_en": "I write my name, too.",
+      "audio": "audio/story_20/s4.mp3",
+      "audio_hash": "32427b31c596"
     },
     {
       "idx": 5,
@@ -382,7 +409,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Outside is cold; the tea is warm."
+      "gloss_en": "Outside is cold; the tea is warm.",
+      "audio": "audio/story_20/s5.mp3",
+      "audio_hash": "99b2919fd67e"
     },
     {
       "idx": 6,
@@ -448,7 +477,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Tomorrow, the letter will be by my friend."
+      "gloss_en": "Tomorrow, the letter will be by my friend.",
+      "audio": "audio/story_20/s6.mp3",
+      "audio_hash": "8433f6c718c8"
     },
     {
       "idx": 7,
@@ -475,14 +506,9 @@
           "r": "げんき"
         },
         {
-          "t": "です",
+          "t": "だ",
           "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "か",
-          "role": "particle",
-          "grammar_id": "G037_ka_question"
+          "grammar_id": "G024_da"
         },
         {
           "t": "」",
@@ -505,17 +531,6 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "ペン",
-          "role": "content",
-          "word_id": "W00246",
-          "r": "ぺん"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
           "t": "思います",
           "role": "aux",
           "word_id": "W00043",
@@ -533,7 +548,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"Is the friend well?\" I think to my pen."
+      "gloss_en": "\"My friend is well,\" I think.",
+      "audio": "audio/story_20/s7.mp3",
+      "audio_hash": "131f00540ad3"
     },
     {
       "idx": 8,
@@ -553,8 +570,7 @@
           "t": "雪",
           "role": "content",
           "word_id": "W00063",
-          "r": "ゆき",
-          "is_new": true
+          "r": "ゆき"
         },
         {
           "t": "、",
@@ -600,7 +616,19 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Outside, snow; a painful letter; a warm morning."
+      "gloss_en": "Outside, snow; a painful letter; a warm morning.",
+      "audio": "audio/story_20/s8.mp3",
+      "audio_hash": "01116d317bc4"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00062": "audio/story_20/w_W00062.mp3",
+    "W00063": "audio/story_20/w_W00063.mp3",
+    "W00061": "audio/story_20/w_W00061.mp3"
+  },
+  "word_audio_hash": {
+    "W00062": "de5aa095ecbe",
+    "W00063": "53058fe2e03c",
+    "W00061": "7ec26292414b"
+  }
 }

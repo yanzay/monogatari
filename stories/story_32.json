@@ -46,21 +46,19 @@
     "W00093",
     "W00040",
     "W00097",
-    "W00061",
+    "W00190",
     "W00058",
+    "W00115",
     "W00088",
+    "W00094",
     "W00077",
     "W00012",
     "W00081",
     "W00082",
-    "W00137",
-    "W00078",
-    "W00115",
-    "W00053",
-    "W00190",
-    "W00076",
     "W00064",
-    "W00102"
+    "W00102",
+    "W00137",
+    "W00078"
   ],
   "sentences": [
     {
@@ -92,13 +90,7 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "It is a winter morning."
-    },
-    {
-      "idx": 1,
-      "tokens": [
+        },
         {
           "t": "寒い",
           "role": "content",
@@ -122,10 +114,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a cold morning."
+      "gloss_en": "It is a winter morning. A cold morning.",
+      "audio": "audio/story_32/s0.mp3",
+      "audio_hash": "c4fb5f15f0cb"
     },
     {
-      "idx": 2,
+      "idx": 1,
       "tokens": [
         {
           "t": "私",
@@ -165,13 +159,7 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "I eat an egg."
-    },
-    {
-      "idx": 3,
-      "tokens": [
+        },
         {
           "t": "カップ",
           "role": "content",
@@ -212,11 +200,22 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I also drink a cup of tea."
+      "gloss_en": "I eat an egg. I also drink a cup of tea.",
+      "audio": "audio/story_32/s1.mp3",
+      "audio_hash": "59b5cfac3edb"
     },
     {
-      "idx": 4,
+      "idx": 2,
       "tokens": [
+        {
+          "t": "そして",
+          "role": "particle",
+          "grammar_id": "G012_soshite_then"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
         {
           "t": "父",
           "role": "content",
@@ -258,10 +257,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A phone call comes from father."
+      "gloss_en": "And then, a phone call comes from father.",
+      "audio": "audio/story_32/s2.mp3",
+      "audio_hash": "6c3947e28f77"
     },
     {
-      "idx": 5,
+      "idx": 3,
       "tokens": [
         {
           "t": "「",
@@ -275,10 +276,10 @@
           "grammar_id": "G022_i_adj"
         },
         {
-          "t": "朝ごはん",
+          "t": "朝",
           "role": "content",
-          "word_id": "W00019",
-          "r": "あさごはん"
+          "word_id": "W00015",
+          "r": "あさ"
         },
         {
           "t": "です",
@@ -290,296 +291,6 @@
           "role": "particle",
           "grammar_id": "G034_ne_confirm",
           "is_new_grammar": true
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "言います",
-          "role": "aux",
-          "word_id": "W00097",
-          "r": "いいます",
-          "inflection": {
-            "base": "言う",
-            "base_r": "いう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "\"Cold morning breakfast, isn't it,\" he says."
-    },
-    {
-      "idx": 6,
-      "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "名前",
-          "role": "content",
-          "word_id": "W00061",
-          "r": "なまえ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "言います",
-          "role": "content",
-          "word_id": "W00097",
-          "r": "いいます",
-          "inflection": {
-            "base": "言う",
-            "base_r": "いう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "He says my name."
-    },
-    {
-      "idx": 7,
-      "tokens": [
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "元気",
-          "role": "content",
-          "word_id": "W00058",
-          "r": "げんき"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "か",
-          "role": "particle",
-          "grammar_id": "G037_ka_question"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "言います",
-          "role": "aux",
-          "word_id": "W00097",
-          "r": "いいます",
-          "inflection": {
-            "base": "言う",
-            "base_r": "いう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "\"Are you well?\" he says."
-    },
-    {
-      "idx": 8,
-      "tokens": [
-        {
-          "t": "家族",
-          "role": "content",
-          "word_id": "W00088",
-          "r": "かぞく"
-        },
-        {
-          "t": "について",
-          "role": "particle",
-          "grammar_id": "G027_ni_tsuite"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "名前",
-          "role": "content",
-          "word_id": "W00061",
-          "r": "なまえ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "言います",
-          "role": "content",
-          "word_id": "W00097",
-          "r": "いいます",
-          "inflection": {
-            "base": "言う",
-            "base_r": "いう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "About family, he says a name."
-    },
-    {
-      "idx": 9,
-      "tokens": [
-        {
-          "t": "そして",
-          "role": "particle",
-          "grammar_id": "G012_soshite_then"
-        },
-        {
-          "t": "出ます",
-          "role": "content",
-          "word_id": "W00077",
-          "r": "でます",
-          "inflection": {
-            "base": "出る",
-            "base_r": "でる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "He leaves."
-    },
-    {
-      "idx": 10,
-      "tokens": [
-        {
-          "t": "温かい",
-          "role": "content",
-          "word_id": "W00012",
-          "r": "あたたかい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "お茶",
-          "role": "content",
-          "word_id": "W00009",
-          "r": "おちゃ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "飲みます",
-          "role": "content",
-          "word_id": "W00010",
-          "r": "のみます",
-          "inflection": {
-            "base": "飲む",
-            "base_r": "のむ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I drink the warm tea."
-    },
-    {
-      "idx": 11,
-      "tokens": [
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "夏",
-          "role": "content",
-          "word_id": "W00081",
-          "r": "なつ"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "暑い",
-          "role": "content",
-          "word_id": "W00082",
-          "r": "あつい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "ね",
-          "role": "particle",
-          "grammar_id": "G034_ne_confirm"
         },
         {
           "t": "」",
@@ -619,32 +330,215 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"Summer mornings are hot, aren't they,\" father says."
+      "gloss_en": "\"A cold morning, isn't it,\" father says.",
+      "audio": "audio/story_32/s3.mp3",
+      "audio_hash": "7f022a2056d4"
     },
     {
-      "idx": 12,
+      "idx": 4,
       "tokens": [
         {
-          "t": "明るい",
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "少し",
           "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
+          "word_id": "W00190",
+          "r": "すこし"
+        },
+        {
+          "t": "寒い",
+          "role": "content",
+          "word_id": "W00062",
+          "r": "さむい",
           "grammar_id": "G022_i_adj"
         },
         {
-          "t": "家",
-          "role": "content",
-          "word_id": "W00078",
-          "r": "いえ"
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "、",
+          "t": "」",
           "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "言います",
+          "role": "aux",
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"It's a little cold,\" I say.",
+      "audio": "audio/story_32/s4.mp3",
+      "audio_hash": "9d2f89f698e2"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "元気",
+          "role": "content",
+          "word_id": "W00058",
+          "r": "げんき"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "父",
+          "role": "content",
+          "word_id": "W00096",
+          "r": "ちち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "言います",
+          "role": "aux",
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Are you well?\" father says.",
+      "audio": "audio/story_32/s5.mp3",
+      "audio_hash": "b2a1e01c42a5"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "元気",
+          "role": "content",
+          "word_id": "W00058",
+          "r": "げんき"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "言います",
+          "role": "aux",
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"I'm well,\" I say.",
+      "audio": "audio/story_32/s6.mp3",
+      "audio_hash": "6c9bc079cba6"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "父",
+          "role": "content",
+          "word_id": "W00096",
+          "r": "ちち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "優しい",
@@ -661,18 +555,18 @@
           "r": "かぞく"
         },
         {
-          "t": "は",
+          "t": "について",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G027_ni_tsuite"
         },
         {
-          "t": "笑います",
+          "t": "話します",
           "role": "content",
-          "word_id": "W00053",
-          "r": "わらいます",
+          "word_id": "W00094",
+          "r": "はなします",
           "inflection": {
-            "base": "笑う",
-            "base_r": "わらう",
+            "base": "話す",
+            "base_r": "はなす",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
@@ -683,23 +577,148 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the bright house, the kind family laughs."
+      "gloss_en": "Father talks about our kind family.",
+      "audio": "audio/story_32/s7.mp3",
+      "audio_hash": "a9ddc752b663"
     },
     {
-      "idx": 13,
+      "idx": 8,
       "tokens": [
         {
-          "t": "少し",
-          "role": "content",
-          "word_id": "W00190",
-          "r": "すこし"
+          "t": "そして",
+          "role": "particle",
+          "grammar_id": "G012_soshite_then"
         },
         {
-          "t": "悲しい",
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "父",
           "role": "content",
-          "word_id": "W00076",
-          "r": "かなしい",
+          "word_id": "W00096",
+          "r": "ちち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "電話",
+          "role": "content",
+          "word_id": "W00093",
+          "r": "でんわ"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "出ます",
+          "role": "content",
+          "word_id": "W00077",
+          "r": "でます",
+          "inflection": {
+            "base": "出る",
+            "base_r": "でる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "And then, father leaves the call.",
+      "audio": "audio/story_32/s8.mp3",
+      "audio_hash": "7e2d828f9ea0"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "温かい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
           "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00009",
+          "r": "おちゃ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "飲みます",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "のみます",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I drink the warm tea.",
+      "audio": "audio/story_32/s9.mp3",
+      "audio_hash": "aa933af6c18e"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "夏",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "なつ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "暑い",
+          "role": "content",
+          "word_id": "W00082",
+          "r": "あつい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "、",
+          "role": "punct"
         },
         {
           "t": "冬",
@@ -708,20 +727,72 @@
           "r": "ふゆ"
         },
         {
-          "t": "の",
+          "t": "は",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "朝",
+          "t": "寒い",
           "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
+          "word_id": "W00062",
+          "r": "さむい",
+          "grammar_id": "G022_i_adj"
         },
         {
-          "t": "、",
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "ね",
+          "role": "particle",
+          "grammar_id": "G034_ne_confirm"
+        },
+        {
+          "t": "」",
           "role": "punct"
         },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "父",
+          "role": "content",
+          "word_id": "W00096",
+          "r": "ちち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00097",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Summer is hot, winter is cold, isn't it,\" father said.",
+      "audio": "audio/story_32/s10.mp3",
+      "audio_hash": "bbabf0ff321e"
+    },
+    {
+      "idx": 11,
+      "tokens": [
         {
           "t": "私",
           "role": "content",
@@ -760,9 +831,118 @@
         {
           "t": "。",
           "role": "punct"
+        },
+        {
+          "t": "寒い",
+          "role": "content",
+          "word_id": "W00062",
+          "r": "さむい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "道",
+          "role": "content",
+          "word_id": "W00064",
+          "r": "みち"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
         }
       ],
-      "gloss_en": "On a slightly sad winter morning, I run down the road."
+      "gloss_en": "I run down the road. It is a cold road.",
+      "audio": "audio/story_32/s11.mp3",
+      "audio_hash": "5ba254d74478"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "優しい",
+          "role": "content",
+          "word_id": "W00115",
+          "r": "やさしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "父",
+          "role": "content",
+          "word_id": "W00096",
+          "r": "ちち"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "寒い",
+          "role": "content",
+          "word_id": "W00062",
+          "r": "さむい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "冬",
+          "role": "content",
+          "word_id": "W00095",
+          "r": "ふゆ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "朝ごはん",
+          "role": "content",
+          "word_id": "W00019",
+          "r": "あさごはん"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A bright house, a kind father, a cold winter breakfast.",
+      "audio": "audio/story_32/s12.mp3",
+      "audio_hash": "cfee4b2e1e83"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00095": "audio/story_32/w_W00095.mp3",
+    "W00096": "audio/story_32/w_W00096.mp3",
+    "W00115": "audio/story_32/w_W00115.mp3"
+  },
+  "word_audio_hash": {
+    "W00095": "0868fbc8c0bd",
+    "W00096": "ca4c64d9ae27",
+    "W00115": "ca26432b9f04"
+  }
 }

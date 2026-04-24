@@ -35,39 +35,35 @@
     "W00089",
     "W00039",
     "W00018",
+    "W00003",
     "W00037",
     "W00029",
     "W00040",
-    "W00003",
     "W00034",
     "W00066",
     "W00105",
     "W00106",
     "W00104",
+    "W00057",
     "W00093",
     "W00058",
     "W00056",
-    "W00057",
     "W00078",
     "W00074",
     "W00064",
+    "W00190",
     "W00076",
     "W00060",
-    "W00100",
-    "W00011",
-    "W00098",
+    "W00046",
     "W00043",
     "W00157",
     "W00092",
     "W00047",
     "W00044",
-    "W00013",
-    "W00015",
-    "W00097",
-    "W00084",
-    "W00241",
     "W00201",
-    "W00017"
+    "W00017",
+    "W00084",
+    "W00241"
   ],
   "sentences": [
     {
@@ -82,6 +78,17 @@
         {
           "t": "、",
           "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "机",
@@ -112,7 +119,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the evening, I am at the desk."
+      "gloss_en": "In the evening, I am at the desk.",
+      "audio": "audio/story_35/s0.mp3",
+      "audio_hash": "cbd4c58a0e34"
     },
     {
       "idx": 1,
@@ -155,13 +164,7 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "A letter comes from mother."
-    },
-    {
-      "idx": 2,
-      "tokens": [
+        },
         {
           "t": "私",
           "role": "content",
@@ -202,10 +205,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I read the letter."
+      "gloss_en": "A letter comes from mother. I read the letter.",
+      "audio": "audio/story_35/s1.mp3",
+      "audio_hash": "f7b911df40a3"
     },
     {
-      "idx": 3,
+      "idx": 2,
       "tokens": [
         {
           "t": "母",
@@ -256,10 +261,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Mother begins a new job."
+      "gloss_en": "Mother begins a new job.",
+      "audio": "audio/story_35/s2.mp3",
+      "audio_hash": "bd7f5a63aa6a"
     },
     {
-      "idx": 4,
+      "idx": 3,
       "tokens": [
         {
           "t": "学校",
@@ -287,12 +294,51 @@
         {
           "t": "。",
           "role": "punct"
+        },
+        {
+          "t": "学校",
+          "role": "content",
+          "word_id": "W00104",
+          "r": "がっこう"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "新しくて",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "あたらしくて",
+          "inflection": {
+            "form": "i_adj_te"
+          },
+          "grammar_id": "G029_kute"
+        },
+        {
+          "t": "大きい",
+          "role": "content",
+          "word_id": "W00057",
+          "r": "おおきい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
         }
       ],
-      "gloss_en": "It is a school job."
+      "gloss_en": "It is a school job. The school is new and big.",
+      "audio": "audio/story_35/s3.mp3",
+      "audio_hash": "a09b085ac5fa"
     },
     {
-      "idx": 5,
+      "idx": 4,
       "tokens": [
         {
           "t": "母",
@@ -360,54 +406,22 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Mother's call is well, so I am happy."
+      "gloss_en": "Because mother's call is bright, I am happy.",
+      "audio": "audio/story_35/s4.mp3",
+      "audio_hash": "be64fda93a0b"
     },
     {
-      "idx": 6,
+      "idx": 5,
       "tokens": [
         {
-          "t": "学校",
-          "role": "content",
-          "word_id": "W00104",
-          "r": "がっこう"
-        },
-        {
-          "t": "は",
+          "t": "でも",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G032_demo"
         },
         {
-          "t": "新しくて",
-          "role": "content",
-          "word_id": "W00066",
-          "r": "あたらしくて",
-          "inflection": {
-            "form": "i_adj_te"
-          },
-          "grammar_id": "G029_kute"
-        },
-        {
-          "t": "大きい",
-          "role": "content",
-          "word_id": "W00057",
-          "r": "おおきい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
+          "t": "、",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "The school is new and big."
-    },
-    {
-      "idx": 7,
-      "tokens": [
+        },
         {
           "t": "母",
           "role": "content",
@@ -444,13 +458,47 @@
           "r": "みち"
         },
         {
-          "t": "ですから",
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But mother's house is a long road away.",
+      "audio": "audio/story_35/s5.mp3",
+      "audio_hash": "56816c9532e4"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "だから",
           "role": "particle",
           "grammar_id": "G059_dakara"
         },
         {
           "t": "、",
           "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "少し",
+          "role": "content",
+          "word_id": "W00190",
+          "r": "すこし"
         },
         {
           "t": "悲しい",
@@ -469,10 +517,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Because mother's house is a long road away, I am sad."
+      "gloss_en": "So I am a little sad.",
+      "audio": "audio/story_35/s6.mp3",
+      "audio_hash": "8faa1eb7e511"
     },
     {
-      "idx": 8,
+      "idx": 7,
       "tokens": [
         {
           "t": "私",
@@ -484,6 +534,17 @@
           "t": "も",
           "role": "particle",
           "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "はは"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "手紙",
@@ -514,13 +575,36 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I write a letter too."
+      "gloss_en": "I write a letter to mother, too.",
+      "audio": "audio/story_35/s7.mp3",
+      "audio_hash": "a9d7426fbebe"
     },
     {
-      "idx": 9,
+      "idx": 8,
       "tokens": [
         {
           "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "学校",
+          "role": "content",
+          "word_id": "W00104",
+          "r": "がっこう"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "仕事",
+          "role": "content",
+          "word_id": "W00105",
+          "r": "しごと"
+        },
+        {
+          "t": "、",
           "role": "punct"
         },
         {
@@ -534,6 +618,11 @@
           "t": "です",
           "role": "aux",
           "grammar_id": "G003_desu"
+        },
+        {
+          "t": "ね",
+          "role": "particle",
+          "grammar_id": "G034_ne_confirm"
         },
         {
           "t": "」",
@@ -562,59 +651,22 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I write, \"I am happy.\""
+      "gloss_en": "I write, \"the school job — happy news, isn't it.\"",
+      "audio": "audio/story_35/s8.mp3",
+      "audio_hash": "0e7cd49fc7cb"
     },
     {
-      "idx": 10,
+      "idx": 9,
       "tokens": [
         {
-          "t": "手紙",
-          "role": "content",
-          "word_id": "W00039",
-          "r": "てがみ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "大切",
-          "role": "content",
-          "word_id": "W00100",
-          "r": "たいせつ"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
+          "t": "「",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "The letter is precious."
-    },
-    {
-      "idx": 11,
-      "tokens": [
-        {
-          "t": "静か",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
         },
         {
-          "t": "な",
-          "role": "particle",
-          "grammar_id": "G016_na_adjective"
-        },
-        {
-          "t": "夕方",
+          "t": "明日",
           "role": "content",
-          "word_id": "W00018",
-          "r": "ゆうがた"
+          "word_id": "W00046",
+          "r": "あした"
         },
         {
           "t": "、",
@@ -627,20 +679,53 @@
           "r": "はは"
         },
         {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
           "t": "と",
           "role": "particle",
           "grammar_id": "G014_to_omoimasu"
         },
         {
-          "t": "祖母",
+          "t": "私",
           "role": "content",
-          "word_id": "W00098",
-          "r": "そぼ"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
-          "t": "を",
+          "t": "は",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "思います",
@@ -660,10 +745,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Quiet evening, I think of mother and grandmother."
+      "gloss_en": "\"Tomorrow, the letter will reach mother,\" I think.",
+      "audio": "audio/story_35/s9.mp3",
+      "audio_hash": "e1155e6c62e6"
     },
     {
-      "idx": 12,
+      "idx": 10,
       "tokens": [
         {
           "t": "白い",
@@ -712,16 +799,18 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "White clouds are in the sky."
+      "gloss_en": "White clouds are in the sky.",
+      "audio": "audio/story_35/s10.mp3",
+      "audio_hash": "edf503648318"
     },
     {
-      "idx": 13,
+      "idx": 11,
       "tokens": [
         {
-          "t": "母",
+          "t": "私",
           "role": "content",
-          "word_id": "W00089",
-          "r": "はは"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "は",
@@ -729,44 +818,24 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "いい",
+          "t": "町",
           "role": "content",
-          "word_id": "W00013",
-          "r": "いい",
-          "grammar_id": "G022_i_adj"
+          "word_id": "W00201",
+          "r": "まち"
         },
         {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
+          "t": "を",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu"
+          "grammar_id": "G005_wo_object"
         },
         {
-          "t": "言います",
-          "role": "aux",
-          "word_id": "W00097",
-          "r": "いいます",
+          "t": "歩きます",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "あるきます",
           "inflection": {
-            "base": "言う",
-            "base_r": "いう",
+            "base": "歩く",
+            "base_r": "あるく",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
@@ -775,13 +844,7 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "Mother says, \"it is a nice morning.\""
-    },
-    {
-      "idx": 14,
-      "tokens": [
+        },
         {
           "t": "店",
           "role": "content",
@@ -822,41 +885,102 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is a customer in the shop."
+      "gloss_en": "I walk through the town. There are customers in the shop.",
+      "audio": "audio/story_35/s11.mp3",
+      "audio_hash": "874a58890752"
     },
     {
-      "idx": 15,
+      "idx": 12,
       "tokens": [
         {
-          "t": "町",
+          "t": "夕方",
           "role": "content",
-          "word_id": "W00201",
-          "r": "まち"
+          "word_id": "W00018",
+          "r": "ゆうがた"
         },
         {
-          "t": "を",
+          "t": "の",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "歩きます",
+          "t": "机",
           "role": "content",
-          "word_id": "W00017",
-          "r": "あるきます",
-          "inflection": {
-            "base": "歩く",
-            "base_r": "あるく",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
+          "word_id": "W00037",
+          "r": "つくえ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "はは"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "新しい",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "あたらしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "学校",
+          "role": "content",
+          "word_id": "W00104",
+          "r": "がっこう"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "仕事",
+          "role": "content",
+          "word_id": "W00105",
+          "r": "しごと"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I walk through the town."
+      "gloss_en": "An evening desk, mother's letter, a new school job.",
+      "audio": "audio/story_35/s12.mp3",
+      "audio_hash": "448c32ee0beb"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00105": "audio/story_35/w_W00105.mp3",
+    "W00106": "audio/story_35/w_W00106.mp3",
+    "W00104": "audio/story_35/w_W00104.mp3"
+  },
+  "word_audio_hash": {
+    "W00105": "fb7db808eb03",
+    "W00106": "4bb8977b81d4",
+    "W00104": "dc6e2aafeb9e"
+  }
 }

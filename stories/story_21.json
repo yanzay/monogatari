@@ -37,6 +37,7 @@
     "W00005",
     "W00003",
     "W00065",
+    "W00078",
     "W00026",
     "W00011",
     "W00044",
@@ -44,14 +45,16 @@
     "W00047",
     "W00057",
     "W00055",
-    "W00061",
-    "W00060",
     "W00251",
+    "W00089",
+    "W00061",
+    "W00043",
+    "W00058",
     "W00022",
     "W00040",
-    "W00058",
-    "W00043",
-    "W00089"
+    "W00012",
+    "W00025",
+    "W00006"
   ],
   "sentences": [
     {
@@ -101,7 +104,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Cold night, outside is snow."
+      "gloss_en": "Cold night — outside is snow.",
+      "audio": "audio/story_21/s0.mp3",
+      "audio_hash": "563634da99c7"
     },
     {
       "idx": 1,
@@ -118,10 +123,6 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "、",
-          "role": "punct"
-        },
-        {
           "t": "一人",
           "role": "content",
           "word_id": "W00065",
@@ -133,6 +134,17 @@
           "t": "で",
           "role": "particle",
           "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "帰ります",
@@ -152,7 +164,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I walk home alone."
+      "gloss_en": "Alone, I head home.",
+      "audio": "audio/story_21/s1.mp3",
+      "audio_hash": "0b43f797cba5"
     },
     {
       "idx": 2,
@@ -182,13 +196,7 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "The road is quiet."
-    },
-    {
-      "idx": 3,
-      "tokens": [
+        },
         {
           "t": "道",
           "role": "content",
@@ -199,10 +207,6 @@
           "t": "に",
           "role": "particle",
           "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "、",
-          "role": "punct"
         },
         {
           "t": "雪",
@@ -233,10 +237,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is snow on the road."
+      "gloss_en": "The road is quiet. There is snow on the road.",
+      "audio": "audio/story_21/s2.mp3",
+      "audio_hash": "a1ffa6e0180f"
     },
     {
-      "idx": 4,
+      "idx": 3,
       "tokens": [
         {
           "t": "月",
@@ -248,10 +254,6 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "、",
-          "role": "punct"
         },
         {
           "t": "空",
@@ -280,13 +282,7 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "The moon is in the sky."
-    },
-    {
-      "idx": 5,
-      "tokens": [
+        },
         {
           "t": "月",
           "role": "content",
@@ -315,10 +311,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The moon is big."
+      "gloss_en": "The moon is in the sky. The moon is big.",
+      "audio": "audio/story_21/s3.mp3",
+      "audio_hash": "817ab84ca760"
     },
     {
-      "idx": 6,
+      "idx": 4,
       "tokens": [
         {
           "t": "雪",
@@ -346,13 +344,7 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "The snow is small."
-    },
-    {
-      "idx": 7,
-      "tokens": [
+        },
         {
           "t": "雪",
           "role": "content",
@@ -396,77 +388,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A snowy road, the moon's sky."
+      "gloss_en": "The snow is small. A snowy road, the moon's sky.",
+      "audio": "audio/story_21/s4.mp3",
+      "audio_hash": "4c0f4379e1e5"
     },
     {
-      "idx": 8,
-      "tokens": [
-        {
-          "t": "一人",
-          "role": "content",
-          "word_id": "W00065",
-          "r": "ひとり",
-          "grammar_id": "G025_counters"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "夜",
-          "role": "content",
-          "word_id": "W00030",
-          "r": "よる"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "名前",
-          "role": "content",
-          "word_id": "W00061",
-          "r": "なまえ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "書きます",
-          "role": "content",
-          "word_id": "W00060",
-          "r": "かきます",
-          "inflection": {
-            "base": "書く",
-            "base_r": "かく",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Alone at night, I write a name."
-    },
-    {
-      "idx": 9,
+      "idx": 5,
       "tokens": [
         {
           "t": "道",
@@ -507,11 +434,162 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The road's corner is quiet."
+      "gloss_en": "The road's corner is quiet.",
+      "audio": "audio/story_21/s5.mp3",
+      "audio_hash": "913b34988827"
     },
     {
-      "idx": 10,
+      "idx": 6,
       "tokens": [
+        {
+          "t": "一人",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ひとり",
+          "grammar_id": "G025_counters"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夜",
+          "role": "content",
+          "word_id": "W00030",
+          "r": "よる"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "はは",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "名前",
+          "role": "content",
+          "word_id": "W00061",
+          "r": "なまえ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "思います",
+          "role": "content",
+          "word_id": "W00043",
+          "r": "おもいます",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Alone at night, I think of mother's name.",
+      "audio": "audio/story_21/s6.mp3",
+      "audio_hash": "9dfcd7ac55f7"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "元気",
+          "role": "content",
+          "word_id": "W00058",
+          "r": "げんき"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G014_to_omoimasu"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "思います",
+          "role": "aux",
+          "word_id": "W00043",
+          "r": "おもいます",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
         {
           "t": "友達",
           "role": "content",
@@ -541,50 +619,72 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My friend does not come."
+      "gloss_en": "\"Is mother well?\" I think. My friend does not come.",
+      "audio": "audio/story_21/s7.mp3",
+      "audio_hash": "b3da1c0b0ad6"
     },
     {
-      "idx": 11,
+      "idx": 8,
       "tokens": [
         {
-          "t": "「",
+          "t": "そして",
+          "role": "particle",
+          "grammar_id": "G012_soshite_then"
+        },
+        {
+          "t": "、",
           "role": "punct"
         },
         {
-          "t": "元気",
+          "t": "私",
           "role": "content",
-          "word_id": "W00058",
-          "r": "げんき"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "か",
+          "t": "は",
           "role": "particle",
-          "grammar_id": "G037_ka_question"
+          "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "」",
-          "role": "punct"
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
         },
         {
-          "t": "と",
+          "t": "の",
           "role": "particle",
-          "grammar_id": "G014_to_omoimasu"
+          "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "思います",
-          "role": "aux",
-          "word_id": "W00043",
-          "r": "おもいます",
+          "t": "温かい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "ドア",
+          "role": "content",
+          "word_id": "W00025",
+          "r": "ドア"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "みます",
           "inflection": {
-            "base": "思う",
-            "base_r": "おもう",
+            "base": "見る",
+            "base_r": "みる",
             "form": "polite_nonpast",
-            "verb_class": "godan"
+            "verb_class": "ichidan"
           },
           "grammar_id": "G026_masu_nonpast"
         },
@@ -593,51 +693,19 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "'Are you well?' I think."
-    },
-    {
-      "idx": 12,
-      "tokens": [
-        {
-          "t": "友達",
-          "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "母",
-          "role": "content",
-          "word_id": "W00089",
-          "r": "はは",
-          "is_new": true
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "元気",
-          "role": "content",
-          "word_id": "W00058",
-          "r": "げんき"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "My friend's mother is well."
+      "gloss_en": "And then, I look at the warm door of the house.",
+      "audio": "audio/story_21/s8.mp3",
+      "audio_hash": "5b7af15b5e83"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00065": "audio/story_21/w_W00065.mp3",
+    "W00251": "audio/story_21/w_W00251.mp3",
+    "W00089": "audio/story_21/w_W00089.mp3"
+  },
+  "word_audio_hash": {
+    "W00065": "45b3f27e3a97",
+    "W00251": "beddda2bcf24",
+    "W00089": "1a3205c3a91e"
+  }
 }

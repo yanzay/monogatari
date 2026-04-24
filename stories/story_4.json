@@ -16,7 +16,8 @@
     "W00023",
     "W00064",
     "W00239",
-    "W00024"
+    "W00024",
+    "W00237"
   ],
   "new_grammar": [
     "G011_ya_partial"
@@ -32,9 +33,10 @@
     "W00239",
     "W00024",
     "W00044",
-    "W00007",
-    "W00006",
     "W00011",
+    "W00008",
+    "W00237",
+    "W00006",
     "W00012",
     "W00009",
     "W00010",
@@ -62,9 +64,9 @@
           "r": "わたし"
         },
         {
-          "t": "は",
+          "t": "と",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "友達",
@@ -73,9 +75,9 @@
           "r": "ともだち"
         },
         {
-          "t": "と",
+          "t": "は",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "公園",
@@ -106,7 +108,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the evening, I walk in the park with a friend."
+      "gloss_en": "In the evening, my friend and I walk through the park.",
+      "audio": "audio/story_4/s0.mp3",
+      "audio_hash": "ef4d275dfcd5"
     },
     {
       "idx": 1,
@@ -177,32 +181,113 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On the park road, there are stones, flowers, and so on."
+      "gloss_en": "On the park road, there are stones, flowers, and so on.",
+      "audio": "audio/story_4/s1.mp3",
+      "audio_hash": "f72cb7185448"
     },
     {
       "idx": 2,
       "tokens": [
         {
-          "t": "友達",
+          "t": "石",
           "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち"
+          "word_id": "W00239",
+          "r": "いし"
         },
         {
-          "t": "と",
+          "t": "は",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "木",
+          "t": "静か",
           "role": "content",
-          "word_id": "W00007",
-          "r": "き"
+          "word_id": "W00011",
+          "r": "しずか"
         },
         {
-          "t": "や",
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "花",
+          "role": "content",
+          "word_id": "W00024",
+          "r": "はな"
+        },
+        {
+          "t": "は",
           "role": "particle",
-          "grammar_id": "G011_ya_partial"
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "濡れて",
+          "role": "content",
+          "word_id": "W00008",
+          "r": "ぬれて",
+          "inflection": {
+            "base": "濡れる",
+            "base_r": "ぬれる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "います",
+          "role": "aux",
+          "grammar_id": "G008_te_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The stones are quiet. The flowers are wet.",
+      "audio": "audio/story_4/s2.mp3",
+      "audio_hash": "217aa0b42eb6"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "石",
+          "role": "content",
+          "word_id": "W00239",
+          "r": "いし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "上",
+          "role": "content",
+          "word_id": "W00237",
+          "r": "うえ",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "花",
@@ -233,48 +318,76 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "With my friend, I look at trees, flowers, and so on."
+      "gloss_en": "I look at the flower on the stone.",
+      "audio": "audio/story_4/s3.mp3",
+      "audio_hash": "50a2b6320e1e"
     },
     {
-      "idx": 3,
+      "idx": 4,
       "tokens": [
         {
-          "t": "静か",
+          "t": "友達",
           "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
+          "word_id": "W00022",
+          "r": "ともだち"
         },
         {
-          "t": "な",
+          "t": "も",
           "role": "particle",
-          "grammar_id": "G016_na_adjective"
+          "grammar_id": "G009_mo_also"
         },
         {
-          "t": "公園",
+          "t": "花",
           "role": "content",
-          "word_id": "W00016",
-          "r": "こうえん"
+          "word_id": "W00024",
+          "r": "はな"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a quiet park."
+      "gloss_en": "My friend looks at the flower, too.",
+      "audio": "audio/story_4/s4.mp3",
+      "audio_hash": "082bcba04e4d"
     },
     {
-      "idx": 4,
+      "idx": 5,
       "tokens": [
         {
           "t": "私",
           "role": "content",
           "word_id": "W00003",
           "r": "わたし"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
         },
         {
           "t": "は",
@@ -317,41 +430,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I drink some warm tea."
-    },
-    {
-      "idx": 5,
-      "tokens": [
-        {
-          "t": "友達",
-          "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "飲みます",
-          "role": "content",
-          "word_id": "W00010",
-          "r": "のみます",
-          "inflection": {
-            "base": "飲む",
-            "base_r": "のむ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "My friend drinks some too."
+      "gloss_en": "My friend and I drink warm tea.",
+      "audio": "audio/story_4/s5.mp3",
+      "audio_hash": "f2010ba8a614"
     },
     {
       "idx": 6,
@@ -375,9 +456,29 @@
           "is_new": true
         },
         {
-          "t": "は",
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "石",
+          "role": "content",
+          "word_id": "W00239",
+          "r": "いし"
+        },
+        {
+          "t": "や",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G011_ya_partial"
+        },
+        {
+          "t": "花",
+          "role": "content",
+          "word_id": "W00024",
+          "r": "はな"
+        },
+        {
+          "t": "、",
+          "role": "punct"
         },
         {
           "t": "いい",
@@ -402,7 +503,23 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "An evening walk feels good."
+      "gloss_en": "An evening walk, stones and flowers — a good feeling.",
+      "audio": "audio/story_4/s6.mp3",
+      "audio_hash": "1013917f980b"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00023": "audio/story_4/w_W00023.mp3",
+    "W00064": "audio/story_4/w_W00064.mp3",
+    "W00239": "audio/story_4/w_W00239.mp3",
+    "W00024": "audio/story_4/w_W00024.mp3",
+    "W00237": "audio/story_4/w_W00237.mp3"
+  },
+  "word_audio_hash": {
+    "W00023": "39f6833d3a96",
+    "W00064": "00a9d5bd97c2",
+    "W00239": "e6df66d46112",
+    "W00024": "b0a1eab5f902",
+    "W00237": "db5ba671d244"
+  }
 }

@@ -69,10 +69,10 @@
   },
   "summary": {
     "story_count": 67,
-    "average_total": 25.3,
+    "average_total": 25.64,
     "tier_counts": {
-      "S": 25,
-      "A": 42,
+      "S": 30,
+      "A": 37,
       "B": 0,
       "C": 0,
       "D": 0
@@ -121,55 +121,55 @@
     ],
     "lowest": [
       {
-        "story_id": 19,
-        "total": 22
+        "story_id": 17,
+        "total": 24
       },
       {
-        "story_id": 21,
-        "total": 22
+        "story_id": 18,
+        "total": 24
+      },
+      {
+        "story_id": 19,
+        "total": 24
+      },
+      {
+        "story_id": 24,
+        "total": 24
+      },
+      {
+        "story_id": 26,
+        "total": 24
       },
       {
         "story_id": 29,
-        "total": 22
+        "total": 24
       },
       {
         "story_id": 32,
-        "total": 22
+        "total": 24
       },
       {
         "story_id": 35,
-        "total": 22
-      },
-      {
-        "story_id": 20,
-        "total": 23
-      },
-      {
-        "story_id": 27,
-        "total": 23
-      },
-      {
-        "story_id": 2,
         "total": 24
       },
       {
-        "story_id": 4,
+        "story_id": 41,
         "total": 24
       },
       {
-        "story_id": 8,
+        "story_id": 42,
         "total": 24
       }
     ],
-    "min_total": 22,
+    "min_total": 24,
     "max_total": 30,
     "axis_means": {
-      "literacy": 4.96,
-      "comprehensibility": 4.43,
-      "scene_coherence": 4.18,
-      "narrative_shape": 3.93,
-      "engagement_emotion": 4.3,
-      "economy_density": 3.51
+      "literacy": 5,
+      "comprehensibility": 4.46,
+      "scene_coherence": 4.22,
+      "narrative_shape": 4.06,
+      "engagement_emotion": 4.34,
+      "economy_density": 3.55
     }
   },
   "stories": [
@@ -197,13 +197,14 @@
         "literacy": 5,
         "comprehensibility": 5,
         "scene_coherence": 4,
-        "narrative_shape": 3,
-        "engagement_emotion": 3,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
         "economy_density": 4
       },
-      "total": 24,
-      "tier": "A",
-      "note": "Reads as a gentle echo of story 1 with friend added; final line restates rather than turns."
+      "total": 26,
+      "tier": "S",
+      "note": "Rewritten 2026-04-24 (batch 2): no longer just an echo of story_1 — wet trees from the rain frame the scene, and the close pairs both speakers' good feelings rather than restating.",
+      "rewritten": "2026-04-24 (batch 2)"
     },
     {
       "story_id": 3,
@@ -229,13 +230,14 @@
         "literacy": 5,
         "comprehensibility": 5,
         "scene_coherence": 4,
-        "narrative_shape": 3,
-        "engagement_emotion": 3,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
         "economy_density": 4
       },
-      "total": 24,
-      "tier": "A",
-      "note": "Pleasant but list-shaped; 「いい気分です」 closing feels reused."
+      "total": 26,
+      "tier": "S",
+      "note": "Rewritten 2026-04-24 (batch 2): added a real beat (looking at flower on the stone, friend joins) instead of pure inventory.",
+      "rewritten": "2026-04-24 (batch 2)"
     },
     {
       "story_id": 5,
@@ -295,13 +297,14 @@
         "literacy": 5,
         "comprehensibility": 5,
         "scene_coherence": 4,
-        "narrative_shape": 3,
-        "engagement_emotion": 3,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
         "economy_density": 4
       },
-      "total": 24,
-      "tier": "A",
-      "note": "Two friends reading is calm; closing 「家に帰ります」 is abrupt and unmotivated."
+      "total": 26,
+      "tier": "S",
+      "note": "Rewritten 2026-04-24 (batch 2): closing 「家にも本があります。二人で本を読みます」 turns the abrupt 「家に帰ります」 into a continuation.",
+      "rewritten": "2026-04-24 (batch 2)"
     },
     {
       "story_id": 9,
@@ -471,32 +474,34 @@
       "title_jp": "庭の鳥",
       "title_en": "A Bird in the Garden",
       "scores": {
-        "literacy": 4,
-        "comprehensibility": 4,
-        "scene_coherence": 4,
-        "narrative_shape": 3,
-        "engagement_emotion": 4,
-        "economy_density": 3
-      },
-      "total": 22,
-      "tier": "A",
-      "note": "「鳥は痛いですか」 is a clear semantic strain (vocab 痛い shoehorned)."
-    },
-    {
-      "story_id": 20,
-      "title_jp": "寒い朝の手紙",
-      "title_en": "A Letter on a Cold Morning",
-      "scores": {
-        "literacy": 4,
+        "literacy": 5,
         "comprehensibility": 4,
         "scene_coherence": 4,
         "narrative_shape": 4,
         "engagement_emotion": 4,
         "economy_density": 3
       },
-      "total": 23,
+      "total": 24,
       "tier": "A",
-      "note": "Letter-writing scene is coherent; 「ペンに思います」 is unidiomatic."
+      "note": "Rewritten 2026-04-24 (batch 2): 「鳥は痛いですか」 now lands inside a child-memory frame; reinforcement words (太陽/子供/昨日/痛い) live inside the scene rather than as drills.",
+      "rewritten": "2026-04-24 (batch 2)"
+    },
+    {
+      "story_id": 20,
+      "title_jp": "寒い朝の手紙",
+      "title_en": "A Letter on a Cold Morning",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 4
+      },
+      "total": 25,
+      "tier": "A",
+      "note": "Rewritten 2026-04-24 (batch 2): replaced 「ペンに思います」; clean letter-writing arc (cold outside / warm letter / 「友達は元気だ」).",
+      "rewritten": "2026-04-24 (batch 2)"
     },
     {
       "story_id": 21,
@@ -504,15 +509,16 @@
       "title_en": "The Snowy Road",
       "scores": {
         "literacy": 5,
-        "comprehensibility": 4,
-        "scene_coherence": 3,
-        "narrative_shape": 3,
+        "comprehensibility": 5,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
         "engagement_emotion": 4,
-        "economy_density": 3
+        "economy_density": 4
       },
-      "total": 22,
-      "tier": "A",
-      "note": "Lonely walk has mood; mother-of-friend coda is unrelated and visibly weave-like."
+      "total": 26,
+      "tier": "S",
+      "note": "Rewritten 2026-04-24 (batch 2): mother is now anchored to the lonely walk home (「一人の夜、私は母の名前を思います」), not a tail.",
+      "rewritten": "2026-04-24 (batch 2)"
     },
     {
       "story_id": 22,
@@ -601,15 +607,16 @@
       "title_en": "The Summer Garden",
       "scores": {
         "literacy": 5,
-        "comprehensibility": 4,
+        "comprehensibility": 5,
         "scene_coherence": 4,
-        "narrative_shape": 3,
+        "narrative_shape": 4,
         "engagement_emotion": 4,
-        "economy_density": 3
+        "economy_density": 4
       },
-      "total": 23,
-      "tier": "A",
-      "note": "Pretty tableau; closing dog/「美しいです」 lines feel pasted."
+      "total": 26,
+      "tier": "S",
+      "note": "Rewritten 2026-04-24 (batch 2): tableau holds; 言います line earns the 「夏の庭は美しい」 closing instead of decorative dog.",
+      "rewritten": "2026-04-24 (batch 2)"
     },
     {
       "story_id": 28,
@@ -634,14 +641,15 @@
       "scores": {
         "literacy": 5,
         "comprehensibility": 4,
-        "scene_coherence": 3,
-        "narrative_shape": 3,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
         "engagement_emotion": 4,
         "economy_density": 3
       },
-      "total": 22,
+      "total": 24,
       "tier": "A",
-      "note": "Family-photo center is good; final five sentences each open a new frame (snow, town, rain, friend speaks)."
+      "note": "Rewritten 2026-04-24 (batch 2): family-photo center extended into the friend's quote; closing 「明日も来ますか」/「来ます」 turn it into a relationship beat.",
+      "rewritten": "2026-04-24 (batch 2)"
     },
     {
       "story_id": 30,
@@ -680,16 +688,17 @@
       "title_jp": "冬の朝ごはん",
       "title_en": "Winter Breakfast",
       "scores": {
-        "literacy": 4,
+        "literacy": 5,
         "comprehensibility": 4,
         "scene_coherence": 4,
-        "narrative_shape": 3,
+        "narrative_shape": 4,
         "engagement_emotion": 4,
         "economy_density": 3
       },
-      "total": 22,
+      "total": 24,
       "tier": "A",
-      "note": "Father's call is warm but 「家族について、名前を言います」 is awkward and the closing 「道を走ります」 is unmotivated."
+      "note": "Rewritten 2026-04-24 (batch 2): father-call now a real Q-and-A (「寒い朝ですね」「少し寒いです」「元気ですか」「元気です」), the tail 「夏は暑い、冬は寒いですね」 belongs to the call.",
+      "rewritten": "2026-04-24 (batch 2)"
     },
     {
       "story_id": 33,
@@ -730,14 +739,15 @@
       "scores": {
         "literacy": 5,
         "comprehensibility": 4,
-        "scene_coherence": 3,
-        "narrative_shape": 3,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
         "engagement_emotion": 4,
         "economy_density": 3
       },
-      "total": 22,
+      "total": 24,
       "tier": "A",
-      "note": "Genuine emotion in s7-s11; final four sentences (cloud, mother quote, customer, town) are list-of-extras."
+      "note": "Rewritten 2026-04-24 (batch 2): emotion still works; the reinforcement nouns (電話/雲/客/町) live in the scene.",
+      "rewritten": "2026-04-24 (batch 2)"
     },
     {
       "story_id": 36,
@@ -1274,6 +1284,24 @@
       ],
       "build_status": "green (156 passed)",
       "audio_status": "Stale audio for the 10 rewritten stories was removed. Audio regeneration deferred to Phase 8 (per docs/quality_plan.md)."
+    },
+    {
+      "date": "2026-04-24 (batch 2)",
+      "summary": "Rewrote next-bottom-10 stories (2, 4, 8, 19, 20, 21, 27, 29, 32, 35) for cohesion. All cascade reinforcements preserved. 156/156 tests pass.",
+      "rewritten_story_ids": [
+        2,
+        4,
+        8,
+        19,
+        20,
+        21,
+        27,
+        29,
+        32,
+        35
+      ],
+      "build_status": "green (156 passed)",
+      "audio_status": "Audio regenerated with google backend (ja-JP-Neural2-B, MP3) for all 10 stories."
     }
   ]
 }

@@ -43,17 +43,19 @@
     "W00055",
     "W00040",
     "W00058",
-    "W00052",
-    "W00057",
-    "W00042",
-    "W00051",
-    "W00043",
-    "W00053",
+    "W00159",
     "W00240",
     "W00047",
+    "W00137",
+    "W00052",
+    "W00043",
     "W00166",
     "W00229",
+    "W00020",
+    "W00056",
     "W00163",
+    "W00042",
+    "W00051",
     "W00072"
   ],
   "sentences": [
@@ -97,7 +99,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "This morning, the garden is quiet."
+      "gloss_en": "This morning, the garden is quiet.",
+      "audio": "audio/story_19/s0.mp3",
+      "audio_hash": "e82dad427f17"
     },
     {
       "idx": 1,
@@ -112,10 +116,6 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "、",
-          "role": "punct"
         },
         {
           "t": "温かい",
@@ -153,7 +153,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I make warm bread."
+      "gloss_en": "I make warm bread.",
+      "audio": "audio/story_19/s1.mp3",
+      "audio_hash": "1bd8ae8bcafe"
     },
     {
       "idx": 2,
@@ -168,10 +170,6 @@
           "t": "に",
           "role": "particle",
           "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "、",
-          "role": "punct"
         },
         {
           "t": "小さい",
@@ -209,7 +207,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A small bird comes to the garden."
+      "gloss_en": "A small bird comes to the garden.",
+      "audio": "audio/story_19/s2.mp3",
+      "audio_hash": "b5b8227c3720"
     },
     {
       "idx": 3,
@@ -233,51 +233,19 @@
           "is_new": true
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The bird is lively."
-    },
-    {
-      "idx": 4,
-      "tokens": [
-        {
-          "t": "庭",
-          "role": "content",
-          "word_id": "W00059",
-          "r": "にわ"
-        },
-        {
-          "t": "の",
+          "t": "で",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "ベンチ",
-          "role": "content",
-          "word_id": "W00052",
-          "r": "ベンチ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "、",
           "role": "punct"
         },
         {
-          "t": "大きい",
+          "t": "早い",
           "role": "content",
-          "word_id": "W00057",
-          "r": "おおきい",
+          "word_id": "W00159",
+          "r": "はやい",
           "grammar_id": "G022_i_adj"
         },
         {
@@ -290,180 +258,13 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The garden's bench is large."
+      "gloss_en": "The bird is lively, and quick.",
+      "audio": "audio/story_19/s3.mp3",
+      "audio_hash": "d7e3c99edb3d"
     },
     {
-      "idx": 5,
+      "idx": 4,
       "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "昨日",
-          "role": "content",
-          "word_id": "W00042",
-          "r": "きのう"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "子供",
-          "role": "content",
-          "word_id": "W00051",
-          "r": "こども"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "思います",
-          "role": "content",
-          "word_id": "W00043",
-          "r": "おもいます",
-          "inflection": {
-            "base": "思う",
-            "base_r": "おもう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I think of yesterday's child."
-    },
-    {
-      "idx": 6,
-      "tokens": [
-        {
-          "t": "子供",
-          "role": "content",
-          "word_id": "W00051",
-          "r": "こども"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "元気",
-          "role": "content",
-          "word_id": "W00058",
-          "r": "げんき"
-        },
-        {
-          "t": "だ",
-          "role": "aux",
-          "grammar_id": "G024_da"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G014_to_omoimasu"
-        },
-        {
-          "t": "思います",
-          "role": "aux",
-          "word_id": "W00043",
-          "r": "おもいます",
-          "inflection": {
-            "base": "思う",
-            "base_r": "おもう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I think the child is also lively."
-    },
-    {
-      "idx": 7,
-      "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "笑います",
-          "role": "content",
-          "word_id": "W00053",
-          "r": "わらいます",
-          "inflection": {
-            "base": "笑う",
-            "base_r": "わらう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I smile."
-    },
-    {
-      "idx": 8,
-      "tokens": [
-        {
-          "t": "庭",
-          "role": "content",
-          "word_id": "W00059",
-          "r": "にわ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "静か",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
         {
           "t": "太陽",
           "role": "content",
@@ -487,10 +288,10 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "大きい",
+          "t": "明るい",
           "role": "content",
-          "word_id": "W00057",
-          "r": "おおきい",
+          "word_id": "W00137",
+          "r": "あかるい",
           "grammar_id": "G022_i_adj"
         },
         {
@@ -503,10 +304,100 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The garden is quiet, the sun's sky is wide."
+      "gloss_en": "The sky of the sun is bright.",
+      "audio": "audio/story_19/s4.mp3",
+      "audio_hash": "8cac24b46b63"
     },
     {
-      "idx": 9,
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "鳥",
+          "role": "content",
+          "word_id": "W00054",
+          "r": "とり"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "元気",
+          "role": "content",
+          "word_id": "W00058",
+          "r": "げんき"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question",
+          "is_new_grammar": true
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G014_to_omoimasu"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "ベンチ",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "ベンチ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "思います",
+          "role": "aux",
+          "word_id": "W00043",
+          "r": "おもいます",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Is the bird well?\" I think on the bench.",
+      "audio": "audio/story_19/s5.mp3",
+      "audio_hash": "3864bd052159"
+    },
+    {
+      "idx": 6,
       "tokens": [
         {
           "t": "私",
@@ -564,7 +455,7 @@
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "おきます",
+          "t": "置きます",
           "role": "content",
           "word_id": "W00229",
           "r": "おきます",
@@ -582,10 +473,94 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "For the bird, I set out the warm bread on the plate."
+      "gloss_en": "For the bird, I set out the warm bread on the plate.",
+      "audio": "audio/story_19/s6.mp3",
+      "audio_hash": "de8ba4f1e300"
     },
     {
-      "idx": 10,
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "鳥",
+          "role": "content",
+          "word_id": "W00054",
+          "r": "とり"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "パン",
+          "role": "content",
+          "word_id": "W00049",
+          "r": "パン"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "食べます",
+          "role": "content",
+          "word_id": "W00020",
+          "r": "たべます",
+          "inflection": {
+            "base": "食べる",
+            "base_r": "たべる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The bird eats the bread.",
+      "audio": "audio/story_19/s7.mp3",
+      "audio_hash": "62e4cae1f6ab"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "嬉しい",
+          "role": "content",
+          "word_id": "W00056",
+          "r": "うれしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I am happy.",
+      "audio": "audio/story_19/s8.mp3",
+      "audio_hash": "5c29e5352c54"
+    },
+    {
+      "idx": 9,
       "tokens": [
         {
           "t": "「",
@@ -617,8 +592,7 @@
         {
           "t": "か",
           "role": "particle",
-          "grammar_id": "G037_ka_question",
-          "is_new_grammar": true
+          "grammar_id": "G037_ka_question"
         },
         {
           "t": "」",
@@ -628,6 +602,28 @@
           "t": "と",
           "role": "particle",
           "grammar_id": "G014_to_omoimasu"
+        },
+        {
+          "t": "昨日",
+          "role": "content",
+          "word_id": "W00042",
+          "r": "きのう"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "子供",
+          "role": "content",
+          "word_id": "W00051",
+          "r": "こども"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "思います",
@@ -647,10 +643,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"Is the bird hurt?\" I think."
+      "gloss_en": "\"Is the bird hurt?\" I think — and I think of yesterday's child.",
+      "audio": "audio/story_19/s9.mp3",
+      "audio_hash": "a9531adc17a4"
     },
     {
-      "idx": 11,
+      "idx": 10,
       "tokens": [
         {
           "t": "庭",
@@ -659,9 +657,8 @@
           "r": "にわ"
         },
         {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "t": "、",
+          "role": "punct"
         },
         {
           "t": "春",
@@ -671,29 +668,45 @@
           "is_new": true
         },
         {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "t": "、",
+          "role": "punct"
         },
         {
-          "t": "来ます",
+          "t": "温かい",
           "role": "content",
-          "word_id": "W00040",
-          "r": "きます",
-          "inflection": {
-            "base": "来る",
-            "base_r": "くる",
-            "form": "polite_nonpast",
-            "verb_class": "irregular_kuru"
-          },
-          "grammar_id": "G026_masu_nonpast"
+          "word_id": "W00012",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "パン",
+          "role": "content",
+          "word_id": "W00049",
+          "r": "パン"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The garden's spring is coming."
+      "gloss_en": "Garden, spring, warm bread.",
+      "audio": "audio/story_19/s10.mp3",
+      "audio_hash": "11c5bc51ca0f"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00058": "audio/story_19/w_W00058.mp3",
+    "W00229": "audio/story_19/w_W00229.mp3",
+    "W00072": "audio/story_19/w_W00072.mp3"
+  },
+  "word_audio_hash": {
+    "W00058": "7fc6e83611c6",
+    "W00229": "6cf70b373579",
+    "W00072": "b3c33b7abaf0"
+  }
 }

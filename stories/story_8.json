@@ -45,9 +45,11 @@
     "W00156",
     "W00013",
     "W00009",
-    "W00044",
+    "W00010",
+    "W00018",
     "W00078",
-    "W00026"
+    "W00026",
+    "W00044"
   ],
   "sentences": [
     {
@@ -106,7 +108,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Morning — the two of us are at the park."
+      "gloss_en": "Morning — the two of us are at the park.",
+      "audio": "audio/story_8/s0.mp3",
+      "audio_hash": "bb6a46e8a8cf"
     },
     {
       "idx": 1,
@@ -151,13 +155,7 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "I read a book."
-    },
-    {
-      "idx": 2,
-      "tokens": [
+        },
         {
           "t": "友達",
           "role": "content",
@@ -198,10 +196,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My friend, too, reads a book."
+      "gloss_en": "I read a book. My friend, too, reads a book.",
+      "audio": "audio/story_8/s1.mp3",
+      "audio_hash": "9ef5ce77b486"
     },
     {
-      "idx": 3,
+      "idx": 2,
       "tokens": [
         {
           "t": "公園",
@@ -230,10 +230,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The park is quiet."
+      "gloss_en": "The park is quiet.",
+      "audio": "audio/story_8/s2.mp3",
+      "audio_hash": "64deea2e4198"
     },
     {
-      "idx": 4,
+      "idx": 3,
       "tokens": [
         {
           "t": "友達",
@@ -285,10 +287,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The color of the friend's book is nice."
+      "gloss_en": "The color of my friend's book is nice.",
+      "audio": "audio/story_8/s3.mp3",
+      "audio_hash": "51cada210005"
     },
     {
-      "idx": 5,
+      "idx": 4,
       "tokens": [
         {
           "t": "そして",
@@ -300,15 +304,148 @@
           "role": "punct"
         },
         {
+          "t": "二人",
+          "role": "content",
+          "word_id": "W00035",
+          "r": "ふたり",
+          "grammar_id": "G025_counters"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
           "t": "お茶",
           "role": "content",
           "word_id": "W00009",
           "r": "おちゃ"
         },
         {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "飲みます",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "のみます",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "And then, the two of us drink tea.",
+      "audio": "audio/story_8/s4.mp3",
+      "audio_hash": "373b0870020f"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "夕方",
+          "role": "content",
+          "word_id": "W00018",
+          "r": "ゆうがた"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "帰ります",
+          "role": "content",
+          "word_id": "W00026",
+          "r": "かえります",
+          "inflection": {
+            "base": "帰る",
+            "base_r": "かえる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the evening, my friend and I return home.",
+      "audio": "audio/story_8/s5.mp3",
+      "audio_hash": "4ee1924a08fa"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
           "t": "も",
           "role": "particle",
           "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "あります",
@@ -326,13 +463,7 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "And then, there is also tea."
-    },
-    {
-      "idx": 6,
-      "tokens": [
+        },
         {
           "t": "二人",
           "role": "content",
@@ -374,53 +505,21 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us read a book together."
-    },
-    {
-      "idx": 7,
-      "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "家",
-          "role": "content",
-          "word_id": "W00078",
-          "r": "いえ",
-          "is_new": true
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "帰ります",
-          "role": "content",
-          "word_id": "W00026",
-          "r": "かえります",
-          "inflection": {
-            "base": "帰る",
-            "base_r": "かえる",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I return home."
+      "gloss_en": "At home, too, there are books. The two of us read a book.",
+      "audio": "audio/story_8/s6.mp3",
+      "audio_hash": "3f309ffb0555"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00033": "audio/story_8/w_W00033.mp3",
+    "W00035": "audio/story_8/w_W00035.mp3",
+    "W00034": "audio/story_8/w_W00034.mp3",
+    "W00078": "audio/story_8/w_W00078.mp3"
+  },
+  "word_audio_hash": {
+    "W00033": "83831c3f910c",
+    "W00035": "8981f8b72b35",
+    "W00034": "56c0478444db",
+    "W00078": "c8ae97be80f3"
+  }
 }

@@ -50,13 +50,13 @@
     "W00038",
     "W00055",
     "W00054",
-    "W00027",
     "W00029",
-    "W00043",
-    "W00056",
     "W00101",
     "W00102",
-    "W00097"
+    "W00097",
+    "W00056",
+    "W00065",
+    "W00015"
   ],
   "sentences": [
     {
@@ -90,13 +90,7 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "Summer comes."
-    },
-    {
-      "idx": 1,
-      "tokens": [
+        },
         {
           "t": "庭",
           "role": "content",
@@ -126,10 +120,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The garden is hot."
+      "gloss_en": "Summer comes. The garden is hot.",
+      "audio": "audio/story_27/s0.mp3",
+      "audio_hash": "f414fff4afb6"
     },
     {
-      "idx": 2,
+      "idx": 1,
       "tokens": [
         {
           "t": "庭",
@@ -141,10 +137,6 @@
           "t": "に",
           "role": "particle",
           "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "、",
-          "role": "punct"
         },
         {
           "t": "美しい",
@@ -182,10 +174,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the garden, there are beautiful flowers."
+      "gloss_en": "In the garden, there are beautiful flowers.",
+      "audio": "audio/story_27/s1.mp3",
+      "audio_hash": "710573a4cf99"
     },
     {
-      "idx": 3,
+      "idx": 2,
       "tokens": [
         {
           "t": "木",
@@ -242,10 +236,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is a chair near the tree."
+      "gloss_en": "There is a chair near the tree.",
+      "audio": "audio/story_27/s2.mp3",
+      "audio_hash": "1849f90107b0"
     },
     {
-      "idx": 4,
+      "idx": 3,
       "tokens": [
         {
           "t": "私",
@@ -309,10 +305,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I drink tea on a nice chair."
+      "gloss_en": "On a nice chair, I drink tea.",
+      "audio": "audio/story_27/s3.mp3",
+      "audio_hash": "cffb8f563bfd"
     },
     {
-      "idx": 5,
+      "idx": 4,
       "tokens": [
         {
           "t": "猫",
@@ -324,10 +322,6 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "、",
-          "role": "punct"
         },
         {
           "t": "庭",
@@ -363,10 +357,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The cat is sleeping in the garden."
+      "gloss_en": "The cat is sleeping in the garden.",
+      "audio": "audio/story_27/s4.mp3",
+      "audio_hash": "8663386ed0c6"
     },
     {
-      "idx": 6,
+      "idx": 5,
       "tokens": [
         {
           "t": "小さい",
@@ -387,10 +383,6 @@
           "grammar_id": "G009_mo_also"
         },
         {
-          "t": "、",
-          "role": "punct"
-        },
-        {
           "t": "来ます",
           "role": "content",
           "word_id": "W00040",
@@ -406,13 +398,7 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "A small bird also comes."
-    },
-    {
-      "idx": 7,
-      "tokens": [
+        },
         {
           "t": "鳥",
           "role": "content",
@@ -425,25 +411,10 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "、",
-          "role": "punct"
-        },
-        {
           "t": "花",
           "role": "content",
           "word_id": "W00024",
           "r": "はな"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "風",
-          "role": "content",
-          "word_id": "W00027",
-          "r": "かぜ"
         },
         {
           "t": "の",
@@ -479,11 +450,86 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bird is by the flower and the wind."
+      "gloss_en": "A small bird also comes. The bird is by the flowers.",
+      "audio": "audio/story_27/s5.mp3",
+      "audio_hash": "0333e4a07011"
     },
     {
-      "idx": 8,
+      "idx": 6,
       "tokens": [
+        {
+          "t": "犬",
+          "role": "content",
+          "word_id": "W00101",
+          "r": "いぬ"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "庭",
+          "role": "content",
+          "word_id": "W00059",
+          "r": "にわ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "走ります",
+          "role": "content",
+          "word_id": "W00102",
+          "r": "はしります",
+          "inflection": {
+            "base": "走る",
+            "base_r": "はしる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The dog, too, runs through the garden.",
+      "audio": "audio/story_27/s6.mp3",
+      "audio_hash": "a1b99e9cc42e"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "夏",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "なつ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
         {
           "t": "庭",
           "role": "content",
@@ -503,69 +549,40 @@
           "grammar_id": "G022_i_adj"
         },
         {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G014_to_omoimasu"
+          "t": "」",
+          "role": "punct"
         },
         {
-          "t": "思います",
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu",
+          "is_new_grammar": true
+        },
+        {
+          "t": "言います",
           "role": "aux",
-          "word_id": "W00043",
-          "r": "おもいます",
+          "word_id": "W00097",
+          "r": "いいます",
           "inflection": {
-            "base": "思う",
-            "base_r": "おもう",
+            "base": "言う",
+            "base_r": "いう",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I think the garden is beautiful."
+      "gloss_en": "I say, \"the summer garden is beautiful.\"",
+      "audio": "audio/story_27/s7.mp3",
+      "audio_hash": "e8636724203e"
     },
     {
-      "idx": 9,
-      "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "嬉しい",
-          "role": "content",
-          "word_id": "W00056",
-          "r": "うれしい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I am happy too."
-    },
-    {
-      "idx": 10,
+      "idx": 8,
       "tokens": [
         {
           "t": "暑い",
@@ -598,100 +615,57 @@
           "r": "にわ"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "A hot summer, a beautiful garden."
-    },
-    {
-      "idx": 11,
-      "tokens": [
-        {
-          "t": "犬",
-          "role": "content",
-          "word_id": "W00101",
-          "r": "いぬ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "走ります",
-          "role": "content",
-          "word_id": "W00102",
-          "r": "はしります",
-          "inflection": {
-            "base": "走る",
-            "base_r": "はしる",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The dog runs."
-    },
-    {
-      "idx": 12,
-      "tokens": [
-        {
-          "t": "「",
+          "t": "、",
           "role": "punct"
         },
         {
-          "t": "美しい",
+          "t": "嬉しい",
           "role": "content",
-          "word_id": "W00083",
-          "r": "うつくしい",
+          "word_id": "W00056",
+          "r": "うれしい",
           "grammar_id": "G022_i_adj"
         },
         {
+          "t": "一人",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ひとり",
+          "grammar_id": "G025_counters"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
           "t": "です",
           "role": "aux",
           "grammar_id": "G003_desu"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu",
-          "is_new_grammar": true
-        },
-        {
-          "t": "言います",
-          "role": "aux",
-          "word_id": "W00097",
-          "r": "いいます",
-          "inflection": {
-            "base": "言う",
-            "base_r": "いう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast",
-          "is_new": true
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "'It is beautiful,' I say."
+      "gloss_en": "A hot summer, a beautiful garden, a happy morning alone.",
+      "audio": "audio/story_27/s8.mp3",
+      "audio_hash": "9e79e305b422"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00081": "audio/story_27/w_W00081.mp3",
+    "W00082": "audio/story_27/w_W00082.mp3",
+    "W00097": "audio/story_27/w_W00097.mp3"
+  },
+  "word_audio_hash": {
+    "W00081": "8482432c0274",
+    "W00082": "6236e6c9aee4",
+    "W00097": "698d88735952"
+  }
 }
