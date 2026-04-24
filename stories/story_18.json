@@ -41,14 +41,14 @@
     "W00055",
     "W00029",
     "W00008",
+    "W00045",
     "W00052",
     "W00028",
+    "W00011",
     "W00038",
     "W00037",
     "W00042",
-    "W00023",
     "W00024",
-    "W00044",
     "W00012",
     "W00009",
     "W00010",
@@ -106,7 +106,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "This morning, outside is rain."
+      "gloss_en": "This morning, outside is rain.",
+      "audio": "audio/story_18/s0.mp3",
+      "audio_hash": "16311c0eb8c7"
     },
     {
       "idx": 1,
@@ -155,7 +157,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "From the window, I look outside."
+      "gloss_en": "From the window, I look outside.",
+      "audio": "audio/story_18/s1.mp3",
+      "audio_hash": "3e04008f5302"
     },
     {
       "idx": 2,
@@ -211,7 +215,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "At the window, there is a small bird."
+      "gloss_en": "At the window, there is a small bird.",
+      "audio": "audio/story_18/s2.mp3",
+      "audio_hash": "397aad596e8f"
     },
     {
       "idx": 3,
@@ -261,11 +267,35 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The small bird is wet."
+      "gloss_en": "The small bird is wet.",
+      "audio": "audio/story_18/s3.mp3",
+      "audio_hash": "9627c98a0f14"
     },
     {
       "idx": 4,
       "tokens": [
+        {
+          "t": "窓",
+          "role": "content",
+          "word_id": "W00004",
+          "r": "まど"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "そば",
+          "role": "content",
+          "word_id": "W00045",
+          "r": "そば"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
         {
           "t": "ベンチ",
           "role": "content",
@@ -293,6 +323,17 @@
           "grammar_id": "G002_ga_subject"
         },
         {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
           "t": "寝て",
           "role": "content",
           "word_id": "W00038",
@@ -315,7 +356,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On the bench, the cat is sleeping."
+      "gloss_en": "On the bench by the window, the cat is quietly sleeping.",
+      "audio": "audio/story_18/s4.mp3",
+      "audio_hash": "05754ee16a57"
     },
     {
       "idx": 5,
@@ -327,13 +370,9 @@
           "r": "つくえ"
         },
         {
-          "t": "に",
+          "t": "の",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "、",
-          "role": "punct"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "昨日",
@@ -347,46 +386,42 @@
           "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "散歩",
-          "role": "content",
-          "word_id": "W00023",
-          "r": "さんぽ"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
           "t": "花",
           "role": "content",
           "word_id": "W00024",
           "r": "はな"
         },
         {
-          "t": "が",
+          "t": "も",
           "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "G009_mo_also"
         },
         {
-          "t": "あります",
+          "t": "濡れて",
           "role": "content",
-          "word_id": "W00044",
-          "r": "あります",
+          "word_id": "W00008",
+          "r": "ぬれて",
           "inflection": {
-            "base": "ある",
-            "base_r": "ある",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
+            "base": "濡れる",
+            "base_r": "ぬれる",
+            "form": "te",
+            "verb_class": "ichidan"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "います",
+          "role": "aux",
+          "grammar_id": "G008_te_iru"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "On the desk, there are flowers from yesterday's walk."
+      "gloss_en": "The flowers from yesterday on the desk are wet too.",
+      "audio": "audio/story_18/s5.mp3",
+      "audio_hash": "2697b02b7d82"
     },
     {
       "idx": 6,
@@ -427,7 +462,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I drink warm tea."
+      "gloss_en": "I drink warm tea.",
+      "audio": "audio/story_18/s6.mp3",
+      "audio_hash": "1c92227ea006"
     },
     {
       "idx": 7,
@@ -460,7 +497,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am happy."
+      "gloss_en": "I am happy.",
+      "audio": "audio/story_18/s7.mp3",
+      "audio_hash": "5c29e5352c54"
     },
     {
       "idx": 8,
@@ -532,7 +571,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"My friend won't come,\" I think."
+      "gloss_en": "\"My friend won't come,\" I think.",
+      "audio": "audio/story_18/s8.mp3",
+      "audio_hash": "644e872c01b5"
     },
     {
       "idx": 9,
@@ -617,7 +658,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Early morning, heavy rain, heavy air — \"sad.\""
+      "gloss_en": "Early morning, heavy rain, heavy air — \"sad.\"",
+      "audio": "audio/story_18/s9.mp3",
+      "audio_hash": "5537d3530b77"
     },
     {
       "idx": 10,
@@ -705,7 +748,19 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "And with warm tea and the small bird's music, it is a happy morning."
+      "gloss_en": "And with warm tea and the small bird's music, it is a happy morning.",
+      "audio": "audio/story_18/s10.mp3",
+      "audio_hash": "dafa01e059ac"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00057": "audio/story_18/w_W00057.mp3",
+    "W00138": "audio/story_18/w_W00138.mp3",
+    "W00076": "audio/story_18/w_W00076.mp3"
+  },
+  "word_audio_hash": {
+    "W00057": "f4d626e791cd",
+    "W00138": "a012d55156a4",
+    "W00076": "a48ae393fb13"
+  }
 }

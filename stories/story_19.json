@@ -604,6 +604,34 @@
           "grammar_id": "G014_to_omoimasu"
         },
         {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "思います",
+          "role": "aux",
+          "word_id": "W00043",
+          "r": "おもいます",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
           "t": "昨日",
           "role": "content",
           "word_id": "W00042",
@@ -613,6 +641,13 @@
           "t": "の",
           "role": "particle",
           "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00055",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "子供",
@@ -643,9 +678,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"Is the bird hurt?\" I think — and I think of yesterday's child.",
+      "gloss_en": "\"Is the bird hurt?\" I think. I remember yesterday's small child.",
       "audio": "audio/story_19/s9.mp3",
-      "audio_hash": "a9531adc17a4"
+      "audio_hash": "40c32d02a461"
     },
     {
       "idx": 10,

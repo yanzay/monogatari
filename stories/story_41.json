@@ -67,15 +67,16 @@
     "W00079",
     "W00044",
     "W00034",
+    "W00108",
+    "W00109",
+    "W00215",
     "W00201",
+    "W00111",
+    "W00005",
     "W00104",
     "W00051",
     "W00105",
     "W00106",
-    "W00111",
-    "W00108",
-    "W00109",
-    "W00215",
     "W00066",
     "W00112"
   ],
@@ -99,7 +100,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is spring."
+      "gloss_en": "It is spring.",
+      "audio": "audio/story_41/s0.mp3",
+      "audio_hash": "732c4f6f1d5b"
     },
     {
       "idx": 1,
@@ -173,7 +176,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I came to the small bookstore with my friend."
+      "gloss_en": "I came to the small bookstore with my friend.",
+      "audio": "audio/story_41/s1.mp3",
+      "audio_hash": "cba1627fca11"
     },
     {
       "idx": 2,
@@ -205,7 +210,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The shop is quiet."
+      "gloss_en": "The shop is quiet.",
+      "audio": "audio/story_41/s2.mp3",
+      "audio_hash": "5fb272599663"
     },
     {
       "idx": 3,
@@ -261,7 +268,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The shop person's face is the same."
+      "gloss_en": "The shop person's face is the same.",
+      "audio": "audio/story_41/s3.mp3",
+      "audio_hash": "2f2bcc691e28"
     },
     {
       "idx": 4,
@@ -329,7 +338,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I remember the shop person's face."
+      "gloss_en": "I remember the shop person's face.",
+      "audio": "audio/story_41/s4.mp3",
+      "audio_hash": "68226fa647bf"
     },
     {
       "idx": 5,
@@ -399,7 +410,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend said, \"a kind person, isn't he.\""
+      "gloss_en": "The friend said, \"a kind person, isn't he.\"",
+      "audio": "audio/story_41/s5.mp3",
+      "audio_hash": "af76d75f7762"
     },
     {
       "idx": 6,
@@ -457,7 +470,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My heart is strong, and happy."
+      "gloss_en": "My heart is strong, and happy.",
+      "audio": "audio/story_41/s6.mp3",
+      "audio_hash": "7bbed9c983ba"
     },
     {
       "idx": 7,
@@ -538,7 +553,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The shop person said, \"a good book, isn't it.\""
+      "gloss_en": "The shop person said, \"a good book, isn't it.\"",
+      "audio": "audio/story_41/s7.mp3",
+      "audio_hash": "437d4c67ffa2"
     },
     {
       "idx": 8,
@@ -612,7 +629,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "(He) said, \"because words are small, they are precious.\""
+      "gloss_en": "(He) said, \"because words are small, they are precious.\"",
+      "audio": "audio/story_41/s8.mp3",
+      "audio_hash": "d1d298430b93"
     },
     {
       "idx": 9,
@@ -667,13 +686,7 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "On the shop's door, there is no key."
-    },
-    {
-      "idx": 10,
-      "tokens": [
+        },
         {
           "t": "私",
           "role": "content",
@@ -719,11 +732,126 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I want to read the book."
+      "gloss_en": "On the shop's door, there is no key. I want to read the book.",
+      "audio": "audio/story_41/s9.mp3",
+      "audio_hash": "80a5a9bb261a"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "ストーブ",
+          "role": "content",
+          "word_id": "W00108",
+          "r": "ストーブ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00055",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "音",
+          "role": "content",
+          "word_id": "W00109",
+          "r": "おと"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "します",
+          "role": "content",
+          "word_id": "W00215",
+          "r": "します",
+          "inflection": {
+            "base": "する",
+            "base_r": "する",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_suru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "町",
+          "role": "content",
+          "word_id": "W00201",
+          "r": "まち"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "川",
+          "role": "content",
+          "word_id": "W00111",
+          "r": "かわ"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The shop's stove makes a small sound. The town's river is quiet too.",
+      "audio": "audio/story_41/s10.mp3",
+      "audio_hash": "d0a3cd3995ad"
     },
     {
       "idx": 11,
       "tokens": [
+        {
+          "t": "外",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "そと"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
         {
           "t": "町",
           "role": "content",
@@ -795,116 +923,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "At the town's school, the children are beginning their work."
+      "gloss_en": "Outside, at the town's school, the children are beginning their work.",
+      "audio": "audio/story_41/s11.mp3",
+      "audio_hash": "8e3d80ca787e"
     },
     {
       "idx": 12,
-      "tokens": [
-        {
-          "t": "町",
-          "role": "content",
-          "word_id": "W00201",
-          "r": "まち"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "川",
-          "role": "content",
-          "word_id": "W00111",
-          "r": "かわ"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "静か",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The town's river is quiet too."
-    },
-    {
-      "idx": 13,
-      "tokens": [
-        {
-          "t": "店",
-          "role": "content",
-          "word_id": "W00084",
-          "r": "みせ"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "ストーブ",
-          "role": "content",
-          "word_id": "W00108",
-          "r": "ストーブ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "小さい",
-          "role": "content",
-          "word_id": "W00055",
-          "r": "ちいさい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "音",
-          "role": "content",
-          "word_id": "W00109",
-          "r": "おと"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "します",
-          "role": "content",
-          "word_id": "W00215",
-          "r": "します",
-          "inflection": {
-            "base": "する",
-            "base_r": "する",
-            "form": "polite_nonpast",
-            "verb_class": "irregular_suru"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The shop's stove makes a small sound."
-    },
-    {
-      "idx": 14,
       "tokens": [
         {
           "t": "春",
@@ -968,7 +992,19 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the spring shop, new words are born."
+      "gloss_en": "In the spring shop, new words are born.",
+      "audio": "audio/story_41/s12.mp3",
+      "audio_hash": "0e61b4d5d908"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00122": "audio/story_41/w_W00122.mp3",
+    "W00124": "audio/story_41/w_W00124.mp3",
+    "W00123": "audio/story_41/w_W00123.mp3"
+  },
+  "word_audio_hash": {
+    "W00122": "1021854feee3",
+    "W00124": "e6f3a3ce6a81",
+    "W00123": "a75819d759da"
+  }
 }

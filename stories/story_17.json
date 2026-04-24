@@ -46,14 +46,13 @@
     "W00006",
     "W00053",
     "W00022",
-    "W00164",
-    "W00048",
+    "W00040",
     "W00035",
     "W00085",
     "W00050",
-    "W00237",
-    "W00039",
-    "W00040",
+    "W00011",
+    "W00164",
+    "W00048",
     "W00056",
     "W00043"
   ],
@@ -111,7 +110,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the evening, I walk in the park."
+      "gloss_en": "In the evening, I walk in the park.",
+      "audio": "audio/story_17/s0.mp3",
+      "audio_hash": "b8c2a1f4859f"
     },
     {
       "idx": 1,
@@ -172,7 +173,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Beside a tree, there is a bench."
+      "gloss_en": "Beside a tree, there is a bench.",
+      "audio": "audio/story_17/s1.mp3",
+      "audio_hash": "2254e8c415ad"
     },
     {
       "idx": 2,
@@ -221,7 +224,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On the bench, there is a child."
+      "gloss_en": "On the bench, there is a child.",
+      "audio": "audio/story_17/s2.mp3",
+      "audio_hash": "1f261bebc45e"
     },
     {
       "idx": 3,
@@ -271,7 +276,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The child is reading a book."
+      "gloss_en": "The child is reading a book.",
+      "audio": "audio/story_17/s3.mp3",
+      "audio_hash": "0b6126063999"
     },
     {
       "idx": 4,
@@ -334,7 +341,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Seeing me, the child smiles."
+      "gloss_en": "Seeing me, the child smiles.",
+      "audio": "audio/story_17/s4.mp3",
+      "audio_hash": "cfa647083876"
     },
     {
       "idx": 5,
@@ -368,47 +377,21 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I smile too."
+      "gloss_en": "I smile too.",
+      "audio": "audio/story_17/s5.mp3",
+      "audio_hash": "0e5bbf70022d"
     },
     {
       "idx": 6,
       "tokens": [
         {
-          "t": "子供",
-          "role": "content",
-          "word_id": "W00051",
-          "r": "こども"
-        },
-        {
-          "t": "の",
+          "t": "そして",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "そば",
-          "role": "content",
-          "word_id": "W00045",
-          "r": "そば"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "G012_soshite_then"
         },
         {
           "t": "、",
           "role": "punct"
-        },
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
         },
         {
           "t": "友達",
@@ -422,71 +405,15 @@
           "grammar_id": "G009_mo_also"
         },
         {
-          "t": "います",
+          "t": "来ます",
           "role": "content",
-          "word_id": "W00029",
-          "r": "います",
+          "word_id": "W00040",
+          "r": "きます",
           "inflection": {
-            "base": "いる",
-            "base_r": "いる",
+            "base": "来る",
+            "base_r": "くる",
             "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Beside the child, my friend and I are here too."
-    },
-    {
-      "idx": 7,
-      "tokens": [
-        {
-          "t": "友達",
-          "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "子供",
-          "role": "content",
-          "word_id": "W00051",
-          "r": "こども"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "歌",
-          "role": "content",
-          "word_id": "W00164",
-          "r": "うた"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "作ります",
-          "role": "content",
-          "word_id": "W00048",
-          "r": "つくります",
-          "inflection": {
-            "base": "作る",
-            "base_r": "つくる",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
+            "verb_class": "irregular_kuru"
           },
           "grammar_id": "G026_masu_nonpast"
         },
@@ -495,10 +422,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend makes a song for the child."
+      "gloss_en": "And then, my friend comes too.",
+      "audio": "audio/story_17/s6.mp3",
+      "audio_hash": "fd166eff2288"
     },
     {
-      "idx": 8,
+      "idx": 7,
       "tokens": [
         {
           "t": "二人",
@@ -519,9 +448,9 @@
           "r": "こども"
         },
         {
-          "t": "で",
+          "t": "は",
           "role": "particle",
-          "grammar_id": "G017_de_means"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "ベンチ",
@@ -559,13 +488,24 @@
           "is_new": true
         },
         {
-          "t": "笑います",
+          "t": "本",
           "role": "content",
-          "word_id": "W00053",
-          "r": "わらいます",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "読みます",
+          "role": "content",
+          "word_id": "W00034",
+          "r": "よみます",
           "inflection": {
-            "base": "笑う",
-            "base_r": "わらう",
+            "base": "読む",
+            "base_r": "よむ",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
@@ -576,37 +516,13 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us and the child sit on the bench and laugh together."
+      "gloss_en": "The two of us and the child sit on the bench and read the book together.",
+      "audio": "audio/story_17/s7.mp3",
+      "audio_hash": "3cdbf406498f"
     },
     {
-      "idx": 9,
+      "idx": 8,
       "tokens": [
-        {
-          "t": "ベンチ",
-          "role": "content",
-          "word_id": "W00052",
-          "r": "ベンチ"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "上",
-          "role": "content",
-          "word_id": "W00237",
-          "r": "うえ"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
         {
           "t": "子供",
           "role": "content",
@@ -614,43 +530,56 @@
           "r": "こども"
         },
         {
-          "t": "の",
+          "t": "は",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "手紙",
+          "t": "静か",
           "role": "content",
-          "word_id": "W00039",
-          "r": "てがみ"
+          "word_id": "W00011",
+          "r": "しずか"
         },
         {
-          "t": "が",
+          "t": "な",
           "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "G016_na_adjective"
         },
         {
-          "t": "あります",
+          "t": "歌",
           "role": "content",
-          "word_id": "W00044",
-          "r": "あります",
+          "word_id": "W00164",
+          "r": "うた"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "作ります",
+          "role": "content",
+          "word_id": "W00048",
+          "r": "つくります",
           "inflection": {
-            "base": "ある",
-            "base_r": "ある",
+            "base": "作る",
+            "base_r": "つくる",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "On the bench, there is a letter from the child."
+      "gloss_en": "The child makes a quiet song.",
+      "audio": "audio/story_17/s8.mp3",
+      "audio_hash": "a6b4eed3ba36"
     },
     {
-      "idx": 10,
+      "idx": 9,
       "tokens": [
         {
           "t": "歩く",
@@ -756,7 +685,21 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "As I walk, I think, \"because my friend is here, I am happy.\""
+      "gloss_en": "As I walk, I think, \"because my friend is here, I am happy.\"",
+      "audio": "audio/story_17/s9.mp3",
+      "audio_hash": "ad728701a2cd"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00052": "audio/story_17/w_W00052.mp3",
+    "W00053": "audio/story_17/w_W00053.mp3",
+    "W00050": "audio/story_17/w_W00050.mp3",
+    "W00056": "audio/story_17/w_W00056.mp3"
+  },
+  "word_audio_hash": {
+    "W00052": "b4292723cbc2",
+    "W00053": "d522ca2b885e",
+    "W00050": "e912796943ea",
+    "W00056": "b0660d875cea"
+  }
 }

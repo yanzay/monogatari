@@ -37,6 +37,9 @@
     "W00201",
     "W00016",
     "W00017",
+    "W00002",
+    "W00011",
+    "W00040",
     "W00067",
     "W00085",
     "W00003",
@@ -54,9 +57,6 @@
     "W00097",
     "W00056",
     "W00087",
-    "W00002",
-    "W00011",
-    "W00040",
     "W00251",
     "W00046",
     "W00013",
@@ -126,15 +126,98 @@
         {
           "t": "。",
           "role": "punct"
+        },
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あめ"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G049_ga_but"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "こうえん"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
         }
       ],
-      "gloss_en": "On a spring morning, I walk through the town park.",
+      "gloss_en": "On a spring morning, I walk through the town park. It is raining, but the park is quiet.",
       "audio": "audio/story_29/s0.mp3",
-      "audio_hash": "4c35d25a5d00"
+      "audio_hash": "a5bf1e1a35b2"
     },
     {
       "idx": 1,
       "tokens": [
+        {
+          "t": "でも",
+          "role": "particle",
+          "grammar_id": "G032_demo"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
         {
           "t": "ベンチ",
           "role": "content",
@@ -221,9 +304,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "An old friend sits on the bench. I sit on the bench, too.",
+      "gloss_en": "Still, my friend comes. An old friend sits on the bench. I sit on the bench, too.",
       "audio": "audio/story_29/s1.mp3",
-      "audio_hash": "d00e8748d0ce"
+      "audio_hash": "ae36e19052de"
     },
     {
       "idx": 2,
@@ -628,97 +711,6 @@
       "idx": 8,
       "tokens": [
         {
-          "t": "雨",
-          "role": "content",
-          "word_id": "W00002",
-          "r": "あめ"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G049_ga_but"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "公園",
-          "role": "content",
-          "word_id": "W00016",
-          "r": "こうえん"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "静か",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        },
-        {
-          "t": "でも",
-          "role": "particle",
-          "grammar_id": "G032_demo"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "友達",
-          "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "来ます",
-          "role": "content",
-          "word_id": "W00040",
-          "r": "きます",
-          "inflection": {
-            "base": "来る",
-            "base_r": "くる",
-            "form": "polite_nonpast",
-            "verb_class": "irregular_kuru"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "It is raining, but the park is quiet. Still, my friend comes.",
-      "audio": "audio/story_29/s8.mp3",
-      "audio_hash": "84a51121005c"
-    },
-    {
-      "idx": 9,
-      "tokens": [
-        {
           "t": "二人",
           "role": "content",
           "word_id": "W00035",
@@ -771,11 +763,11 @@
         }
       ],
       "gloss_en": "The two of us walk along the town's corner.",
-      "audio": "audio/story_29/s9.mp3",
+      "audio": "audio/story_29/s8.mp3",
       "audio_hash": "124b6246b8b9"
     },
     {
-      "idx": 10,
+      "idx": 9,
       "tokens": [
         {
           "t": "「",
@@ -849,11 +841,11 @@
         }
       ],
       "gloss_en": "\"Will you come tomorrow, too?\" I say.",
-      "audio": "audio/story_29/s10.mp3",
+      "audio": "audio/story_29/s9.mp3",
       "audio_hash": "89a57268505c"
     },
     {
-      "idx": 11,
+      "idx": 10,
       "tokens": [
         {
           "t": "「",
@@ -911,11 +903,11 @@
         }
       ],
       "gloss_en": "\"I will,\" my friend says.",
-      "audio": "audio/story_29/s11.mp3",
+      "audio": "audio/story_29/s10.mp3",
       "audio_hash": "6e043f747596"
     },
     {
-      "idx": 12,
+      "idx": 11,
       "tokens": [
         {
           "t": "春",
@@ -993,7 +985,7 @@
         }
       ],
       "gloss_en": "A spring morning, a bench, a family photo, a good time.",
-      "audio": "audio/story_29/s12.mp3",
+      "audio": "audio/story_29/s11.mp3",
       "audio_hash": "025caaa38987"
     }
   ],

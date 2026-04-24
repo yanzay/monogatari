@@ -50,12 +50,11 @@
     "W00097",
     "W00120",
     "W00012",
+    "W00110",
     "W00047",
+    "W00057",
     "W00031",
     "W00077",
-    "W00110",
-    "W00237",
-    "W00044",
     "W00124",
     "W00006",
     "W00050",
@@ -93,7 +92,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring evening."
+      "gloss_en": "It is a spring evening.",
+      "audio": "audio/story_42/s0.mp3",
+      "audio_hash": "fdecbcf80e9f"
     },
     {
       "idx": 1,
@@ -154,7 +155,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My friend and I are walking on the road."
+      "gloss_en": "My friend and I are walking on the road.",
+      "audio": "audio/story_42/s1.mp3",
+      "audio_hash": "02110aa826f8"
     },
     {
       "idx": 2,
@@ -211,7 +214,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My friend is right beside me."
+      "gloss_en": "My friend is right beside me.",
+      "audio": "audio/story_42/s2.mp3",
+      "audio_hash": "3483eed8dc5c"
     },
     {
       "idx": 3,
@@ -292,7 +297,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think, 'my friend is a kind person, isn't he.'"
+      "gloss_en": "I think, 'my friend is a kind person, isn't he.'",
+      "audio": "audio/story_42/s3.mp3",
+      "audio_hash": "d99ce8add7b6"
     },
     {
       "idx": 4,
@@ -372,7 +379,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I know about the reply to grandmother's letter."
+      "gloss_en": "I know about the reply to grandmother's letter.",
+      "audio": "audio/story_42/s4.mp3",
+      "audio_hash": "f64954599579"
     },
     {
       "idx": 5,
@@ -420,7 +429,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But I do not tell my friend."
+      "gloss_en": "But I do not tell my friend.",
+      "audio": "audio/story_42/s5.mp3",
+      "audio_hash": "90d6233ae6f8"
     },
     {
       "idx": 6,
@@ -485,11 +496,24 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"My heart is warm,\" I think."
+      "gloss_en": "\"My heart is warm,\" I think.",
+      "audio": "audio/story_42/s6.mp3",
+      "audio_hash": "1428b8ff614f"
     },
     {
       "idx": 7,
       "tokens": [
+        {
+          "t": "山",
+          "role": "content",
+          "word_id": "W00110",
+          "r": "やま"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
         {
           "t": "空",
           "role": "content",
@@ -500,6 +524,17 @@
           "t": "に",
           "role": "particle",
           "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "大きい",
+          "role": "content",
+          "word_id": "W00057",
+          "r": "おおきい",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "月",
@@ -533,63 +568,11 @@
         {
           "t": "。",
           "role": "punct"
-        },
-        {
-          "t": "山",
-          "role": "content",
-          "word_id": "W00110",
-          "r": "やま"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "上",
-          "role": "content",
-          "word_id": "W00237",
-          "r": "うえ"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "月",
-          "role": "content",
-          "word_id": "W00031",
-          "r": "つき"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "あります",
-          "role": "content",
-          "word_id": "W00044",
-          "r": "あります",
-          "inflection": {
-            "base": "ある",
-            "base_r": "ある",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
         }
       ],
-      "gloss_en": "The moon is out in the sky. Above the mountain, the moon is there."
+      "gloss_en": "In the mountain sky, a big moon is out.",
+      "audio": "audio/story_42/s7.mp3",
+      "audio_hash": "46f759997a56"
     },
     {
       "idx": 8,
@@ -646,7 +629,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us are looking at the same moon."
+      "gloss_en": "The two of us are looking at the same moon.",
+      "audio": "audio/story_42/s8.mp3",
+      "audio_hash": "4476401fedeb"
     },
     {
       "idx": 9,
@@ -728,7 +713,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I want to walk together with my friend along the river road."
+      "gloss_en": "I want to walk together with my friend along the river road.",
+      "audio": "audio/story_42/s9.mp3",
+      "audio_hash": "a2ab1560eda3"
     },
     {
       "idx": 10,
@@ -815,7 +802,19 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The same road, the same moon — a quiet spring evening for the two of us."
+      "gloss_en": "The same road, the same moon — a quiet spring evening for the two of us.",
+      "audio": "audio/story_42/s10.mp3",
+      "audio_hash": "769e71a6b1b1"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00127": "audio/story_42/w_W00127.mp3",
+    "W00125": "audio/story_42/w_W00125.mp3",
+    "W00126": "audio/story_42/w_W00126.mp3"
+  },
+  "word_audio_hash": {
+    "W00127": "face8e8973e0",
+    "W00125": "93663a351728",
+    "W00126": "eca82fe9a0fb"
+  }
 }

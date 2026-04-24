@@ -54,16 +54,16 @@
     "W00190",
     "W00076",
     "W00060",
-    "W00046",
-    "W00043",
-    "W00157",
-    "W00092",
-    "W00047",
-    "W00044",
     "W00201",
     "W00017",
     "W00084",
-    "W00241"
+    "W00241",
+    "W00047",
+    "W00157",
+    "W00092",
+    "W00044",
+    "W00046",
+    "W00043"
   ],
   "sentences": [
     {
@@ -659,6 +659,138 @@
       "idx": 9,
       "tokens": [
         {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "町",
+          "role": "content",
+          "word_id": "W00201",
+          "r": "まち"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "歩きます",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "あるきます",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "客",
+          "role": "content",
+          "word_id": "W00241",
+          "r": "きゃく"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "います",
+          "role": "content",
+          "word_id": "W00029",
+          "r": "います",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I walk through the town. There are customers in the shop.",
+      "audio": "audio/story_35/s9.mp3",
+      "audio_hash": "874a58890752"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "空",
+          "role": "content",
+          "word_id": "W00047",
+          "r": "そら"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "白い",
+          "role": "content",
+          "word_id": "W00157",
+          "r": "しろい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "雲",
+          "role": "content",
+          "word_id": "W00092",
+          "r": "くも"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
           "t": "「",
           "role": "punct"
         },
@@ -745,152 +877,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"Tomorrow, the letter will reach mother,\" I think.",
-      "audio": "audio/story_35/s9.mp3",
-      "audio_hash": "e1155e6c62e6"
-    },
-    {
-      "idx": 10,
-      "tokens": [
-        {
-          "t": "白い",
-          "role": "content",
-          "word_id": "W00157",
-          "r": "しろい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "雲",
-          "role": "content",
-          "word_id": "W00092",
-          "r": "くも"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "空",
-          "role": "content",
-          "word_id": "W00047",
-          "r": "そら"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "あります",
-          "role": "content",
-          "word_id": "W00044",
-          "r": "あります",
-          "inflection": {
-            "base": "ある",
-            "base_r": "ある",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "White clouds are in the sky.",
+      "gloss_en": "White clouds are in the sky. \"Tomorrow, the letter will reach mother,\" I think.",
       "audio": "audio/story_35/s10.mp3",
-      "audio_hash": "edf503648318"
+      "audio_hash": "0c7be7eb6e38"
     },
     {
       "idx": 11,
-      "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "町",
-          "role": "content",
-          "word_id": "W00201",
-          "r": "まち"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "歩きます",
-          "role": "content",
-          "word_id": "W00017",
-          "r": "あるきます",
-          "inflection": {
-            "base": "歩く",
-            "base_r": "あるく",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        },
-        {
-          "t": "店",
-          "role": "content",
-          "word_id": "W00084",
-          "r": "みせ"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "客",
-          "role": "content",
-          "word_id": "W00241",
-          "r": "きゃく"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "います",
-          "role": "content",
-          "word_id": "W00029",
-          "r": "います",
-          "inflection": {
-            "base": "いる",
-            "base_r": "いる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I walk through the town. There are customers in the shop.",
-      "audio": "audio/story_35/s11.mp3",
-      "audio_hash": "874a58890752"
-    },
-    {
-      "idx": 12,
       "tokens": [
         {
           "t": "夕方",
@@ -969,7 +961,7 @@
         }
       ],
       "gloss_en": "An evening desk, mother's letter, a new school job.",
-      "audio": "audio/story_35/s12.mp3",
+      "audio": "audio/story_35/s11.mp3",
       "audio_hash": "448c32ee0beb"
     }
   ],

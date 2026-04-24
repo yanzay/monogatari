@@ -69,10 +69,10 @@
   },
   "summary": {
     "story_count": 67,
-    "average_total": 25.64,
+    "average_total": 26.06,
     "tier_counts": {
-      "S": 30,
-      "A": 37,
+      "S": 40,
+      "A": 27,
       "B": 0,
       "C": 0,
       "D": 0
@@ -121,43 +121,43 @@
     ],
     "lowest": [
       {
-        "story_id": 17,
+        "story_id": 43,
         "total": 24
       },
       {
-        "story_id": 18,
+        "story_id": 44,
         "total": 24
       },
       {
-        "story_id": 19,
+        "story_id": 49,
         "total": 24
       },
       {
-        "story_id": 24,
+        "story_id": 51,
         "total": 24
       },
       {
-        "story_id": 26,
+        "story_id": 52,
         "total": 24
       },
       {
-        "story_id": 29,
+        "story_id": 53,
         "total": 24
       },
       {
-        "story_id": 32,
+        "story_id": 54,
         "total": 24
       },
       {
-        "story_id": 35,
+        "story_id": 56,
         "total": 24
       },
       {
-        "story_id": 41,
+        "story_id": 57,
         "total": 24
       },
       {
-        "story_id": 42,
+        "story_id": 58,
         "total": 24
       }
     ],
@@ -165,11 +165,11 @@
     "max_total": 30,
     "axis_means": {
       "literacy": 5,
-      "comprehensibility": 4.46,
-      "scene_coherence": 4.22,
-      "narrative_shape": 4.06,
+      "comprehensibility": 4.58,
+      "scene_coherence": 4.34,
+      "narrative_shape": 4.09,
       "engagement_emotion": 4.34,
-      "economy_density": 3.55
+      "economy_density": 3.7
     }
   },
   "stories": [
@@ -443,15 +443,16 @@
       "title_en": "A Child at the Park",
       "scores": {
         "literacy": 5,
-        "comprehensibility": 4,
-        "scene_coherence": 4,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
         "narrative_shape": 4,
         "engagement_emotion": 4,
-        "economy_density": 3
+        "economy_density": 4
       },
-      "total": 24,
-      "tier": "A",
-      "note": "Warm child-on-bench scene; 「友達は子供の歌を作ります」 is a slightly odd insertion."
+      "total": 27,
+      "tier": "S",
+      "note": "Tightened batch 3: jarring 「歌を作ります」 line replaced; friend joins, then child makes a quiet song — scene now holds. Scene +1, economy +1.",
+      "rewritten": "2026-04-24 (batch 3 tightening)"
     },
     {
       "story_id": 18,
@@ -459,15 +460,16 @@
       "title_en": "A Bird in the Rain",
       "scores": {
         "literacy": 5,
-        "comprehensibility": 4,
-        "scene_coherence": 4,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
         "narrative_shape": 4,
         "engagement_emotion": 4,
-        "economy_density": 3
+        "economy_density": 4
       },
-      "total": 24,
-      "tier": "A",
-      "note": "Sad-then-glad turn at s10->s11 works; 「友達は来ません」 sentence is bolted on."
+      "total": 27,
+      "tier": "S",
+      "note": "Tightened batch 3: cat-on-bench / yesterday's flowers now anchored to the rain-window scene (cat by the window, flowers wet from rain). Scene +1, economy +1.",
+      "rewritten": "2026-04-24 (batch 3 tightening)"
     },
     {
       "story_id": 19,
@@ -475,16 +477,16 @@
       "title_en": "A Bird in the Garden",
       "scores": {
         "literacy": 5,
-        "comprehensibility": 4,
-        "scene_coherence": 4,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
         "narrative_shape": 4,
         "engagement_emotion": 4,
-        "economy_density": 3
+        "economy_density": 4
       },
-      "total": 24,
-      "tier": "A",
-      "note": "Rewritten 2026-04-24 (batch 2): 「鳥は痛いですか」 now lands inside a child-memory frame; reinforcement words (太陽/子供/昨日/痛い) live inside the scene rather than as drills.",
-      "rewritten": "2026-04-24 (batch 2)"
+      "total": 27,
+      "tier": "S",
+      "note": "Tightened batch 3: 「鳥は痛いですか」 now lands as two clean clauses with the child memory; awkward と stitch removed. Scene +1, economy +1.",
+      "rewritten": "2026-04-24 (batch 2) · 2026-04-24 (batch 3 tightening)"
     },
     {
       "story_id": 20,
@@ -560,14 +562,15 @@
       "scores": {
         "literacy": 5,
         "comprehensibility": 4,
-        "scene_coherence": 4,
+        "scene_coherence": 5,
         "narrative_shape": 4,
         "engagement_emotion": 4,
-        "economy_density": 3
+        "economy_density": 4
       },
-      "total": 24,
-      "tier": "A",
-      "note": "Ambitious 14-sentence morning; the autumn flashback is the only off-frame moment."
+      "total": 26,
+      "tier": "S",
+      "note": "Tightened batch 3: combined breakfast lines, 「今朝、駅から友達が電車で来ます」 + waiting + walking now reads as one continuous spring morning. Scene +1, economy +1.",
+      "rewritten": "2026-04-24 (batch 3 tightening)"
     },
     {
       "story_id": 25,
@@ -591,15 +594,16 @@
       "title_en": "A Small Key",
       "scores": {
         "literacy": 5,
-        "comprehensibility": 4,
+        "comprehensibility": 5,
         "scene_coherence": 4,
-        "narrative_shape": 4,
+        "narrative_shape": 5,
         "engagement_emotion": 4,
-        "economy_density": 3
+        "economy_density": 4
       },
-      "total": 24,
-      "tier": "A",
-      "note": "Key-opens-home arc is satisfying; the final two lines are decorative add-ons."
+      "total": 27,
+      "tier": "S",
+      "note": "Tightened batch 3: closing tricolon 「小さい鍵、温かい家、美しい夕方です」 replaces the three orphan decorative lines. Narrative +1, economy +1.",
+      "rewritten": "2026-04-24 (batch 3 tightening)"
     },
     {
       "story_id": 27,
@@ -640,16 +644,16 @@
       "title_en": "A Friend on the Bench",
       "scores": {
         "literacy": 5,
-        "comprehensibility": 4,
-        "scene_coherence": 4,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
         "narrative_shape": 4,
         "engagement_emotion": 4,
-        "economy_density": 3
+        "economy_density": 4
       },
-      "total": 24,
-      "tier": "A",
-      "note": "Rewritten 2026-04-24 (batch 2): family-photo center extended into the friend's quote; closing 「明日も来ますか」/「来ます」 turn it into a relationship beat.",
-      "rewritten": "2026-04-24 (batch 2)"
+      "total": 27,
+      "tier": "S",
+      "note": "Tightened batch 3: 「雨ですが、公園は静かです。でも、友達は来ます」 moved to opening so the bench scene is uninterrupted. Scene +1, economy +1.",
+      "rewritten": "2026-04-24 (batch 2) · 2026-04-24 (batch 3 tightening)"
     },
     {
       "story_id": 30,
@@ -689,16 +693,16 @@
       "title_en": "Winter Breakfast",
       "scores": {
         "literacy": 5,
-        "comprehensibility": 4,
-        "scene_coherence": 4,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
         "narrative_shape": 4,
         "engagement_emotion": 4,
-        "economy_density": 3
+        "economy_density": 4
       },
-      "total": 24,
-      "tier": "A",
-      "note": "Rewritten 2026-04-24 (batch 2): father-call now a real Q-and-A (「寒い朝ですね」「少し寒いです」「元気ですか」「元気です」), the tail 「夏は暑い、冬は寒いですね」 belongs to the call.",
-      "rewritten": "2026-04-24 (batch 2)"
+      "total": 27,
+      "tier": "S",
+      "note": "Tightened batch 3: 「夏は暑い、冬は寒いですね」 now belongs to the call (last quote before father hangs up); 走ります woven into 「お茶を飲んで、寒い道を走ります」. Scene +1, economy +1.",
+      "rewritten": "2026-04-24 (batch 2) · 2026-04-24 (batch 3 tightening)"
     },
     {
       "story_id": 33,
@@ -739,15 +743,15 @@
       "scores": {
         "literacy": 5,
         "comprehensibility": 4,
-        "scene_coherence": 4,
+        "scene_coherence": 5,
         "narrative_shape": 4,
         "engagement_emotion": 4,
-        "economy_density": 3
+        "economy_density": 4
       },
-      "total": 24,
-      "tier": "A",
-      "note": "Rewritten 2026-04-24 (batch 2): emotion still works; the reinforcement nouns (電話/雲/客/町) live in the scene.",
-      "rewritten": "2026-04-24 (batch 2)"
+      "total": 26,
+      "tier": "S",
+      "note": "Tightened batch 3: 雲/客/町 lines integrated into a real walking-out-to-send-the-letter close. Scene +1, economy +1.",
+      "rewritten": "2026-04-24 (batch 2) · 2026-04-24 (batch 3 tightening)"
     },
     {
       "story_id": 36,
@@ -835,15 +839,16 @@
       "title_en": "The Bookstore in Spring",
       "scores": {
         "literacy": 5,
-        "comprehensibility": 4,
+        "comprehensibility": 5,
         "scene_coherence": 4,
-        "narrative_shape": 4,
+        "narrative_shape": 5,
         "engagement_emotion": 4,
-        "economy_density": 3
+        "economy_density": 4
       },
-      "total": 24,
-      "tier": "A",
-      "note": "Bookshop-revisit works; 「鍵がありません」 and 「言葉は小さいですから、大切です」 each pull in different directions."
+      "total": 27,
+      "tier": "S",
+      "note": "Tightened batch 3: school/children, river, stove now pair into two coherent images (rain stove + river quiet; outside school) instead of three orphan lines. Narrative +1, economy +1.",
+      "rewritten": "2026-04-24 (batch 3 tightening)"
     },
     {
       "story_id": 42,
@@ -851,16 +856,16 @@
       "title_en": "The Two Of Us, On the Road",
       "scores": {
         "literacy": 5,
-        "comprehensibility": 4,
-        "scene_coherence": 4,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
         "narrative_shape": 4,
         "engagement_emotion": 4,
-        "economy_density": 3
+        "economy_density": 4
       },
-      "total": 24,
-      "tier": "A",
-      "note": "Rewritten 2026-04-24: 「友達さん」 unidiomatic line replaced with 「祖母さんの手紙の返事」 — a real withheld-feeling motif. Mountain/river/moon now form one image rather than three. Literacy, scene each up one.",
-      "rewritten": "2026-04-24"
+      "total": 27,
+      "tier": "S",
+      "note": "Tightened batch 3: tightened doubled 月 image; 「山の空に、大きい月が出ています」 reads as one line. Scene +1, economy +1.",
+      "rewritten": "2026-04-24 · 2026-04-24 (batch 3 tightening)"
     },
     {
       "story_id": 43,
@@ -1302,6 +1307,24 @@
       ],
       "build_status": "green (156 passed)",
       "audio_status": "Audio regenerated with google backend (ja-JP-Neural2-B, MP3) for all 10 stories."
+    },
+    {
+      "date": "2026-04-24 (batch 3 tightening)",
+      "summary": "Surgical tightening of new bottom-10 (17, 18, 19, 24, 26, 29, 32, 35, 41, 42). Each story gained 1-2 points by integrating reuse anchors into the actual scene rather than appending them as a tail. 156/156 tests pass.",
+      "rewritten_story_ids": [
+        17,
+        18,
+        19,
+        24,
+        26,
+        29,
+        32,
+        35,
+        41,
+        42
+      ],
+      "build_status": "green (156 passed)",
+      "audio_status": "Audio regenerated with google backend (ja-JP-Neural2-B, MP3) for all 10 stories; stale higher-index files removed."
     }
   ]
 }

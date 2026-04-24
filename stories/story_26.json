@@ -99,7 +99,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Long evening, I go home."
+      "gloss_en": "Long evening, I go home.",
+      "audio": "audio/story_26/s0.mp3",
+      "audio_hash": "3baed20e5adb"
     },
     {
       "idx": 1,
@@ -160,7 +162,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is a key in the door of the house."
+      "gloss_en": "There is a key in the door of the house.",
+      "audio": "audio/story_26/s1.mp3",
+      "audio_hash": "5b3f8883773d"
     },
     {
       "idx": 2,
@@ -193,7 +197,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The key is small."
+      "gloss_en": "The key is small.",
+      "audio": "audio/story_26/s2.mp3",
+      "audio_hash": "865d31bffb31"
     },
     {
       "idx": 3,
@@ -242,7 +248,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "With the key, I open the door."
+      "gloss_en": "With the key, I open the door.",
+      "audio": "audio/story_26/s3.mp3",
+      "audio_hash": "e883b7f46c65"
     },
     {
       "idx": 4,
@@ -304,7 +312,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I enter the house alone."
+      "gloss_en": "I enter the house alone.",
+      "audio": "audio/story_26/s4.mp3",
+      "audio_hash": "7349825ebf13"
     },
     {
       "idx": 5,
@@ -347,7 +357,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I enter the room too."
+      "gloss_en": "I enter the room too.",
+      "audio": "audio/story_26/s5.mp3",
+      "audio_hash": "72cf633ad343"
     },
     {
       "idx": 6,
@@ -380,7 +392,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The room is warm."
+      "gloss_en": "The room is warm.",
+      "audio": "audio/story_26/s6.mp3",
+      "audio_hash": "b5b743315591"
     },
     {
       "idx": 7,
@@ -440,7 +454,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On the desk is a letter from my friend."
+      "gloss_en": "On the desk is a letter from my friend.",
+      "audio": "audio/story_26/s7.mp3",
+      "audio_hash": "791243f807e4"
     },
     {
       "idx": 8,
@@ -500,7 +516,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I read the letter at the desk."
+      "gloss_en": "I read the letter at the desk.",
+      "audio": "audio/story_26/s8.mp3",
+      "audio_hash": "0be3d6bb6846"
     },
     {
       "idx": 9,
@@ -537,55 +555,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am happy."
+      "gloss_en": "I am happy.",
+      "audio": "audio/story_26/s9.mp3",
+      "audio_hash": "d77f9378798f"
     },
     {
       "idx": 10,
-      "tokens": [
-        {
-          "t": "小さい",
-          "role": "content",
-          "word_id": "W00055",
-          "r": "ちいさい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "鍵",
-          "role": "content",
-          "word_id": "W00079",
-          "r": "かぎ"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "温かい",
-          "role": "content",
-          "word_id": "W00012",
-          "r": "あたたかい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "家",
-          "role": "content",
-          "word_id": "W00078",
-          "r": "いえ"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "A small key, a warm home."
-    },
-    {
-      "idx": 11,
       "tokens": [
         {
           "t": "鍵",
@@ -638,11 +613,47 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I place the key and the book on the desk."
+      "gloss_en": "I place the key and the book on the desk.",
+      "audio": "audio/story_26/s10.mp3",
+      "audio_hash": "fb460d201aa2"
     },
     {
-      "idx": 12,
+      "idx": 11,
       "tokens": [
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00055",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "鍵",
+          "role": "content",
+          "word_id": "W00079",
+          "r": "かぎ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "温かい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
         {
           "t": "美しい",
           "role": "content",
@@ -658,17 +669,6 @@
           "r": "ゆうがた"
         },
         {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "家",
-          "role": "content",
-          "word_id": "W00078",
-          "r": "いえ"
-        },
-        {
           "t": "です",
           "role": "aux",
           "grammar_id": "G003_desu"
@@ -678,7 +678,19 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A beautiful home in the evening."
+      "gloss_en": "A small key, a warm home, a beautiful evening.",
+      "audio": "audio/story_26/s11.mp3",
+      "audio_hash": "873c3ecedd98"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00079": "audio/story_26/w_W00079.mp3",
+    "W00080": "audio/story_26/w_W00080.mp3",
+    "W00083": "audio/story_26/w_W00083.mp3"
+  },
+  "word_audio_hash": {
+    "W00079": "1c59564ec66e",
+    "W00080": "466016d47860",
+    "W00083": "5b3f69361d46"
+  }
 }

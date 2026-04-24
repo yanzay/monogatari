@@ -51,10 +51,10 @@
     "W00115",
     "W00088",
     "W00094",
-    "W00077",
-    "W00012",
     "W00081",
     "W00082",
+    "W00077",
+    "W00012",
     "W00064",
     "W00102",
     "W00137",
@@ -585,116 +585,6 @@
       "idx": 8,
       "tokens": [
         {
-          "t": "そして",
-          "role": "particle",
-          "grammar_id": "G012_soshite_then"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "父",
-          "role": "content",
-          "word_id": "W00096",
-          "r": "ちち"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "電話",
-          "role": "content",
-          "word_id": "W00093",
-          "r": "でんわ"
-        },
-        {
-          "t": "から",
-          "role": "particle",
-          "grammar_id": "G006_kara_from"
-        },
-        {
-          "t": "出ます",
-          "role": "content",
-          "word_id": "W00077",
-          "r": "でます",
-          "inflection": {
-            "base": "出る",
-            "base_r": "でる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "And then, father leaves the call.",
-      "audio": "audio/story_32/s8.mp3",
-      "audio_hash": "7e2d828f9ea0"
-    },
-    {
-      "idx": 9,
-      "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "温かい",
-          "role": "content",
-          "word_id": "W00012",
-          "r": "あたたかい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "お茶",
-          "role": "content",
-          "word_id": "W00009",
-          "r": "おちゃ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "飲みます",
-          "role": "content",
-          "word_id": "W00010",
-          "r": "のみます",
-          "inflection": {
-            "base": "飲む",
-            "base_r": "のむ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I drink the warm tea.",
-      "audio": "audio/story_32/s9.mp3",
-      "audio_hash": "aa933af6c18e"
-    },
-    {
-      "idx": 10,
-      "tokens": [
-        {
           "t": "「",
           "role": "punct"
         },
@@ -787,11 +677,67 @@
         }
       ],
       "gloss_en": "\"Summer is hot, winter is cold, isn't it,\" father said.",
-      "audio": "audio/story_32/s10.mp3",
+      "audio": "audio/story_32/s8.mp3",
       "audio_hash": "bbabf0ff321e"
     },
     {
-      "idx": 11,
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "そして",
+          "role": "particle",
+          "grammar_id": "G012_soshite_then"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "父",
+          "role": "content",
+          "word_id": "W00096",
+          "r": "ちち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "電話",
+          "role": "content",
+          "word_id": "W00093",
+          "r": "でんわ"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "出ます",
+          "role": "content",
+          "word_id": "W00077",
+          "r": "でます",
+          "inflection": {
+            "base": "出る",
+            "base_r": "でる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "And then, father leaves the call.",
+      "audio": "audio/story_32/s9.mp3",
+      "audio_hash": "7e2d828f9ea0"
+    },
+    {
+      "idx": 10,
       "tokens": [
         {
           "t": "私",
@@ -803,6 +749,48 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "温かい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00009",
+          "r": "おちゃ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "飲んで",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "のんで",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "寒い",
+          "role": "content",
+          "word_id": "W00062",
+          "r": "さむい",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "道",
@@ -831,36 +819,14 @@
         {
           "t": "。",
           "role": "punct"
-        },
-        {
-          "t": "寒い",
-          "role": "content",
-          "word_id": "W00062",
-          "r": "さむい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "道",
-          "role": "content",
-          "word_id": "W00064",
-          "r": "みち"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
         }
       ],
-      "gloss_en": "I run down the road. It is a cold road.",
-      "audio": "audio/story_32/s11.mp3",
-      "audio_hash": "5ba254d74478"
+      "gloss_en": "I drink the warm tea, then run down the cold road.",
+      "audio": "audio/story_32/s10.mp3",
+      "audio_hash": "ebc68c9c8479"
     },
     {
-      "idx": 12,
+      "idx": 11,
       "tokens": [
         {
           "t": "明るい",
@@ -931,7 +897,7 @@
         }
       ],
       "gloss_en": "A bright house, a kind father, a cold winter breakfast.",
-      "audio": "audio/story_32/s12.mp3",
+      "audio": "audio/story_32/s11.mp3",
       "audio_hash": "cfee4b2e1e83"
     }
   ],
