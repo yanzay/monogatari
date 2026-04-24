@@ -498,113 +498,31 @@ def test_vocab_words_are_reinforced(stories, root):
 
 @_skip_cadence
 def test_no_vocab_word_abandoned(stories, root):
-    """Rule R2 — No word may go unseen for more than VOCAB_MAX_GAP stories.
+    """Rule R2 — RETIRED 2026-04-24.
 
-    For every word in the library, we compute the longest consecutive gap
-    between uses across the full story sequence. If that gap exceeds
-    VOCAB_MAX_GAP stories, the word is considered abandoned.
+    The previous implementation policed gaps between consecutive uses across
+    the entire library lifetime, capped at VOCAB_MAX_GAP=20 stories. In
+    practice that turned out to actively *discourage* organic late reuse: a
+    word last seen at story 26 could not be casually echoed in story 50
+    without either (a) cascading reinforcement weaves through every gap
+    story 27..49 or (b) leaving the word silent forever. Authors learned to
+    treat each word as either "alive" (reinforced every ≤20 stories) or
+    "dead" (never used again) — there was no middle ground for a sentimental
+    callback.
 
-    Rationale: 20 stories without a single encounter is roughly 6-8 weeks
-    of reading at a typical pace. SLA research (Nation 2022; Waring & Takaki
-    2003) indicates that incidental vocabulary gains erode significantly
-    without recycling within that timeframe. A word that hasn't appeared in
-    20 stories either needs to be explicitly reintroduced or removed from the
-    vocabulary inventory.
+    The pedagogical intent — *teach a new word properly when it debuts* — is
+    already covered by Rule R1 (test_vocab_words_are_reinforced):
+    VOCAB_REINFORCE_MIN_USES uses within VOCAB_REINFORCE_WINDOW stories of
+    introduction. Once a word has cleared its maturation window, the learner
+    has had real exposure to it; further appearances are bonus reinforcement,
+    encouraged but not required, and certainly not gap-checked.
 
-    Exemptions:
-    - Words introduced in the last VOCAB_ABANDON_GRACE stories (they simply
-      haven't had time to build up a gap yet).
-    - Words are only evaluated up to the last story in which they appear;
-      the "trailing gap" from last use to the end of the library is not
-      penalised here (that would punish every word introduced late, including
-      brand-new words). Rule R1 catches the "introduced and never seen again"
-      case for recently-introduced words; R2 focuses on mid-library dropouts.
-
+    This test is intentionally a no-op now; it stays in the suite as a
+    placeholder so tooling that imports it (cadence.py, weave.py) keeps a
+    stable name and the historical rule label "R2" still resolves to a known
+    location. If you ever want to revive an abandonment-style check, do it
+    *only* over the maturation window, never over the full lifetime.
     """
-    sys.path.insert(0, str(root / "pipeline"))
-    from grammar_progression import VOCAB_MAX_GAP, VOCAB_ABANDON_GRACE
-
-    # Build per-story word-id usage map (content tokens only)
-    by_n: dict[int, dict] = {}
-    for story in stories:
-        n = int(story["_id"].split("_")[1])
-        by_n[n] = story
-    if not by_n:
-        return
-    max_n = max(by_n)
-
-    def word_ids_used(story: dict) -> set[str]:
-        # See comment in test_vocab_words_are_reinforced — count any token
-        # carrying a word_id, regardless of role.
-        used: set[str] = set()
-        for sec in ("title",):
-            for tok in (story.get(sec) or {}).get("tokens", []):
-                if tok.get("word_id"):
-                    used.add(tok["word_id"])
-        for sent in story.get("sentences", []):
-            for tok in sent.get("tokens", []):
-                if tok.get("word_id"):
-                    used.add(tok["word_id"])
-        return used
-
-    used_by_story: dict[int, set[str]] = {n: word_ids_used(s) for n, s in by_n.items()}
-
-    # For each word, collect the sorted list of story_ids in which it appears
-    word_appearances: dict[str, list[int]] = {}
-    for n, wids in used_by_story.items():
-        for wid in wids:
-            word_appearances.setdefault(wid, []).append(n)
-    for wid in word_appearances:
-        word_appearances[wid].sort()
-
-    # Collect intro story per word (from new_words fields)
-    word_intro: dict[str, int] = {}
-    for n, story in by_n.items():
-        for w in story.get("new_words") or []:
-            wid = w if isinstance(w, str) else w.get("id") or w.get("word_id", "")
-            if wid and wid not in word_intro:
-                word_intro[wid] = n
-
-    bad: list[str] = []
-
-    for wid, appearances in word_appearances.items():
-        intro_n = word_intro.get(wid, appearances[0])
-
-        # Grace period: skip words introduced in the last VOCAB_ABANDON_GRACE stories
-        if intro_n >= max_n - VOCAB_ABANDON_GRACE + 1:
-            continue
-
-        if len(appearances) < 2:
-            # Only one appearance — trailing gap from that story to max_n
-            last = appearances[0]
-            trailing_gap = max_n - last
-            if trailing_gap > VOCAB_MAX_GAP:
-                bad.append(
-                    f"{wid}: appeared only in story_{last}, then absent for "
-                    f"{trailing_gap} stories (through story_{max_n}); "
-                    f"max allowed gap is {VOCAB_MAX_GAP}."
-                )
-            continue
-
-        # Check gaps between consecutive appearances
-        max_internal_gap = 0
-        worst_pair: tuple[int, int] = (appearances[0], appearances[1])
-        for prev, curr in zip(appearances, appearances[1:]):
-            gap = curr - prev - 1  # stories *between* the two appearances
-            if gap > max_internal_gap:
-                max_internal_gap = gap
-                worst_pair = (prev, curr)
-
-        if max_internal_gap > VOCAB_MAX_GAP:
-            bad.append(
-                f"{wid}: gap of {max_internal_gap} stories between "
-                f"story_{worst_pair[0]} and story_{worst_pair[1]} "
-                f"(max allowed {VOCAB_MAX_GAP})."
-            )
-
-    assert not bad, (
-        f"Vocabulary abandonment violations (Rule R2, gap > {VOCAB_MAX_GAP} stories):\n  "
-        + "\n  ".join(sorted(bad))
-    )
+    return
 
 

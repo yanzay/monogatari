@@ -8,7 +8,7 @@ straight answers about which weaves are needed.
 Examples:
   cadence.py vocab-reinforce              # Rule R1 (must reappear ≥2 times)
   cadence.py vocab-reinforce --story 12   # only consider intros from story 12
-  cadence.py vocab-abandoned              # Rule R2 (no 20+ story gap)
+  cadence.py vocab-abandoned              # Rule R2 — RETIRED 2026-04-24 (no-op)
   cadence.py grammar-reinforce            # Rule G2 (introduced grammar reused)
   cadence.py grammar-cadence              # Rule G1 (intro pacing)
   cadence.py vocab-cadence                # Rule V (vocab pacing)
@@ -86,39 +86,14 @@ def cmd_vocab_reinforce(args):
 
 
 def cmd_vocab_abandoned(args):
-    sys.path.insert(0, str(PIPELINE))
-    from grammar_progression import VOCAB_MAX_GAP, VOCAB_ABANDON_GRACE
-    by_n = _by_n()
-    max_n = max(by_n)
-    used_by = {n: _word_ids_used(s) for n, s in by_n.items()}
-    apps = {}
-    for n, wids in used_by.items():
-        for wid in wids:
-            apps.setdefault(wid, []).append(n)
-    for wid in apps: apps[wid].sort()
-    intro = {}
-    for n, s in by_n.items():
-        for w in s.get("new_words") or []:
-            wid = w if isinstance(w, str) else w.get("id") or w.get("word_id", "")
-            if wid and wid not in intro:
-                intro[wid] = n
-    bad = []
-    for wid, app in apps.items():
-        in_n = intro.get(wid, app[0])
-        if in_n >= max_n - VOCAB_ABANDON_GRACE + 1: continue
-        if len(app) < 2:
-            gap = max_n - app[0]
-            if gap > VOCAB_MAX_GAP:
-                bad.append((wid, "trailing", app[0], gap))
-            continue
-        worst = max(c-p-1 for p, c in zip(app, app[1:]))
-        if worst > VOCAB_MAX_GAP:
-            bad.append((wid, "internal", app, worst))
-    if not bad:
-        print(color("✓ Rule R2: no abandoned vocabulary.", "green")); return
-    for wid, kind, info, worst in bad:
-        print(f"  {color(wid,'cyan')} {kind} gap={worst}  info={info}")
-    print(f"\n{color(f'{len(bad)} Rule R2 violation(s)','red')}")
+    """Rule R2 — RETIRED 2026-04-24. See test_no_vocab_word_abandoned."""
+    print(color(
+        "ℹ Rule R2 (vocab abandonment) is retired. The library no longer\n"
+        "  enforces a max gap between consecutive uses of a word past its\n"
+        "  initial maturation window. Late reuse is encouraged but not required.\n"
+        "  Rule R1 (cmd_vocab_reinforce) still enforces ≥2 uses within the\n"
+        "  10-story window after introduction.",
+        "yellow"))
 
 
 def cmd_grammar_reinforce(args):

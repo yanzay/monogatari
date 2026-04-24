@@ -18,7 +18,7 @@ the rule itself is wrong.
 | B | `test_vocabulary_introduction_cadence` (≥3 new words/story) | Library keeps growing | 2 (story_4, story_40) |
 | C | `test_introduced_grammar_is_reinforced` (≥1 use in next 5 stories) | New grammar lands | 12 |
 | D | `test_vocab_words_are_reinforced` (≥2 uses in next 10 stories) | New vocab lands | ~37 |
-| E | `test_no_vocab_word_abandoned` (max 20-story gap) | SRS continues | 2 (W00112, W00215) |
+| E | ~~`test_no_vocab_word_abandoned` (max 20-story gap)~~ | RETIRED 2026-04-24 — over-restricted late reuse; see test docstring. R1 still covers the SLA-grounded maturation window. | n/a |
 | F | Validator Check 3.6 (cadence) | Same as A, per-story gate | gated off |
 | G | Validator Check 3.7 (vocab floor) | Same as B, per-story gate | gated off |
 | H | Validator Check 3.8 (reinforcement) | Same as C, per-story gate | gated off |

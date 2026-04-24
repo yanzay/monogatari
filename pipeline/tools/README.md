@@ -35,7 +35,7 @@ out **before** committing it whether it would mint a new word.
 ```bash
 cadence.py vocab-reinforce            # Rule R1: ≥2 reuses in next 10 stories
 cadence.py vocab-reinforce --story 12 # only intros from story 12
-cadence.py vocab-abandoned            # Rule R2: no 20+ story gap
+cadence.py vocab-abandoned            # Rule R2: RETIRED 2026-04-24 (no-op stub)
 cadence.py grammar-reinforce          # Rule G2: introduced grammar reused
 cadence.py validate                   # validate.py over the full library
 cadence.py all                        # everything, in one report

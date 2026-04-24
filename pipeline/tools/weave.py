@@ -57,9 +57,9 @@ def _grammar_ids_used(story: dict) -> set[str]:
 def cmd_suggest(args):
     """Print a starter weave plan: one stub per R1, R2, or G2 violation."""
     sys.path.insert(0, str(ROOT / "pipeline"))
+    # VOCAB_MAX_GAP, VOCAB_ABANDON_GRACE were used by the R2 weave — retired 2026-04-24.
     from grammar_progression import (BOOTSTRAP_END, VOCAB_REINFORCE_WINDOW,
                                      VOCAB_REINFORCE_MIN_USES,
-                                     VOCAB_MAX_GAP, VOCAB_ABANDON_GRACE,
                                      REINFORCEMENT_WINDOW, MIN_REINFORCEMENT_USES)
     by_n = {sid: s for sid, s in iter_stories()}
     used = {n: _word_ids_used(s) for n, s in by_n.items()}
@@ -96,41 +96,12 @@ def cmd_suggest(args):
                     })
 
     if "r2" in rules:
-        apps: dict[str, list[int]] = {}
-        for n, wids in used.items():
-            for wid in wids:
-                apps.setdefault(wid, []).append(n)
-        for wid in apps: apps[wid].sort()
-        intro_n: dict[str, int] = {}
-        for n, s in by_n.items():
-            for w in s.get("new_words") or []:
-                wid = w if isinstance(w, str) else w.get("id") or w.get("word_id", "")
-                if wid and wid not in intro_n:
-                    intro_n[wid] = n
-        for wid, app in apps.items():
-            in_n = intro_n.get(wid, app[0])
-            if in_n >= max_n - VOCAB_ABANDON_GRACE + 1: continue
-            if len(app) < 2:
-                trailing = max_n - app[0]
-                if trailing > VOCAB_MAX_GAP:
-                    w = vocab["words"].get(wid, {})
-                    plan.append({
-                        "story": app[0] + VOCAB_MAX_GAP // 2,
-                        "jp": f"# R2 weave {w.get('surface','?')} (trailing gap={trailing} from story_{app[0]})",
-                        "en": "TODO",
-                        "_meta": {"rule": "R2", "wid": wid, "gap": trailing},
-                    })
-                continue
-            for prev, curr in zip(app, app[1:]):
-                gap = curr - prev - 1
-                if gap > VOCAB_MAX_GAP:
-                    w = vocab["words"].get(wid, {})
-                    plan.append({
-                        "story": prev + (gap // 2),
-                        "jp": f"# R2 weave {w.get('surface','?')} (gap={gap} between story_{prev} and story_{curr})",
-                        "en": "TODO",
-                        "_meta": {"rule": "R2", "wid": wid, "gap": gap},
-                    })
+        # Rule R2 (vocab abandonment) was retired on 2026-04-24 — see
+        # test_no_vocab_word_abandoned for the rationale. Late reuse is
+        # encouraged but not required, so there are no R2 violations to
+        # weave for. Kept here as a no-op so existing scripts that pass
+        # `--rules r1,r2,g2` continue to work.
+        pass
 
     if "g2" in rules:
         intros_g = {}

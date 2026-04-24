@@ -229,27 +229,35 @@ MIN_REINFORCEMENT_USES = 1   # the point must appear in ≥1 of those 5 stories
 #     This maps to ENCOUNTERS_TO_NOTICE (10) as a long-run target; the
 #     early-window check is the on-ramp.
 #
-#   Rule R2 (no abandoned words):
-#     No word that has been in the library for more than VOCAB_MAX_GAP stories
-#     may go unseen for more than VOCAB_MAX_GAP consecutive stories.
-#     "In the library" means its last_seen_story is tracked, but here we
-#     compute it live from the story files so it cannot be gamed by a
-#     stale state entry.
+#   Rule R2 (no abandoned words) — RETIRED 2026-04-24:
+#     The previous formulation policed the longest gap between consecutive
+#     uses of a word over the *entire library lifetime*, capped at 20
+#     stories. In practice this actively discouraged organic late reuse:
+#     a word last seen at story 26 could not be casually echoed in story
+#     50 without either (a) cascading reinforcement weaves through every
+#     gap story 27..49 or (b) leaving the word silent forever. Authors
+#     ended up treating each word as either "alive" (reinforced every ≤20
+#     stories) or "dead" (never used again) — there was no middle ground
+#     for a sentimental callback or a thematic echo.
 #
-#     Gap: 20 stories. Exemption: words introduced in the last
-#     VOCAB_ABANDON_GRACE stories (too new to have a gap yet).
-#     Rationale: 20 stories at ~3 sessions/week ≈ 7 weeks without a single
-#     encounter. Research (Nation 2022, Waring & Takaki 2003) suggests that
-#     without any recycling within 6–8 weeks, incidental reading gains are
-#     largely lost. A 20-story gap is therefore the outer bound consistent
-#     with maintaining vocabulary; beyond this the word is effectively
-#     abandoned and needs deliberate re-introduction.
+#     The pedagogical intent — *teach a new word properly when it debuts*
+#     — is fully covered by Rule R1 above. Once a word has cleared its
+#     10-story maturation window with ≥2 reinforcements, the learner has
+#     had real exposure to it. Anything later is the author's editorial
+#     choice; it is encouraged but never required.
+#
+#     The constants below are kept for backward compatibility with any
+#     external tooling that imports them, but the validator and pytest
+#     check are now no-ops. See test_no_vocab_word_abandoned for the
+#     deprecation notice.
 #
 VOCAB_REINFORCE_WINDOW   = 10   # look at the next 10 stories after introduction
 VOCAB_REINFORCE_MIN_USES = 2    # must appear in ≥2 of those 10 stories
-VOCAB_MAX_GAP            = 20   # no word unseen for more than 20 consecutive stories
-VOCAB_ABANDON_GRACE      = 10   # words introduced in the last N stories are exempt
-                                 # from the abandonment check (still building up)
+VOCAB_MAX_GAP            = 20   # DEPRECATED — no longer enforced. Was: max gap
+                                 # between consecutive uses of a word.
+VOCAB_ABANDON_GRACE      = 10   # DEPRECATED — no longer enforced. Was: words
+                                 # introduced in the last N stories were exempt
+                                 # from the abandonment check.
 
 
 

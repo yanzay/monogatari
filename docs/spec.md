@@ -219,7 +219,7 @@ Audio paths and SHA hashes are written back into the story JSON so referential i
 - **Schema integrity** — vocab/grammar shape, no orphans.
 - **Validator correctness** — every shipped story passes the validator.
 - **Referential integrity** — audio file count matches sentence count; word_id audio matches vocab.
-- **Pedagogical sanity** — all_words_used ordering, vocabulary reinforcement, no abandoned words.
+- **Pedagogical sanity** — all_words_used ordering, vocabulary reinforcement (Rule R1: ≥2 uses within 10 stories of introduction). The former Rule R2 (max 20-story gap) was retired 2026-04-24; late reuse of mature vocabulary is encouraged but not required. See `pipeline/tests/test_pedagogical_sanity.py::test_no_vocab_word_abandoned` for the rationale.
 - **Determinism** — re-running the pipeline on the same input produces byte-identical output.
 
 ## 9. Open questions
