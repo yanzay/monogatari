@@ -26,9 +26,9 @@
   "new_words": [
     "W00036",
     "W00037",
-    "W00038",
     "W00237",
-    "W00054"
+    "W00054",
+    "W00038"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -37,18 +37,20 @@
     "W00036",
     "W00029",
     "W00003",
-    "W00006",
     "W00037",
+    "W00006",
     "W00011",
-    "W00033",
-    "W00038",
-    "W00035",
+    "W00004",
+    "W00005",
     "W00239",
     "W00237",
     "W00054",
+    "W00038",
     "W00246",
+    "W00033",
     "W00039",
-    "W00060"
+    "W00060",
+    "W00035"
   ],
   "sentences": [
     {
@@ -105,9 +107,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Morning — the cat is on the chair.",
-      "audio": "audio/story_9/s0.mp3",
-      "audio_hash": "e4ce559566ba"
+      "gloss_en": "Morning — the cat is on the chair."
     },
     {
       "idx": 1,
@@ -122,6 +122,18 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "机",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "つくえ",
+          "is_new": true
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "猫",
@@ -152,69 +164,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I look at the cat.",
-      "audio": "audio/story_9/s1.mp3",
-      "audio_hash": "9a939f0bd1a3"
+      "gloss_en": "From the desk, I look at the cat."
     },
     {
       "idx": 2,
-      "tokens": [
-        {
-          "t": "そして",
-          "role": "particle",
-          "grammar_id": "G012_soshite_then"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "猫",
-          "role": "content",
-          "word_id": "W00028",
-          "r": "ねこ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "机",
-          "role": "content",
-          "word_id": "W00037",
-          "r": "つくえ",
-          "is_new": true
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "います",
-          "role": "content",
-          "word_id": "W00029",
-          "r": "います",
-          "inflection": {
-            "base": "いる",
-            "base_r": "いる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "And then — the cat is on the desk.",
-      "audio": "audio/story_9/s2.mp3",
-      "audio_hash": "a1c5b7d1f239"
-    },
-    {
-      "idx": 3,
       "tokens": [
         {
           "t": "猫",
@@ -243,13 +196,20 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The cat, too, is quiet.",
-      "audio": "audio/story_9/s3.mp3",
-      "audio_hash": "45038b33df6d"
+      "gloss_en": "The cat, too, is quiet."
     },
     {
-      "idx": 4,
+      "idx": 3,
       "tokens": [
+        {
+          "t": "そして",
+          "role": "particle",
+          "grammar_id": "G012_soshite_then"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
         {
           "t": "猫",
           "role": "content",
@@ -262,10 +222,21 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "本",
+          "t": "窓",
           "role": "content",
-          "word_id": "W00033",
-          "r": "ほん"
+          "word_id": "W00004",
+          "r": "まど"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "外",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "そと"
         },
         {
           "t": "を",
@@ -290,12 +261,128 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The cat looks at the book.",
-      "audio": "audio/story_9/s4.mp3",
-      "audio_hash": "464f4501824f"
+      "gloss_en": "And then — the cat looks outside through the window."
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "外",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "そと"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "石",
+          "role": "content",
+          "word_id": "W00239",
+          "r": "いし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "上",
+          "role": "content",
+          "word_id": "W00237",
+          "r": "うえ",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "鳥",
+          "role": "content",
+          "word_id": "W00054",
+          "r": "とり",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "います",
+          "role": "content",
+          "word_id": "W00029",
+          "r": "います",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Outside, on a stone, there is a bird."
     },
     {
       "idx": 5,
+      "tokens": [
+        {
+          "t": "猫",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "ねこ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "鳥",
+          "role": "content",
+          "word_id": "W00054",
+          "r": "とり"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The cat looks at the bird."
+    },
+    {
+      "idx": 6,
       "tokens": [
         {
           "t": "そして",
@@ -347,23 +434,32 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "And then — the cat sleeps on the chair.",
-      "audio": "audio/story_9/s5.mp3",
-      "audio_hash": "c825ecc2a57d"
+      "gloss_en": "And then — the cat sleeps on the chair."
     },
     {
-      "idx": 6,
+      "idx": 7,
       "tokens": [
         {
-          "t": "椅子",
+          "t": "私",
           "role": "content",
-          "word_id": "W00036",
-          "r": "いす"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
-          "t": "に",
+          "t": "は",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "ペン",
+          "role": "content",
+          "word_id": "W00246",
+          "r": "ぺん"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "猫",
@@ -372,34 +468,54 @@
           "r": "ねこ"
         },
         {
-          "t": "が",
+          "t": "の",
           "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "います",
+          "t": "本",
           "role": "content",
-          "word_id": "W00029",
-          "r": "います",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "書きます",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "かきます",
           "inflection": {
-            "base": "いる",
-            "base_r": "いる",
+            "base": "書く",
+            "base_r": "かく",
             "form": "polite_nonpast",
-            "verb_class": "ichidan"
+            "verb_class": "godan"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "On the chair, the cat is there.",
-      "audio": "audio/story_9/s6.mp3",
-      "audio_hash": "6264b8823791"
+      "gloss_en": "With my pen, in the cat's book, I write a letter."
     },
     {
-      "idx": 7,
+      "idx": 8,
       "tokens": [
         {
           "t": "猫",
@@ -435,6 +551,17 @@
           "grammar_id": "G017_de_means"
         },
         {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "な",
+          "role": "particle",
+          "grammar_id": "G016_na_adjective"
+        },
+        {
           "t": "朝",
           "role": "content",
           "word_id": "W00015",
@@ -450,130 +577,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The cat and I, the two of us — it is morning.",
-      "audio": "audio/story_9/s7.mp3",
-      "audio_hash": "27f73852d424"
-    },
-    {
-      "idx": 8,
-      "tokens": [
-        {
-          "t": "石",
-          "role": "content",
-          "word_id": "W00239",
-          "r": "いし"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "上",
-          "role": "content",
-          "word_id": "W00237",
-          "r": "うえ",
-          "is_new": true
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "鳥",
-          "role": "content",
-          "word_id": "W00054",
-          "r": "とり",
-          "is_new": true
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "います",
-          "role": "content",
-          "word_id": "W00029",
-          "r": "います",
-          "inflection": {
-            "base": "いる",
-            "base_r": "いる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "On the stone is a bird.",
-      "audio": "audio/story_9/s8.mp3",
-      "audio_hash": "bf049977c40f"
-    },
-    {
-      "idx": 9,
-      "tokens": [
-        {
-          "t": "ペン",
-          "role": "content",
-          "word_id": "W00246",
-          "r": "ぺん"
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "手紙",
-          "role": "content",
-          "word_id": "W00039",
-          "r": "てがみ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "書きます",
-          "role": "content",
-          "word_id": "W00060",
-          "r": "かきます",
-          "inflection": {
-            "base": "書く",
-            "base_r": "かく",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I write a letter with a pen.",
-      "audio": "audio/story_9/s9.mp3",
-      "audio_hash": "38fc7ac6d9d3"
+      "gloss_en": "The cat and I, the two of us — a quiet morning."
     }
-  ],
-  "word_audio": {
-    "W00036": "audio/story_9/w_W00036.mp3",
-    "W00037": "audio/story_9/w_W00037.mp3",
-    "W00038": "audio/story_9/w_W00038.mp3",
-    "W00237": "audio/story_9/w_W00237.mp3",
-    "W00054": "audio/story_9/w_W00054.mp3"
-  },
-  "word_audio_hash": {
-    "W00036": "e57f49ca9c81",
-    "W00037": "145676361e97",
-    "W00038": "b0a86c30044f",
-    "W00237": "db5ba671d244",
-    "W00054": "8754cc62cbb1"
-  }
+  ]
 }
