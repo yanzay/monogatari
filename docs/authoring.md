@@ -28,8 +28,27 @@ No external LLMs are involved. All NLP is local: `fugashi` (UniDic) for tokeniza
 
 ## Prerequisites
 
+> **⚠ Activate the project venv first — every time.**
+> Every pipeline script (`text_to_story.py`, `regenerate_all_stories.py`,
+> `validate.py`, `audio_builder.py`, `lookup.py`, `precheck.py`) depends on
+> `fugashi` + `jamdict` + `jaconv`. If those imports fail under whichever
+> Python you happen to invoke, `text_to_story.build_story` silently emits
+> sentences with empty token arrays. The end-of-run orphan-vocab cleanup
+> in `regenerate_all_stories.py` then concludes that *every* word is
+> unreferenced and tries to delete `data/vocab_state.json`. The script now
+> hard-fails on the missing-deps case (preflight import check + refuse to
+> drop >50% of vocab as "orphans"), but the cleanest defence is the habit
+> of always activating the venv before running anything in `pipeline/`.
+
 ```bash
+# One-time setup
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
+
+# Every shell session that touches pipeline/
+source .venv/bin/activate
+
 # For audio generation:
 gcloud auth application-default login
 export GOOGLE_CLOUD_PROJECT=<your-project-id>

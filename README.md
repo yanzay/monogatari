@@ -18,8 +18,29 @@ python3 -m http.server 8080
 
 ### Author a new story
 
+> **⚠ Always activate the project venv before running any pipeline script.**
+> The regenerator depends on `fugashi`, `jamdict`, and `jaconv`. If any of
+> those imports fail at runtime, `text_to_story` silently produces empty
+> token arrays and the orphan-vocab cleanup at the end of a regen run will
+> wipe `data/vocab_state.json`. The script now hard-fails on missing deps
+> (and refuses to drop >50% of vocab as "orphans"), but you should still get
+> in the habit of activating the venv first:
+>
+> ```bash
+> source .venv/bin/activate     # macOS / Linux
+> # .venv\Scripts\activate      # Windows PowerShell
+> ```
+>
+> If `.venv/` doesn't exist yet:
+>
+> ```bash
+> python3 -m venv .venv
+> source .venv/bin/activate
+> pip install -r requirements.txt
+> ```
+
 ```bash
-# 1. Install authoring deps (one-time)
+# 1. Install authoring deps (one-time, inside the venv — see callout above)
 pip install -r requirements.txt
 
 # 2. Write your bilingual JP+EN spec — this is the source of truth

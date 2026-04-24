@@ -31,6 +31,66 @@ sys.path.insert(0, str(Path(__file__).parent))
 from text_to_story import build_story  # type: ignore
 
 
+def _preflight_dependencies() -> None:
+    """Hard-fail early if the Japanese-NLP toolchain isn't importable.
+
+    Without these, ``text_to_story.build_story`` silently produces sentences
+    with empty token arrays. The orphan-vocab cleanup at the end of ``main``
+    then concludes that *every* word is unreferenced and wipes
+    ``data/vocab_state.json`` — a one-line traceback after a multi-minute run
+    that is very expensive to recover from. Catching this up front converts a
+    catastrophic data-loss bug into a one-line install hint.
+
+    Common cause: running the regenerator with the system Python instead of
+    the project venv. See README.md → "Setup" for the canonical incantation
+    (``source .venv/bin/activate``).
+    """
+    missing: list[str] = []
+    for mod in ("fugashi", "jamdict", "jaconv"):
+        try:
+            __import__(mod)
+        except ImportError:
+            missing.append(mod)
+    if missing:
+        sys.stderr.write(
+            "ERROR: required Japanese-NLP packages not importable: "
+            + ", ".join(missing) + "\n"
+            "       The regenerator would silently produce empty token arrays\n"
+            "       and the orphan-vocab cleanup would wipe data/vocab_state.json.\n"
+            "       Activate the project venv first:\n"
+            "         source .venv/bin/activate\n"
+            "       (or `pip install -r requirements.txt` if the venv is missing)\n"
+        )
+        sys.exit(2)
+
+
+def _assert_tokens_nonempty(sid: int, regen: dict) -> None:
+    """Refuse to write a regenerated story whose sentences have no tokens.
+
+    A non-empty bilingual spec that round-trips to zero tokens means
+    ``text_to_story`` failed silently (e.g. an upstream dependency import
+    raised, a fugashi tagger constructor returned None, or the bilingual
+    JSON's ``sentences[].jp`` field went missing). Either way, writing the
+    empty result would corrupt the shipped library and cascade into a
+    vocab_state wipe at the end of ``main``. Crash loudly instead.
+    """
+    sentences = regen.get("sentences") or []
+    if not sentences:
+        return  # bilingual spec with zero sentences — let the validator complain.
+    empty_idxs = [s.get("idx", i) for i, s in enumerate(sentences)
+                  if not s.get("tokens")]
+    if empty_idxs:
+        raise RuntimeError(
+            f"story {sid}: {len(empty_idxs)}/{len(sentences)} sentence(s) "
+            f"produced zero tokens (sentence indices {empty_idxs[:5]}"
+            f"{'...' if len(empty_idxs) > 5 else ''}). "
+            "This indicates text_to_story silently failed — usually a missing "
+            "Japanese-NLP dependency. Refusing to write empty tokens (would "
+            "wipe vocab_state during orphan cleanup). Activate the venv: "
+            "`source .venv/bin/activate`."
+        )
+
+
 def extract_spec(canonical: dict) -> dict:
     """Bootstrap path only: derive a bilingual spec from a shipped story.
     Used the very first time a story passes through the regenerator,
@@ -411,6 +471,10 @@ def main() -> int:
                     help="Where to write bilingual specs.")
     args = ap.parse_args()
 
+    # Hard-fail before doing any work if the NLP toolchain is missing — see
+    # _preflight_dependencies() docstring for why this matters.
+    _preflight_dependencies()
+
     if not args.apply:
         print("DRY RUN — pass --apply to actually write files.")
 
@@ -442,6 +506,17 @@ def main() -> int:
         sid = int(canon_path.stem.split("_")[1])
         try:
             spec, regen, report = regen_one(canon_path, vocab, grammar, inputs_dir=args.inputs_dir)
+            # Defensive: a non-empty bilingual spec must produce non-empty
+            # token arrays. If it doesn't, abort the whole run before the
+            # orphan-vocab cleanup wipes data/vocab_state.json.
+            _assert_tokens_nonempty(sid, regen)
+        except RuntimeError as e:
+            # Token-emptiness assertions are fatal — proceeding would corrupt
+            # vocab_state. Stop the whole run, do NOT continue.
+            print(f"  ✗ story {sid}: {e}")
+            print()
+            print("Aborting before vocab_state is touched. No files written this run.")
+            return 2
         except Exception as e:
             print(f"  ✗ story {sid}: {type(e).__name__}: {e}")
             continue
@@ -513,6 +588,21 @@ def main() -> int:
                     _used_wids.add(_t["word_id"])
         _orphans = [wid for wid in list(vocab.get("words", {}).keys())
                     if wid not in _used_wids]
+        # Safety net: if the orphan list is suspiciously large (more than half
+        # of vocab_state), refuse to delete. The most common cause is a silent
+        # text_to_story failure that produced empty token arrays — see
+        # _assert_tokens_nonempty above. The earlier preflight should have
+        # caught it, but belt + suspenders.
+        _total_words = len(vocab.get("words", {}))
+        if _total_words and len(_orphans) > _total_words // 2:
+            sys.stderr.write(
+                f"REFUSING to drop {len(_orphans)} orphan vocab record(s) — "
+                f"that's more than half of vocab_state ({_total_words}).\n"
+                "       This almost always means text_to_story produced empty\n"
+                "       token arrays. Activate the project venv and re-run:\n"
+                "         source .venv/bin/activate\n"
+            )
+            return 2
         for wid in _orphans:
             del vocab["words"][wid]
         if _orphans:

@@ -1,0 +1,30 @@
+{
+  "scale": {
+    "version": "1.0",
+    "date": "2026-04-24",
+    "max_per_dimension": 5,
+    "max_total": 25,
+    "dimensions": {
+      "literacy": "Grammatical naturalness, idiomaticity, sentence variety, gloss-JP fit, lexical precision",
+      "narrative": "Beginning/middle/end, scene clarity, payoff vs. disconnected sentences",
+      "engagement": "Mood, voice, sensory detail, hooks; reader's want-to-continue pull",
+      "integration": "How gracefully reinforcement vocab/grammar is woven (vs. tacked-on tail)",
+      "freshness": "Originality of scene/image relative to the rest of the library"
+    },
+    "tier_bands": {
+      "5": "22-25 Outstanding",
+      "4": "18-21 Strong",
+      "3": "14-17 Solid",
+      "2": "10-13 Weak",
+      "1": "0-9 Needs rework"
+    }
+  },
+  "summary": {
+    "count": 67,
+    "average_total": 21.7,
+    "tier_distribution": {"5": 38, "4": 23, "3": 6, "2": 0, "1": 0},
+    "perfect_scores": [33, 37, 47],
+    "lowest_scores": [16, 31, 5, 9, 24, 30]
+  },
+  "scores_csv": "docs/story_scores.csv"
+}
