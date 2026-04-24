@@ -36,10 +36,11 @@
     "W00156",
     "W00025",
     "W00026",
-    "W00023",
     "W00246",
+    "W00022",
     "W00039",
     "W00060",
+    "W00023",
     "W00024"
   ],
   "sentences": [
@@ -72,9 +73,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Morning — it is raining.",
-      "audio": "audio/story_6/s0.mp3",
-      "audio_hash": "dd0c21f06f27"
+      "gloss_en": "Morning — rain."
     },
     {
       "idx": 1,
@@ -130,29 +129,16 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I look outside through the window.",
-      "audio": "audio/story_6/s1.mp3",
-      "audio_hash": "b8f1563bfb7d"
+      "gloss_en": "I look out the window."
     },
     {
       "idx": 2,
       "tokens": [
         {
-          "t": "雨",
+          "t": "外",
           "role": "content",
-          "word_id": "W00002",
-          "r": "あめ"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "窓",
-          "role": "content",
-          "word_id": "W00004",
-          "r": "まど"
+          "word_id": "W00005",
+          "r": "そと"
         },
         {
           "t": "に",
@@ -190,9 +176,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the rainy window, a cat is there.",
-      "audio": "audio/story_6/s2.mp3",
-      "audio_hash": "2c9c3c44d9f0"
+      "gloss_en": "Outside, there is a cat."
     },
     {
       "idx": 3,
@@ -215,24 +199,9 @@
           "r": "しずか"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        },
-        {
-          "t": "猫",
-          "role": "content",
-          "word_id": "W00028",
-          "r": "ねこ"
-        },
-        {
-          "t": "は",
+          "t": "に",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "雨",
@@ -275,9 +244,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The cat is quiet. The cat looks at the color of the rain.",
-      "audio": "audio/story_6/s3.mp3",
-      "audio_hash": "b70c2c4b011a"
+      "gloss_en": "The cat quietly looks at the colors of the rain."
     },
     {
       "idx": 4,
@@ -331,13 +298,108 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "And then, the cat goes back through the door.",
-      "audio": "audio/story_6/s4.mp3",
-      "audio_hash": "58a1a7240b26"
+      "gloss_en": "And then, the cat comes back through the door."
     },
     {
       "idx": 5,
       "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "ペン",
+          "role": "content",
+          "word_id": "W00246",
+          "r": "ぺん",
+          "is_new": true
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means",
+          "is_new_grammar": true
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "書きます",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "かきます",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I write a letter to my friend with a pen."
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "猫",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "ねこ"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
         {
           "t": "雨",
           "role": "content",
@@ -376,82 +438,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A walk in the rain is quiet.",
-      "audio": "audio/story_6/s5.mp3",
-      "audio_hash": "23fb7ef0bba5"
-    },
-    {
-      "idx": 6,
-      "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "ペン",
-          "role": "content",
-          "word_id": "W00246",
-          "r": "ぺん",
-          "is_new": true
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means",
-          "is_new_grammar": true
-        },
-        {
-          "t": "猫",
-          "role": "content",
-          "word_id": "W00028",
-          "r": "ねこ"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "手紙",
-          "role": "content",
-          "word_id": "W00039",
-          "r": "てがみ",
-          "is_new": true
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "書きます",
-          "role": "content",
-          "word_id": "W00060",
-          "r": "かきます",
-          "inflection": {
-            "base": "書く",
-            "base_r": "かく",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast",
-          "is_new": true
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I write a letter to the cat with a pen.",
-      "audio": "audio/story_6/s6.mp3",
-      "audio_hash": "ba79ea492d87"
+      "gloss_en": "The cat, too, is quiet. The rainy walk is quiet."
     },
     {
       "idx": 7,
@@ -478,15 +465,25 @@
           "role": "punct"
         },
         {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "な",
+          "role": "particle",
+          "grammar_id": "G016_na_adjective"
+        },
+        {
           "t": "猫",
           "role": "content",
           "word_id": "W00028",
           "r": "ねこ"
         },
         {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
+          "t": "、",
+          "role": "punct"
         },
         {
           "t": "花",
@@ -515,25 +512,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A rainy morning — a letter of the cat and the flowers.",
-      "audio": "audio/story_6/s7.mp3",
-      "audio_hash": "640883e7ec80"
+      "gloss_en": "A rainy morning, a quiet cat, a letter of flowers."
     }
-  ],
-  "word_audio": {
-    "W00028": "audio/story_6/w_W00028.mp3",
-    "W00029": "audio/story_6/w_W00029.mp3",
-    "W00156": "audio/story_6/w_W00156.mp3",
-    "W00246": "audio/story_6/w_W00246.mp3",
-    "W00039": "audio/story_6/w_W00039.mp3",
-    "W00060": "audio/story_6/w_W00060.mp3"
-  },
-  "word_audio_hash": {
-    "W00028": "a810bf845a30",
-    "W00029": "85ed84cd6356",
-    "W00156": "2b3611f71ddd",
-    "W00246": "f97642d4309f",
-    "W00039": "417294942007",
-    "W00060": "4fa915ccc337"
-  }
+  ]
 }

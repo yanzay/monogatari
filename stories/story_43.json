@@ -33,8 +33,8 @@
   "new_words": [
     "W00130",
     "W00129",
-    "W00173",
-    "W00147"
+    "W00147",
+    "W00173"
   ],
   "new_grammar": [
     "G043_kosoado_pre_nominal"
@@ -58,29 +58,24 @@
     "W00033",
     "W00127",
     "W00056",
+    "W00147",
+    "W00067",
     "W00124",
-    "W00055",
+    "W00046",
+    "W00173",
+    "W00172",
     "W00110",
     "W00111",
-    "W00045",
-    "W00137",
-    "W00015",
-    "W00112",
-    "W00172",
-    "W00173",
-    "W00050",
     "W00201",
     "W00150",
-    "W00147",
-    "W00113",
+    "W00066",
     "W00105",
-    "W00231",
-    "W00098",
-    "W00246",
-    "W00039",
-    "W00060",
+    "W00112",
+    "W00088",
+    "W00114",
+    "W00055",
     "W00072",
-    "W00114"
+    "W00015"
   ],
   "sentences": [
     {
@@ -100,15 +95,7 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "It is night.",
-      "audio": "audio/story_43/s0.mp3",
-      "audio_hash": "e81d3b78f313"
-    },
-    {
-      "idx": 1,
-      "tokens": [
+        },
         {
           "t": "私",
           "role": "content",
@@ -149,12 +136,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I come to the room.",
-      "audio": "audio/story_43/s1.mp3",
-      "audio_hash": "925f4858ffe4"
+      "gloss_en": "It is night. I enter the room."
     },
     {
-      "idx": 2,
+      "idx": 1,
       "tokens": [
         {
           "t": "カバン",
@@ -195,15 +180,7 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "My bag is on the desk.",
-      "audio": "audio/story_43/s2.mp3",
-      "audio_hash": "6a86a6dc4a8d"
-    },
-    {
-      "idx": 3,
-      "tokens": [
+        },
         {
           "t": "でも",
           "role": "particle",
@@ -242,12 +219,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But the key is not here.",
-      "audio": "audio/story_43/s3.mp3",
-      "audio_hash": "977165591018"
+      "gloss_en": "My bag is on the desk. But the key is not there."
     },
     {
-      "idx": 4,
+      "idx": 2,
       "tokens": [
         {
           "t": "私",
@@ -287,15 +262,7 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "I search the bag.",
-      "audio": "audio/story_43/s4.mp3",
-      "audio_hash": "6528cfbbeecd"
-    },
-    {
-      "idx": 5,
-      "tokens": [
+        },
         {
           "t": "カバン",
           "role": "content",
@@ -336,12 +303,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The key is not in the bag.",
-      "audio": "audio/story_43/s5.mp3",
-      "audio_hash": "efebda365dc5"
+      "gloss_en": "I search the bag. There is no key in the bag."
     },
     {
-      "idx": 6,
+      "idx": 3,
       "tokens": [
         {
           "t": "私",
@@ -394,12 +359,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I look at the chair and the desk.",
-      "audio": "audio/story_43/s6.mp3",
-      "audio_hash": "689313fb308a"
+      "gloss_en": "I look at the chair and the desk."
     },
     {
-      "idx": 7,
+      "idx": 4,
       "tokens": [
         {
           "t": "私",
@@ -441,12 +404,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am sad and troubled.",
-      "audio": "audio/story_43/s7.mp3",
-      "audio_hash": "f0d8c9e492de"
+      "gloss_en": "I am sad and troubled."
     },
     {
-      "idx": 8,
+      "idx": 5,
       "tokens": [
         {
           "t": "部屋",
@@ -475,12 +436,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The room is quiet.",
-      "audio": "audio/story_43/s8.mp3",
-      "audio_hash": "ea653bf37d81"
+      "gloss_en": "The room is quiet."
     },
     {
-      "idx": 9,
+      "idx": 6,
       "tokens": [
         {
           "t": "そして",
@@ -518,15 +477,7 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "Then, I realize.",
-      "audio": "audio/story_43/s9.mp3",
-      "audio_hash": "35cb25b4c926"
-    },
-    {
-      "idx": 10,
-      "tokens": [
+        },
         {
           "t": "鍵",
           "role": "content",
@@ -578,12 +529,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The key is next to the book.",
-      "audio": "audio/story_43/s10.mp3",
-      "audio_hash": "e6b077780ca9"
+      "gloss_en": "And then, I realize it: the key is beside the book."
     },
     {
-      "idx": 11,
+      "idx": 7,
       "tokens": [
         {
           "t": "私",
@@ -613,9 +562,288 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am happy.",
-      "audio": "audio/story_43/s11.mp3",
-      "audio_hash": "5c29e5352c54"
+      "gloss_en": "I am happy."
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "あの",
+          "role": "content",
+          "word_id": "W00147",
+          "r": "あの",
+          "grammar_id": "G043_kosoado_pre_nominal",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "鍵",
+          "role": "content",
+          "word_id": "W00079",
+          "r": "かぎ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "同じ",
+          "role": "content",
+          "word_id": "W00124",
+          "r": "おなじ"
+        },
+        {
+          "t": "机",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "つくえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "That old key is on the same desk."
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "明日",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "あした"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "妹",
+          "role": "content",
+          "word_id": "W00173",
+          "r": "いもうと",
+          "is_new": true
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "兄",
+          "role": "content",
+          "word_id": "W00172",
+          "r": "あに"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "山",
+          "role": "content",
+          "word_id": "W00110",
+          "r": "やま"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "川",
+          "role": "content",
+          "word_id": "W00111",
+          "r": "かわ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "町",
+          "role": "content",
+          "word_id": "W00201",
+          "r": "まち"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "G050_he_direction"
+        },
+        {
+          "t": "行きます",
+          "role": "content",
+          "word_id": "W00150",
+          "r": "いきます",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Tomorrow, I will go with my younger sister and older brother to the town of mountain and river."
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "町",
+          "role": "content",
+          "word_id": "W00201",
+          "r": "まち"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "新しい",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "あたらしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "仕事",
+          "role": "content",
+          "word_id": "W00105",
+          "r": "しごと"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "生まれます",
+          "role": "content",
+          "word_id": "W00112",
+          "r": "うまれます",
+          "inflection": {
+            "base": "生まれる",
+            "base_r": "うまれる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the town, a new job is born."
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "仕事",
+          "role": "content",
+          "word_id": "W00105",
+          "r": "しごと"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "家族",
+          "role": "content",
+          "word_id": "W00088",
+          "r": "かぞく"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "好き",
+          "role": "content",
+          "word_id": "W00114",
+          "r": "すき"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I like both my work and my family."
     },
     {
       "idx": 12,
@@ -661,292 +889,20 @@
           "r": "かぎ"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Quiet night, the same small key.",
-      "audio": "audio/story_43/s12.mp3",
-      "audio_hash": "c89fc490fff2"
-    },
-    {
-      "idx": 13,
-      "tokens": [
-        {
-          "t": "山",
-          "role": "content",
-          "word_id": "W00110",
-          "r": "やま"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "川",
-          "role": "content",
-          "word_id": "W00111",
-          "r": "かわ"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "そば",
-          "role": "content",
-          "word_id": "W00045",
-          "r": "そば"
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
           "t": "、",
           "role": "punct"
         },
         {
-          "t": "明るい",
+          "t": "明日",
           "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "生まれます",
-          "role": "content",
-          "word_id": "W00112",
-          "r": "うまれます",
-          "inflection": {
-            "base": "生まれる",
-            "base_r": "うまれる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Beside mountain and river, a bright morning is born.",
-      "audio": "audio/story_43/s13.mp3",
-      "audio_hash": "9c671309e418"
-    },
-    {
-      "idx": 14,
-      "tokens": [
-        {
-          "t": "兄",
-          "role": "content",
-          "word_id": "W00172",
-          "r": "あに"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "妹",
-          "role": "content",
-          "word_id": "W00173",
-          "r": "いもうと",
-          "is_new": true
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "一緒に",
-          "role": "content",
-          "word_id": "W00050",
-          "r": "いっしょに"
-        },
-        {
-          "t": "町",
-          "role": "content",
-          "word_id": "W00201",
-          "r": "まち"
-        },
-        {
-          "t": "へ",
-          "role": "particle",
-          "grammar_id": "G050_he_direction"
-        },
-        {
-          "t": "行きます",
-          "role": "content",
-          "word_id": "W00150",
-          "r": "いきます",
-          "inflection": {
-            "base": "行く",
-            "base_r": "いく",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Older brother and younger sister go to town together.",
-      "audio": "audio/story_43/s14.mp3",
-      "audio_hash": "d12ecb1bb2b1"
-    },
-    {
-      "idx": 15,
-      "tokens": [
-        {
-          "t": "あの",
-          "role": "content",
-          "word_id": "W00147",
-          "r": "あの",
-          "grammar_id": "G043_kosoado_pre_nominal",
-          "is_new": true,
-          "is_new_grammar": true
-        },
-        {
-          "t": "人",
-          "role": "content",
-          "word_id": "W00113",
-          "r": "ひと"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "仕事",
-          "role": "content",
-          "word_id": "W00105",
-          "r": "しごと"
+          "word_id": "W00046",
+          "r": "あした"
         },
         {
           "t": "の",
           "role": "particle",
           "grammar_id": "G015_no_possessive"
         },
-        {
-          "t": "鍵",
-          "role": "content",
-          "word_id": "W00079",
-          "r": "かぎ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "持ちません",
-          "role": "content",
-          "word_id": "W00231",
-          "r": "もちません",
-          "inflection": {
-            "base": "持つ",
-            "base_r": "もつ",
-            "form": "negative_polite",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G036_masen"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "That person does not have the work key.",
-      "audio": "audio/story_43/s15.mp3",
-      "audio_hash": "056a63c86bb1"
-    },
-    {
-      "idx": 16,
-      "tokens": [
-        {
-          "t": "祖母",
-          "role": "content",
-          "word_id": "W00098",
-          "r": "そぼ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "ペン",
-          "role": "content",
-          "word_id": "W00246",
-          "r": "ぺん"
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "手紙",
-          "role": "content",
-          "word_id": "W00039",
-          "r": "てがみ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "書きます",
-          "role": "content",
-          "word_id": "W00060",
-          "r": "かきます",
-          "inflection": {
-            "base": "書く",
-            "base_r": "かく",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Grandmother writes a letter with a pen.",
-      "audio": "audio/story_43/s16.mp3",
-      "audio_hash": "b7352097bc41"
-    },
-    {
-      "idx": 17,
-      "tokens": [
         {
           "t": "春",
           "role": "content",
@@ -965,17 +921,6 @@
           "r": "あさ"
         },
         {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "好き",
-          "role": "content",
-          "word_id": "W00114",
-          "r": "すき"
-        },
-        {
           "t": "です",
           "role": "aux",
           "grammar_id": "G003_desu"
@@ -985,21 +930,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I like spring mornings.",
-      "audio": "audio/story_43/s17.mp3",
-      "audio_hash": "8950a78cd56b"
+      "gloss_en": "A quiet night, the same small key, tomorrow's spring morning."
     }
-  ],
-  "word_audio": {
-    "W00130": "audio/story_43/w_W00130.mp3",
-    "W00129": "audio/story_43/w_W00129.mp3",
-    "W00173": "audio/story_43/w_W00173.mp3",
-    "W00147": "audio/story_43/w_W00147.mp3"
-  },
-  "word_audio_hash": {
-    "W00130": "1982f1e01b1f",
-    "W00129": "8fc80163d735",
-    "W00173": "219c2f148bce",
-    "W00147": "abadd06eea1e"
-  }
+  ]
 }

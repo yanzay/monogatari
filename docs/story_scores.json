@@ -1,56 +1,132 @@
 {
   "scale": {
-    "version": "2.0",
+    "version": "fresh-pass-1",
     "date": "2026-04-24",
-    "method": "blind review — scorer re-read every story fresh with no memory of prior scores",
+    "dimensions": [
+      {
+        "id": "language_naturalness",
+        "label": "Language naturalness",
+        "description": "Grammar, phrasing, idiomaticity, and overall clarity of Japanese prose."
+      },
+      {
+        "id": "scene_coherence",
+        "label": "Scene coherence",
+        "description": "Whether the story stays inside one emotional/spatial frame rather than drifting into unrelated add-ons."
+      },
+      {
+        "id": "narrative_shape",
+        "label": "Narrative shape",
+        "description": "Whether the piece has a beginning/middle/end, or at least a discernible progression or payoff."
+      },
+      {
+        "id": "emotional_pull",
+        "label": "Emotional / imagistic pull",
+        "description": "Mood, memorability, affect, and strength of image."
+      },
+      {
+        "id": "economy_density",
+        "label": "Economy / density",
+        "description": "How efficiently each sentence contributes; penalizes obvious padding or visible reinforcement tails."
+      }
+    ],
     "max_per_dimension": 5,
     "max_total": 25,
-    "dimensions": {
-      "L_literacy":   "Grammar naturalness, idiomatic phrasing, lexical fit",
-      "N_narrative":  "Clear scene, beginning/middle/end, no abrupt jumps",
-      "E_engagement": "Voice, emotional pull, sensory detail, hook",
-      "C_cohesion":   "Every sentence belongs to the story (penalises unrelated weaves/orphans)",
-      "F_freshness":  "Original scene/image vs. recycled tropes"
-    },
-    "tier_thresholds": {
-      "5": "22-25  — Excellent (uniformly polished)",
-      "4": "18-21  — Strong (minor flaws, mostly cohesion)",
-      "3": "14-17  — Mixed (real problems alongside good elements)",
-      "2": "10-13  — Weak",
-      "1": "0-9    — Broken"
+    "tier_mapping": {
+      "5": "22-25",
+      "4": "18-21",
+      "3": "14-17",
+      "2": "10-13",
+      "1": "0-9"
     }
   },
   "summary": {
     "count": 67,
-    "average_total": 22.45,
-    "tier_distribution": {"5": 48, "4": 19, "3": 0, "2": 0, "1": 0},
-    "min_total": 20,
+    "average_total": 20.42,
+    "tier_distribution": {
+      "5": 20,
+      "4": 38,
+      "3": 9,
+      "2": 0,
+      "1": 0
+    },
+    "min_total": 16,
     "max_total": 25,
-    "perfect_scores": [30, 36],
-    "lowest_scores": [2, 4, 7, 8, 11, 21, 23, 27]
+    "lowest_story_ids": [10, 42, 54, 57, 6, 23, 43, 7, 8, 19],
+    "highest_story_ids": [30, 36, 47, 61, 25, 39, 67, 62, 15, 13]
   },
-  "rewritten_after_blind_review": {
-    "method": "Trim or integrate orphan tails into scene-resident sentences. No deletions of debut words/grammar. Cascade fixes (G014/G029/G032/G048 grammar accidents and W00120/W00083 vocab debut shifts) caught and corrected during the pass.",
-    "stories": [
-      {"id":  7, "before": 19, "after": 20, "delta": "+1"},
-      {"id": 10, "before": 16, "after": 22, "delta": "+6"},
-      {"id": 16, "before": 19, "after": 22, "delta": "+3"},
-      {"id": 17, "before": 19, "after": 22, "delta": "+3"},
-      {"id": 18, "before": 19, "after": 22, "delta": "+3"},
-      {"id": 19, "before": 18, "after": 22, "delta": "+4"},
-      {"id": 20, "before": 19, "after": 22, "delta": "+3"},
-      {"id": 26, "before": 19, "after": 22, "delta": "+3"},
-      {"id": 32, "before": 18, "after": 22, "delta": "+4"},
-      {"id": 49, "before": 19, "after": 22, "delta": "+3"}
-    ]
-  },
-  "key_findings": [
-    "Cohesion (C) is the library's weakest dimension. The pattern: a strong main scene followed by 1-6 trailing 'reuse weave' sentences that don't belong.",
-    "The very last sentence of many stories is an orphan vocab/grammar reinforcement — a uniform tax on otherwise excellent prose.",
-    "Stories 30 and 36 score perfect 25 — both have zero orphan weaves; every sentence serves the scene.",
-    "Story 10 (友達からの手紙) is the only ★★★ — 3 trailing fragments (犬は家にいます / 椅子に座ります) on a 6-sentence story is too high a ratio.",
-    "The bookstore-arc cluster (38-67) carries the library's most ambitious narrative — but also accumulates the longest tail-weaves because vocab inventory grows fast in the 50s/60s.",
-    "Late-library stories with 5-6 trailing fragments (story_56, 60, 63, 65, 66) score 21-23 instead of 24-25 — would be perfect if the orphan reuses were trimmed."
+  "findings": [
+    "The library is stronger on language naturalness than on scene coherence or economy.",
+    "Many stories have a compelling core image but lose force through late add-on sentences.",
+    "The best stories are compact, emotionally legible, and stay in a single frame.",
+    "The weakest stories are not bad Japanese; they are structurally loose or visibly didactic."
   ],
-  "scores_csv": "docs/story_scores.csv"
+  "stories": [
+    {"story_id":1,"title_jp":"雨","title_en":"Rain","scores":{"language_naturalness":5,"scene_coherence":5,"narrative_shape":4,"emotional_pull":4,"economy_density":5},"total":23,"tier":5,"notes":"Simple and complete mood piece."},
+    {"story_id":2,"title_jp":"夕方の公園","title_en":"The Evening Park","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":3,"emotional_pull":3,"economy_density":4},"total":19,"tier":4,"notes":"Gentle but somewhat repetitive."},
+    {"story_id":3,"title_jp":"朝ごはん","title_en":"Breakfast","scores":{"language_naturalness":5,"scene_coherence":5,"narrative_shape":4,"emotional_pull":3,"economy_density":5},"total":22,"tier":5,"notes":"Compact and unified."},
+    {"story_id":4,"title_jp":"散歩","title_en":"A Walk","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":3,"emotional_pull":3,"economy_density":4},"total":19,"tier":4,"notes":"Pleasant but list-like."},
+    {"story_id":5,"title_jp":"朝の散歩","title_en":"A Morning Walk","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":4},"total":21,"tier":4,"notes":"Dog-door-rain arc works but transitions are abrupt."},
+    {"story_id":6,"title_jp":"猫","title_en":"The Cat","scores":{"language_naturalness":4,"scene_coherence":3,"narrative_shape":3,"emotional_pull":4,"economy_density":3},"total":17,"tier":3,"notes":"Atmospheric but surreal logic weakens coherence."},
+    {"story_id":7,"title_jp":"夜","title_en":"Night","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":2,"emotional_pull":4,"economy_density":4},"total":19,"tier":4,"notes":"More image-cluster than story."},
+    {"story_id":8,"title_jp":"本と友達","title_en":"Books and Friends","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":3,"emotional_pull":3,"economy_density":4},"total":19,"tier":4,"notes":"Calm but ends flatly."},
+    {"story_id":9,"title_jp":"朝の猫","title_en":"The Morning Cat","scores":{"language_naturalness":5,"scene_coherence":5,"narrative_shape":5,"emotional_pull":4,"economy_density":4},"total":23,"tier":5,"notes":"Clear and elegant cat-bird scene."},
+    {"story_id":10,"title_jp":"友達からの手紙","title_en":"A Letter from a Friend","scores":{"language_naturalness":4,"scene_coherence":3,"narrative_shape":3,"emotional_pull":3,"economy_density":3},"total":16,"tier":3,"notes":"Letter image is good but logic remains loose."},
+    {"story_id":11,"title_jp":"昨日の手紙","title_en":"Yesterday's Letter","scores":{"language_naturalness":5,"scene_coherence":3,"narrative_shape":3,"emotional_pull":4,"economy_density":3},"total":18,"tier":4,"notes":"Strong first section; tail weakens whole."},
+    {"story_id":12,"title_jp":"雨の朝","title_en":"A Rainy Morning","scores":{"language_naturalness":5,"scene_coherence":5,"narrative_shape":4,"emotional_pull":4,"economy_density":4},"total":22,"tier":5,"notes":"Cat-in-rain scene holds well."},
+    {"story_id":13,"title_jp":"本のそばに","title_en":"Beside the Book","scores":{"language_naturalness":5,"scene_coherence":5,"narrative_shape":4,"emotional_pull":5,"economy_density":4},"total":23,"tier":5,"notes":"Quietly literary and coherent."},
+    {"story_id":14,"title_jp":"月の手紙","title_en":"A Letter by Moonlight","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":5,"economy_density":4},"total":22,"tier":5,"notes":"Emotionally strong though slightly assembled."},
+    {"story_id":15,"title_jp":"夜の空","title_en":"The Night Sky","scores":{"language_naturalness":5,"scene_coherence":5,"narrative_shape":4,"emotional_pull":5,"economy_density":4},"total":23,"tier":5,"notes":"Very cohesive night-walk meditation."},
+    {"story_id":16,"title_jp":"公園のパン","title_en":"Bread in the Park","scores":{"language_naturalness":4,"scene_coherence":4,"narrative_shape":3,"emotional_pull":4,"economy_density":3},"total":18,"tier":4,"notes":"Improved but still feels pedagogically arranged."},
+    {"story_id":17,"title_jp":"公園の子供","title_en":"A Child at the Park","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":3},"total":20,"tier":4,"notes":"Warmer now, still slightly overpacked."},
+    {"story_id":18,"title_jp":"雨の鳥","title_en":"A Bird in the Rain","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":3},"total":20,"tier":4,"notes":"Nice emotional turn though still constructed."},
+    {"story_id":19,"title_jp":"庭の鳥","title_en":"A Bird in the Garden","scores":{"language_naturalness":4,"scene_coherence":4,"narrative_shape":3,"emotional_pull":4,"economy_density":3},"total":18,"tier":4,"notes":"Better integration, but the pain question still jars."},
+    {"story_id":20,"title_jp":"寒い朝の手紙","title_en":"A Letter on a Cold Morning","scores":{"language_naturalness":4,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":3},"total":19,"tier":4,"notes":"Letter-writing scene mostly works."},
+    {"story_id":21,"title_jp":"雪の道","title_en":"The Snowy Road","scores":{"language_naturalness":5,"scene_coherence":3,"narrative_shape":3,"emotional_pull":4,"economy_density":3},"total":18,"tier":4,"notes":"Lonely mood is strong; late mother line drifts."},
+    {"story_id":22,"title_jp":"古い本の写真","title_en":"A Photo in the Old Book","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":4},"total":21,"tier":4,"notes":"Good scene, still slightly tool-driven."},
+    {"story_id":23,"title_jp":"駅の夕方","title_en":"Evening at the Station","scores":{"language_naturalness":4,"scene_coherence":3,"narrative_shape":3,"emotional_pull":4,"economy_density":3},"total":17,"tier":3,"notes":"Good arrival scene but tail fragments remain obvious."},
+    {"story_id":24,"title_jp":"春の朝","title_en":"A Spring Morning","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":3},"total":20,"tier":4,"notes":"Ambitious and evocative, slightly overstuffed."},
+    {"story_id":25,"title_jp":"一人の部屋","title_en":"An Empty Room","scores":{"language_naturalness":5,"scene_coherence":5,"narrative_shape":5,"emotional_pull":5,"economy_density":4},"total":24,"tier":5,"notes":"One of the best sad-room stories."},
+    {"story_id":26,"title_jp":"小さい鍵","title_en":"A Small Key","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":3},"total":20,"tier":4,"notes":"Cleaner than before, still a little schematic."},
+    {"story_id":27,"title_jp":"夏の庭","title_en":"The Summer Garden","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":3,"emotional_pull":4,"economy_density":3},"total":19,"tier":4,"notes":"Pleasant tableau with a clear tagged-on finish."},
+    {"story_id":28,"title_jp":"雨の店","title_en":"The Shop in the Rain","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":4},"total":21,"tier":4,"notes":"Shop warmth versus rain works well."},
+    {"story_id":29,"title_jp":"ベンチの友達","title_en":"A Friend on the Bench","scores":{"language_naturalness":5,"scene_coherence":3,"narrative_shape":3,"emotional_pull":4,"economy_density":3},"total":18,"tier":4,"notes":"Good core scene but tail cluster visible."},
+    {"story_id":30,"title_jp":"秋の道","title_en":"The Autumn Road","scores":{"language_naturalness":5,"scene_coherence":5,"narrative_shape":5,"emotional_pull":5,"economy_density":5},"total":25,"tier":5,"notes":"Best-structured story in the set."},
+    {"story_id":31,"title_jp":"友達の電話","title_en":"The Friend's Phone Call","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":4},"total":21,"tier":4,"notes":"Distinct format helps a lot."},
+    {"story_id":32,"title_jp":"冬の朝ごはん","title_en":"Winter Breakfast","scores":{"language_naturalness":4,"scene_coherence":4,"narrative_shape":3,"emotional_pull":4,"economy_density":3},"total":18,"tier":4,"notes":"Family call is stronger now but still engineered."},
+    {"story_id":33,"title_jp":"古い時計","title_en":"The Old Clock","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":5,"economy_density":3},"total":21,"tier":4,"notes":"Clock-memory core is strong; coda wanders."},
+    {"story_id":34,"title_jp":"犬と散歩","title_en":"A Walk with the Dog","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":4},"total":21,"tier":4,"notes":"Charming and readable."},
+    {"story_id":35,"title_jp":"母の手紙","title_en":"Mother's Letter","scores":{"language_naturalness":5,"scene_coherence":3,"narrative_shape":3,"emotional_pull":4,"economy_density":3},"total":18,"tier":4,"notes":"Emotion works but late additions dilute it."},
+    {"story_id":36,"title_jp":"雪の夜","title_en":"A Snowy Night","scores":{"language_naturalness":5,"scene_coherence":5,"narrative_shape":5,"emotional_pull":5,"economy_density":5},"total":25,"tier":5,"notes":"Nearly ideal graded-reader miniature."},
+    {"story_id":37,"title_jp":"父の名前","title_en":"Father's Name","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":5,"economy_density":3},"total":21,"tier":4,"notes":"Good symbolic center, tail diffuses it."},
+    {"story_id":38,"title_jp":"本の店の人","title_en":"The Person at the Bookstore","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":5,"economy_density":3},"total":21,"tier":4,"notes":"Compelling bookstore-romance seed, still padded."},
+    {"story_id":39,"title_jp":"雨と傘","title_en":"Rain and Umbrella","scores":{"language_naturalness":5,"scene_coherence":5,"narrative_shape":4,"emotional_pull":5,"economy_density":4},"total":23,"tier":5,"notes":"Romantic rescue scene lands well."},
+    {"story_id":40,"title_jp":"手紙の返事","title_en":"The Letter's Reply","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":5,"economy_density":3},"total":21,"tier":4,"notes":"Affect is good; several extra lines weaken economy."},
+    {"story_id":41,"title_jp":"春の本の店","title_en":"The Bookstore in Spring","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":3},"total":20,"tier":4,"notes":"Bookstore arc works, still somewhat compiled."},
+    {"story_id":42,"title_jp":"二人の道","title_en":"The Two Of Us, On the Road","scores":{"language_naturalness":4,"scene_coherence":3,"narrative_shape":3,"emotional_pull":4,"economy_density":2},"total":16,"tier":3,"notes":"Contains nice feeling but coherence is shaky."},
+    {"story_id":43,"title_jp":"鍵がありません","title_en":"There Is No Key","scores":{"language_naturalness":5,"scene_coherence":3,"narrative_shape":3,"emotional_pull":3,"economy_density":3},"total":17,"tier":3,"notes":"Strong setup, very visible tail drift."},
+    {"story_id":44,"title_jp":"待ちません","title_en":"I Do Not Wait","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":3},"total":20,"tier":4,"notes":"Promise / not-waiting motif works fairly well."},
+    {"story_id":45,"title_jp":"これは何ですか","title_en":"What Is This?","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":5,"economy_density":3},"total":21,"tier":4,"notes":"Box-memory frame is good; coda overextends."},
+    {"story_id":46,"title_jp":"寒くない朝","title_en":"A Not-Cold Morning","scores":{"language_naturalness":5,"scene_coherence":5,"narrative_shape":4,"emotional_pull":5,"economy_density":4},"total":23,"tier":5,"notes":"Spring definition poem works beautifully."},
+    {"story_id":47,"title_jp":"誰の傘","title_en":"Whose Umbrella?","scores":{"language_naturalness":5,"scene_coherence":5,"narrative_shape":5,"emotional_pull":5,"economy_density":4},"total":24,"tier":5,"notes":"Question-driven structure is excellent."},
+    {"story_id":48,"title_jp":"どこですか。","title_en":"Where Is It?","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":4},"total":21,"tier":4,"notes":"Store-search scene is fun and coherent."},
+    {"story_id":49,"title_jp":"お茶を飲みませんか。","title_en":"Won't You Have Tea?","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":3},"total":20,"tier":4,"notes":"Invitation scene sweet; still some mechanical feel."},
+    {"story_id":50,"title_jp":"駅で待ちます","title_en":"Waiting at the Station","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":5,"economy_density":3},"total":21,"tier":4,"notes":"Grandmother-child core is charming; tail drifts."},
+    {"story_id":51,"title_jp":"あの花","title_en":"That Flower Over There","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":3},"total":20,"tier":4,"notes":"Demonstrative drill mostly disguised, not entirely."},
+    {"story_id":52,"title_jp":"入ってください。","title_en":"Please Come In.","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":3},"total":20,"tier":4,"notes":"Home-visit frame works but is crowded."},
+    {"story_id":53,"title_jp":"何の本ですか。","title_en":"What Book Is It?","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":3},"total":20,"tier":4,"notes":"Q-and-A energy is lively though clearly didactic."},
+    {"story_id":54,"title_jp":"待ちませんでした。","title_en":"I Did Not Wait.","scores":{"language_naturalness":4,"scene_coherence":3,"narrative_shape":3,"emotional_pull":4,"economy_density":2},"total":16,"tier":3,"notes":"Interesting emotional material but structurally messy."},
+    {"story_id":55,"title_jp":"暑かった夏。","title_en":"The Summer That Was Hot.","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":5,"economy_density":3},"total":21,"tier":4,"notes":"Memory piece has force but accumulates debris."},
+    {"story_id":56,"title_jp":"行きましょう。","title_en":"Let's Go.","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":3},"total":20,"tier":4,"notes":"Promise-and-park structure is good but overlong."},
+    {"story_id":57,"title_jp":"雨が降りますが、明るい朝。","title_en":"Rain Falls, But a Bright Morning.","scores":{"language_naturalness":4,"scene_coherence":3,"narrative_shape":3,"emotional_pull":4,"economy_density":2},"total":16,"tier":3,"notes":"Conceptually clear but heavily drill-like."},
+    {"story_id":58,"title_jp":"本の店へ。","title_en":"To the Bookstore.","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":3},"total":20,"tier":4,"notes":"Bookstore desire is clear; still somewhat arranged."},
+    {"story_id":59,"title_jp":"静かじゃない夜。","title_en":"A Not-Quiet Night.","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":5,"economy_density":3},"total":21,"tier":4,"notes":"Melancholy tone works well despite padding."},
+    {"story_id":60,"title_jp":"夕方まで。","title_en":"Until Evening.","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":5,"economy_density":3},"total":21,"tier":4,"notes":"Book-and-time meditation is strong but long."},
+    {"story_id":61,"title_jp":"なぜ来ますか。","title_en":"Why Do You Come?","scores":{"language_naturalness":5,"scene_coherence":5,"narrative_shape":5,"emotional_pull":5,"economy_density":4},"total":24,"tier":5,"notes":"Excellent interrogation-based emotional scene."},
+    {"story_id":62,"title_jp":"いい本ですよ。","title_en":"It's a Good Book, You Know.","scores":{"language_naturalness":5,"scene_coherence":5,"narrative_shape":4,"emotional_pull":5,"economy_density":4},"total":23,"tier":5,"notes":"Very good late-library intimacy piece."},
+    {"story_id":63,"title_jp":"悲しくありません。","title_en":"I Am Not Sad.","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":5,"economy_density":3},"total":21,"tier":4,"notes":"Negation motif mostly works, still somewhat built."},
+    {"story_id":64,"title_jp":"友達と話した。","title_en":"I Talked With the Friend.","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":4,"economy_density":3},"total":20,"tier":4,"notes":"Readable and decent, not especially surprising."},
+    {"story_id":65,"title_jp":"言いませんでした。","title_en":"I Did Not Say It.","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":5,"economy_density":3},"total":21,"tier":4,"notes":"Good withheld-feeling setup, some drift late."},
+    {"story_id":66,"title_jp":"何も言わなかった。","title_en":"I Said Nothing.","scores":{"language_naturalness":5,"scene_coherence":4,"narrative_shape":4,"emotional_pull":5,"economy_density":3},"total":21,"tier":4,"notes":"Quiet emotional repression story, a bit padded."},
+    {"story_id":67,"title_jp":"だから雪が好きです。","title_en":"So I Love the Snow.","scores":{"language_naturalness":5,"scene_coherence":5,"narrative_shape":4,"emotional_pull":5,"economy_density":4},"total":23,"tier":5,"notes":"Very strong final mood piece."}
+  ]
 }

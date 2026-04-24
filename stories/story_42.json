@@ -35,18 +35,15 @@
     "W00072",
     "W00018",
     "W00022",
-    "W00078",
-    "W00026",
-    "W00017",
-    "W00113",
     "W00003",
+    "W00017",
     "W00127",
     "W00029",
     "W00115",
-    "W00125",
+    "W00113",
     "W00043",
+    "W00125",
     "W00126",
-    "W00124",
     "W00119",
     "W00055",
     "W00120",
@@ -57,13 +54,8 @@
     "W00110",
     "W00006",
     "W00050",
+    "W00124",
     "W00011",
-    "W00108",
-    "W00109",
-    "W00215",
-    "W00089",
-    "W00019",
-    "W00020",
     "W00093",
     "W00044"
   ],
@@ -98,9 +90,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring evening.",
-      "audio": "audio/story_42/s0.mp3",
-      "audio_hash": "fdecbcf80e9f"
+      "gloss_en": "It is a spring evening."
     },
     {
       "idx": 1,
@@ -112,57 +102,20 @@
           "r": "ともだち"
         },
         {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "家",
-          "role": "content",
-          "word_id": "W00078",
-          "r": "いえ"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "帰りました",
-          "role": "content",
-          "word_id": "W00026",
-          "r": "かえりました",
-          "inflection": {
-            "base": "帰る",
-            "base_r": "かえる",
-            "form": "polite_past",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G013_mashita_past"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The friend went home.",
-      "audio": "audio/story_42/s1.mp3",
-      "audio_hash": "1d2ee1d0c26b"
-    },
-    {
-      "idx": 2,
-      "tokens": [
-        {
-          "t": "二人",
-          "role": "content",
-          "word_id": "W00035",
-          "r": "ふたり",
-          "grammar_id": "G025_counters"
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
         },
         {
           "t": "道",
@@ -198,18 +151,16 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us are walking on the road.",
-      "audio": "audio/story_42/s2.mp3",
-      "audio_hash": "3ea43c9bbfaa"
+      "gloss_en": "My friend and I are walking on the road."
     },
     {
-      "idx": 3,
+      "idx": 2,
       "tokens": [
         {
-          "t": "人",
+          "t": "友達",
           "role": "content",
-          "word_id": "W00113",
-          "r": "ひと"
+          "word_id": "W00022",
+          "r": "ともだち"
         },
         {
           "t": "は",
@@ -257,12 +208,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The person is beside me.",
-      "audio": "audio/story_42/s3.mp3",
-      "audio_hash": "916f24a4025c"
+      "gloss_en": "My friend is right beside me."
     },
     {
-      "idx": 4,
+      "idx": 3,
       "tokens": [
         {
           "t": "私",
@@ -276,8 +225,19 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "「",
+          "t": "『",
           "role": "punct"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "優しい",
@@ -293,14 +253,17 @@
           "r": "ひと"
         },
         {
-          "t": "さん",
-          "role": "content",
-          "word_id": "W00125",
-          "r": "さん",
-          "is_new": true
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
-          "t": "」",
+          "t": "ね",
+          "role": "particle",
+          "grammar_id": "G034_ne_confirm"
+        },
+        {
+          "t": "』",
           "role": "punct"
         },
         {
@@ -326,12 +289,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think of (them as) \"Mr./Ms. Kind Person.\"",
-      "audio": "audio/story_42/s4.mp3",
-      "audio_hash": "090d6783ad24"
+      "gloss_en": "I think, 'my friend is a kind person, isn't he.'"
     },
     {
-      "idx": 5,
+      "idx": 4,
       "tokens": [
         {
           "t": "私",
@@ -345,10 +306,17 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "人",
+          "t": "友達",
           "role": "content",
-          "word_id": "W00113",
-          "r": "ひと"
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "さん",
+          "role": "content",
+          "word_id": "W00125",
+          "r": "さん",
+          "is_new": true
         },
         {
           "t": "を",
@@ -379,41 +347,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I know the person.",
-      "audio": "audio/story_42/s5.mp3",
-      "audio_hash": "c609c76997f8"
+      "gloss_en": "I know my friend."
     },
     {
-      "idx": 6,
-      "tokens": [
-        {
-          "t": "同じ",
-          "role": "content",
-          "word_id": "W00124",
-          "r": "おなじ"
-        },
-        {
-          "t": "道",
-          "role": "content",
-          "word_id": "W00064",
-          "r": "みち"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The same road.",
-      "audio": "audio/story_42/s6.mp3",
-      "audio_hash": "a7a92888b0a6"
-    },
-    {
-      "idx": 7,
+      "idx": 5,
       "tokens": [
         {
           "t": "返事",
@@ -443,12 +380,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The reply is small.",
-      "audio": "audio/story_42/s7.mp3",
-      "audio_hash": "b20929d19fdd"
+      "gloss_en": "The reply is small."
     },
     {
-      "idx": 8,
+      "idx": 6,
       "tokens": [
         {
           "t": "でも",
@@ -497,12 +432,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But the heart is warm and happy.",
-      "audio": "audio/story_42/s8.mp3",
-      "audio_hash": "79e5914e5bc7"
+      "gloss_en": "But my heart is warm and happy."
     },
     {
-      "idx": 9,
+      "idx": 7,
       "tokens": [
         {
           "t": "月",
@@ -543,12 +476,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The moon is out, isn't it.",
-      "audio": "audio/story_42/s9.mp3",
-      "audio_hash": "d642c90fc953"
+      "gloss_en": "The moon is out, isn't it."
     },
     {
-      "idx": 10,
+      "idx": 8,
       "tokens": [
         {
           "t": "二人",
@@ -607,12 +538,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us are looking at the mountain and the moon.",
-      "audio": "audio/story_42/s10.mp3",
-      "audio_hash": "2974bc3fbf07"
+      "gloss_en": "The two of us are looking at the mountain and the moon."
     },
     {
-      "idx": 11,
+      "idx": 9,
       "tokens": [
         {
           "t": "私",
@@ -624,6 +553,17 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "一緒に",
@@ -654,13 +594,32 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I want to walk together.",
-      "audio": "audio/story_42/s11.mp3",
-      "audio_hash": "4e2e0c0894aa"
+      "gloss_en": "I want to walk together with my friend."
     },
     {
-      "idx": 12,
+      "idx": 10,
       "tokens": [
+        {
+          "t": "同じ",
+          "role": "content",
+          "word_id": "W00124",
+          "r": "おなじ"
+        },
+        {
+          "t": "道",
+          "role": "content",
+          "word_id": "W00064",
+          "r": "みち"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
         {
           "t": "静か",
           "role": "content",
@@ -700,113 +659,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A quiet road of two.",
-      "audio": "audio/story_42/s12.mp3",
-      "audio_hash": "582ef0f89950"
+      "gloss_en": "It is the same road. A quiet road for the two of us."
     },
     {
-      "idx": 13,
-      "tokens": [
-        {
-          "t": "ストーブ",
-          "role": "content",
-          "word_id": "W00108",
-          "r": "ストーブ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "小さい",
-          "role": "content",
-          "word_id": "W00055",
-          "r": "ちいさい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "音",
-          "role": "content",
-          "word_id": "W00109",
-          "r": "おと"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "します",
-          "role": "content",
-          "word_id": "W00215",
-          "r": "します",
-          "inflection": {
-            "base": "する",
-            "base_r": "する",
-            "form": "polite_nonpast",
-            "verb_class": "irregular_suru"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The heater makes a small sound.",
-      "audio": "audio/story_42/s13.mp3",
-      "audio_hash": "39807eec795c"
-    },
-    {
-      "idx": 14,
-      "tokens": [
-        {
-          "t": "母",
-          "role": "content",
-          "word_id": "W00089",
-          "r": "はは"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "朝ごはん",
-          "role": "content",
-          "word_id": "W00019",
-          "r": "あさごはん"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "食べます",
-          "role": "content",
-          "word_id": "W00020",
-          "r": "たべます",
-          "inflection": {
-            "base": "食べる",
-            "base_r": "たべる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Mother eats breakfast.",
-      "audio": "audio/story_42/s14.mp3",
-      "audio_hash": "125bcf80b32a"
-    },
-    {
-      "idx": 15,
+      "idx": 11,
       "tokens": [
         {
           "t": "電話",
@@ -835,21 +691,46 @@
         {
           "t": "。",
           "role": "punct"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "な",
+          "role": "particle",
+          "grammar_id": "G016_na_adjective"
+        },
+        {
+          "t": "春",
+          "role": "content",
+          "word_id": "W00072",
+          "r": "はる"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夕方",
+          "role": "content",
+          "word_id": "W00018",
+          "r": "ゆうがた"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
         }
       ],
-      "gloss_en": "There is no phone call.",
-      "audio": "audio/story_42/s15.mp3",
-      "audio_hash": "2f8fab144bcc"
+      "gloss_en": "There is no phone call. It is a quiet spring evening."
     }
-  ],
-  "word_audio": {
-    "W00127": "audio/story_42/w_W00127.mp3",
-    "W00125": "audio/story_42/w_W00125.mp3",
-    "W00126": "audio/story_42/w_W00126.mp3"
-  },
-  "word_audio_hash": {
-    "W00127": "face8e8973e0",
-    "W00125": "93663a351728",
-    "W00126": "eca82fe9a0fb"
-  }
+  ]
 }

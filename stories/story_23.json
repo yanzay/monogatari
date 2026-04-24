@@ -47,14 +47,18 @@
     "W00035",
     "W00026",
     "W00064",
+    "W00047",
     "W00032",
-    "W00050",
-    "W00240",
-    "W00137",
+    "W00044",
     "W00101",
     "W00102",
+    "W00046",
+    "W00240",
+    "W00137",
+    "W00050",
     "W00009",
-    "W00010"
+    "W00010",
+    "W00017"
   ],
   "sentences": [
     {
@@ -98,9 +102,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the evening, the station is quiet.",
-      "audio": "audio/story_23/s0.mp3",
-      "audio_hash": "e89f11c55eb0"
+      "gloss_en": "In the evening, the station is quiet."
     },
     {
       "idx": 1,
@@ -115,10 +117,6 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "、",
-          "role": "punct"
         },
         {
           "t": "駅",
@@ -160,9 +158,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I wait for my friend at the station.",
-      "audio": "audio/story_23/s1.mp3",
-      "audio_hash": "bc4acd872cc6"
+      "gloss_en": "At the station, I wait for my friend."
     },
     {
       "idx": 2,
@@ -214,9 +210,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The station's new clock is large.",
-      "audio": "audio/story_23/s2.mp3",
-      "audio_hash": "6a597a6e7a14"
+      "gloss_en": "The station's new clock is big."
     },
     {
       "idx": 3,
@@ -246,7 +240,7 @@
           "grammar_id": "G026_masu_nonpast"
         },
         {
-          "t": "、",
+          "t": "。",
           "role": "punct"
         },
         {
@@ -278,9 +272,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I look at the clock; the snow comes.",
-      "audio": "audio/story_23/s3.mp3",
-      "audio_hash": "27da672ca487"
+      "gloss_en": "I look at the clock. Snow is coming."
     },
     {
       "idx": 4,
@@ -315,9 +307,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The train comes.",
-      "audio": "audio/story_23/s4.mp3",
-      "audio_hash": "7b6d3c9877a6"
+      "gloss_en": "A train arrives."
     },
     {
       "idx": 5,
@@ -332,10 +322,6 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "、",
-          "role": "punct"
         },
         {
           "t": "電車",
@@ -366,9 +352,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My friend comes from the train.",
-      "audio": "audio/story_23/s5.mp3",
-      "audio_hash": "b853f823112f"
+      "gloss_en": "My friend comes from the train."
     },
     {
       "idx": 6,
@@ -384,10 +368,6 @@
           "t": "で",
           "role": "particle",
           "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "、",
-          "role": "punct"
         },
         {
           "t": "駅",
@@ -418,9 +398,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us return home from the station.",
-      "audio": "audio/story_23/s6.mp3",
-      "audio_hash": "60e401b9b033"
+      "gloss_en": "The two of us head home from the station."
     },
     {
       "idx": 7,
@@ -447,6 +425,22 @@
           "role": "punct"
         },
         {
+          "t": "空",
+          "role": "content",
+          "word_id": "W00047",
+          "r": "そら"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
           "t": "星",
           "role": "content",
           "word_id": "W00032",
@@ -458,108 +452,27 @@
           "grammar_id": "G009_mo_also"
         },
         {
-          "t": "来ます",
+          "t": "あります",
           "role": "content",
-          "word_id": "W00040",
-          "r": "きます",
+          "word_id": "W00044",
+          "r": "あります",
           "inflection": {
-            "base": "来る",
-            "base_r": "くる",
+            "base": "ある",
+            "base_r": "ある",
             "form": "polite_nonpast",
-            "verb_class": "irregular_kuru"
+            "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The road is snow; the stars come out, too.",
-      "audio": "audio/story_23/s7.mp3",
-      "audio_hash": "a7203dbd3b3a"
+      "gloss_en": "The road is snow, and in the sky there are stars too."
     },
     {
       "idx": 8,
-      "tokens": [
-        {
-          "t": "一緒に",
-          "role": "content",
-          "word_id": "W00050",
-          "r": "いっしょに"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "星",
-          "role": "content",
-          "word_id": "W00032",
-          "r": "ほし"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "夕方",
-          "role": "content",
-          "word_id": "W00018",
-          "r": "ゆうがた"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Together, an evening of stars.",
-      "audio": "audio/story_23/s8.mp3",
-      "audio_hash": "80092f9e2e4c"
-    },
-    {
-      "idx": 9,
-      "tokens": [
-        {
-          "t": "太陽",
-          "role": "content",
-          "word_id": "W00240",
-          "r": "たいよう"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "明るい",
-          "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The sun is bright.",
-      "audio": "audio/story_23/s9.mp3",
-      "audio_hash": "7dfbbbda2d1b"
-    },
-    {
-      "idx": 10,
       "tokens": [
         {
           "t": "犬",
@@ -602,13 +515,66 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The dog runs on the road.",
-      "audio": "audio/story_23/s10.mp3",
-      "audio_hash": "36e9467565c5"
+      "gloss_en": "A dog runs along the road."
     },
     {
-      "idx": 11,
+      "idx": 9,
       "tokens": [
+        {
+          "t": "明日",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "あした"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "太陽",
+          "role": "content",
+          "word_id": "W00240",
+          "r": "たいよう"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Tomorrow's sun will be bright."
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "明日",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "あした"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
         {
           "t": "一緒に",
           "role": "content",
@@ -649,21 +615,62 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Won't you have tea with me?",
-      "audio": "audio/story_23/s11.mp3",
-      "audio_hash": "40339f4fa952"
+      "gloss_en": "Tomorrow, too, won't we drink tea together?"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "一緒に",
+          "role": "content",
+          "word_id": "W00050",
+          "r": "いっしょに"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "雪",
+          "role": "content",
+          "word_id": "W00063",
+          "r": "ゆき"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夕方",
+          "role": "content",
+          "word_id": "W00018",
+          "r": "ゆうがた"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "歩きます",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "あるきます",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Together, we walk through the snowy evening."
     }
-  ],
-  "word_audio": {
-    "W00069": "audio/story_23/w_W00069.mp3",
-    "W00071": "audio/story_23/w_W00071.mp3",
-    "W00070": "audio/story_23/w_W00070.mp3",
-    "W00102": "audio/story_23/w_W00102.mp3"
-  },
-  "word_audio_hash": {
-    "W00069": "53e5e276999d",
-    "W00071": "6fd2f3add204",
-    "W00070": "92e4d1d0c7a5",
-    "W00102": "24d5c7ca0c19"
-  }
+  ]
 }

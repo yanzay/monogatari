@@ -70,14 +70,13 @@
     "W00015",
     "W00072",
     "W00182",
+    "W00138",
     "W00003",
     "W00120",
     "W00056",
-    "W00138",
-    "W00011",
+    "W00067",
     "W00033",
     "W00006",
-    "W00067",
     "W00083",
     "W00084",
     "W00113",
@@ -87,20 +86,18 @@
     "W00041",
     "W00059",
     "W00187",
+    "W00045",
     "W00189",
     "W00024",
-    "W00132",
     "W00044",
     "W00146",
     "W00150",
+    "W00132",
     "W00012",
     "W00009",
     "W00010",
     "W00081",
     "W00188",
-    "W00098",
-    "W00185",
-    "W00097",
     "W00176",
     "W00230",
     "W00178",
@@ -108,6 +105,10 @@
     "W00183",
     "W00184",
     "W00109",
+    "W00011",
+    "W00098",
+    "W00185",
+    "W00097",
     "W00222"
   ],
   "sentences": [
@@ -141,9 +142,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring morning.",
-      "audio": "audio/story_57/s0.mp3",
-      "audio_hash": "03fcfb532d5c"
+      "gloss_en": "It is a spring morning."
     },
     {
       "idx": 1,
@@ -173,21 +172,9 @@
           "grammar_id": "G026_masu_nonpast"
         },
         {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Rain falls.",
-      "audio": "audio/story_57/s1.mp3",
-      "audio_hash": "ab3864b4899e"
-    },
-    {
-      "idx": 2,
-      "tokens": [
-        {
-          "t": "でも",
+          "t": "が",
           "role": "particle",
-          "grammar_id": "G032_demo"
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "、",
@@ -198,6 +185,17 @@
           "role": "content",
           "word_id": "W00182",
           "r": "ひる"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "空気",
+          "role": "content",
+          "word_id": "W00138",
+          "r": "くうき"
         },
         {
           "t": "は",
@@ -221,46 +219,11 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But noon is bright.",
-      "audio": "audio/story_57/s2.mp3",
-      "audio_hash": "709559cad60d"
+      "gloss_en": "Rain is falling, but the noon air is bright."
     },
     {
-      "idx": 3,
+      "idx": 2,
       "tokens": [
-        {
-          "t": "雨",
-          "role": "content",
-          "word_id": "W00002",
-          "r": "あめ"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "降ります",
-          "role": "content",
-          "word_id": "W00107",
-          "r": "ふります",
-          "inflection": {
-            "base": "降る",
-            "base_r": "ふる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
         {
           "t": "私",
           "role": "content",
@@ -300,44 +263,11 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It rains, but my heart is happy.",
-      "audio": "audio/story_57/s3.mp3",
-      "audio_hash": "24dd599181fa"
+      "gloss_en": "My heart is happy."
     },
     {
-      "idx": 4,
+      "idx": 3,
       "tokens": [
-        {
-          "t": "空気",
-          "role": "content",
-          "word_id": "W00138",
-          "r": "くうき"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "静か",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G049_ga_but"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
         {
           "t": "私",
           "role": "content",
@@ -348,6 +278,13 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "本",
@@ -375,58 +312,6 @@
         },
         {
           "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The air is quiet, but I look at a book.",
-      "audio": "audio/story_57/s4.mp3",
-      "audio_hash": "d86a2e7c0d8a"
-    },
-    {
-      "idx": 5,
-      "tokens": [
-        {
-          "t": "本",
-          "role": "content",
-          "word_id": "W00033",
-          "r": "ほん"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "古い",
-          "role": "content",
-          "word_id": "W00067",
-          "r": "ふるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The book is old.",
-      "audio": "audio/story_57/s5.mp3",
-      "audio_hash": "b02cc2a7fb1c"
-    },
-    {
-      "idx": 6,
-      "tokens": [
-        {
-          "t": "でも",
-          "role": "particle",
-          "grammar_id": "G032_demo"
-        },
-        {
-          "t": "、",
           "role": "punct"
         },
         {
@@ -457,12 +342,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But, the book is beautiful.",
-      "audio": "audio/story_57/s6.mp3",
-      "audio_hash": "7e6f68ffc2f6"
+      "gloss_en": "I look at an old book. The book is beautiful."
     },
     {
-      "idx": 7,
+      "idx": 4,
       "tokens": [
         {
           "t": "私",
@@ -564,12 +447,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think, \"when will the bookstore person come?\"",
-      "audio": "audio/story_57/s7.mp3",
-      "audio_hash": "5ffd81d9f6e9"
+      "gloss_en": "I think, \"when will the bookstore person come?\""
     },
     {
-      "idx": 8,
+      "idx": 5,
       "tokens": [
         {
           "t": "雨",
@@ -633,12 +514,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It rains, but I wait.",
-      "audio": "audio/story_57/s8.mp3",
-      "audio_hash": "bdc39b591cec"
+      "gloss_en": "Rain is falling, but I wait."
     },
     {
-      "idx": 9,
+      "idx": 6,
       "tokens": [
         {
           "t": "庭",
@@ -664,6 +543,21 @@
           "grammar_id": "G015_no_possessive"
         },
         {
+          "t": "そば",
+          "role": "content",
+          "word_id": "W00045",
+          "r": "そば"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
           "t": "色々",
           "role": "content",
           "word_id": "W00189",
@@ -682,33 +576,32 @@
           "r": "はな"
         },
         {
-          "t": "は",
+          "t": "が",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G002_ga_subject"
         },
         {
-          "t": "美しい",
+          "t": "あります",
           "role": "content",
-          "word_id": "W00083",
-          "r": "うつくしい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The various flowers by the garden's bridge are beautiful.",
-      "audio": "audio/story_57/s9.mp3",
-      "audio_hash": "6a68b387459f"
+      "gloss_en": "By the garden's bridge, there are various flowers."
     },
     {
-      "idx": 10,
+      "idx": 7,
       "tokens": [
         {
           "t": "本",
@@ -766,6 +659,42 @@
           "role": "punct"
         },
         {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "来週",
+          "role": "content",
+          "word_id": "W00146",
+          "r": "らいしゅう"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "行きましょう",
+          "role": "content",
+          "word_id": "W00150",
+          "r": "いきましょう",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "volitional_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G048_masho"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
           "t": "約束",
           "role": "content",
           "word_id": "W00132",
@@ -794,47 +723,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bookstore person doesnt come, but there is a promise.",
-      "audio": "audio/story_57/s10.mp3",
-      "audio_hash": "07558eed487c"
+      "gloss_en": "The bookstore person does not come, but there is a promise: \"let's go next week.\""
     },
     {
-      "idx": 11,
-      "tokens": [
-        {
-          "t": "来週",
-          "role": "content",
-          "word_id": "W00146",
-          "r": "らいしゅう"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "行きましょう",
-          "role": "content",
-          "word_id": "W00150",
-          "r": "いきましょう",
-          "inflection": {
-            "base": "行く",
-            "base_r": "いく",
-            "form": "volitional_polite",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G048_masho"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Next week, let's go.",
-      "audio": "audio/story_57/s11.mp3",
-      "audio_hash": "ef390871fec6"
-    },
-    {
-      "idx": 12,
+      "idx": 8,
       "tokens": [
         {
           "t": "私",
@@ -883,78 +775,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I drink warm tea.",
-      "audio": "audio/story_57/s12.mp3",
-      "audio_hash": "aa933af6c18e"
+      "gloss_en": "I drink warm tea."
     },
     {
-      "idx": 13,
-      "tokens": [
-        {
-          "t": "庭",
-          "role": "content",
-          "word_id": "W00059",
-          "r": "にわ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "雨",
-          "role": "content",
-          "word_id": "W00002",
-          "r": "あめ"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G049_ga_but"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "心",
-          "role": "content",
-          "word_id": "W00120",
-          "r": "こころ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "明るい",
-          "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The garden is rainy, but the heart is bright.",
-      "audio": "audio/story_57/s13.mp3",
-      "audio_hash": "7511ac070b08"
-    },
-    {
-      "idx": 14,
+      "idx": 9,
       "tokens": [
         {
           "t": "美しかった",
@@ -990,6 +814,21 @@
           "grammar_id": "G005_wo_object"
         },
         {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
           "t": "思います",
           "role": "content",
           "word_id": "W00043",
@@ -1007,157 +846,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think of the shadow of the beautiful summer.",
-      "audio": "audio/story_57/s14.mp3",
-      "audio_hash": "17bb8d971989"
+      "gloss_en": "I think of the shadow of the summer that was beautiful."
     },
     {
-      "idx": 15,
-      "tokens": [
-        {
-          "t": "祖母",
-          "role": "content",
-          "word_id": "W00098",
-          "r": "そぼ"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "玄関",
-          "role": "content",
-          "word_id": "W00185",
-          "r": "げんかん"
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "明るい",
-          "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "言いました",
-          "role": "content",
-          "word_id": "W00097",
-          "r": "いいました",
-          "inflection": {
-            "base": "言う",
-            "base_r": "いう",
-            "form": "polite_past",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G013_mashita_past"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Grandmother, too, in the entryway said, \"A bright morning.\"",
-      "audio": "audio/story_57/s15.mp3",
-      "audio_hash": "6cf3ce07b602"
-    },
-    {
-      "idx": 16,
-      "tokens": [
-        {
-          "t": "雨",
-          "role": "content",
-          "word_id": "W00002",
-          "r": "あめ"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "明るい",
-          "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "心",
-          "role": "content",
-          "word_id": "W00120",
-          "r": "こころ"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "来週",
-          "role": "content",
-          "word_id": "W00146",
-          "r": "らいしゅう"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "約束",
-          "role": "content",
-          "word_id": "W00132",
-          "r": "やくそく"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Rainy morning, bright heart, next week's promise.",
-      "audio": "audio/story_57/s16.mp3",
-      "audio_hash": "d5a3cc94f1f6"
-    },
-    {
-      "idx": 17,
+      "idx": 10,
       "tokens": [
         {
           "t": "私",
@@ -1232,12 +924,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I was a bright student. A year is fast.",
-      "audio": "audio/story_57/s17.mp3",
-      "audio_hash": "9084bfab3fec"
+      "gloss_en": "I was a bright student. A year is fast."
     },
     {
-      "idx": 18,
+      "idx": 11,
       "tokens": [
         {
           "t": "晩",
@@ -1294,12 +984,86 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the evening, the kitchen is quiet with warm sounds.",
-      "audio": "audio/story_57/s18.mp3",
-      "audio_hash": "914c1454a686"
+      "gloss_en": "In the evening, the kitchen is quiet with warm sounds."
     },
     {
-      "idx": 19,
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "玄関",
+          "role": "content",
+          "word_id": "W00185",
+          "r": "げんかん"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00097",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "At the entryway, grandmother said, \"a bright morning.\""
+    },
+    {
+      "idx": 13,
       "tokens": [
         {
           "t": "祖母",
@@ -1319,9 +1083,39 @@
           "r": "きもち"
         },
         {
-          "t": "は",
+          "t": "も",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "気持ち",
+          "role": "content",
+          "word_id": "W00222",
+          "r": "きもち"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "、",
+          "role": "punct"
         },
         {
           "t": "温かい",
@@ -1340,21 +1134,77 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Grandmother's feeling is warm.",
-      "audio": "audio/story_57/s19.mp3",
-      "audio_hash": "dc59c44061b9"
+      "gloss_en": "Grandmother's feeling and my feeling, too — both are warm."
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あめ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "心",
+          "role": "content",
+          "word_id": "W00120",
+          "r": "こころ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "来週",
+          "role": "content",
+          "word_id": "W00146",
+          "r": "らいしゅう"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "約束",
+          "role": "content",
+          "word_id": "W00132",
+          "r": "やくそく"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A rainy morning, a bright heart, a promise for next week."
     }
-  ],
-  "word_audio": {
-    "W00187": "audio/story_57/w_W00187.mp3",
-    "W00189": "audio/story_57/w_W00189.mp3",
-    "W00188": "audio/story_57/w_W00188.mp3",
-    "W00230": "audio/story_57/w_W00230.mp3"
-  },
-  "word_audio_hash": {
-    "W00187": "c2995d695826",
-    "W00189": "14951677138d",
-    "W00188": "1cc19d290f3c",
-    "W00230": "51a75f4634df"
-  }
+  ]
 }

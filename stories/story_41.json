@@ -73,6 +73,9 @@
     "W00105",
     "W00106",
     "W00111",
+    "W00108",
+    "W00109",
+    "W00215",
     "W00066",
     "W00112"
   ],
@@ -839,6 +842,69 @@
     },
     {
       "idx": 13,
+      "tokens": [
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "ストーブ",
+          "role": "content",
+          "word_id": "W00108",
+          "r": "ストーブ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00055",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "音",
+          "role": "content",
+          "word_id": "W00109",
+          "r": "おと"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "します",
+          "role": "content",
+          "word_id": "W00215",
+          "r": "します",
+          "inflection": {
+            "base": "する",
+            "base_r": "する",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_suru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The shop's stove makes a small sound."
+    },
+    {
+      "idx": 14,
       "tokens": [
         {
           "t": "春",
