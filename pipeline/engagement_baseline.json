@@ -1800,32 +1800,34 @@
     },
     {
       "story_id": 56,
-      "title_jp": "駅まで歩きます。",
-      "title_en": "I Walk Until the Station.",
+      "title_jp": "橋まで",
+      "title_en": "As Far as the Bridge",
       "scores": {
-        "hook": 4,
-        "voice": 4,
-        "originality": 4,
+        "hook": 5,
+        "voice": 5,
+        "originality": 5,
         "coherence": 5,
-        "closure": 4
+        "closure": 5
       },
-      "average": 4.2,
+      "average": 5.0,
       "approved": true,
       "highlights": [
-        "Introduces G052_made_until — the natural counterpart of G006_kara_from. Nine load-bearing uses across both spatial (家から駅まで, 公園まで, 町の店まで, 店から家まで, 駅まで) and temporal (昼まで, 夕方まで, 晩まで, 夕飯まで) endpoints — every まで does pedagogical work.",
-        "Title 駅まで歩きます puts the new grammar at the syntactic peak of a 5-mora sentence — eki-made aru-kimasu — and the pattern recurs as the closer (明日も駅まで歩きます).",
-        "Reinforces W00179 日 and W00245 鐘 (introduced story_54): 鐘 returns as 'town bell sound until night' (s11), 日 closes the story as '楽しい日です'.",
-        "Reinforces W00181 夕飯 (introduced story_54) at sentence 12 as a temporal endpoint (夕飯まで).",
-        "から…まで paired construction in s2 (家から駅まで) and s14 (店から家まで) — anchors the new particle to the already-mastered から for contrastive learning.",
-        "Three new adverbs/adjectives spread out: ゆっくり (s4, s7) modifies the walking, 楽しい (s10, s16) frames the day, もう (s13) dramatizes the friend's departure.",
-        "Frame structure: opens 'spring morning, I walk to the station' / closes 'tomorrow too I walk to the station — a fun day' — the fun-day closer earns its tone from the まで-marked spans of activity in between."
+        "Introduces G052_made_until — the natural counterpart of G006_kara_from. Six まで uses, each load-bearing in distinct register: spatial outward (家から橋まで s2), temporal daylight cutoff (夕方まで s6), temporal nightfall (晩まで s7), temporal social cutoff (夕飯の時間まで s8), the keystone abstract temporal (夏まで s9 — 'until next summer'), and spatial homeward (橋から家まで s11). The two spatial までs bookend the journey out and back; the four temporal までs deepen the dusk arc into farewell.",
+        "Single past-tense register held across all 13 sentences — no tense slips.",
+        "Single scene, single mood: a quiet farewell to summer at a river bridge. No topic drift.",
+        "Echo close: opens 'evening at the end of summer' → closes 'a leaf the color of summer — the color of that day's summer.' The leaf in the coat at s12 is the concrete object that earns the closer.",
+        "The keystone interior thought 「夏まで」と心の中で思いました (s9) compresses the entire emotional arc into three words: a particle, a noun, and a verb. The new grammar IS the feeling.",
+        "Reinforces all three weakly-rooted W00179 日 (s13 'あの日の夏の色'), W00245 鐘 (s8 'town bell's sound was quiet, until dinner time'), W00181 夕飯 (s8 as the social cutoff for the bell). 鐘 is handled idiomatically (mirrors story_54's '鐘の音は時々静かでした' static description, avoiding the unidiomatic 'sound came' calque).",
+        "Mirror of story_54's 玄関の前で、私は上着...を持ちます staging — story_56 returns to the same entryway with the same coat, but this time discovers a small green leaf inside it. The library is now in dialogue with itself.",
+        "Title 橋まで is the new grammar in pure noun-particle form — two characters that name both the destination and the syntactic pattern.",
+        "Four new vocab earn their place: 橋 is the title image, 聞きます is the verb of contemplative attention (川の音をゆっくり聞きました), 暗い marks the dusk turn (s10), ゆっくり (s5, s11) is the slowness that makes the scene meditative."
       ],
       "weaknesses": [
-        "Friend disappears narratively at s13 ('もう帰ります') but s14 keeps walking 'alone from the shop' — slight continuity blur (where did the shop come from?).",
-        "Five new vocab in one story is on the high end of the cadence band; ゆっくり and 楽しい are heavy lifters but もう and 沢山 only appear once each."
+        "風 (s3), 空 (s6), 星 (s7) each appear in exactly one sentence each — Check 11 flags them as 'lonely scene nouns'. Defensible: the dusk arc INTENDS to move through different sky-elements (wind → clouds → stars), each marking a stage of the falling light. But a stricter reviewer could ask whether 風 in s3 earns its place or if the line could be tightened to one clause."
       ],
       "suggestions": [
-        "Future story should reinforce もう (W00256) and 沢山/たくさん (W00253) within 2 stories — neither carries weight without a second use."
+        "Future story could revisit the bridge motif from a different season to extend story_56's late-summer farewell into a small cycle (winter bridge, spring bridge).",
+        "Now that 鐘 has appeared in three stories (54, 55, 56), it is becoming a library motif — consider promoting it to a recurring sound-anchor across the next dozen stories the way 雨/お茶/葉 already are."
       ]
     }
   ],
@@ -1842,6 +1844,11 @@
     },
     {
       "story_id": 55,
+      "average": 5.0,
+      "rank": 1
+    },
+    {
+      "story_id": 56,
       "average": 5.0,
       "rank": 1
     },
@@ -2037,11 +2044,6 @@
     },
     {
       "story_id": 44,
-      "average": 4.2,
-      "rank": 31
-    },
-    {
-      "story_id": 56,
       "average": 4.2,
       "rank": 31
     },
