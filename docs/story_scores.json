@@ -1,6 +1,6 @@
 {
   "scale": {
-    "version": "1.1",
+    "version": "1.2",
     "date": "2026-04-24",
     "max_per_dimension": 5,
     "max_total": 25,
@@ -21,12 +21,12 @@
   },
   "summary": {
     "count": 67,
-    "average_total": 22.13,
-    "tier_distribution": {"5": 46, "4": 21, "3": 0, "2": 0, "1": 0},
-    "min_total": 18,
+    "average_total": 22.61,
+    "tier_distribution": {"5": 52, "4": 15, "3": 0, "2": 0, "1": 0},
+    "min_total": 19,
     "max_total": 25,
     "perfect_scores": [33, 37, 47],
-    "lowest_scores": [4, 6, 41, 51, 52, 53]
+    "lowest_scores": [15, 48, 62, 67]
   },
   "history": [
     {
@@ -52,6 +52,22 @@
         {"id": 31, "before": 16, "after": 22, "delta": "+6"}
       ],
       "note": "Six lowest-scoring stories rewritten to integrate orphan-tail reuse weaves into their narrative scenes. Zero stories now below tier 4. Mean +0.43 across the library."
+    },
+    {
+      "version": "1.2",
+      "date": "2026-04-24",
+      "average_total": 22.61,
+      "tier_distribution": {"5": 52, "4": 15, "3": 0, "2": 0, "1": 0},
+      "lowest_scores": [15, 48, 62, 67],
+      "rewritten_stories": [
+        {"id": 4,  "before": 18, "after": 23, "delta": "+5"},
+        {"id": 6,  "before": 18, "after": 24, "delta": "+6"},
+        {"id": 41, "before": 18, "after": 23, "delta": "+5"},
+        {"id": 51, "before": 18, "after": 23, "delta": "+5"},
+        {"id": 52, "before": 18, "after": 24, "delta": "+6"},
+        {"id": 53, "before": 18, "after": 23, "delta": "+5"}
+      ],
+      "note": "Second pass: the six newly-tied bottom stories (all at 18) rewritten in the same style. Library minimum lifts from 18 → 19, ★★★★★ count grows from 46 → 52. Two cascade-fix gotchas caught and corrected: gap-violations from accidentally re-introducing 開ける (story_52) and 今朝 (story_53) after 20+ story silences."
     }
   ],
   "scores_csv": "docs/story_scores.csv"
