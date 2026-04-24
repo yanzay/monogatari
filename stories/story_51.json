@@ -20,9 +20,9 @@
   },
   "new_words": [
     "W00148",
-    "W00222",
     "W00185",
-    "W00232"
+    "W00232",
+    "W00222"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -30,43 +30,42 @@
     "W00024",
     "W00072",
     "W00018",
+    "W00022",
+    "W00173",
+    "W00003",
+    "W00050",
     "W00016",
+    "W00040",
     "W00007",
     "W00044",
-    "W00022",
-    "W00056",
-    "W00097",
     "W00142",
-    "W00003",
-    "W00043",
+    "W00097",
     "W00148",
-    "W00067",
     "W00057",
     "W00103",
+    "W00141",
     "W00054",
     "W00029",
     "W00135",
-    "W00141",
     "W00047",
     "W00006",
-    "W00173",
-    "W00050",
-    "W00017",
-    "W00120",
     "W00145",
-    "W00040",
-    "W00132",
-    "W00137",
     "W00015",
-    "W00138",
-    "W00222",
-    "W00013",
+    "W00132",
+    "W00120",
+    "W00056",
+    "W00078",
+    "W00026",
+    "W00185",
+    "W00232",
+    "W00169",
     "W00171",
     "W00059",
     "W00053",
-    "W00169",
-    "W00185",
-    "W00232"
+    "W00137",
+    "W00138",
+    "W00222",
+    "W00013"
   ],
   "sentences": [
     {
@@ -99,12 +98,83 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring evening.",
-      "audio": "audio/story_51/s0.mp3",
-      "audio_hash": "fdecbcf80e9f"
+      "gloss_en": "It is a spring evening."
     },
     {
       "idx": 1,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "妹",
+          "role": "content",
+          "word_id": "W00173",
+          "r": "いもうと"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "一緒に",
+          "role": "content",
+          "word_id": "W00050",
+          "r": "いっしょに"
+        },
+        {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "こうえん"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend, my younger sister, and I come to the park together."
+    },
+    {
+      "idx": 2,
       "tokens": [
         {
           "t": "公園",
@@ -162,12 +232,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the park, there are trees and flowers.",
-      "audio": "audio/story_51/s1.mp3",
-      "audio_hash": "54ecf2d1abb9"
+      "gloss_en": "In the park, there are trees and flowers."
     },
     {
-      "idx": 2,
+      "idx": 3,
       "tokens": [
         {
           "t": "友達",
@@ -180,74 +248,6 @@
           "role": "particle",
           "grammar_id": "G001_wa_topic"
         },
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "あの",
-          "role": "content",
-          "word_id": "W00147",
-          "r": "あの",
-          "grammar_id": "G043_kosoado_pre_nominal"
-        },
-        {
-          "t": "花",
-          "role": "content",
-          "word_id": "W00024",
-          "r": "はな"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "嬉しい",
-          "role": "content",
-          "word_id": "W00056",
-          "r": "うれしい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "言います",
-          "role": "aux",
-          "word_id": "W00097",
-          "r": "いいます",
-          "inflection": {
-            "base": "言う",
-            "base_r": "いう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The friend says, \"that flower over there is happy\".",
-      "audio": "audio/story_51/s2.mp3",
-      "audio_hash": "01fba25cffd5"
-    },
-    {
-      "idx": 3,
-      "tokens": [
         {
           "t": "「",
           "role": "punct"
@@ -289,27 +289,16 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G014_to_omoimasu"
+          "grammar_id": "G028_to_iimasu"
         },
         {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "思います",
+          "t": "言います",
           "role": "aux",
-          "word_id": "W00043",
-          "r": "おもいます",
+          "word_id": "W00097",
+          "r": "いいます",
           "inflection": {
-            "base": "思う",
-            "base_r": "おもう",
+            "base": "言う",
+            "base_r": "いう",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
@@ -320,9 +309,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think, \"that flower over there is red\".",
-      "audio": "audio/story_51/s3.mp3",
-      "audio_hash": "160b8614d048"
+      "gloss_en": "The friend says, \"that flower over there is red.\""
     },
     {
       "idx": 4,
@@ -349,85 +336,6 @@
           "r": "この",
           "grammar_id": "G043_kosoado_pre_nominal",
           "is_new": true
-        },
-        {
-          "t": "木",
-          "role": "content",
-          "word_id": "W00007",
-          "r": "き"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "古い",
-          "role": "content",
-          "word_id": "W00067",
-          "r": "ふるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "言います",
-          "role": "aux",
-          "word_id": "W00097",
-          "r": "いいます",
-          "inflection": {
-            "base": "言う",
-            "base_r": "いう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I say, \"this tree is old\".",
-      "audio": "audio/story_51/s4.mp3",
-      "audio_hash": "2861a85576a2"
-    },
-    {
-      "idx": 5,
-      "tokens": [
-        {
-          "t": "友達",
-          "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "この",
-          "role": "content",
-          "word_id": "W00148",
-          "r": "この",
-          "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
           "t": "木",
@@ -479,12 +387,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend says, \"This tree is large.\"",
-      "audio": "audio/story_51/s5.mp3",
-      "audio_hash": "201c219e1068"
+      "gloss_en": "I say, \"this tree is big.\""
     },
     {
-      "idx": 6,
+      "idx": 5,
       "tokens": [
         {
           "t": "池",
@@ -498,9 +404,11 @@
           "grammar_id": "G004_ni_location"
         },
         {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "t": "黒い",
+          "role": "content",
+          "word_id": "W00141",
+          "r": "くろい",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "鳥",
@@ -531,12 +439,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the pond, there is a bird.",
-      "audio": "audio/story_51/s6.mp3",
-      "audio_hash": "84f58b556452"
+      "gloss_en": "In the pond, there is a black bird."
     },
     {
-      "idx": 7,
+      "idx": 6,
       "tokens": [
         {
           "t": "「",
@@ -587,15 +493,15 @@
           "grammar_id": "G028_to_iimasu"
         },
         {
-          "t": "友達",
+          "t": "妹",
           "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち"
+          "word_id": "W00173",
+          "r": "いもうと"
         },
         {
-          "t": "は",
+          "t": "が",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "言います",
@@ -615,85 +521,27 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend says, \"what is that bird over there?\"",
-      "audio": "audio/story_51/s7.mp3",
-      "audio_hash": "094b2657db00"
+      "gloss_en": "\"What is that bird over there?\" my sister says."
     },
     {
-      "idx": 8,
+      "idx": 7,
       "tokens": [
         {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "黒い",
+          "t": "妹",
           "role": "content",
-          "word_id": "W00141",
-          "r": "くろい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "鳥",
-          "role": "content",
-          "word_id": "W00054",
-          "r": "とり"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "」",
-          "role": "punct"
+          "word_id": "W00173",
+          "r": "いもうと"
         },
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G028_to_iimasu"
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "私",
           "role": "content",
           "word_id": "W00003",
           "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "言います",
-          "role": "aux",
-          "word_id": "W00097",
-          "r": "いいます",
-          "inflection": {
-            "base": "言う",
-            "base_r": "いう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I say, \"it is a black bird\".",
-      "audio": "audio/story_51/s8.mp3",
-      "audio_hash": "481eac54fb8c"
-    },
-    {
-      "idx": 9,
-      "tokens": [
-        {
-          "t": "友達",
-          "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち"
         },
         {
           "t": "は",
@@ -729,122 +577,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend looks at the sky.",
-      "audio": "audio/story_51/s9.mp3",
-      "audio_hash": "59739c186891"
+      "gloss_en": "My younger sister and I look at the sky."
     },
     {
-      "idx": 10,
-      "tokens": [
-        {
-          "t": "友達",
-          "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "妹",
-          "role": "content",
-          "word_id": "W00173",
-          "r": "いもうと"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "一緒に",
-          "role": "content",
-          "word_id": "W00050",
-          "r": "いっしょに"
-        },
-        {
-          "t": "歩きます",
-          "role": "content",
-          "word_id": "W00017",
-          "r": "あるきます",
-          "inflection": {
-            "base": "歩く",
-            "base_r": "あるく",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The friend, (my) younger sister, and I walk together.",
-      "audio": "audio/story_51/s10.mp3",
-      "audio_hash": "e581d41cd650"
-    },
-    {
-      "idx": 11,
-      "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "心",
-          "role": "content",
-          "word_id": "W00120",
-          "r": "こころ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "嬉しい",
-          "role": "content",
-          "word_id": "W00056",
-          "r": "うれしい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "My heart is happy.",
-      "audio": "audio/story_51/s11.mp3",
-      "audio_hash": "b224b0eb608f"
-    },
-    {
-      "idx": 12,
+      "idx": 8,
       "tokens": [
         {
           "t": "友達",
@@ -931,13 +667,130 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend says, \"when will (we) come to this park?\"",
-      "audio": "audio/story_51/s12.mp3",
-      "audio_hash": "05c0113b7435"
+      "gloss_en": "The friend says, \"when will we come to this park?\""
     },
     {
-      "idx": 13,
+      "idx": 9,
       "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "春",
+          "role": "content",
+          "word_id": "W00072",
+          "r": "はる"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "言います",
+          "role": "aux",
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "約束",
+          "role": "content",
+          "word_id": "W00132",
+          "r": "やくそく"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"We will come on a spring morning,\" I say. It is a promise."
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "心",
+          "role": "content",
+          "word_id": "W00120",
+          "r": "こころ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
         {
           "t": "嬉しい",
           "role": "content",
@@ -955,107 +808,184 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Happy.",
-      "audio": "audio/story_51/s13.mp3",
-      "audio_hash": "54b91d6523d1"
+      "gloss_en": "My heart is happy."
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "妹",
+          "role": "content",
+          "word_id": "W00173",
+          "r": "いもうと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "帰ります",
+          "role": "content",
+          "word_id": "W00026",
+          "r": "かえります",
+          "inflection": {
+            "base": "帰る",
+            "base_r": "かえる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My younger sister and I go home."
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "玄関",
+          "role": "content",
+          "word_id": "W00185",
+          "r": "げんかん",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "前",
+          "role": "content",
+          "word_id": "W00232",
+          "r": "まえ",
+          "is_new": true
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "靴",
+          "role": "content",
+          "word_id": "W00169",
+          "r": "くつ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In front of the entrance, I look at the shoes."
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "妹",
+          "role": "content",
+          "word_id": "W00173",
+          "r": "いもうと"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "姉",
+          "role": "content",
+          "word_id": "W00171",
+          "r": "あね"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "庭",
+          "role": "content",
+          "word_id": "W00059",
+          "r": "にわ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "笑います",
+          "role": "content",
+          "word_id": "W00053",
+          "r": "わらいます",
+          "inflection": {
+            "base": "笑う",
+            "base_r": "わらう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My younger sister and older sister laugh in the garden."
     },
     {
       "idx": 14,
-      "tokens": [
-        {
-          "t": "約束",
-          "role": "content",
-          "word_id": "W00132",
-          "r": "やくそく"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "It is a promise.",
-      "audio": "audio/story_51/s14.mp3",
-      "audio_hash": "d338ce761233"
-    },
-    {
-      "idx": 15,
-      "tokens": [
-        {
-          "t": "春",
-          "role": "content",
-          "word_id": "W00072",
-          "r": "はる"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "夕方",
-          "role": "content",
-          "word_id": "W00018",
-          "r": "ゆうがた"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "あの",
-          "role": "content",
-          "word_id": "W00147",
-          "r": "あの",
-          "grammar_id": "G043_kosoado_pre_nominal"
-        },
-        {
-          "t": "花",
-          "role": "content",
-          "word_id": "W00024",
-          "r": "はな"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "空",
-          "role": "content",
-          "word_id": "W00047",
-          "r": "そら"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "鳥",
-          "role": "content",
-          "word_id": "W00054",
-          "r": "とり"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Spring evening, that flower, the bird in the sky.",
-      "audio": "audio/story_51/s15.mp3",
-      "audio_hash": "b7fef074e7c4"
-    },
-    {
-      "idx": 16,
       "tokens": [
         {
           "t": "明るい",
@@ -1119,145 +1049,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Bright morning air feels good.",
-      "audio": "audio/story_51/s16.mp3",
-      "audio_hash": "bd965da924d8"
-    },
-    {
-      "idx": 17,
-      "tokens": [
-        {
-          "t": "姉",
-          "role": "content",
-          "word_id": "W00171",
-          "r": "あね"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "妹",
-          "role": "content",
-          "word_id": "W00173",
-          "r": "いもうと"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "一緒に",
-          "role": "content",
-          "word_id": "W00050",
-          "r": "いっしょに"
-        },
-        {
-          "t": "庭",
-          "role": "content",
-          "word_id": "W00059",
-          "r": "にわ"
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "笑います",
-          "role": "content",
-          "word_id": "W00053",
-          "r": "わらいます",
-          "inflection": {
-            "base": "笑う",
-            "base_r": "わらう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Older sister and younger sister laugh together in the garden.",
-      "audio": "audio/story_51/s17.mp3",
-      "audio_hash": "e32467c344b5"
-    },
-    {
-      "idx": 18,
-      "tokens": [
-        {
-          "t": "靴",
-          "role": "content",
-          "word_id": "W00169",
-          "r": "くつ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "玄関",
-          "role": "content",
-          "word_id": "W00185",
-          "r": "げんかん",
-          "is_new": true
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "前",
-          "role": "content",
-          "word_id": "W00232",
-          "r": "まえ",
-          "is_new": true
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "あります",
-          "role": "content",
-          "word_id": "W00044",
-          "r": "あります",
-          "inflection": {
-            "base": "ある",
-            "base_r": "ある",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The shoes are in front of the entrance.",
-      "audio": "audio/story_51/s18.mp3",
-      "audio_hash": "c8dbe9fa2ffb"
+      "gloss_en": "The bright morning air feels good."
     }
-  ],
-  "word_audio": {
-    "W00148": "audio/story_51/w_W00148.mp3",
-    "W00222": "audio/story_51/w_W00222.mp3",
-    "W00185": "audio/story_51/w_W00185.mp3",
-    "W00232": "audio/story_51/w_W00232.mp3"
-  },
-  "word_audio_hash": {
-    "W00148": "fad04fc93bda",
-    "W00222": "6f6dff13602a",
-    "W00185": "4599e5ce5393",
-    "W00232": "6044e9f095e0"
-  }
+  ]
 }

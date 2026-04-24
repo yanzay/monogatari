@@ -38,8 +38,8 @@
     ]
   },
   "new_words": [
-    "W00176",
     "W00177",
+    "W00176",
     "W00178"
   ],
   "new_grammar": [],
@@ -61,39 +61,37 @@
     "W00083",
     "W00149",
     "W00006",
-    "W00148",
     "W00024",
     "W00066",
     "W00134",
     "W00142",
-    "W00120",
-    "W00056",
+    "W00098",
+    "W00071",
+    "W00153",
+    "W00177",
+    "W00148",
     "W00176",
+    "W00175",
     "W00012",
     "W00009",
     "W00010",
     "W00146",
     "W00060",
     "W00043",
-    "W00175",
-    "W00177",
-    "W00178",
+    "W00232",
+    "W00002",
+    "W00137",
+    "W00185",
     "W00171",
     "W00170",
     "W00169",
-    "W00185",
-    "W00137",
+    "W00059",
+    "W00243",
+    "W00212",
     "W00138",
     "W00221",
     "W00034",
-    "W00098",
-    "W00071",
-    "W00153",
-    "W00232",
-    "W00002",
-    "W00059",
-    "W00243",
-    "W00212"
+    "W00178"
   ],
   "sentences": [
     {
@@ -117,22 +115,9 @@
           "r": "あさ"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
+          "t": "、",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "It is a spring morning.",
-      "audio": "audio/story_53/s0.mp3",
-      "audio_hash": "03fcfb532d5c"
-    },
-    {
-      "idx": 1,
-      "tokens": [
+        },
         {
           "t": "本",
           "role": "content",
@@ -162,9 +147,9 @@
           "r": "ひと"
         },
         {
-          "t": "は",
+          "t": "が",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "私",
@@ -206,12 +191,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bookstore person is at my house.",
-      "audio": "audio/story_53/s1.mp3",
-      "audio_hash": "98d87f5aed45"
+      "gloss_en": "On a spring morning, the bookstore person is at my house.",
+      "audio": "audio/story_53/s0.mp3",
+      "audio_hash": "757a36bbf961"
     },
     {
-      "idx": 2,
+      "idx": 1,
       "tokens": [
         {
           "t": "机",
@@ -260,12 +245,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On the table, there is an old book.",
-      "audio": "audio/story_53/s2.mp3",
+      "gloss_en": "On the desk, there is an old book.",
+      "audio": "audio/story_53/s1.mp3",
       "audio_hash": "8c1a98ad4a6b"
     },
     {
-      "idx": 3,
+      "idx": 2,
       "tokens": [
         {
           "t": "私",
@@ -338,11 +323,11 @@
         }
       ],
       "gloss_en": "I say, \"what kind of book is it?\"",
-      "audio": "audio/story_53/s3.mp3",
+      "audio": "audio/story_53/s2.mp3",
       "audio_hash": "7d273013fef6"
     },
     {
-      "idx": 4,
+      "idx": 3,
       "tokens": [
         {
           "t": "あの",
@@ -385,41 +370,7 @@
           "grammar_id": "G003_desu"
         },
         {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "言います",
-          "role": "aux",
-          "word_id": "W00097",
-          "r": "いいます",
-          "inflection": {
-            "base": "言う",
-            "base_r": "いう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
           "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The bookstore person says, \"it is a beautiful book.\"",
-      "audio": "audio/story_53/s4.mp3",
-      "audio_hash": "b552f1ceadcc"
-    },
-    {
-      "idx": 5,
-      "tokens": [
-        {
-          "t": "「",
           "role": "punct"
         },
         {
@@ -477,66 +428,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "(He) says, \"please, look at it.\"",
-      "audio": "audio/story_53/s5.mp3",
-      "audio_hash": "7476f3d0bc41"
+      "gloss_en": "That person says, \"it is a beautiful book. Please, look at it.\"",
+      "audio": "audio/story_53/s3.mp3",
+      "audio_hash": "61a80f3c1ee0"
     },
     {
-      "idx": 6,
-      "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "この",
-          "role": "content",
-          "word_id": "W00148",
-          "r": "この",
-          "grammar_id": "G043_kosoado_pre_nominal"
-        },
-        {
-          "t": "本",
-          "role": "content",
-          "word_id": "W00033",
-          "r": "ほん"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "見ます",
-          "role": "content",
-          "word_id": "W00006",
-          "r": "みます",
-          "inflection": {
-            "base": "見る",
-            "base_r": "みる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I look at this book.",
-      "audio": "audio/story_53/s6.mp3",
-      "audio_hash": "8d28a268462a"
-    },
-    {
-      "idx": 7,
+      "idx": 4,
       "tokens": [
         {
           "t": "本",
@@ -564,15 +461,7 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "The book is old.",
-      "audio": "audio/story_53/s7.mp3",
-      "audio_hash": "b02cc2a7fb1c"
-    },
-    {
-      "idx": 8,
-      "tokens": [
+        },
         {
           "t": "でも",
           "role": "particle",
@@ -621,12 +510,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But, the book's flowers are new.",
-      "audio": "audio/story_53/s8.mp3",
-      "audio_hash": "396d684a36a6"
+      "gloss_en": "The book is old. But, the book's flowers are new.",
+      "audio": "audio/story_53/s4.mp3",
+      "audio_hash": "7c65358dce82"
     },
     {
-      "idx": 9,
+      "idx": 5,
       "tokens": [
         {
           "t": "私",
@@ -710,11 +599,11 @@
         }
       ],
       "gloss_en": "I say, \"what flower is this?\"",
-      "audio": "audio/story_53/s9.mp3",
+      "audio": "audio/story_53/s5.mp3",
       "audio_hash": "ccecac2538f2"
     },
     {
-      "idx": 10,
+      "idx": 6,
       "tokens": [
         {
           "t": "あの",
@@ -783,29 +672,18 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bookstore person says, \"they are red flowers.\"",
-      "audio": "audio/story_53/s10.mp3",
+      "gloss_en": "That person says, \"it is a red flower.\"",
+      "audio": "audio/story_53/s6.mp3",
       "audio_hash": "e71d70606da2"
     },
     {
-      "idx": 11,
+      "idx": 7,
       "tokens": [
         {
-          "t": "私",
+          "t": "祖母",
           "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "心",
-          "role": "content",
-          "word_id": "W00120",
-          "r": "こころ"
+          "word_id": "W00098",
+          "r": "そぼ"
         },
         {
           "t": "は",
@@ -813,10 +691,80 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "嬉しい",
+          "t": "古い",
           "role": "content",
-          "word_id": "W00056",
-          "r": "うれしい",
+          "word_id": "W00067",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "時計",
+          "role": "content",
+          "word_id": "W00071",
+          "r": "とけい"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見せます",
+          "role": "content",
+          "word_id": "W00153",
+          "r": "みせます",
+          "inflection": {
+            "base": "見せる",
+            "base_r": "みせる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother shows an old clock.",
+      "audio": "audio/story_53/s7.mp3",
+      "audio_hash": "dcb9f545dc80"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "時計",
+          "role": "content",
+          "word_id": "W00071",
+          "r": "とけい"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "時間",
+          "role": "content",
+          "word_id": "W00177",
+          "r": "じかん",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
           "grammar_id": "G022_i_adj"
         },
         {
@@ -825,27 +773,56 @@
           "grammar_id": "G003_desu"
         },
         {
-          "t": "。",
+          "t": "」",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "My heart is happy.",
-      "audio": "audio/story_53/s11.mp3",
-      "audio_hash": "b224b0eb608f"
-    },
-    {
-      "idx": 12,
-      "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
         },
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "言います",
+          "role": "aux",
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"The clock's time is old,\" my grandmother says.",
+      "audio": "audio/story_53/s8.mp3",
+      "audio_hash": "0168dac2c00d"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "この",
+          "role": "content",
+          "word_id": "W00148",
+          "r": "この",
+          "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
           "t": "学生",
@@ -855,9 +832,35 @@
           "is_new": true
         },
         {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "先生",
+          "role": "content",
+          "word_id": "W00175",
+          "r": "せんせい"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "、",
+          "role": "punct"
         },
         {
           "t": "温かい",
@@ -895,12 +898,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The student and I drink warm tea.",
-      "audio": "audio/story_53/s12.mp3",
-      "audio_hash": "6aa1aa45aef9"
+      "gloss_en": "This student, the teacher, and I drink warm tea.",
+      "audio": "audio/story_53/s9.mp3",
+      "audio_hash": "a3c10e57e3ff"
     },
     {
-      "idx": 13,
+      "idx": 10,
       "tokens": [
         {
           "t": "「",
@@ -956,6 +959,17 @@
           "grammar_id": "G014_to_omoimasu"
         },
         {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
           "t": "思います",
           "role": "aux",
           "word_id": "W00043",
@@ -973,18 +987,18 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"What will [we] write about next week?\" I think.",
-      "audio": "audio/story_53/s13.mp3",
-      "audio_hash": "c5b67be2c66d"
+      "gloss_en": "\"What shall I write next week?\" I think.",
+      "audio": "audio/story_53/s10.mp3",
+      "audio_hash": "122a18032264"
     },
     {
-      "idx": 14,
+      "idx": 11,
       "tokens": [
         {
-          "t": "先生",
+          "t": "前",
           "role": "content",
-          "word_id": "W00175",
-          "r": "せんせい"
+          "word_id": "W00232",
+          "r": "まえ"
         },
         {
           "t": "の",
@@ -992,11 +1006,10 @@
           "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "時間",
+          "t": "朝",
           "role": "content",
-          "word_id": "W00177",
-          "r": "じかん",
-          "is_new": true
+          "word_id": "W00015",
+          "r": "あさ"
         },
         {
           "t": "は",
@@ -1004,10 +1017,58 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "来週",
+          "t": "雨",
           "role": "content",
-          "word_id": "W00146",
-          "r": "らいしゅう"
+          "word_id": "W00002",
+          "r": "あめ"
+        },
+        {
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "G013_mashita_past",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G049_ga_but"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "春",
+          "role": "content",
+          "word_id": "W00072",
+          "r": "はる"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -1019,13 +1080,221 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The teacher's time is next week.",
+      "gloss_en": "The previous morning was rainy, but spring mornings are bright.",
+      "audio": "audio/story_53/s11.mp3",
+      "audio_hash": "9669d510da65"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "玄関",
+          "role": "content",
+          "word_id": "W00185",
+          "r": "げんかん"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "姉",
+          "role": "content",
+          "word_id": "W00171",
+          "r": "あね"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "帽子",
+          "role": "content",
+          "word_id": "W00170",
+          "r": "ぼうし"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "靴",
+          "role": "content",
+          "word_id": "W00169",
+          "r": "くつ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the entryway are my older sister's hat and shoes.",
+      "audio": "audio/story_53/s12.mp3",
+      "audio_hash": "5b450d6e2339"
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "庭",
+          "role": "content",
+          "word_id": "W00059",
+          "r": "にわ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "草",
+          "role": "content",
+          "word_id": "W00243",
+          "r": "くさ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "緑",
+          "role": "content",
+          "word_id": "W00212",
+          "r": "みどり"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The garden's grass is green.",
+      "audio": "audio/story_53/s13.mp3",
+      "audio_hash": "eee307d0587f"
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "空気",
+          "role": "content",
+          "word_id": "W00138",
+          "r": "くうき"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "中",
+          "role": "content",
+          "word_id": "W00221",
+          "r": "なか"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "読みます",
+          "role": "content",
+          "word_id": "W00034",
+          "r": "よみます",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the bright air, I read the old book.",
       "audio": "audio/story_53/s14.mp3",
-      "audio_hash": "bfc6d4935b01"
+      "audio_hash": "c6827bac8b2c"
     },
     {
       "idx": 15,
       "tokens": [
+        {
+          "t": "新しい",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "あたらしい",
+          "grammar_id": "G022_i_adj"
+        },
         {
           "t": "年",
           "role": "content",
@@ -1088,321 +1357,19 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A morning of the year, an old book, warm tea.",
+      "gloss_en": "A new year's morning, an old book, warm tea.",
       "audio": "audio/story_53/s15.mp3",
-      "audio_hash": "06cf271af8b2"
-    },
-    {
-      "idx": 16,
-      "tokens": [
-        {
-          "t": "姉",
-          "role": "content",
-          "word_id": "W00171",
-          "r": "あね"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "帽子",
-          "role": "content",
-          "word_id": "W00170",
-          "r": "ぼうし"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "靴",
-          "role": "content",
-          "word_id": "W00169",
-          "r": "くつ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "玄関",
-          "role": "content",
-          "word_id": "W00185",
-          "r": "げんかん"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "あります",
-          "role": "content",
-          "word_id": "W00044",
-          "r": "あります",
-          "inflection": {
-            "base": "ある",
-            "base_r": "ある",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Older sister's hat and shoes are at the entrance.",
-      "audio": "audio/story_53/s16.mp3",
-      "audio_hash": "2e5a42d4e5b4"
-    },
-    {
-      "idx": 17,
-      "tokens": [
-        {
-          "t": "明るい",
-          "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "空気",
-          "role": "content",
-          "word_id": "W00138",
-          "r": "くうき"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "中",
-          "role": "content",
-          "word_id": "W00221",
-          "r": "なか"
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "本",
-          "role": "content",
-          "word_id": "W00033",
-          "r": "ほん"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "読みます",
-          "role": "content",
-          "word_id": "W00034",
-          "r": "よみます",
-          "inflection": {
-            "base": "読む",
-            "base_r": "よむ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "In the bright air, I read a book.",
-      "audio": "audio/story_53/s17.mp3",
-      "audio_hash": "8128e42ed089"
-    },
-    {
-      "idx": 18,
-      "tokens": [
-        {
-          "t": "祖母",
-          "role": "content",
-          "word_id": "W00098",
-          "r": "そぼ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "古い",
-          "role": "content",
-          "word_id": "W00067",
-          "r": "ふるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "時計",
-          "role": "content",
-          "word_id": "W00071",
-          "r": "とけい"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "見せます",
-          "role": "content",
-          "word_id": "W00153",
-          "r": "みせます",
-          "inflection": {
-            "base": "見せる",
-            "base_r": "みせる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Grandmother shows an old clock.",
-      "audio": "audio/story_53/s18.mp3",
-      "audio_hash": "dcb9f545dc80"
-    },
-    {
-      "idx": 19,
-      "tokens": [
-        {
-          "t": "前",
-          "role": "content",
-          "word_id": "W00232",
-          "r": "まえ"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "雨",
-          "role": "content",
-          "word_id": "W00002",
-          "r": "あめ"
-        },
-        {
-          "t": "でした",
-          "role": "aux",
-          "grammar_id": "G013_mashita_past",
-          "inflection": {
-            "base": "です",
-            "base_r": "です",
-            "form": "polite_past"
-          }
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The previous morning was rainy.",
-      "audio": "audio/story_53/s19.mp3",
-      "audio_hash": "3fe15934f381"
-    },
-    {
-      "idx": 20,
-      "tokens": [
-        {
-          "t": "庭",
-          "role": "content",
-          "word_id": "W00059",
-          "r": "にわ"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "草",
-          "role": "content",
-          "word_id": "W00243",
-          "r": "くさ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "緑",
-          "role": "content",
-          "word_id": "W00212",
-          "r": "みどり"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The grass in the garden is green.",
-      "audio": "audio/story_53/s20.mp3",
-      "audio_hash": "eee307d0587f"
+      "audio_hash": "a33706985586"
     }
   ],
   "word_audio": {
-    "W00176": "audio/story_53/w_W00176.mp3",
     "W00177": "audio/story_53/w_W00177.mp3",
+    "W00176": "audio/story_53/w_W00176.mp3",
     "W00178": "audio/story_53/w_W00178.mp3"
   },
   "word_audio_hash": {
-    "W00176": "13a58ec2074e",
     "W00177": "bf6267da6077",
+    "W00176": "13a58ec2074e",
     "W00178": "62ef900a8f5d"
   }
 }

@@ -29,8 +29,8 @@
     ]
   },
   "new_words": [
-    "W00149",
     "W00175",
+    "W00149",
     "W00244"
   ],
   "new_grammar": [
@@ -46,35 +46,35 @@
     "W00003",
     "W00078",
     "W00040",
+    "W00147",
+    "W00173",
+    "W00175",
     "W00025",
     "W00006",
     "W00149",
     "W00097",
-    "W00075",
+    "W00148",
+    "W00141",
+    "W00130",
+    "W00140",
+    "W00244",
+    "W00231",
     "W00085",
     "W00012",
     "W00009",
     "W00010",
-    "W00147",
-    "W00173",
-    "W00120",
-    "W00056",
-    "W00148",
     "W00174",
     "W00094",
-    "W00132",
-    "W00146",
-    "W00175",
-    "W00141",
-    "W00130",
-    "W00140",
     "W00172",
     "W00039",
     "W00034",
+    "W00146",
+    "W00132",
+    "W00120",
+    "W00056",
     "W00079",
     "W00220",
-    "W00244",
-    "W00044"
+    "W00011"
   ],
   "sentences": [
     {
@@ -98,22 +98,9 @@
           "r": "ゆうがた"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
+          "t": "、",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "It is a spring evening.",
-      "audio": "audio/story_52/s0.mp3",
-      "audio_hash": "fdecbcf80e9f"
-    },
-    {
-      "idx": 1,
-      "tokens": [
+        },
         {
           "t": "本",
           "role": "content",
@@ -143,9 +130,9 @@
           "r": "ひと"
         },
         {
-          "t": "は",
+          "t": "が",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G002_ga_subject"
         },
         {
           "t": "私",
@@ -187,9 +174,58 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bookstore person comes to my house.",
-      "audio": "audio/story_52/s1.mp3",
-      "audio_hash": "079c5399c612"
+      "gloss_en": "On a spring evening, the bookstore person comes to my house."
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "あの",
+          "role": "content",
+          "word_id": "W00147",
+          "r": "あの",
+          "grammar_id": "G043_kosoado_pre_nominal"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00113",
+          "r": "ひと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "妹",
+          "role": "content",
+          "word_id": "W00173",
+          "r": "いもうと"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "先生",
+          "role": "content",
+          "word_id": "W00175",
+          "r": "せんせい",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "That person is my younger sister's teacher."
     },
     {
       "idx": 2,
@@ -234,9 +270,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I look at the door.",
-      "audio": "audio/story_52/s2.mp3",
-      "audio_hash": "a776ae2299bd"
+      "gloss_en": "I look at the door."
     },
     {
       "idx": 3,
@@ -313,40 +347,34 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I say, \"please, come in.\"",
-      "audio": "audio/story_52/s3.mp3",
-      "audio_hash": "d03f6cf4e8ea"
+      "gloss_en": "\"Please, come in,\" I say."
     },
     {
       "idx": 4,
       "tokens": [
         {
-          "t": "本",
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "この",
           "role": "content",
-          "word_id": "W00033",
-          "r": "ほん"
+          "word_id": "W00148",
+          "r": "この",
+          "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "店",
+          "t": "黒い",
           "role": "content",
-          "word_id": "W00084",
-          "r": "みせ"
+          "word_id": "W00141",
+          "r": "くろい",
+          "grammar_id": "G022_i_adj"
         },
         {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "人",
+          "t": "カバン",
           "role": "content",
-          "word_id": "W00113",
-          "r": "ひと"
+          "word_id": "W00130",
+          "r": "かばん"
         },
         {
           "t": "は",
@@ -354,24 +382,55 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "部屋",
+          "t": "誰",
           "role": "content",
-          "word_id": "W00075",
-          "r": "へや"
+          "word_id": "W00140",
+          "r": "だれ",
+          "grammar_id": "G039_dare_who"
         },
         {
-          "t": "に",
+          "t": "の",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "入ります",
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "妹",
           "role": "content",
-          "word_id": "W00080",
-          "r": "はいります",
+          "word_id": "W00173",
+          "r": "いもうと"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "言います",
+          "role": "aux",
+          "word_id": "W00097",
+          "r": "いいます",
           "inflection": {
-            "base": "入る",
-            "base_r": "はいる",
+            "base": "言う",
+            "base_r": "いう",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
@@ -382,12 +441,74 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bookstore person enters the room.",
-      "audio": "audio/story_52/s4.mp3",
-      "audio_hash": "b3c866a2b5ac"
+      "gloss_en": "\"Whose is this black bag?\" my sister says."
     },
     {
       "idx": 5,
+      "tokens": [
+        {
+          "t": "先生",
+          "role": "content",
+          "word_id": "W00175",
+          "r": "せんせい"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "黒い",
+          "role": "content",
+          "word_id": "W00141",
+          "r": "くろい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "カバン",
+          "role": "content",
+          "word_id": "W00130",
+          "r": "かばん"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "上着",
+          "role": "content",
+          "word_id": "W00244",
+          "r": "うわぎ",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "持ちます",
+          "role": "content",
+          "word_id": "W00231",
+          "r": "もちます",
+          "inflection": {
+            "base": "持つ",
+            "base_r": "もつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The teacher is holding a black bag and a coat."
+    },
+    {
+      "idx": 6,
       "tokens": [
         {
           "t": "「",
@@ -449,81 +570,38 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I say, \"please sit.\"",
-      "audio": "audio/story_52/s5.mp3",
-      "audio_hash": "d615abe69764"
-    },
-    {
-      "idx": 6,
-      "tokens": [
-        {
-          "t": "本",
-          "role": "content",
-          "word_id": "W00033",
-          "r": "ほん"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "店",
-          "role": "content",
-          "word_id": "W00084",
-          "r": "みせ"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "人",
-          "role": "content",
-          "word_id": "W00113",
-          "r": "ひと"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "座ります",
-          "role": "content",
-          "word_id": "W00085",
-          "r": "すわります",
-          "inflection": {
-            "base": "座る",
-            "base_r": "すわる",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The bookstore person sits.",
-      "audio": "audio/story_52/s6.mp3",
-      "audio_hash": "02da9a9ae862"
+      "gloss_en": "\"Please sit,\" I say."
     },
     {
       "idx": 7,
       "tokens": [
         {
-          "t": "私",
+          "t": "先生",
           "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
+          "word_id": "W00175",
+          "r": "せんせい"
         },
         {
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "座って",
+          "role": "content",
+          "word_id": "W00085",
+          "r": "すわって",
+          "inflection": {
+            "base": "座る",
+            "base_r": "すわる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
         },
         {
           "t": "温かい",
@@ -531,153 +609,6 @@
           "word_id": "W00012",
           "r": "あたたかい",
           "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "お茶",
-          "role": "content",
-          "word_id": "W00009",
-          "r": "おちゃ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "見ます",
-          "role": "content",
-          "word_id": "W00006",
-          "r": "みます",
-          "inflection": {
-            "base": "見る",
-            "base_r": "みる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I look at the warm tea.",
-      "audio": "audio/story_52/s7.mp3",
-      "audio_hash": "3e3585a57f13"
-    },
-    {
-      "idx": 8,
-      "tokens": [
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "お茶",
-          "role": "content",
-          "word_id": "W00009",
-          "r": "おちゃ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "飲んで",
-          "role": "content",
-          "word_id": "W00010",
-          "r": "のんで",
-          "inflection": {
-            "base": "飲む",
-            "base_r": "のむ",
-            "form": "te",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G007_te_form"
-        },
-        {
-          "t": "ください",
-          "role": "aux",
-          "grammar_id": "G044_te_kudasai"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "言います",
-          "role": "aux",
-          "word_id": "W00097",
-          "r": "いいます",
-          "inflection": {
-            "base": "言う",
-            "base_r": "いう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I say, \"please drink the tea.\"",
-      "audio": "audio/story_52/s8.mp3",
-      "audio_hash": "63b873b4be91"
-    },
-    {
-      "idx": 9,
-      "tokens": [
-        {
-          "t": "本",
-          "role": "content",
-          "word_id": "W00033",
-          "r": "ほん"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "店",
-          "role": "content",
-          "word_id": "W00084",
-          "r": "みせ"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "人",
-          "role": "content",
-          "word_id": "W00113",
-          "r": "ひと"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "お茶",
@@ -708,34 +639,25 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bookstore person drinks the tea.",
-      "audio": "audio/story_52/s9.mp3",
-      "audio_hash": "d7a7550caded"
+      "gloss_en": "The teacher sits down and drinks the warm tea."
     },
     {
-      "idx": 10,
+      "idx": 8,
       "tokens": [
         {
-          "t": "あの",
-          "role": "content",
-          "word_id": "W00147",
-          "r": "あの",
-          "grammar_id": "G043_kosoado_pre_nominal"
+          "t": "「",
+          "role": "punct"
         },
         {
-          "t": "人",
+          "t": "お茶",
           "role": "content",
-          "word_id": "W00113",
-          "r": "ひと"
+          "word_id": "W00009",
+          "r": "おちゃ"
         },
         {
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "「",
-          "role": "punct"
         },
         {
           "t": "温かい",
@@ -750,6 +672,11 @@
           "grammar_id": "G003_desu"
         },
         {
+          "t": "ね",
+          "role": "particle",
+          "grammar_id": "G034_ne_confirm"
+        },
+        {
           "t": "」",
           "role": "punct"
         },
@@ -757,6 +684,17 @@
           "t": "と",
           "role": "particle",
           "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "先生",
+          "role": "content",
+          "word_id": "W00175",
+          "r": "せんせい"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "言います",
@@ -776,12 +714,284 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "That person says, \"it is warm.\"",
-      "audio": "audio/story_52/s10.mp3",
-      "audio_hash": "4de7456fa560"
+      "gloss_en": "\"The tea is warm, isn't it,\" the teacher says."
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "妹",
+          "role": "content",
+          "word_id": "W00173",
+          "r": "いもうと"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00174",
+          "r": "おとうと"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "先生",
+          "role": "content",
+          "word_id": "W00175",
+          "r": "せんせい"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "話します",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "はなします",
+          "inflection": {
+            "base": "話す",
+            "base_r": "はなす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My younger sister, my younger brother, and I talk with the teacher."
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "兄",
+          "role": "content",
+          "word_id": "W00172",
+          "r": "あに"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00174",
+          "r": "おとうと"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "妹",
+          "role": "content",
+          "word_id": "W00173",
+          "r": "いもうと"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "読みます",
+          "role": "content",
+          "word_id": "W00034",
+          "r": "よみます",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Older brother reads younger sister's letter to younger brother."
     },
     {
       "idx": 11,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "来週",
+          "role": "content",
+          "word_id": "W00146",
+          "r": "らいしゅう"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "どうぞ",
+          "role": "content",
+          "word_id": "W00149",
+          "r": "どうぞ"
+        },
+        {
+          "t": "来て",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きて",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "te",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "ください",
+          "role": "aux",
+          "grammar_id": "G044_te_kudasai"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "妹",
+          "role": "content",
+          "word_id": "W00173",
+          "r": "いもうと"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "言います",
+          "role": "aux",
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Please come next week too,\" my sister says."
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "約束",
+          "role": "content",
+          "word_id": "W00132",
+          "r": "やくそく"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "先生",
+          "role": "content",
+          "word_id": "W00175",
+          "r": "せんせい"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "言います",
+          "role": "aux",
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"It is a promise,\" the teacher says."
+    },
+    {
+      "idx": 13,
       "tokens": [
         {
           "t": "妹",
@@ -822,118 +1032,54 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Little sister's heart is happy.",
-      "audio": "audio/story_52/s11.mp3",
-      "audio_hash": "e60c7bd25e01"
-    },
-    {
-      "idx": 12,
-      "tokens": [
-        {
-          "t": "この",
-          "role": "content",
-          "word_id": "W00148",
-          "r": "この",
-          "grammar_id": "G043_kosoado_pre_nominal"
-        },
-        {
-          "t": "人",
-          "role": "content",
-          "word_id": "W00113",
-          "r": "ひと"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "弟",
-          "role": "content",
-          "word_id": "W00174",
-          "r": "おとうと"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "話します",
-          "role": "content",
-          "word_id": "W00094",
-          "r": "はなします",
-          "inflection": {
-            "base": "話す",
-            "base_r": "はなす",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "This person, (my) younger brother, and I talk.",
-      "audio": "audio/story_52/s12.mp3",
-      "audio_hash": "5e2b35e2857d"
-    },
-    {
-      "idx": 13,
-      "tokens": [
-        {
-          "t": "約束",
-          "role": "content",
-          "word_id": "W00132",
-          "r": "やくそく"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "来週",
-          "role": "content",
-          "word_id": "W00146",
-          "r": "らいしゅう"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The promise is next week.",
-      "audio": "audio/story_52/s13.mp3",
-      "audio_hash": "09539a4cd18b"
+      "gloss_en": "Little sister's heart is happy."
     },
     {
       "idx": 14,
       "tokens": [
         {
-          "t": "先生",
+          "t": "ドア",
           "role": "content",
-          "word_id": "W00175",
-          "r": "せんせい",
-          "is_new": true
+          "word_id": "W00025",
+          "r": "ドア"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "鍵",
+          "role": "content",
+          "word_id": "W00079",
+          "r": "かぎ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "無い",
+          "role": "content",
+          "word_id": "W00220",
+          "r": "ない",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "ですから",
+          "role": "particle",
+          "grammar_id": "G059_dakara"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
         },
         {
           "t": "は",
@@ -941,11 +1087,10 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "嬉しい",
+          "t": "静か",
           "role": "content",
-          "word_id": "W00056",
-          "r": "うれしい",
-          "grammar_id": "G022_i_adj"
+          "word_id": "W00011",
+          "r": "しずか"
         },
         {
           "t": "です",
@@ -957,9 +1102,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The teacher is happy.",
-      "audio": "audio/story_52/s14.mp3",
-      "audio_hash": "08b507a965bd"
+      "gloss_en": "Because there is no key in the door, the house is quiet."
     },
     {
       "idx": 15,
@@ -1040,201 +1183,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Spring evening, warm tea, the bookstore person.",
-      "audio": "audio/story_52/s15.mp3",
-      "audio_hash": "67dfad63c161"
-    },
-    {
-      "idx": 16,
-      "tokens": [
-        {
-          "t": "黒い",
-          "role": "content",
-          "word_id": "W00141",
-          "r": "くろい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "カバン",
-          "role": "content",
-          "word_id": "W00130",
-          "r": "かばん"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "誰",
-          "role": "content",
-          "word_id": "W00140",
-          "r": "だれ",
-          "grammar_id": "G039_dare_who"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "か",
-          "role": "particle",
-          "grammar_id": "G037_ka_question"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Whose black bag is it?",
-      "audio": "audio/story_52/s16.mp3",
-      "audio_hash": "f7db1eafb7a6"
-    },
-    {
-      "idx": 17,
-      "tokens": [
-        {
-          "t": "兄",
-          "role": "content",
-          "word_id": "W00172",
-          "r": "あに"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "弟",
-          "role": "content",
-          "word_id": "W00174",
-          "r": "おとうと"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "手紙",
-          "role": "content",
-          "word_id": "W00039",
-          "r": "てがみ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "読みます",
-          "role": "content",
-          "word_id": "W00034",
-          "r": "よみます",
-          "inflection": {
-            "base": "読む",
-            "base_r": "よむ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Older brother reads younger brother's letter.",
-      "audio": "audio/story_52/s17.mp3",
-      "audio_hash": "28699c3898d8"
-    },
-    {
-      "idx": 18,
-      "tokens": [
-        {
-          "t": "鍵",
-          "role": "content",
-          "word_id": "W00079",
-          "r": "かぎ"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "無い",
-          "role": "content",
-          "word_id": "W00220",
-          "r": "ない",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The key isn't there.",
-      "audio": "audio/story_52/s18.mp3",
-      "audio_hash": "745b4208611c"
-    },
-    {
-      "idx": 19,
-      "tokens": [
-        {
-          "t": "上着",
-          "role": "content",
-          "word_id": "W00244",
-          "r": "うわぎ",
-          "is_new": true
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "あります",
-          "role": "content",
-          "word_id": "W00044",
-          "r": "あります",
-          "inflection": {
-            "base": "ある",
-            "base_r": "ある",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "There is a coat.",
-      "audio": "audio/story_52/s19.mp3",
-      "audio_hash": "0c99cbf06ee1"
+      "gloss_en": "A spring evening, warm tea, the bookstore person."
     }
-  ],
-  "word_audio": {
-    "W00149": "audio/story_52/w_W00149.mp3",
-    "W00175": "audio/story_52/w_W00175.mp3",
-    "W00244": "audio/story_52/w_W00244.mp3"
-  },
-  "word_audio_hash": {
-    "W00149": "5041f23aecc8",
-    "W00175": "cd98e43da31b",
-    "W00244": "90c2f28eb1d3"
-  }
+  ]
 }
