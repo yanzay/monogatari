@@ -54,24 +54,20 @@
     "W00009",
     "W00010",
     "W00040",
-    "W00131",
-    "W00135",
-    "W00132",
-    "W00044",
     "W00018",
     "W00201",
     "W00245",
     "W00109",
+    "W00131",
     "W00065",
     "W00074",
     "W00181",
     "W00020",
-    "W00146",
-    "W00050",
-    "W00120",
-    "W00097",
-    "W00012",
-    "W00177"
+    "W00132",
+    "W00044",
+    "W00001",
+    "W00137",
+    "W00099"
   ],
   "sentences": [
     {
@@ -422,10 +418,61 @@
       "idx": 6,
       "tokens": [
         {
-          "t": "私",
+          "t": "あの",
           "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
+          "word_id": "W00147",
+          "r": "あの",
+          "grammar_id": "G043_kosoado_pre_nominal"
+        },
+        {
+          "t": "日",
+          "role": "content",
+          "word_id": "W00179",
+          "r": "ひ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夕方",
+          "role": "content",
+          "word_id": "W00018",
+          "r": "ゆうがた"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "町",
+          "role": "content",
+          "word_id": "W00201",
+          "r": "まち"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "鐘",
+          "role": "content",
+          "word_id": "W00245",
+          "r": "かね",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "音",
+          "role": "content",
+          "word_id": "W00109",
+          "r": "おと"
         },
         {
           "t": "は",
@@ -439,15 +486,67 @@
           "r": "ときどき"
         },
         {
-          "t": "「",
-          "role": "punct"
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
         },
         {
-          "t": "何",
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "G013_mashita_past",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "That evening, the town's bell sounded quiet, sometimes."
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "私",
           "role": "content",
-          "word_id": "W00135",
-          "r": "なに",
-          "grammar_id": "G045_nan_what"
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "一人",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ひとり",
+          "grammar_id": "G025_counters"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "長い",
+          "role": "content",
+          "word_id": "W00074",
+          "r": "ながい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "夕飯",
+          "role": "content",
+          "word_id": "W00181",
+          "r": "ゆうはん",
+          "is_new": true
         },
         {
           "t": "を",
@@ -455,42 +554,15 @@
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "待ちました",
+          "t": "食べました",
           "role": "content",
-          "word_id": "W00041",
-          "r": "まちました",
+          "word_id": "W00020",
+          "r": "たべました",
           "inflection": {
-            "base": "待つ",
-            "base_r": "まつ",
+            "base": "食べる",
+            "base_r": "たべる",
             "form": "polite_past",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G013_mashita_past"
-        },
-        {
-          "t": "か",
-          "role": "particle",
-          "grammar_id": "G037_ka_question"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "思いました",
-          "role": "content",
-          "word_id": "W00043",
-          "r": "おもいました",
-          "inflection": {
-            "base": "思う",
-            "base_r": "おもう",
-            "form": "polite_past",
-            "verb_class": "godan"
+            "verb_class": "ichidan"
           },
           "grammar_id": "G013_mashita_past"
         },
@@ -499,10 +571,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I sometimes thought, \"what was I waiting for?\""
+      "gloss_en": "Alone, I ate a long dinner."
     },
     {
-      "idx": 7,
+      "idx": 8,
       "tokens": [
         {
           "t": "約束",
@@ -569,7 +641,61 @@
       "gloss_en": "Because there was no promise, I did not wait."
     },
     {
-      "idx": 8,
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "今朝",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "けさ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "鐘",
+          "role": "content",
+          "word_id": "W00245",
+          "r": "かね"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "音",
+          "role": "content",
+          "word_id": "W00109",
+          "r": "おと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "This morning, the bell's sound is bright."
+    },
+    {
+      "idx": 10,
       "tokens": [
         {
           "t": "あの",
@@ -590,376 +716,38 @@
           "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "夕方",
+          "t": "お茶",
           "role": "content",
-          "word_id": "W00018",
-          "r": "ゆうがた"
+          "word_id": "W00009",
+          "r": "おちゃ"
         },
         {
           "t": "、",
           "role": "punct"
         },
         {
-          "t": "町",
+          "t": "あの",
           "role": "content",
-          "word_id": "W00201",
-          "r": "まち"
+          "word_id": "W00147",
+          "r": "あの",
+          "grammar_id": "G043_kosoado_pre_nominal"
+        },
+        {
+          "t": "日",
+          "role": "content",
+          "word_id": "W00179",
+          "r": "ひ"
         },
         {
           "t": "の",
           "role": "particle",
           "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "鐘",
-          "role": "content",
-          "word_id": "W00245",
-          "r": "かね",
-          "is_new": true
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "音",
-          "role": "content",
-          "word_id": "W00109",
-          "r": "おと"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "静か",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
-        },
-        {
-          "t": "でした",
-          "role": "aux",
-          "grammar_id": "G013_mashita_past",
-          "inflection": {
-            "base": "です",
-            "base_r": "です",
-            "form": "polite_past"
-          }
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "That evening, the town's bell sounded quietly."
-    },
-    {
-      "idx": 9,
-      "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "一人",
-          "role": "content",
-          "word_id": "W00065",
-          "r": "ひとり",
-          "grammar_id": "G025_counters"
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "長い",
-          "role": "content",
-          "word_id": "W00074",
-          "r": "ながい",
-          "grammar_id": "G022_i_adj"
         },
         {
           "t": "夕飯",
           "role": "content",
           "word_id": "W00181",
-          "r": "ゆうはん",
-          "is_new": true
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "食べました",
-          "role": "content",
-          "word_id": "W00020",
-          "r": "たべました",
-          "inflection": {
-            "base": "食べる",
-            "base_r": "たべる",
-            "form": "polite_past",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G013_mashita_past"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Alone, I ate a long dinner."
-    },
-    {
-      "idx": 10,
-      "tokens": [
-        {
-          "t": "来週",
-          "role": "content",
-          "word_id": "W00146",
-          "r": "らいしゅう"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "友達",
-          "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "来ます",
-          "role": "content",
-          "word_id": "W00040",
-          "r": "きます",
-          "inflection": {
-            "base": "来る",
-            "base_r": "くる",
-            "form": "polite_nonpast",
-            "verb_class": "irregular_kuru"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        },
-        {
-          "t": "一緒に",
-          "role": "content",
-          "word_id": "W00050",
-          "r": "いっしょに"
-        },
-        {
-          "t": "お茶",
-          "role": "content",
-          "word_id": "W00009",
-          "r": "おちゃ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "飲みます",
-          "role": "content",
-          "word_id": "W00010",
-          "r": "のみます",
-          "inflection": {
-            "base": "飲む",
-            "base_r": "のむ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Next week, my friend will come. We will drink tea together."
-    },
-    {
-      "idx": 11,
-      "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "心",
-          "role": "content",
-          "word_id": "W00120",
-          "r": "こころ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "待ちます",
-          "role": "content",
-          "word_id": "W00041",
-          "r": "まちます",
-          "inflection": {
-            "base": "待つ",
-            "base_r": "まつ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "言います",
-          "role": "aux",
-          "word_id": "W00097",
-          "r": "いいます",
-          "inflection": {
-            "base": "言う",
-            "base_r": "いう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G049_ga_but"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "待ちません",
-          "role": "content",
-          "word_id": "W00041",
-          "r": "まちません",
-          "inflection": {
-            "base": "待つ",
-            "base_r": "まつ",
-            "form": "negative_polite",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G036_masen"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "My heart says, \"I am waiting,\" but I do not wait."
-    },
-    {
-      "idx": 12,
-      "tokens": [
-        {
-          "t": "春",
-          "role": "content",
-          "word_id": "W00072",
-          "r": "はる"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "温かい",
-          "role": "content",
-          "word_id": "W00012",
-          "r": "あたたかい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "お茶",
-          "role": "content",
-          "word_id": "W00009",
-          "r": "おちゃ"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "来週",
-          "role": "content",
-          "word_id": "W00146",
-          "r": "らいしゅう"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "約束",
-          "role": "content",
-          "word_id": "W00132",
-          "r": "やくそく"
+          "r": "ゆうはん"
         },
         {
           "t": "、",
@@ -977,10 +765,10 @@
           "grammar_id": "G016_na_adjective"
         },
         {
-          "t": "時間",
+          "t": "思い出",
           "role": "content",
-          "word_id": "W00177",
-          "r": "じかん"
+          "word_id": "W00099",
+          "r": "おもいで"
         },
         {
           "t": "です",
@@ -992,7 +780,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A spring morning, warm tea, next week's promise — quiet time."
+      "gloss_en": "That day's tea, that day's dinner — a quiet memory."
     }
   ]
 }

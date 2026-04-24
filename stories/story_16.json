@@ -37,23 +37,24 @@
     "W00049",
     "W00015",
     "W00003",
+    "W00166",
+    "W00055",
     "W00048",
     "W00022",
     "W00040",
     "W00035",
+    "W00012",
     "W00009",
     "W00010",
     "W00240",
     "W00137",
     "W00047",
     "W00011",
-    "W00166",
     "W00161",
     "W00020",
-    "W00027",
-    "W00002",
     "W00013",
     "W00043",
+    "W00002",
     "W00165",
     "W00059"
   ],
@@ -81,6 +82,24 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "皿",
+          "role": "content",
+          "word_id": "W00166",
+          "r": "さら"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00055",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "パン",
@@ -113,7 +132,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the morning, I make bread."
+      "gloss_en": "In the morning, I make small bread on the plate."
     },
     {
       "idx": 1,
@@ -139,6 +158,17 @@
           "grammar_id": "G002_ga_subject"
         },
         {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "こうえん"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
           "t": "来ます",
           "role": "content",
           "word_id": "W00040",
@@ -156,7 +186,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "And then, the friend comes."
+      "gloss_en": "And then, my friend comes to the park."
     },
     {
       "idx": 2,
@@ -183,6 +213,13 @@
           "t": "で",
           "role": "particle",
           "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "温かい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "お茶",
@@ -213,7 +250,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us drink tea at the park."
+      "gloss_en": "The two of us drink warm tea at the park."
     },
     {
       "idx": 3,
@@ -254,9 +291,9 @@
           "r": "そら"
         },
         {
-          "t": "は",
+          "t": "も",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "静か",
@@ -274,7 +311,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The sun is bright. The sky is quiet."
+      "gloss_en": "The sun is bright. The sky, too, is quiet."
     },
     {
       "idx": 4,
@@ -348,73 +385,15 @@
       "idx": 5,
       "tokens": [
         {
-          "t": "そして",
-          "role": "particle",
-          "grammar_id": "G012_soshite_then"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "風",
-          "role": "content",
-          "word_id": "W00027",
-          "r": "かぜ"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "雨",
-          "role": "content",
-          "word_id": "W00002",
-          "r": "あめ"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "来ます",
-          "role": "content",
-          "word_id": "W00040",
-          "r": "きます",
-          "inflection": {
-            "base": "来る",
-            "base_r": "くる",
-            "form": "polite_nonpast",
-            "verb_class": "irregular_kuru"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "And then, wind and rain come."
-    },
-    {
-      "idx": 6,
-      "tokens": [
-        {
           "t": "「",
           "role": "punct"
         },
         {
-          "t": "雨",
+          "t": "明るい",
           "role": "content",
-          "word_id": "W00002",
-          "r": "あめ"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "朝",
@@ -472,7 +451,57 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"A rainy morning is good,\" I think."
+      "gloss_en": "\"A bright morning is good,\" I think."
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "そして",
+          "role": "particle",
+          "grammar_id": "G012_soshite_then"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00055",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あめ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "And then, a small rain comes."
     },
     {
       "idx": 7,

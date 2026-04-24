@@ -1,0 +1,1279 @@
+{
+  "scale": {
+    "version": "fresh-review-2",
+    "date": "2026-04-24",
+    "context": "Independent re-review of all 67 stories in pipeline/inputs/, using a comprehensive 6-axis rubric covering literacy, interest, engagement, and craft.",
+    "scoring": {
+      "per_axis_max": 5,
+      "per_axis_anchors": {
+        "5": "Exemplary; could ship as-is to a published graded reader.",
+        "4": "Strong; minor weakness only.",
+        "3": "Competent; clear but ordinary or partially compromised.",
+        "2": "Weak; visible structural or pedagogical seams.",
+        "1": "Poor; reads as a drill, not as a story."
+      },
+      "total_max": 30,
+      "tier_bands": {
+        "S (excellent)": "26-30",
+        "A (strong)": "22-25",
+        "B (solid)": "18-21",
+        "C (uneven)": "14-17",
+        "D (weak)": "0-13"
+      }
+    },
+    "axes": [
+      {
+        "id": "literacy",
+        "label": "Literacy / linguistic quality",
+        "what_it_measures": "Grammatical correctness, particle accuracy, register consistency, idiomatic phrasing, dictionary-clean vocabulary use. The Japanese should sound like Japanese, not translated English.",
+        "what_lowers_it": "Awkward calques, unnatural collocations, misuses (e.g. 山 for mountain-as-name without context), particle drift, register mismatches, stiff repetition of the same predicate."
+      },
+      {
+        "id": "comprehensibility",
+        "label": "Comprehensibility for the level",
+        "what_it_measures": "How easily an A1/A2 learner can decode the text on first read at the expected grammar/vocab band. Sentence length, syntactic depth, and clarity of referent.",
+        "what_lowers_it": "Pronoun ambiguity, abrupt new vocabulary clusters, dense sub-clauses, sentences that require external context to parse."
+      },
+      {
+        "id": "scene_coherence",
+        "label": "Scene coherence",
+        "what_it_measures": "Whether the story stays inside one place / time / mood. A coherent piece holds the reader inside a single frame; an incoherent one drifts between unrelated images.",
+        "what_lowers_it": "Tail sentences that drop the current scene to mention an unrelated character/location, time-jumps without scaffolding, paragraphs that read like separate pieces glued together."
+      },
+      {
+        "id": "narrative_shape",
+        "label": "Narrative shape",
+        "what_it_measures": "Presence of a discernible arc, turn, or payoff. Even a 6-sentence mood piece can have shape (setup -> turn -> rest).",
+        "what_lowers_it": "List-like progression, no movement of feeling or situation, a closing sentence that merely re-lists the title's nouns."
+      },
+      {
+        "id": "engagement_emotion",
+        "label": "Engagement / emotional pull",
+        "what_it_measures": "Memorability, mood, affective traction; whether the reader carries an image or feeling out of the piece.",
+        "what_lowers_it": "Flat description, missing stakes, generic concepts (\"a quiet morning\") with no anchoring detail, sentimental repetition without earned emotion."
+      },
+      {
+        "id": "economy_density",
+        "label": "Economy / density",
+        "what_it_measures": "Each sentence pulling weight; absence of visible reinforcement filler or pedagogical tails. Closely related to whether the piece feels authored or generated.",
+        "what_lowers_it": "Tail sentences that exist only to repeat a vocab word, sudden roster of unrelated nouns at the end, padded triplet closings (X, Y, Zです) that re-package what was already shown."
+      }
+    ],
+    "global_observations_before_scoring": [
+      "The library is consistently strong on literacy: particles, basic predicates, and te-form chaining are accurate throughout.",
+      "The recurring weakness is reinforcement tails. Many otherwise-shapely stories lose 1-3 economy points to a closing cluster of unrelated sentences (a brother appears, a bell rings, a parking lot is mentioned) that satisfy vocab/grammar reuse but break scene coherence.",
+      "Question-driven and dialogue-driven stories (47, 50, 61, 62) carry more narrative energy than purely descriptive ones.",
+      "Stories that build on a single sustained image (1, 30, 36, 46) and resist late add-ons are the strongest.",
+      "The mid-30s through high-50s contain the most pedagogical-feeling tails because the cadence work in Phase 6 wove reinforcement there."
+    ]
+  },
+  "summary": {
+    "story_count": 67,
+    "average_total": 25.3,
+    "tier_counts": {
+      "S": 25,
+      "A": 42,
+      "B": 0,
+      "C": 0,
+      "D": 0
+    },
+    "highest": [
+      {
+        "story_id": 30,
+        "total": 30
+      },
+      {
+        "story_id": 36,
+        "total": 30
+      },
+      {
+        "story_id": 25,
+        "total": 29
+      },
+      {
+        "story_id": 47,
+        "total": 29
+      },
+      {
+        "story_id": 61,
+        "total": 29
+      },
+      {
+        "story_id": 1,
+        "total": 28
+      },
+      {
+        "story_id": 3,
+        "total": 28
+      },
+      {
+        "story_id": 13,
+        "total": 28
+      },
+      {
+        "story_id": 15,
+        "total": 28
+      },
+      {
+        "story_id": 39,
+        "total": 28
+      }
+    ],
+    "lowest": [
+      {
+        "story_id": 19,
+        "total": 22
+      },
+      {
+        "story_id": 21,
+        "total": 22
+      },
+      {
+        "story_id": 29,
+        "total": 22
+      },
+      {
+        "story_id": 32,
+        "total": 22
+      },
+      {
+        "story_id": 35,
+        "total": 22
+      },
+      {
+        "story_id": 20,
+        "total": 23
+      },
+      {
+        "story_id": 27,
+        "total": 23
+      },
+      {
+        "story_id": 2,
+        "total": 24
+      },
+      {
+        "story_id": 4,
+        "total": 24
+      },
+      {
+        "story_id": 8,
+        "total": 24
+      }
+    ],
+    "min_total": 22,
+    "max_total": 30,
+    "axis_means": {
+      "literacy": 4.96,
+      "comprehensibility": 4.43,
+      "scene_coherence": 4.18,
+      "narrative_shape": 3.93,
+      "engagement_emotion": 4.3,
+      "economy_density": 3.51
+    }
+  },
+  "stories": [
+    {
+      "story_id": 1,
+      "title_jp": "雨",
+      "title_en": "Rain",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 5
+      },
+      "total": 28,
+      "tier": "S",
+      "note": "Title image holds; closing 「いい気分です」 lands as a real beat. Compact, no waste."
+    },
+    {
+      "story_id": 2,
+      "title_jp": "夕方の公園",
+      "title_en": "The Evening Park",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 4,
+        "narrative_shape": 3,
+        "engagement_emotion": 3,
+        "economy_density": 4
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "Reads as a gentle echo of story 1 with friend added; final line restates rather than turns."
+    },
+    {
+      "story_id": 3,
+      "title_jp": "朝ごはん",
+      "title_en": "Breakfast",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 5
+      },
+      "total": 28,
+      "tier": "S",
+      "note": "Six sentences, single sensory frame, clean payoff in the closing tricolon."
+    },
+    {
+      "story_id": 4,
+      "title_jp": "散歩",
+      "title_en": "A Walk",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 4,
+        "narrative_shape": 3,
+        "engagement_emotion": 3,
+        "economy_density": 4
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "Pleasant but list-shaped; 「いい気分です」 closing feels reused."
+    },
+    {
+      "story_id": 5,
+      "title_jp": "朝の散歩",
+      "title_en": "A Morning Walk",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 4
+      },
+      "total": 25,
+      "tier": "A",
+      "note": "Dog/door/wind sequence works; the doubled period in s7 is a small craft slip."
+    },
+    {
+      "story_id": 6,
+      "title_jp": "猫",
+      "title_en": "The Cat",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 4
+      },
+      "total": 26,
+      "tier": "S",
+      "note": "Rewritten 2026-04-24: tightened cat-watches-rain frame; cat now stays inside the scene, color motif is the closing image. Scene coherence and economy each up one.",
+      "rewritten": "2026-04-24"
+    },
+    {
+      "story_id": 7,
+      "title_jp": "夜",
+      "title_en": "Night",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 4,
+        "narrative_shape": 3,
+        "engagement_emotion": 4,
+        "economy_density": 4
+      },
+      "total": 25,
+      "tier": "A",
+      "note": "Rewritten 2026-04-24: added a real beat (looking out, seeing the dog also looking) instead of celestial inventory. Comprehensibility and economy up; narrative still light.",
+      "rewritten": "2026-04-24"
+    },
+    {
+      "story_id": 8,
+      "title_jp": "本と友達",
+      "title_en": "Books and Friends",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 4,
+        "narrative_shape": 3,
+        "engagement_emotion": 3,
+        "economy_density": 4
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "Two friends reading is calm; closing 「家に帰ります」 is abrupt and unmotivated."
+    },
+    {
+      "story_id": 9,
+      "title_jp": "朝の猫",
+      "title_en": "The Morning Cat",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 4
+      },
+      "total": 27,
+      "tier": "S",
+      "note": "Cat-watches-bird sequence has cleanest cause/effect of the early set."
+    },
+    {
+      "story_id": 10,
+      "title_jp": "友達からの手紙",
+      "title_en": "A Letter from a Friend",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 4
+      },
+      "total": 26,
+      "tier": "S",
+      "note": "Rewritten 2026-04-24: clear sit-read-wait arc, no orphan referent. Scene, narrative, and economy each up one.",
+      "rewritten": "2026-04-24"
+    },
+    {
+      "story_id": 11,
+      "title_jp": "昨日の手紙",
+      "title_en": "Yesterday's Letter",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 4
+      },
+      "total": 26,
+      "tier": "S",
+      "note": "Rewritten 2026-04-24: removed appended drills (dog outside, return home, sit on chair); added home-context, kept past-tense reading, ends on white-letter wait. Scene, economy each up one.",
+      "rewritten": "2026-04-24"
+    },
+    {
+      "story_id": 12,
+      "title_jp": "雨の朝",
+      "title_en": "A Rainy Morning",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 4
+      },
+      "total": 27,
+      "tier": "S",
+      "note": "Cat-watches-rain-then-watches-me has real interiority; the final 小さい鳥 line is the only seam."
+    },
+    {
+      "story_id": 13,
+      "title_jp": "本のそばに",
+      "title_en": "Beside the Book",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
+        "narrative_shape": 4,
+        "engagement_emotion": 5,
+        "economy_density": 4
+      },
+      "total": 28,
+      "tier": "S",
+      "note": "Quietly literary; thought-quote 「青い雨は静かだ」 gives the piece its center."
+    },
+    {
+      "story_id": 14,
+      "title_jp": "月の手紙",
+      "title_en": "A Letter by Moonlight",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 5,
+        "economy_density": 4
+      },
+      "total": 26,
+      "tier": "S",
+      "note": "Painful-letter motif is genuinely affecting; 「明日…読んでおきます」 is a teach-the-form sentence."
+    },
+    {
+      "story_id": 15,
+      "title_jp": "夜の空",
+      "title_en": "The Night Sky",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
+        "narrative_shape": 4,
+        "engagement_emotion": 5,
+        "economy_density": 4
+      },
+      "total": 28,
+      "tier": "S",
+      "note": "Walk-look-think rhythm sustained; child's song image is memorable."
+    },
+    {
+      "story_id": 16,
+      "title_jp": "公園のパン",
+      "title_en": "Bread in the Park",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 25,
+      "tier": "A",
+      "note": "Rewritten 2026-04-24: bread-park-rain arc tightened around 「明るい朝はいい」 thought; reinforcement words (庭/音楽) live inside the scene now rather than as cadence weave. Comprehensibility, narrative each up one.",
+      "rewritten": "2026-04-24"
+    },
+    {
+      "story_id": 17,
+      "title_jp": "公園の子供",
+      "title_en": "A Child at the Park",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "Warm child-on-bench scene; 「友達は子供の歌を作ります」 is a slightly odd insertion."
+    },
+    {
+      "story_id": 18,
+      "title_jp": "雨の鳥",
+      "title_en": "A Bird in the Rain",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "Sad-then-glad turn at s10->s11 works; 「友達は来ません」 sentence is bolted on."
+    },
+    {
+      "story_id": 19,
+      "title_jp": "庭の鳥",
+      "title_en": "A Bird in the Garden",
+      "scores": {
+        "literacy": 4,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 3,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 22,
+      "tier": "A",
+      "note": "「鳥は痛いですか」 is a clear semantic strain (vocab 痛い shoehorned)."
+    },
+    {
+      "story_id": 20,
+      "title_jp": "寒い朝の手紙",
+      "title_en": "A Letter on a Cold Morning",
+      "scores": {
+        "literacy": 4,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 23,
+      "tier": "A",
+      "note": "Letter-writing scene is coherent; 「ペンに思います」 is unidiomatic."
+    },
+    {
+      "story_id": 21,
+      "title_jp": "雪の道",
+      "title_en": "The Snowy Road",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 3,
+        "narrative_shape": 3,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 22,
+      "tier": "A",
+      "note": "Lonely walk has mood; mother-of-friend coda is unrelated and visibly weave-like."
+    },
+    {
+      "story_id": 22,
+      "title_jp": "古い本の写真",
+      "title_en": "A Photo in the Old Book",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 4
+      },
+      "total": 25,
+      "tier": "A",
+      "note": "Photo-with-friend frame holds; the spring-walk invitation quote is mildly out-of-frame."
+    },
+    {
+      "story_id": 23,
+      "title_jp": "駅の夕方",
+      "title_en": "Evening at the Station",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 4
+      },
+      "total": 26,
+      "tier": "S",
+      "note": "Rewritten 2026-04-24: train-arrival arc tightened; the friend now arrives running and the invitation is plain ませんか, not stitched. Scene, narrative, economy each up one.",
+      "rewritten": "2026-04-24"
+    },
+    {
+      "story_id": 24,
+      "title_jp": "春の朝",
+      "title_en": "A Spring Morning",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "Ambitious 14-sentence morning; the autumn flashback is the only off-frame moment."
+    },
+    {
+      "story_id": 25,
+      "title_jp": "一人の部屋",
+      "title_en": "An Empty Room",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
+        "narrative_shape": 5,
+        "engagement_emotion": 5,
+        "economy_density": 4
+      },
+      "total": 29,
+      "tier": "S",
+      "note": "One of the cleanest sad-room miniatures; final 「でも、外は静かです」 is a real beat."
+    },
+    {
+      "story_id": 26,
+      "title_jp": "小さい鍵",
+      "title_en": "A Small Key",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "Key-opens-home arc is satisfying; the final two lines are decorative add-ons."
+    },
+    {
+      "story_id": 27,
+      "title_jp": "夏の庭",
+      "title_en": "The Summer Garden",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 3,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 23,
+      "tier": "A",
+      "note": "Pretty tableau; closing dog/「美しいです」 lines feel pasted."
+    },
+    {
+      "story_id": 28,
+      "title_jp": "雨の店",
+      "title_en": "The Shop in the Rain",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 4
+      },
+      "total": 26,
+      "tier": "S",
+      "note": "Shop-warmth-vs-rain is well-observed; the train-clock and customer lines are the only seams."
+    },
+    {
+      "story_id": 29,
+      "title_jp": "ベンチの友達",
+      "title_en": "A Friend on the Bench",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 3,
+        "narrative_shape": 3,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 22,
+      "tier": "A",
+      "note": "Family-photo center is good; final five sentences each open a new frame (snow, town, rain, friend speaks)."
+    },
+    {
+      "story_id": 30,
+      "title_jp": "秋の道",
+      "title_en": "The Autumn Road",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
+        "narrative_shape": 5,
+        "engagement_emotion": 5,
+        "economy_density": 5
+      },
+      "total": 30,
+      "tier": "S",
+      "note": "Best-shaped piece in the library: leaf, sad heart, walk, cloud, bench, return. No seams."
+    },
+    {
+      "story_id": 31,
+      "title_jp": "友達の電話",
+      "title_en": "The Friend's Phone Call",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 4
+      },
+      "total": 26,
+      "tier": "S",
+      "note": "Phone-call format gives natural turn-taking; the key-on-desk line is the only weave artifact."
+    },
+    {
+      "story_id": 32,
+      "title_jp": "冬の朝ごはん",
+      "title_en": "Winter Breakfast",
+      "scores": {
+        "literacy": 4,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 3,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 22,
+      "tier": "A",
+      "note": "Father's call is warm but 「家族について、名前を言います」 is awkward and the closing 「道を走ります」 is unmotivated."
+    },
+    {
+      "story_id": 33,
+      "title_jp": "古い時計",
+      "title_en": "The Old Clock",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 5,
+        "economy_density": 3
+      },
+      "total": 25,
+      "tier": "A",
+      "note": "Clock-as-memory core is excellent; s14-s17 wander to town/person/heart with no thread."
+    },
+    {
+      "story_id": 34,
+      "title_jp": "犬と散歩",
+      "title_en": "A Walk with the Dog",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 4
+      },
+      "total": 26,
+      "tier": "S",
+      "note": "Charming and concrete; the grandmother line at s12 is a sudden frame-shift."
+    },
+    {
+      "story_id": 35,
+      "title_jp": "母の手紙",
+      "title_en": "Mother's Letter",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 3,
+        "narrative_shape": 3,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 22,
+      "tier": "A",
+      "note": "Genuine emotion in s7-s11; final four sentences (cloud, mother quote, customer, town) are list-of-extras."
+    },
+    {
+      "story_id": 36,
+      "title_jp": "雪の夜",
+      "title_en": "A Snowy Night",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
+        "narrative_shape": 5,
+        "engagement_emotion": 5,
+        "economy_density": 5
+      },
+      "total": 30,
+      "tier": "S",
+      "note": "Near-perfect graded-reader miniature: weather, wait, arrival, stove, shared tea, close."
+    },
+    {
+      "story_id": 37,
+      "title_jp": "父の名前",
+      "title_en": "Father's Name",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 5,
+        "economy_density": 3
+      },
+      "total": 26,
+      "tier": "S",
+      "note": "Father's name from mountain/river is memorable; brother/grandmother coda dilutes the meditation."
+    },
+    {
+      "story_id": 38,
+      "title_jp": "本の店の人",
+      "title_en": "The Person at the Bookstore",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 5,
+        "economy_density": 3
+      },
+      "total": 25,
+      "tier": "A",
+      "note": "Bookstore-meet-cute seed is strong; final pond/brother/look-for-friend lines undercut the intimacy."
+    },
+    {
+      "story_id": 39,
+      "title_jp": "雨と傘",
+      "title_en": "Rain and Umbrella",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
+        "narrative_shape": 4,
+        "engagement_emotion": 5,
+        "economy_density": 4
+      },
+      "total": 28,
+      "tier": "S",
+      "note": "Umbrella-rescue scene is the romance hinge of the late library; reads as one beat."
+    },
+    {
+      "story_id": 40,
+      "title_jp": "手紙の返事",
+      "title_en": "The Letter's Reply",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 5,
+        "economy_density": 3
+      },
+      "total": 25,
+      "tier": "A",
+      "note": "「言葉は小さい」 motif is moving; final five sentences (dog, walk, cup, shop, light) are a clear reinforcement coda."
+    },
+    {
+      "story_id": 41,
+      "title_jp": "春の本の店",
+      "title_en": "The Bookstore in Spring",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "Bookshop-revisit works; 「鍵がありません」 and 「言葉は小さいですから、大切です」 each pull in different directions."
+    },
+    {
+      "story_id": 42,
+      "title_jp": "二人の道",
+      "title_en": "The Two Of Us, On the Road",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "Rewritten 2026-04-24: 「友達さん」 unidiomatic line replaced with 「祖母さんの手紙の返事」 — a real withheld-feeling motif. Mountain/river/moon now form one image rather than three. Literacy, scene each up one.",
+      "rewritten": "2026-04-24"
+    },
+    {
+      "story_id": 43,
+      "title_jp": "鍵がありません",
+      "title_en": "There Is No Key",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "Rewritten 2026-04-24: tail (trip-with-siblings, new town job) is now anchored to the rediscovered key via 「兄と同じ古い鍵」. Scene and narrative each up one; economy slightly improved.",
+      "rewritten": "2026-04-24"
+    },
+    {
+      "story_id": 44,
+      "title_jp": "待ちません",
+      "title_en": "I Do Not Wait",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "「待ちません」 motif lands; the closing trio (cold yesterday, town bookshop, no reply) is loose."
+    },
+    {
+      "story_id": 45,
+      "title_jp": "これは何ですか",
+      "title_en": "What Is This?",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 5,
+        "economy_density": 3
+      },
+      "total": 25,
+      "tier": "A",
+      "note": "Box-as-memory frame is excellent; 祖母さん usage in s15 is grammatically awkward and last three lines are filler."
+    },
+    {
+      "story_id": 46,
+      "title_jp": "寒くない朝",
+      "title_en": "A Not-Cold Morning",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
+        "narrative_shape": 4,
+        "engagement_emotion": 5,
+        "economy_density": 4
+      },
+      "total": 28,
+      "tier": "S",
+      "note": "\"Spring is what?\" definition poem is one of the cleanest pieces in the late library."
+    },
+    {
+      "story_id": 47,
+      "title_jp": "誰の傘",
+      "title_en": "Whose Umbrella?",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
+        "narrative_shape": 5,
+        "engagement_emotion": 5,
+        "economy_density": 4
+      },
+      "total": 29,
+      "tier": "S",
+      "note": "Question-elimination structure (whose? friend's? grandmother's? his.) is genuinely clever for the level."
+    },
+    {
+      "story_id": 48,
+      "title_jp": "どこですか。",
+      "title_en": "Where Is It?",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 4
+      },
+      "total": 25,
+      "tier": "A",
+      "note": "\"Where is the bookstore?\" gives the piece a real engine; tomorrow-promise close earns the warmth."
+    },
+    {
+      "story_id": 49,
+      "title_jp": "お茶を飲みませんか。",
+      "title_en": "Won't You Have Tea?",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "Sweet invitation; clothes/hat/shoes inventory and missing-key line are visible drills."
+    },
+    {
+      "story_id": 50,
+      "title_jp": "駅で待ちます",
+      "title_en": "Waiting at the Station",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 5,
+        "economy_density": 3
+      },
+      "total": 26,
+      "tier": "S",
+      "note": "Grandmother-and-child-at-station core through s13 is moving; s14-s18 are an unrelated cluster (brother's clothes, old letter, brother shows book, rain)."
+    },
+    {
+      "story_id": 51,
+      "title_jp": "あの花",
+      "title_en": "That Flower Over There",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "Demonstratives drill is mostly hidden in real dialogue; closing entrance/sister lines feel tacked."
+    },
+    {
+      "story_id": 52,
+      "title_jp": "入ってください。",
+      "title_en": "Please Come In.",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "Teacher-visit frame works; 「兄は弟に妹の手紙を読みます」 is a kinship-noun bottleneck."
+    },
+    {
+      "story_id": 53,
+      "title_jp": "何の本ですか。",
+      "title_en": "What Book Is It?",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "Q&A energy is alive but the grandmother/clock interruption mid-scene is jarring."
+    },
+    {
+      "story_id": 54,
+      "title_jp": "待ちませんでした。",
+      "title_en": "I Did Not Wait.",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "Rewritten 2026-04-24: removed forward zigzag (next-week promise); piece now stays in past memory and resolves cleanly with 「今朝、鐘の音は明るいです」. Scene, narrative, engagement each up one.",
+      "rewritten": "2026-04-24"
+    },
+    {
+      "story_id": 55,
+      "title_jp": "暑かった夏。",
+      "title_en": "The Summer That Was Hot.",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 5,
+        "economy_density": 3
+      },
+      "total": 25,
+      "tier": "A",
+      "note": "Past-tense memory of grandmother is strong; final three sentences (sister, students, coat) are unrelated."
+    },
+    {
+      "story_id": 56,
+      "title_jp": "行きましょう。",
+      "title_en": "Let's Go.",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "Volitional structure 行きましょう/歩きましょう/飲みましょう is well-paced; closing five sentences are a debris field."
+    },
+    {
+      "story_id": 57,
+      "title_jp": "雨が降りますが、明るい朝。",
+      "title_en": "Rain Falls, But a Bright Morning.",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "Rewritten 2026-04-24: kept the が-but contrasts but added a real image (一年前の本, 橋の花の影). Scene and narrative each up one; economy still mid because of the reinforcement tail (学生/気持ち/台所).",
+      "rewritten": "2026-04-24"
+    },
+    {
+      "story_id": 58,
+      "title_jp": "本の店へ。",
+      "title_en": "To the Bookstore.",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "へ-direction motif works; the piece is just slightly long and the final coat/road triplet is filler."
+    },
+    {
+      "story_id": 59,
+      "title_jp": "静かじゃない夜。",
+      "title_en": "A Not-Quiet Night.",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 5,
+        "economy_density": 3
+      },
+      "total": 25,
+      "tier": "A",
+      "note": "Melancholy 〜じゃない negation lands well; last four sentences (this week, bridge, snow, coat) are unrelated."
+    },
+    {
+      "story_id": 60,
+      "title_jp": "夕方まで。",
+      "title_en": "Until Evening.",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 5,
+        "economy_density": 3
+      },
+      "total": 25,
+      "tier": "A",
+      "note": "〜まで time-frame meditation is genuinely contemplative; the final five-sentence coda fragments it."
+    },
+    {
+      "story_id": 61,
+      "title_jp": "なぜ来ますか。",
+      "title_en": "Why Do You Come?",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
+        "narrative_shape": 5,
+        "engagement_emotion": 5,
+        "economy_density": 4
+      },
+      "total": 29,
+      "tier": "S",
+      "note": "Grandmother's なぜ-questions create real emotional pressure; one of the best dialogue pieces."
+    },
+    {
+      "story_id": 62,
+      "title_jp": "いい本ですよ。",
+      "title_en": "It's a Good Book, You Know.",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
+        "narrative_shape": 4,
+        "engagement_emotion": 5,
+        "economy_density": 4
+      },
+      "total": 28,
+      "tier": "S",
+      "note": "よ-particle intimacy with the bookstore person; 「本の国を歩きます」 is a fine closing image."
+    },
+    {
+      "story_id": 63,
+      "title_jp": "悲しくありません。",
+      "title_en": "I Am Not Sad.",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 5,
+        "economy_density": 3
+      },
+      "total": 25,
+      "tier": "A",
+      "note": "Negation-of-sadness motif holds; ending decorative trio is the usual weakness."
+    },
+    {
+      "story_id": 64,
+      "title_jp": "友達と話した。",
+      "title_en": "I Talked With the Friend.",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "Plain-past notebook-quote conceit is fresh; final six sentences (dream, village, country, page) are an unrelated postscript."
+    },
+    {
+      "story_id": 65,
+      "title_jp": "新しい傘がほしい。",
+      "title_en": "I Want a New Umbrella.",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 4,
+        "economy_density": 3
+      },
+      "total": 24,
+      "tier": "A",
+      "note": "〜がほしい motif arc (want -> buy) is satisfying; final five sentences (map, newspaper, daydream, parking lot, bridge) are a clear weave."
+    },
+    {
+      "story_id": 66,
+      "title_jp": "入ってもいいですか。",
+      "title_en": "May I Come In?",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 4,
+        "scene_coherence": 4,
+        "narrative_shape": 4,
+        "engagement_emotion": 5,
+        "economy_density": 3
+      },
+      "total": 25,
+      "tier": "A",
+      "note": "Permission-request scene with bookstore person is intimate; last six sentences are the strongest example in the library of a tail-of-orphan-vocab."
+    },
+    {
+      "story_id": 67,
+      "title_jp": "だから雪が好きです。",
+      "title_en": "So I Love the Snow.",
+      "scores": {
+        "literacy": 5,
+        "comprehensibility": 5,
+        "scene_coherence": 5,
+        "narrative_shape": 4,
+        "engagement_emotion": 5,
+        "economy_density": 4
+      },
+      "total": 28,
+      "tier": "S",
+      "note": "だから-because closing structure gives a real causal arc; works as a series finale."
+    }
+  ],
+  "changelog": [
+    {
+      "date": "2026-04-24",
+      "summary": "Rewrote bottom-10 stories (6, 7, 10, 11, 16, 23, 42, 43, 54, 57) for cohesion. All cascade reinforcements preserved. 156/156 tests pass.",
+      "rewritten_story_ids": [
+        6,
+        7,
+        10,
+        11,
+        16,
+        23,
+        42,
+        43,
+        54,
+        57
+      ],
+      "build_status": "green (156 passed)",
+      "audio_status": "Stale audio for the 10 rewritten stories was removed. Audio regeneration deferred to Phase 8 (per docs/quality_plan.md)."
+    }
+  ]
+}

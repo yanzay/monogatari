@@ -42,22 +42,25 @@
     "W00115",
     "W00113",
     "W00043",
+    "W00098",
     "W00125",
-    "W00126",
+    "W00039",
     "W00119",
-    "W00055",
+    "W00126",
+    "W00097",
     "W00120",
     "W00012",
-    "W00056",
+    "W00047",
     "W00031",
     "W00077",
     "W00110",
+    "W00237",
+    "W00044",
+    "W00124",
     "W00006",
     "W00050",
-    "W00124",
-    "W00011",
-    "W00093",
-    "W00044"
+    "W00111",
+    "W00011"
   ],
   "sentences": [
     {
@@ -306,10 +309,10 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "友達",
+          "t": "祖母",
           "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち"
+          "word_id": "W00098",
+          "r": "そぼ"
         },
         {
           "t": "さん",
@@ -317,6 +320,28 @@
           "word_id": "W00125",
           "r": "さん",
           "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "返事",
+          "role": "content",
+          "word_id": "W00119",
+          "r": "へんじ"
         },
         {
           "t": "を",
@@ -347,43 +372,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I know my friend."
+      "gloss_en": "I know about the reply to grandmother's letter."
     },
     {
       "idx": 5,
-      "tokens": [
-        {
-          "t": "返事",
-          "role": "content",
-          "word_id": "W00119",
-          "r": "へんじ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "小さい",
-          "role": "content",
-          "word_id": "W00055",
-          "r": "ちいさい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The reply is small."
-    },
-    {
-      "idx": 6,
       "tokens": [
         {
           "t": "でも",
@@ -392,6 +384,49 @@
         },
         {
           "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "言いません",
+          "role": "content",
+          "word_id": "W00097",
+          "r": "いいません",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G036_masen"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But I do not tell my friend."
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "「",
           "role": "punct"
         },
         {
@@ -406,37 +441,66 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "温かくて",
+          "t": "温かい",
           "role": "content",
           "word_id": "W00012",
-          "r": "あたたかくて",
-          "inflection": {
-            "form": "i_adj_te"
-          },
-          "grammar_id": "G029_kute"
-        },
-        {
-          "t": "嬉しい",
-          "role": "content",
-          "word_id": "W00056",
-          "r": "うれしい",
+          "r": "あたたかい",
           "grammar_id": "G022_i_adj"
         },
         {
-          "t": "です",
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G014_to_omoimasu"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "思います",
           "role": "aux",
-          "grammar_id": "G003_desu"
+          "word_id": "W00043",
+          "r": "おもいます",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "But my heart is warm and happy."
+      "gloss_en": "\"My heart is warm,\" I think."
     },
     {
       "idx": 7,
       "tokens": [
+        {
+          "t": "空",
+          "role": "content",
+          "word_id": "W00047",
+          "r": "そら"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
         {
           "t": "月",
           "role": "content",
@@ -467,16 +531,65 @@
           "grammar_id": "G008_te_iru"
         },
         {
-          "t": "ね",
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "山",
+          "role": "content",
+          "word_id": "W00110",
+          "r": "やま"
+        },
+        {
+          "t": "の",
           "role": "particle",
-          "grammar_id": "G034_ne_confirm"
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "上",
+          "role": "content",
+          "word_id": "W00237",
+          "r": "うえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "月",
+          "role": "content",
+          "word_id": "W00031",
+          "r": "つき"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The moon is out, isn't it."
+      "gloss_en": "The moon is out in the sky. Above the mountain, the moon is there."
     },
     {
       "idx": 8,
@@ -494,15 +607,10 @@
           "grammar_id": "G017_de_means"
         },
         {
-          "t": "山",
+          "t": "同じ",
           "role": "content",
-          "word_id": "W00110",
-          "r": "やま"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
+          "word_id": "W00124",
+          "r": "おなじ"
         },
         {
           "t": "月",
@@ -538,7 +646,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us are looking at the mountain and the moon."
+      "gloss_en": "The two of us are looking at the same moon."
     },
     {
       "idx": 9,
@@ -572,6 +680,32 @@
           "r": "いっしょに"
         },
         {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "川",
+          "role": "content",
+          "word_id": "W00111",
+          "r": "かわ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "道",
+          "role": "content",
+          "word_id": "W00064",
+          "r": "みち"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
           "t": "歩きたい",
           "role": "content",
           "word_id": "W00017",
@@ -594,7 +728,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I want to walk together with my friend."
+      "gloss_en": "I want to walk together with my friend along the river road."
     },
     {
       "idx": 10,
@@ -612,12 +746,23 @@
           "r": "みち"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
+          "t": "、",
+          "role": "punct"
         },
         {
-          "t": "。",
+          "t": "同じ",
+          "role": "content",
+          "word_id": "W00124",
+          "r": "おなじ"
+        },
+        {
+          "t": "月",
+          "role": "content",
+          "word_id": "W00031",
+          "r": "つき"
+        },
+        {
+          "t": "、",
           "role": "punct"
         },
         {
@@ -642,66 +787,6 @@
           "t": "の",
           "role": "particle",
           "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "道",
-          "role": "content",
-          "word_id": "W00064",
-          "r": "みち"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "It is the same road. A quiet road for the two of us."
-    },
-    {
-      "idx": 11,
-      "tokens": [
-        {
-          "t": "電話",
-          "role": "content",
-          "word_id": "W00093",
-          "r": "でんわ"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "ありません",
-          "role": "content",
-          "word_id": "W00044",
-          "r": "ありません",
-          "inflection": {
-            "base": "ある",
-            "base_r": "ある",
-            "form": "negative_polite",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G035_arimasen"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        },
-        {
-          "t": "静か",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
-        },
-        {
-          "t": "な",
-          "role": "particle",
-          "grammar_id": "G016_na_adjective"
         },
         {
           "t": "春",
@@ -730,7 +815,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is no phone call. It is a quiet spring evening."
+      "gloss_en": "The same road, the same moon — a quiet spring evening for the two of us."
     }
   ]
 }

@@ -40,24 +40,21 @@
     "W00040",
     "W00157",
     "W00003",
+    "W00078",
+    "W00036",
+    "W00085",
     "W00034",
     "W00012",
     "W00009",
     "W00010",
-    "W00031",
-    "W00041",
     "W00004",
+    "W00031",
     "W00006",
     "W00158",
     "W00032",
-    "W00011",
-    "W00101",
-    "W00005",
-    "W00029",
-    "W00078",
-    "W00026",
-    "W00036",
-    "W00085"
+    "W00055",
+    "W00041",
+    "W00011"
   ],
   "sentences": [
     {
@@ -202,6 +199,45 @@
           "grammar_id": "G001_wa_topic"
         },
         {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "椅子",
+          "role": "content",
+          "word_id": "W00036",
+          "r": "いす"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "座って",
+          "role": "content",
+          "word_id": "W00085",
+          "r": "すわって",
+          "inflection": {
+            "base": "座る",
+            "base_r": "すわる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
           "t": "手紙",
           "role": "content",
           "word_id": "W00039",
@@ -230,7 +266,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I read the letter."
+      "gloss_en": "At home, I sat on the chair and read the letter."
     },
     {
       "idx": 4,
@@ -263,41 +299,13 @@
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "飲んで",
+          "t": "飲みました",
           "role": "content",
           "word_id": "W00010",
-          "r": "のんで",
+          "r": "のみました",
           "inflection": {
             "base": "飲む",
             "base_r": "のむ",
-            "form": "te",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G007_te_form"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "月",
-          "role": "content",
-          "word_id": "W00031",
-          "r": "つき"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "待ちました",
-          "role": "content",
-          "word_id": "W00041",
-          "r": "まちました",
-          "inflection": {
-            "base": "待つ",
-            "base_r": "まつ",
             "form": "polite_past",
             "verb_class": "godan"
           },
@@ -308,7 +316,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Then, drinking warm tea, I waited for the moon."
+      "gloss_en": "Then, I drank warm tea."
     },
     {
       "idx": 5,
@@ -375,11 +383,22 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I looked at the rain and the moon from the window."
+      "gloss_en": "From the window, I looked at the rain and the moon."
     },
     {
       "idx": 6,
       "tokens": [
+        {
+          "t": "月",
+          "role": "content",
+          "word_id": "W00031",
+          "r": "つき"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
         {
           "t": "青い",
           "role": "content",
@@ -389,15 +408,154 @@
           "is_new": true
         },
         {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
           "t": "星",
           "role": "content",
           "word_id": "W00032",
           "r": "ほし"
         },
         {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00055",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The moon is blue. The stars are small."
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "白い",
+          "role": "content",
+          "word_id": "W00157",
+          "r": "しろい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ"
+        },
+        {
           "t": "の",
           "role": "particle",
           "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "待ちます",
+          "role": "content",
+          "word_id": "W00041",
+          "r": "まちます",
+          "inflection": {
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I wait for the friend of the white letter."
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "昨日",
+          "role": "content",
+          "word_id": "W00042",
+          "r": "きのう"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あめ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "白い",
+          "role": "content",
+          "word_id": "W00157",
+          "r": "しろい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "青い",
+          "role": "content",
+          "word_id": "W00158",
+          "r": "あおい",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "月",
@@ -406,25 +564,9 @@
           "r": "つき"
         },
         {
-          "t": "でした",
-          "role": "aux",
-          "grammar_id": "G013_mashita_past",
-          "inflection": {
-            "base": "です",
-            "base_r": "です",
-            "form": "polite_past"
-          }
-        },
-        {
-          "t": "。",
+          "t": "、",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "It was a blue moon and stars."
-    },
-    {
-      "idx": 7,
-      "tokens": [
+        },
         {
           "t": "静か",
           "role": "content",
@@ -443,145 +585,16 @@
           "r": "よる"
         },
         {
-          "t": "でした",
+          "t": "です",
           "role": "aux",
-          "grammar_id": "G013_mashita_past",
-          "inflection": {
-            "base": "です",
-            "base_r": "です",
-            "form": "polite_past"
-          }
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "It was a quiet night."
-    },
-    {
-      "idx": 8,
-      "tokens": [
-        {
-          "t": "犬",
-          "role": "content",
-          "word_id": "W00101",
-          "r": "いぬ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "外",
-          "role": "content",
-          "word_id": "W00005",
-          "r": "そと"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "います",
-          "role": "content",
-          "word_id": "W00029",
-          "r": "います",
-          "inflection": {
-            "base": "いる",
-            "base_r": "いる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The dog is outside."
-    },
-    {
-      "idx": 9,
-      "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "家",
-          "role": "content",
-          "word_id": "W00078",
-          "r": "いえ"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "帰ります",
-          "role": "content",
-          "word_id": "W00026",
-          "r": "かえります",
-          "inflection": {
-            "base": "帰る",
-            "base_r": "かえる",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I return home."
-    },
-    {
-      "idx": 10,
-      "tokens": [
-        {
-          "t": "椅子",
-          "role": "content",
-          "word_id": "W00036",
-          "r": "いす"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "座ります",
-          "role": "content",
-          "word_id": "W00085",
-          "r": "すわります",
-          "inflection": {
-            "base": "座る",
-            "base_r": "すわる",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I sit on a chair."
+      "gloss_en": "Yesterday's rain, a white letter, a blue moon — a quiet night."
     }
   ]
 }

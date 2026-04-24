@@ -44,14 +44,15 @@
     "W00063",
     "W00040",
     "W00070",
+    "W00102",
     "W00035",
+    "W00078",
     "W00026",
     "W00064",
     "W00047",
+    "W00055",
     "W00032",
     "W00044",
-    "W00101",
-    "W00102",
     "W00046",
     "W00240",
     "W00137",
@@ -335,6 +336,20 @@
           "grammar_id": "G006_kara_from"
         },
         {
+          "t": "走って",
+          "role": "content",
+          "word_id": "W00102",
+          "r": "はしって",
+          "inflection": {
+            "base": "走る",
+            "base_r": "はしる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form",
+          "is_new": true
+        },
+        {
           "t": "来ます",
           "role": "content",
           "word_id": "W00040",
@@ -352,7 +367,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My friend comes from the train."
+      "gloss_en": "My friend comes running from the train."
     },
     {
       "idx": 6,
@@ -379,6 +394,17 @@
           "t": "から",
           "role": "particle",
           "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "帰ります",
@@ -441,6 +467,13 @@
           "grammar_id": "G001_wa_topic"
         },
         {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00055",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
           "t": "星",
           "role": "content",
           "word_id": "W00032",
@@ -469,56 +502,10 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The road is snow, and in the sky there are stars too."
+      "gloss_en": "The road is snow; in the sky, small stars are there too."
     },
     {
       "idx": 8,
-      "tokens": [
-        {
-          "t": "犬",
-          "role": "content",
-          "word_id": "W00101",
-          "r": "いぬ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "道",
-          "role": "content",
-          "word_id": "W00064",
-          "r": "みち"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "走ります",
-          "role": "content",
-          "word_id": "W00102",
-          "r": "はしります",
-          "inflection": {
-            "base": "走る",
-            "base_r": "はしる",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast",
-          "is_new": true
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "A dog runs along the road."
-    },
-    {
-      "idx": 9,
       "tokens": [
         {
           "t": "明日",
@@ -562,7 +549,7 @@
       "gloss_en": "Tomorrow's sun will be bright."
     },
     {
-      "idx": 10,
+      "idx": 9,
       "tokens": [
         {
           "t": "明日",
@@ -618,13 +605,19 @@
       "gloss_en": "Tomorrow, too, won't we drink tea together?"
     },
     {
-      "idx": 11,
+      "idx": 10,
       "tokens": [
         {
-          "t": "一緒に",
+          "t": "二人",
           "role": "content",
-          "word_id": "W00050",
-          "r": "いっしょに"
+          "word_id": "W00035",
+          "r": "ふたり",
+          "grammar_id": "G025_counters"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
         },
         {
           "t": "、",
@@ -670,7 +663,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Together, we walk through the snowy evening."
+      "gloss_en": "The two of us walk through the snowy evening."
     }
   ]
 }
