@@ -23,9 +23,9 @@
     ]
   },
   "new_words": [
+    "W00174",
     "W00243",
-    "W00212",
-    "W00174"
+    "W00212"
   ],
   "new_grammar": [
     "G038_kunai"
@@ -50,18 +50,20 @@
     "W00044",
     "W00083",
     "W00095",
-    "W00105",
-    "W00106",
+    "W00174",
     "W00040",
-    "W00041",
-    "W00135",
-    "W00134",
-    "W00098",
-    "W00121",
+    "W00005",
     "W00243",
     "W00212",
-    "W00174",
-    "W00058"
+    "W00097",
+    "W00098",
+    "W00121",
+    "W00043",
+    "W00135",
+    "W00134",
+    "W00058",
+    "W00105",
+    "W00106"
   ],
   "sentences": [
     {
@@ -516,62 +518,27 @@
       "idx": 10,
       "tokens": [
         {
-          "t": "私",
+          "t": "弟",
           "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
+          "word_id": "W00174",
+          "r": "おとうと",
+          "is_new": true
         },
         {
-          "t": "は",
+          "t": "も",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G009_mo_also"
         },
         {
-          "t": "仕事",
+          "t": "部屋",
           "role": "content",
-          "word_id": "W00105",
-          "r": "しごと"
+          "word_id": "W00075",
+          "r": "へや"
         },
         {
-          "t": "を",
+          "t": "に",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "始めます",
-          "role": "content",
-          "word_id": "W00106",
-          "r": "はじめます",
-          "inflection": {
-            "base": "始める",
-            "base_r": "はじめる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I begin the work.",
-      "audio": "audio/story_46/s10.mp3",
-      "audio_hash": "9bade0a34211"
-    },
-    {
-      "idx": 11,
-      "tokens": [
-        {
-          "t": "春",
-          "role": "content",
-          "word_id": "W00072",
-          "r": "はる"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "来ます",
@@ -587,9 +554,134 @@
           "grammar_id": "G026_masu_nonpast"
         },
         {
-          "t": "から",
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My younger brother also comes into the room.",
+      "audio": "audio/story_46/s10.mp3",
+      "audio_hash": "ecbe1fee4b88"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "外",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "そと"
+        },
+        {
+          "t": "の",
           "role": "particle",
-          "grammar_id": "G030_kara_reason"
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "草",
+          "role": "content",
+          "word_id": "W00243",
+          "r": "くさ",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "緑",
+          "role": "content",
+          "word_id": "W00212",
+          "r": "みどり",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "ね",
+          "role": "particle",
+          "grammar_id": "G034_ne_confirm"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00174",
+          "r": "おとうと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "言います",
+          "role": "aux",
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"The grass outside is green, isn't it,\" my brother says.",
+      "audio": "audio/story_46/s11.mp3",
+      "audio_hash": "8378e6dbe70b"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "言葉",
+          "role": "content",
+          "word_id": "W00121",
+          "r": "ことば"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
         },
         {
           "t": "、",
@@ -607,29 +699,29 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "待ちません",
+          "t": "思います",
           "role": "content",
-          "word_id": "W00041",
-          "r": "まちません",
+          "word_id": "W00043",
+          "r": "おもいます",
           "inflection": {
-            "base": "待つ",
-            "base_r": "まつ",
-            "form": "negative_polite",
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G036_masen"
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "Because spring is coming, I do not wait.",
-      "audio": "audio/story_46/s11.mp3",
-      "audio_hash": "c0ecf71b24aa"
+      "gloss_en": "I think of grandmother's bright words.",
+      "audio": "audio/story_46/s12.mp3",
+      "audio_hash": "e4338edc3e52"
     },
     {
-      "idx": 12,
+      "idx": 13,
       "tokens": [
         {
           "t": "春",
@@ -662,50 +754,7 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "What is spring?",
-      "audio": "audio/story_46/s12.mp3",
-      "audio_hash": "d80eae4c3813"
-    },
-    {
-      "idx": 13,
-      "tokens": [
-        {
-          "t": "春",
-          "role": "content",
-          "word_id": "W00072",
-          "r": "はる"
         },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "美しい",
-          "role": "content",
-          "word_id": "W00083",
-          "r": "うつくしい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Spring is beautiful.",
-      "audio": "audio/story_46/s13.mp3",
-      "audio_hash": "8077fc6945f1"
-    },
-    {
-      "idx": 14,
-      "tokens": [
         {
           "t": "これ",
           "role": "content",
@@ -718,17 +767,21 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "明るい",
+          "t": "緑",
           "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
-          "grammar_id": "G022_i_adj"
+          "word_id": "W00212",
+          "r": "みどり"
         },
         {
-          "t": "朝",
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "光",
           "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
+          "word_id": "W00139",
+          "r": "ひかり"
         },
         {
           "t": "、",
@@ -742,10 +795,10 @@
           "grammar_id": "G022_i_adj"
         },
         {
-          "t": "光",
+          "t": "朝",
           "role": "content",
-          "word_id": "W00139",
-          "r": "ひかり"
+          "word_id": "W00015",
+          "r": "あさ"
         },
         {
           "t": "です",
@@ -757,101 +810,18 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "This is a bright morning, warm light.",
-      "audio": "audio/story_46/s14.mp3",
-      "audio_hash": "2d8fed382a9d"
+      "gloss_en": "What is spring? This is green light, a warm morning.",
+      "audio": "audio/story_46/s13.mp3",
+      "audio_hash": "2003f9b6849b"
     },
     {
-      "idx": 15,
+      "idx": 14,
       "tokens": [
         {
-          "t": "祖母",
+          "t": "私",
           "role": "content",
-          "word_id": "W00098",
-          "r": "そぼ"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "言葉",
-          "role": "content",
-          "word_id": "W00121",
-          "r": "ことば"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "明るい",
-          "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Grandmother's words are bright.",
-      "audio": "audio/story_46/s15.mp3",
-      "audio_hash": "a7c3cac46a3b"
-    },
-    {
-      "idx": 16,
-      "tokens": [
-        {
-          "t": "草",
-          "role": "content",
-          "word_id": "W00243",
-          "r": "くさ",
-          "is_new": true
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "緑",
-          "role": "content",
-          "word_id": "W00212",
-          "r": "みどり",
-          "is_new": true
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The grass is green.",
-      "audio": "audio/story_46/s16.mp3",
-      "audio_hash": "45857d17c1ed"
-    },
-    {
-      "idx": 17,
-      "tokens": [
-        {
-          "t": "弟",
-          "role": "content",
-          "word_id": "W00174",
-          "r": "おとうと",
-          "is_new": true
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "は",
@@ -865,28 +835,56 @@
           "r": "げんき"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "仕事",
+          "role": "content",
+          "word_id": "W00105",
+          "r": "しごと"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "始めます",
+          "role": "content",
+          "word_id": "W00106",
+          "r": "はじめます",
+          "inflection": {
+            "base": "始める",
+            "base_r": "はじめる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "My younger brother is well.",
-      "audio": "audio/story_46/s17.mp3",
-      "audio_hash": "e3c9442ee6ab"
+      "gloss_en": "I am well, and I begin my work.",
+      "audio": "audio/story_46/s14.mp3",
+      "audio_hash": "8296b646a80c"
     }
   ],
   "word_audio": {
+    "W00174": "audio/story_46/w_W00174.mp3",
     "W00243": "audio/story_46/w_W00243.mp3",
-    "W00212": "audio/story_46/w_W00212.mp3",
-    "W00174": "audio/story_46/w_W00174.mp3"
+    "W00212": "audio/story_46/w_W00212.mp3"
   },
   "word_audio_hash": {
+    "W00174": "f1d9eb390e4a",
     "W00243": "91b246b5dbc0",
-    "W00212": "005c047dbb3d",
-    "W00174": "f1d9eb390e4a"
+    "W00212": "005c047dbb3d"
   }
 }

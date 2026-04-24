@@ -25,8 +25,8 @@
   },
   "new_words": [
     "W00163",
-    "W00046",
-    "W00164"
+    "W00164",
+    "W00046"
   ],
   "new_grammar": [
     "G019_te_oku"
@@ -39,25 +39,24 @@
     "W00158",
     "W00004",
     "W00006",
+    "W00001",
     "W00022",
     "W00040",
     "W00162",
     "W00163",
     "W00034",
-    "W00046",
-    "W00160",
-    "W00033",
-    "W00161",
-    "W00019",
-    "W00020",
-    "W00009",
-    "W00010",
     "W00164",
     "W00011",
     "W00037",
     "W00237",
-    "W00044",
+    "W00009",
+    "W00010",
+    "W00046",
+    "W00160",
+    "W00033",
+    "W00045",
     "W00246",
+    "W00161",
     "W00060"
   ],
   "sentences": [
@@ -140,6 +139,16 @@
       "idx": 1,
       "tokens": [
         {
+          "t": "今朝",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "けさ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
           "t": "友達",
           "role": "content",
           "word_id": "W00022",
@@ -179,9 +188,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A letter came from a friend.",
+      "gloss_en": "This morning, a letter came from a friend.",
       "audio": "audio/story_14/s1.mp3",
-      "audio_hash": "6fde3b6bce59"
+      "audio_hash": "01cf8efc3de6"
     },
     {
       "idx": 2,
@@ -203,6 +212,10 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "、",
+          "role": "punct"
         },
         {
           "t": "痛い",
@@ -243,27 +256,28 @@
       ],
       "gloss_en": "Young me reads the painful letter.",
       "audio": "audio/story_14/s2.mp3",
-      "audio_hash": "dd45f343733c"
+      "audio_hash": "16ece0f1e840"
     },
     {
       "idx": 3,
       "tokens": [
         {
-          "t": "明日",
+          "t": "月",
           "role": "content",
-          "word_id": "W00046",
-          "r": "あした",
+          "word_id": "W00031",
+          "r": "つき"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "歌",
+          "role": "content",
+          "word_id": "W00164",
+          "r": "うた",
           "is_new": true
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
         },
         {
           "t": "は",
@@ -271,17 +285,25 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "重い",
+          "t": "静か",
           "role": "content",
-          "word_id": "W00160",
-          "r": "おもい",
-          "grammar_id": "G022_i_adj"
+          "word_id": "W00011",
+          "r": "しずか"
         },
         {
-          "t": "本",
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "夜",
           "role": "content",
-          "word_id": "W00033",
-          "r": "ほん"
+          "word_id": "W00030",
+          "r": "よる"
         },
         {
           "t": "も",
@@ -289,84 +311,50 @@
           "grammar_id": "G009_mo_also"
         },
         {
-          "t": "読みます",
+          "t": "静か",
           "role": "content",
-          "word_id": "W00034",
-          "r": "よみます",
-          "inflection": {
-            "base": "読む",
-            "base_r": "よむ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "Tomorrow I will read a heavy book, too.",
+      "gloss_en": "The moon's song is quiet, and the night is quiet, too.",
       "audio": "audio/story_14/s3.mp3",
-      "audio_hash": "caf13a1dc340"
+      "audio_hash": "66361ff6fb1e"
     },
     {
       "idx": 4,
       "tokens": [
         {
-          "t": "明日",
+          "t": "机",
           "role": "content",
-          "word_id": "W00046",
-          "r": "あした"
+          "word_id": "W00037",
+          "r": "つくえ"
         },
         {
-          "t": "も",
+          "t": "の",
           "role": "particle",
-          "grammar_id": "G009_mo_also"
+          "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "軽い",
+          "t": "上",
           "role": "content",
-          "word_id": "W00161",
-          "r": "かるい",
-          "grammar_id": "G022_i_adj"
+          "word_id": "W00237",
+          "r": "うえ"
         },
         {
-          "t": "朝ごはん",
-          "role": "content",
-          "word_id": "W00019",
-          "r": "あさごはん"
-        },
-        {
-          "t": "を",
+          "t": "の",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "G015_no_possessive"
         },
-        {
-          "t": "食べます",
-          "role": "content",
-          "word_id": "W00020",
-          "r": "たべます",
-          "inflection": {
-            "base": "食べる",
-            "base_r": "たべる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Tomorrow, too, I will eat a light breakfast.",
-      "audio": "audio/story_14/s4.mp3",
-      "audio_hash": "15f9b7e09ba3"
-    },
-    {
-      "idx": 5,
-      "tokens": [
         {
           "t": "お茶",
           "role": "content",
@@ -402,34 +390,52 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I'll go ahead and have some tea now.",
-      "audio": "audio/story_14/s5.mp3",
-      "audio_hash": "f93aa5d3eeb4"
+      "gloss_en": "I go ahead and drink the tea on the desk.",
+      "audio": "audio/story_14/s4.mp3",
+      "audio_hash": "7c15c7ff2118"
     },
     {
-      "idx": 6,
+      "idx": 5,
       "tokens": [
         {
-          "t": "手紙",
+          "t": "明日",
           "role": "content",
-          "word_id": "W00039",
-          "r": "てがみ"
+          "word_id": "W00046",
+          "r": "あした",
+          "is_new": true
         },
         {
-          "t": "も",
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "重い",
+          "role": "content",
+          "word_id": "W00160",
+          "r": "おもい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "を",
           "role": "particle",
-          "grammar_id": "G009_mo_also"
+          "grammar_id": "G005_wo_object"
         },
         {
-          "t": "見て",
+          "t": "読んで",
           "role": "content",
-          "word_id": "W00006",
-          "r": "みて",
+          "word_id": "W00034",
+          "r": "よんで",
           "inflection": {
-            "base": "見る",
-            "base_r": "みる",
+            "base": "読む",
+            "base_r": "よむ",
             "form": "te",
-            "verb_class": "ichidan"
+            "verb_class": "godan"
           },
           "grammar_id": "G007_te_form"
         },
@@ -443,9 +449,89 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I'll go ahead and look at the letter, too.",
+      "gloss_en": "Tomorrow, I will go ahead and read a heavy book.",
+      "audio": "audio/story_14/s5.mp3",
+      "audio_hash": "decbffe1a839"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "青い",
+          "role": "content",
+          "word_id": "W00158",
+          "r": "あおい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "窓",
+          "role": "content",
+          "word_id": "W00004",
+          "r": "まど"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "そば",
+          "role": "content",
+          "word_id": "W00045",
+          "r": "そば"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "ペン",
+          "role": "content",
+          "word_id": "W00246",
+          "r": "ぺん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "By the blue window, I look at the pen.",
       "audio": "audio/story_14/s6.mp3",
-      "audio_hash": "2b6782fd440c"
+      "audio_hash": "e2fb0946b043"
     },
     {
       "idx": 7,
@@ -457,13 +543,9 @@
           "r": "よる"
         },
         {
-          "t": "も",
+          "t": "の",
           "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "、",
-          "role": "punct"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "月",
@@ -472,113 +554,32 @@
           "r": "つき"
         },
         {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "歌",
-          "role": "content",
-          "word_id": "W00164",
-          "r": "うた",
-          "is_new": true
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "静か",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
+          "t": "、",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "Even at night, the moon's song is quiet.",
-      "audio": "audio/story_14/s7.mp3",
-      "audio_hash": "49023ee055d7"
-    },
-    {
-      "idx": 8,
-      "tokens": [
+        },
         {
-          "t": "机",
+          "t": "青い",
           "role": "content",
-          "word_id": "W00037",
-          "r": "つくえ"
+          "word_id": "W00158",
+          "r": "あおい",
+          "grammar_id": "G022_i_adj"
         },
         {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "上",
+          "t": "窓",
           "role": "content",
-          "word_id": "W00237",
-          "r": "うえ"
+          "word_id": "W00004",
+          "r": "まど"
         },
         {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "本",
-          "role": "content",
-          "word_id": "W00033",
-          "r": "ほん"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "あります",
-          "role": "content",
-          "word_id": "W00044",
-          "r": "あります",
-          "inflection": {
-            "base": "ある",
-            "base_r": "ある",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
+          "t": "、",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "There is a book on the desk.",
-      "audio": "audio/story_14/s8.mp3",
-      "audio_hash": "e570ed06657d"
-    },
-    {
-      "idx": 9,
-      "tokens": [
-        {
-          "t": "ペン",
-          "role": "content",
-          "word_id": "W00246",
-          "r": "ぺん"
         },
         {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
+          "t": "軽い",
+          "role": "content",
+          "word_id": "W00161",
+          "r": "かるい",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "手紙",
@@ -590,6 +591,17 @@
           "t": "を",
           "role": "particle",
           "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "書きます",
@@ -609,19 +621,19 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I write a letter with a pen.",
-      "audio": "audio/story_14/s9.mp3",
-      "audio_hash": "38fc7ac6d9d3"
+      "gloss_en": "The night's moon, the blue window — I write a light letter to my friend.",
+      "audio": "audio/story_14/s7.mp3",
+      "audio_hash": "aa3f09841850"
     }
   ],
   "word_audio": {
     "W00163": "audio/story_14/w_W00163.mp3",
-    "W00046": "audio/story_14/w_W00046.mp3",
-    "W00164": "audio/story_14/w_W00164.mp3"
+    "W00164": "audio/story_14/w_W00164.mp3",
+    "W00046": "audio/story_14/w_W00046.mp3"
   },
   "word_audio_hash": {
     "W00163": "3460ae1de30f",
-    "W00046": "6450d5f86685",
-    "W00164": "602c513e5ff7"
+    "W00164": "602c513e5ff7",
+    "W00046": "6450d5f86685"
   }
 }

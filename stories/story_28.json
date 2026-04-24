@@ -53,17 +53,17 @@
     "W00035",
     "W00050",
     "W00010",
-    "W00081",
+    "W00138",
+    "W00160",
     "W00070",
     "W00045",
     "W00057",
     "W00071",
     "W00044",
-    "W00138",
-    "W00160",
-    "W00190",
     "W00241",
-    "W00011"
+    "W00190",
+    "W00011",
+    "W00081"
   ],
   "sentences": [
     {
@@ -567,10 +567,6 @@
           "grammar_id": "G017_de_means"
         },
         {
-          "t": "、",
-          "role": "punct"
-        },
-        {
           "t": "一緒に",
           "role": "content",
           "word_id": "W00050",
@@ -605,18 +601,18 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "We drink tea together.",
+      "gloss_en": "The two of us drink tea together.",
       "audio": "audio/story_28/s10.mp3",
-      "audio_hash": "db24e9e705ed"
+      "audio_hash": "f4c2a4b2f9f1"
     },
     {
       "idx": 11,
       "tokens": [
         {
-          "t": "夏",
+          "t": "雨",
           "role": "content",
-          "word_id": "W00081",
-          "r": "なつ"
+          "word_id": "W00002",
+          "r": "あめ"
         },
         {
           "t": "の",
@@ -624,14 +620,48 @@
           "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "朝",
+          "t": "空気",
           "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
+          "word_id": "W00138",
+          "r": "くうき"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "重い",
+          "role": "content",
+          "word_id": "W00160",
+          "r": "おもい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G049_ga_but",
+          "is_new_grammar": true
         },
         {
           "t": "、",
           "role": "punct"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "温かい",
@@ -639,12 +669,6 @@
           "word_id": "W00012",
           "r": "あたたかい",
           "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "店",
-          "role": "content",
-          "word_id": "W00084",
-          "r": "みせ"
         },
         {
           "t": "です",
@@ -656,9 +680,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Summer morning, a warm shop.",
+      "gloss_en": "The rainy air is heavy, but the shop is warm.",
       "audio": "audio/story_28/s11.mp3",
-      "audio_hash": "3d80f0fd37ca"
+      "audio_hash": "da11bc8ed831"
     },
     {
       "idx": 12,
@@ -729,86 +753,6 @@
       "idx": 13,
       "tokens": [
         {
-          "t": "雨",
-          "role": "content",
-          "word_id": "W00002",
-          "r": "あめ"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "空気",
-          "role": "content",
-          "word_id": "W00138",
-          "r": "くうき"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "重い",
-          "role": "content",
-          "word_id": "W00160",
-          "r": "おもい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Rainy air is heavy.",
-      "audio": "audio/story_28/s13.mp3",
-      "audio_hash": "771033e71ab5"
-    },
-    {
-      "idx": 14,
-      "tokens": [
-        {
-          "t": "少し",
-          "role": "content",
-          "word_id": "W00190",
-          "r": "すこし"
-        },
-        {
-          "t": "雨",
-          "role": "content",
-          "word_id": "W00002",
-          "r": "あめ"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "来て",
-          "role": "content",
-          "word_id": "W00040",
-          "r": "きて",
-          "inflection": {
-            "base": "来る",
-            "base_r": "くる",
-            "form": "te",
-            "verb_class": "irregular_kuru"
-          },
-          "grammar_id": "G007_te_form"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
           "t": "客",
           "role": "content",
           "word_id": "W00241",
@@ -816,9 +760,15 @@
           "is_new": true
         },
         {
-          "t": "は",
+          "t": "も",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "少し",
+          "role": "content",
+          "word_id": "W00190",
+          "r": "すこし"
         },
         {
           "t": "静か",
@@ -836,13 +786,24 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A little rain comes, and the customer is quiet.",
-      "audio": "audio/story_28/s14.mp3",
-      "audio_hash": "5827269d35b9"
+      "gloss_en": "The customers, too, are a little quiet.",
+      "audio": "audio/story_28/s13.mp3",
+      "audio_hash": "bdfcfbe7ae09"
     },
     {
-      "idx": 15,
+      "idx": 14,
       "tokens": [
+        {
+          "t": "夏",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "なつ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
         {
           "t": "雨",
           "role": "content",
@@ -850,19 +811,31 @@
           "r": "あめ"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G049_ga_but",
-          "is_new_grammar": true
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
         },
         {
           "t": "、",
           "role": "punct"
+        },
+        {
+          "t": "二人",
+          "role": "content",
+          "word_id": "W00035",
+          "r": "ふたり",
+          "grammar_id": "G025_counters"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
         },
         {
           "t": "温かい",
@@ -870,6 +843,12 @@
           "word_id": "W00012",
           "r": "あたたかい",
           "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
         },
         {
           "t": "です",
@@ -881,9 +860,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is raining, but it is warm.",
-      "audio": "audio/story_28/s15.mp3",
-      "audio_hash": "b4efd5a827de"
+      "gloss_en": "A summer rainy morning — the two of us, and a warm shop.",
+      "audio": "audio/story_28/s14.mp3",
+      "audio_hash": "10c7ee16927d"
     }
   ],
   "word_audio": {

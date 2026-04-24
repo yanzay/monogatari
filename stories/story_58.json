@@ -62,28 +62,25 @@
     "W00191",
     "W00097",
     "W00013",
+    "W00035",
+    "W00074",
+    "W00185",
+    "W00186",
+    "W00137",
+    "W00139",
     "W00113",
     "W00041",
     "W00192",
     "W00147",
     "W00056",
-    "W00040",
-    "W00137",
-    "W00009",
-    "W00010",
-    "W00006",
+    "W00177",
+    "W00224",
+    "W00244",
+    "W00249",
     "W00066",
     "W00012",
     "W00120",
-    "W00074",
-    "W00177",
-    "W00224",
-    "W00185",
-    "W00186",
-    "W00225",
-    "W00183",
-    "W00244",
-    "W00249"
+    "W00043"
   ],
   "sentences": [
     {
@@ -619,6 +616,194 @@
       "idx": 9,
       "tokens": [
         {
+          "t": "二人",
+          "role": "content",
+          "word_id": "W00035",
+          "r": "ふたり",
+          "grammar_id": "G025_counters"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "こうえん"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "まで",
+          "role": "particle",
+          "grammar_id": "G052_made_until",
+          "is_new_grammar": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "長い",
+          "role": "content",
+          "word_id": "W00074",
+          "r": "ながい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "道",
+          "role": "content",
+          "word_id": "W00064",
+          "r": "みち"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "歩きます",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "あるきます",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "From the park to the bookstore, the two of us walk the long road.",
+      "audio": "audio/story_58/s9.mp3",
+      "audio_hash": "7820bffa1d37"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "玄関",
+          "role": "content",
+          "word_id": "W00185",
+          "r": "げんかん"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "廊下",
+          "role": "content",
+          "word_id": "W00186",
+          "r": "ろうか"
+        },
+        {
+          "t": "まで",
+          "role": "particle",
+          "grammar_id": "G052_made_until"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "光",
+          "role": "content",
+          "word_id": "W00139",
+          "r": "ひかり"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "From the entryway of the store to the hallway, there is bright light.",
+      "audio": "audio/story_58/s10.mp3",
+      "audio_hash": "b8334584c909"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
           "t": "私",
           "role": "content",
           "word_id": "W00003",
@@ -680,12 +865,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I wait for the bookstore person.",
-      "audio": "audio/story_58/s9.mp3",
-      "audio_hash": "8da88dbfa13f"
+      "gloss_en": "At the store, I wait for the bookstore person.",
+      "audio": "audio/story_58/s11.mp3",
+      "audio_hash": "410f727cf329"
     },
     {
-      "idx": 10,
+      "idx": 12,
       "tokens": [
         {
           "t": "友達",
@@ -783,11 +968,11 @@
         }
       ],
       "gloss_en": "With kindness, the friend says, \"that person is a good person, isn't he.\"",
-      "audio": "audio/story_58/s10.mp3",
+      "audio": "audio/story_58/s12.mp3",
       "audio_hash": "4d9707249d09"
     },
     {
-      "idx": 11,
+      "idx": 13,
       "tokens": [
         {
           "t": "私",
@@ -818,141 +1003,12 @@
         }
       ],
       "gloss_en": "I am happy.",
-      "audio": "audio/story_58/s11.mp3",
-      "audio_hash": "5c29e5352c54"
-    },
-    {
-      "idx": 12,
-      "tokens": [
-        {
-          "t": "公園",
-          "role": "content",
-          "word_id": "W00016",
-          "r": "こうえん"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "来ました",
-          "role": "content",
-          "word_id": "W00040",
-          "r": "きました",
-          "inflection": {
-            "base": "来る",
-            "base_r": "くる",
-            "form": "polite_past",
-            "verb_class": "irregular_kuru"
-          },
-          "grammar_id": "G013_mashita_past"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "We came to the park.",
-      "audio": "audio/story_58/s12.mp3",
-      "audio_hash": "541a25dd3e6c"
-    },
-    {
-      "idx": 13,
-      "tokens": [
-        {
-          "t": "公園",
-          "role": "content",
-          "word_id": "W00016",
-          "r": "こうえん"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "明るい",
-          "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The park is bright.",
       "audio": "audio/story_58/s13.mp3",
-      "audio_hash": "752864ef03e7"
+      "audio_hash": "5c29e5352c54"
     },
     {
       "idx": 14,
       "tokens": [
-        {
-          "t": "友達",
-          "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "お茶",
-          "role": "content",
-          "word_id": "W00009",
-          "r": "おちゃ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "飲みます",
-          "role": "content",
-          "word_id": "W00010",
-          "r": "のみます",
-          "inflection": {
-            "base": "飲む",
-            "base_r": "のむ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The friend drinks tea.",
-      "audio": "audio/story_58/s14.mp3",
-      "audio_hash": "8b01772529e9"
-    },
-    {
-      "idx": 15,
-      "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
         {
           "t": "本",
           "role": "content",
@@ -971,35 +1027,108 @@
           "r": "みせ"
         },
         {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "長い",
+          "role": "content",
+          "word_id": "W00074",
+          "r": "ながい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "時間",
+          "role": "content",
+          "word_id": "W00177",
+          "r": "じかん"
+        },
+        {
           "t": "を",
           "role": "particle",
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "見ます",
+          "t": "過ごします",
           "role": "content",
-          "word_id": "W00006",
-          "r": "みます",
+          "word_id": "W00224",
+          "r": "すごします",
           "inflection": {
-            "base": "見る",
-            "base_r": "みる",
+            "base": "過ごす",
+            "base_r": "すごす",
             "form": "polite_nonpast",
-            "verb_class": "ichidan"
+            "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I look at the bookstore.",
-      "audio": "audio/story_58/s15.mp3",
-      "audio_hash": "970f865ef747"
+      "gloss_en": "At the bookstore, I spend a long time.",
+      "audio": "audio/story_58/s14.mp3",
+      "audio_hash": "95f2381dd3ad"
     },
     {
-      "idx": 16,
+      "idx": 15,
       "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "上着",
+          "role": "content",
+          "word_id": "W00244",
+          "r": "うわぎ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "着て",
+          "role": "content",
+          "word_id": "W00249",
+          "r": "きて",
+          "inflection": {
+            "base": "着る",
+            "base_r": "きる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
         {
           "t": "春",
           "role": "content",
@@ -1052,256 +1181,20 @@
           "r": "こころ"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "A spring road, a new store, a warm heart.",
-      "audio": "audio/story_58/s16.mp3",
-      "audio_hash": "d222c3e2e64a"
-    },
-    {
-      "idx": 17,
-      "tokens": [
-        {
-          "t": "本",
-          "role": "content",
-          "word_id": "W00033",
-          "r": "ほん"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "店",
-          "role": "content",
-          "word_id": "W00084",
-          "r": "みせ"
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "長い",
-          "role": "content",
-          "word_id": "W00074",
-          "r": "ながい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "時間",
-          "role": "content",
-          "word_id": "W00177",
-          "r": "じかん"
-        },
-        {
           "t": "を",
           "role": "particle",
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "過ごします",
+          "t": "思います",
           "role": "content",
-          "word_id": "W00224",
-          "r": "すごします",
+          "word_id": "W00043",
+          "r": "おもいます",
           "inflection": {
-            "base": "過ごす",
-            "base_r": "すごす",
+            "base": "思う",
+            "base_r": "おもう",
             "form": "polite_nonpast",
             "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast",
-          "is_new": true
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "At the bookshop, I spend a long time.",
-      "audio": "audio/story_58/s17.mp3",
-      "audio_hash": "51e4353079bb"
-    },
-    {
-      "idx": 18,
-      "tokens": [
-        {
-          "t": "玄関",
-          "role": "content",
-          "word_id": "W00185",
-          "r": "げんかん"
-        },
-        {
-          "t": "から",
-          "role": "particle",
-          "grammar_id": "G006_kara_from"
-        },
-        {
-          "t": "廊下",
-          "role": "content",
-          "word_id": "W00186",
-          "r": "ろうか"
-        },
-        {
-          "t": "まで",
-          "role": "particle",
-          "grammar_id": "G052_made_until",
-          "is_new_grammar": true
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "明るい",
-          "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "From the entryway to the hallway is bright.",
-      "audio": "audio/story_58/s18.mp3",
-      "audio_hash": "9c691609c52d"
-    },
-    {
-      "idx": 19,
-      "tokens": [
-        {
-          "t": "今週",
-          "role": "content",
-          "word_id": "W00225",
-          "r": "こんしゅう"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "晩",
-          "role": "content",
-          "word_id": "W00183",
-          "r": "ばん"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "長い",
-          "role": "content",
-          "word_id": "W00074",
-          "r": "ながい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "This week the evenings are long.",
-      "audio": "audio/story_58/s19.mp3",
-      "audio_hash": "e6cc41f656f7"
-    },
-    {
-      "idx": 20,
-      "tokens": [
-        {
-          "t": "今週",
-          "role": "content",
-          "word_id": "W00225",
-          "r": "こんしゅう"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "いい",
-          "role": "content",
-          "word_id": "W00013",
-          "r": "いい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "時間",
-          "role": "content",
-          "word_id": "W00177",
-          "r": "じかん"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "This week is a good time.",
-      "audio": "audio/story_58/s20.mp3",
-      "audio_hash": "261a1294f1a9"
-    },
-    {
-      "idx": 21,
-      "tokens": [
-        {
-          "t": "上着",
-          "role": "content",
-          "word_id": "W00244",
-          "r": "うわぎ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "着ます",
-          "role": "content",
-          "word_id": "W00249",
-          "r": "きます",
-          "inflection": {
-            "base": "着る",
-            "base_r": "きる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
           },
           "grammar_id": "G026_masu_nonpast"
         },
@@ -1310,9 +1203,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I put on the coat.",
-      "audio": "audio/story_58/s21.mp3",
-      "audio_hash": "66e07e6e1f51"
+      "gloss_en": "Wearing my coat, I think of the spring road, the new store, the warm heart.",
+      "audio": "audio/story_58/s15.mp3",
+      "audio_hash": "eaa3c37ca3ed"
     }
   ],
   "word_audio": {
