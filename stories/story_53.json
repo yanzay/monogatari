@@ -68,8 +68,8 @@
     "W00098",
     "W00071",
     "W00153",
-    "W00177",
     "W00148",
+    "W00177",
     "W00176",
     "W00175",
     "W00012",
@@ -78,16 +78,15 @@
     "W00146",
     "W00060",
     "W00043",
-    "W00232",
-    "W00002",
-    "W00137",
     "W00185",
+    "W00232",
     "W00171",
     "W00170",
     "W00169",
     "W00059",
     "W00243",
     "W00212",
+    "W00137",
     "W00138",
     "W00221",
     "W00034",
@@ -191,7 +190,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On a spring morning, the bookstore person is at my house."
+      "gloss_en": "On a spring morning, the bookstore person is at my house.",
+      "audio": "audio/story_53/s0.wav",
+      "audio_hash": "757a36bbf961"
     },
     {
       "idx": 1,
@@ -243,7 +244,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On the desk, there is an old book."
+      "gloss_en": "On the desk, there is an old book.",
+      "audio": "audio/story_53/s1.wav",
+      "audio_hash": "8c1a98ad4a6b"
     },
     {
       "idx": 2,
@@ -318,7 +321,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I say, \"what kind of book is it?\""
+      "gloss_en": "I say, \"what kind of book is it?\"",
+      "audio": "audio/story_53/s2.wav",
+      "audio_hash": "7d273013fef6"
     },
     {
       "idx": 3,
@@ -422,7 +427,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "That person says, \"it is a beautiful book. Please, look at it.\""
+      "gloss_en": "That person says, \"it is a beautiful book. Please, look at it.\"",
+      "audio": "audio/story_53/s3.wav",
+      "audio_hash": "61a80f3c1ee0"
     },
     {
       "idx": 4,
@@ -502,7 +509,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The book is old. But, the book's flowers are new."
+      "gloss_en": "The book is old. But, the book's flowers are new.",
+      "audio": "audio/story_53/s4.wav",
+      "audio_hash": "7c65358dce82"
     },
     {
       "idx": 5,
@@ -588,7 +597,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I say, \"what flower is this?\""
+      "gloss_en": "I say, \"what flower is this?\"",
+      "audio": "audio/story_53/s5.wav",
+      "audio_hash": "ccecac2538f2"
     },
     {
       "idx": 6,
@@ -660,11 +671,46 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "That person says, \"it is a red flower.\""
+      "gloss_en": "That person says, \"it is a red flower.\"",
+      "audio": "audio/story_53/s6.wav",
+      "audio_hash": "e71d70606da2"
     },
     {
       "idx": 7,
       "tokens": [
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ほん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00113",
+          "r": "ひと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
         {
           "t": "祖母",
           "role": "content",
@@ -672,9 +718,9 @@
           "r": "そぼ"
         },
         {
-          "t": "は",
+          "t": "の",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "古い",
@@ -690,9 +736,9 @@
           "r": "とけい"
         },
         {
-          "t": "を",
+          "t": "も",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "見せます",
@@ -712,7 +758,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Grandmother shows an old clock."
+      "gloss_en": "The bookstore person also shows grandmother's old clock.",
+      "audio": "audio/story_53/s7.wav",
+      "audio_hash": "b5f501e75e42"
     },
     {
       "idx": 8,
@@ -720,6 +768,13 @@
         {
           "t": "「",
           "role": "punct"
+        },
+        {
+          "t": "この",
+          "role": "content",
+          "word_id": "W00148",
+          "r": "この",
+          "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
           "t": "時計",
@@ -766,15 +821,22 @@
           "grammar_id": "G028_to_iimasu"
         },
         {
-          "t": "祖母",
+          "t": "あの",
           "role": "content",
-          "word_id": "W00098",
-          "r": "そぼ"
+          "word_id": "W00147",
+          "r": "あの",
+          "grammar_id": "G043_kosoado_pre_nominal"
         },
         {
-          "t": "が",
+          "t": "人",
+          "role": "content",
+          "word_id": "W00113",
+          "r": "ひと"
+        },
+        {
+          "t": "は",
           "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "言います",
@@ -794,7 +856,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"The clock's time is old,\" my grandmother says."
+      "gloss_en": "\"This clock's time is old,\" that person says.",
+      "audio": "audio/story_53/s8.wav",
+      "audio_hash": "99ef315160e8"
     },
     {
       "idx": 9,
@@ -880,7 +944,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "This student, the teacher, and I drink warm tea."
+      "gloss_en": "This student, the teacher, and I drink warm tea.",
+      "audio": "audio/story_53/s9.wav",
+      "audio_hash": "a3c10e57e3ff"
     },
     {
       "idx": 10,
@@ -967,101 +1033,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"What shall I write next week?\" I think."
+      "gloss_en": "\"What shall I write next week?\" I think.",
+      "audio": "audio/story_53/s10.wav",
+      "audio_hash": "122a18032264"
     },
     {
       "idx": 11,
-      "tokens": [
-        {
-          "t": "前",
-          "role": "content",
-          "word_id": "W00232",
-          "r": "まえ"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "雨",
-          "role": "content",
-          "word_id": "W00002",
-          "r": "あめ"
-        },
-        {
-          "t": "でした",
-          "role": "aux",
-          "grammar_id": "G013_mashita_past",
-          "inflection": {
-            "base": "です",
-            "base_r": "です",
-            "form": "polite_past"
-          }
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G049_ga_but"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "春",
-          "role": "content",
-          "word_id": "W00072",
-          "r": "はる"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "明るい",
-          "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The previous morning was rainy, but spring mornings are bright."
-    },
-    {
-      "idx": 12,
       "tokens": [
         {
           "t": "玄関",
@@ -1070,9 +1047,25 @@
           "r": "げんかん"
         },
         {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "前",
+          "role": "content",
+          "word_id": "W00232",
+          "r": "まえ"
+        },
+        {
           "t": "に",
           "role": "particle",
           "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "姉",
@@ -1103,9 +1096,9 @@
           "r": "くつ"
         },
         {
-          "t": "が",
+          "t": "も",
           "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "あります",
@@ -1125,10 +1118,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the entryway are my older sister's hat and shoes."
+      "gloss_en": "In front of the entryway, there are also my older sister's hat and shoes.",
+      "audio": "audio/story_53/s11.wav",
+      "audio_hash": "871b02dc835e"
     },
     {
-      "idx": 13,
+      "idx": 12,
       "tokens": [
         {
           "t": "庭",
@@ -1168,10 +1163,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The garden's grass is green."
+      "gloss_en": "The garden's grass is green.",
+      "audio": "audio/story_53/s12.wav",
+      "audio_hash": "eee307d0587f"
     },
     {
-      "idx": 14,
+      "idx": 13,
       "tokens": [
         {
           "t": "明るい",
@@ -1253,10 +1250,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the bright air, I read the old book."
+      "gloss_en": "In the bright air, I read the old book.",
+      "audio": "audio/story_53/s13.wav",
+      "audio_hash": "c6827bac8b2c"
     },
     {
-      "idx": 15,
+      "idx": 14,
       "tokens": [
         {
           "t": "新しい",
@@ -1327,7 +1326,19 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A new year's morning, an old book, warm tea."
+      "gloss_en": "A new year's morning, an old book, warm tea.",
+      "audio": "audio/story_53/s14.wav",
+      "audio_hash": "a33706985586"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00177": "audio/story_53/w_W00177.wav",
+    "W00176": "audio/story_53/w_W00176.wav",
+    "W00178": "audio/story_53/w_W00178.wav"
+  },
+  "word_audio_hash": {
+    "W00177": "bf6267da6077",
+    "W00176": "13a58ec2074e",
+    "W00178": "62ef900a8f5d"
+  }
 }

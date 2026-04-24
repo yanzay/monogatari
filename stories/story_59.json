@@ -68,7 +68,6 @@
     "W00193",
     "W00013",
     "W00120",
-    "W00066",
     "W00225",
     "W00179",
     "W00187",
@@ -76,7 +75,8 @@
     "W00201",
     "W00233",
     "W00063",
-    "W00244"
+    "W00244",
+    "W00066"
   ],
   "sentences": [
     {
@@ -109,7 +109,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring night."
+      "gloss_en": "It is a spring night.",
+      "audio": "audio/story_59/s0.wav",
+      "audio_hash": "db4ad02aebe8"
     },
     {
       "idx": 1,
@@ -143,7 +145,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Rain falls."
+      "gloss_en": "Rain falls.",
+      "audio": "audio/story_59/s1.wav",
+      "audio_hash": "ab3864b4899e"
     },
     {
       "idx": 2,
@@ -178,7 +182,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Wind also blows."
+      "gloss_en": "Wind also blows.",
+      "audio": "audio/story_59/s2.wav",
+      "audio_hash": "4120dccd1109"
     },
     {
       "idx": 3,
@@ -211,7 +217,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The room is not quiet."
+      "gloss_en": "The room is not quiet.",
+      "audio": "audio/story_59/s3.wav",
+      "audio_hash": "6ffcd1e97a9c"
     },
     {
       "idx": 4,
@@ -243,7 +251,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am not well."
+      "gloss_en": "I am not well.",
+      "audio": "audio/story_59/s4.wav",
+      "audio_hash": "c6a7f08e9665"
     },
     {
       "idx": 5,
@@ -277,7 +287,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend did not come."
+      "gloss_en": "The friend did not come.",
+      "audio": "audio/story_59/s5.wav",
+      "audio_hash": "739dcd454a35"
     },
     {
       "idx": 6,
@@ -333,7 +345,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bookstore person also did not come."
+      "gloss_en": "The bookstore person also did not come.",
+      "audio": "audio/story_59/s6.wav",
+      "audio_hash": "a72b111f517a"
     },
     {
       "idx": 7,
@@ -366,7 +380,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am sad."
+      "gloss_en": "I am sad.",
+      "audio": "audio/story_59/s7.wav",
+      "audio_hash": "cfa1bba870c7"
     },
     {
       "idx": 8,
@@ -408,7 +424,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But, the tea is warm."
+      "gloss_en": "But, the tea is warm.",
+      "audio": "audio/story_59/s8.wav",
+      "audio_hash": "2dd9ff05634a"
     },
     {
       "idx": 9,
@@ -474,7 +492,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The wind blows, but the house is warm."
+      "gloss_en": "The wind blows, but the house is warm.",
+      "audio": "audio/story_59/s9.wav",
+      "audio_hash": "fe92728ac003"
     },
     {
       "idx": 10,
@@ -521,7 +541,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The shadow of the rain is not happy."
+      "gloss_en": "The shadow of the rain is not happy.",
+      "audio": "audio/story_59/s10.wav",
+      "audio_hash": "8ec8a2b96e93"
     },
     {
       "idx": 11,
@@ -575,7 +597,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But, tomorrow it is not rain."
+      "gloss_en": "But, tomorrow it is not rain.",
+      "audio": "audio/story_59/s11.wav",
+      "audio_hash": "e1336e7455bd"
     },
     {
       "idx": 12,
@@ -654,7 +678,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I sometimes want to go to the bookstore in my dreams."
+      "gloss_en": "I sometimes want to go to the bookstore in my dreams.",
+      "audio": "audio/story_59/s12.wav",
+      "audio_hash": "ee37f1b0b9be"
     },
     {
       "idx": 13,
@@ -693,7 +719,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Various old books."
+      "gloss_en": "Various old books.",
+      "audio": "audio/story_59/s13.wav",
+      "audio_hash": "4f235a0aa17b"
     },
     {
       "idx": 14,
@@ -777,7 +805,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The book's voice is a good friend, but not a person."
+      "gloss_en": "The book's voice is a good friend, but not a person.",
+      "audio": "audio/story_59/s14.wav",
+      "audio_hash": "83933396ec75"
     },
     {
       "idx": 15,
@@ -830,11 +860,169 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My heart is not quiet, but it is warm."
+      "gloss_en": "My heart is not quiet, but it is warm.",
+      "audio": "audio/story_59/s15.wav",
+      "audio_hash": "a58e0c635a71"
     },
     {
       "idx": 16,
       "tokens": [
+        {
+          "t": "今週",
+          "role": "content",
+          "word_id": "W00225",
+          "r": "こんしゅう"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "な",
+          "role": "particle",
+          "grammar_id": "G016_na_adjective"
+        },
+        {
+          "t": "日",
+          "role": "content",
+          "word_id": "W00179",
+          "r": "ひ"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "夢",
+          "role": "content",
+          "word_id": "W00194",
+          "r": "ゆめ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "橋",
+          "role": "content",
+          "word_id": "W00187",
+          "r": "はし"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "渡って",
+          "role": "content",
+          "word_id": "W00234",
+          "r": "わたって",
+          "inflection": {
+            "base": "渡る",
+            "base_r": "わたる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form",
+          "is_new": true
+        },
+        {
+          "t": "町",
+          "role": "content",
+          "word_id": "W00201",
+          "r": "まち"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "G050_he_direction"
+        },
+        {
+          "t": "行きます",
+          "role": "content",
+          "word_id": "W00150",
+          "r": "いきます",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Even on this week's quiet days, in dreams I cross the old bridge to the town.",
+      "audio": "audio/story_59/s16.wav",
+      "audio_hash": "f24893d01eed"
+    },
+    {
+      "idx": 17,
+      "tokens": [
+        {
+          "t": "今日",
+          "role": "content",
+          "word_id": "W00233",
+          "r": "きょう"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "雪",
+          "role": "content",
+          "word_id": "W00063",
+          "r": "ゆき"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "上着",
+          "role": "content",
+          "word_id": "W00244",
+          "r": "うわぎ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
         {
           "t": "雨",
           "role": "content",
@@ -896,185 +1084,21 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A rainy night, a new book, a warm heart."
-    },
-    {
-      "idx": 17,
-      "tokens": [
-        {
-          "t": "今週",
-          "role": "content",
-          "word_id": "W00225",
-          "r": "こんしゅう"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "日",
-          "role": "content",
-          "word_id": "W00179",
-          "r": "ひ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "静か",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "This week's days are quiet."
-    },
-    {
-      "idx": 18,
-      "tokens": [
-        {
-          "t": "古い",
-          "role": "content",
-          "word_id": "W00067",
-          "r": "ふるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "橋",
-          "role": "content",
-          "word_id": "W00187",
-          "r": "はし"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "渡って",
-          "role": "content",
-          "word_id": "W00234",
-          "r": "わたって",
-          "inflection": {
-            "base": "渡る",
-            "base_r": "わたる",
-            "form": "te",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G007_te_form",
-          "is_new": true
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "町",
-          "role": "content",
-          "word_id": "W00201",
-          "r": "まち"
-        },
-        {
-          "t": "へ",
-          "role": "particle",
-          "grammar_id": "G050_he_direction"
-        },
-        {
-          "t": "行きます",
-          "role": "content",
-          "word_id": "W00150",
-          "r": "いきます",
-          "inflection": {
-            "base": "行く",
-            "base_r": "いく",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Crossing the old bridge, I go to the town."
-    },
-    {
-      "idx": 19,
-      "tokens": [
-        {
-          "t": "今日",
-          "role": "content",
-          "word_id": "W00233",
-          "r": "きょう"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "雪",
-          "role": "content",
-          "word_id": "W00063",
-          "r": "ゆき"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Today is snowy."
-    },
-    {
-      "idx": 20,
-      "tokens": [
-        {
-          "t": "上着",
-          "role": "content",
-          "word_id": "W00244",
-          "r": "うわぎ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "古い",
-          "role": "content",
-          "word_id": "W00067",
-          "r": "ふるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The coat is old."
+      "gloss_en": "On this snowy day, in an old coat, a rainy night, a new book, a warm heart.",
+      "audio": "audio/story_59/s17.wav",
+      "audio_hash": "11434b73dd23"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00151": "audio/story_59/w_W00151.wav",
+    "W00194": "audio/story_59/w_W00194.wav",
+    "W00193": "audio/story_59/w_W00193.wav",
+    "W00234": "audio/story_59/w_W00234.wav"
+  },
+  "word_audio_hash": {
+    "W00151": "24088236d620",
+    "W00194": "1544852c3a62",
+    "W00193": "693e132f27eb",
+    "W00234": "8be72d94447e"
+  }
 }

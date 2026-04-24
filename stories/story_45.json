@@ -66,12 +66,7 @@
     "W00083",
     "W00117",
     "W00125",
-    "W00066",
-    "W00153",
-    "W00157",
-    "W00101",
-    "W00159",
-    "W00068"
+    "W00153"
   ],
   "sentences": [
     {
@@ -115,7 +110,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Grandmother's room is quiet."
+      "gloss_en": "Grandmother's room is quiet.",
+      "audio": "audio/story_45/s0.wav",
+      "audio_hash": "9175dd0cc807"
     },
     {
       "idx": 1,
@@ -168,7 +165,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I look at an old box."
+      "gloss_en": "I look at an old box.",
+      "audio": "audio/story_45/s1.wav",
+      "audio_hash": "67b1c4abd55d"
     },
     {
       "idx": 2,
@@ -208,7 +207,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "What is this?"
+      "gloss_en": "What is this?",
+      "audio": "audio/story_45/s2.wav",
+      "audio_hash": "ed653e5bdda5"
     },
     {
       "idx": 3,
@@ -263,7 +264,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Sometimes, I look at grandmother."
+      "gloss_en": "Sometimes, I look at grandmother.",
+      "audio": "audio/story_45/s3.wav",
+      "audio_hash": "01e18c7e4c83"
     },
     {
       "idx": 4,
@@ -310,7 +313,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "She says, 'It is a memory.'"
+      "gloss_en": "She says, 'It is a memory.'",
+      "audio": "audio/story_45/s4.wav",
+      "audio_hash": "3ef6d8ae0da5"
     },
     {
       "idx": 5,
@@ -347,7 +352,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Is the box precious?"
+      "gloss_en": "Is the box precious?",
+      "audio": "audio/story_45/s5.wav",
+      "audio_hash": "522a18461e71"
     },
     {
       "idx": 6,
@@ -391,7 +398,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Grandmother is immediately happy."
+      "gloss_en": "Grandmother is immediately happy.",
+      "audio": "audio/story_45/s6.wav",
+      "audio_hash": "a5c56e4c9182"
     },
     {
       "idx": 7,
@@ -449,7 +458,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "She says, 'It is a precious box.'"
+      "gloss_en": "She says, 'It is a precious box.'",
+      "audio": "audio/story_45/s7.wav",
+      "audio_hash": "6359efe2410f"
     },
     {
       "idx": 8,
@@ -501,7 +512,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the box, there is an old clock."
+      "gloss_en": "In the box, there is an old clock.",
+      "audio": "audio/story_45/s8.wav",
+      "audio_hash": "512562b9b336"
     },
     {
       "idx": 9,
@@ -557,7 +570,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think of grandmother's memories."
+      "gloss_en": "I think of grandmother's memories.",
+      "audio": "audio/story_45/s9.wav",
+      "audio_hash": "3ca066e3f856"
     },
     {
       "idx": 10,
@@ -600,7 +615,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But I am not troubled."
+      "gloss_en": "But I am not troubled.",
+      "audio": "audio/story_45/s10.wav",
+      "audio_hash": "25b61994292f"
     },
     {
       "idx": 11,
@@ -670,10 +687,158 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Memories of the hot summer are beautiful, so I am happy."
+      "gloss_en": "Memories of the hot summer are beautiful, so I am happy.",
+      "audio": "audio/story_45/s11.wav",
+      "audio_hash": "d2c4252aef38"
     },
     {
       "idx": 12,
+      "tokens": [
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "箱",
+          "role": "content",
+          "word_id": "W00136",
+          "r": "はこ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "渡します",
+          "role": "content",
+          "word_id": "W00117",
+          "r": "わたします",
+          "inflection": {
+            "base": "渡す",
+            "base_r": "わたす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Grandmother hands me the old box.",
+      "audio": "audio/story_45/s12.wav",
+      "audio_hash": "75e8f79048b7"
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "そして",
+          "role": "particle",
+          "grammar_id": "G012_soshite_then"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "さん",
+          "role": "content",
+          "word_id": "W00125",
+          "r": "さん"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "箱",
+          "role": "content",
+          "word_id": "W00136",
+          "r": "はこ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "時計",
+          "role": "content",
+          "word_id": "W00071",
+          "r": "とけい"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見せます",
+          "role": "content",
+          "word_id": "W00153",
+          "r": "みせます",
+          "inflection": {
+            "base": "見せる",
+            "base_r": "みせる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Then, grandmother shows the old clock from the box.",
+      "audio": "audio/story_45/s13.wav",
+      "audio_hash": "0a0abc88b2f5"
+    },
+    {
+      "idx": 14,
       "tokens": [
         {
           "t": "古い",
@@ -719,203 +884,19 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "An old box, a precious memory."
-    },
-    {
-      "idx": 13,
-      "tokens": [
-        {
-          "t": "祖母",
-          "role": "content",
-          "word_id": "W00098",
-          "r": "そぼ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "箱",
-          "role": "content",
-          "word_id": "W00136",
-          "r": "はこ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "渡します",
-          "role": "content",
-          "word_id": "W00117",
-          "r": "わたします",
-          "inflection": {
-            "base": "渡す",
-            "base_r": "わたす",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Grandmother hands me a box."
-    },
-    {
-      "idx": 14,
-      "tokens": [
-        {
-          "t": "祖母",
-          "role": "content",
-          "word_id": "W00098",
-          "r": "そぼ"
-        },
-        {
-          "t": "さん",
-          "role": "content",
-          "word_id": "W00125",
-          "r": "さん"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "新しい",
-          "role": "content",
-          "word_id": "W00066",
-          "r": "あたらしい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "時計",
-          "role": "content",
-          "word_id": "W00071",
-          "r": "とけい"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "見せます",
-          "role": "content",
-          "word_id": "W00153",
-          "r": "みせます",
-          "inflection": {
-            "base": "見せる",
-            "base_r": "みせる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast",
-          "is_new": true
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Grandmother shows a new clock."
-    },
-    {
-      "idx": 15,
-      "tokens": [
-        {
-          "t": "白い",
-          "role": "content",
-          "word_id": "W00157",
-          "r": "しろい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "犬",
-          "role": "content",
-          "word_id": "W00101",
-          "r": "いぬ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "早い",
-          "role": "content",
-          "word_id": "W00159",
-          "r": "はやい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The white dog is fast."
-    },
-    {
-      "idx": 16,
-      "tokens": [
-        {
-          "t": "古い",
-          "role": "content",
-          "word_id": "W00067",
-          "r": "ふるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "写真",
-          "role": "content",
-          "word_id": "W00068",
-          "r": "しゃしん"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "あります",
-          "role": "content",
-          "word_id": "W00044",
-          "r": "あります",
-          "inflection": {
-            "base": "ある",
-            "base_r": "ある",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "There is an old photo."
+      "gloss_en": "An old box, a precious memory.",
+      "audio": "audio/story_45/s14.wav",
+      "audio_hash": "bdd1f3bb1b69"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00135": "audio/story_45/w_W00135.wav",
+    "W00136": "audio/story_45/w_W00136.wav",
+    "W00153": "audio/story_45/w_W00153.wav"
+  },
+  "word_audio_hash": {
+    "W00135": "3265cdd08afe",
+    "W00136": "702dff992262",
+    "W00153": "80d759bafa5c"
+  }
 }

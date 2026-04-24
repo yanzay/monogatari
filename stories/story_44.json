@@ -53,13 +53,8 @@
     "W00094",
     "W00083",
     "W00042",
-    "W00015",
     "W00062",
-    "W00201",
-    "W00033",
-    "W00084",
-    "W00011",
-    "W00119"
+    "W00012"
   ],
   "sentences": [
     {
@@ -92,7 +87,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring evening."
+      "gloss_en": "It is a spring evening.",
+      "audio": "audio/story_44/s0.wav",
+      "audio_hash": "fdecbcf80e9f"
     },
     {
       "idx": 1,
@@ -148,7 +145,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I stand by the window."
+      "gloss_en": "I stand by the window.",
+      "audio": "audio/story_44/s1.wav",
+      "audio_hash": "52f1f6b63528"
     },
     {
       "idx": 2,
@@ -205,7 +204,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend looks for the letter of the promise."
+      "gloss_en": "The friend looks for the letter of the promise.",
+      "audio": "audio/story_44/s2.wav",
+      "audio_hash": "8c9e8ae6d03d"
     },
     {
       "idx": 3,
@@ -250,7 +251,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Sometimes, a phone call comes."
+      "gloss_en": "Sometimes, a phone call comes.",
+      "audio": "audio/story_44/s3.wav",
+      "audio_hash": "aaced43724ce"
     },
     {
       "idx": 4,
@@ -293,7 +296,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But there is no phone call."
+      "gloss_en": "But there is no phone call.",
+      "audio": "audio/story_44/s4.wav",
+      "audio_hash": "47024a417974"
     },
     {
       "idx": 5,
@@ -327,7 +332,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I do not wait."
+      "gloss_en": "I do not wait.",
+      "audio": "audio/story_44/s5.wav",
+      "audio_hash": "528726c092ab"
     },
     {
       "idx": 6,
@@ -373,7 +380,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend comes right away."
+      "gloss_en": "The friend comes right away.",
+      "audio": "audio/story_44/s6.wav",
+      "audio_hash": "753008d569c4"
     },
     {
       "idx": 7,
@@ -418,7 +427,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend comes with flowers."
+      "gloss_en": "The friend comes with flowers.",
+      "audio": "audio/story_44/s7.wav",
+      "audio_hash": "82d79e27dd97"
     },
     {
       "idx": 8,
@@ -470,7 +481,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "She says, 'You are well, aren't you.'"
+      "gloss_en": "She says, 'You are well, aren't you.'",
+      "audio": "audio/story_44/s8.wav",
+      "audio_hash": "6e8d4eed19cd"
     },
     {
       "idx": 9,
@@ -503,7 +516,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I am happy."
+      "gloss_en": "I am happy.",
+      "audio": "audio/story_44/s9.wav",
+      "audio_hash": "5c29e5352c54"
     },
     {
       "idx": 10,
@@ -544,7 +559,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us talk together."
+      "gloss_en": "The two of us talk together.",
+      "audio": "audio/story_44/s10.wav",
+      "audio_hash": "ee83fdc80228"
     },
     {
       "idx": 11,
@@ -593,10 +610,117 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Because the promise is beautiful, I am happy."
+      "gloss_en": "Because the promise is beautiful, I am happy.",
+      "audio": "audio/story_44/s11.wav",
+      "audio_hash": "b604e9ccdf42"
     },
     {
       "idx": 12,
+      "tokens": [
+        {
+          "t": "昨日",
+          "role": "content",
+          "word_id": "W00042",
+          "r": "きのう"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夕方",
+          "role": "content",
+          "word_id": "W00018",
+          "r": "ゆうがた"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "寒かった",
+          "role": "content",
+          "word_id": "W00062",
+          "r": "さむかった",
+          "inflection": {
+            "form": "i_adj_past"
+          },
+          "grammar_id": "G047_i_adj_past",
+          "is_new_grammar": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Yesterday evening was cold.",
+      "audio": "audio/story_44/s12.wav",
+      "audio_hash": "5201f064e4b3"
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "でも",
+          "role": "particle",
+          "grammar_id": "G032_demo"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "春",
+          "role": "content",
+          "word_id": "W00072",
+          "r": "はる"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夕方",
+          "role": "content",
+          "word_id": "W00018",
+          "r": "ゆうがた"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "温かい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But the spring evening is warm.",
+      "audio": "audio/story_44/s13.wav",
+      "audio_hash": "ceca037f2f34"
+    },
+    {
+      "idx": 14,
       "tokens": [
         {
           "t": "春",
@@ -648,158 +772,19 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A spring evening — I do not wait."
-    },
-    {
-      "idx": 13,
-      "tokens": [
-        {
-          "t": "昨日",
-          "role": "content",
-          "word_id": "W00042",
-          "r": "きのう"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "寒かった",
-          "role": "content",
-          "word_id": "W00062",
-          "r": "さむかった",
-          "inflection": {
-            "form": "i_adj_past"
-          },
-          "grammar_id": "G047_i_adj_past",
-          "is_new_grammar": true
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Yesterday morning was cold."
-    },
-    {
-      "idx": 14,
-      "tokens": [
-        {
-          "t": "町",
-          "role": "content",
-          "word_id": "W00201",
-          "r": "まち"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "本",
-          "role": "content",
-          "word_id": "W00033",
-          "r": "ほん"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "店",
-          "role": "content",
-          "word_id": "W00084",
-          "r": "みせ"
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "静か",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "At the town's bookshop, I am quiet."
-    },
-    {
-      "idx": 15,
-      "tokens": [
-        {
-          "t": "返事",
-          "role": "content",
-          "word_id": "W00119",
-          "r": "へんじ"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "来ません",
-          "role": "content",
-          "word_id": "W00040",
-          "r": "きません",
-          "inflection": {
-            "base": "来る",
-            "base_r": "くる",
-            "form": "negative_polite",
-            "verb_class": "irregular_kuru"
-          },
-          "grammar_id": "G036_masen"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "No reply comes."
+      "gloss_en": "A spring evening — I do not wait.",
+      "audio": "audio/story_44/s14.wav",
+      "audio_hash": "0f234278916b"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00132": "audio/story_44/w_W00132.wav",
+    "W00131": "audio/story_44/w_W00131.wav",
+    "W00133": "audio/story_44/w_W00133.wav"
+  },
+  "word_audio_hash": {
+    "W00132": "5c9caad4eb78",
+    "W00131": "ad44f001156a",
+    "W00133": "d05c91f864ef"
+  }
 }

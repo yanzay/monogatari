@@ -61,25 +61,24 @@
     "W00054",
     "W00009",
     "W00010",
+    "W00232",
     "W00186",
+    "W00233",
+    "W00225",
+    "W00115",
+    "W00174",
+    "W00175",
+    "W00201",
+    "W00245",
+    "W00109",
+    "W00002",
+    "W00179",
+    "W00137",
     "W00146",
     "W00181",
     "W00132",
     "W00066",
-    "W00012",
-    "W00174",
-    "W00175",
-    "W00115",
-    "W00233",
-    "W00002",
-    "W00179",
-    "W00225",
-    "W00011",
-    "W00015",
-    "W00232",
-    "W00245",
-    "W00109",
-    "W00137"
+    "W00012"
   ],
   "sentences": [
     {
@@ -112,7 +111,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring evening."
+      "gloss_en": "It is a spring evening.",
+      "audio": "audio/story_56/s0.wav",
+      "audio_hash": "fdecbcf80e9f"
     },
     {
       "idx": 1,
@@ -201,7 +202,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bookstore person comes to the entryway of my house."
+      "gloss_en": "The bookstore person comes to the entryway of my house.",
+      "audio": "audio/story_56/s1.wav",
+      "audio_hash": "29d8a74a334e"
     },
     {
       "idx": 2,
@@ -262,7 +265,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "(He) says, \"let's go to the park.\""
+      "gloss_en": "(He) says, \"let's go to the park.\"",
+      "audio": "audio/story_56/s2.wav",
+      "audio_hash": "ddb8702de585"
     },
     {
       "idx": 3,
@@ -323,7 +328,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Inside my heart is a happy feeling."
+      "gloss_en": "Inside my heart is a happy feeling.",
+      "audio": "audio/story_56/s3.wav",
+      "audio_hash": "3aec8cb3a977"
     },
     {
       "idx": 4,
@@ -401,7 +408,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bookstore person and I go to the park."
+      "gloss_en": "The bookstore person and I go to the park.",
+      "audio": "audio/story_56/s4.wav",
+      "audio_hash": "9e644df4e712"
     },
     {
       "idx": 5,
@@ -451,7 +460,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the park, there was the friend."
+      "gloss_en": "In the park, there was the friend.",
+      "audio": "audio/story_56/s5.wav",
+      "audio_hash": "e73dd2e721ee"
     },
     {
       "idx": 6,
@@ -517,7 +528,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend says, \"let's walk together.\""
+      "gloss_en": "The friend says, \"let's walk together.\"",
+      "audio": "audio/story_56/s6.wav",
+      "audio_hash": "e86944e2ebef"
     },
     {
       "idx": 7,
@@ -595,7 +608,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend, the bookstore person, and I walk."
+      "gloss_en": "The friend, the bookstore person, and I walk.",
+      "audio": "audio/story_56/s7.wav",
+      "audio_hash": "bc755b1cc50d"
     },
     {
       "idx": 8,
@@ -643,7 +658,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is that old tree."
+      "gloss_en": "There is that old tree.",
+      "audio": "audio/story_56/s8.wav",
+      "audio_hash": "ac4d5b6885bf"
     },
     {
       "idx": 9,
@@ -720,7 +737,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I say, \"that tree is beautiful.\""
+      "gloss_en": "I say, \"that tree is beautiful.\"",
+      "audio": "audio/story_56/s9.wav",
+      "audio_hash": "2c595f10fcfa"
     },
     {
       "idx": 10,
@@ -770,7 +789,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the pond there is a bird."
+      "gloss_en": "In the pond there is a bird.",
+      "audio": "audio/story_56/s10.wav",
+      "audio_hash": "84f58b556452"
     },
     {
       "idx": 11,
@@ -848,11 +869,46 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "That person says, \"let's drink tea.\""
+      "gloss_en": "That person says, \"let's drink tea.\"",
+      "audio": "audio/story_56/s11.wav",
+      "audio_hash": "15c7f8414b22"
     },
     {
       "idx": 12,
       "tokens": [
+        {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "こうえん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "前",
+          "role": "content",
+          "word_id": "W00232",
+          "r": "まえ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みせ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
         {
           "t": "廊下",
           "role": "content",
@@ -882,10 +938,214 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The hallway is old."
+      "gloss_en": "The hallway of the shop in front of the park is old.",
+      "audio": "audio/story_56/s12.wav",
+      "audio_hash": "163a28baa9aa"
     },
     {
       "idx": 13,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "今日",
+          "role": "content",
+          "word_id": "W00233",
+          "r": "きょう",
+          "is_new": true
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "今週",
+          "role": "content",
+          "word_id": "W00225",
+          "r": "こんしゅう",
+          "is_new": true
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "優しい",
+          "role": "content",
+          "word_id": "W00115",
+          "r": "やさしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00174",
+          "r": "おとうと"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "先生",
+          "role": "content",
+          "word_id": "W00175",
+          "r": "せんせい"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "言います",
+          "role": "aux",
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Today and this week too, kind younger brother's teacher comes,\" my friend says.",
+      "audio": "audio/story_56/s13.wav",
+      "audio_hash": "35094e0d533e"
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "町",
+          "role": "content",
+          "word_id": "W00201",
+          "r": "まち"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "鐘",
+          "role": "content",
+          "word_id": "W00245",
+          "r": "かね"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "音",
+          "role": "content",
+          "word_id": "W00109",
+          "r": "おと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あめ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "日",
+          "role": "content",
+          "word_id": "W00179",
+          "r": "ひ"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The town's bell sound is bright, even on rainy days.",
+      "audio": "audio/story_56/s14.wav",
+      "audio_hash": "16f02fdcc865"
+    },
+    {
+      "idx": 15,
       "tokens": [
         {
           "t": "でも",
@@ -923,13 +1183,7 @@
         {
           "t": "。",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "But, let's go next week too."
-    },
-    {
-      "idx": 14,
-      "tokens": [
+        },
         {
           "t": "夕飯",
           "role": "content",
@@ -957,43 +1211,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A dinner promise."
-    },
-    {
-      "idx": 15,
-      "tokens": [
-        {
-          "t": "公園",
-          "role": "content",
-          "word_id": "W00016",
-          "r": "こうえん"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "美しかった",
-          "role": "content",
-          "word_id": "W00083",
-          "r": "うつくしかった",
-          "inflection": {
-            "form": "i_adj_past"
-          },
-          "grammar_id": "G047_i_adj_past"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The park was beautiful."
+      "gloss_en": "But, let's go next week too. A dinner promise.",
+      "audio": "audio/story_56/s15.wav",
+      "audio_hash": "81fd470d9436"
     },
     {
       "idx": 16,
@@ -1059,227 +1279,19 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Spring evening, a new promise, a warm heart."
-    },
-    {
-      "idx": 17,
-      "tokens": [
-        {
-          "t": "弟",
-          "role": "content",
-          "word_id": "W00174",
-          "r": "おとうと"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "先生",
-          "role": "content",
-          "word_id": "W00175",
-          "r": "せんせい"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "優しい",
-          "role": "content",
-          "word_id": "W00115",
-          "r": "やさしい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Younger brother's teacher is kind."
-    },
-    {
-      "idx": 18,
-      "tokens": [
-        {
-          "t": "今日",
-          "role": "content",
-          "word_id": "W00233",
-          "r": "きょう",
-          "is_new": true
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "雨",
-          "role": "content",
-          "word_id": "W00002",
-          "r": "あめ"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "日",
-          "role": "content",
-          "word_id": "W00179",
-          "r": "ひ"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Today is a rainy day."
-    },
-    {
-      "idx": 19,
-      "tokens": [
-        {
-          "t": "今週",
-          "role": "content",
-          "word_id": "W00225",
-          "r": "こんしゅう",
-          "is_new": true
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "静か",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
-        },
-        {
-          "t": "な",
-          "role": "particle",
-          "grammar_id": "G016_na_adjective"
-        },
-        {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "This week, too, it is a quiet morning."
-    },
-    {
-      "idx": 20,
-      "tokens": [
-        {
-          "t": "前",
-          "role": "content",
-          "word_id": "W00232",
-          "r": "まえ"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "家",
-          "role": "content",
-          "word_id": "W00078",
-          "r": "いえ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "古い",
-          "role": "content",
-          "word_id": "W00067",
-          "r": "ふるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The previous house is old."
-    },
-    {
-      "idx": 21,
-      "tokens": [
-        {
-          "t": "鐘",
-          "role": "content",
-          "word_id": "W00245",
-          "r": "かね"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "音",
-          "role": "content",
-          "word_id": "W00109",
-          "r": "おと"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "明るい",
-          "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The bell's sound is bright."
+      "gloss_en": "Spring evening, a new promise, a warm heart.",
+      "audio": "audio/story_56/s16.wav",
+      "audio_hash": "299d2cde46f0"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00186": "audio/story_56/w_W00186.wav",
+    "W00233": "audio/story_56/w_W00233.wav",
+    "W00225": "audio/story_56/w_W00225.wav"
+  },
+  "word_audio_hash": {
+    "W00186": "c0d53da1280c",
+    "W00233": "5c9cf5e0dd47",
+    "W00225": "a670e0f39271"
+  }
 }

@@ -54,11 +54,11 @@
     "W00032",
     "W00044",
     "W00046",
-    "W00240",
-    "W00137",
     "W00050",
     "W00009",
     "W00010",
+    "W00240",
+    "W00137",
     "W00017"
   ],
   "sentences": [
@@ -103,7 +103,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the evening, the station is quiet."
+      "gloss_en": "In the evening, the station is quiet.",
+      "audio": "audio/story_23/s0.wav",
+      "audio_hash": "e89f11c55eb0"
     },
     {
       "idx": 1,
@@ -159,7 +161,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "At the station, I wait for my friend."
+      "gloss_en": "At the station, I wait for my friend.",
+      "audio": "audio/story_23/s1.wav",
+      "audio_hash": "4dec434853d9"
     },
     {
       "idx": 2,
@@ -211,7 +215,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The station's new clock is big."
+      "gloss_en": "The station's new clock is big.",
+      "audio": "audio/story_23/s2.wav",
+      "audio_hash": "6a597a6e7a14"
     },
     {
       "idx": 3,
@@ -273,7 +279,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I look at the clock. Snow is coming."
+      "gloss_en": "I look at the clock. Snow is coming.",
+      "audio": "audio/story_23/s3.wav",
+      "audio_hash": "a8ef5bda2a4f"
     },
     {
       "idx": 4,
@@ -308,7 +316,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A train arrives."
+      "gloss_en": "A train arrives.",
+      "audio": "audio/story_23/s4.wav",
+      "audio_hash": "7b6d3c9877a6"
     },
     {
       "idx": 5,
@@ -367,7 +377,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My friend comes running from the train."
+      "gloss_en": "My friend comes running from the train.",
+      "audio": "audio/story_23/s5.wav",
+      "audio_hash": "7a06b95d874d"
     },
     {
       "idx": 6,
@@ -424,7 +436,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us head home from the station."
+      "gloss_en": "The two of us head home from the station.",
+      "audio": "audio/story_23/s6.wav",
+      "audio_hash": "43c82a003461"
     },
     {
       "idx": 7,
@@ -502,54 +516,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The road is snow; in the sky, small stars are there too."
+      "gloss_en": "The road is snow; in the sky, small stars are there too.",
+      "audio": "audio/story_23/s7.wav",
+      "audio_hash": "cfd631908840"
     },
     {
       "idx": 8,
-      "tokens": [
-        {
-          "t": "明日",
-          "role": "content",
-          "word_id": "W00046",
-          "r": "あした"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "太陽",
-          "role": "content",
-          "word_id": "W00240",
-          "r": "たいよう"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "明るい",
-          "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Tomorrow's sun will be bright."
-    },
-    {
-      "idx": 9,
       "tokens": [
         {
           "t": "明日",
@@ -602,7 +574,55 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Tomorrow, too, won't we drink tea together?"
+      "gloss_en": "Tomorrow, too, won't we drink tea together?",
+      "audio": "audio/story_23/s8.wav",
+      "audio_hash": "4c3e3c311b36"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "明日",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "あした"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "太陽",
+          "role": "content",
+          "word_id": "W00240",
+          "r": "たいよう"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Tomorrow's sun will be bright.",
+      "audio": "audio/story_23/s9.wav",
+      "audio_hash": "091136c1a7d1"
     },
     {
       "idx": 10,
@@ -663,7 +683,21 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us walk through the snowy evening."
+      "gloss_en": "The two of us walk through the snowy evening.",
+      "audio": "audio/story_23/s10.wav",
+      "audio_hash": "80b987e9509b"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00069": "audio/story_23/w_W00069.wav",
+    "W00071": "audio/story_23/w_W00071.wav",
+    "W00070": "audio/story_23/w_W00070.wav",
+    "W00102": "audio/story_23/w_W00102.wav"
+  },
+  "word_audio_hash": {
+    "W00069": "53e5e276999d",
+    "W00071": "6fd2f3add204",
+    "W00070": "92e4d1d0c7a5",
+    "W00102": "24d5c7ca0c19"
+  }
 }

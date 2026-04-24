@@ -50,11 +50,12 @@
     "W00061",
     "W00043",
     "W00058",
-    "W00022",
-    "W00040",
     "W00012",
     "W00025",
-    "W00006"
+    "W00006",
+    "W00022",
+    "W00040",
+    "W00041"
   ],
   "sentences": [
     {
@@ -104,7 +105,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Cold night — outside is snow."
+      "gloss_en": "Cold night — outside is snow.",
+      "audio": "audio/story_21/s0.wav",
+      "audio_hash": "563634da99c7"
     },
     {
       "idx": 1,
@@ -162,7 +165,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Alone, I head home."
+      "gloss_en": "Alone, I head home.",
+      "audio": "audio/story_21/s1.wav",
+      "audio_hash": "0b43f797cba5"
     },
     {
       "idx": 2,
@@ -233,7 +238,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The road is quiet. There is snow on the road."
+      "gloss_en": "The road is quiet. There is snow on the road.",
+      "audio": "audio/story_21/s2.wav",
+      "audio_hash": "a1ffa6e0180f"
     },
     {
       "idx": 3,
@@ -305,7 +312,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The moon is in the sky. The moon is big."
+      "gloss_en": "The moon is in the sky. The moon is big.",
+      "audio": "audio/story_21/s3.wav",
+      "audio_hash": "817ab84ca760"
     },
     {
       "idx": 4,
@@ -380,7 +389,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The snow is small. A snowy road, the moon's sky."
+      "gloss_en": "The snow is small. A snowy road, the moon's sky.",
+      "audio": "audio/story_21/s4.wav",
+      "audio_hash": "4c0f4379e1e5"
     },
     {
       "idx": 5,
@@ -424,7 +435,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The road's corner is quiet."
+      "gloss_en": "The road's corner is quiet.",
+      "audio": "audio/story_21/s5.wav",
+      "audio_hash": "913b34988827"
     },
     {
       "idx": 6,
@@ -503,7 +516,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Alone at night, I think of mother's name."
+      "gloss_en": "Alone at night, I think of mother's name.",
+      "audio": "audio/story_21/s6.wav",
+      "audio_hash": "9dfcd7ac55f7"
     },
     {
       "idx": 7,
@@ -575,37 +590,11 @@
         {
           "t": "。",
           "role": "punct"
-        },
-        {
-          "t": "友達",
-          "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "来ません",
-          "role": "content",
-          "word_id": "W00040",
-          "r": "きません",
-          "inflection": {
-            "base": "来る",
-            "base_r": "くる",
-            "form": "negative_polite",
-            "verb_class": "irregular_kuru"
-          },
-          "grammar_id": "G036_masen"
-        },
-        {
-          "t": "。",
-          "role": "punct"
         }
       ],
-      "gloss_en": "\"Is mother well?\" I think. My friend does not come."
+      "gloss_en": "\"Is mother well?\" I think.",
+      "audio": "audio/story_21/s7.wav",
+      "audio_hash": "0093fe071a78"
     },
     {
       "idx": 8,
@@ -675,9 +664,82 @@
         {
           "t": "。",
           "role": "punct"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "来ません",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きません",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "negative_polite",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G036_masen"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "待ちます",
+          "role": "content",
+          "word_id": "W00041",
+          "r": "まちます",
+          "inflection": {
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
         }
       ],
-      "gloss_en": "And then, I look at the warm door of the house."
+      "gloss_en": "And then, I look at the warm door of the house. My friend does not come, but the house waits.",
+      "audio": "audio/story_21/s8.wav",
+      "audio_hash": "13e2a8e2fd26"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00065": "audio/story_21/w_W00065.wav",
+    "W00251": "audio/story_21/w_W00251.wav",
+    "W00089": "audio/story_21/w_W00089.wav"
+  },
+  "word_audio_hash": {
+    "W00065": "45b3f27e3a97",
+    "W00251": "beddda2bcf24",
+    "W00089": "1a3205c3a91e"
+  }
 }

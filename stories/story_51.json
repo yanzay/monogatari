@@ -58,10 +58,9 @@
     "W00026",
     "W00185",
     "W00232",
-    "W00169",
     "W00171",
-    "W00059",
-    "W00053",
+    "W00041",
+    "W00169",
     "W00137",
     "W00138",
     "W00222",
@@ -98,7 +97,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a spring evening."
+      "gloss_en": "It is a spring evening.",
+      "audio": "audio/story_51/s0.wav",
+      "audio_hash": "fdecbcf80e9f"
     },
     {
       "idx": 1,
@@ -171,7 +172,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend, my younger sister, and I come to the park together."
+      "gloss_en": "The friend, my younger sister, and I come to the park together.",
+      "audio": "audio/story_51/s1.wav",
+      "audio_hash": "e0a013f8c93d"
     },
     {
       "idx": 2,
@@ -232,7 +235,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the park, there are trees and flowers."
+      "gloss_en": "In the park, there are trees and flowers.",
+      "audio": "audio/story_51/s2.wav",
+      "audio_hash": "54ecf2d1abb9"
     },
     {
       "idx": 3,
@@ -309,7 +314,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend says, \"that flower over there is red.\""
+      "gloss_en": "The friend says, \"that flower over there is red.\"",
+      "audio": "audio/story_51/s3.wav",
+      "audio_hash": "e3086e605ce1"
     },
     {
       "idx": 4,
@@ -387,7 +394,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I say, \"this tree is big.\""
+      "gloss_en": "I say, \"this tree is big.\"",
+      "audio": "audio/story_51/s4.wav",
+      "audio_hash": "6bf24d7223cc"
     },
     {
       "idx": 5,
@@ -439,7 +448,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the pond, there is a black bird."
+      "gloss_en": "In the pond, there is a black bird.",
+      "audio": "audio/story_51/s5.wav",
+      "audio_hash": "91608f9e6bc0"
     },
     {
       "idx": 6,
@@ -521,7 +532,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"What is that bird over there?\" my sister says."
+      "gloss_en": "\"What is that bird over there?\" my sister says.",
+      "audio": "audio/story_51/s6.wav",
+      "audio_hash": "315b47e346a9"
     },
     {
       "idx": 7,
@@ -577,7 +590,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My younger sister and I look at the sky."
+      "gloss_en": "My younger sister and I look at the sky.",
+      "audio": "audio/story_51/s7.wav",
+      "audio_hash": "045a13a22916"
     },
     {
       "idx": 8,
@@ -667,7 +682,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend says, \"when will we come to this park?\""
+      "gloss_en": "The friend says, \"when will we come to this park?\"",
+      "audio": "audio/story_51/s8.wav",
+      "audio_hash": "05c0113b7435"
     },
     {
       "idx": 9,
@@ -764,7 +781,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"We will come on a spring morning,\" I say. It is a promise."
+      "gloss_en": "\"We will come on a spring morning,\" I say. It is a promise.",
+      "audio": "audio/story_51/s9.wav",
+      "audio_hash": "f08416329477"
     },
     {
       "idx": 10,
@@ -808,7 +827,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My heart is happy."
+      "gloss_en": "My heart is happy.",
+      "audio": "audio/story_51/s10.wav",
+      "audio_hash": "b224b0eb608f"
     },
     {
       "idx": 11,
@@ -864,7 +885,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My younger sister and I go home."
+      "gloss_en": "My younger sister and I go home.",
+      "audio": "audio/story_51/s11.wav",
+      "audio_hash": "ee9cd295e568"
     },
     {
       "idx": 12,
@@ -894,8 +917,59 @@
           "grammar_id": "G017_de_means"
         },
         {
-          "t": "、",
+          "t": "姉",
+          "role": "content",
+          "word_id": "W00171",
+          "r": "あね"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "待って",
+          "role": "content",
+          "word_id": "W00041",
+          "r": "まって",
+          "inflection": {
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "います",
+          "role": "aux",
+          "grammar_id": "G008_te_iru"
+        },
+        {
+          "t": "。",
           "role": "punct"
+        },
+        {
+          "t": "妹",
+          "role": "content",
+          "word_id": "W00173",
+          "r": "いもうと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "姉",
+          "role": "content",
+          "word_id": "W00171",
+          "r": "あね"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "靴",
@@ -926,66 +1000,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In front of the entrance, I look at the shoes."
+      "gloss_en": "In front of the entrance, my older sister is waiting. My younger sister looks at older sister's shoes.",
+      "audio": "audio/story_51/s12.wav",
+      "audio_hash": "68abef2942a3"
     },
     {
       "idx": 13,
-      "tokens": [
-        {
-          "t": "妹",
-          "role": "content",
-          "word_id": "W00173",
-          "r": "いもうと"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "姉",
-          "role": "content",
-          "word_id": "W00171",
-          "r": "あね"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "庭",
-          "role": "content",
-          "word_id": "W00059",
-          "r": "にわ"
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "笑います",
-          "role": "content",
-          "word_id": "W00053",
-          "r": "わらいます",
-          "inflection": {
-            "base": "笑う",
-            "base_r": "わらう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "My younger sister and older sister laugh in the garden."
-    },
-    {
-      "idx": 14,
       "tokens": [
         {
           "t": "明るい",
@@ -1049,7 +1069,21 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bright morning air feels good."
+      "gloss_en": "The bright morning air feels good.",
+      "audio": "audio/story_51/s13.wav",
+      "audio_hash": "bd965da924d8"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00148": "audio/story_51/w_W00148.wav",
+    "W00185": "audio/story_51/w_W00185.wav",
+    "W00232": "audio/story_51/w_W00232.wav",
+    "W00222": "audio/story_51/w_W00222.wav"
+  },
+  "word_audio_hash": {
+    "W00148": "fad04fc93bda",
+    "W00185": "4599e5ce5393",
+    "W00232": "6044e9f095e0",
+    "W00222": "6f6dff13602a"
+  }
 }

@@ -29,8 +29,8 @@
     ]
   },
   "new_words": [
-    "W00040",
     "W00085",
+    "W00045",
     "W00041"
   ],
   "new_grammar": [],
@@ -49,6 +49,7 @@
     "W00034",
     "W00101",
     "W00023",
+    "W00045",
     "W00011",
     "W00038",
     "W00004",
@@ -105,15 +106,16 @@
             "form": "polite_nonpast",
             "verb_class": "irregular_kuru"
           },
-          "grammar_id": "G026_masu_nonpast",
-          "is_new": true
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "In the morning, a letter from my friend comes."
+      "gloss_en": "In the morning, a letter from my friend comes.",
+      "audio": "audio/story_10/s0.wav",
+      "audio_hash": "d0d7d8e81f5e"
     },
     {
       "idx": 1,
@@ -170,7 +172,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I sit on the chair at home."
+      "gloss_en": "I sit on the chair at home.",
+      "audio": "audio/story_10/s1.wav",
+      "audio_hash": "0a3d4629fcb9"
     },
     {
       "idx": 2,
@@ -248,7 +252,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Then, drinking warm tea, I read the letter."
+      "gloss_en": "Then, drinking warm tea, I read the letter.",
+      "audio": "audio/story_10/s2.wav",
+      "audio_hash": "ef4b2a88f148"
     },
     {
       "idx": 3,
@@ -306,7 +312,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is a letter about the dog and the walk."
+      "gloss_en": "It is a letter about the dog and the walk.",
+      "audio": "audio/story_10/s3.wav",
+      "audio_hash": "14cc482b9525"
     },
     {
       "idx": 4,
@@ -318,15 +326,27 @@
           "r": "いぬ"
         },
         {
-          "t": "も",
+          "t": "は",
           "role": "particle",
-          "grammar_id": "G009_mo_also"
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "椅子",
           "role": "content",
           "word_id": "W00036",
           "r": "いす"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "そば",
+          "role": "content",
+          "word_id": "W00045",
+          "r": "そば",
+          "is_new": true
         },
         {
           "t": "で",
@@ -362,7 +382,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The dog, too, quietly sleeps on the chair."
+      "gloss_en": "The dog quietly sleeps beside the chair.",
+      "audio": "audio/story_10/s4.wav",
+      "audio_hash": "c9f464b3188c"
     },
     {
       "idx": 5,
@@ -447,7 +469,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I look outside through the window and wait for my friend."
+      "gloss_en": "I look outside through the window and wait for my friend.",
+      "audio": "audio/story_10/s5.wav",
+      "audio_hash": "6e899d705a68"
     },
     {
       "idx": 6,
@@ -513,7 +537,19 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A quiet morning, a warm letter, a good feeling."
+      "gloss_en": "A quiet morning, a warm letter, a good feeling.",
+      "audio": "audio/story_10/s6.wav",
+      "audio_hash": "58b1770d58ad"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00085": "audio/story_10/w_W00085.wav",
+    "W00045": "audio/story_10/w_W00045.wav",
+    "W00041": "audio/story_10/w_W00041.wav"
+  },
+  "word_audio_hash": {
+    "W00085": "f2c1e1c6a5fb",
+    "W00045": "a7dbc110c61b",
+    "W00041": "45720855fc5e"
+  }
 }

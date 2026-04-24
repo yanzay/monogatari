@@ -25,9 +25,11 @@
   },
   "new_words": [
     "W00101",
-    "W00026",
+    "W00078",
     "W00025",
-    "W00027"
+    "W00026",
+    "W00027",
+    "W00040"
   ],
   "new_grammar": [
     "G012_soshite_then"
@@ -45,11 +47,13 @@
     "W00101",
     "W00006",
     "W00064",
-    "W00026",
+    "W00078",
     "W00025",
+    "W00026",
     "W00005",
     "W00002",
     "W00027",
+    "W00040",
     "W00013"
   ],
   "sentences": [
@@ -106,7 +110,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "This morning, I walk through the park."
+      "gloss_en": "This morning, I walk through the park.",
+      "audio": "audio/story_5/s0.wav",
+      "audio_hash": "f5dee03b3ce1"
     },
     {
       "idx": 1,
@@ -149,7 +155,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The trees and flowers are quiet."
+      "gloss_en": "The trees and flowers are quiet.",
+      "audio": "audio/story_5/s1.wav",
+      "audio_hash": "cb0118ccaa5c"
     },
     {
       "idx": 2,
@@ -184,7 +192,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I see a dog."
+      "gloss_en": "I see a dog.",
+      "audio": "audio/story_5/s2.wav",
+      "audio_hash": "6e21a395f21d"
     },
     {
       "idx": 3,
@@ -229,7 +239,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The dog, too, walks down the road."
+      "gloss_en": "The dog, too, walks down the road.",
+      "audio": "audio/story_5/s3.wav",
+      "audio_hash": "fd28cbadf81d"
     },
     {
       "idx": 4,
@@ -256,6 +268,30 @@
           "grammar_id": "G001_wa_topic"
         },
         {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "ドア",
+          "role": "content",
+          "word_id": "W00025",
+          "r": "ドア",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
           "t": "帰ります",
           "role": "content",
           "word_id": "W00026",
@@ -274,57 +310,13 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "And then I head back."
+      "gloss_en": "And then, I head back to the door of the house.",
+      "audio": "audio/story_5/s4.wav",
+      "audio_hash": "bb8fd8470fe0"
     },
     {
       "idx": 5,
       "tokens": [
-        {
-          "t": "ドア",
-          "role": "content",
-          "word_id": "W00025",
-          "r": "ドア",
-          "is_new": true
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "見ます",
-          "role": "content",
-          "word_id": "W00006",
-          "r": "みます",
-          "inflection": {
-            "base": "見る",
-            "base_r": "みる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I look at the door."
-    },
-    {
-      "idx": 6,
-      "tokens": [
-        {
-          "t": "ドア",
-          "role": "content",
-          "word_id": "W00025",
-          "r": "ドア"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
         {
           "t": "外",
           "role": "content",
@@ -352,15 +344,6 @@
           "role": "punct"
         },
         {
-          "t": "そして",
-          "role": "particle",
-          "grammar_id": "G012_soshite_then"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
           "t": "風",
           "role": "content",
           "word_id": "W00027",
@@ -368,19 +351,35 @@
           "is_new": true
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "Outside the door, it is raining. And then — wind."
+      "gloss_en": "Outside, it is raining. Wind also comes.",
+      "audio": "audio/story_5/s5.wav",
+      "audio_hash": "60bac0868db6"
     },
     {
-      "idx": 7,
+      "idx": 6,
       "tokens": [
         {
           "t": "風",
@@ -437,7 +436,25 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A morning of wind and rain — a good walk."
+      "gloss_en": "A morning of wind and rain — a good walk.",
+      "audio": "audio/story_5/s6.wav",
+      "audio_hash": "f04f3fa6e9d4"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00101": "audio/story_5/w_W00101.wav",
+    "W00078": "audio/story_5/w_W00078.wav",
+    "W00025": "audio/story_5/w_W00025.wav",
+    "W00026": "audio/story_5/w_W00026.wav",
+    "W00027": "audio/story_5/w_W00027.wav",
+    "W00040": "audio/story_5/w_W00040.wav"
+  },
+  "word_audio_hash": {
+    "W00101": "1e82f9b0b675",
+    "W00078": "c8ae97be80f3",
+    "W00025": "baab70513536",
+    "W00026": "f300cccc263c",
+    "W00027": "b4478e3308e0",
+    "W00040": "486e64d755bd"
+  }
 }

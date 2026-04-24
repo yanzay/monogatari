@@ -93,7 +93,7 @@
         }
       ],
       "gloss_en": "It is a spring evening.",
-      "audio": "audio/story_42/s0.mp3",
+      "audio": "audio/story_42/s0.wav",
       "audio_hash": "fdecbcf80e9f"
     },
     {
@@ -156,7 +156,7 @@
         }
       ],
       "gloss_en": "My friend and I are walking on the road.",
-      "audio": "audio/story_42/s1.mp3",
+      "audio": "audio/story_42/s1.wav",
       "audio_hash": "02110aa826f8"
     },
     {
@@ -215,7 +215,7 @@
         }
       ],
       "gloss_en": "My friend is right beside me.",
-      "audio": "audio/story_42/s2.mp3",
+      "audio": "audio/story_42/s2.wav",
       "audio_hash": "3483eed8dc5c"
     },
     {
@@ -298,7 +298,7 @@
         }
       ],
       "gloss_en": "I think, 'my friend is a kind person, isn't he.'",
-      "audio": "audio/story_42/s3.mp3",
+      "audio": "audio/story_42/s3.wav",
       "audio_hash": "d99ce8add7b6"
     },
     {
@@ -380,7 +380,7 @@
         }
       ],
       "gloss_en": "I know about the reply to grandmother's letter.",
-      "audio": "audio/story_42/s4.mp3",
+      "audio": "audio/story_42/s4.wav",
       "audio_hash": "f64954599579"
     },
     {
@@ -394,6 +394,17 @@
         {
           "t": "、",
           "role": "punct"
+        },
+        {
+          "t": "返事",
+          "role": "content",
+          "word_id": "W00119",
+          "r": "へんじ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "友達",
@@ -429,9 +440,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "But I do not tell my friend.",
-      "audio": "audio/story_42/s5.mp3",
-      "audio_hash": "90d6233ae6f8"
+      "gloss_en": "But I do not tell the reply to my friend.",
+      "audio": "audio/story_42/s5.wav",
+      "audio_hash": "ab26a53f7265"
     },
     {
       "idx": 6,
@@ -497,7 +508,7 @@
         }
       ],
       "gloss_en": "\"My heart is warm,\" I think.",
-      "audio": "audio/story_42/s6.mp3",
+      "audio": "audio/story_42/s6.wav",
       "audio_hash": "1428b8ff614f"
     },
     {
@@ -571,7 +582,7 @@
         }
       ],
       "gloss_en": "In the mountain sky, a big moon is out.",
-      "audio": "audio/story_42/s7.mp3",
+      "audio": "audio/story_42/s7.wav",
       "audio_hash": "46f759997a56"
     },
     {
@@ -630,7 +641,7 @@
         }
       ],
       "gloss_en": "The two of us are looking at the same moon.",
-      "audio": "audio/story_42/s8.mp3",
+      "audio": "audio/story_42/s8.wav",
       "audio_hash": "4476401fedeb"
     },
     {
@@ -714,7 +725,7 @@
         }
       ],
       "gloss_en": "I want to walk together with my friend along the river road.",
-      "audio": "audio/story_42/s9.mp3",
+      "audio": "audio/story_42/s9.wav",
       "audio_hash": "a2ab1560eda3"
     },
     {
@@ -803,14 +814,14 @@
         }
       ],
       "gloss_en": "The same road, the same moon — a quiet spring evening for the two of us.",
-      "audio": "audio/story_42/s10.mp3",
+      "audio": "audio/story_42/s10.wav",
       "audio_hash": "769e71a6b1b1"
     }
   ],
   "word_audio": {
-    "W00127": "audio/story_42/w_W00127.mp3",
-    "W00125": "audio/story_42/w_W00125.mp3",
-    "W00126": "audio/story_42/w_W00126.mp3"
+    "W00127": "audio/story_42/w_W00127.wav",
+    "W00125": "audio/story_42/w_W00125.wav",
+    "W00126": "audio/story_42/w_W00126.wav"
   },
   "word_audio_hash": {
     "W00127": "face8e8973e0",

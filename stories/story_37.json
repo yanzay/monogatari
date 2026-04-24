@@ -29,7 +29,9 @@
     "W00112",
     "W00172"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G050_he_direction"
+  ],
   "all_words_used": [
     "W00096",
     "W00061",
@@ -835,7 +837,8 @@
         {
           "t": "へ",
           "role": "particle",
-          "grammar_id": "G050_he_direction"
+          "grammar_id": "G050_he_direction",
+          "is_new_grammar": true
         },
         {
           "t": "行きます",
