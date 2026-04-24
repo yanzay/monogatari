@@ -43,20 +43,20 @@
     "W00035",
     "W00009",
     "W00010",
-    "W00020",
-    "W00047",
-    "W00011",
-    "W00027",
-    "W00002",
-    "W00165",
-    "W00166",
-    "W00013",
-    "W00043",
-    "W00164",
-    "W00161",
-    "W00012",
     "W00240",
     "W00137",
+    "W00047",
+    "W00011",
+    "W00166",
+    "W00020",
+    "W00027",
+    "W00002",
+    "W00161",
+    "W00012",
+    "W00164",
+    "W00165",
+    "W00043",
+    "W00013",
     "W00059"
   ],
   "sentences": [
@@ -227,6 +227,99 @@
       "idx": 3,
       "tokens": [
         {
+          "t": "太陽",
+          "role": "content",
+          "word_id": "W00240",
+          "r": "たいよう",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The sun is bright.",
+      "audio": "audio/story_16/s3.mp3",
+      "audio_hash": "7dfbbbda2d1b"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "空",
+          "role": "content",
+          "word_id": "W00047",
+          "r": "そら"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The sky is quiet.",
+      "audio": "audio/story_16/s4.mp3",
+      "audio_hash": "c88c987752eb"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "皿",
+          "role": "content",
+          "word_id": "W00166",
+          "r": "さら"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
           "t": "パン",
           "role": "content",
           "word_id": "W00049",
@@ -260,46 +353,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I go ahead and eat the bread.",
-      "audio": "audio/story_16/s3.mp3",
-      "audio_hash": "237891b4d02e"
+      "gloss_en": "I go ahead and eat the bread on the plate.",
+      "audio": "audio/story_16/s5.mp3",
+      "audio_hash": "c823b60a2baf"
     },
     {
-      "idx": 4,
-      "tokens": [
-        {
-          "t": "空",
-          "role": "content",
-          "word_id": "W00047",
-          "r": "そら"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "静か",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The sky is calm.",
-      "audio": "audio/story_16/s4.mp3",
-      "audio_hash": "c88c987752eb"
-    },
-    {
-      "idx": 5,
+      "idx": 6,
       "tokens": [
         {
           "t": "そして",
@@ -328,17 +387,6 @@
           "r": "あめ"
         },
         {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "音楽",
-          "role": "content",
-          "word_id": "W00165",
-          "r": "おんがく"
-        },
-        {
           "t": "が",
           "role": "particle",
           "grammar_id": "G002_ga_subject"
@@ -361,12 +409,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Then wind, rain, and music come.",
-      "audio": "audio/story_16/s5.mp3",
-      "audio_hash": "91aba6041e41"
+      "gloss_en": "And then, wind and rain come.",
+      "audio": "audio/story_16/s6.mp3",
+      "audio_hash": "fe644892b6eb"
     },
     {
-      "idx": 6,
+      "idx": 7,
       "tokens": [
         {
           "t": "風",
@@ -407,11 +455,11 @@
         }
       ],
       "gloss_en": "With the wind, the sky becomes rain.",
-      "audio": "audio/story_16/s6.mp3",
+      "audio": "audio/story_16/s7.mp3",
       "audio_hash": "bc8fe04e9713"
     },
     {
-      "idx": 7,
+      "idx": 8,
       "tokens": [
         {
           "t": "二人",
@@ -426,21 +474,35 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "皿",
+          "t": "軽い",
           "role": "content",
-          "word_id": "W00166",
-          "r": "さら"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "word_id": "W00161",
+          "r": "かるい",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "パン",
           "role": "content",
           "word_id": "W00049",
           "r": "パン"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "温かい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00009",
+          "r": "おちゃ"
         },
         {
           "t": "を",
@@ -465,12 +527,81 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two eat the bread on the plate.",
-      "audio": "audio/story_16/s7.mp3",
-      "audio_hash": "e3d71ca01576"
+      "gloss_en": "The two of us eat light bread and warm tea.",
+      "audio": "audio/story_16/s8.mp3",
+      "audio_hash": "f98ec6229590"
     },
     {
-      "idx": 8,
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あめ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "歌",
+          "role": "content",
+          "word_id": "W00164",
+          "r": "うた"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G014_to_omoimasu"
+        },
+        {
+          "t": "音楽",
+          "role": "content",
+          "word_id": "W00165",
+          "r": "おんがく"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "思います",
+          "role": "aux",
+          "word_id": "W00043",
+          "r": "おもいます",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend thinks of a rain song and music.",
+      "audio": "audio/story_16/s9.mp3",
+      "audio_hash": "ea87c3c6d665"
+    },
+    {
+      "idx": 10,
       "tokens": [
         {
           "t": "「",
@@ -544,197 +675,11 @@
         }
       ],
       "gloss_en": "\"A rainy morning is good,\" I think.",
-      "audio": "audio/story_16/s8.mp3",
+      "audio": "audio/story_16/s10.mp3",
       "audio_hash": "e091146151ad"
     },
     {
-      "idx": 9,
-      "tokens": [
-        {
-          "t": "公園",
-          "role": "content",
-          "word_id": "W00016",
-          "r": "こうえん"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "雨",
-          "role": "content",
-          "word_id": "W00002",
-          "r": "あめ"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "歌",
-          "role": "content",
-          "word_id": "W00164",
-          "r": "うた"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "パン",
-          "role": "content",
-          "word_id": "W00049",
-          "r": "パン"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "A morning of park, rain, song, and bread.",
-      "audio": "audio/story_16/s9.mp3",
-      "audio_hash": "b7dc530938a6"
-    },
-    {
-      "idx": 10,
-      "tokens": [
-        {
-          "t": "軽い",
-          "role": "content",
-          "word_id": "W00161",
-          "r": "かるい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "パン",
-          "role": "content",
-          "word_id": "W00049",
-          "r": "パン"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "温かい",
-          "role": "content",
-          "word_id": "W00012",
-          "r": "あたたかい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "お茶",
-          "role": "content",
-          "word_id": "W00009",
-          "r": "おちゃ"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Light bread and warm tea.",
-      "audio": "audio/story_16/s10.mp3",
-      "audio_hash": "4c38ddca0cbc"
-    },
-    {
       "idx": 11,
-      "tokens": [
-        {
-          "t": "太陽",
-          "role": "content",
-          "word_id": "W00240",
-          "r": "たいよう",
-          "is_new": true
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "明るい",
-          "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
-          "grammar_id": "G022_i_adj",
-          "is_new": true
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The sun is bright.",
-      "audio": "audio/story_16/s11.mp3",
-      "audio_hash": "7dfbbbda2d1b"
-    },
-    {
-      "idx": 12,
-      "tokens": [
-        {
-          "t": "庭",
-          "role": "content",
-          "word_id": "W00059",
-          "r": "にわ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "静か",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The garden is quiet.",
-      "audio": "audio/story_16/s12.mp3",
-      "audio_hash": "4a4f0ae11333"
-    },
-    {
-      "idx": 13,
       "tokens": [
         {
           "t": "雨",
@@ -771,6 +716,28 @@
           "role": "punct"
         },
         {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "こうえん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "庭",
+          "role": "content",
+          "word_id": "W00059",
+          "r": "にわ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
           "t": "静か",
           "role": "content",
           "word_id": "W00011",
@@ -786,9 +753,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Because the rain comes, it is quiet.",
-      "audio": "audio/story_16/s13.mp3",
-      "audio_hash": "26940127bac8"
+      "gloss_en": "Because the rain comes, the park's garden is quiet.",
+      "audio": "audio/story_16/s11.mp3",
+      "audio_hash": "cc92a223d37b"
     }
   ],
   "word_audio": {
