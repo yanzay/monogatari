@@ -1797,6 +1797,36 @@
         "Could benefit from a present-tense action sentence to break the flashback"
       ],
       "suggestions": []
+    },
+    {
+      "story_id": 56,
+      "title_jp": "駅まで歩きます。",
+      "title_en": "I Walk Until the Station.",
+      "scores": {
+        "hook": 4,
+        "voice": 4,
+        "originality": 4,
+        "coherence": 5,
+        "closure": 4
+      },
+      "average": 4.2,
+      "approved": true,
+      "highlights": [
+        "Introduces G052_made_until — the natural counterpart of G006_kara_from. Nine load-bearing uses across both spatial (家から駅まで, 公園まで, 町の店まで, 店から家まで, 駅まで) and temporal (昼まで, 夕方まで, 晩まで, 夕飯まで) endpoints — every まで does pedagogical work.",
+        "Title 駅まで歩きます puts the new grammar at the syntactic peak of a 5-mora sentence — eki-made aru-kimasu — and the pattern recurs as the closer (明日も駅まで歩きます).",
+        "Reinforces W00179 日 and W00245 鐘 (introduced story_54): 鐘 returns as 'town bell sound until night' (s11), 日 closes the story as '楽しい日です'.",
+        "Reinforces W00181 夕飯 (introduced story_54) at sentence 12 as a temporal endpoint (夕飯まで).",
+        "から…まで paired construction in s2 (家から駅まで) and s14 (店から家まで) — anchors the new particle to the already-mastered から for contrastive learning.",
+        "Three new adverbs/adjectives spread out: ゆっくり (s4, s7) modifies the walking, 楽しい (s10, s16) frames the day, もう (s13) dramatizes the friend's departure.",
+        "Frame structure: opens 'spring morning, I walk to the station' / closes 'tomorrow too I walk to the station — a fun day' — the fun-day closer earns its tone from the まで-marked spans of activity in between."
+      ],
+      "weaknesses": [
+        "Friend disappears narratively at s13 ('もう帰ります') but s14 keeps walking 'alone from the shop' — slight continuity blur (where did the shop come from?).",
+        "Five new vocab in one story is on the high end of the cadence band; ゆっくり and 楽しい are heavy lifters but もう and 沢山 only appear once each."
+      ],
+      "suggestions": [
+        "Future story should reinforce もう (W00256) and 沢山/たくさん (W00253) within 2 stories — neither carries weight without a second use."
+      ]
     }
   ],
   "leaderboard": [
@@ -2007,6 +2037,11 @@
     },
     {
       "story_id": 44,
+      "average": 4.2,
+      "rank": 31
+    },
+    {
+      "story_id": 56,
       "average": 4.2,
       "rank": 31
     },

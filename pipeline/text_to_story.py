@@ -672,7 +672,7 @@ def _ensure_word(merged: dict, st: BuildState) -> Optional[dict]:
         return None
     if surface in st.minted:
         return st.minted[surface]
-    new_id = next_word_id(st.vocab_state, set(st.minted.keys()))
+    new_id = next_word_id(st.vocab_state, {r["id"] for r in st.minted.values()})
     kana = derive_kana(lemma) if lemma else derive_kana(surface) or ""
     kana = katakana_to_hiragana(kana or "")
     pos_map = {"名詞": "noun", "動詞": "verb", "形容詞": "i_adjective",
