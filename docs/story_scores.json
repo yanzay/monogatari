@@ -1,6 +1,6 @@
 {
   "scale": {
-    "version": "1.0",
+    "version": "1.1",
     "date": "2026-04-24",
     "max_per_dimension": 5,
     "max_total": 25,
@@ -21,10 +21,38 @@
   },
   "summary": {
     "count": 67,
-    "average_total": 21.7,
-    "tier_distribution": {"5": 38, "4": 23, "3": 6, "2": 0, "1": 0},
+    "average_total": 22.13,
+    "tier_distribution": {"5": 46, "4": 21, "3": 0, "2": 0, "1": 0},
+    "min_total": 18,
+    "max_total": 25,
     "perfect_scores": [33, 37, 47],
-    "lowest_scores": [16, 31, 5, 9, 24, 30]
+    "lowest_scores": [4, 6, 41, 51, 52, 53]
   },
+  "history": [
+    {
+      "version": "1.0",
+      "date": "2026-04-24",
+      "average_total": 21.7,
+      "tier_distribution": {"5": 38, "4": 23, "3": 6, "2": 0, "1": 0},
+      "lowest_scores": [16, 31, 5, 9, 24, 30],
+      "note": "Initial library-wide scoring before any tail-weave rewrites."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-04-24",
+      "average_total": 22.13,
+      "tier_distribution": {"5": 46, "4": 21, "3": 0, "2": 0, "1": 0},
+      "lowest_scores": [4, 6, 41, 51, 52, 53],
+      "rewritten_stories": [
+        {"id": 5,  "before": 17, "after": 23, "delta": "+6"},
+        {"id": 9,  "before": 17, "after": 24, "delta": "+7"},
+        {"id": 16, "before": 16, "after": 23, "delta": "+7"},
+        {"id": 24, "before": 17, "after": 22, "delta": "+5"},
+        {"id": 30, "before": 17, "after": 24, "delta": "+7"},
+        {"id": 31, "before": 16, "after": 22, "delta": "+6"}
+      ],
+      "note": "Six lowest-scoring stories rewritten to integrate orphan-tail reuse weaves into their narrative scenes. Zero stories now below tier 4. Mean +0.43 across the library."
+    }
+  ],
   "scores_csv": "docs/story_scores.csv"
 }
