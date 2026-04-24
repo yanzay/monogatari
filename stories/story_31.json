@@ -25,8 +25,8 @@
   },
   "new_words": [
     "W00093",
-    "W00094",
-    "W00098"
+    "W00098",
+    "W00094"
   ],
   "new_grammar": [
     "G027_ni_tsuite"
@@ -37,31 +37,31 @@
     "W00001",
     "W00040",
     "W00003",
+    "W00012",
     "W00009",
-    "W00010",
+    "W00167",
+    "W00231",
+    "W00098",
     "W00094",
-    "W00089",
     "W00058",
+    "W00043",
+    "W00089",
     "W00090",
     "W00059",
     "W00091",
-    "W00044",
-    "W00043",
-    "W00046",
-    "W00039",
-    "W00060",
-    "W00011",
-    "W00015",
     "W00092",
-    "W00012",
-    "W00087",
-    "W00167",
-    "W00079",
-    "W00037",
+    "W00044",
+    "W00046",
     "W00241",
+    "W00037",
     "W00246",
     "W00061",
-    "W00098"
+    "W00060",
+    "W00079",
+    "W00011",
+    "W00015",
+    "W00087",
+    "W00039"
   ],
   "sentences": [
     {
@@ -149,10 +149,28 @@
           "grammar_id": "G001_wa_topic"
         },
         {
+          "t": "温かい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
           "t": "お茶",
           "role": "content",
           "word_id": "W00009",
           "r": "おちゃ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "カップ",
+          "role": "content",
+          "word_id": "W00167",
+          "r": "カップ"
         },
         {
           "t": "を",
@@ -160,13 +178,13 @@
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "飲みます",
+          "t": "持ちます",
           "role": "content",
-          "word_id": "W00010",
-          "r": "のみます",
+          "word_id": "W00231",
+          "r": "もちます",
           "inflection": {
-            "base": "飲む",
-            "base_r": "のむ",
+            "base": "持つ",
+            "base_r": "もつ",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
@@ -177,9 +195,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I drink tea.",
+      "gloss_en": "I hold a warm cup of tea.",
       "audio": "audio/story_31/s2.mp3",
-      "audio_hash": "27b769a8aec7"
+      "audio_hash": "71830cfe0cd5"
     },
     {
       "idx": 3,
@@ -191,9 +209,22 @@
           "r": "ともだち"
         },
         {
-          "t": "が",
+          "t": "は",
           "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ",
+          "is_new": true
+        },
+        {
+          "t": "について",
+          "role": "particle",
+          "grammar_id": "G027_ni_tsuite",
+          "is_new_grammar": true
         },
         {
           "t": "話します",
@@ -214,55 +245,22 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend talks.",
+      "gloss_en": "The friend talks about her grandmother.",
       "audio": "audio/story_31/s3.mp3",
-      "audio_hash": "f17dfc90dd52"
+      "audio_hash": "dc5381203c50"
     },
     {
       "idx": 4,
       "tokens": [
         {
-          "t": "母",
-          "role": "content",
-          "word_id": "W00089",
-          "r": "はは"
-        },
-        {
-          "t": "について",
-          "role": "particle",
-          "grammar_id": "G027_ni_tsuite",
-          "is_new_grammar": true
-        },
-        {
-          "t": "話します",
-          "role": "content",
-          "word_id": "W00094",
-          "r": "はなします",
-          "inflection": {
-            "base": "話す",
-            "base_r": "はなす",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
+          "t": "「",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "[She] talks about [her] mother.",
-      "audio": "audio/story_31/s4.mp3",
-      "audio_hash": "752a691bc8aa"
-    },
-    {
-      "idx": 5,
-      "tokens": [
+        },
         {
-          "t": "母",
+          "t": "祖母",
           "role": "content",
-          "word_id": "W00089",
-          "r": "はは"
+          "word_id": "W00098",
+          "r": "そぼ"
         },
         {
           "t": "は",
@@ -281,13 +279,96 @@
           "grammar_id": "G003_desu"
         },
         {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G014_to_omoimasu"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "思います",
+          "role": "aux",
+          "word_id": "W00043",
+          "r": "おもいます",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "Mother is well.",
+      "gloss_en": "\"Is the grandmother well?\" I think.",
+      "audio": "audio/story_31/s4.mp3",
+      "audio_hash": "d27296d1f8de"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "はは"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "元気",
+          "role": "content",
+          "word_id": "W00058",
+          "r": "げんき"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend's mother is well, too.",
       "audio": "audio/story_31/s5.mp3",
-      "audio_hash": "5b2893dad27c"
+      "audio_hash": "5c697e6482ca"
     },
     {
       "idx": 6,
@@ -368,6 +449,17 @@
           "r": "は"
         },
         {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "雲",
+          "role": "content",
+          "word_id": "W00092",
+          "r": "くも"
+        },
+        {
           "t": "が",
           "role": "particle",
           "grammar_id": "G002_ga_subject"
@@ -390,13 +482,245 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There are leaves in the garden.",
+      "gloss_en": "In the garden, there are leaves and clouds.",
       "audio": "audio/story_31/s7.mp3",
-      "audio_hash": "d394bc015ddd"
+      "audio_hash": "64f4ea9150b2"
     },
     {
       "idx": 8,
       "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "明日",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "あした"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "客",
+          "role": "content",
+          "word_id": "W00241",
+          "r": "きゃく"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "話します",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "はなします",
+          "inflection": {
+            "base": "話す",
+            "base_r": "はなす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Will a guest come tomorrow?\" the friend says.",
+      "audio": "audio/story_31/s8.mp3",
+      "audio_hash": "77ae38da3777"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "机",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "つくえ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "ペン",
+          "role": "content",
+          "word_id": "W00246",
+          "r": "ぺん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "持って",
+          "role": "content",
+          "word_id": "W00231",
+          "r": "もって",
+          "inflection": {
+            "base": "持つ",
+            "base_r": "もつ",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "名前",
+          "role": "content",
+          "word_id": "W00061",
+          "r": "なまえ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "書きます",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "かきます",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I take the pen from the desk and write the name.",
+      "audio": "audio/story_31/s9.mp3",
+      "audio_hash": "c66c98b3106f"
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "鍵",
+          "role": "content",
+          "word_id": "W00079",
+          "r": "かぎ"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "机",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "つくえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The key is on the desk too.",
+      "audio": "audio/story_31/s10.mp3",
+      "audio_hash": "2e7d2ae1ef1f"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "電話",
+          "role": "content",
+          "word_id": "W00093",
+          "r": "でんわ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
         {
           "t": "友達",
           "role": "content",
@@ -442,12 +766,74 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think the friend is well.",
-      "audio": "audio/story_31/s8.mp3",
-      "audio_hash": "7e44153ac1fd"
+      "gloss_en": "I think the friend on the phone is well.",
+      "audio": "audio/story_31/s11.mp3",
+      "audio_hash": "d88697baa837"
     },
     {
-      "idx": 9,
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "な",
+          "role": "particle",
+          "grammar_id": "G016_na_adjective"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "立ちます",
+          "role": "content",
+          "word_id": "W00087",
+          "r": "たちます",
+          "inflection": {
+            "base": "立つ",
+            "base_r": "たつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A quiet morning. I stand up.",
+      "audio": "audio/story_31/s12.mp3",
+      "audio_hash": "a7bffd6cb466"
+    },
+    {
+      "idx": 13,
       "tokens": [
         {
           "t": "明日",
@@ -458,6 +844,17 @@
         {
           "t": "、",
           "role": "punct"
+        },
+        {
+          "t": "祖母",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "そぼ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "手紙",
@@ -488,359 +885,19 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Tomorrow, I'll write a letter.",
-      "audio": "audio/story_31/s9.mp3",
-      "audio_hash": "d557f79e4045"
-    },
-    {
-      "idx": 10,
-      "tokens": [
-        {
-          "t": "静か",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
-        },
-        {
-          "t": "な",
-          "role": "particle",
-          "grammar_id": "G016_na_adjective"
-        },
-        {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "雲",
-          "role": "content",
-          "word_id": "W00092",
-          "r": "くも"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "あります",
-          "role": "content",
-          "word_id": "W00044",
-          "r": "あります",
-          "inflection": {
-            "base": "ある",
-            "base_r": "ある",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "A quiet morning — there are clouds.",
-      "audio": "audio/story_31/s10.mp3",
-      "audio_hash": "561d7e0d55f1"
-    },
-    {
-      "idx": 11,
-      "tokens": [
-        {
-          "t": "温かい",
-          "role": "content",
-          "word_id": "W00012",
-          "r": "あたたかい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "お茶",
-          "role": "content",
-          "word_id": "W00009",
-          "r": "おちゃ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "飲んで",
-          "role": "content",
-          "word_id": "W00010",
-          "r": "のんで",
-          "inflection": {
-            "base": "飲む",
-            "base_r": "のむ",
-            "form": "te",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G007_te_form"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "立ちます",
-          "role": "content",
-          "word_id": "W00087",
-          "r": "たちます",
-          "inflection": {
-            "base": "立つ",
-            "base_r": "たつ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Drinking warm tea, I stand up.",
-      "audio": "audio/story_31/s11.mp3",
-      "audio_hash": "c1144d105ff1"
-    },
-    {
-      "idx": 12,
-      "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "カップ",
-          "role": "content",
-          "word_id": "W00167",
-          "r": "カップ"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "あります",
-          "role": "content",
-          "word_id": "W00044",
-          "r": "あります",
-          "inflection": {
-            "base": "ある",
-            "base_r": "ある",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "There is my cup.",
-      "audio": "audio/story_31/s12.mp3",
-      "audio_hash": "ee98face0bb1"
-    },
-    {
-      "idx": 13,
-      "tokens": [
-        {
-          "t": "鍵",
-          "role": "content",
-          "word_id": "W00079",
-          "r": "かぎ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "机",
-          "role": "content",
-          "word_id": "W00037",
-          "r": "つくえ"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "あります",
-          "role": "content",
-          "word_id": "W00044",
-          "r": "あります",
-          "inflection": {
-            "base": "ある",
-            "base_r": "ある",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The key is on the desk.",
+      "gloss_en": "Tomorrow, I will write a letter to grandmother.",
       "audio": "audio/story_31/s13.mp3",
-      "audio_hash": "cb8708091bc3"
-    },
-    {
-      "idx": 14,
-      "tokens": [
-        {
-          "t": "客",
-          "role": "content",
-          "word_id": "W00241",
-          "r": "きゃく"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "お茶",
-          "role": "content",
-          "word_id": "W00009",
-          "r": "おちゃ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "飲みます",
-          "role": "content",
-          "word_id": "W00010",
-          "r": "のみます",
-          "inflection": {
-            "base": "飲む",
-            "base_r": "のむ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The guest drinks tea.",
-      "audio": "audio/story_31/s14.mp3",
-      "audio_hash": "046439ccbdbb"
-    },
-    {
-      "idx": 15,
-      "tokens": [
-        {
-          "t": "ペン",
-          "role": "content",
-          "word_id": "W00246",
-          "r": "ぺん"
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "名前",
-          "role": "content",
-          "word_id": "W00061",
-          "r": "なまえ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "書きます",
-          "role": "content",
-          "word_id": "W00060",
-          "r": "かきます",
-          "inflection": {
-            "base": "書く",
-            "base_r": "かく",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I write a name with a pen.",
-      "audio": "audio/story_31/s15.mp3",
-      "audio_hash": "5bbc73048511"
-    },
-    {
-      "idx": 16,
-      "tokens": [
-        {
-          "t": "祖母",
-          "role": "content",
-          "word_id": "W00098",
-          "r": "そぼ",
-          "is_new": true
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "元気",
-          "role": "content",
-          "word_id": "W00058",
-          "r": "げんき"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "My grandmother is well.",
-      "audio": "audio/story_31/s16.mp3",
-      "audio_hash": "9eb0e2aee2d0"
+      "audio_hash": "d9fc714c8b47"
     }
   ],
   "word_audio": {
     "W00093": "audio/story_31/w_W00093.mp3",
-    "W00094": "audio/story_31/w_W00094.mp3",
-    "W00098": "audio/story_31/w_W00098.mp3"
+    "W00098": "audio/story_31/w_W00098.mp3",
+    "W00094": "audio/story_31/w_W00094.mp3"
   },
   "word_audio_hash": {
     "W00093": "5154b7cf78ed",
-    "W00094": "bcaa051f1894",
-    "W00098": "1fb2101ff72a"
+    "W00098": "1fb2101ff72a",
+    "W00094": "bcaa051f1894"
   }
 }
