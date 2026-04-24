@@ -1,6 +1,6 @@
 {
   "scale": {
-    "version": "1.2",
+    "version": "1.3",
     "date": "2026-04-24",
     "max_per_dimension": 5,
     "max_total": 25,
@@ -21,12 +21,12 @@
   },
   "summary": {
     "count": 67,
-    "average_total": 22.61,
-    "tier_distribution": {"5": 52, "4": 15, "3": 0, "2": 0, "1": 0},
-    "min_total": 19,
+    "average_total": 22.88,
+    "tier_distribution": {"5": 56, "4": 11, "3": 0, "2": 0, "1": 0},
+    "min_total": 20,
     "max_total": 25,
     "perfect_scores": [33, 37, 47],
-    "lowest_scores": [15, 48, 62, 67]
+    "lowest_scores": [3, 14, 22, 28, 46, 58]
   },
   "history": [
     {
@@ -68,6 +68,20 @@
         {"id": 53, "before": 18, "after": 23, "delta": "+5"}
       ],
       "note": "Second pass: the six newly-tied bottom stories (all at 18) rewritten in the same style. Library minimum lifts from 18 → 19, ★★★★★ count grows from 46 → 52. Two cascade-fix gotchas caught and corrected: gap-violations from accidentally re-introducing 開ける (story_52) and 今朝 (story_53) after 20+ story silences."
+    },
+    {
+      "version": "1.3",
+      "date": "2026-04-24",
+      "average_total": 22.88,
+      "tier_distribution": {"5": 56, "4": 11, "3": 0, "2": 0, "1": 0},
+      "lowest_scores": [3, 14, 22, 28, 46, 58],
+      "rewritten_stories": [
+        {"id": 15, "before": 19, "after": 24, "delta": "+5"},
+        {"id": 48, "before": 19, "after": 23, "delta": "+4"},
+        {"id": 62, "before": 19, "after": 23, "delta": "+4"},
+        {"id": 67, "before": 19, "after": 24, "delta": "+5"}
+      ],
+      "note": "Third pass: the 4 newly-tied bottom stories (all at 19) rewritten. The orphan-tail / Q-A-drill / よ-particle-drill patterns are now eliminated from the library. Library minimum lifts from 19 → 20; ★★★★★ count grows from 52 → 56 (84% of the library). Also: this is the first pass after R2 (vocab abandonment) was retired — late reuse callbacks like 古い上着を着て in story_62 were now free editorial choices rather than mechanical R2 weaves."
     }
   ],
   "scores_csv": "docs/story_scores.csv"
