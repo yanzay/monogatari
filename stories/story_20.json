@@ -53,11 +53,10 @@
     "W00045",
     "W00044",
     "W00058",
-    "W00043",
-    "W00160",
-    "W00163",
     "W00246",
-    "W00063"
+    "W00043",
+    "W00063",
+    "W00163"
   ],
   "sentences": [
     {
@@ -469,6 +468,10 @@
       "idx": 7,
       "tokens": [
         {
+          "t": "「",
+          "role": "punct"
+        },
+        {
           "t": "友達",
           "role": "content",
           "word_id": "W00022",
@@ -486,14 +489,45 @@
           "r": "げんき"
         },
         {
-          "t": "だ",
+          "t": "です",
           "role": "aux",
-          "grammar_id": "G024_da"
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
         },
         {
           "t": "と",
           "role": "particle",
           "grammar_id": "G014_to_omoimasu"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "ペン",
+          "role": "content",
+          "word_id": "W00246",
+          "r": "ぺん"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
         },
         {
           "t": "思います",
@@ -513,148 +547,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think the friend is well.",
+      "gloss_en": "\"Is the friend well?\" I think to my pen.",
       "audio": "audio/story_20/s7.mp3",
-      "audio_hash": "7e44153ac1fd"
+      "audio_hash": "95a7701f5531"
     },
     {
       "idx": 8,
-      "tokens": [
-        {
-          "t": "寒い",
-          "role": "content",
-          "word_id": "W00062",
-          "r": "さむい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "温かい",
-          "role": "content",
-          "word_id": "W00012",
-          "r": "あたたかい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "手紙",
-          "role": "content",
-          "word_id": "W00039",
-          "r": "てがみ"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "A cold morning, a warm letter.",
-      "audio": "audio/story_20/s8.mp3",
-      "audio_hash": "e99691d8471d"
-    },
-    {
-      "idx": 9,
-      "tokens": [
-        {
-          "t": "重い",
-          "role": "content",
-          "word_id": "W00160",
-          "r": "おもい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "手紙",
-          "role": "content",
-          "word_id": "W00039",
-          "r": "てがみ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "痛い",
-          "role": "content",
-          "word_id": "W00163",
-          "r": "いたい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "A heavy letter is painful.",
-      "audio": "audio/story_20/s9.mp3",
-      "audio_hash": "fe5882332042"
-    },
-    {
-      "idx": 10,
-      "tokens": [
-        {
-          "t": "ペン",
-          "role": "content",
-          "word_id": "W00246",
-          "r": "ぺん"
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "手紙",
-          "role": "content",
-          "word_id": "W00039",
-          "r": "てがみ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "書きます",
-          "role": "content",
-          "word_id": "W00060",
-          "r": "かきます",
-          "inflection": {
-            "base": "書く",
-            "base_r": "かく",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I write the letter with a pen.",
-      "audio": "audio/story_20/s10.mp3",
-      "audio_hash": "38fc7ac6d9d3"
-    },
-    {
-      "idx": 11,
       "tokens": [
         {
           "t": "外",
@@ -675,6 +573,40 @@
           "is_new": true
         },
         {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "痛い",
+          "role": "content",
+          "word_id": "W00163",
+          "r": "いたい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "温かい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
           "t": "です",
           "role": "aux",
           "grammar_id": "G003_desu"
@@ -684,9 +616,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Outside is snow.",
-      "audio": "audio/story_20/s11.mp3",
-      "audio_hash": "3167183a90db"
+      "gloss_en": "Outside, snow; a painful letter; a warm morning.",
+      "audio": "audio/story_20/s8.mp3",
+      "audio_hash": "01116d317bc4"
     }
   ],
   "word_audio": {

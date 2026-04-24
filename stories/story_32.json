@@ -51,19 +51,16 @@
     "W00088",
     "W00077",
     "W00012",
-    "W00056",
-    "W00090",
     "W00081",
     "W00082",
-    "W00190",
-    "W00076",
     "W00137",
     "W00078",
+    "W00115",
     "W00053",
+    "W00190",
+    "W00076",
     "W00064",
-    "W00102",
-    "W00022",
-    "W00115"
+    "W00102"
   ],
   "sentences": [
     {
@@ -564,46 +561,9 @@
       "idx": 11,
       "tokens": [
         {
-          "t": "嬉しい",
-          "role": "content",
-          "word_id": "W00056",
-          "r": "うれしい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "秋",
-          "role": "content",
-          "word_id": "W00090",
-          "r": "あき"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "冬",
-          "role": "content",
-          "word_id": "W00095",
-          "r": "ふゆ"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
+          "t": "「",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "A joyful autumn and winter.",
-      "audio": "audio/story_32/s11.mp3",
-      "audio_hash": "973362869a1b"
-    },
-    {
-      "idx": 12,
-      "tokens": [
+        },
         {
           "t": "夏",
           "role": "content",
@@ -639,46 +599,54 @@
           "grammar_id": "G003_desu"
         },
         {
-          "t": "。",
+          "t": "ね",
+          "role": "particle",
+          "grammar_id": "G034_ne_confirm"
+        },
+        {
+          "t": "」",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "Summer mornings are hot.",
-      "audio": "audio/story_32/s12.mp3",
-      "audio_hash": "9efa0ded6ef1"
-    },
-    {
-      "idx": 13,
-      "tokens": [
-        {
-          "t": "少し",
-          "role": "content",
-          "word_id": "W00190",
-          "r": "すこし"
         },
         {
-          "t": "悲しい",
-          "role": "content",
-          "word_id": "W00076",
-          "r": "かなしい",
-          "grammar_id": "G022_i_adj"
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu"
         },
         {
-          "t": "です",
+          "t": "父",
+          "role": "content",
+          "word_id": "W00096",
+          "r": "ちち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "言います",
           "role": "aux",
-          "grammar_id": "G003_desu"
+          "word_id": "W00097",
+          "r": "いいます",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I am a little sad.",
-      "audio": "audio/story_32/s13.mp3",
-      "audio_hash": "25df8a19752d"
+      "gloss_en": "\"Summer mornings are hot, aren't they,\" father says.",
+      "audio": "audio/story_32/s11.mp3",
+      "audio_hash": "f1667a6ab424"
     },
     {
-      "idx": 14,
+      "idx": 12,
       "tokens": [
         {
           "t": "明るい",
@@ -701,6 +669,14 @@
         {
           "t": "、",
           "role": "punct"
+        },
+        {
+          "t": "優しい",
+          "role": "content",
+          "word_id": "W00115",
+          "r": "やさしい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
         },
         {
           "t": "家族",
@@ -731,13 +707,47 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In a bright house, the family laughs.",
-      "audio": "audio/story_32/s14.mp3",
-      "audio_hash": "57a33eb3b2fd"
+      "gloss_en": "In the bright house, the kind family laughs.",
+      "audio": "audio/story_32/s12.mp3",
+      "audio_hash": "57b599498abb"
     },
     {
-      "idx": 15,
+      "idx": 13,
       "tokens": [
+        {
+          "t": "少し",
+          "role": "content",
+          "word_id": "W00190",
+          "r": "すこし"
+        },
+        {
+          "t": "悲しい",
+          "role": "content",
+          "word_id": "W00076",
+          "r": "かなしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "冬",
+          "role": "content",
+          "word_id": "W00095",
+          "r": "ふゆ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
         {
           "t": "私",
           "role": "content",
@@ -778,45 +788,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I run on the road.",
-      "audio": "audio/story_32/s15.mp3",
-      "audio_hash": "17a6bf7d5686"
-    },
-    {
-      "idx": 16,
-      "tokens": [
-        {
-          "t": "友達",
-          "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "優しい",
-          "role": "content",
-          "word_id": "W00115",
-          "r": "やさしい",
-          "grammar_id": "G022_i_adj",
-          "is_new": true
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "My friend is kind.",
-      "audio": "audio/story_32/s16.mp3",
-      "audio_hash": "7cf1a01a3825"
+      "gloss_en": "On a slightly sad winter morning, I run down the road.",
+      "audio": "audio/story_32/s13.mp3",
+      "audio_hash": "8d6e7f6e9944"
     }
   ],
   "word_audio": {

@@ -41,8 +41,8 @@
   },
   "new_words": [
     "W00170",
-    "W00171",
     "W00169",
+    "W00171",
     "W00220"
   ],
   "new_grammar": [],
@@ -69,22 +69,22 @@
     "W00120",
     "W00168",
     "W00170",
+    "W00169",
     "W00123",
     "W00046",
-    "W00040",
     "W00143",
+    "W00150",
     "W00171",
-    "W00169",
-    "W00017",
-    "W00066",
-    "W00132",
+    "W00212",
+    "W00243",
+    "W00016",
     "W00130",
     "W00079",
     "W00220",
+    "W00190",
     "W00129",
-    "W00212",
-    "W00243",
-    "W00011"
+    "W00066",
+    "W00132"
   ],
   "sentences": [
     {
@@ -692,6 +692,17 @@
           "grammar_id": "G001_wa_topic"
         },
         {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
           "t": "服",
           "role": "content",
           "word_id": "W00168",
@@ -707,6 +718,18 @@
           "role": "content",
           "word_id": "W00170",
           "r": "ぼうし",
+          "is_new": true
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "靴",
+          "role": "content",
+          "word_id": "W00169",
+          "r": "くつ",
           "is_new": true
         },
         {
@@ -732,91 +755,13 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I remember the clothes and the hat.",
+      "gloss_en": "I take note of the friend's clothes, hat, and shoes.",
       "audio": "audio/story_49/s11.mp3",
-      "audio_hash": "a3950d37ba6e"
+      "audio_hash": "13b748955191"
     },
     {
       "idx": 12,
       "tokens": [
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "明日",
-          "role": "content",
-          "word_id": "W00046",
-          "r": "あした"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "来ません",
-          "role": "content",
-          "word_id": "W00040",
-          "r": "きません",
-          "inflection": {
-            "base": "来る",
-            "base_r": "くる",
-            "form": "negative_polite",
-            "verb_class": "irregular_kuru"
-          },
-          "grammar_id": "G036_masen"
-        },
-        {
-          "t": "か",
-          "role": "particle",
-          "grammar_id": "G037_ka_question"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G028_to_iimasu"
-        },
-        {
-          "t": "言います",
-          "role": "aux",
-          "word_id": "W00097",
-          "r": "いいます",
-          "inflection": {
-            "base": "言う",
-            "base_r": "いう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "\"Won't you come tomorrow too?\" I say.",
-      "audio": "audio/story_49/s12.mp3",
-      "audio_hash": "e002919272c5"
-    },
-    {
-      "idx": 13,
-      "tokens": [
-        {
-          "t": "友達",
-          "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
         {
           "t": "「",
           "role": "punct"
@@ -840,9 +785,22 @@
           "grammar_id": "G040_doko_where"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "行きません",
+          "role": "content",
+          "word_id": "W00150",
+          "r": "いきません",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G036_masen"
         },
         {
           "t": "か",
@@ -857,6 +815,17 @@
           "t": "と",
           "role": "particle",
           "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "言います",
@@ -876,18 +845,22 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend says, \"where will tomorrow be?\"",
-      "audio": "audio/story_49/s13.mp3",
-      "audio_hash": "5c95a673ee03"
+      "gloss_en": "\"Where shall we go tomorrow?\" I say.",
+      "audio": "audio/story_49/s12.mp3",
+      "audio_hash": "2d99f6ef80b3"
     },
     {
-      "idx": 14,
+      "idx": 13,
       "tokens": [
         {
-          "t": "友達",
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "私",
           "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "と",
@@ -902,30 +875,99 @@
           "is_new": true
         },
         {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "一緒に",
+          "role": "content",
+          "word_id": "W00050",
+          "r": "いっしょに"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "緑",
+          "role": "content",
+          "word_id": "W00212",
+          "r": "みどり"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "草",
+          "role": "content",
+          "word_id": "W00243",
+          "r": "くさ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "こうえん"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "行きません",
+          "role": "content",
+          "word_id": "W00150",
+          "r": "いきません",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G036_masen"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G028_to_iimasu"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "靴",
-          "role": "content",
-          "word_id": "W00169",
-          "r": "くつ",
-          "is_new": true
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "歩きます",
-          "role": "content",
-          "word_id": "W00017",
-          "r": "あるきます",
+          "t": "言います",
+          "role": "aux",
+          "word_id": "W00097",
+          "r": "いいます",
           "inflection": {
-            "base": "歩く",
-            "base_r": "あるく",
+            "base": "言う",
+            "base_r": "いう",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
@@ -936,9 +978,97 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend and (my) older sister walk in shoes.",
+      "gloss_en": "\"Won't we go to the green-grass park with my older sister?\" the friend says.",
+      "audio": "audio/story_49/s13.mp3",
+      "audio_hash": "aff04d66dd32"
+    },
+    {
+      "idx": 14,
+      "tokens": [
+        {
+          "t": "でも",
+          "role": "particle",
+          "grammar_id": "G032_demo"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "カバン",
+          "role": "content",
+          "word_id": "W00130",
+          "r": "かばん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "鍵",
+          "role": "content",
+          "word_id": "W00079",
+          "r": "かぎ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "なくて",
+          "role": "content",
+          "word_id": "W00220",
+          "r": "なくて",
+          "inflection": {
+            "form": "i_adj_te"
+          },
+          "grammar_id": "G029_kute",
+          "is_new": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "少し",
+          "role": "content",
+          "word_id": "W00190",
+          "r": "すこし"
+        },
+        {
+          "t": "困ります",
+          "role": "content",
+          "word_id": "W00129",
+          "r": "こまります",
+          "inflection": {
+            "base": "困る",
+            "base_r": "こまる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But, my bag's key is missing, and I am a little troubled.",
       "audio": "audio/story_49/s14.mp3",
-      "audio_hash": "eb0391e7c333"
+      "audio_hash": "2db1685b7658"
     },
     {
       "idx": 15,
@@ -1007,136 +1137,18 @@
       "gloss_en": "Spring evening, warm tea, a new promise.",
       "audio": "audio/story_49/s15.mp3",
       "audio_hash": "66c33b540680"
-    },
-    {
-      "idx": 16,
-      "tokens": [
-        {
-          "t": "カバン",
-          "role": "content",
-          "word_id": "W00130",
-          "r": "かばん"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "鍵",
-          "role": "content",
-          "word_id": "W00079",
-          "r": "かぎ"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "なくて",
-          "role": "content",
-          "word_id": "W00220",
-          "r": "なくて",
-          "inflection": {
-            "form": "i_adj_te"
-          },
-          "grammar_id": "G029_kute",
-          "is_new": true
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "困ります",
-          "role": "content",
-          "word_id": "W00129",
-          "r": "こまります",
-          "inflection": {
-            "base": "困る",
-            "base_r": "こまる",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Without the bag's key, I'm troubled.",
-      "audio": "audio/story_49/s16.mp3",
-      "audio_hash": "cf368e5cd3ba"
-    },
-    {
-      "idx": 17,
-      "tokens": [
-        {
-          "t": "緑",
-          "role": "content",
-          "word_id": "W00212",
-          "r": "みどり"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "草",
-          "role": "content",
-          "word_id": "W00243",
-          "r": "くさ"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "静か",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The green grass is still.",
-      "audio": "audio/story_49/s17.mp3",
-      "audio_hash": "9e789550d4ad"
     }
   ],
   "word_audio": {
     "W00170": "audio/story_49/w_W00170.mp3",
-    "W00171": "audio/story_49/w_W00171.mp3",
     "W00169": "audio/story_49/w_W00169.mp3",
+    "W00171": "audio/story_49/w_W00171.mp3",
     "W00220": "audio/story_49/w_W00220.mp3"
   },
   "word_audio_hash": {
     "W00170": "f045b9ca8f63",
-    "W00171": "6a9849543e49",
     "W00169": "40a2391a45d9",
+    "W00171": "6a9849543e49",
     "W00220": "b2cf3548d873"
   }
 }

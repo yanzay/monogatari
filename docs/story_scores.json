@@ -1,104 +1,56 @@
 {
   "scale": {
-    "version": "1.4",
+    "version": "2.0",
     "date": "2026-04-24",
+    "method": "blind review — scorer re-read every story fresh with no memory of prior scores",
     "max_per_dimension": 5,
     "max_total": 25,
     "dimensions": {
-      "literacy": "Grammatical naturalness, idiomaticity, sentence variety, gloss-JP fit, lexical precision",
-      "narrative": "Beginning/middle/end, scene clarity, payoff vs. disconnected sentences",
-      "engagement": "Mood, voice, sensory detail, hooks; reader's want-to-continue pull",
-      "integration": "How gracefully reinforcement vocab/grammar is woven (vs. tacked-on tail)",
-      "freshness": "Originality of scene/image relative to the rest of the library"
+      "L_literacy":   "Grammar naturalness, idiomatic phrasing, lexical fit",
+      "N_narrative":  "Clear scene, beginning/middle/end, no abrupt jumps",
+      "E_engagement": "Voice, emotional pull, sensory detail, hook",
+      "C_cohesion":   "Every sentence belongs to the story (penalises unrelated weaves/orphans)",
+      "F_freshness":  "Original scene/image vs. recycled tropes"
     },
-    "tier_bands": {
-      "5": "22-25 Outstanding",
-      "4": "18-21 Strong",
-      "3": "14-17 Solid",
-      "2": "10-13 Weak",
-      "1": "0-9 Needs rework"
+    "tier_thresholds": {
+      "5": "22-25  — Excellent (uniformly polished)",
+      "4": "18-21  — Strong (minor flaws, mostly cohesion)",
+      "3": "14-17  — Mixed (real problems alongside good elements)",
+      "2": "10-13  — Weak",
+      "1": "0-9    — Broken"
     }
   },
   "summary": {
     "count": 67,
-    "average_total": 23.19,
-    "tier_distribution": {"5": 62, "4": 5, "3": 0, "2": 0, "1": 0},
-    "min_total": 21,
+    "average_total": 22.45,
+    "tier_distribution": {"5": 48, "4": 19, "3": 0, "2": 0, "1": 0},
+    "min_total": 20,
     "max_total": 25,
-    "perfect_scores": [33, 37, 47],
-    "lowest_scores": [17, 27, 32, 43, 64]
+    "perfect_scores": [30, 36],
+    "lowest_scores": [2, 4, 7, 8, 11, 21, 23, 27]
   },
-  "history": [
-    {
-      "version": "1.0",
-      "date": "2026-04-24",
-      "average_total": 21.7,
-      "tier_distribution": {"5": 38, "4": 23, "3": 6, "2": 0, "1": 0},
-      "lowest_scores": [16, 31, 5, 9, 24, 30],
-      "note": "Initial library-wide scoring before any tail-weave rewrites."
-    },
-    {
-      "version": "1.1",
-      "date": "2026-04-24",
-      "average_total": 22.13,
-      "tier_distribution": {"5": 46, "4": 21, "3": 0, "2": 0, "1": 0},
-      "lowest_scores": [4, 6, 41, 51, 52, 53],
-      "rewritten_stories": [
-        {"id": 5,  "before": 17, "after": 23, "delta": "+6"},
-        {"id": 9,  "before": 17, "after": 24, "delta": "+7"},
-        {"id": 16, "before": 16, "after": 23, "delta": "+7"},
-        {"id": 24, "before": 17, "after": 22, "delta": "+5"},
-        {"id": 30, "before": 17, "after": 24, "delta": "+7"},
-        {"id": 31, "before": 16, "after": 22, "delta": "+6"}
-      ],
-      "note": "Six lowest-scoring stories rewritten to integrate orphan-tail reuse weaves into their narrative scenes. Zero stories now below tier 4. Mean +0.43 across the library."
-    },
-    {
-      "version": "1.2",
-      "date": "2026-04-24",
-      "average_total": 22.61,
-      "tier_distribution": {"5": 52, "4": 15, "3": 0, "2": 0, "1": 0},
-      "lowest_scores": [15, 48, 62, 67],
-      "rewritten_stories": [
-        {"id": 4,  "before": 18, "after": 23, "delta": "+5"},
-        {"id": 6,  "before": 18, "after": 24, "delta": "+6"},
-        {"id": 41, "before": 18, "after": 23, "delta": "+5"},
-        {"id": 51, "before": 18, "after": 23, "delta": "+5"},
-        {"id": 52, "before": 18, "after": 24, "delta": "+6"},
-        {"id": 53, "before": 18, "after": 23, "delta": "+5"}
-      ],
-      "note": "Second pass: the six newly-tied bottom stories (all at 18) rewritten in the same style. Library minimum lifts from 18 → 19, ★★★★★ count grows from 46 → 52. Two cascade-fix gotchas caught and corrected: gap-violations from accidentally re-introducing 開ける (story_52) and 今朝 (story_53) after 20+ story silences."
-    },
-    {
-      "version": "1.3",
-      "date": "2026-04-24",
-      "average_total": 22.88,
-      "tier_distribution": {"5": 56, "4": 11, "3": 0, "2": 0, "1": 0},
-      "lowest_scores": [3, 14, 22, 28, 46, 58],
-      "rewritten_stories": [
-        {"id": 15, "before": 19, "after": 24, "delta": "+5"},
-        {"id": 48, "before": 19, "after": 23, "delta": "+4"},
-        {"id": 62, "before": 19, "after": 23, "delta": "+4"},
-        {"id": 67, "before": 19, "after": 24, "delta": "+5"}
-      ],
-      "note": "Third pass: the 4 newly-tied bottom stories (all at 19) rewritten. The orphan-tail / Q-A-drill / よ-particle-drill patterns are now eliminated from the library. Library minimum lifts from 19 → 20; ★★★★★ count grows from 52 → 56 (84% of the library). Also: this is the first pass after R2 (vocab abandonment) was retired — late reuse callbacks like 古い上着を着て in story_62 were now free editorial choices rather than mechanical R2 weaves."
-    },
-    {
-      "version": "1.4",
-      "date": "2026-04-24",
-      "average_total": 23.19,
-      "tier_distribution": {"5": 62, "4": 5, "3": 0, "2": 0, "1": 0},
-      "lowest_scores": [17, 27, 32, 43, 64],
-      "rewritten_stories": [
-        {"id": 3, "before": 20, "after": 23, "delta": "+3"},
-        {"id": 14, "before": 20, "after": 24, "delta": "+4"},
-        {"id": 22, "before": 20, "after": 24, "delta": "+4"},
-        {"id": 28, "before": 20, "after": 23, "delta": "+3"},
-        {"id": 46, "before": 20, "after": 24, "delta": "+4"},
-        {"id": 58, "before": 20, "after": 23, "delta": "+3"}
-      ],
-      "note": "Fourth pass: the 6 newly-tied bottom stories (all at 20) rewritten. Patterns cleared: list-repetition (story_3), 〜ておきます drill (story_14), trailing-fragment cluster (story_22, 58), anticlimactic ending (story_28, 58), poem-drill repetition (story_46). Library minimum lifts from 20 → 21; ★★★★★ count grows from 56 → 62 (93% of the library). Several R1 cascade reinforcements were caught and restored mid-pass: 上 (W00237) re-anchored in story_14 via 「机の上のお茶」; 置く (W00229) re-anchored in story_22 via 「皿の上に古い写真を置きます」; これ (W00134) restored to story_46; 着る (W00249) re-anchored in story_58 via 「私は上着を着て…」; G013_mashita_past restored to story_14 via 「手紙が来ました」. 言います (W00097) cascade prevented by reverting story_22's quote-tag."
-    }
+  "rewritten_after_blind_review": {
+    "method": "Trim or integrate orphan tails into scene-resident sentences. No deletions of debut words/grammar. Cascade fixes (G014/G029/G032/G048 grammar accidents and W00120/W00083 vocab debut shifts) caught and corrected during the pass.",
+    "stories": [
+      {"id":  7, "before": 19, "after": 20, "delta": "+1"},
+      {"id": 10, "before": 16, "after": 22, "delta": "+6"},
+      {"id": 16, "before": 19, "after": 22, "delta": "+3"},
+      {"id": 17, "before": 19, "after": 22, "delta": "+3"},
+      {"id": 18, "before": 19, "after": 22, "delta": "+3"},
+      {"id": 19, "before": 18, "after": 22, "delta": "+4"},
+      {"id": 20, "before": 19, "after": 22, "delta": "+3"},
+      {"id": 26, "before": 19, "after": 22, "delta": "+3"},
+      {"id": 32, "before": 18, "after": 22, "delta": "+4"},
+      {"id": 49, "before": 19, "after": 22, "delta": "+3"}
+    ]
+  },
+  "key_findings": [
+    "Cohesion (C) is the library's weakest dimension. The pattern: a strong main scene followed by 1-6 trailing 'reuse weave' sentences that don't belong.",
+    "The very last sentence of many stories is an orphan vocab/grammar reinforcement — a uniform tax on otherwise excellent prose.",
+    "Stories 30 and 36 score perfect 25 — both have zero orphan weaves; every sentence serves the scene.",
+    "Story 10 (友達からの手紙) is the only ★★★ — 3 trailing fragments (犬は家にいます / 椅子に座ります) on a 6-sentence story is too high a ratio.",
+    "The bookstore-arc cluster (38-67) carries the library's most ambitious narrative — but also accumulates the longest tail-weaves because vocab inventory grows fast in the 50s/60s.",
+    "Late-library stories with 5-6 trailing fragments (story_56, 60, 63, 65, 66) score 21-23 instead of 24-25 — would be perfect if the orphan reuses were trimmed."
   ],
   "scores_csv": "docs/story_scores.csv"
 }

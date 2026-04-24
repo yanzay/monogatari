@@ -44,12 +44,11 @@
     "W00034",
     "W00011",
     "W00041",
-    "W00038",
     "W00101",
     "W00078",
-    "W00029",
     "W00036",
-    "W00085"
+    "W00085",
+    "W00038"
   ],
   "sentences": [
     {
@@ -290,6 +289,104 @@
       "idx": 5,
       "tokens": [
         {
+          "t": "犬",
+          "role": "content",
+          "word_id": "W00101",
+          "r": "いぬ"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "椅子",
+          "role": "content",
+          "word_id": "W00036",
+          "r": "いす"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "座って",
+          "role": "content",
+          "word_id": "W00085",
+          "r": "すわって",
+          "inflection": {
+            "base": "座る",
+            "base_r": "すわる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form",
+          "is_new": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "読みます",
+          "role": "content",
+          "word_id": "W00034",
+          "r": "よみます",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The dog and I sit at home in a chair, and I read the letter.",
+      "audio": "audio/story_10/s5.mp3",
+      "audio_hash": "b1fb381ade9f"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
           "t": "そして",
           "role": "particle",
           "grammar_id": "G012_soshite_then"
@@ -328,12 +425,33 @@
         }
       ],
       "gloss_en": "And the friend, too, sleeps.",
-      "audio": "audio/story_10/s5.mp3",
+      "audio": "audio/story_10/s6.mp3",
       "audio_hash": "a0cc851b297d"
     },
     {
-      "idx": 6,
+      "idx": 7,
       "tokens": [
+        {
+          "t": "風",
+          "role": "content",
+          "word_id": "W00027",
+          "r": "かぜ"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "てがみ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
         {
           "t": "友達",
           "role": "content",
@@ -341,20 +459,15 @@
           "r": "ともだち"
         },
         {
-          "t": "から",
-          "role": "particle",
-          "grammar_id": "G006_kara_from"
-        },
-        {
           "t": "の",
           "role": "particle",
           "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "手紙",
+          "t": "朝",
           "role": "content",
-          "word_id": "W00039",
-          "r": "てがみ"
+          "word_id": "W00015",
+          "r": "あさ"
         },
         {
           "t": "、",
@@ -389,93 +502,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A letter from my friend — I wait.",
-      "audio": "audio/story_10/s6.mp3",
-      "audio_hash": "3f6233cfe1af"
-    },
-    {
-      "idx": 7,
-      "tokens": [
-        {
-          "t": "犬",
-          "role": "content",
-          "word_id": "W00101",
-          "r": "いぬ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "家",
-          "role": "content",
-          "word_id": "W00078",
-          "r": "いえ"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "います",
-          "role": "content",
-          "word_id": "W00029",
-          "r": "います",
-          "inflection": {
-            "base": "いる",
-            "base_r": "いる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The dog is at home.",
+      "gloss_en": "Wind, a letter, the friend's morning — I wait.",
       "audio": "audio/story_10/s7.mp3",
-      "audio_hash": "5f0da064b1fd"
-    },
-    {
-      "idx": 8,
-      "tokens": [
-        {
-          "t": "椅子",
-          "role": "content",
-          "word_id": "W00036",
-          "r": "いす"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "座ります",
-          "role": "content",
-          "word_id": "W00085",
-          "r": "すわります",
-          "inflection": {
-            "base": "座る",
-            "base_r": "すわる",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast",
-          "is_new": true
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I sit on a chair.",
-      "audio": "audio/story_10/s8.mp3",
-      "audio_hash": "6a67e245f553"
+      "audio_hash": "8190616cdd8c"
     }
   ],
   "word_audio": {

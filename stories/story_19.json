@@ -28,7 +28,9 @@
     "W00229",
     "W00072"
   ],
-  "new_grammar": [],
+  "new_grammar": [
+    "G037_ka_question"
+  ],
   "all_words_used": [
     "W00059",
     "W00054",
@@ -47,12 +49,11 @@
     "W00051",
     "W00043",
     "W00053",
+    "W00240",
     "W00047",
-    "W00163",
     "W00166",
     "W00229",
-    "W00240",
-    "W00137",
+    "W00163",
     "W00072"
   ],
   "sentences": [
@@ -480,6 +481,17 @@
           "role": "punct"
         },
         {
+          "t": "太陽",
+          "role": "content",
+          "word_id": "W00240",
+          "r": "たいよう"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
           "t": "空",
           "role": "content",
           "word_id": "W00047",
@@ -507,19 +519,23 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The garden is quiet, the sky is big.",
+      "gloss_en": "The garden is quiet, the sun's sky is wide.",
       "audio": "audio/story_19/s8.mp3",
-      "audio_hash": "b3137ce1d186"
+      "audio_hash": "0f93d045bfbc"
     },
     {
       "idx": 9,
       "tokens": [
         {
-          "t": "小さい",
+          "t": "私",
           "role": "content",
-          "word_id": "W00055",
-          "r": "ちいさい",
-          "grammar_id": "G022_i_adj"
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "鳥",
@@ -528,34 +544,14 @@
           "r": "とり"
         },
         {
-          "t": "は",
+          "t": "に",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G004_ni_location"
         },
         {
-          "t": "痛い",
-          "role": "content",
-          "word_id": "W00163",
-          "r": "いたい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
+          "t": "、",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "The small bird is in pain.",
-      "audio": "audio/story_19/s9.mp3",
-      "audio_hash": "7ad5931250f5"
-    },
-    {
-      "idx": 10,
-      "tokens": [
+        },
         {
           "t": "皿",
           "role": "content",
@@ -563,9 +559,9 @@
           "r": "さら"
         },
         {
-          "t": "に",
+          "t": "の",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "温かい",
@@ -604,18 +600,22 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I put warm bread on the plate.",
-      "audio": "audio/story_19/s10.mp3",
-      "audio_hash": "e70efe1014dd"
+      "gloss_en": "For the bird, I set out the warm bread on the plate.",
+      "audio": "audio/story_19/s9.mp3",
+      "audio_hash": "6073bdcf5985"
     },
     {
-      "idx": 11,
+      "idx": 10,
       "tokens": [
         {
-          "t": "太陽",
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "鳥",
           "role": "content",
-          "word_id": "W00240",
-          "r": "たいよう"
+          "word_id": "W00054",
+          "r": "とり"
         },
         {
           "t": "は",
@@ -623,10 +623,10 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "明るい",
+          "t": "痛い",
           "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
+          "word_id": "W00163",
+          "r": "いたい",
           "grammar_id": "G022_i_adj"
         },
         {
@@ -635,17 +635,56 @@
           "grammar_id": "G003_desu"
         },
         {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question",
+          "is_new_grammar": true
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G014_to_omoimasu"
+        },
+        {
+          "t": "思います",
+          "role": "aux",
+          "word_id": "W00043",
+          "r": "おもいます",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The sun is bright.",
-      "audio": "audio/story_19/s11.mp3",
-      "audio_hash": "7dfbbbda2d1b"
+      "gloss_en": "\"Is the bird hurt?\" I think.",
+      "audio": "audio/story_19/s10.mp3",
+      "audio_hash": "0a129a24d9df"
     },
     {
-      "idx": 12,
+      "idx": 11,
       "tokens": [
+        {
+          "t": "庭",
+          "role": "content",
+          "word_id": "W00059",
+          "r": "にわ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
         {
           "t": "春",
           "role": "content",
@@ -676,9 +715,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Spring comes.",
-      "audio": "audio/story_19/s12.mp3",
-      "audio_hash": "4709c0de102c"
+      "gloss_en": "The garden's spring is coming.",
+      "audio": "audio/story_19/s11.mp3",
+      "audio_hash": "63c05cd75da1"
     }
   ],
   "word_audio": {

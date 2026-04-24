@@ -45,11 +45,8 @@
     "W00039",
     "W00034",
     "W00056",
-    "W00229",
     "W00033",
-    "W00050",
-    "W00017",
-    "W00047",
+    "W00229",
     "W00083"
   ],
   "sentences": [
@@ -619,46 +616,10 @@
           "r": "かぎ"
         },
         {
-          "t": "を",
+          "t": "と",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "G010_to_and"
         },
-        {
-          "t": "机",
-          "role": "content",
-          "word_id": "W00037",
-          "r": "つくえ"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "置きます",
-          "role": "content",
-          "word_id": "W00229",
-          "r": "おきます",
-          "inflection": {
-            "base": "置く",
-            "base_r": "おく",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I place the key on the desk.",
-      "audio": "audio/story_26/s11.mp3",
-      "audio_hash": "9b4ab9b4dcf4"
-    },
-    {
-      "idx": 12,
-      "tokens": [
         {
           "t": "本",
           "role": "content",
@@ -699,60 +660,13 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I put the book on the desk.",
-      "audio": "audio/story_26/s12.mp3",
-      "audio_hash": "86d40c11c117"
+      "gloss_en": "I place the key and the book on the desk.",
+      "audio": "audio/story_26/s11.mp3",
+      "audio_hash": "fb460d201aa2"
     },
     {
-      "idx": 13,
+      "idx": 12,
       "tokens": [
-        {
-          "t": "一緒に",
-          "role": "content",
-          "word_id": "W00050",
-          "r": "いっしょに"
-        },
-        {
-          "t": "歩きません",
-          "role": "content",
-          "word_id": "W00017",
-          "r": "あるきません",
-          "inflection": {
-            "base": "歩く",
-            "base_r": "あるく",
-            "form": "negative_polite",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G041_masenka_invitation"
-        },
-        {
-          "t": "か",
-          "role": "particle",
-          "grammar_id": "G037_ka_question"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Won't you walk with me?",
-      "audio": "audio/story_26/s13.mp3",
-      "audio_hash": "a825d7d94e38"
-    },
-    {
-      "idx": 14,
-      "tokens": [
-        {
-          "t": "空",
-          "role": "content",
-          "word_id": "W00047",
-          "r": "そら"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
         {
           "t": "美しい",
           "role": "content",
@@ -760,6 +674,23 @@
           "r": "うつくしい",
           "grammar_id": "G022_i_adj",
           "is_new": true
+        },
+        {
+          "t": "夕方",
+          "role": "content",
+          "word_id": "W00018",
+          "r": "ゆうがた"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
         },
         {
           "t": "です",
@@ -771,9 +702,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The sky is beautiful.",
-      "audio": "audio/story_26/s14.mp3",
-      "audio_hash": "cedd2fc4da9b"
+      "gloss_en": "A beautiful home in the evening.",
+      "audio": "audio/story_26/s12.mp3",
+      "audio_hash": "8d787cca7c3c"
     }
   ],
   "word_audio": {

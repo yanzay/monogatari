@@ -30,10 +30,8 @@
     "W00003",
     "W00006",
     "W00027",
-    "W00156",
     "W00055",
-    "W00101",
-    "W00029"
+    "W00156"
   ],
   "sentences": [
     {
@@ -358,6 +356,14 @@
           "grammar_id": "G010_to_and"
         },
         {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00055",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
           "t": "色",
           "role": "content",
           "word_id": "W00156",
@@ -385,57 +391,18 @@
           "r": "よる"
         },
         {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "Moon, stars, and color — the night outside.",
+      "gloss_en": "Moon, stars, and small colors — the night outside.",
       "audio": "audio/story_7/s6.mp3",
-      "audio_hash": "a5e419bc9b9b"
-    },
-    {
-      "idx": 7,
-      "tokens": [
-        {
-          "t": "小さい",
-          "role": "content",
-          "word_id": "W00055",
-          "r": "ちいさい",
-          "grammar_id": "G022_i_adj",
-          "is_new": true
-        },
-        {
-          "t": "犬",
-          "role": "content",
-          "word_id": "W00101",
-          "r": "いぬ"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "います",
-          "role": "content",
-          "word_id": "W00029",
-          "r": "います",
-          "inflection": {
-            "base": "いる",
-            "base_r": "いる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "There is a small dog.",
-      "audio": "audio/story_7/s7.mp3",
-      "audio_hash": "8b9f34c333fb"
+      "audio_hash": "32e495614e8d"
     }
   ],
   "word_audio": {
