@@ -25,8 +25,8 @@
   },
   "new_words": [
     "W00073",
-    "W00074",
-    "W00090"
+    "W00090",
+    "W00074"
   ],
   "new_grammar": [],
   "all_words_used": [
@@ -43,26 +43,30 @@
     "W00024",
     "W00044",
     "W00025",
+    "W00137",
+    "W00138",
     "W00161",
     "W00019",
     "W00020",
     "W00021",
     "W00049",
-    "W00064",
-    "W00074",
-    "W00069",
-    "W00070",
-    "W00050",
-    "W00041",
+    "W00090",
+    "W00043",
     "W00002",
     "W00011",
     "W00190",
     "W00076",
-    "W00137",
-    "W00138",
+    "W00056",
+    "W00069",
+    "W00070",
+    "W00022",
+    "W00064",
+    "W00074",
     "W00251",
     "W00036",
-    "W00090"
+    "W00041",
+    "W00050",
+    "W00017"
   ],
   "sentences": [
     {
@@ -126,10 +130,6 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "、",
-          "role": "punct"
-        },
-        {
           "t": "新しい",
           "role": "content",
           "word_id": "W00066",
@@ -168,7 +168,7 @@
       ],
       "gloss_en": "I open the new window.",
       "audio": "audio/story_24/s1.mp3",
-      "audio_hash": "7c442ecd839a"
+      "audio_hash": "68ff04de0ec6"
     },
     {
       "idx": 2,
@@ -196,10 +196,6 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "、",
-          "role": "punct"
-        },
-        {
           "t": "温かい",
           "role": "content",
           "word_id": "W00012",
@@ -218,7 +214,7 @@
       ],
       "gloss_en": "The spring morning is warm.",
       "audio": "audio/story_24/s2.mp3",
-      "audio_hash": "372af9336ced"
+      "audio_hash": "73f4b9216f3f"
     },
     {
       "idx": 3,
@@ -233,10 +229,6 @@
           "t": "に",
           "role": "particle",
           "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "、",
-          "role": "punct"
         },
         {
           "t": "花",
@@ -269,7 +261,7 @@
       ],
       "gloss_en": "There are flowers in the garden.",
       "audio": "audio/story_24/s3.mp3",
-      "audio_hash": "7c91d23c2b8e"
+      "audio_hash": "1030083adc0d"
     },
     {
       "idx": 4,
@@ -284,10 +276,6 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "、",
-          "role": "punct"
         },
         {
           "t": "ドア",
@@ -320,16 +308,34 @@
       ],
       "gloss_en": "I open the door, too.",
       "audio": "audio/story_24/s4.mp3",
-      "audio_hash": "918bba1588c8"
+      "audio_hash": "c055c9f205f5"
     },
     {
       "idx": 5,
       "tokens": [
         {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
           "t": "庭",
           "role": "content",
           "word_id": "W00059",
           "r": "にわ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "空気",
+          "role": "content",
+          "word_id": "W00138",
+          "r": "くうき"
         },
         {
           "t": "で",
@@ -376,9 +382,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the garden, I eat a light breakfast.",
+      "gloss_en": "In the bright air of the garden, I eat a light breakfast.",
       "audio": "audio/story_24/s5.mp3",
-      "audio_hash": "98228f289c86"
+      "audio_hash": "003aff7ca17b"
     },
     {
       "idx": 6,
@@ -393,10 +399,6 @@
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "、",
-          "role": "punct"
         },
         {
           "t": "卵",
@@ -427,16 +429,16 @@
       ],
       "gloss_en": "Breakfast is an egg and bread.",
       "audio": "audio/story_24/s6.mp3",
-      "audio_hash": "be480213e61b"
+      "audio_hash": "7eeec6422bd9"
     },
     {
       "idx": 7,
       "tokens": [
         {
-          "t": "道",
+          "t": "私",
           "role": "content",
-          "word_id": "W00064",
-          "r": "みち"
+          "word_id": "W00003",
+          "r": "わたし"
         },
         {
           "t": "は",
@@ -444,115 +446,11 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "長い",
+          "t": "秋",
           "role": "content",
-          "word_id": "W00074",
-          "r": "ながい",
-          "grammar_id": "G022_i_adj",
+          "word_id": "W00090",
+          "r": "あき",
           "is_new": true
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The road is long.",
-      "audio": "audio/story_24/s7.mp3",
-      "audio_hash": "7698e123240b"
-    },
-    {
-      "idx": 8,
-      "tokens": [
-        {
-          "t": "長い",
-          "role": "content",
-          "word_id": "W00074",
-          "r": "ながい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "春",
-          "role": "content",
-          "word_id": "W00072",
-          "r": "はる"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "道",
-          "role": "content",
-          "word_id": "W00064",
-          "r": "みち"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "駅",
-          "role": "content",
-          "word_id": "W00069",
-          "r": "えき"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "電車",
-          "role": "content",
-          "word_id": "W00070",
-          "r": "でんしゃ"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "温かい",
-          "role": "content",
-          "word_id": "W00012",
-          "r": "あたたかい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "Long spring road, station's train, warm morning.",
-      "audio": "audio/story_24/s8.mp3",
-      "audio_hash": "0f1e732ad48a"
-    },
-    {
-      "idx": 9,
-      "tokens": [
-        {
-          "t": "一緒に",
-          "role": "content",
-          "word_id": "W00050",
-          "r": "いっしょに"
-        },
-        {
-          "t": "春",
-          "role": "content",
-          "word_id": "W00072",
-          "r": "はる"
         },
         {
           "t": "を",
@@ -560,13 +458,13 @@
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "待ちます",
+          "t": "思います",
           "role": "content",
-          "word_id": "W00041",
-          "r": "まちます",
+          "word_id": "W00043",
+          "r": "おもいます",
           "inflection": {
-            "base": "待つ",
-            "base_r": "まつ",
+            "base": "思う",
+            "base_r": "おもう",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
@@ -577,13 +475,24 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Together we wait for spring.",
-      "audio": "audio/story_24/s9.mp3",
-      "audio_hash": "a9ca4175f68d"
+      "gloss_en": "I think back to autumn.",
+      "audio": "audio/story_24/s7.mp3",
+      "audio_hash": "184f355944ec"
     },
     {
-      "idx": 10,
+      "idx": 8,
       "tokens": [
+        {
+          "t": "秋",
+          "role": "content",
+          "word_id": "W00090",
+          "r": "あき"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
         {
           "t": "雨",
           "role": "content",
@@ -633,36 +542,52 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The rain is quiet and a little sad.",
-      "audio": "audio/story_24/s10.mp3",
-      "audio_hash": "eb6f0271233b"
+      "gloss_en": "The autumn rain is quiet, and a little sad.",
+      "audio": "audio/story_24/s8.mp3",
+      "audio_hash": "d5d6f470ed32"
     },
     {
-      "idx": 11,
+      "idx": 9,
       "tokens": [
         {
-          "t": "明るい",
+          "t": "春",
           "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
-          "grammar_id": "G022_i_adj"
+          "word_id": "W00072",
+          "r": "はる"
         },
         {
-          "t": "空気",
-          "role": "content",
-          "word_id": "W00138",
-          "r": "くうき"
-        },
-        {
-          "t": "は",
+          "t": "が",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G002_ga_subject"
         },
         {
-          "t": "静か",
+          "t": "来ます",
           "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G030_kara_reason"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "嬉しい",
+          "role": "content",
+          "word_id": "W00056",
+          "r": "うれしい",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -674,66 +599,44 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The bright air is quiet.",
-      "audio": "audio/story_24/s11.mp3",
-      "audio_hash": "476692654525"
+      "gloss_en": "Because spring is coming, I am happy.",
+      "audio": "audio/story_24/s9.mp3",
+      "audio_hash": "6156c20cfcc8"
     },
     {
-      "idx": 12,
+      "idx": 10,
       "tokens": [
         {
-          "t": "角",
+          "t": "駅",
           "role": "content",
-          "word_id": "W00251",
-          "r": "かく"
+          "word_id": "W00069",
+          "r": "えき"
         },
         {
-          "t": "に",
+          "t": "の",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "椅子",
+          "t": "電車",
           "role": "content",
-          "word_id": "W00036",
-          "r": "いす"
+          "word_id": "W00070",
+          "r": "でんしゃ"
         },
         {
-          "t": "が",
+          "t": "で",
           "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "G017_de_means"
         },
         {
-          "t": "あります",
-          "role": "content",
-          "word_id": "W00044",
-          "r": "あります",
-          "inflection": {
-            "base": "ある",
-            "base_r": "ある",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G021_aru_iru"
-        },
-        {
-          "t": "。",
+          "t": "、",
           "role": "punct"
-        }
-      ],
-      "gloss_en": "There is a chair on the corner.",
-      "audio": "audio/story_24/s12.mp3",
-      "audio_hash": "eb96065352ad"
-    },
-    {
-      "idx": 13,
-      "tokens": [
+        },
         {
-          "t": "秋",
+          "t": "友達",
           "role": "content",
-          "word_id": "W00090",
-          "r": "あき",
-          "is_new": true
+          "word_id": "W00022",
+          "r": "ともだち"
         },
         {
           "t": "が",
@@ -758,19 +661,184 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Autumn comes.",
+      "gloss_en": "On the station's train, the friend comes.",
+      "audio": "audio/story_24/s10.mp3",
+      "audio_hash": "17694e5a1250"
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "駅",
+          "role": "content",
+          "word_id": "W00069",
+          "r": "えき"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "道",
+          "role": "content",
+          "word_id": "W00064",
+          "r": "みち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "長い",
+          "role": "content",
+          "word_id": "W00074",
+          "r": "ながい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The road from the station is long.",
+      "audio": "audio/story_24/s11.mp3",
+      "audio_hash": "e9c939b93c5a"
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "角",
+          "role": "content",
+          "word_id": "W00251",
+          "r": "かく"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "椅子",
+          "role": "content",
+          "word_id": "W00036",
+          "r": "いす"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "待ちます",
+          "role": "content",
+          "word_id": "W00041",
+          "r": "まちます",
+          "inflection": {
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I wait at the chair on the corner.",
+      "audio": "audio/story_24/s12.mp3",
+      "audio_hash": "80f2952641f6"
+    },
+    {
+      "idx": 13,
+      "tokens": [
+        {
+          "t": "一緒に",
+          "role": "content",
+          "word_id": "W00050",
+          "r": "いっしょに"
+        },
+        {
+          "t": "長い",
+          "role": "content",
+          "word_id": "W00074",
+          "r": "ながい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "春",
+          "role": "content",
+          "word_id": "W00072",
+          "r": "はる"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あさ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "歩きます",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "あるきます",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Together, we walk through the long spring morning.",
       "audio": "audio/story_24/s13.mp3",
-      "audio_hash": "0b1853b40c32"
+      "audio_hash": "54b37863e8db"
     }
   ],
   "word_audio": {
     "W00073": "audio/story_24/w_W00073.mp3",
-    "W00074": "audio/story_24/w_W00074.mp3",
-    "W00090": "audio/story_24/w_W00090.mp3"
+    "W00090": "audio/story_24/w_W00090.mp3",
+    "W00074": "audio/story_24/w_W00074.mp3"
   },
   "word_audio_hash": {
     "W00073": "02d2300d4ce0",
-    "W00074": "e0d1f089aa4c",
-    "W00090": "5a2e5e4b12a4"
+    "W00090": "5a2e5e4b12a4",
+    "W00074": "e0d1f089aa4c"
   }
 }
