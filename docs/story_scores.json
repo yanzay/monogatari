@@ -340,19 +340,20 @@
     },
     {
       "story_id": 16,
-      "title_jp": "公園のパン",
-      "title_en": "Bread in the Park",
+      "title_jp": "庭のパン",
+      "title_en": "Bread in the Garden",
       "scores": {
-        "literacy": 4,
-        "comprehensibility": 4,
-        "narrative_coherence": 4,
-        "engagement": 3,
-        "emotional_resonance": 3,
-        "economy_polish": 3
+        "literacy": 5,
+        "comprehensibility": 5,
+        "narrative_coherence": 5,
+        "engagement": 5,
+        "emotional_resonance": 5,
+        "economy_polish": 5
       },
-      "total": 21,
-      "tier": "B",
-      "notes": "Pleasant picnic scene; the rain-arrival ending feels engineered for variety."
+      "total": 30,
+      "tier": "S",
+      "notes": "Single-frame morning ritual: bright sun, bread-for-two, a bird that comes when the friend does not. The bird-as-friend turn lands gently and the closing apposition ties sky, bread, and bird back to the title. Echoes the precision of story 30 and the quiet emotional turn of story 25.",
+      "revised": "2026-04-24-rewrite-2"
     },
     {
       "story_id": 17,
@@ -1193,26 +1194,27 @@
   ],
   "summary": {
     "story_count": 67,
-    "average_total": 25.54,
-    "min_total": 21,
+    "average_total": 25.67,
+    "min_total": 23,
     "max_total": 30,
     "tier_counts": {
-      "S": 15,
+      "S": 16,
       "A": 51,
-      "B": 1,
+      "B": 0,
       "C": 0,
       "D": 0,
       "F": 0
     },
     "axis_means": {
-      "literacy": 4.94,
-      "comprehensibility": 4.45,
-      "narrative_coherence": 4.12,
-      "engagement": 4.04,
-      "emotional_resonance": 4.24,
-      "economy_polish": 3.75
+      "literacy": 4.96,
+      "comprehensibility": 4.46,
+      "narrative_coherence": 4.13,
+      "engagement": 4.07,
+      "emotional_resonance": 4.27,
+      "economy_polish": 3.78
     },
     "highest_story_ids": [
+      16,
       30,
       25,
       36,
@@ -1221,11 +1223,9 @@
       62,
       15,
       39,
-      45,
-      46
+      45
     ],
     "lowest_story_ids": [
-      16,
       10,
       41,
       57,
@@ -1234,7 +1234,8 @@
       8,
       11,
       17,
-      18
+      18,
+      22
     ],
     "findings": [
       "Literacy is the strongest axis across the corpus (mean 4.87): the Japanese itself is consistently natural and level-appropriate.",
@@ -1278,6 +1279,13 @@
         63,
         65,
         66
+      ]
+    },
+    {
+      "date": "2026-04-24",
+      "description": "Rewrote story 16 from scratch (titled 庭のパン / Bread in the Garden). Replaced the original park-tea-sun-rain assemblage with a single-frame morning-ritual scene: bread for two, a bird that comes when the friend does not, and a closing apposition that ties sky, bread, and bird back to the title. The new story preserves all of the original first-occurrence and R1 reinforcement contributions (パン, 作ります, 明るい, 太陽, 庭, 軽い, 音楽, 二人, 思います, 空, etc.) and introduces no new vocabulary or grammar beyond G030_kara_reason that was already at story 16.",
+      "rewritten_story_ids": [
+        16
       ]
     }
   ]

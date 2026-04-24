@@ -1,14 +1,14 @@
 {
   "story_id": 16,
   "title": {
-    "jp": "公園のパン",
-    "en": "Bread in the Park",
+    "jp": "庭のパン",
+    "en": "Bread in the Garden",
     "tokens": [
       {
-        "t": "公園",
+        "t": "庭",
         "role": "content",
-        "word_id": "W00016",
-        "r": "こうえん"
+        "word_id": "W00059",
+        "r": "にわ"
       },
       {
         "t": "の",
@@ -25,38 +25,36 @@
   },
   "new_words": [
     "W00049",
-    "W00048",
     "W00240",
-    "W00137"
+    "W00137",
+    "W00048"
   ],
   "new_grammar": [
     "G030_kara_reason"
   ],
   "all_words_used": [
-    "W00016",
+    "W00059",
     "W00049",
     "W00015",
-    "W00003",
-    "W00166",
-    "W00055",
-    "W00048",
-    "W00022",
-    "W00040",
-    "W00035",
-    "W00012",
-    "W00009",
-    "W00010",
     "W00240",
     "W00137",
-    "W00047",
-    "W00011",
+    "W00003",
+    "W00035",
+    "W00055",
+    "W00048",
+    "W00166",
+    "W00012",
     "W00161",
+    "W00009",
+    "W00010",
+    "W00047",
+    "W00054",
+    "W00029",
+    "W00040",
     "W00020",
-    "W00013",
+    "W00022",
     "W00043",
-    "W00002",
-    "W00165",
-    "W00059"
+    "W00165"
   ],
   "sentences": [
     {
@@ -73,6 +71,43 @@
           "role": "punct"
         },
         {
+          "t": "太陽",
+          "role": "content",
+          "word_id": "W00240",
+          "r": "たいよう",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the morning, the sun is bright.",
+      "audio": "audio/story_16/s0.mp3",
+      "audio_hash": "f5115067a8d3"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
           "t": "私",
           "role": "content",
           "word_id": "W00003",
@@ -84,15 +119,16 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "皿",
+          "t": "二人",
           "role": "content",
-          "word_id": "W00166",
-          "r": "さら"
+          "word_id": "W00035",
+          "r": "ふたり",
+          "grammar_id": "G025_counters"
         },
         {
-          "t": "に",
+          "t": "の",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "G015_no_possessive"
         },
         {
           "t": "小さい",
@@ -114,89 +150,59 @@
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "作ります",
+          "t": "作って",
           "role": "content",
           "word_id": "W00048",
-          "r": "つくります",
+          "r": "つくって",
           "inflection": {
             "base": "作る",
             "base_r": "つくる",
-            "form": "polite_nonpast",
+            "form": "te",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast",
+          "grammar_id": "G007_te_form",
           "is_new": true
         },
         {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "In the morning, I make small bread on the plate."
-    },
-    {
-      "idx": 1,
-      "tokens": [
-        {
-          "t": "そして",
-          "role": "particle",
-          "grammar_id": "G012_soshite_then"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "友達",
-          "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "公園",
-          "role": "content",
-          "word_id": "W00016",
-          "r": "こうえん"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "来ます",
-          "role": "content",
-          "word_id": "W00040",
-          "r": "きます",
-          "inflection": {
-            "base": "来る",
-            "base_r": "くる",
-            "form": "polite_nonpast",
-            "verb_class": "irregular_kuru"
-          },
-          "grammar_id": "G026_masu_nonpast"
+          "t": "おきます",
+          "role": "aux",
+          "grammar_id": "G019_te_oku"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "And then, my friend comes to the park."
+      "gloss_en": "I go ahead and make small bread for two.",
+      "audio": "audio/story_16/s1.mp3",
+      "audio_hash": "7527ed5b29af"
     },
     {
       "idx": 2,
       "tokens": [
         {
-          "t": "二人",
+          "t": "皿",
           "role": "content",
-          "word_id": "W00035",
-          "r": "ふたり",
-          "grammar_id": "G025_counters"
+          "word_id": "W00166",
+          "r": "さら"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "温かい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "パン",
+          "role": "content",
+          "word_id": "W00049",
+          "r": "パン"
         },
         {
           "t": "は",
@@ -204,10 +210,45 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "公園",
+          "t": "軽い",
           "role": "content",
-          "word_id": "W00016",
-          "r": "こうえん"
+          "word_id": "W00161",
+          "r": "かるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The warm bread on the plate is light.",
+      "audio": "audio/story_16/s2.mp3",
+      "audio_hash": "2c60b96b22f6"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "庭",
+          "role": "content",
+          "word_id": "W00059",
+          "r": "にわ"
         },
         {
           "t": "で",
@@ -250,40 +291,13 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The two of us drink warm tea at the park."
+      "gloss_en": "In the garden, I drink warm tea.",
+      "audio": "audio/story_16/s3.mp3",
+      "audio_hash": "468ae2eff2b5"
     },
     {
-      "idx": 3,
+      "idx": 4,
       "tokens": [
-        {
-          "t": "太陽",
-          "role": "content",
-          "word_id": "W00240",
-          "r": "たいよう",
-          "is_new": true
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "明るい",
-          "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
-          "grammar_id": "G022_i_adj",
-          "is_new": true
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        },
         {
           "t": "空",
           "role": "content",
@@ -291,36 +305,58 @@
           "r": "そら"
         },
         {
-          "t": "も",
+          "t": "に",
           "role": "particle",
-          "grammar_id": "G009_mo_also"
+          "grammar_id": "G004_ni_location"
         },
         {
-          "t": "静か",
+          "t": "小さい",
           "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
+          "word_id": "W00055",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
+          "t": "鳥",
+          "role": "content",
+          "word_id": "W00054",
+          "r": "とり"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "います",
+          "role": "content",
+          "word_id": "W00029",
+          "r": "います",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The sun is bright. The sky, too, is quiet."
+      "gloss_en": "In the sky, there is a small bird.",
+      "audio": "audio/story_16/s4.mp3",
+      "audio_hash": "976bca37374a"
     },
     {
-      "idx": 4,
+      "idx": 5,
       "tokens": [
         {
-          "t": "私",
+          "t": "鳥",
           "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
+          "word_id": "W00054",
+          "r": "とり"
         },
         {
           "t": "は",
@@ -328,22 +364,51 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "皿",
+          "t": "庭",
           "role": "content",
-          "word_id": "W00166",
-          "r": "さら"
+          "word_id": "W00059",
+          "r": "にわ"
         },
         {
-          "t": "の",
+          "t": "に",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "G004_ni_location"
         },
         {
-          "t": "軽い",
+          "t": "来ます",
           "role": "content",
-          "word_id": "W00161",
-          "r": "かるい",
-          "grammar_id": "G022_i_adj"
+          "word_id": "W00040",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The bird comes to the garden.",
+      "audio": "audio/story_16/s5.mp3",
+      "audio_hash": "f2673d6bacf8"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "鳥",
+          "role": "content",
+          "word_id": "W00054",
+          "r": "とり"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
         },
         {
           "t": "パン",
@@ -357,61 +422,55 @@
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "食べて",
+          "t": "食べます",
           "role": "content",
           "word_id": "W00020",
-          "r": "たべて",
+          "r": "たべます",
           "inflection": {
             "base": "食べる",
             "base_r": "たべる",
-            "form": "te",
+            "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G007_te_form"
-        },
-        {
-          "t": "おきます",
-          "role": "aux",
-          "grammar_id": "G019_te_oku"
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I go ahead and eat the light bread on the plate."
+      "gloss_en": "The bird, too, eats the bread.",
+      "audio": "audio/story_16/s6.mp3",
+      "audio_hash": "cd6b83c154b9"
     },
     {
-      "idx": 5,
+      "idx": 7,
       "tokens": [
         {
           "t": "「",
           "role": "punct"
         },
         {
-          "t": "明るい",
+          "t": "鳥",
           "role": "content",
-          "word_id": "W00137",
-          "r": "あかるい",
-          "grammar_id": "G022_i_adj"
+          "word_id": "W00054",
+          "r": "とり"
         },
         {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
-        },
-        {
-          "t": "は",
+          "t": "も",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "G009_mo_also"
         },
         {
-          "t": "いい",
+          "t": "友達",
           "role": "content",
-          "word_id": "W00013",
-          "r": "いい",
-          "grammar_id": "G022_i_adj"
+          "word_id": "W00022",
+          "r": "ともだち"
+        },
+        {
+          "t": "だ",
+          "role": "aux",
+          "grammar_id": "G024_da"
         },
         {
           "t": "」",
@@ -451,66 +510,18 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "\"A bright morning is good,\" I think."
+      "gloss_en": "\"The bird, too, is a friend,\" I think.",
+      "audio": "audio/story_16/s7.mp3",
+      "audio_hash": "84d6ce264c4f"
     },
     {
-      "idx": 6,
+      "idx": 8,
       "tokens": [
         {
-          "t": "そして",
-          "role": "particle",
-          "grammar_id": "G012_soshite_then"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "小さい",
+          "t": "鳥",
           "role": "content",
-          "word_id": "W00055",
-          "r": "ちいさい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "雨",
-          "role": "content",
-          "word_id": "W00002",
-          "r": "あめ"
-        },
-        {
-          "t": "が",
-          "role": "particle",
-          "grammar_id": "G002_ga_subject"
-        },
-        {
-          "t": "来ます",
-          "role": "content",
-          "word_id": "W00040",
-          "r": "きます",
-          "inflection": {
-            "base": "来る",
-            "base_r": "くる",
-            "form": "polite_nonpast",
-            "verb_class": "irregular_kuru"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "And then, a small rain comes."
-    },
-    {
-      "idx": 7,
-      "tokens": [
-        {
-          "t": "雨",
-          "role": "content",
-          "word_id": "W00002",
-          "r": "あめ"
+          "word_id": "W00054",
+          "r": "とり"
         },
         {
           "t": "の",
@@ -552,10 +563,91 @@
           "role": "punct"
         },
         {
-          "t": "公園",
+          "t": "庭",
           "role": "content",
-          "word_id": "W00016",
-          "r": "こうえん"
+          "word_id": "W00059",
+          "r": "にわ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Because the bird's music comes, the garden is bright.",
+      "audio": "audio/story_16/s8.mp3",
+      "audio_hash": "f95c946c0cac"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "空",
+          "role": "content",
+          "word_id": "W00047",
+          "r": "そら"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "二人",
+          "role": "content",
+          "word_id": "W00035",
+          "r": "ふたり",
+          "grammar_id": "G025_counters"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "パン",
+          "role": "content",
+          "word_id": "W00049",
+          "r": "パン"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00055",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "鳥",
+          "role": "content",
+          "word_id": "W00054",
+          "r": "とり"
         },
         {
           "t": "の",
@@ -569,17 +661,6 @@
           "r": "にわ"
         },
         {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "静か",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
-        },
-        {
           "t": "です",
           "role": "aux",
           "grammar_id": "G003_desu"
@@ -589,7 +670,21 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Because the music of rain comes, the park's garden is quiet."
+      "gloss_en": "A bright sky, bread for two, a small bird's garden.",
+      "audio": "audio/story_16/s9.mp3",
+      "audio_hash": "b6ec95cd2b26"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00049": "audio/story_16/w_W00049.mp3",
+    "W00240": "audio/story_16/w_W00240.mp3",
+    "W00137": "audio/story_16/w_W00137.mp3",
+    "W00048": "audio/story_16/w_W00048.mp3"
+  },
+  "word_audio_hash": {
+    "W00049": "433c68371a3d",
+    "W00240": "c11aab85ea03",
+    "W00137": "53b4a762f917",
+    "W00048": "12482e624367"
+  }
 }
