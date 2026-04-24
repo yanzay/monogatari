@@ -24,47 +24,49 @@
     ]
   },
   "new_words": [
-    "W00091",
-    "W00092",
     "W00167",
-    "W00231"
+    "W00231",
+    "W00091",
+    "W00092"
   ],
   "new_grammar": [],
   "all_words_used": [
     "W00090",
     "W00064",
     "W00040",
-    "W00016",
+    "W00001",
+    "W00190",
+    "W00159",
+    "W00003",
+    "W00012",
+    "W00167",
+    "W00231",
+    "W00166",
+    "W00237",
     "W00091",
-    "W00044",
+    "W00229",
     "W00083",
+    "W00076",
+    "W00120",
+    "W00078",
+    "W00077",
+    "W00016",
+    "W00044",
     "W00022",
     "W00035",
     "W00017",
     "W00047",
-    "W00092",
     "W00057",
+    "W00092",
     "W00052",
     "W00085",
+    "W00006",
     "W00088",
     "W00043",
     "W00089",
     "W00058",
     "W00087",
-    "W00026",
-    "W00076",
-    "W00120",
-    "W00003",
-    "W00078",
-    "W00077",
-    "W00190",
-    "W00159",
-    "W00015",
-    "W00166",
-    "W00229",
-    "W00012",
-    "W00167",
-    "W00231"
+    "W00026"
   ],
   "sentences": [
     {
@@ -107,6 +109,275 @@
       "idx": 1,
       "tokens": [
         {
+          "t": "今朝",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "けさ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "少し",
+          "role": "content",
+          "word_id": "W00190",
+          "r": "すこし"
+        },
+        {
+          "t": "早い",
+          "role": "content",
+          "word_id": "W00159",
+          "r": "はやい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "This morning is a little early.",
+      "audio": "audio/story_30/s1.mp3",
+      "audio_hash": "c613e50752a0"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "温かい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "カップ",
+          "role": "content",
+          "word_id": "W00167",
+          "r": "カップ",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "持ちます",
+          "role": "content",
+          "word_id": "W00231",
+          "r": "もちます",
+          "inflection": {
+            "base": "持つ",
+            "base_r": "もつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I hold a warm cup.",
+      "audio": "audio/story_30/s2.mp3",
+      "audio_hash": "ca11fdf82153"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "皿",
+          "role": "content",
+          "word_id": "W00166",
+          "r": "さら"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "上",
+          "role": "content",
+          "word_id": "W00237",
+          "r": "うえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "葉",
+          "role": "content",
+          "word_id": "W00091",
+          "r": "は",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "置きます",
+          "role": "content",
+          "word_id": "W00229",
+          "r": "おきます",
+          "inflection": {
+            "base": "置く",
+            "base_r": "おく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "On the plate, I place a leaf.",
+      "audio": "audio/story_30/s3.mp3",
+      "audio_hash": "9c8f5731b704"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "葉",
+          "role": "content",
+          "word_id": "W00091",
+          "r": "は"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "美しい",
+          "role": "content",
+          "word_id": "W00083",
+          "r": "うつくしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The leaf is beautiful.",
+      "audio": "audio/story_30/s4.mp3",
+      "audio_hash": "84bd16cf52f8"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "そして",
+          "role": "particle",
+          "grammar_id": "G012_soshite_then"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "悲しい",
+          "role": "content",
+          "word_id": "W00076",
+          "r": "かなしい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "心",
+          "role": "content",
+          "word_id": "W00120",
+          "r": "こころ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "出ます",
+          "role": "content",
+          "word_id": "W00077",
+          "r": "でます",
+          "inflection": {
+            "base": "出る",
+            "base_r": "でる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "And then, with a sad heart, I leave the house.",
+      "audio": "audio/story_30/s5.mp3",
+      "audio_hash": "bdbd7a1ba74a"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
           "t": "公園",
           "role": "content",
           "word_id": "W00016",
@@ -136,8 +407,7 @@
           "t": "葉",
           "role": "content",
           "word_id": "W00091",
-          "r": "は",
-          "is_new": true
+          "r": "は"
         },
         {
           "t": "が",
@@ -163,50 +433,11 @@
         }
       ],
       "gloss_en": "On the park road, there are leaves.",
-      "audio": "audio/story_30/s1.mp3",
+      "audio": "audio/story_30/s6.mp3",
       "audio_hash": "291aaa803421"
     },
     {
-      "idx": 2,
-      "tokens": [
-        {
-          "t": "葉",
-          "role": "content",
-          "word_id": "W00091",
-          "r": "は"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "美しい",
-          "role": "content",
-          "word_id": "W00083",
-          "r": "うつくしい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The leaves are beautiful.",
-      "audio": "audio/story_30/s2.mp3",
-      "audio_hash": "4130af7e661e"
-    },
-    {
-      "idx": 3,
+      "idx": 7,
       "tokens": [
         {
           "t": "友達",
@@ -265,11 +496,11 @@
         }
       ],
       "gloss_en": "Together with my friend, we walk down the road.",
-      "audio": "audio/story_30/s3.mp3",
+      "audio": "audio/story_30/s7.mp3",
       "audio_hash": "1f11540eda1d"
     },
     {
-      "idx": 4,
+      "idx": 8,
       "tokens": [
         {
           "t": "空",
@@ -283,8 +514,11 @@
           "grammar_id": "G004_ni_location"
         },
         {
-          "t": "、",
-          "role": "punct"
+          "t": "大きい",
+          "role": "content",
+          "word_id": "W00057",
+          "r": "おおきい",
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "雲",
@@ -316,63 +550,25 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the sky, there are clouds.",
-      "audio": "audio/story_30/s4.mp3",
-      "audio_hash": "d4c612e4dffb"
+      "gloss_en": "In the sky, there are big clouds.",
+      "audio": "audio/story_30/s8.mp3",
+      "audio_hash": "613a130227a3"
     },
     {
-      "idx": 5,
+      "idx": 9,
       "tokens": [
         {
-          "t": "空",
+          "t": "二人",
           "role": "content",
-          "word_id": "W00047",
-          "r": "そら"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "雲",
-          "role": "content",
-          "word_id": "W00092",
-          "r": "くも"
+          "word_id": "W00035",
+          "r": "ふたり",
+          "grammar_id": "G025_counters"
         },
         {
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
         },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "大きい",
-          "role": "content",
-          "word_id": "W00057",
-          "r": "おおきい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The sky's clouds are big.",
-      "audio": "audio/story_30/s5.mp3",
-      "audio_hash": "1f48c6ccd18d"
-    },
-    {
-      "idx": 6,
-      "tokens": [
         {
           "t": "ベンチ",
           "role": "content",
@@ -385,19 +581,43 @@
           "grammar_id": "G004_ni_location"
         },
         {
+          "t": "座って",
+          "role": "content",
+          "word_id": "W00085",
+          "r": "すわって",
+          "inflection": {
+            "base": "座る",
+            "base_r": "すわる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
           "t": "、",
           "role": "punct"
         },
         {
-          "t": "座ります",
+          "t": "空",
           "role": "content",
-          "word_id": "W00085",
-          "r": "すわります",
+          "word_id": "W00047",
+          "r": "そら"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "みます",
           "inflection": {
-            "base": "座る",
-            "base_r": "すわる",
+            "base": "見る",
+            "base_r": "みる",
             "form": "polite_nonpast",
-            "verb_class": "godan"
+            "verb_class": "ichidan"
           },
           "grammar_id": "G026_masu_nonpast"
         },
@@ -406,12 +626,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "We sit on the bench.",
-      "audio": "audio/story_30/s6.mp3",
-      "audio_hash": "4477424a7e62"
+      "gloss_en": "The two of us sit on the bench and look at the sky.",
+      "audio": "audio/story_30/s9.mp3",
+      "audio_hash": "41b5e7dacd76"
     },
     {
-      "idx": 7,
+      "idx": 10,
       "tokens": [
         {
           "t": "友達",
@@ -436,10 +656,6 @@
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "、",
-          "role": "punct"
-        },
-        {
           "t": "思います",
           "role": "content",
           "word_id": "W00043",
@@ -457,13 +673,17 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think of my friend's family.",
-      "audio": "audio/story_30/s7.mp3",
-      "audio_hash": "92b598733e8a"
+      "gloss_en": "I think of the friend's family.",
+      "audio": "audio/story_30/s10.mp3",
+      "audio_hash": "4fbe250fac0f"
     },
     {
-      "idx": 8,
+      "idx": 11,
       "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
         {
           "t": "友達",
           "role": "content",
@@ -487,24 +707,40 @@
           "grammar_id": "G009_mo_also"
         },
         {
-          "t": "、",
-          "role": "punct"
-        },
-        {
           "t": "元気",
           "role": "content",
           "word_id": "W00058",
           "r": "げんき"
         },
         {
-          "t": "だ",
+          "t": "です",
           "role": "aux",
-          "grammar_id": "G024_da"
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
         },
         {
           "t": "と",
           "role": "particle",
           "grammar_id": "G014_to_omoimasu"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
         },
         {
           "t": "思います",
@@ -524,12 +760,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I think my friend's mother is also well.",
-      "audio": "audio/story_30/s8.mp3",
-      "audio_hash": "68d88dcd7481"
+      "gloss_en": "\"Is the friend's mother well too?\" I think.",
+      "audio": "audio/story_30/s11.mp3",
+      "audio_hash": "b44ef60ef540"
     },
     {
-      "idx": 9,
+      "idx": 12,
       "tokens": [
         {
           "t": "二人",
@@ -542,10 +778,6 @@
           "t": "で",
           "role": "particle",
           "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "、",
-          "role": "punct"
         },
         {
           "t": "立ちます",
@@ -565,12 +797,12 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "We stand together.",
-      "audio": "audio/story_30/s9.mp3",
-      "audio_hash": "c495afde05f8"
+      "gloss_en": "We stand up together.",
+      "audio": "audio/story_30/s12.mp3",
+      "audio_hash": "6327081394fc"
     },
     {
-      "idx": 10,
+      "idx": 13,
       "tokens": [
         {
           "t": "秋",
@@ -623,261 +855,21 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On the autumn road, the two of us return home.",
-      "audio": "audio/story_30/s10.mp3",
-      "audio_hash": "3484759db0e9"
-    },
-    {
-      "idx": 11,
-      "tokens": [
-        {
-          "t": "悲しい",
-          "role": "content",
-          "word_id": "W00076",
-          "r": "かなしい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "心",
-          "role": "content",
-          "word_id": "W00120",
-          "r": "こころ"
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "家",
-          "role": "content",
-          "word_id": "W00078",
-          "r": "いえ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "出ます",
-          "role": "content",
-          "word_id": "W00077",
-          "r": "でます",
-          "inflection": {
-            "base": "出る",
-            "base_r": "でる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "With a sad heart, I leave the house.",
-      "audio": "audio/story_30/s11.mp3",
-      "audio_hash": "f6164ae6ca99"
-    },
-    {
-      "idx": 12,
-      "tokens": [
-        {
-          "t": "少し",
-          "role": "content",
-          "word_id": "W00190",
-          "r": "すこし"
-        },
-        {
-          "t": "早い",
-          "role": "content",
-          "word_id": "W00159",
-          "r": "はやい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "It's a slightly early morning.",
-      "audio": "audio/story_30/s12.mp3",
-      "audio_hash": "69570aba2e53"
-    },
-    {
-      "idx": 13,
-      "tokens": [
-        {
-          "t": "皿",
-          "role": "content",
-          "word_id": "W00166",
-          "r": "さら"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "置きます",
-          "role": "content",
-          "word_id": "W00229",
-          "r": "おきます",
-          "inflection": {
-            "base": "置く",
-            "base_r": "おく",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I put down the plate.",
+      "gloss_en": "On the autumn road, the two of us go home.",
       "audio": "audio/story_30/s13.mp3",
-      "audio_hash": "96fd487747e9"
-    },
-    {
-      "idx": 14,
-      "tokens": [
-        {
-          "t": "「",
-          "role": "punct"
-        },
-        {
-          "t": "元気",
-          "role": "content",
-          "word_id": "W00058",
-          "r": "げんき"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "か",
-          "role": "particle",
-          "grammar_id": "G037_ka_question"
-        },
-        {
-          "t": "」",
-          "role": "punct"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G014_to_omoimasu"
-        },
-        {
-          "t": "思います",
-          "role": "aux",
-          "word_id": "W00043",
-          "r": "おもいます",
-          "inflection": {
-            "base": "思う",
-            "base_r": "おもう",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "'Are you well?' I think.",
-      "audio": "audio/story_30/s14.mp3",
-      "audio_hash": "c33c2508cb4c"
-    },
-    {
-      "idx": 15,
-      "tokens": [
-        {
-          "t": "温かい",
-          "role": "content",
-          "word_id": "W00012",
-          "r": "あたたかい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "カップ",
-          "role": "content",
-          "word_id": "W00167",
-          "r": "カップ",
-          "is_new": true
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "持ちます",
-          "role": "content",
-          "word_id": "W00231",
-          "r": "もちます",
-          "inflection": {
-            "base": "持つ",
-            "base_r": "もつ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast",
-          "is_new": true
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I hold a warm cup.",
-      "audio": "audio/story_30/s15.mp3",
-      "audio_hash": "e62e4fc77596"
+      "audio_hash": "3484759db0e9"
     }
   ],
   "word_audio": {
-    "W00091": "audio/story_30/w_W00091.mp3",
-    "W00092": "audio/story_30/w_W00092.mp3",
     "W00167": "audio/story_30/w_W00167.mp3",
-    "W00231": "audio/story_30/w_W00231.mp3"
+    "W00231": "audio/story_30/w_W00231.mp3",
+    "W00091": "audio/story_30/w_W00091.mp3",
+    "W00092": "audio/story_30/w_W00092.mp3"
   },
   "word_audio_hash": {
-    "W00091": "bde3fe444e2e",
-    "W00092": "1d67795a2e07",
     "W00167": "508a4fc5d30e",
-    "W00231": "eb6fe68a64d3"
+    "W00231": "eb6fe68a64d3",
+    "W00091": "bde3fe444e2e",
+    "W00092": "1d67795a2e07"
   }
 }
