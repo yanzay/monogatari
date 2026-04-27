@@ -21,32 +21,13 @@ import subprocess
 import sys
 
 from _common import iter_stories, color, ROOT, PIPELINE
-
-
-def _word_ids_used(story: dict) -> set[str]:
-    used = set()
-    for sec in ("title",):
-        for tok in (story.get(sec) or {}).get("tokens", []):
-            if tok.get("word_id"):
-                used.add(tok["word_id"])
-    for sn in story.get("sentences", []):
-        for tok in sn.get("tokens", []):
-            if tok.get("word_id"):
-                used.add(tok["word_id"])
-    return used
+from _token_walk import (word_ids_used as _word_ids_used,
+                          grammar_ids_used as _grammar_ids_used_full)
 
 
 def _grammar_ids_used(story: dict) -> set[str]:
-    used = set()
-    for sec in ("title",):
-        for tok in (story.get(sec) or {}).get("tokens", []):
-            if tok.get("grammar_id"):
-                used.add(tok["grammar_id"])
-    for sn in story.get("sentences", []):
-        for tok in sn.get("tokens", []):
-            if tok.get("grammar_id"):
-                used.add(tok["grammar_id"])
-    return used
+    """Cadence rule G2 historically excluded inflection-derived grammar."""
+    return _grammar_ids_used_full(story, include_inflection=False)
 
 
 def _by_n() -> dict[int, dict]:
@@ -122,20 +103,23 @@ def cmd_grammar_reinforce(args):
 
 
 def cmd_validate(args):
+    """In-process library validation."""
+    from validate import validate as _validate
+    from _common import load_vocab, load_grammar
+    vocab = load_vocab(); grammar = load_grammar()
     by_n = _by_n()
     bad = []
     for sid in sorted(by_n):
-        r = subprocess.run([sys.executable, "pipeline/validate.py", f"stories/story_{sid}.json"],
-                           capture_output=True, text=True, cwd=ROOT)
-        if "✓" not in r.stdout.split("\n")[0]:
-            bad.append((sid, r.stdout))
+        result = _validate(by_n[sid], vocab, grammar, plan=None)
+        if not result.valid:
+            bad.append((sid, result))
     if not bad:
         print(color(f"✓ All {len(by_n)} stories validate cleanly.", "green")); return
-    for sid, out in bad:
+    for sid, result in bad:
         print(color(f"✗ story_{sid}", "red"))
-        for line in out.splitlines():
-            if "Check" in line or "error" in line.lower():
-                print(f"    {line}")
+        for e in result.errors:
+            print(f"    Check {e.check}: {e.location}: {e.message}" if e.location
+                  else f"    Check {e.check}: {e.message}")
     print(f"\n{color(f'{len(bad)} invalid story(ies)','red')}")
 
 

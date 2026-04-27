@@ -29,25 +29,21 @@ from __future__ import annotations
 
 import datetime as _dt
 import json
-import re
 import sys
 from pathlib import Path
+
+# Make sibling modules importable when invoked as a script.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _paths import iter_stories  # noqa: E402
+from _token_walk import joined_jp  # noqa: E402
 
 MAX_PER_POINT = 5
 
 
 def _scan(stories_dir: Path) -> dict[str, list[dict]]:
     examples: dict[str, list[dict]] = {}
-    for path in sorted(
-        stories_dir.glob("story_*.json"),
-        key=lambda p: int(re.findall(r"(\d+)", p.stem)[0]),
-    ):
-        try:
-            s = json.loads(path.read_text(encoding="utf-8"))
-        except Exception as e:
-            print(f"  warning: skipped {path.name}: {e}", file=sys.stderr)
-            continue
-        story_id = s.get("story_id")
+    for sid, s in iter_stories(stories_dir):
+        story_id = s.get("story_id", sid)
         for idx, sent in enumerate(s.get("sentences", [])):
             tokens = sent.get("tokens", [])
             gids: set[str] = set()
@@ -55,12 +51,12 @@ def _scan(stories_dir: Path) -> dict[str, list[dict]]:
                 gid = tok.get("grammar_id")
                 if gid:
                     gids.add(gid)
-                infl = tok.get("inflection") or {}
-                if infl.get("grammar_id"):
-                    gids.add(infl["grammar_id"])
+                infl_gid = (tok.get("inflection") or {}).get("grammar_id")
+                if infl_gid:
+                    gids.add(infl_gid)
             if not gids:
                 continue
-            jp = "".join(tok.get("t", "") for tok in tokens)
+            jp = joined_jp(sent)
             gloss = sent.get("gloss_en", "")
             for gid in gids:
                 bucket = examples.setdefault(gid, [])

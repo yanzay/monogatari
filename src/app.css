@@ -61,22 +61,43 @@ body {
   gap: 0.25rem;
   align-items: center;
 }
-.nav-action-btn {
+/*
+ * Unified bordered button base.
+ *
+ * Six buttons (.nav-action-btn, .btn-gloss-all, .btn-audio,
+ * .story-nav-btn, .btn-reveal, .btn-review-cta) used to repeat the
+ * same ~10 properties. They now share one rule via :where() (zero
+ * specificity, so individual classes can still override).
+ *
+ * Per-button overrides set only what's different (size, color
+ * variant). New buttons get the shared shape for free by adding the
+ * .btn class OR by adding their selector to the :where() list.
+ */
+:where(.btn, .nav-action-btn, .btn-gloss-all, .btn-audio,
+       .story-nav-btn, .btn-reveal, .btn-review-cta) {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 500;
   background: none;
+  color: var(--text-muted);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  padding: 0.25rem 0.6rem;
+  padding: 0.3rem 0.7rem;
   cursor: pointer;
-  color: var(--text-muted);
-  transition: background 0.15s, color 0.15s;
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
+  gap: 0.35rem;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
-.nav-action-btn:hover { background: var(--surface2); color: var(--text); }
+:where(.btn, .nav-action-btn, .btn-gloss-all, .btn-audio,
+       .story-nav-btn, .btn-reveal, .btn-review-cta):hover {
+  background: var(--surface2);
+  color: var(--text);
+}
+
+/* Per-button overrides (only what differs) */
+.nav-action-btn { font-size: 0.68rem; padding: 0.25rem 0.6rem; }
 
 .nav-logo {
   font-family: var(--font-jp);
@@ -255,14 +276,10 @@ body {
   color: var(--text-muted);
 }
 .btn-audio {
-  font-family: var(--font-mono);
+  /* Variant: solid surface by default, accent when playing. */
   font-size: 0.78rem;
   background: var(--surface2);
   color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 0.3rem 0.7rem;
-  cursor: pointer;
 }
 .btn-audio:hover { background: var(--bg); }
 .btn-audio.playing { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
@@ -354,14 +371,7 @@ body {
   margin-right: 0.4rem;
 }
 .btn-gloss-all {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
   padding: 0.3rem 0.85rem;
-  cursor: pointer;
-  color: var(--text-muted);
   transition: background 0.15s, color 0.15s;
 }
 .btn-gloss-all:hover { background: var(--surface2); color: var(--text); }
@@ -477,13 +487,24 @@ button {
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
-.panel-label {
+/*
+ * Unified small-caps "meta" label.
+ *
+ * Used for section headings inside cards (.panel-label), stat
+ * captions (.stat-label), and any future micro-label. Add the class
+ * `.label-meta` to any element to get the look; the legacy class
+ * names are aliased here so existing markup keeps working.
+ */
+:where(.label-meta, .panel-label, .stat-label) {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
+}
+
+.panel-label {
   margin-bottom: 0.75rem;
 }
 .new-words-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
@@ -513,14 +534,8 @@ button {
   border-top: 1px solid var(--border);
 }
 .story-nav-btn {
-  font-family: var(--font-mono);
   font-size: 0.75rem;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
   padding: 0.4rem 1rem;
-  cursor: pointer;
-  color: var(--text-muted);
   transition: background 0.15s, color 0.15s;
 }
 .story-nav-btn:hover:not(:disabled) { background: var(--surface2); color: var(--text); }
@@ -549,7 +564,7 @@ button {
   min-width: 80px;
 }
 .stat-number { font-size: 1.4rem; font-weight: 600; font-family: var(--font-mono); }
-.stat-label { font-size: 0.65rem; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.stat-label { font-size: 0.65rem; }
 
 .vocab-filters { margin-bottom: 1rem; }
 .vocab-search {
@@ -681,8 +696,7 @@ button {
   width: 100%;
   padding: 0.75rem;
   background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  justify-content: center;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   cursor: pointer;
@@ -730,8 +744,7 @@ button {
 /* "Review now" CTA on the read view — inline, accent-colored,
  * unobtrusive but clearly actionable when you have due words here. */
 .btn-review-cta {
-  display: inline-block;
-  padding: 0.3rem 0.7rem;
+  /* Accent variant — used inline with the gloss bar. */
   margin-left: 0.6rem;
   font-size: 0.8rem;
   color: var(--accent);

@@ -188,9 +188,9 @@
 
 <main id="app">
   {#if bootError}
-    <p class="empty-state" style="padding:2rem;">{bootError}</p>
+    <p class="empty-state">{bootError}</p>
   {:else if !vocabIndex || !grammar || !learner.ready}
-    <p class="empty-state" style="padding:2rem;">Loading…</p>
+    <p class="empty-state">Loading…</p>
   {:else}
     {@render children()}
   {/if}

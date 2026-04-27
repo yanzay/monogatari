@@ -38,25 +38,20 @@ from __future__ import annotations
 
 import datetime as _dt
 import json
-import re
 import shutil
 import sys
 from pathlib import Path
+
+# Make sibling modules importable when invoked as a script.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _paths import iter_stories  # noqa: E402
 
 PAGE_SIZE = 50
 
 
 def _scan_stories(stories_dir: Path) -> list[dict]:
     rows: list[dict] = []
-    for path in sorted(
-        stories_dir.glob("story_*.json"),
-        key=lambda p: int(re.findall(r"(\d+)", p.stem)[0]),
-    ):
-        try:
-            s = json.loads(path.read_text(encoding="utf-8"))
-        except Exception as e:
-            print(f"  warning: skipped {path.name}: {e}", file=sys.stderr)
-            continue
+    for sid, s in iter_stories(stories_dir):
         sentences = s.get("sentences", [])
         n_content = sum(
             1
@@ -66,8 +61,8 @@ def _scan_stories(stories_dir: Path) -> list[dict]:
         )
         rows.append(
             {
-                "story_id": s.get("story_id"),
-                "path": path.as_posix(),
+                "story_id": s.get("story_id", sid),
+                "path": (stories_dir / f"story_{sid}.json").as_posix(),
                 "title_jp": (s.get("title") or {}).get("jp", ""),
                 "title_en": (s.get("title") or {}).get("en", ""),
                 "n_sentences": len(sentences),

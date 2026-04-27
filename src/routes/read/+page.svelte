@@ -184,9 +184,9 @@
 
 <div id="view-read" class="view active">
   {#if storyError}
-    <p class="empty-state" style="padding:2rem;">{storyError}</p>
+    <p class="empty-state">{storyError}</p>
   {:else if !story}
-    <p class="empty-state" style="padding:2rem;">Loading story…</p>
+    <p class="empty-state">Loading story…</p>
   {:else}
     <div class="story-header">
       <h1 class="story-title" id="story-title-jp" lang="ja">

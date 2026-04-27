@@ -26,32 +26,13 @@ import sys
 
 from _common import (load_spec, save_spec, load_vocab, load_grammar,
                      iter_stories, build, color, ROOT)
-
-
-def _word_ids_used(story: dict) -> set[str]:
-    used = set()
-    for sec in ("title",):
-        for tok in (story.get(sec) or {}).get("tokens", []):
-            if tok.get("word_id"):
-                used.add(tok["word_id"])
-    for sn in story.get("sentences", []):
-        for tok in sn.get("tokens", []):
-            if tok.get("word_id"):
-                used.add(tok["word_id"])
-    return used
+from _token_walk import (word_ids_used as _word_ids_used,
+                          grammar_ids_used as _grammar_ids_used_full)
 
 
 def _grammar_ids_used(story: dict) -> set[str]:
-    used = set()
-    for sec in ("title",):
-        for tok in (story.get(sec) or {}).get("tokens", []):
-            if tok.get("grammar_id"):
-                used.add(tok["grammar_id"])
-    for sn in story.get("sentences", []):
-        for tok in sn.get("tokens", []):
-            if tok.get("grammar_id"):
-                used.add(tok["grammar_id"])
-    return used
+    """Match cadence.py: weave-suggest considers direct grammar_id only."""
+    return _grammar_ids_used_full(story, include_inflection=False)
 
 
 def cmd_suggest(args):

@@ -20,7 +20,7 @@
 <div class="popup-grammar-long">{gp.long || '(no long description)'}</div>
 {#if gp.genki_ref}<div class="popup-grammar-ref">Genki {gp.genki_ref}</div>{/if}
 {#if gp.prerequisites?.length}
-  <div class="popup-grammar-ref" style="margin-top:0.4rem;">
+  <div class="popup-grammar-ref popup-grammar-prereq">
     Requires: {gp.prerequisites.join(', ')}
   </div>
 {/if}
@@ -48,6 +48,9 @@
     font-family: var(--font-mono);
     font-size: 0.68rem;
     color: var(--text-light);
+  }
+  .popup-grammar-prereq {
+    margin-top: 0.4rem;
   }
   .popup-divider {
     border: none;

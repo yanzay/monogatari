@@ -15,6 +15,7 @@ import sys
 
 from _common import (load_story, load_vocab, load_grammar, iter_stories,
                      ROOT, PIPELINE, color)
+from _token_walk import iter_sections, word_ids_used, grammar_ids_used
 
 
 def _band(sid: int):
@@ -78,15 +79,9 @@ def cmd_intros(args):
 def cmd_uses(args):
     sid = args.story_id
     s = load_story(sid)
-    wids = set(); gids = set()
-    for sec in ("title",):
-        for tok in (s.get(sec) or {}).get("tokens", []):
-            if tok.get("word_id"): wids.add(tok["word_id"])
-            if tok.get("grammar_id"): gids.add(tok["grammar_id"])
-    for sn in s.get("sentences", []):
-        for tok in sn.get("tokens", []):
-            if tok.get("word_id"): wids.add(tok["word_id"])
-            if tok.get("grammar_id"): gids.add(tok["grammar_id"])
+    wids = word_ids_used(s)
+    # Match historical behaviour: count only direct grammar_id, not inflection.
+    gids = grammar_ids_used(s, include_inflection=False)
     print(color(f"story_{sid} uses:", "bold"))
     print(f"  {len(wids)} word(s): {sorted(wids)}")
     print(f"  {len(gids)} grammar: {sorted(gids)}")
@@ -109,15 +104,12 @@ def cmd_contains(args):
     else:
         targets = list(iter_stories())
     for sid, s in targets:
-        for sec in ("title",):
-            sec_data = s.get(sec) or {}
-            for ti, tok in enumerate(sec_data.get("tokens", [])):
+        for section, tokens in iter_sections(s):
+            # section is 'title' or 'sentence_<i>'; render the latter as 's<i>'.
+            label = section if section == "title" else "s" + section.split("_", 1)[1]
+            for ti, tok in enumerate(tokens):
                 if tok.get(target_field) == needle:
-                    print(f"  story_{sid}:{sec}:{ti}  {tok.get('t')}")
-        for si, sn in enumerate(s.get("sentences", [])):
-            for ti, tok in enumerate(sn.get("tokens", [])):
-                if tok.get(target_field) == needle:
-                    print(f"  story_{sid}:s{si}:{ti}  {tok.get('t')}")
+                    print(f"  story_{sid}:{label}:{ti}  {tok.get('t')}")
 
 
 def main():

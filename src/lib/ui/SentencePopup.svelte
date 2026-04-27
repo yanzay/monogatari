@@ -25,10 +25,10 @@
 
 <div class="popup-pos">Story {storyId} · Sentence {sentenceIdx + 1}</div>
 {#if sentence.audio}
-  <button class="btn-audio" style="margin-bottom:0.5rem;" onclick={play}>▶ play sentence</button>
+  <button class="btn-audio popup-audio-btn" onclick={play}>▶ play sentence</button>
 {/if}
 <hr class="popup-divider" />
-<div class="popup-sentence-jp" lang="ja" style="font-size:1.1rem;line-height:2;">
+<div class="popup-sentence-jp" lang="ja">
   {#each sentence.tokens as tok, ti (ti)}
     <TokenEl {tok} {onWord} {onGrammar} />
   {/each}
@@ -64,5 +64,8 @@
   .popup-sentence-en {
     font-style: italic;
     color: var(--text-muted);
+  }
+  .popup-audio-btn {
+    margin-bottom: 0.5rem;
   }
 </style>

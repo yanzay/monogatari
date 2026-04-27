@@ -21,6 +21,11 @@ from pathlib import Path
 from dataclasses import dataclass, field
 from typing import Optional
 
+# Make sibling pipeline/ modules importable when validate.py is run as a script.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from _paths import STORIES, iter_stories  # noqa: E402
+
 
 # ── Conjugation Engine (Section 6) ───────────────────────────────────────────
 
@@ -733,27 +738,13 @@ def validate(
                 REINFORCEMENT_WINDOW,
                 MIN_REINFORCEMENT_USES,
             )
-            from pathlib import Path as _Path
-            stories_dir = _Path(__file__).resolve().parent.parent / "stories"
-            if stories_dir.is_dir():
+            if STORIES.is_dir():
                 # Load every story on disk; substitute the in-memory copy for
                 # the story currently being validated so unsaved edits are
                 # reflected in the cadence/reinforcement counts.
-                library: dict[int, dict] = {}
-                for path in stories_dir.glob("story_*.json"):
-                    try:
-                        n = int(path.stem.split("_")[1])
-                    except (ValueError, IndexError):
-                        continue
-                    if n == sid_for_tier:
-                        library[n] = story
-                    else:
-                        try:
-                            library[n] = json.loads(path.read_text(encoding="utf-8"))
-                        except Exception:
-                            continue
-                if sid_for_tier not in library:
-                    library[sid_for_tier] = story
+                library: dict[int, dict] = {n: s for n, s in iter_stories()
+                                            if n != sid_for_tier}
+                library[sid_for_tier] = story
 
                 def _intros_of(d: dict) -> list[str]:
                     out: list[str] = []
@@ -1079,18 +1070,8 @@ def validate(
             for wid in stories_using(story):
                 discount[wid] = discount.get(wid, 0) + 1
             try:
-                from pathlib import Path
-                stories_dir = Path(__file__).resolve().parent.parent / "stories"
-                for path in stories_dir.glob("story_*.json"):
-                    try:
-                        other_sid = int(path.stem.split("_")[1])
-                    except (ValueError, IndexError):
-                        continue
+                for other_sid, other in iter_stories():
                     if other_sid <= sid:
-                        continue
-                    try:
-                        other = json.loads(path.read_text(encoding="utf-8"))
-                    except Exception:
                         continue
                     for wid in stories_using(other):
                         discount[wid] = discount.get(wid, 0) + 1
@@ -1134,20 +1115,10 @@ def validate(
         # the next planner can prioritise it. Skip on test fixtures.
         if isinstance(sid, int) and sid > 0:
             try:
-                from pathlib import Path
-                stories_dir = Path(__file__).resolve().parent.parent / "stories"
                 # Build {wid -> last_story_id_using_it} from history (≤ sid).
                 last_seen: dict[str, int] = {}
-                for path in stories_dir.glob("story_*.json"):
-                    try:
-                        other_sid = int(path.stem.split("_")[1])
-                    except (ValueError, IndexError):
-                        continue
+                for other_sid, other in iter_stories():
                     if other_sid > sid:
-                        continue
-                    try:
-                        other = json.loads(path.read_text(encoding="utf-8"))
-                    except Exception:
                         continue
                     for wid in stories_using(other):
                         if other_sid > last_seen.get(wid, 0):
@@ -1310,20 +1281,7 @@ def validate(
         sid_for_motif = story.get("story_id")
         if isinstance(sid_for_motif, int) and sid_for_motif > 0:
             try:
-                from pathlib import Path
-                stories_dir = Path(__file__).resolve().parent.parent / "stories"
-                prior_stories: list[dict] = []
-                for path in stories_dir.glob("story_*.json"):
-                    try:
-                        other_sid = int(path.stem.split("_")[1])
-                    except (ValueError, IndexError):
-                        continue
-                    if other_sid >= sid_for_motif:
-                        continue
-                    try:
-                        prior_stories.append(json.loads(path.read_text(encoding="utf-8")))
-                    except Exception:
-                        continue
+                prior_stories = [s for n, s in iter_stories() if n < sid_for_motif]
                 for issue in motif_rotation_lint(story, prior_stories):
                     result.add_warning(f"[Check 12] {issue.message}")
             except Exception:
@@ -1336,8 +1294,7 @@ def validate(
     # joined JP) matches any of the previous K stories OR is on the library
     # opener blocklist. Config lives in pipeline/forbidden_patterns.json.
     try:
-        from pathlib import Path as _Path
-        cfg_path = _Path(__file__).resolve().parent / "forbidden_patterns.json"
+        cfg_path = Path(__file__).resolve().parent / "forbidden_patterns.json"
         if cfg_path.is_file():
             cfg = json.loads(cfg_path.read_text(encoding="utf-8"))
             rules = cfg.get("rules", {})
@@ -1380,27 +1337,17 @@ def validate(
                         break
 
                 # Sliding-window check vs. previous K stories
-                stories_dir = _Path(__file__).resolve().parent.parent / "stories"
                 prior_openers: list[tuple[int, str]] = []
-                if stories_dir.is_dir():
-                    for path in stories_dir.glob("story_*.json"):
-                        try:
-                            other_sid = int(path.stem.split("_")[1])
-                        except (ValueError, IndexError):
-                            continue
-                        if other_sid >= sid_for_opener or other_sid <= 0:
-                            continue
-                        try:
-                            other = json.loads(path.read_text(encoding="utf-8"))
-                        except Exception:
-                            continue
-                        other_sents = other.get("sentences") or []
-                        if not other_sents or not other_sents[0].get("tokens"):
-                            continue
-                        other_s0 = "".join(
-                            t.get("t", "") for t in other_sents[0]["tokens"]
-                        )
-                        prior_openers.append((other_sid, other_s0[:n_chars]))
+                for other_sid, other in iter_stories():
+                    if other_sid >= sid_for_opener or other_sid <= 0:
+                        continue
+                    other_sents = other.get("sentences") or []
+                    if not other_sents or not other_sents[0].get("tokens"):
+                        continue
+                    other_s0 = "".join(
+                        t.get("t", "") for t in other_sents[0]["tokens"]
+                    )
+                    prior_openers.append((other_sid, other_s0[:n_chars]))
                 prior_openers.sort(key=lambda x: -x[0])
                 for other_sid, other_template in prior_openers[:window]:
                     if other_template and other_template == s0_template:
@@ -1416,12 +1363,12 @@ def validate(
         pass
 
     # ── Check 10: Round-trip ──────────────────────────────────────────────────
+    import re as _re  # local alias to avoid touching module-top imports
     for i, sent in enumerate(sentences):
         joined = "".join(tok["t"] for tok in sent["tokens"])
         if "  " in joined:
             result.add_error(10, "Double space in joined tokens", f"sentence {i}")
-        import re
-        if re.search(r'[a-zA-Z]{2,}', joined):
+        if _re.search(r'[a-zA-Z]{2,}', joined):
             result.add_error(10, f"Stray ASCII in joined tokens: '{joined}'", f"sentence {i}")
         if not joined.endswith(("。", "？", "！", "…", "、")):
             result.add_error(

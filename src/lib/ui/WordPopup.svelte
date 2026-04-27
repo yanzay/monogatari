@@ -42,7 +42,7 @@
 </script>
 
 {#if audioSrc}
-  <button class="btn-audio" style="margin-bottom:0.5rem;" onclick={playWord}>▶ play word</button>
+  <button class="btn-audio popup-audio-btn" onclick={playWord}>▶ play word</button>
 {/if}
 
 {#if isNew}
@@ -51,9 +51,7 @@
 
 <div class="popup-word" lang="ja">
   {word.surface}{#if hasKanji}
-    <span style="font-size:1.1rem;font-weight:400;color:var(--text-muted);margin-left:0.5rem;"
-      >{word.kana}</span
-    >
+    <span class="popup-word-kana">{word.kana}</span>
   {/if}
 </div>
 <div class="popup-reading"><span>/ {word.reading} /</span></div>
@@ -65,11 +63,11 @@
 {#if inflection}
   <hr class="popup-divider" />
   <div class="popup-pos">inflection · {inflection.form}</div>
-  <div style="font-size:0.82rem;color:var(--text-muted);margin-bottom:0.5rem;">
+  <div class="popup-inflection">
     Base form: <span lang="ja">{inflection.base}</span>
   </div>
   {#if grammar.points[inflection.grammar_id]}
-    <div style="font-size:0.82rem;color:var(--text-muted);font-style:italic;">
+    <div class="popup-inflection italic">
       {grammar.points[inflection.grammar_id].short}
     </div>
   {/if}
@@ -167,5 +165,22 @@
     padding: 0.15rem 0.45rem;
     border-radius: 4px;
     margin-bottom: 0.5rem;
+  }
+  .popup-audio-btn {
+    margin-bottom: 0.5rem;
+  }
+  .popup-word-kana {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-left: 0.5rem;
+  }
+  .popup-inflection {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+  .popup-inflection.italic {
+    font-style: italic;
   }
 </style>

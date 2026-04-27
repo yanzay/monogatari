@@ -19,6 +19,8 @@ from pathlib import Path
 
 from _common import (load_spec, load_vocab, load_grammar, load_story,
                      iter_stories, build, ROOT, STORIES, color)
+# `validate` is imported lazily inside cmd_validate so other commands stay
+# fast (validate.py pulls in jp.py + fugashi at import time).
 
 
 def cmd_story(args):
@@ -53,19 +55,21 @@ def cmd_all(args):
 
 
 def cmd_validate(args):
+    """In-process library validation — ~50× faster than per-story subprocesses."""
+    from validate import validate as _validate
+    vocab = load_vocab(); grammar = load_grammar()
     bad = []
-    for sid, _ in iter_stories():
-        r = subprocess.run([sys.executable, "pipeline/validate.py", f"stories/story_{sid}.json"],
-                           capture_output=True, text=True, cwd=ROOT)
-        if "✓" not in r.stdout.split("\n")[0]:
-            bad.append((sid, r.stdout))
+    for sid, story in iter_stories():
+        result = _validate(story, vocab, grammar, plan=None)
+        if not result.valid:
+            bad.append((sid, result))
     if not bad:
         print(color("✓ All stories validate cleanly.", "green")); return
-    for sid, out in bad:
+    for sid, result in bad:
         print(color(f"✗ story_{sid}", "red"))
-        for line in out.splitlines():
-            if "Check" in line or "error" in line.lower():
-                print(f"    {line}")
+        for e in result.errors:
+            print(f"    Check {e.check}: {e.location}: {e.message}" if e.location
+                  else f"    Check {e.check}: {e.message}")
     print(color(f"\n{len(bad)} invalid story(ies)", "red"))
     sys.exit(1)
 

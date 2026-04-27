@@ -8,4 +8,4 @@
   });
 </script>
 
-<p class="empty-state" style="padding:2rem;">Redirecting…</p>
+<p class="empty-state">Redirecting…</p>

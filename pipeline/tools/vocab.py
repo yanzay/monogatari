@@ -18,6 +18,7 @@ from _common import (
     build, load_vocab, load_grammar, iter_stories, list_word_occurrences,
     color,
 )
+from _token_walk import iter_tokens
 
 
 def cmd_search(args):
@@ -58,18 +59,12 @@ def cmd_info(args):
 
 def cmd_orphans(args):
     vocab = load_vocab()
-    occ_by_wid: dict[str, list[tuple[int, str]]] = {}
-    for wid in vocab["words"]:
-        occ_by_wid[wid] = []
+    occ_by_wid: dict[str, list[tuple[int, str]]] = {wid: [] for wid in vocab["words"]}
     for sid, story in iter_stories():
-        for sec in ("title",):
-            for tok in (story.get(sec) or {}).get("tokens", []):
-                if tok.get("word_id") in occ_by_wid:
-                    occ_by_wid[tok["word_id"]].append((sid, tok.get("t","?")))
-        for sn in story.get("sentences", []):
-            for tok in sn.get("tokens", []):
-                if tok.get("word_id") in occ_by_wid:
-                    occ_by_wid[tok["word_id"]].append((sid, tok.get("t","?")))
+        for tok in iter_tokens(story):
+            wid = tok.get("word_id")
+            if wid in occ_by_wid:
+                occ_by_wid[wid].append((sid, tok.get("t", "?")))
     rows = []
     for wid, occ in occ_by_wid.items():
         if len(set(s for s, _ in occ)) <= args.max:
@@ -86,50 +81,43 @@ def cmd_orphans(args):
 
 def cmd_first(args):
     wid = args.word_id.upper()
+    from _token_walk import iter_sections
     for sid, story in iter_stories():
-        for sec in ("title",):
-            for tok in (story.get(sec) or {}).get("tokens", []):
+        for section, tokens in iter_sections(story):
+            for tok in tokens:
                 if tok.get("word_id") == wid:
-                    print(f"first occurrence of {wid}: story_{sid} (title: {tok.get('t')})")
-                    return
-        for sn in story.get("sentences", []):
-            for tok in sn.get("tokens", []):
-                if tok.get("word_id") == wid:
-                    print(f"first occurrence of {wid}: story_{sid} (sentence: {tok.get('t')})")
+                    where = "title" if section == "title" else "sentence"
+                    print(f"first occurrence of {wid}: story_{sid} ({where}: {tok.get('t')})")
                     return
     print(f"{wid}: not found in any story")
 
 
 def cmd_would_mint(args):
     """Tokenize a JP surface using the converter and report which tokens would mint."""
-    from text_to_story import build_story
     spec = {"story_id": 999, "title": {"jp": args.text, "en": "preview"},
             "sentences": [{"jp": args.text, "en": "preview"}]}
     vocab = load_vocab()
     grammar = load_grammar()
     story, report = build(spec, vocab, grammar)
-    # The converter mutates `vocab` in-place when it mints; rather than
-    # rely on that, walk the report's `new_words` (which is the canonical
-    # mint list for the spec).
-    minted = [nw["id"] for nw in (report.get("new_words") or [])
-              if isinstance(nw, dict) and nw.get("id")]
-    minted.sort(key=lambda w: int(w[1:]))
+    # The converter mutates `vocab` in-place when it mints; the report's
+    # `new_words` list (a list of dicts with id+surface+meanings) is the
+    # canonical, structured mint record for the spec.
+    minted_records = [nw for nw in (report.get("new_words") or [])
+                      if isinstance(nw, dict) and nw.get("id")]
+    minted_records.sort(key=lambda r: int(r["id"][1:]))
+    minted_ids = {r["id"] for r in minted_records}
     print(color(f"Tokenization of: {args.text}", "bold"))
-    for sn in story.get("sentences", []):
-        for tok in sn.get("tokens", []):
-            wid = tok.get("word_id", "")
-            mark = ""
-            if wid and wid in minted:
-                mark = color(" NEW", "red")
-            elif wid:
-                mark = ""
-            print(f"  {tok.get('t'):<8s} {tok.get('role','-'):<8s} "
-                  f"{wid or '-':<8s} {tok.get('grammar_id','-'):<20s}{mark}")
-    if minted:
-        print(color(f"\nWould mint {len(minted)} new word(s):", "yellow"))
-        for wid in minted:
-            w = new_vocab["words"][wid]
-            print(f"  {wid}: {w.get('surface')} ({(w.get('meanings') or ['?'])[0]})")
+    from _token_walk import iter_sentence_tokens
+    for tok in iter_sentence_tokens(story):
+        wid = tok.get("word_id", "")
+        mark = color(" NEW", "red") if wid and wid in minted_ids else ""
+        print(f"  {tok.get('t'):<8s} {tok.get('role','-'):<8s} "
+              f"{wid or '-':<8s} {tok.get('grammar_id','-'):<20s}{mark}")
+    if minted_records:
+        print(color(f"\nWould mint {len(minted_records)} new word(s):", "yellow"))
+        for r in minted_records:
+            mean = (r.get("meanings") or ["?"])[0]
+            print(f"  {r['id']}: {r.get('surface', '?')} ({mean})")
     else:
         print(color("\nNo new words minted.", "green"))
 
