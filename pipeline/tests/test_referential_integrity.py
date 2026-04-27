@@ -15,15 +15,31 @@ def test_stories_manifest_lists_every_story(root, story_paths):
         pytest.skip("stories/index.json manifest not present")
     with manifest_path.open() as f:
         manifest = json.load(f)
-    # Manifest may have either {stories:[...]} or [{...},...] or {<id>: {...}}
-    if isinstance(manifest, dict) and "stories" in manifest:
+    # Supported manifest shapes:
+    #   v1 list:                  [{...}, ...]
+    #   v1 dict:                  {"<id>": {...}, ...}
+    #   v1 inline:                {"stories": [...], ...}
+    #   v2 paginated:             {"version": 2, "pages": [{"path": "...",
+    #                              "n_stories": ...}, ...], ["stories": [...]]}
+    #     For v2 with no inlined "stories" (corpora > page_size), we walk the
+    #     page payloads under stories/index/p{NNN}.json and aggregate.
+    entries: list = []
+    if isinstance(manifest, dict) and "pages" in manifest and "stories" not in manifest:
+        # v2 paginated — load every page payload.
+        for page_meta in manifest["pages"]:
+            page_path = root / page_meta["path"]
+            if not page_path.exists():
+                pytest.fail(f"Manifest references missing page payload: {page_path}")
+            with page_path.open() as f:
+                page = json.load(f)
+            entries.extend(page.get("stories", []))
+    elif isinstance(manifest, dict) and "stories" in manifest:
         entries = manifest["stories"]
     elif isinstance(manifest, list):
         entries = manifest
     elif isinstance(manifest, dict):
-        entries = [{"id": k, **v} for k, v in manifest.items()]
-    else:
-        entries = []
+        entries = [{"id": k, **v} for k, v in manifest.items()
+                   if isinstance(v, dict)]
     def normalise(sid):
         if isinstance(sid, int):
             return f"story_{sid}"

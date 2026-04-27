@@ -137,8 +137,8 @@ def strip_audio(story: dict) -> None:
                 tok.pop(f, None)
 
 
-def _normalize_first_occurrence_flags(stories_dir: Path) -> None:
-    """Honest library-wide first-occurrence pass.
+def _stamp_first_occurrence_in_memory(library: dict[int, dict]) -> None:
+    """Honest library-wide first-occurrence pass — operates in-memory.
 
     A `word_id` (resp. `grammar_id`) is marked `is_new` (resp. `is_new_grammar`)
     on EXACTLY ONE token in EXACTLY ONE story — the first story (by id) and,
@@ -148,14 +148,25 @@ def _normalize_first_occurrence_flags(stories_dir: Path) -> None:
     Story-level `new_words` and `new_grammar` arrays are recomputed to be
     exactly the ids that fired their flag in this story.
 
+    `library` is mutated in place. Caller is responsible for persistence.
+
     No hints, no heuristics, no canonical fallback. The shipped library IS
     the source of truth.
     """
     seen_words: set[str] = set()
     seen_grammars: set[str] = set()
-    paths = sorted(stories_dir.glob("story_*.json"), key=lambda p: int(p.stem.split("_")[1]))
-    for path in paths:
-        story = json.loads(path.read_text(encoding="utf-8"))
+
+    def _gid_of(t: dict) -> Optional[str]:
+        g = t.get("grammar_id")
+        if g:
+            return g
+        infl = t.get("inflection")
+        if isinstance(infl, dict):
+            return infl.get("grammar_id")
+        return None
+
+    for sid in sorted(library):
+        story = library[sid]
 
         # Strip any pre-existing flags so we have a clean slate.
         for _, t in _all_section_tokens(story):
@@ -163,7 +174,7 @@ def _normalize_first_occurrence_flags(stories_dir: Path) -> None:
             t.pop("is_new_grammar", None)
 
         # Identify which words/grammars are first-seen in this story.
-        first_in_story_words:    list[str] = []
+        first_in_story_words: list[str] = []
         first_in_story_grammars: list[str] = []
         for _, t in _all_section_tokens(story):
             wid = t.get("word_id")
@@ -171,20 +182,16 @@ def _normalize_first_occurrence_flags(stories_dir: Path) -> None:
                 seen_words.add(wid)
                 if wid not in first_in_story_words:
                     first_in_story_words.append(wid)
-            gid = t.get("grammar_id")
-            if not gid:
-                infl = t.get("inflection")
-                if isinstance(infl, dict):
-                    gid = infl.get("grammar_id")
+            gid = _gid_of(t)
             if gid and gid not in seen_grammars:
                 seen_grammars.add(gid)
                 if gid not in first_in_story_grammars:
                     first_in_story_grammars.append(gid)
 
         # Stamp is_new on the FIRST SENTENCE occurrence of each new word
-        # (validator semantics: title is decorative, the flag
-        # belongs to the body). Fall back to title only when the
-        # word never appears in any sentence in this story.
+        # (validator semantics: title is decorative, the flag belongs to
+        # the body). Fall back to title only when the word never appears
+        # in any sentence in this story.
         sentence_first_word: dict[str, dict] = {}
         for sn in story.get("sentences", []):
             for t in sn.get("tokens", []):
@@ -192,26 +199,16 @@ def _normalize_first_occurrence_flags(stories_dir: Path) -> None:
                 if wid in first_in_story_words and wid not in sentence_first_word:
                     sentence_first_word[wid] = t
         title_first_word: dict[str, dict] = {}
-        for sect in ("title",):
-            for t in story.get(sect, {}).get("tokens", []):
-                wid = t.get("word_id")
-                if wid in first_in_story_words and wid not in title_first_word:
-                    title_first_word[wid] = t
+        for t in (story.get("title") or {}).get("tokens", []):
+            wid = t.get("word_id")
+            if wid in first_in_story_words and wid not in title_first_word:
+                title_first_word[wid] = t
         for wid in first_in_story_words:
             target = sentence_first_word.get(wid) or title_first_word.get(wid)
             if target is not None:
                 target["is_new"] = True
 
         # Same treatment for grammar.
-        def _gid_of(t: dict) -> Optional[str]:
-            g = t.get("grammar_id")
-            if g:
-                return g
-            infl = t.get("inflection")
-            if isinstance(infl, dict):
-                return infl.get("grammar_id")
-            return None
-
         sentence_first_g: dict[str, dict] = {}
         for sn in story.get("sentences", []):
             for t in sn.get("tokens", []):
@@ -219,11 +216,10 @@ def _normalize_first_occurrence_flags(stories_dir: Path) -> None:
                 if g in first_in_story_grammars and g not in sentence_first_g:
                     sentence_first_g[g] = t
         title_first_g: dict[str, dict] = {}
-        for sect in ("title",):
-            for t in story.get(sect, {}).get("tokens", []):
-                g = _gid_of(t)
-                if g in first_in_story_grammars and g not in title_first_g:
-                    title_first_g[g] = t
+        for t in (story.get("title") or {}).get("tokens", []):
+            g = _gid_of(t)
+            if g in first_in_story_grammars and g not in title_first_g:
+                title_first_g[g] = t
         for gid in first_in_story_grammars:
             target = sentence_first_g.get(gid) or title_first_g.get(gid)
             if target is not None:
@@ -232,7 +228,28 @@ def _normalize_first_occurrence_flags(stories_dir: Path) -> None:
         story["new_words"] = first_in_story_words
         story["new_grammar"] = first_in_story_grammars
 
-        path.write_text(json.dumps(story, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+def _normalize_first_occurrence_flags(stories_dir: Path) -> None:
+    """Disk-backed wrapper around `_stamp_first_occurrence_in_memory`.
+
+    Reads every shipped story, applies the library-wide pass in memory,
+    then writes each one back. Used by the --apply path.
+    """
+    paths = sorted(stories_dir.glob("story_*.json"),
+                   key=lambda p: int(p.stem.split("_")[1]))
+    library: dict[int, dict] = {}
+    for path in paths:
+        sid = int(path.stem.split("_")[1])
+        library[sid] = json.loads(path.read_text(encoding="utf-8"))
+
+    _stamp_first_occurrence_in_memory(library)
+
+    for path in paths:
+        sid = int(path.stem.split("_")[1])
+        path.write_text(
+            json.dumps(library[sid], ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
 
 
 def _refresh_vocab_metadata(vocab: dict, stories_dir: Path) -> None:
@@ -458,6 +475,60 @@ def regen_one(
     return spec, regen, report
 
 
+def _collect_used_word_ids(stories_dir: Path) -> set[str]:
+    """All word_ids referenced by any shipped story (title + sentences)."""
+    used: set[str] = set()
+    for path in stories_dir.glob("story_*.json"):
+        try:
+            s = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for sn in s.get("sentences", []):
+            for t in sn.get("tokens", []):
+                if t.get("word_id"):
+                    used.add(t["word_id"])
+        for t in (s.get("title") or {}).get("tokens", []):
+            if t.get("word_id"):
+                used.add(t["word_id"])
+    return used
+
+
+def _prune_orphan_vocab(vocab: dict, used_wids: set[str]) -> tuple[list[str], bool]:
+    """Drop unreferenced word entries.
+
+    Returns (orphan_ids, refused). `refused` is True if the orphan list is
+    suspiciously large (>50% of vocab) — caller should abort the run.
+    """
+    orphans = [wid for wid in list(vocab.get("words", {}))
+               if wid not in used_wids]
+    total = len(vocab.get("words", {}))
+    if total and len(orphans) > total // 2:
+        return orphans, True
+    for wid in orphans:
+        del vocab["words"][wid]
+    return orphans, False
+
+
+def _refresh_next_word_id(vocab: dict) -> None:
+    """Set vocab['next_word_id'] = 'W{max+1:05d}' over current keys."""
+    max_n = max(int(k[1:]) for k in vocab["words"] if k.startswith("W"))
+    vocab["next_word_id"] = f"W{max_n + 1:05d}"
+
+
+def _clean_jmdict_meanings(vocab: dict) -> None:
+    """Trim '; '-joined JMdict meaning strings down to the first sense and
+    drop the per-word _minted_by audit marker."""
+    for w in vocab["words"].values():
+        cleaned = []
+        for m in w.get("meanings", []):
+            if isinstance(m, str) and "; " in m:
+                cleaned.append(m.split("; ")[0].strip())
+            else:
+                cleaned.append(m)
+        w["meanings"] = cleaned
+        w.pop("_minted_by", None)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--apply", action="store_true",
@@ -500,8 +571,18 @@ def main() -> int:
         shutil.copy(vpath, bak_dir / f"vocab_state_{ts}.json")
 
     minted_records: list[dict] = []
-    n_changed = 0
     n_total = len(story_paths)
+
+    # ── Phase 1: regenerate every story in memory ────────────────────────────
+    # We must complete every story BEFORE doing the library-wide
+    # first-occurrence pass, otherwise the per-story `is_new` / `new_words` /
+    # `new_grammar` arrays would always come out empty (the converter is
+    # per-story; first-occurrence is library-wide). This was the historical
+    # cause of the regenerator reporting all stories as "would change" in
+    # dry-run mode even when the bytes after normalization were identical.
+    regen_library: dict[int, dict] = {}
+    spec_by_sid: dict[int, dict] = {}
+    report_by_sid: dict[int, dict] = {}
     for canon_path in story_paths:
         sid = int(canon_path.stem.split("_")[1])
         try:
@@ -520,6 +601,32 @@ def main() -> int:
         except Exception as e:
             print(f"  ✗ story {sid}: {type(e).__name__}: {e}")
             continue
+        regen_library[sid] = regen
+        spec_by_sid[sid] = spec
+        report_by_sid[sid] = report
+
+    # ── Phase 2: library-wide first-occurrence pass (in memory) ──────────────
+    # Single-story regen always reports `is_new=*` / `new_words=[]` /
+    # `new_grammar=[]` — those flags are *library-wide* properties that depend
+    # on every prior story. We must apply that pass here even in dry-run so
+    # the byte-comparison against the shipped library is meaningful.
+    #
+    # Single-story regen (--story N) skips this pass: we can't honestly
+    # compute first-occurrence flags from one story alone, so the diff in
+    # that mode is informational only ("token shape changed" rather than
+    # "would change after a real regen").
+    if args.story is None:
+        _stamp_first_occurrence_in_memory(regen_library)
+
+    # ── Phase 3: diff and (optionally) persist ───────────────────────────────
+    n_changed = 0
+    for canon_path in story_paths:
+        sid = int(canon_path.stem.split("_")[1])
+        if sid not in regen_library:
+            continue  # error during phase 1 — already reported
+        regen = regen_library[sid]
+        report = report_by_sid[sid]
+        spec = spec_by_sid[sid]
 
         # Stable serialization for diff comparison
         canon_text = canon_path.read_text(encoding="utf-8").rstrip()
@@ -585,55 +692,25 @@ def main() -> int:
         # with the actual library and satisfies the state-integrity tests.
         vpath = ROOT / "data" / "vocab_state.json"
         # Drop any orphan vocab entries (words minted in past runs but no
-        # longer referenced by any shipped story). Without this, a word
-        # that gets edited out of a bilingual spec lingers forever.
-        _used_wids: set[str] = set()
-        for _path in (ROOT / "stories").glob("story_*.json"):
-            _s = json.loads(_path.read_text(encoding="utf-8"))
-            for _sn in _s.get("sentences", []):
-                for _t in _sn.get("tokens", []):
-                    if _t.get("word_id"):
-                        _used_wids.add(_t["word_id"])
-            for _t in (_s.get("title") or {}).get("tokens", []):
-                if _t.get("word_id"):
-                    _used_wids.add(_t["word_id"])
-        _orphans = [wid for wid in list(vocab.get("words", {}).keys())
-                    if wid not in _used_wids]
-        # Safety net: if the orphan list is suspiciously large (more than half
-        # of vocab_state), refuse to delete. The most common cause is a silent
-        # text_to_story failure that produced empty token arrays — see
-        # _assert_tokens_nonempty above. The earlier preflight should have
-        # caught it, but belt + suspenders.
-        _total_words = len(vocab.get("words", {}))
-        if _total_words and len(_orphans) > _total_words // 2:
+        # longer referenced by any shipped story). The 50%-orphan safety net
+        # in _prune_orphan_vocab catches silent text_to_story failures that
+        # produce empty token arrays.
+        used_wids = _collect_used_word_ids(ROOT / "stories")
+        orphans, refused = _prune_orphan_vocab(vocab, used_wids)
+        if refused:
             sys.stderr.write(
-                f"REFUSING to drop {len(_orphans)} orphan vocab record(s) — "
-                f"that's more than half of vocab_state ({_total_words}).\n"
+                f"REFUSING to drop {len(orphans)} orphan vocab record(s) — "
+                f"that's more than half of vocab_state ({len(vocab.get('words', {}))}).\n"
                 "       This almost always means text_to_story produced empty\n"
                 "       token arrays. Activate the project venv and re-run:\n"
                 "         source .venv/bin/activate\n"
             )
             return 2
-        for wid in _orphans:
-            del vocab["words"][wid]
-        if _orphans:
-            print(f"Dropped {len(_orphans)} orphan vocab record(s): {', '.join(_orphans)}")
+        if orphans:
+            print(f"Dropped {len(orphans)} orphan vocab record(s): {', '.join(orphans)}")
         _refresh_vocab_metadata(vocab, ROOT / "stories")
-        # Update next_word_id to max+1
-        max_n = max(int(k[1:]) for k in vocab["words"].keys() if k.startswith("W"))
-        vocab["next_word_id"] = f"W{max_n + 1:05d}"
-        # Strip JMdict semicolons in meanings (split on '; ' → take first)
-        # for ALL words (handles both freshly minted and previously appended).
-        for w in vocab["words"].values():
-            cleaned = []
-            for m in w.get("meanings", []):
-                if isinstance(m, str) and "; " in m:
-                    cleaned.append(m.split("; ")[0].strip())
-                else:
-                    cleaned.append(m)
-            w["meanings"] = cleaned
-            # Drop the _minted_by marker if present
-            w.pop("_minted_by", None)
+        _refresh_next_word_id(vocab)
+        _clean_jmdict_meanings(vocab)
         vpath.write_text(
             json.dumps(vocab, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",

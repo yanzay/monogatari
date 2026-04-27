@@ -253,11 +253,8 @@ MIN_REINFORCEMENT_USES = 1   # the point must appear in ≥1 of those 5 stories
 #
 VOCAB_REINFORCE_WINDOW   = 10   # look at the next 10 stories after introduction
 VOCAB_REINFORCE_MIN_USES = 2    # must appear in ≥2 of those 10 stories
-VOCAB_MAX_GAP            = 20   # DEPRECATED — no longer enforced. Was: max gap
-                                 # between consecutive uses of a word.
-VOCAB_ABANDON_GRACE      = 10   # DEPRECATED — no longer enforced. Was: words
-                                 # introduced in the last N stories were exempt
-                                 # from the abandonment check.
+# (VOCAB_MAX_GAP and VOCAB_ABANDON_GRACE — the R2 abandonment-rule constants —
+#  were retired 2026-04-24 along with the rule itself.)
 
 
 

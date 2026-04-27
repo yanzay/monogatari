@@ -24,7 +24,10 @@
       learner.save();
     }
   }
-  function bindBool(key: 'audio_on_review_reveal' | 'audio_autoplay', e: Event) {
+  function bindBool(
+    key: 'audio_on_review_reveal' | 'audio_autoplay' | 'audio_listen_first',
+    e: Event,
+  ) {
     learner.state.prefs[key] = (e.target as HTMLInputElement).checked;
     learner.save();
   }
@@ -138,6 +141,21 @@
       <label class="settings-row settings-row-checkbox">
         <input
           type="checkbox"
+          checked={prefs.audio_listen_first}
+          onchange={(e) => bindBool('audio_listen_first', e)}
+        />
+        <span>
+          Listen first
+          <small class="settings-hint">
+            On each review card, play the word audio with the sentence
+            hidden. Recall from sound alone, then reveal. Cards without
+            audio fall back to text. No added review volume.
+          </small>
+        </span>
+      </label>
+      <label class="settings-row settings-row-checkbox">
+        <input
+          type="checkbox"
           checked={prefs.audio_autoplay}
           onchange={(e) => bindBool('audio_autoplay', e)}
         />
@@ -208,6 +226,15 @@
   }
   .settings-row input[type='range'] { width: 12rem; }
   .settings-value { font-variant-numeric: tabular-nums; color: var(--text-muted); }
+  .settings-hint {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.4;
+    margin-top: 0.2rem;
+    max-width: 28rem;
+  }
   .settings-row-checkbox {
     grid-template-columns: auto 1fr;
     gap: 0.5rem;

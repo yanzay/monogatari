@@ -17,7 +17,6 @@ Examples:
 """
 from __future__ import annotations
 import argparse
-import subprocess
 import sys
 
 from _common import iter_stories, color, ROOT, PIPELINE

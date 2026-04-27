@@ -34,6 +34,17 @@ export interface Prefs {
   show_gloss_by_default: boolean;
   audio_autoplay: boolean;
   audio_on_review_reveal: boolean;
+  /**
+   * Listening-first review mode.
+   *
+   * When true: on each review card, the sentence text is hidden and the
+   * word audio autoplays. The user must recall the word from sound alone
+   * before pressing reveal. Drills aural recognition with zero added
+   * review volume — the same recognition card is just answered from a
+   * different cue. Cards lacking audio fall back to the normal text-first
+   * presentation.
+   */
+  audio_listen_first: boolean;
   theme?: 'auto' | 'light' | 'dark';
   target_retention: number;
   daily_max_new: number;
@@ -72,6 +83,7 @@ function defaultPrefs(): Prefs {
     show_gloss_by_default: false,
     audio_autoplay: false,
     audio_on_review_reveal: true,
+    audio_listen_first: false,
     theme: 'auto',
     target_retention: DEFAULT_TARGET_RETENTION,
     daily_max_new: 20,
@@ -167,6 +179,8 @@ export function sanitizeImported(raw: unknown): LearnerState {
           audio_autoplay: !!p.audio_autoplay,
           audio_on_review_reveal:
             typeof p.audio_on_review_reveal === 'boolean' ? p.audio_on_review_reveal : true,
+          audio_listen_first:
+            typeof p.audio_listen_first === 'boolean' ? p.audio_listen_first : false,
           theme:
             p.theme === 'light' || p.theme === 'dark' || p.theme === 'auto'
               ? p.theme

@@ -13,6 +13,13 @@
   let word = $state<Word | null>(null);
   let vocabIndex = $state<VocabIndex | null>(null);
   let lastUndoable = $state(false);
+  /** Per-card audio source captured at load time so Replay/Show-text don't
+   *  need to reload the story. Null = no audio available for this card. */
+  let cardAudioSrc = $state<string | null>(null);
+  /** True when the current card is in listening-first mode AND audio is
+   *  available AND the user hasn't yet bailed to text. The sentence is
+   *  hidden until the user reveals or hits "Show text". */
+  let textHidden = $state(false);
 
   onMount(async () => {
     vocabIndex = await loadVocabIndex();
@@ -58,6 +65,8 @@
   async function loadCurrent() {
     contextSentence = null;
     word = null;
+    cardAudioSrc = null;
+    textHidden = false;
     if (!card) return;
     const w = await getWord(card.word_id);
     if (!w || card !== queue[0]) return;
@@ -71,33 +80,40 @@
     const exact = story.sentences[card.context_sentence_idx];
     if (exact && exact.tokens.some((t) => t.word_id === card.word_id)) {
       contextSentence = exact;
-      return;
+    } else {
+      contextSentence =
+        story.sentences.find((s) => s.tokens.some((t) => t.word_id === card.word_id)) ?? null;
     }
-    contextSentence =
-      story.sentences.find((s) => s.tokens.some((t) => t.word_id === card.word_id)) ?? null;
+    cardAudioSrc = story.word_audio?.[card.word_id] ?? null;
+
+    // Listen-first: hide text + autoplay audio, but ONLY if audio exists.
+    // Cards without audio fall back to normal text-first presentation.
+    if (learner.state.prefs.audio_listen_first && cardAudioSrc) {
+      textHidden = true;
+      // Small delay so the autoplay isn't lost to the page-mount race.
+      setTimeout(() => playCardAudio(), 80);
+    }
+  }
+
+  function playCardAudio() {
+    if (!cardAudioSrc) return;
+    try {
+      const a = audioFor(cardAudioSrc);
+      a?.play().catch(() => {});
+    } catch {
+      /* noop */
+    }
+  }
+
+  function showText() {
+    textHidden = false;
   }
 
   function reveal() {
     revealed = true;
-    if (
-      learner.state.prefs.audio_on_review_reveal &&
-      card &&
-      vocabIndex &&
-      word
-    ) {
-      // Audio path is per-story word_audio map; we need the story to look it up.
-      loadStoryById(card.context_story).then((story) => {
-        if (!story || card !== queue[0]) return;
-        const src = story.word_audio?.[card.word_id];
-        if (src) {
-          try {
-            const a = audioFor(src);
-            a?.play().catch(() => {});
-          } catch {
-            /* noop */
-          }
-        }
-      });
+    textHidden = false; // any reveal forces text to show
+    if (learner.state.prefs.audio_on_review_reveal && card && word) {
+      playCardAudio();
     }
   }
 
@@ -172,23 +188,38 @@
         <p class="empty-state">Loading card…</p>
       {:else}
         <div class="review-card">
-          <div class="review-sentence" lang="ja">
-            {#if contextSentence}
-              {#each contextSentence.tokens as tok, ti (ti)}
-                {#if tok.word_id === card.word_id}
-                  <span class="review-highlight">{tok.t}</span>
-                {:else}
-                  <span>{tok.t}</span>
-                {/if}
-              {/each}
-            {:else}
-              <span class="review-highlight">{word.surface}</span>
-            {/if}
-          </div>
-          {#if contextSentence}
-            <div class="review-source">
-              — Story {card.context_story}, sentence {card.context_sentence_idx + 1}
+          {#if textHidden}
+            <!-- Listen-first mode: sentence is hidden, audio replaces it. -->
+            <div class="review-listen-prompt" aria-live="polite">
+              <button class="btn-audio review-listen-replay" onclick={playCardAudio}>
+                ▶ Replay
+              </button>
+              <button class="review-listen-show" onclick={showText}>
+                Show text
+              </button>
+              <p class="review-listen-hint">
+                Listen, then press <kbd>Space</kbd> to reveal.
+              </p>
             </div>
+          {:else}
+            <div class="review-sentence" lang="ja">
+              {#if contextSentence}
+                {#each contextSentence.tokens as tok, ti (ti)}
+                  {#if tok.word_id === card.word_id}
+                    <span class="review-highlight">{tok.t}</span>
+                  {:else}
+                    <span>{tok.t}</span>
+                  {/if}
+                {/each}
+              {:else}
+                <span class="review-highlight">{word.surface}</span>
+              {/if}
+            </div>
+            {#if contextSentence}
+              <div class="review-source">
+                — Story {card.context_story}, sentence {card.context_sentence_idx + 1}
+              </div>
+            {/if}
           {/if}
           <div class="review-answer" class:visible={revealed} id="review-answer">
             <div class="review-word-jp" lang="ja">{word.surface}</div>
@@ -259,5 +290,42 @@
     border: 1px solid currentColor;
     border-radius: 3px;
     opacity: 0.7;
+  }
+  /* Listen-first mode UI */
+  .review-listen-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1.5rem 0;
+    min-height: 6rem;
+    justify-content: center;
+  }
+  .review-listen-replay {
+    font-size: 1rem;
+    padding: 0.55rem 1.4rem;
+  }
+  .review-listen-show {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    background: none;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .review-listen-show:hover { color: var(--text); }
+  .review-listen-hint {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 0.3rem 0 0;
+  }
+  .review-listen-hint kbd {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 0.05rem 0.35rem;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
   }
 </style>
