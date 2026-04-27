@@ -67,6 +67,11 @@
     window.addEventListener('resize', compute);
     return () => window.removeEventListener('resize', compute);
   });
+
+  // Plain DOM rendering until the list gets genuinely large. Below
+  // 300 rows it's faster + visually correct; above we virtualize so
+  // the DOM doesn't blow up at thousands-of-words scale.
+  let useVirtualization = $derived(filtered.length > 300);
 </script>
 
 <div id="view-vocab" class="view active">
@@ -107,7 +112,7 @@
     <p class="empty-state">Loading…</p>
   {:else if !filtered.length}
     <p class="empty-state">No vocabulary matches the current filters.</p>
-  {:else}
+  {:else if useVirtualization}
     <VList items={filtered} itemHeight={56} height={viewportHeight}>
       {#snippet children(word)}
         {@const srs = learner.state.srs?.[word.id]}
@@ -124,5 +129,18 @@
         </button>
       {/snippet}
     </VList>
+  {:else}
+    <div class="vocab-list">
+      {#each filtered as word (word.id)}
+        {@const srs = learner.state.srs?.[word.id]}
+        {@const status = srs?.status ?? 'new'}
+        <button class="vocab-row" onclick={() => openWord(word)}>
+          <span class="vocab-row-jp" lang="ja">{word.surface}</span>
+          <span class="vocab-row-reading">{word.reading}</span>
+          <span class="vocab-row-meaning">{word.short_meaning}</span>
+          <span class="status-dot" data-status={status} title={status}></span>
+        </button>
+      {/each}
+    </div>
   {/if}
 </div>

@@ -68,6 +68,13 @@
     window.addEventListener('resize', compute);
     return () => window.removeEventListener('resize', compute);
   });
+
+  // Virtualize only when the page is genuinely large. At <=200 entries
+  // a plain CSS grid is faster, looks correct (multiple columns), and
+  // avoids the absolutely-positioned-row layout shenanigans the VList
+  // does. The grid is still server-friendly: pagination already caps
+  // each page at 50, so this almost always uses the grid path.
+  let useVirtualization = $derived(entries.length > 200);
 </script>
 
 <div id="view-library" class="view active">
@@ -100,8 +107,8 @@
     <p class="empty-state">Loading page…</p>
   {:else if !entries.length}
     <p class="empty-state">No stories on this page.</p>
-  {:else}
-    <VList items={entries} itemHeight={120} height={viewportHeight}>
+  {:else if useVirtualization}
+    <VList items={entries} itemHeight={140} height={viewportHeight}>
       {#snippet children(entry)}
         {@const progress = learner.state.story_progress?.[String(entry.story_id)]}
         {@const completed = !!progress?.completed}
@@ -109,7 +116,7 @@
         <button
           class="story-card"
           class:current={isCurrent}
-          style="height:108px;width:100%;"
+          style="height:128px;width:100%;"
           onclick={() => open(entry.story_id)}
           aria-label={`Open story ${entry.story_id}: ${entry.title_en ?? ''}`}
         >
@@ -127,5 +134,31 @@
         </button>
       {/snippet}
     </VList>
+  {:else}
+    <div class="library-grid">
+      {#each entries as entry (entry.story_id)}
+        {@const progress = learner.state.story_progress?.[String(entry.story_id)]}
+        {@const completed = !!progress?.completed}
+        {@const isCurrent = entry.story_id === learner.state.current_story}
+        <button
+          class="story-card"
+          class:current={isCurrent}
+          onclick={() => open(entry.story_id)}
+          aria-label={`Open story ${entry.story_id}: ${entry.title_en ?? ''}`}
+        >
+          <span class="story-card-id">Story {entry.story_id}</span>
+          <div class="story-card-title-jp" lang="ja">
+            {entry.title_jp || `Story ${entry.story_id}`}
+          </div>
+          <div class="story-card-title-en">{entry.title_en || ''}</div>
+          <div class="story-card-meta">
+            <span>{entry.n_sentences ?? 0} sentences · ~{readingMin(entry)} min</span>
+            <span class="story-card-badge" class:done={completed}>
+              {completed ? '✓ done' : isCurrent ? 'reading' : 'unread'}
+            </span>
+          </div>
+        </button>
+      {/each}
+    </div>
   {/if}
 </div>

@@ -452,7 +452,9 @@ button {
   margin: 0;
   font: inherit;
   color: inherit;
-  text-align: inherit;
+  /* Buttons default to text-align:center; for in-flow content buttons
+   * (story cards, vocab rows) we want left-aligned text like a div. */
+  text-align: left;
   letter-spacing: inherit;
   cursor: pointer;
 }
