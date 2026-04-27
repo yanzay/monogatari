@@ -667,17 +667,24 @@ button.token:hover ruby rt {
   to   { transform: translateY(0);    opacity: 1; }
 }
 @media (min-width: 600px) {
+  /* Desktop: true centered modal. Position both axes via top/left and
+   * pull back by 50% with translate. max-height keeps long entries
+   * (grammar with sentences) from running off the viewport. */
   .popup {
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    bottom: auto;
+    right: auto;
+    transform: translate(-50%, -50%);
     width: min(560px, 92vw);
+    max-height: min(80dvh, 720px);
+    border-top: 1px solid var(--border);
     border-radius: var(--radius);
-    bottom: 2rem;
     animation: fadeScaleIn 0.18s ease-out;
   }
   @keyframes fadeScaleIn {
-    from { opacity: 0; transform: translateX(-50%) scale(0.96); }
-    to   { opacity: 1; transform: translateX(-50%) scale(1); }
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.96); }
+    to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
   }
 }
 .popup-close {
