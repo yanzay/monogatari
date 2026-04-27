@@ -9,22 +9,33 @@ __pycache__/
 .idea/
 .vscode/
 
-# Pipeline scratch — intermediate outputs of individual authoring stages.
-# Shipped artifacts live under stories/ and audio/.
+# Pipeline scratch
 pipeline/story_raw.json
 pipeline/text_to_story.report.json
 pipeline/plan.json
 pipeline/review.json
 pipeline/review.md
 
-# Pipeline backups (kept locally for safety, not committed)
+# Pipeline backups
 state_backups/normalize_to_v2/
 state_backups/regenerate_all_stories/
 
-# Service worker / browser caches (none here, but reserve)
 *.log
 
-# Credentials — never commit these
+# Credentials
 .gcp-key.json
 *.gcp-key.json
 pipeline/*.bak
+
+# Node / SvelteKit
+node_modules/
+.svelte-kit/
+build/
+.vite/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+playwright-report/
+test-results/
+coverage/
