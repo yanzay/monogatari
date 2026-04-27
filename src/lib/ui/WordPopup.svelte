@@ -88,11 +88,84 @@
       {@const gp = grammar.points[gid]}
       {#if gp}
         <button
-          class="popup-pos"
-          style="cursor:pointer;background:none;border:none;padding:0;font:inherit;color:inherit;text-decoration:underline;"
+          class="popup-pos popup-pos-link"
           onclick={() => onOpenGrammar(gid)}>{gp.title}</button
         >
       {/if}
     {/each}
   </div>
 {/if}
+
+<style>
+  .popup-word {
+    font-family: var(--font-jp);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+  .popup-reading {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .popup-reading :global(span) {
+    display: inline-flex;
+    gap: 0.25rem;
+    align-items: center;
+  }
+  .popup-pos {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--surface2);
+    border-radius: 4px;
+    padding: 0.1rem 0.45rem;
+    color: var(--text-muted);
+    margin-bottom: 0.65rem;
+  }
+  .popup-pos-link {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .popup-meanings {
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 0.85rem;
+    line-height: 1.5;
+  }
+  .popup-meta {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .popup-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0.85rem 0;
+  }
+  .badge-new {
+    display: inline-block;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+</style>

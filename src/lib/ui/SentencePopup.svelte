@@ -34,6 +34,35 @@
   {/each}
 </div>
 <hr class="popup-divider" />
-<div class="popup-sentence-en" style="font-style:italic;color:var(--text-muted);">
+<div class="popup-sentence-en">
   {sentence.gloss_en}
 </div>
+
+<style>
+  .popup-pos {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--surface2);
+    border-radius: 4px;
+    padding: 0.1rem 0.45rem;
+    color: var(--text-muted);
+    margin-bottom: 0.65rem;
+  }
+  .popup-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0.85rem 0;
+  }
+  .popup-sentence-jp {
+    font-size: 1.1rem;
+    line-height: 2;
+  }
+  .popup-sentence-en {
+    font-style: italic;
+    color: var(--text-muted);
+  }
+</style>

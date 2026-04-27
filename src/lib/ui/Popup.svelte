@@ -86,3 +86,68 @@
     </div>
   </div>
 {/if}
+
+<style>
+  .popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 200;
+    backdrop-filter: blur(2px);
+  }
+  .popup {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 201;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    border-radius: var(--radius) var(--radius) 0 0;
+    box-shadow: var(--shadow-lg);
+    padding: 1.5rem 1.5rem 2rem;
+    max-height: 70dvh;
+    overflow-y: auto;
+    animation: slideUp 0.22s ease-out;
+  }
+  @keyframes slideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+  @media (min-width: 600px) {
+    .popup {
+      top: 50%;
+      left: 50%;
+      bottom: auto;
+      right: auto;
+      transform: translate(-50%, -50%);
+      width: min(560px, 92vw);
+      max-height: min(80dvh, 720px);
+      border-top: 1px solid var(--border);
+      border-radius: var(--radius);
+      animation: fadeScaleIn 0.18s ease-out;
+    }
+    @keyframes fadeScaleIn {
+      from { opacity: 0; transform: translate(-50%, -50%) scale(0.96); }
+      to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    }
+  }
+  .popup-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.15s;
+  }
+  .popup-close:hover { background: var(--surface2); }
+</style>

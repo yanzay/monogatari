@@ -24,3 +24,34 @@
     Requires: {gp.prerequisites.join(', ')}
   </div>
 {/if}
+
+<style>
+  .popup-grammar-title {
+    font-family: var(--font-jp);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+  .popup-grammar-short {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    font-style: italic;
+  }
+  .popup-grammar-long {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .popup-grammar-ref {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--text-light);
+  }
+  .popup-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0.85rem 0;
+  }
+</style>

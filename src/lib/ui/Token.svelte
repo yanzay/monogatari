@@ -55,3 +55,96 @@
 {:else}
   <span class="token" data-role={tok.role} lang="ja">{tok.t}</span>
 {/if}
+
+<style>
+  /*
+   * Token styles — moved from app.css during the per-component
+   * decomposition. Svelte hashes the selectors so they only match
+   * elements rendered by Token.svelte (and components that compose
+   * it like RubyHeader and SentencePopup, since they instantiate
+   * <Token>).
+   */
+
+  /* Clickable tokens use a real <button>; ensure they flow as text. */
+  button.token {
+    display: inline;
+  }
+  button.token:has(> ruby) {
+    display: inline;
+  }
+
+  .token {
+    display: inline;
+    cursor: default;
+    border-radius: 3px;
+    transition: background 0.12s;
+  }
+  ruby.token {
+    display: ruby;
+  }
+  .token.clickable { cursor: pointer; }
+
+  span.token.clickable:hover,
+  button.token.clickable:hover {
+    background: var(--surface2);
+  }
+  ruby.token.clickable:hover { background: var(--surface2); }
+  button.token.clickable:hover ruby { background: var(--surface2); }
+
+  /* Content tokens */
+  .token[data-role='content'] { color: var(--text); }
+
+  /* First occurrence in this story — solid red underline */
+  .token[data-new='true'] {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-style: solid;
+    text-underline-offset: 5px;
+  }
+
+  /* Seen before — dotted grey underline */
+  .token[data-role='content']:not([data-new='true']) {
+    text-decoration: underline;
+    text-decoration-color: var(--text-light);
+    text-decoration-style: dotted;
+    text-underline-offset: 5px;
+  }
+
+  /* Particles / aux */
+  .token[data-role='particle'],
+  .token[data-role='aux'] {
+    text-decoration: none;
+    color: var(--text-muted);
+  }
+  .token[data-role='particle'].clickable:hover,
+  .token[data-role='aux'].clickable:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--border);
+    text-decoration-style: dotted;
+    text-underline-offset: 5px;
+  }
+
+  /* Punctuation */
+  .token[data-role='punct'] { color: var(--text-muted); cursor: default; }
+
+  /* Furigana (ruby) — hidden by default, fade in on hover */
+  ruby {
+    display: ruby;
+    ruby-align: center;
+  }
+  rt {
+    display: rt;
+    font-family: var(--font-jp);
+    font-size: 0.5em;
+    color: var(--text-muted);
+    letter-spacing: 0.03em;
+    opacity: 0;
+    line-height: 0;
+    transition: opacity 0.15s;
+  }
+  .token:hover rt,
+  button.token:hover ruby rt {
+    opacity: 1;
+    line-height: 1.2;
+  }
+</style>
