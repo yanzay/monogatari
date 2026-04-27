@@ -899,3 +899,105 @@ rt {
 
 /* ── Utility ──────────────────────────────────────────────────── */
 [hidden] { display: none !important; }
+
+/* ── Phase D: Dark mode ──────────────────────────────────────── *
+ * Theme resolution:
+ *   <html data-theme="dark">     → forced dark
+ *   <html data-theme="light">    → forced light
+ *   <html data-theme="auto">     → follow prefers-color-scheme
+ *   <html> (no attr)             → same as auto
+ *
+ * Defining the dark palette inside both selectors keeps it cheap and
+ * keeps :root the single source of truth for the LIGHT palette.
+ */
+:where(html[data-theme="dark"]),
+:where(html[data-theme="auto"], html:not([data-theme])) {
+  /* Light is the default; dark overrides below. */
+}
+
+@media (prefers-color-scheme: dark) {
+  :where(html[data-theme="auto"], html:not([data-theme])) {
+    --bg:          #181613;
+    --surface:     #221e19;
+    --surface2:    #2c2722;
+    --border:      #3a342c;
+    --text:        #ece5d6;
+    --text-muted:  #aaa193;
+    --text-light:  #76705f;
+    --accent:      #e07a6c;
+    --accent-soft: #3a2522;
+    --green:       #5cb98a;
+    --blue:        #6aa3c8;
+    --gold:        #d4a84b;
+    --shadow:      0 2px 16px rgba(0,0,0,0.5);
+    --shadow-lg:   0 8px 40px rgba(0,0,0,0.65);
+  }
+}
+
+html[data-theme="dark"] {
+  --bg:          #181613;
+  --surface:     #221e19;
+  --surface2:    #2c2722;
+  --border:      #3a342c;
+  --text:        #ece5d6;
+  --text-muted:  #aaa193;
+  --text-light:  #76705f;
+  --accent:      #e07a6c;
+  --accent-soft: #3a2522;
+  --green:       #5cb98a;
+  --blue:        #6aa3c8;
+  --gold:        #d4a84b;
+  --shadow:      0 2px 16px rgba(0,0,0,0.5);
+  --shadow-lg:   0 8px 40px rgba(0,0,0,0.65);
+}
+
+/* Match browser-controlled UI (scrollbars, form controls). */
+html { color-scheme: light; }
+html[data-theme="dark"] { color-scheme: dark; }
+@media (prefers-color-scheme: dark) {
+  html[data-theme="auto"], html:not([data-theme]) { color-scheme: dark; }
+}
+
+/* ── Phase D: focus-visible polish ───────────────────────────── *
+ * Replace the browser's default focus ring with a high-contrast,
+ * theme-aware ring. Only shown on keyboard focus (:focus-visible).
+ */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+/* ── Phase D: motion gating ──────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Phase D: theme toggle button ───────────────────────────── */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.3rem 0.55rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.theme-toggle:hover {
+  background: var(--surface2);
+  color: var(--text);
+}

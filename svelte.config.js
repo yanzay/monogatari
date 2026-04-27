@@ -19,9 +19,10 @@ const config = {
       base: dev ? '' : '/monogatari',
       relative: false,
     },
-    router: {
-      type: 'hash', // GH Pages can't do SPA URL rewrites; hash routing sidesteps it
-    },
+    // Path-mode SPA. GH Pages can't do server-side rewrites, but we
+    // generate a 404.html that mirrors index.html in the deploy
+    // workflow, which makes deep-link navigation work for first-time
+    // visits (the SW handles subsequent navigations from cache).
     serviceWorker: {
       register: false, // we use vite-plugin-pwa instead
     },

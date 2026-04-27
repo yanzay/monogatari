@@ -72,6 +72,25 @@
     document.documentElement.dataset.theme = theme;
   });
 
+  function cycleTheme() {
+    const order: Array<'auto' | 'light' | 'dark'> = ['auto', 'light', 'dark'];
+    const current = learner.state.prefs.theme ?? 'auto';
+    const next = order[(order.indexOf(current) + 1) % order.length];
+    learner.state.prefs.theme = next;
+    learner.save();
+  }
+
+  let themeIcon = $derived(
+    learner.state.prefs.theme === 'dark'
+      ? '☾'
+      : learner.state.prefs.theme === 'light'
+        ? '☀'
+        : '◐',
+  );
+  let themeLabel = $derived(
+    `Theme: ${learner.state.prefs.theme ?? 'auto'} (click to cycle)`,
+  );
+
   const views = [
     { name: 'read', label: 'Read', href: `${base}/read` },
     { name: 'library', label: 'Library', href: `${base}/library` },
@@ -142,6 +161,12 @@
     {/each}
   </div>
   <div class="nav-actions">
+    <button
+      class="theme-toggle"
+      onclick={cycleTheme}
+      title={themeLabel}
+      aria-label={themeLabel}
+    >{themeIcon}</button>
     <button class="nav-action-btn" onclick={exportProgress} title="Export progress">↑ Export</button>
     <label class="nav-action-btn" title="Import progress">
       ↓ Import
