@@ -1,3 +1,11 @@
+# NOTE: this workflow is the SOLE publisher of the GH Pages site.
+# Pages must be configured with `build_type: workflow` (Settings →
+# Pages → Source = "GitHub Actions"). If it gets flipped back to
+# "Deploy from a branch", GH will run Jekyll on README.md in parallel
+# with this workflow and the two will race — users will sometimes see
+# the README rendered as the homepage. Restore via:
+#   gh api -X PUT repos/<owner>/<repo>/pages -f build_type=workflow
+
 name: Deploy to GitHub Pages
 
 on:
