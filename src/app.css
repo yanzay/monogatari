@@ -841,6 +841,11 @@ button.token:hover ruby rt {
   cursor: pointer;
   background: var(--surface);
   transition: background 0.15s;
+  /* When this is a <button> (a11y), it shrinks to content by default
+   * because <button> is inline-block. Force full width so the header
+   * fills the .grammar-item card. */
+  width: 100%;
+  box-sizing: border-box;
 }
 .grammar-item-header:hover { background: var(--surface2); }
 .grammar-item-id {
