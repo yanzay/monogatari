@@ -65,31 +65,14 @@
       });
   });
 
-  // Theme handling
+  // Theme is reset to auto and not user-toggleable — Phase D dark-mode
+  // CSS broke text rendering (focus rings around every character token,
+  // furigana unreadable). Reverted; reintroduce later with per-route
+  // selectors that exempt .token elements.
   $effect(() => {
     if (!learner.ready) return;
-    const theme = learner.state.prefs.theme ?? 'auto';
-    document.documentElement.dataset.theme = theme;
+    document.documentElement.removeAttribute('data-theme');
   });
-
-  function cycleTheme() {
-    const order: Array<'auto' | 'light' | 'dark'> = ['auto', 'light', 'dark'];
-    const current = learner.state.prefs.theme ?? 'auto';
-    const next = order[(order.indexOf(current) + 1) % order.length];
-    learner.state.prefs.theme = next;
-    learner.save();
-  }
-
-  let themeIcon = $derived(
-    learner.state.prefs.theme === 'dark'
-      ? '☾'
-      : learner.state.prefs.theme === 'light'
-        ? '☀'
-        : '◐',
-  );
-  let themeLabel = $derived(
-    `Theme: ${learner.state.prefs.theme ?? 'auto'} (click to cycle)`,
-  );
 
   const views = [
     { name: 'read', label: 'Read', href: `${base}/read` },
@@ -161,12 +144,6 @@
     {/each}
   </div>
   <div class="nav-actions">
-    <button
-      class="theme-toggle"
-      onclick={cycleTheme}
-      title={themeLabel}
-      aria-label={themeLabel}
-    >{themeIcon}</button>
     <button class="nav-action-btn" onclick={exportProgress} title="Export progress">↑ Export</button>
     <label class="nav-action-btn" title="Import progress">
       ↓ Import
