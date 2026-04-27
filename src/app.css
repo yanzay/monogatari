@@ -425,6 +425,34 @@ body {
 .sentence-gloss { display: none; }
 
 /* ── Tokens ───────────────────────────────────────────────────── */
+/*
+ * IMPORTANT: clickable tokens are real <button> elements (a11y win
+ * from the SvelteKit port). Native <button> ships with a border,
+ * background, padding, font-family, and inline-block-ish display —
+ * none of which we want, because tokens render inline as Japanese
+ * text. The reset below is essential. Without it every clickable
+ * word in the story view shows an ugly grey border box.
+ */
+button.token {
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  letter-spacing: inherit;
+  /* Buttons are inline-block by default; we want them to flow as text. */
+  display: inline;
+}
+/* Special-case ruby buttons so display:ruby still applies (so <rt>
+ * renders above the base text). */
+button.token:has(> ruby) {
+  display: inline;
+}
+
 .token {
   display: inline;
   cursor: default;
@@ -437,12 +465,16 @@ ruby.token {
 }
 .token.clickable { cursor: pointer; }
 
-/* For plain span tokens: soft background on hover */
-span.token.clickable:hover { background: var(--surface2); }
+/* For plain span tokens AND clickable button tokens: soft background on hover */
+span.token.clickable:hover,
+button.token.clickable:hover { background: var(--surface2); }
 
 /* Ruby tokens get the same background highlight as spans — safe now that
    rt has font-size:0 by default and takes no vertical space */
 ruby.token.clickable:hover { background: var(--surface2); }
+
+/* And buttons that wrap a ruby (clickable kanji+furigana) */
+button.token.clickable:hover ruby { background: var(--surface2); }
 
 /* content tokens */
 .token[data-role="content"] { color: var(--text); }
@@ -498,7 +530,8 @@ rt {
 }
 
 /* show on hover — restore line-height so rt appears above base */
-.token:hover rt {
+.token:hover rt,
+button.token:hover ruby rt {
   opacity: 1;
   line-height: 1.2;
 }
