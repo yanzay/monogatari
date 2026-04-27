@@ -11,6 +11,7 @@
   import WordPopup from '$lib/ui/WordPopup.svelte';
   import GrammarPopup from '$lib/ui/GrammarPopup.svelte';
   import SentencePopup from '$lib/ui/SentencePopup.svelte';
+  import ReloadPrompt from '$lib/ui/ReloadPrompt.svelte';
   import type { VocabIndex, GrammarState, Word } from '$lib/data/types';
   import { sanitizeImported } from '$lib/state/learner.svelte';
 
@@ -224,3 +225,5 @@
     <SentencePopup sentence={s.data} storyId={s.story_id} sentenceIdx={s.sentence_idx} />
   {/if}
 </Popup>
+
+<ReloadPrompt />
