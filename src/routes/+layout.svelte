@@ -80,6 +80,7 @@
     { name: 'review', label: 'Review', href: `${base}/review` },
     { name: 'vocab', label: 'Vocab', href: `${base}/vocab` },
     { name: 'grammar', label: 'Grammar', href: `${base}/grammar` },
+    { name: 'stats', label: 'Stats', href: `${base}/stats` },
   ];
 
   function activeView(): string {

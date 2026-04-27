@@ -68,10 +68,21 @@ test('happy path: read → popup → mark as read → review → grade', async (
     await reveal.click();
     const goodBtn = page.locator('.grade-btn', { hasText: 'Good' });
     await expect(goodBtn).toBeVisible();
+    // Verify the 'Hard' button is gone (FSRS rewrite dropped it).
+    await expect(page.locator('.grade-btn', { hasText: 'Hard' })).toHaveCount(0);
     await goodBtn.click();
     // Either another card or session complete
     await expect(page.locator('#review-container')).toBeVisible();
   }
+});
+
+test('stats view loads', async ({ page }) => {
+  await page.goto('/');
+  await page.locator('a.nav-btn[data-view="stats"]').click();
+  await expect(page).toHaveURL(/\/stats/);
+  await expect(page.locator('.library-heading', { hasText: 'Stats' })).toBeVisible();
+  // Settings sliders/inputs exist
+  await expect(page.locator('input[type="range"]').first()).toBeVisible();
 });
 
 test('library navigation: open story 2', async ({ page }) => {

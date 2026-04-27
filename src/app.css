@@ -908,6 +908,25 @@ rt {
   border-color: var(--accent);
 }
 
+/* "Review now" CTA on the read view — inline, accent-colored,
+ * unobtrusive but clearly actionable when you have due words here. */
+.btn-review-cta {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  margin-left: 0.6rem;
+  font-size: 0.8rem;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-review-cta:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
 /* ── Utility ──────────────────────────────────────────────────── */
 [hidden] { display: none !important; }
 

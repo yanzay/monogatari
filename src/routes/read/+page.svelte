@@ -12,7 +12,7 @@
   import { popup } from '$lib/state/popup.svelte';
   import RubyHeader from '$lib/ui/RubyHeader.svelte';
   import TokenEl from '$lib/ui/Token.svelte';
-  import { newCard } from '$lib/state/srs';
+  import { newCard, dribbleOffset, isDue } from '$lib/state/srs';
   import type { Story, VocabIndex } from '$lib/data/types';
 
   let story = $state<Story | null>(null);
@@ -132,19 +132,45 @@
   function markAsRead() {
     if (!story) return;
     if (!learner.state.srs) learner.state.srs = {};
+    const now = Date.now();
+    let i = 0;
+    // Dribble: stagger `due` times so a 30-word story doesn't dump all
+    // 30 cards into the next review session at the exact same instant.
     for (const wid of story.new_words) {
       if (learner.state.srs[wid]) continue;
       const sentIdx = story.sentences.findIndex((s) => s.tokens.some((t) => t.word_id === wid));
-      learner.state.srs[wid] = newCard({
+      const card = newCard({
         word_id: wid,
         story_id: story.story_id,
         context_sentence_idx: sentIdx,
       });
+      // Push due forward by a few minutes per card.
+      const dueMs = now + dribbleOffset(i);
+      card.due = new Date(dueMs).toISOString();
+      learner.state.srs[wid] = card;
+      i += 1;
     }
     if (!learner.state.story_progress) learner.state.story_progress = {};
     learner.state.story_progress[String(story.story_id)] = { completed: true };
     learner.save();
   }
+
+  // Story-level "review N due here?" CTA.
+  let dueInThisStory = $derived.by(() => {
+    if (!story || !learner.state.srs) return 0;
+    const idsInStory = new Set<string>();
+    for (const sent of story.sentences) {
+      for (const tok of sent.tokens) {
+        if (tok.word_id) idsInStory.add(tok.word_id);
+      }
+    }
+    let n = 0;
+    for (const id of idsInStory) {
+      const card = learner.state.srs[id];
+      if (card && isDue(card)) n += 1;
+    }
+    return n;
+  });
 
   function prevStory() {
     if (!story || story.story_id <= 1) return;
@@ -178,6 +204,11 @@
       >
         {glossVisible ? 'Hide English' : 'Show English'}
       </button>
+      {#if dueInThisStory > 0}
+        <a class="btn-review-cta" href="{base}/review">
+          ↻ {dueInThisStory} due word{dueInThisStory === 1 ? '' : 's'} here — review now
+        </a>
+      {/if}
     </div>
 
     <div class="audio-controls" role="group" aria-label="Audio">
