@@ -185,11 +185,54 @@ export function loadStoryById(id: number): Promise<Story | null> {
   if (cached) return cached;
   const p = (async () => {
     try {
-      return await fetchJSON<Story>(`/stories/story_${id}.json`);
+      const story = await fetchJSON<Story>(`/stories/story_${id}.json`);
+      return story ? decorateWithAudioPaths(story) : null;
     } catch {
       return null;
     }
   })();
   storyCache.set(id, p);
   return p;
+}
+
+/**
+ * Story JSON files don't carry audio paths today (the legacy reader
+ * derived them by convention). Backfill them here so the rest of the
+ * app can treat per-sentence and per-word audio as first-class data.
+ *
+ * Convention (matches what pipeline/audio_builder.py emits):
+ *   - Per-sentence: audio/story_<id>/s<sentence_idx>.mp3
+ *   - Per-word:     audio/story_<id>/w_<word_id>.mp3
+ *
+ * If the JSON already supplies a value (future pipeline change), we
+ * keep it. We don't HEAD-probe to confirm files exist — non-existent
+ * URLs will 503 from the SW, the play attempt will fail silently, and
+ * the UI will continue working.
+ */
+function decorateWithAudioPaths(story: Story): Story {
+  const sid = story.story_id;
+  if (!sid) return story;
+  const audioBase = `audio/story_${sid}`;
+
+  const sentences = story.sentences.map((s) => {
+    if (s.audio) return s;
+    return { ...s, audio: `${audioBase}/s${s.idx}.mp3` };
+  });
+
+  let word_audio = story.word_audio ?? {};
+  if (!story.word_audio || Object.keys(story.word_audio).length === 0) {
+    const wa: Record<string, string> = {};
+    const seen = new Set<string>();
+    for (const s of story.sentences) {
+      for (const t of s.tokens) {
+        if (t.word_id && !seen.has(t.word_id)) {
+          seen.add(t.word_id);
+          wa[t.word_id] = `${audioBase}/w_${t.word_id}.mp3`;
+        }
+      }
+    }
+    word_audio = wa;
+  }
+
+  return { ...story, sentences, word_audio };
 }
