@@ -424,16 +424,26 @@ body {
 }
 .sentence-gloss { display: none; }
 
-/* ── Tokens ───────────────────────────────────────────────────── */
 /*
- * IMPORTANT: clickable tokens are real <button> elements (a11y win
- * from the SvelteKit port). Native <button> ships with a border,
- * background, padding, font-family, and inline-block-ish display —
- * none of which we want, because tokens render inline as Japanese
- * text. The reset below is essential. Without it every clickable
- * word in the story view shows an ugly grey border box.
+ * ── Global <button> reset ─────────────────────────────────────
+ *
+ * The SvelteKit port made many interactive elements real <button>s
+ * for a11y (vocab rows, story cards, grammar headers, word chips,
+ * tokens, etc.). Without a baseline reset, every one of them
+ * inherits the user-agent border + background + grey font and looks
+ * like a 1995 form widget.
+ *
+ * This reset strips chrome from EVERY <button>. Buttons that want
+ * a real border/background (.nav-action-btn, .grade-btn, .btn-audio,
+ * .story-nav-btn, .btn-mark-read, .btn-reveal, .btn-gloss-all,
+ * .review-undo, .theme-toggle, .popup-close, .btn-review-cta) override
+ * via their own explicit rules later in the cascade — same specificity,
+ * defined after, so they win.
+ *
+ * If you ever add a new "I want my chrome back" button class, set
+ * `border` and `background` explicitly in its rule and you're done.
  */
-button.token {
+button {
   appearance: none;
   -webkit-appearance: none;
   background: none;
@@ -444,11 +454,16 @@ button.token {
   color: inherit;
   text-align: inherit;
   letter-spacing: inherit;
-  /* Buttons are inline-block by default; we want them to flow as text. */
+  cursor: pointer;
+}
+
+/* ── Tokens ───────────────────────────────────────────────────── */
+/* Tokens stay as inline elements so they flow with surrounding text.
+ * (Buttons default to inline-block; the global reset above leaves
+ * display alone so each opt-in class can choose.) */
+button.token {
   display: inline;
 }
-/* Special-case ruby buttons so display:ruby still applies (so <rt>
- * renders above the base text). */
 button.token:has(> ruby) {
   display: inline;
 }
