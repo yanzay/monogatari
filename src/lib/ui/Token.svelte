@@ -9,9 +9,19 @@
   }
   let { tok, isFirstInStory = false, onWord, onGrammar }: Props = $props();
 
-  function clickToken() {
+  function clickToken(e: MouseEvent | KeyboardEvent) {
+    // Stop the click from bubbling up to the parent .sentence-wrap, which
+    // also has an onclick that opens the sentence popup.
+    e.stopPropagation();
     if (tok.word_id && onWord) onWord(tok.word_id, tok);
     else if (tok.grammar_id && onGrammar) onGrammar(tok.grammar_id);
+  }
+
+  function keyToken(e: KeyboardEvent) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      clickToken(e);
+    }
   }
 
   let clickable = $derived(!!(tok.word_id || tok.grammar_id) && tok.role !== 'punct');
@@ -31,6 +41,7 @@
     data-role={tok.role}
     data-new={isFirstInStory && tok.is_new ? 'true' : undefined}
     onclick={clickToken}
+    onkeydown={keyToken}
     lang="ja"
   >
     {#if tok.r}

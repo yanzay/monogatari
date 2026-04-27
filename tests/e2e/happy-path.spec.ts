@@ -20,22 +20,26 @@ test('happy path: read → popup → mark as read → review → grade', async (
     .first();
   await firstClickable.click();
 
-  // Word popup is open
+  // Word popup is open. We MUST get a word/grammar popup here, NOT a
+  // sentence popup — clicking a token should not bubble up to the
+  // parent .sentence-wrap. (Regression guard for the bug fixed in
+  // commit 'fix(reader): stop click propagation on tokens'.)
   const popup = page.locator('div.popup[role="dialog"]');
   await expect(popup).toBeVisible();
-  // Sanity check: popup-content gets at least one child once the word
-  // record has loaded from the shard. The "Loading…" placeholder is a
-  // <p class="empty-state">; once loaded it becomes either a WordPopup
-  // (.popup-word) or a GrammarPopup (.popup-grammar-title) — both have
-  // distinctive text.
   const popupBody = popup.locator('.popup-content');
   await expect(popupBody).toBeVisible();
-  // Wait until the popup is no longer in the loading placeholder state.
-  // .popup-word | .popup-grammar-title appear after lazy load resolves.
+  // Wait until the popup is out of the "Loading…" placeholder state.
   await expect(async () => {
     const text = await popupBody.innerText();
     if (text.includes('Loading…')) throw new Error('still loading');
   }).toPass({ timeout: 10_000 });
+  // Distinguish: WordPopup renders .popup-word, GrammarPopup renders
+  // .popup-grammar-title. SentencePopup renders .popup-sentence-jp —
+  // which would mean the click bubbled to the sentence wrap.
+  await expect(popup.locator('.popup-sentence-jp')).toHaveCount(0);
+  await expect(
+    popup.locator('.popup-word, .popup-grammar-title'),
+  ).toBeVisible();
 
   // Escape closes it and returns focus
   await page.keyboard.press('Escape');

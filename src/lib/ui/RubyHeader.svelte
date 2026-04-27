@@ -15,7 +15,8 @@
     return set;
   });
 
-  function clickHeader() {
+  function clickHeader(e: MouseEvent | KeyboardEvent) {
+    e.stopPropagation();
     if (title.word_id && onWord) onWord(title.word_id, { t: title.jp, r: title.r });
   }
 </script>
