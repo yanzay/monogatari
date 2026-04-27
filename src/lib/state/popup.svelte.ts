@@ -1,10 +1,11 @@
-import type { Token } from '$lib/data/types';
+import type { Sentence, Token } from '$lib/data/types';
 
 interface PopupState {
-  kind: null | 'word' | 'grammar';
+  kind: null | 'word' | 'grammar' | 'sentence';
   wordId?: string;
   tok?: Token;
   grammarId?: string;
+  sentence?: { story_id: number; sentence_idx: number; data: Sentence };
 }
 
 class PopupController {
@@ -16,6 +17,10 @@ class PopupController {
 
   openGrammar(grammarId: string) {
     this.current = { kind: 'grammar', grammarId };
+  }
+
+  openSentence(story_id: number, sentence_idx: number, data: Sentence) {
+    this.current = { kind: 'sentence', sentence: { story_id, sentence_idx, data } };
   }
 
   close() {

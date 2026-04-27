@@ -1,20 +1,21 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { loadVocab } from '$lib/data/corpus';
+  import { loadVocabIndex } from '$lib/data/corpus';
   import { learner } from '$lib/state/learner.svelte';
   import { popup } from '$lib/state/popup.svelte';
-  import type { VocabState, Word } from '$lib/data/types';
+  import VList from '$lib/ui/VList.svelte';
+  import type { VocabIndex, VocabIndexRow } from '$lib/data/types';
 
-  let vocab = $state<VocabState | null>(null);
+  let vocabIndex = $state<VocabIndex | null>(null);
   let q = $state('');
   let statusFilter = $state<'all' | 'new' | 'learning' | 'young' | 'mature' | 'leech'>('all');
   let storyFilter = $state<'all' | string>('all');
 
   onMount(async () => {
-    vocab = await loadVocab();
+    vocabIndex = await loadVocabIndex();
   });
 
-  let words = $derived(vocab ? Object.values(vocab.words) : []);
+  let words = $derived<VocabIndexRow[]>(vocabIndex?.words ?? []);
 
   let stats = $derived.by(() => {
     const s = { total: words.length, new: 0, learning: 0, young: 0, mature: 0, leech: 0 };
@@ -46,7 +47,7 @@
           w.surface.includes(ql) ||
           w.kana.includes(ql) ||
           w.reading.toLowerCase().includes(ql) ||
-          w.meanings.some((m) => m.toLowerCase().includes(ql))
+          w.short_meaning.toLowerCase().includes(ql)
         )
       )
         return false;
@@ -54,9 +55,18 @@
     });
   });
 
-  function openWord(w: Word) {
+  function openWord(w: VocabIndexRow) {
     popup.openWord(w.id, undefined);
   }
+
+  let viewportHeight = $state(600);
+  $effect(() => {
+    if (typeof window === 'undefined') return;
+    const compute = () => (viewportHeight = Math.max(360, window.innerHeight - 280));
+    compute();
+    window.addEventListener('resize', compute);
+    return () => window.removeEventListener('resize', compute);
+  });
 </script>
 
 <div id="view-vocab" class="view active">
@@ -93,19 +103,26 @@
     </select>
   </div>
 
-  <div class="vocab-list" id="vocab-list">
-    {#each filtered as word (word.id)}
-      {@const srs = learner.state.srs?.[word.id]}
-      {@const status = srs?.status ?? 'new'}
-      <button class="vocab-row" onclick={() => openWord(word)}>
-        <span class="vocab-row-jp" lang="ja">{word.surface}</span>
-        <span class="vocab-row-reading">{word.reading}</span>
-        <span class="vocab-row-meaning">{word.meanings[0]}</span>
-        <span class="status-dot" data-status={status} title={status}></span>
-      </button>
-    {/each}
-    {#if !filtered.length}
-      <p class="empty-state">No vocabulary matches the current filters.</p>
-    {/if}
-  </div>
+  {#if !vocabIndex}
+    <p class="empty-state">Loading…</p>
+  {:else if !filtered.length}
+    <p class="empty-state">No vocabulary matches the current filters.</p>
+  {:else}
+    <VList items={filtered} itemHeight={56} height={viewportHeight}>
+      {#snippet children(word)}
+        {@const srs = learner.state.srs?.[word.id]}
+        {@const status = srs?.status ?? 'new'}
+        <button
+          class="vocab-row"
+          style="height:52px;width:100%;"
+          onclick={() => openWord(word)}
+        >
+          <span class="vocab-row-jp" lang="ja">{word.surface}</span>
+          <span class="vocab-row-reading">{word.reading}</span>
+          <span class="vocab-row-meaning">{word.short_meaning}</span>
+          <span class="status-dot" data-status={status} title={status}></span>
+        </button>
+      {/snippet}
+    </VList>
+  {/if}
 </div>

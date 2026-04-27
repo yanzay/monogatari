@@ -1,18 +1,19 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { learner } from '$lib/state/learner.svelte';
-  import { loadVocab, loadStoryById } from '$lib/data/corpus';
+  import { loadStoryById, getWord, loadVocabIndex } from '$lib/data/corpus';
   import { applyGrade, isDue, type Card, type Grade } from '$lib/state/srs';
-  import type { VocabState, Sentence, Story } from '$lib/data/types';
+  import type { Sentence, Word, VocabIndex } from '$lib/data/types';
 
-  let vocab = $state<VocabState | null>(null);
   let queue = $state<Card[]>([]);
   let idx = $state(0);
   let revealed = $state(false);
   let contextSentence = $state<Sentence | null>(null);
+  let word = $state<Word | null>(null);
+  let vocabIndex = $state<VocabIndex | null>(null);
 
   onMount(async () => {
-    vocab = await loadVocab();
+    vocabIndex = await loadVocabIndex();
     rebuildQueue();
   });
 
@@ -20,28 +21,28 @@
     queue = Object.values(learner.state.srs ?? {}).filter((c) => isDue(c));
     idx = 0;
     revealed = false;
-    if (queue.length) loadContext();
+    if (queue.length) loadCurrent();
   }
 
   let card = $derived<Card | null>(queue[idx] ?? null);
-  let word = $derived(card && vocab ? vocab.words[card.word_id] : null);
 
   $effect(() => {
-    if (card) loadContext();
+    if (card) loadCurrent();
   });
 
-  async function loadContext() {
+  async function loadCurrent() {
     contextSentence = null;
-    if (!card || !vocab) return;
+    word = null;
+    if (!card) return;
+    const w = await getWord(card.word_id);
+    if (!w || card !== queue[idx]) return;
+    word = w;
+
     let storyId: number | null = card.context_story ?? null;
-    // Backfill from word.first_story for legacy cards
-    const w = vocab.words[card.word_id];
-    if ((!storyId || storyId === card.first_learned_story) && w?.first_story) {
-      storyId = Number(w.first_story);
-    }
+    if (!storyId && w.first_story) storyId = Number(w.first_story);
     if (!storyId) return;
     const story = await loadStoryById(storyId);
-    if (!story) return;
+    if (!story || card !== queue[idx]) return;
     const exact = story.sentences[card.context_sentence_idx];
     if (exact && exact.tokens.some((t) => t.word_id === card.word_id)) {
       contextSentence = exact;
@@ -63,12 +64,12 @@
 
 <div id="view-review" class="view active">
   <div id="review-container" class="review-container">
-    {#if !learner.ready || !vocab}
+    {#if !learner.ready || !vocabIndex}
       <p class="empty-state">Loading…</p>
     {:else if !queue.length}
       <p class="empty-state">Nothing due. Read the next story or come back later.</p>
     {:else if !card || !word}
-      <p class="empty-state">Session complete! Come back later.</p>
+      <p class="empty-state">Loading card…</p>
     {:else}
       <div class="review-card">
         <div class="review-sentence" lang="ja">

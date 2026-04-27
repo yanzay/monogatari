@@ -2,47 +2,56 @@
 """
 Monogatari — Stories manifest builder.
 
-Scans `stories/story_*.json` and writes `stories/index.json`, a small JSON
-catalogue the reader uses instead of HEAD-probing for every story.
+Scans `stories/story_*.json` and writes:
 
-The manifest carries enough metadata for a "table of contents" view without
-forcing the reader to download every story up front:
+  * stories/index.json       — root manifest (lightweight)
+  * stories/index/p001.json  — page 1 of stories
+  * stories/index/p002.json  — page 2 of stories
+  * ...
+
+The root manifest carries the list of pages plus per-page bounds:
 
     {
-      "version": 1,
-      "generated_at": "2026-04-22T00:00:00Z",
-      "stories": [
-        {
-          "story_id":     1,
-          "path":         "stories/story_1.json",
-          "title_jp":     "雨",
-          "title_en":     "Rain",
-          "n_sentences":  7,
-          "n_content_tokens": 38,
-          "n_new_words":  14,
-          "n_new_grammar": 2,
-          "has_audio":    true
-        },
+      "version":      2,
+      "generated_at": "...",
+      "n_stories":    1234,
+      "page_size":    50,
+      "pages": [
+        {"page": 1, "path": "stories/index/p001.json",
+         "first_story_id": 1, "last_story_id": 50, "n_stories": 50},
         ...
       ]
     }
 
-The reader uses `n_sentences` + `n_content_tokens` to estimate reading
-time, and `has_audio` to decide whether to show the play button.
+A page payload contains the same per-story rows the legacy v1 manifest
+used. The reader fetches the root manifest and then loads pages on
+demand (Library renders one page at a time and supports virtualization).
+
+Backward compatibility
+----------------------
+For corpora <= page_size, we still inline the rows in the root manifest
+under a "stories" key (alongside "pages") so the old reader code path
+keeps working. Callers that understand v2 should prefer "pages" for
+larger corpora.
 """
 from __future__ import annotations
 
 import datetime as _dt
 import json
 import re
+import shutil
 import sys
 from pathlib import Path
+
+PAGE_SIZE = 50
 
 
 def _scan_stories(stories_dir: Path) -> list[dict]:
     rows: list[dict] = []
-    for path in sorted(stories_dir.glob("story_*.json"),
-                       key=lambda p: int(re.findall(r"(\d+)", p.stem)[0])):
+    for path in sorted(
+        stories_dir.glob("story_*.json"),
+        key=lambda p: int(re.findall(r"(\d+)", p.stem)[0]),
+    ):
         try:
             s = json.loads(path.read_text(encoding="utf-8"))
         except Exception as e:
@@ -50,29 +59,59 @@ def _scan_stories(stories_dir: Path) -> list[dict]:
             continue
         sentences = s.get("sentences", [])
         n_content = sum(
-            1 for sent in sentences for tok in sent.get("tokens", [])
+            1
+            for sent in sentences
+            for tok in sent.get("tokens", [])
             if tok.get("role") in ("content", "aux")
         )
-        rows.append({
-            "story_id":     s.get("story_id"),
-            "path":         path.as_posix(),
-            "title_jp":     (s.get("title") or {}).get("jp", ""),
-            "title_en":     (s.get("title") or {}).get("en", ""),
-            "n_sentences":  len(sentences),
-            "n_content_tokens": n_content,
-            "n_new_words":  len(s.get("new_words", [])),
-            "n_new_grammar": len(s.get("new_grammar", [])),
-            "has_audio":    bool(sentences and sentences[0].get("audio")),
-        })
+        rows.append(
+            {
+                "story_id": s.get("story_id"),
+                "path": path.as_posix(),
+                "title_jp": (s.get("title") or {}).get("jp", ""),
+                "title_en": (s.get("title") or {}).get("en", ""),
+                "n_sentences": len(sentences),
+                "n_content_tokens": n_content,
+                "n_new_words": len(s.get("new_words", [])),
+                "n_new_grammar": len(s.get("new_grammar", [])),
+                "has_audio": bool(sentences and sentences[0].get("audio")),
+            }
+        )
     return rows
 
 
-def build(stories_dir: Path) -> dict:
-    return {
-        "version": 1,
+def _paginate(rows: list[dict], page_size: int) -> list[list[dict]]:
+    return [rows[i : i + page_size] for i in range(0, len(rows), page_size)]
+
+
+def build(stories_dir: Path, page_size: int = PAGE_SIZE) -> tuple[dict, list[list[dict]]]:
+    rows = _scan_stories(stories_dir)
+    pages = _paginate(rows, page_size)
+
+    page_summaries = []
+    for i, page_rows in enumerate(pages, start=1):
+        page_summaries.append(
+            {
+                "page": i,
+                "path": f"stories/index/p{i:03d}.json",
+                "first_story_id": page_rows[0]["story_id"] if page_rows else None,
+                "last_story_id": page_rows[-1]["story_id"] if page_rows else None,
+                "n_stories": len(page_rows),
+            }
+        )
+
+    root = {
+        "version": 2,
         "generated_at": _dt.datetime.now(_dt.timezone.utc).isoformat(timespec="seconds"),
-        "stories": _scan_stories(stories_dir),
+        "n_stories": len(rows),
+        "page_size": page_size,
+        "pages": page_summaries,
     }
+    # Backward-compat: inline rows for small corpora so old readers keep working.
+    if len(rows) <= page_size:
+        root["stories"] = rows
+
+    return root, pages
 
 
 def main() -> None:
@@ -80,11 +119,36 @@ def main() -> None:
     if not stories_dir.exists():
         print(f"ERROR: {stories_dir} not found", file=sys.stderr)
         sys.exit(1)
-    manifest = build(stories_dir)
-    out = stories_dir / "index.json"
-    out.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
-                   encoding="utf-8")
-    print(f"✓ Wrote {out} with {len(manifest['stories'])} stories")
+
+    root, pages = build(stories_dir)
+
+    # Write root
+    (stories_dir / "index.json").write_text(
+        json.dumps(root, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+
+    # Refresh page directory
+    page_dir = stories_dir / "index"
+    if page_dir.exists():
+        shutil.rmtree(page_dir)
+    page_dir.mkdir(parents=True, exist_ok=True)
+
+    for i, page_rows in enumerate(pages, start=1):
+        payload = {
+            "version": 2,
+            "page": i,
+            "page_size": PAGE_SIZE,
+            "stories": page_rows,
+        }
+        (page_dir / f"p{i:03d}.json").write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+
+    print(
+        f"✓ Wrote stories/index.json + {len(pages)} page(s) "
+        f"({root['n_stories']} stories, page_size={PAGE_SIZE})"
+    )
 
 
 if __name__ == "__main__":

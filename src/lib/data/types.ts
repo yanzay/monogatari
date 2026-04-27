@@ -1,10 +1,32 @@
 /* Shared types describing the on-disk data shapes consumed by the reader. */
 
-export interface VocabState {
+/* ── Vocab (sharded) ─────────────────────────────────────────────── */
+
+export interface VocabIndex {
   version: number;
-  updated_at?: string;
-  last_story_id?: number;
+  generated_at?: string;
+  shard_bits: number;
+  shard_count: number;
   next_word_id?: string;
+  last_story_id?: number;
+  n_words: number;
+  words: VocabIndexRow[];
+}
+
+export interface VocabIndexRow {
+  id: string;
+  shard: string;
+  surface: string;
+  kana: string;
+  reading: string;
+  short_meaning: string;
+  first_story?: number | string;
+  occurrences: number;
+}
+
+export interface VocabShard {
+  version: number;
+  shard: string;
   words: Record<string, Word>;
 }
 
@@ -24,6 +46,17 @@ export interface Word {
   grammar_tags?: string[];
 }
 
+/* Legacy monolithic vocab state — still parsed if encountered. */
+export interface VocabStateLegacy {
+  version: number;
+  updated_at?: string;
+  last_story_id?: number;
+  next_word_id?: string;
+  words: Record<string, Word>;
+}
+
+/* ── Grammar ─────────────────────────────────────────────────────── */
+
 export interface GrammarState {
   version: number;
   points: Record<string, GrammarPoint>;
@@ -38,6 +71,22 @@ export interface GrammarPoint {
   prerequisites?: string[];
   _needs_review?: boolean;
 }
+
+export interface GrammarExamplesIndex {
+  version: number;
+  generated_at?: string;
+  max_per_point: number;
+  examples: Record<string, GrammarExample[]>;
+}
+
+export interface GrammarExample {
+  story_id: number;
+  sentence_idx: number;
+  jp: string;
+  gloss_en: string;
+}
+
+/* ── Stories ─────────────────────────────────────────────────────── */
 
 export interface Story {
   story_id: number;
@@ -66,11 +115,7 @@ export interface Token {
   inflection?: { form: string; base: string; grammar_id: string };
 }
 
-export interface StoryManifest {
-  version: number;
-  generated_at?: string;
-  stories: StoryManifestEntry[];
-}
+/* ── Manifest (paginated v2; v1 still supported for compat) ──────── */
 
 export interface StoryManifestEntry {
   story_id: number;
@@ -79,4 +124,32 @@ export interface StoryManifestEntry {
   title_en?: string;
   n_sentences?: number;
   n_content_tokens?: number;
+  n_new_words?: number;
+  n_new_grammar?: number;
+  has_audio?: boolean;
+}
+
+export interface StoryManifestRoot {
+  version: number;
+  generated_at?: string;
+  n_stories?: number;
+  page_size?: number;
+  pages?: StoryManifestPageSummary[];
+  /** Legacy v1 OR small-corpus inline rows. */
+  stories?: StoryManifestEntry[];
+}
+
+export interface StoryManifestPageSummary {
+  page: number;
+  path: string;
+  first_story_id: number | null;
+  last_story_id: number | null;
+  n_stories: number;
+}
+
+export interface StoryManifestPagePayload {
+  version: number;
+  page: number;
+  page_size: number;
+  stories: StoryManifestEntry[];
 }

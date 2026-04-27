@@ -27,8 +27,23 @@ jobs:
           node-version: 22
           cache: npm
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
       - name: Install dependencies
         run: npm ci
+
+      - name: Build derived data artifacts (manifest pages, vocab shards, grammar examples)
+        run: |
+          set -eu
+          python3 pipeline/build_manifest.py
+          python3 pipeline/build_grammar_examples.py
+          python3 pipeline/build_vocab_shards.py
+          ls -la stories/index/ | head
+          ls -la data/vocab/ | head
+          ls -la data/vocab/shards/ | wc -l
 
       - name: Resolve symlinks in static/ (GH Pages won't follow them)
         run: |

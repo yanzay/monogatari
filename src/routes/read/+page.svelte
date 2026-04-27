@@ -1,13 +1,10 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
   import { page } from '$app/state';
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
   import { learner } from '$lib/state/learner.svelte';
-  import { loadStoryById, loadVocab, loadGrammar } from '$lib/data/corpus';
+  import { loadStoryById, loadVocabIndex } from '$lib/data/corpus';
   import {
-    audioFor,
-    isSequencePlaying,
     setSequencePlaying,
     stopCurrent,
     playOnce,
@@ -16,14 +13,14 @@
   import RubyHeader from '$lib/ui/RubyHeader.svelte';
   import TokenEl from '$lib/ui/Token.svelte';
   import { newCard } from '$lib/state/srs';
-  import type { Story, VocabState } from '$lib/data/types';
+  import type { Story, VocabIndex } from '$lib/data/types';
 
   let story = $state<Story | null>(null);
   let glossVisible = $state(false);
   let storyError = $state<string | null>(null);
-  let sequencePlayback = $state(false); // mirror of audio.ts module-level
+  let sequencePlayback = $state(false);
   let playingIdx = $state<number | null>(null);
-  let vocab = $state<VocabState | null>(null);
+  let vocabIndex = $state<VocabIndex | null>(null);
 
   let storyIdParam = $derived.by(() => {
     const s = page.url.searchParams.get('story');
@@ -43,29 +40,37 @@
       story = s;
       learner.state.current_story = s.story_id;
       learner.save();
-      // Sync URL
       const target = `${base}/read?story=${s.story_id}`;
-      if (page.url.pathname + page.url.search !== target.replace(base, '')) {
+      const path = page.url.pathname + page.url.search;
+      const expected = target.replace(base, '');
+      if (path !== expected) {
         goto(target, { replaceState: true, keepFocus: true, noScroll: true });
       }
     });
   });
 
-  onMount(async () => {
-    vocab = await loadVocab();
-  });
+  // Vocab index loaded once for the new-words chips.
+  loadVocabIndex().then((vi) => (vocabIndex = vi));
 
   let progress = $derived(story ? learner.state.story_progress[String(story.story_id)] : undefined);
   let completed = $derived(!!progress?.completed);
 
-  // Group sentences into paragraphs of 3
   let sentenceBlocks = $derived.by(() => {
     if (!story) return [];
-    const blocks: { idx: number; tokens: typeof story.sentences[0]['tokens']; gloss: string; audio?: string }[] = [];
-    story.sentences.forEach((s, i) => {
-      blocks.push({ idx: i, tokens: s.tokens, gloss: s.gloss_en, audio: s.audio });
-    });
-    return blocks;
+    return story.sentences.map((s, i) => ({
+      idx: i,
+      tokens: s.tokens,
+      gloss: s.gloss_en,
+      audio: s.audio,
+    }));
+  });
+
+  let newWordRows = $derived.by(() => {
+    if (!story || !vocabIndex) return [];
+    const lookup = new Map(vocabIndex.words.map((r) => [r.id, r]));
+    return story.new_words
+      .map((wid) => lookup.get(wid))
+      .filter((r): r is NonNullable<typeof r> => !!r);
   });
 
   function openWord(wordId: string, tok: any) {
@@ -121,10 +126,7 @@
 
   function showSentencePopup(i: number) {
     if (!story) return;
-    const sent = story.sentences[i];
-    // Show via the popup controller — we render text in a small custom inline modal.
-    // For simplicity: alert the gloss. (Future: dedicated SentencePopup component.)
-    alert(`${sent.tokens.map((t) => t.t).join('')}\n\n${sent.gloss_en}`);
+    popup.openSentence(story.story_id, i, story.sentences[i]);
   }
 
   function markAsRead() {
@@ -246,17 +248,12 @@
     <div class="new-words-panel" id="new-words-panel">
       <h3 class="panel-label">New words</h3>
       <div class="new-words-chips" id="new-words-chips">
-        {#if vocab}
-          {#each story.new_words as wid (wid)}
-            {@const w = vocab.words[wid]}
-            {#if w}
-              <button class="word-chip" onclick={() => popup.openWord(wid, undefined)}>
-                <span class="word-chip-jp" lang="ja">{w.surface}</span>
-                <span class="word-chip-en">{w.meanings[0]}</span>
-              </button>
-            {/if}
-          {/each}
-        {/if}
+        {#each newWordRows as row (row.id)}
+          <button class="word-chip" onclick={() => popup.openWord(row.id, undefined)}>
+            <span class="word-chip-jp" lang="ja">{row.surface}</span>
+            <span class="word-chip-en">{row.short_meaning}</span>
+          </button>
+        {/each}
       </div>
     </div>
 

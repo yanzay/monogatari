@@ -5,18 +5,21 @@
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
   import { learner } from '$lib/state/learner.svelte';
-  import { loadVocab, loadGrammar } from '$lib/data/corpus';
+  import { loadVocabIndex, loadGrammar, getWord } from '$lib/data/corpus';
   import { popup } from '$lib/state/popup.svelte';
   import Popup from '$lib/ui/Popup.svelte';
   import WordPopup from '$lib/ui/WordPopup.svelte';
   import GrammarPopup from '$lib/ui/GrammarPopup.svelte';
-  import type { VocabState, GrammarState } from '$lib/data/types';
+  import SentencePopup from '$lib/ui/SentencePopup.svelte';
+  import type { VocabIndex, GrammarState, Word } from '$lib/data/types';
   import { sanitizeImported } from '$lib/state/learner.svelte';
 
   let { children } = $props();
 
-  let vocab = $state<VocabState | null>(null);
+  let vocabIndex = $state<VocabIndex | null>(null);
   let grammar = $state<GrammarState | null>(null);
+  let popupWord = $state<Word | null>(null);
+  let popupWordError = $state<string | null>(null);
   let bootError = $state<string | null>(null);
   let dueCount = $derived.by(() => {
     if (!learner.ready) return 0;
@@ -31,11 +34,35 @@
   onMount(async () => {
     try {
       await learner.init();
-      [vocab, grammar] = await Promise.all([loadVocab(), loadGrammar()]);
+      [vocabIndex, grammar] = await Promise.all([loadVocabIndex(), loadGrammar()]);
     } catch (e) {
       console.error('Boot failed:', e);
       bootError = 'Could not load corpus. Please reload the page.';
     }
+  });
+
+  // Lazy-load the full Word record whenever a word popup opens.
+  $effect(() => {
+    const wid = popup.current.kind === 'word' ? popup.current.wordId : null;
+    if (!wid) {
+      popupWord = null;
+      popupWordError = null;
+      return;
+    }
+    popupWord = null;
+    popupWordError = null;
+    getWord(wid)
+      .then((w) => {
+        if (popup.current.kind === 'word' && popup.current.wordId === wid) {
+          if (w) popupWord = w;
+          else popupWordError = `Could not find word ${wid}.`;
+        }
+      })
+      .catch(() => {
+        if (popup.current.kind === 'word' && popup.current.wordId === wid) {
+          popupWordError = 'Failed to load word details.';
+        }
+      });
   });
 
   // Theme handling
@@ -132,7 +159,7 @@
 <main id="app">
   {#if bootError}
     <p class="empty-state" style="padding:2rem;">{bootError}</p>
-  {:else if !vocab || !grammar || !learner.ready}
+  {:else if !vocabIndex || !grammar || !learner.ready}
     <p class="empty-state" style="padding:2rem;">Loading…</p>
   {:else}
     {@render children()}
@@ -144,21 +171,27 @@
   onClose={() => popup.close()}
   title={popup.current.kind === 'word' ? 'Word details' : 'Grammar details'}
 >
-  {#if popup.current.kind === 'word' && popup.current.wordId && vocab}
-    {@const w = vocab.words[popup.current.wordId]}
-    {#if w && grammar}
+  {#if popup.current.kind === 'word' && popup.current.wordId}
+    {#if popupWord && grammar}
       <WordPopup
-        word={w}
+        word={popupWord}
         tok={popup.current.tok}
         story={null}
         {grammar}
         onOpenGrammar={(gid) => popup.openGrammar(gid)}
       />
+    {:else if popupWordError}
+      <p class="empty-state">{popupWordError}</p>
+    {:else}
+      <p class="empty-state">Loading…</p>
     {/if}
   {:else if popup.current.kind === 'grammar' && popup.current.grammarId && grammar}
     {@const gp = grammar.points[popup.current.grammarId]}
     {#if gp}
       <GrammarPopup {gp} />
     {/if}
+  {:else if popup.current.kind === 'sentence' && popup.current.sentence}
+    {@const s = popup.current.sentence}
+    <SentencePopup sentence={s.data} storyId={s.story_id} sentenceIdx={s.sentence_idx} />
   {/if}
 </Popup>

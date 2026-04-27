@@ -39,3 +39,9 @@ build/
 playwright-report/
 test-results/
 coverage/
+
+# Derived data artifacts (regenerated from data/vocab_state.json + stories/ at build time)
+data/vocab/
+data/grammar_examples.json
+stories/index/
+stories/index.json
