@@ -109,20 +109,18 @@ def build(stories_dir: Path, page_size: int = PAGE_SIZE) -> tuple[dict, list[lis
     return root, pages
 
 
-def main() -> None:
-    stories_dir = Path("stories")
-    if not stories_dir.exists():
-        print(f"ERROR: {stories_dir} not found", file=sys.stderr)
-        sys.exit(1)
+def write_manifest(stories_dir: Path, page_size: int = PAGE_SIZE) -> dict:
+    """Build and persist the v2 paginated manifest.
 
-    root, pages = build(stories_dir)
+    Writes `stories_dir/index.json` and refreshes `stories_dir/index/p*.json`.
+    Returns the root manifest dict (so callers can report on it).
+    """
+    root, pages = build(stories_dir, page_size=page_size)
 
-    # Write root
     (stories_dir / "index.json").write_text(
         json.dumps(root, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
 
-    # Refresh page directory
     page_dir = stories_dir / "index"
     if page_dir.exists():
         shutil.rmtree(page_dir)
@@ -132,16 +130,25 @@ def main() -> None:
         payload = {
             "version": 2,
             "page": i,
-            "page_size": PAGE_SIZE,
+            "page_size": page_size,
             "stories": page_rows,
         }
         (page_dir / f"p{i:03d}.json").write_text(
             json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
         )
+    return root
 
+
+def main() -> None:
+    stories_dir = Path("stories")
+    if not stories_dir.exists():
+        print(f"ERROR: {stories_dir} not found", file=sys.stderr)
+        sys.exit(1)
+    root = write_manifest(stories_dir)
+    n_pages = len(root.get("pages", []))
     print(
-        f"✓ Wrote stories/index.json + {len(pages)} page(s) "
+        f"✓ Wrote stories/index.json + {n_pages} page(s) "
         f"({root['n_stories']} stories, page_size={PAGE_SIZE})"
     )
 
