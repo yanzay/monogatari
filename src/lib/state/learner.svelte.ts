@@ -1,5 +1,5 @@
 import { browser } from '$app/environment';
-import { get, set } from 'idb-keyval';
+import { del, get, set } from 'idb-keyval';
 import { migrateCard, type Card } from './srs';
 
 const IDB_KEY = 'monogatari_learner';
@@ -177,6 +177,34 @@ class LearnerStore {
 
   exportJSON(): string {
     return JSON.stringify($state.snapshot(this.state), null, 2);
+  }
+
+  /**
+   * Wipe all learner data: cancel any pending save, drop the IDB record,
+   * forget the localStorage migration tombstone (so a future install
+   * doesn't think we already migrated nothing), and reset the in-memory
+   * state to defaults. Caller is responsible for confirming with the user
+   * BEFORE invoking this.
+   */
+  async resetAll(): Promise<void> {
+    if (this.saveTimer) {
+      clearTimeout(this.saveTimer);
+      this.saveTimer = null;
+    }
+    if (browser) {
+      try {
+        await del(IDB_KEY);
+      } catch (e) {
+        console.warn('Failed to delete learner state from IDB:', e);
+      }
+      try {
+        localStorage.removeItem(LS_KEY);
+        localStorage.removeItem(TOMBSTONE);
+      } catch {
+        /* ignore — localStorage may be disabled */
+      }
+    }
+    this.state = defaultState();
   }
 }
 

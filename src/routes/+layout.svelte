@@ -90,8 +90,28 @@
     return 'read';
   }
 
-  // Export / Import
+  // Export / Import / Reset
   let importEl: HTMLInputElement | undefined = $state();
+
+  async function resetProgress() {
+    // Two-step confirmation: blocks accidental wipes from a stray click,
+    // and the second prompt makes the user type a word so muscle-memory
+    // double-clicks can't destroy progress.
+    const first = confirm(
+      'Reset ALL progress?\n\n' +
+        'This will permanently delete:\n' +
+        '  • every card in your SRS queue\n' +
+        '  • every story-completion mark\n' +
+        '  • your current-story bookmark\n' +
+        '  • your preferences\n\n' +
+        'Continue?',
+    );
+    if (!first) return;
+    const typed = prompt('Type RESET (in capitals) to confirm:');
+    if (typed !== 'RESET') return;
+    await learner.resetAll();
+    alert('All progress has been reset.');
+  }
   function exportProgress() {
     const blob = new Blob([learner.exportJSON()], { type: 'application/json' });
     const a = document.createElement('a');
@@ -155,6 +175,12 @@
         hidden
       />
     </label>
+    <button
+      class="nav-action-btn nav-action-danger"
+      onclick={resetProgress}
+      title="Reset all progress (cannot be undone)"
+      aria-label="Reset all progress (requires confirmation)"
+    >⟲ Reset</button>
   </div>
 </nav>
 

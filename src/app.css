@@ -897,6 +897,17 @@ rt {
 .grade-btn[data-grade="3"] { color: var(--blue); }
 .grade-btn .grade-label { font-size: 0.65rem; color: var(--text-light); }
 
+/* Reset button — visually de-emphasized so it doesn't compete with
+ * Export/Import, but its color signals destructive action on hover. */
+.nav-action-btn.nav-action-danger {
+  color: var(--text-muted);
+}
+.nav-action-btn.nav-action-danger:hover,
+.nav-action-btn.nav-action-danger:focus {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
 /* ── Utility ──────────────────────────────────────────────────── */
 [hidden] { display: none !important; }
 
