@@ -52,8 +52,23 @@
   });
 
   function reload() {
-    if (updateSW) updateSW(true);
-    else window.location.reload();
+    // Best-effort: ask the waiting SW to skip waiting (so the new
+    // shell takes over) AND immediately force a hard reload. We don't
+    // wait for the SW handshake — if the SW is buggy, the reload
+    // alone still gets the user a fresh page from cache/network.
+    try {
+      updateSW?.(false);
+    } catch {
+      /* ignore */
+    }
+    if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
+      // Tell every waiting SW (in case more than one is queued) to skip.
+      navigator.serviceWorker.getRegistrations().then((regs) => {
+        for (const r of regs) r.waiting?.postMessage({ type: 'SKIP_WAITING' });
+      }).catch(() => {});
+    }
+    // Hard navigate — the most reliable way to get the new shell.
+    setTimeout(() => window.location.reload(), 50);
   }
 
   function dismiss() {

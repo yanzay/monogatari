@@ -28,6 +28,11 @@ export default defineConfig(({ mode }) => {
           icons: [],
         },
         workbox: {
+          // Take over open tabs immediately when a new SW activates.
+          // Required for the "Reload" button in ReloadPrompt to actually
+          // trigger a controllerchange event and surface the new shell.
+          skipWaiting: true,
+          clientsClaim: true,
           globPatterns: ['**/*.{html,js,css,svg,woff2}'],
           // Don't precache big stuff — runtime caching handles stories/audio
           globIgnores: ['**/audio/**', '**/stories/**', '**/data/**'],
