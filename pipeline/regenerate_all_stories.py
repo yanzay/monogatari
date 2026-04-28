@@ -563,12 +563,11 @@ def main() -> int:
         )
 
     if args.apply:
-        bak_dir = ROOT / "state_backups" / "regenerate_all_stories"
-        bak_dir.mkdir(parents=True, exist_ok=True)
-        ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+        from _paths import Backup as _Backup, VOCAB_STATE as _VOCAB  # noqa: E402
+        ts = _Backup.now()
         # Backup vocab_state too (we'll append minted entries)
-        vpath = ROOT / "data" / "vocab_state.json"
-        shutil.copy(vpath, bak_dir / f"vocab_state_{ts}.json")
+        _Backup.save(_VOCAB, subdir="regenerate_all_stories", timestamp=ts)
+        bak_dir = ROOT / "state_backups" / "regenerate_all_stories"
 
     minted_records: list[dict] = []
     n_total = len(story_paths)
@@ -646,8 +645,9 @@ def main() -> int:
         print(f"  ★ story {sid:3d}: would change ({', '.join(flags) or 'no warnings'})")
 
         if args.apply:
-            # Backup current story
-            shutil.copy(canon_path, bak_dir / f"{canon_path.stem}_{ts}.json")
+            # Backup current story (uses central Backup factory)
+            from _paths import Backup as _Backup  # noqa: E402
+            _Backup.save(canon_path, subdir="regenerate_all_stories", timestamp=ts)
             # Bilingual spec is the source of truth — only write it if it
             # doesn't already exist (i.e., bootstrap path). Once authored,
             # it's edited by humans and must NEVER be overwritten by

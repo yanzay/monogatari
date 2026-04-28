@@ -1,17 +1,20 @@
 # Authoring helpers
 
-Five small CLIs that make curriculum maintenance practical. All read/write
+Eight small CLIs that make curriculum maintenance practical. All read/write
 the canonical source-of-truth files (`pipeline/inputs/story_*.bilingual.json`,
 `data/vocab_state.json`, `data/grammar_state.json`); none of them invent
 business logic — they expose the existing pipeline more directly.
 
 | Tool | Purpose |
 |---|---|
-| `vocab.py`   | Search / inspect the vocab inventory; dry-run sentences for mints |
-| `cadence.py` | Probe pedagogical cadence rules (R1/R2/G1/G2) without the pytest skipif dance |
-| `spec.py`    | Surgical edits to bilingual specs (append/replace/delete/move/find) |
-| `weave.py`   | Generate, preview, and apply reinforcement-weave plans |
-| `regen.py`   | Regenerate / validate / diff stories |
+| `vocab.py`                    | Search / inspect the vocab inventory; dry-run sentences for mints |
+| `cadence.py`                  | Probe pedagogical cadence rules (R1/R2/G1/G2) without the pytest skipif dance |
+| `spec.py`                     | Surgical edits to bilingual specs (append/replace/delete/move/find) |
+| `weave.py`                    | Generate, preview, and apply reinforcement-weave plans |
+| `regen.py`                    | Regenerate / validate / diff stories |
+| `cleanup_state_backups.py`    | Prune `state_backups/` per a retention policy (keep last N + ≤D days) |
+| `reconcile_grammar_intros.py` | Re-sync `grammar_state.intro_in_story` with corpus reality after re-ships |
+| `cleanup_audio_orphans.py`    | Delete orphan word/sentence audio files left by re-shipping |
 
 All commands read from the workspace root and require the project venv
 (`.venv/bin/python pipeline/tools/<name>.py …`).
@@ -96,3 +99,54 @@ unsafe by default** — adding a word to story_18 can shift the
 `is_new=true` flag from story_24 (its previous first appearance) to
 story_18 across multiple stories. `--unsafe` skips that pass when you
 just want to confirm token shape.
+
+## `cleanup_state_backups.py` — backup-garden retention
+
+```bash
+cleanup_state_backups.py                                   # dry-run, top level
+cleanup_state_backups.py --all-subdirs                     # include sub-dirs (e.g. regenerate_all_stories/)
+cleanup_state_backups.py --keep 3 --days 3 --apply         # aggressive
+cleanup_state_backups.py --subdir regenerate_all_stories --apply
+```
+
+Default policy: keep the **N most-recent** files **per stem**
+(`vocab_state` and `grammar_state` count separately) plus everything
+**newer than D days**. Default `--keep 5 --days 7` is friendly to
+in-flight authoring sessions. Without `--apply` it prints a plan but
+deletes nothing.
+
+## `reconcile_grammar_intros.py` — fix `intro_in_story` drift
+
+```bash
+reconcile_grammar_intros.py            # dry-run; show drift
+reconcile_grammar_intros.py --apply    # write back, with backup
+```
+
+Re-ships and spec edits to early stories can leave
+`grammar_state.points[gid].intro_in_story` pointing at the wrong story
+(or at a story that no longer uses the construction). This CLI walks
+the shipped corpus, computes the actual first-use of each grammar id,
+and updates `intro_in_story` (clearing entries that don't appear
+anywhere in the corpus). Replaces the inline reconciliation script
+that AGENTS.md previously asked authors to run by hand. Per the
+post-ship chain, run AFTER `regenerate_all_stories.py --apply` and
+BEFORE the final pytest, then run regenerate ONE MORE TIME so per-story
+`new_grammar` arrays match the reconciled state.
+
+## `cleanup_audio_orphans.py` — drop stale audio files
+
+```bash
+cleanup_audio_orphans.py             # dry-run
+cleanup_audio_orphans.py --apply
+```
+
+Detects three kinds of orphan:
+1. `audio/words/W*.mp3` whose `wid` is no longer in `vocab_state.json`
+   (left over from ID-changing re-ships).
+2. `audio/story_<N>/sX.mp3` where sentence index `X` exceeds the current
+   sentence count (left over from sentence-count-shrinking re-ships).
+3. `audio/story_<N>/w_W*.mp3` legacy per-story word audio (the layout
+   was migrated 2026-04-29 to flat `audio/words/`).
+
+Replaces the AGENTS.md "hand-delete stale `audio/story_N/w_W*.mp3` files"
+recovery dance.

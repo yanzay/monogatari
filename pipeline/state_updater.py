@@ -220,26 +220,18 @@ def update_state(
 
 
 # ── Backup helper ─────────────────────────────────────────────────────────────
+# Thin shim so historical callers (`from state_updater import backup`) keep
+# working while the canonical implementation lives in `_paths.Backup`.
+
+from _paths import Backup as _Backup, read_json as load_json, write_json  # noqa: E402,F401
+
 
 def backup(path: Path) -> Path:
-    """Copy path to state_backups/filename_YYYYMMDD_HHMMSS.json."""
-    backup_dir = Path("state_backups")
-    backup_dir.mkdir(exist_ok=True)
-    stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    dest  = backup_dir / f"{path.stem}_{stamp}{path.suffix}"
-    shutil.copy2(path, dest)
-    return dest
+    """Copy path to state_backups/filename_YYYYMMDD_HHMMSS.json. Back-compat shim."""
+    return _Backup.save(path)
 
 
 # ── CLI ───────────────────────────────────────────────────────────────────────
-
-def load_json(path: str) -> dict:
-    with open(path, encoding="utf-8") as f:
-        return json.load(f)
-
-
-def write_json(path: Path, data: dict) -> None:
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 def main() -> None:

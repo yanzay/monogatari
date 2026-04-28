@@ -16,7 +16,7 @@ from validate import validate  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent.parent
 VOCAB_PATH = ROOT / "data" / "vocab_state.json"
 GRAMMAR_PATH = ROOT / "data" / "grammar_state.json"
-CFG_PATH = Path(__file__).resolve().parent.parent / "forbidden_patterns.json"
+from _paths import FORBIDDEN_PATTERNS as CFG_PATH  # noqa: E402
 
 
 def _vocab() -> dict:

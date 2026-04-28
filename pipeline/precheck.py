@@ -26,17 +26,22 @@ import shutil
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-STORY_RAW = ROOT / "pipeline" / "story_raw.json"
-VOCAB = ROOT / "data" / "vocab_state.json"
-GRAMMAR = ROOT / "data" / "grammar_state.json"
+# Centralised paths/IO live in `_paths`; keep the `from _paths import …` here
+# instead of re-deriving ROOT/VOCAB/GRAMMAR locally.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _paths import (  # noqa: E402
+    ROOT,
+    PIPELINE,
+    VOCAB_STATE as VOCAB,
+    GRAMMAR_STATE as GRAMMAR,
+    read_json as load_json,
+    Backup,
+)
+
+STORY_RAW = PIPELINE / "story_raw.json"
 
 GLOSS_MIN_RATIO = 0.8
 GLOSS_MAX_RATIO = 3.0
-
-
-def load_json(path: Path) -> dict:
-    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def first_seen_word_order(story: dict) -> list[str]:

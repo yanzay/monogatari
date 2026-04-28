@@ -1345,7 +1345,7 @@ def validate(
     # joined JP) matches any of the previous K stories OR is on the library
     # opener blocklist. Config lives in pipeline/forbidden_patterns.json.
     try:
-        cfg_path = Path(__file__).resolve().parent / "forbidden_patterns.json"
+        from _paths import FORBIDDEN_PATTERNS as cfg_path  # noqa: E402
         if cfg_path.is_file():
             cfg = json.loads(cfg_path.read_text(encoding="utf-8"))
             rules = cfg.get("rules", {})
