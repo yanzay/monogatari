@@ -213,10 +213,26 @@
 
   function prevStory() {
     if (!story || story.story_id <= 1) return;
+    // Stop any in-flight playback before navigating away. Without this,
+    // a per-sentence ▶ click followed immediately by "← Previous" leaves
+    // the previous story's audio bleeding into the new one until it ends
+    // naturally, AND if the user was in sequential play mode the chain's
+    // onEnd callback would call playFrom(i+1) against the OLD story
+    // index map after the new story loaded — wrong sentence plays. Both
+    // failure modes vanish if we cleanly stop before goto().
+    stopCurrent();
+    setSequencePlaying(false);
+    sequencePlayback = false;
+    playingIdx = null;
     goto(`${base}/read?story=${story.story_id - 1}`);
   }
   function nextStory() {
     if (!story) return;
+    // Same cleanup as prevStory() — see its comment for the rationale.
+    stopCurrent();
+    setSequencePlaying(false);
+    sequencePlayback = false;
+    playingIdx = null;
     goto(`${base}/read?story=${story.story_id + 1}`);
   }
 </script>
@@ -278,7 +294,18 @@
             }
           }}
         >
-          {#each sb.tokens as tok, ti (ti)}
+          {#each sb.tokens as tok, ti (`${ti}:${tok.t}`)}
+            <!--
+              Key is the (token-index, surface-text) pair, not just the
+              index, so that re-renders triggered by reactive deps (e.g.
+              firstOccurrence map updates, popup-state changes that
+              re-mount the parent fragment) don't shift the wrong
+              underline onto the wrong token. Pure index keying caused
+              the "is_new" red underline to flicker between adjacent
+              tokens during rapid popup open/close. Tokens within a
+              single story never reorder, so the surface suffix is a
+              stable disambiguator at zero render cost.
+            -->
             <TokenEl
               {tok}
               isFirstInStory={firstOccurrence.get(sb.idx)?.has(ti) ?? false}
