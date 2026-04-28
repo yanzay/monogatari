@@ -104,7 +104,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "It is night, and the moonlight is bright."
+      "gloss_en": "It is night, and the moonlight is bright.",
+      "audio": "audio/story_10/s0.mp3",
+      "audio_hash": "e589625573c4"
     },
     {
       "idx": 1,
@@ -160,7 +162,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "So I go outside."
+      "gloss_en": "So I go outside.",
+      "audio": "audio/story_10/s1.mp3",
+      "audio_hash": "3d85a475e7eb"
     },
     {
       "idx": 2,
@@ -199,7 +203,7 @@
           "grammar_id": "G002_ga_subject"
         },
         {
-          "t": "有ります",
+          "t": "あります",
           "role": "content",
           "word_id": "W00016",
           "r": "あります",
@@ -216,7 +220,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On the chair, there is a letter."
+      "gloss_en": "On the chair, there is a letter.",
+      "audio": "audio/story_10/s2.mp3",
+      "audio_hash": "022f891dfc99"
     },
     {
       "idx": 3,
@@ -289,7 +295,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I pick up the letter and sit on the chair."
+      "gloss_en": "I pick up the letter and sit on the chair.",
+      "audio": "audio/story_10/s3.mp3",
+      "audio_hash": "6880117514b4"
     },
     {
       "idx": 4,
@@ -334,7 +342,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I open the letter."
+      "gloss_en": "I open the letter.",
+      "audio": "audio/story_10/s4.mp3",
+      "audio_hash": "a99a34376a3f"
     },
     {
       "idx": 5,
@@ -374,7 +384,7 @@
           "grammar_id": "G002_ga_subject"
         },
         {
-          "t": "有ります",
+          "t": "あります",
           "role": "content",
           "word_id": "W00016",
           "r": "あります",
@@ -391,7 +401,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "On the letter, there is my name."
+      "gloss_en": "On the letter, there is my name.",
+      "audio": "audio/story_10/s5.mp3",
+      "audio_hash": "c90897518b86"
     },
     {
       "idx": 6,
@@ -441,7 +453,7 @@
           "grammar_id": "G004_ni_location"
         },
         {
-          "t": "有ります",
+          "t": "あります",
           "role": "content",
           "word_id": "W00016",
           "r": "あります",
@@ -458,7 +470,19 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The letter rests in my hand."
+      "gloss_en": "The letter rests in my hand.",
+      "audio": "audio/story_10/s6.mp3",
+      "audio_hash": "926066e2eaeb"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00048": "audio/story_10/w_W00048.mp3",
+    "W00049": "audio/story_10/w_W00049.mp3",
+    "W00050": "audio/story_10/w_W00050.mp3"
+  },
+  "word_audio_hash": {
+    "W00048": "bf728630db0b",
+    "W00049": "a7b8f4b31985",
+    "W00050": "7ec26292414b"
+  }
 }

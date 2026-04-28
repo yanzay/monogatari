@@ -294,6 +294,143 @@ commitments documented in `docs/v2-strategy-2026-04-27.md` and
 
 ---
 
+## Lessons learned 2026-04-28 evening (audit + 3-story rewrite cycle)
+
+### G055_plain_nonpast_pair (relative-clause plain-form verbs) is a cascade trap
+
+Twice in one session, an attempt to introduce `G055_plain_nonpast_pair`
+in a story 4–7 (via a relative clause like 「読む紙」 / 「卵を持つ友達」)
+failed the corpus-wide `test_introduced_grammar_is_reinforced` because
+NO story 4–10 currently uses any verb in plain dictionary form. Each
+attempt led to one of two cascade failures:
+
+1. **Add a downstream relative clause to story N+1** to satisfy
+   reinforcement → that downstream story now has 2 new grammar points
+   (its original intro + G055), which violates `test_grammar_introduction_cadence`
+   (max 1 after bootstrap).
+2. **Introduce in story N AND ALSO add a different downstream sentence**
+   to absorb it → spirals into 3+ story edits per attempt.
+
+**Rule:** Do NOT introduce `G055_plain_nonpast_pair` (or any other
+auto-tagged grammar point with no downstream usage) until at least
+ONE story 5–10 already organically uses the construction. Today the
+corpus has zero plain-form verb usage anywhere — G055 is effectively
+locked behind a story 11+ first introduction. The brief's
+recommended[0] = N5_dictionary_form is misleadingly high-priority;
+treat it as a stretch goal that requires planning across ≥2 stories
+in advance.
+
+The general form of this rule: **Before introducing any grammar point
+G in story N, grep `stories/story_{N+1..N+5}.json` for at least one
+token whose `grammar_id == G`.** If none, deferring is cheaper than
+the cascade.
+
+### grammar_state.intro_in_story drifts from corpus first-use after rewrites
+
+Every time a story is re-shipped (especially after spec edits to s0
+or early sentences that change WHICH story first uses a particle/
+construction), the `intro_in_story` field in `data/grammar_state.json`
+can drift from the actual corpus first-occurrence. The
+`state_updater` doesn't reset existing attributions; the regenerator
+uses one rule, the validator another. Symptom: pytest reports that
+story N "introduces 2 new grammar points" when a rewrite shifted one
+intro from N+k back to N.
+
+**Fix:** A reconciliation pass that walks all 10 stories in order,
+records the FIRST story_id each grammar_id appears in, and rewrites
+`intro_in_story` to match (clearing entries that no longer appear
+anywhere in the corpus to None). The inline script used three times
+this session:
+
+```python
+import json
+g = json.load(open('data/grammar_state.json'))
+first_use = {}
+for n in range(1, 11):
+    s = json.load(open(f'stories/story_{n}.json'))
+    for sec_name in ['title']:
+        for tok in (s.get(sec_name) or {}).get('tokens', []):
+            for gid in [tok.get('grammar_id'),
+                        (tok.get('inflection') or {}).get('grammar_id')]:
+                if gid and gid not in first_use:
+                    first_use[gid] = n
+    for sent in s.get('sentences', []):
+        for tok in sent.get('tokens', []):
+            for gid in [tok.get('grammar_id'),
+                        (tok.get('inflection') or {}).get('grammar_id')]:
+                if gid and gid not in first_use:
+                    first_use[gid] = n
+for gid in list(g['points'].keys()):
+    if gid not in first_use and g['points'][gid].get('intro_in_story') is not None:
+        g['points'][gid]['intro_in_story'] = None
+for gid, n in first_use.items():
+    if gid in g['points']:
+        g['points'][gid]['intro_in_story'] = n
+json.dump(g, open('data/grammar_state.json','w'), indent=2, ensure_ascii=False)
+```
+
+This script should be folded into a `pipeline/tools/reconcile_grammar_state.py`
+CLI in a future session — the inline form is fine for now but every
+rewrite session needs it. Always run AFTER `regenerate_all_stories.py
+--apply` and BEFORE the final pytest, then run regenerate ONE MORE
+TIME so the per-story `new_grammar` arrays match the reconciled state.
+
+### Closer cliché ladder needs ongoing curation, not just §C.2
+
+Three-pass observation: as new fresh closer patterns get used, they
+themselves become clichés after 2–3 stories. The current corpus has
+sub-templates emerging:
+
+- `Nは[i-adj]です` as closer (story 3 「卵は暖かいです」, story 7
+  「紙は古いです」). Two uses. Becomes a banned ladder entry on the
+  next i-adj-attribute closer.
+- Departure-walks (story 4 「友達は朝の道を歩きます」). One use.
+  Banned for stories 5–9.
+- Listing-と reflection (「N₁とN₂は…です」). Used in story 4
+  reflection. Variants OK; same-shape repeats banned.
+
+**Rule:** When proposing a closer, scan the previous 3 stories'
+closers for shape (not just surface). If your closer matches the
+SHAPE (subject-particle-attribute-copula, possessive-departure-verb,
+listing-equivalence, etc.), rotate.
+
+### Re-ship discipline (extends AGENTS.md state-backup section)
+
+If a re-ship attempt fails AND it minted new vocab AND it attributed
+new grammar, the cleanup chain is:
+
+1. Restore `data/{vocab,grammar}_state.json` from the pre-attempt
+   backup in `state_backups/` or `/tmp/`.
+2. Hand-delete stale `audio/story_N/w_W*.mp3` files for IDs that no
+   longer exist in vocab_state.
+3. Hand-delete stale `audio/story_N/sX.mp3` files where X exceeds
+   the new sentence count.
+4. Re-ship the revised story.
+5. Run the reconciliation script above.
+6. `regenerate_all_stories.py --apply`.
+7. `audio_builder.py` for any story whose sentence text changed.
+8. Full pytest sweep.
+
+This whole chain has run cleanly three times in a row this session
+following this exact ordering.
+
+### Orthographic consistency: prefer hiragana for grammaticalized verbs
+
+Stories 9 and 10 originally used `有ります` (kanji) where stories 1–8
+used `あります` (hiragana). For grammaticalized existence verbs (ある,
+いる, なる, できる, etc.), the corpus convention is HIRAGANA. The
+spec's source-of-truth is the bilingual.json; sed-normalize in place
+when drift is detected:
+
+```bash
+sed -i.tmp 's/有ります/あります/g' pipeline/inputs/story_*.bilingual.json
+rm pipeline/inputs/*.tmp
+```
+
+Then regen + audio rebuild for the affected stories.
+
+---
+
 ## Notes
 
 ### Standing user preference: auto-commit and push after a clean ship
