@@ -214,6 +214,25 @@ body {
   box-shadow: 0 4px 14px rgba(0,0,0,0.07);
 }
 .story-card.current { border-color: var(--gold); }
+/* Locked story cards: disabled, dimmed, no hover lift, lock icon
+   takes the place of the JP title. Strict graded-reader policy
+   (since 2026-04-29). */
+.story-card.locked,
+.story-card[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  filter: grayscale(0.4);
+}
+.story-card.locked:hover,
+.story-card[disabled]:hover {
+  transform: none;
+  box-shadow: none;
+}
+.story-card-badge.locked {
+  background: var(--surface2);
+  color: var(--text-light);
+  border-color: var(--border);
+}
 .story-card-id {
   font-family: var(--font-mono);
   font-size: 0.7rem;

@@ -10,6 +10,10 @@
   } from '$lib/data/corpus';
   import { learner } from '$lib/state/learner.svelte';
   import VList from '$lib/ui/VList.svelte';
+  import {
+    isStoryUnlocked,
+    nextStoryToRead,
+  } from '$lib/util/story-progression';
   import type { StoryManifestEntry } from '$lib/data/types';
 
   let pageCount = $state(0);
@@ -48,7 +52,14 @@
     });
   });
 
+  // Strict graded-reader unlock policy. A story is openable iff it
+  // is story 1 or its predecessor is completed. The "next story to
+  // read" gets a different visual treatment so the affordance is
+  // obvious; everything past it is locked.
+  let nextUp = $derived(nextStoryToRead(learner.state.story_progress, totalStories));
+
   function open(id: number) {
+    if (!isStoryUnlocked(id, learner.state.story_progress)) return;
     goto(`${base}/read?story=${id}`);
   }
 
@@ -112,23 +123,29 @@
       {#snippet children(entry)}
         {@const progress = learner.state.story_progress?.[String(entry.story_id)]}
         {@const completed = !!progress?.completed}
-        {@const isCurrent = entry.story_id === learner.state.current_story}
+        {@const unlocked = isStoryUnlocked(entry.story_id, learner.state.story_progress)}
+        {@const isNext = entry.story_id === nextUp}
         <button
           class="story-card"
-          class:current={isCurrent}
+          class:current={isNext}
+          class:locked={!unlocked}
           style="height:128px;width:100%;"
+          disabled={!unlocked}
           onclick={() => open(entry.story_id)}
-          aria-label={`Open story ${entry.story_id}: ${entry.title_en ?? ''}`}
+          aria-label={unlocked
+            ? `Open story ${entry.story_id}: ${entry.title_en ?? ''}`
+            : `Story ${entry.story_id} locked — finish story ${entry.story_id - 1} to unlock`}
+          title={unlocked ? '' : `Finish story ${entry.story_id - 1} to unlock`}
         >
           <span class="story-card-id">Story {entry.story_id}</span>
           <div class="story-card-title-jp" lang="ja">
-            {entry.title_jp || `Story ${entry.story_id}`}
+            {unlocked ? (entry.title_jp || `Story ${entry.story_id}`) : '🔒'}
           </div>
-          <div class="story-card-title-en">{entry.title_en || ''}</div>
+          <div class="story-card-title-en">{unlocked ? (entry.title_en || '') : 'Locked'}</div>
           <div class="story-card-meta">
             <span>{entry.n_sentences ?? 0} sentences · ~{readingMin(entry)} min</span>
-            <span class="story-card-badge" class:done={completed}>
-              {completed ? '✓ done' : isCurrent ? 'reading' : 'unread'}
+            <span class="story-card-badge" class:done={completed} class:locked={!unlocked}>
+              {completed ? '✓ done' : !unlocked ? 'locked' : isNext ? 'next up' : 'unread'}
             </span>
           </div>
         </button>
@@ -139,22 +156,28 @@
       {#each entries as entry (entry.story_id)}
         {@const progress = learner.state.story_progress?.[String(entry.story_id)]}
         {@const completed = !!progress?.completed}
-        {@const isCurrent = entry.story_id === learner.state.current_story}
+        {@const unlocked = isStoryUnlocked(entry.story_id, learner.state.story_progress)}
+        {@const isNext = entry.story_id === nextUp}
         <button
           class="story-card"
-          class:current={isCurrent}
+          class:current={isNext}
+          class:locked={!unlocked}
+          disabled={!unlocked}
           onclick={() => open(entry.story_id)}
-          aria-label={`Open story ${entry.story_id}: ${entry.title_en ?? ''}`}
+          aria-label={unlocked
+            ? `Open story ${entry.story_id}: ${entry.title_en ?? ''}`
+            : `Story ${entry.story_id} locked — finish story ${entry.story_id - 1} to unlock`}
+          title={unlocked ? '' : `Finish story ${entry.story_id - 1} to unlock`}
         >
           <span class="story-card-id">Story {entry.story_id}</span>
           <div class="story-card-title-jp" lang="ja">
-            {entry.title_jp || `Story ${entry.story_id}`}
+            {unlocked ? (entry.title_jp || `Story ${entry.story_id}`) : '🔒'}
           </div>
-          <div class="story-card-title-en">{entry.title_en || ''}</div>
+          <div class="story-card-title-en">{unlocked ? (entry.title_en || '') : 'Locked'}</div>
           <div class="story-card-meta">
             <span>{entry.n_sentences ?? 0} sentences · ~{readingMin(entry)} min</span>
-            <span class="story-card-badge" class:done={completed}>
-              {completed ? '✓ done' : isCurrent ? 'reading' : 'unread'}
+            <span class="story-card-badge" class:done={completed} class:locked={!unlocked}>
+              {completed ? '✓ done' : !unlocked ? 'locked' : isNext ? 'next up' : 'unread'}
             </span>
           </div>
         </button>

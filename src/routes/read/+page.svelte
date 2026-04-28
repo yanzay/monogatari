@@ -13,6 +13,10 @@
   import RubyHeader from '$lib/ui/RubyHeader.svelte';
   import TokenEl from '$lib/ui/Token.svelte';
   import { firstOccurrenceInSentences } from '$lib/util/first-occurrence';
+  import {
+    isStoryUnlocked,
+    highestUnlockedStory,
+  } from '$lib/util/story-progression';
   import { mintCardsForStory, isDue } from '$lib/state/srs';
   import type { Story, VocabIndex } from '$lib/data/types';
 
@@ -33,6 +37,20 @@
     const requested = storyIdParam ?? learner.state.current_story ?? 1;
     if (story?.story_id === requested) return;
     storyError = null;
+    // Strict graded-reader gate: a learner cannot deep-link past
+    // unread material via the URL bar. If the requested story isn't
+    // unlocked, silently redirect to the highest one they've earned.
+    // We use a generous cap (10000) for highestUnlockedStory because
+    // we don't know the manifest size from inside the read view; the
+    // helper walks linearly until it hits a gap so the cap is just an
+    // upper bound, never the answer for any real progress shape.
+    if (!isStoryUnlocked(requested, learner.state.story_progress)) {
+      const allowed = highestUnlockedStory(learner.state.story_progress, 10000);
+      if (allowed !== requested) {
+        goto(`${base}/read?story=${allowed}`, { replaceState: true });
+        return;
+      }
+    }
     loadStoryById(requested).then((s) => {
       if (!s) {
         storyError = `Could not load story ${requested}.`;
