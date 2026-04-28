@@ -93,6 +93,50 @@ GRAMMAR_ROLE: dict[str, str] = {
     "G032_demo":         "particle",
 }
 
+# ── Auto-tagged grammar IDs that may be brand-new to grammar_state ───────────
+#
+# When the tagger emits a grammar_id, `state_updater` needs a full state-entry
+# definition (title/short/long/jlpt/catalog_id/prerequisites) to attribute it
+# on ship. Pre-loaded points (e.g. G059_dakara) already exist in
+# grammar_state.json and only need their `intro_in_story` patched. But some
+# auto-tagged paradigms — most notably the plain dictionary form — have
+# never been bulk-loaded. Without a registry, the first story to use a
+# plain-form verb would crash state_updater with
+# "Cannot ship: new_grammar 'G055_…' has no complete definition in plan."
+#
+# This registry is the single source of truth for those gids. The author_loop
+# `_build_state_plan` consults it to populate `new_grammar_definitions`
+# whenever the build report flags one of these as `unknown_grammar`.
+#
+# Schema mirrors the state-entry shape consumed by state_updater (see the
+# `defn` block in `state_updater.update_state` — it expects title/short/long
+# at minimum, and accepts jlpt/catalog_id/prerequisites/genki_ref/etc.).
+KNOWN_AUTO_GRAMMAR_DEFINITIONS: dict[str, dict] = {
+    "G055_plain_nonpast_pair": {
+        "title":         "〜る/う — plain non-past (dictionary form)",
+        "short":         "Plain (dictionary) form of a verb. Casual present/future affirmative; also the form used for noun-modification, 〜こと clauses, and the plain paradigm.",
+        "long":          (
+            "The dictionary form of a verb (e.g. 食べる, 行く, 見る, 有る) is its "
+            "plain non-past form: it doubles as the lemma you look up in a "
+            "dictionary AND as the casual equivalent of the polite 〜ます form. "
+            "Using a verb in plain form (instead of 〜ます) shifts the register "
+            "toward casual / inner-thought / written narration, and unlocks "
+            "the entire plain paradigm: 〜ない (negative), 〜た (past), 〜なかった "
+            "(past negative), 〜ながら (while), conditional 〜ば, 〜と思います "
+            "(quotative thinking), noun-modification (〜本, 〜時), etc. In a "
+            "graded reader the first plain-form usage typically appears as "
+            "an existential closer (「Xは〜にある。」) or a sensory inner "
+            "observation; full casual dialogue follows later."
+        ),
+        "jlpt":          "N5",
+        "catalog_id":    "N5_dictionary_form",
+        "prerequisites": [],
+        "genki_ref":     "Genki I L8",
+        "bunpro_ref":    "bunpro_n5",
+        "jlpt_sensei_ref": "jlpt_sensei",
+    },
+}
+
 # Aux suffixes we glue onto a preceding verb to form a single inflected token.
 VERB_SUFFIX_LEMMAS = {
     "ます", "た", "て", "ない", "ぬ", "ず", "う", "よう",
@@ -589,7 +633,12 @@ def _classify_inflection(merged: dict) -> Optional[dict]:
     elif full.endswith("ない"):
         form, token_grammar_id = "negative", "G036_masen"
     else:
-        form, token_grammar_id = "dictionary", None
+        # Plain dictionary form (no aux suffix). This is the canonical
+        # introduction site for N5_dictionary_form. The companion
+        # G055_plain_nonpast_pair entry in KNOWN_AUTO_GRAMMAR_DEFINITIONS
+        # carries the state-entry definition so the first usage in the
+        # corpus can ship cleanly via state_updater.
+        form, token_grammar_id = "dictionary", "G055_plain_nonpast_pair"
 
     # If we couldn't classify (no aux suffixes, dictionary form), still emit
     # an inflection block — canonical does this for explicit dictionary verbs
@@ -799,12 +848,15 @@ def merged_to_token_json(merged: dict, st: BuildState) -> dict:
     cls = _classify_inflection(merged)
     if cls:
         infl = cls["inflection"]
-        # Drop inflection for plain dictionary-form verbs ONLY when the vocab
-        # record's surface IS already the dictionary form (so token surface
-        # matches vocab surface). For verbs stored as polite form (the bulk
-        # of the library), a dictionary-form usage MUST carry an inflection
-        # block with form="plain_nonpast" so the validator can recognize it
-        # as a deliberate plain-form variant.
+        # Plain-form-of-polite-vocab path: the vocab record is the polite
+        # 〜ます form (e.g. 見ます W00010, 出ます), but the token surface is
+        # the bare dictionary form (見る, 出る). We rename `form` from
+        # "dictionary" → "plain_nonpast" so downstream consumers
+        # (validators, semantic_lint) can distinguish "this is a deliberate
+        # plain variant of a polite-form vocab record" from "this verb's
+        # canonical lemma IS the dict form" (e.g. 取る W00017). Both paths
+        # carry the same grammar_id (G055_plain_nonpast_pair) because both
+        # represent the same paradigm anchor — N5_dictionary_form.
         is_plain_form_of_polite_vocab = (
             infl["form"] == "dictionary"
             and word and word.get("pos") == "verb"
@@ -812,10 +864,19 @@ def merged_to_token_json(merged: dict, st: BuildState) -> dict:
         )
         if is_plain_form_of_polite_vocab:
             infl["form"] = "plain_nonpast"
-            # Don't auto-tag G055_plain_nonpast_pair — it's not introduced
-            # until late in the corpus. The regenerator's carry-over pass
-            # will add it from canonical when appropriate.
-            cls["token_grammar_id"] = None
+        # Pure dictionary-form path (vocab.surface IS the dict form, e.g.
+        # 取る W00017): there's nothing to back-conjugate, but we still need
+        # to attach the inflection block AND tag the grammar_id so the
+        # paradigm anchor (G055_plain_nonpast_pair / N5_dictionary_form)
+        # gets attributed. Take the short-circuit path before the
+        # masu-stem reconstruction block (which only fires for vocab
+        # stored as 〜ます).
+        if infl["form"] == "dictionary":
+            tok["inflection"] = infl
+            gid = cls["token_grammar_id"]
+            if gid:
+                tok["grammar_id"] = gid
+                _record_unknown_grammar(tok, gid, st)
         if infl["form"] != "dictionary":
             # If we have a vocab record for this verb, prefer its truth:
             # vocab.kana is the polite-form kana (e.g. ふります for W00107).

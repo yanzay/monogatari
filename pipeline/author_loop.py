@@ -175,10 +175,23 @@ def step_validate(built_story: dict, build_report: dict | None = None) -> StepRe
         grammar = load_grammar()
         # Build a minimal plan from the build report so Check 2 allows freshly-
         # minted words and Check 3 allows freshly-introduced grammar points.
+        # `unknown_grammar` is the build report's catch-all for any tagger-
+        # emitted grammar_id that isn't yet in grammar_state.json — most
+        # importantly the auto-tagged paradigm anchors registered in
+        # `text_to_story.KNOWN_AUTO_GRAMMAR_DEFINITIONS` (e.g. G055 for the
+        # first plain-form verb usage). Without splicing those into
+        # plan["new_grammar"], validator Check 3 ("grammar_id 'G055_…' not
+        # in grammar_state or plan") would block a story that the rest of
+        # the gauntlet considers clean.
         plan: dict | None = None
         if build_report:
             minted_word_ids = [w["id"] for w in (build_report.get("new_words") or [])]
             minted_grammar  = list(build_report.get("new_grammar") or [])
+            for rec in (build_report.get("unknown_grammar") or []):
+                if isinstance(rec, dict):
+                    g = rec.get("grammar_id")
+                    if g and g not in minted_grammar:
+                        minted_grammar.append(g)
             plan = {
                 "new_words": minted_word_ids,
                 "new_grammar": minted_grammar,
@@ -549,7 +562,22 @@ def step_coverage_floor(story_id: int, built_story: dict) -> StepResult:
             try:
                 from grammar_progression import coverage_status as _cov
                 covered_cids = set(_cov()["covered_catalog_ids"].keys())
-                # Map gid → catalog_id via grammar_state
+                # Map gid → catalog_id. Two sources, in priority order:
+                #   1. grammar_state.json — the canonical store. Most gids
+                #      live here, even those not yet attributed (their
+                #      `intro_in_story` is None until the first usage).
+                #   2. KNOWN_AUTO_GRAMMAR_DEFINITIONS — the in-code
+                #      registry for auto-tagged paradigm anchors that
+                #      have never been bulk-loaded into state (e.g.
+                #      G055_plain_nonpast_pair, the first plain-form
+                #      verb usage in the corpus). Without this fallback,
+                #      a gid the tagger emits but state doesn't know
+                #      yet would map to None and the intro would not
+                #      be counted — the same defect Check 3.10 had
+                #      before the registry was introduced.
+                from text_to_story import (  # noqa: E402
+                    KNOWN_AUTO_GRAMMAR_DEFINITIONS as _AUTO_DEFS,
+                )
                 import json as _json
                 from _paths import DATA as _DATA
                 gstate = _json.loads((_DATA / "grammar_state.json").read_text())
@@ -557,6 +585,12 @@ def step_coverage_floor(story_id: int, built_story: dict) -> StepResult:
                     gid: e.get("catalog_id")
                     for gid, e in (gstate.get("points") or {}).items()
                 }
+                # Registry entries take effect ONLY when the gid is not
+                # already in state (state is the source of truth once
+                # ship attribution has happened).
+                for gid, defn in _AUTO_DEFS.items():
+                    if gid not in gid_to_cid and defn.get("catalog_id"):
+                        gid_to_cid[gid] = defn["catalog_id"]
                 used_gids: set[str] = set()
                 for sent in built_story.get("sentences", []):
                     for tok in sent.get("tokens", []):
@@ -708,6 +742,16 @@ def _build_state_plan(build_report: dict | None) -> dict:
     `plan["new_word_definitions"][wid]` with surface/kana/reading/pos/
     meanings/verb_class/adj_class. Building the plan from the report
     eliminates the entire hand-written sidecar JSON step that bit story 8.
+
+    Auto-tagged grammar gids that are NOT yet in grammar_state.json
+    (e.g. G055_plain_nonpast_pair on the first plain-form verb usage)
+    are surfaced via the build report's `unknown_grammar` list. For each
+    such gid that has a registered definition in
+    `text_to_story.KNOWN_AUTO_GRAMMAR_DEFINITIONS`, we splice the
+    definition into the plan so state_updater can attribute the new
+    point cleanly. Without this hop, the first plain-form verb in the
+    corpus would crash state_updater with "Cannot ship: new_grammar
+    'G055_…' has no complete definition in plan."
     """
     plan: dict = {"new_word_definitions": {}, "new_grammar_definitions": {}}
     if not build_report:
@@ -728,6 +772,23 @@ def _build_state_plan(build_report: dict | None) -> dict:
         if rec.get("adj_class"):
             defn["adj_class"] = rec["adj_class"]
         plan["new_word_definitions"][wid] = defn
+
+    # Splice in any auto-tagged grammar definitions that the builder
+    # surfaced as unknown to state. We deduplicate by gid because the
+    # same gid may appear on multiple tokens within a single story (a
+    # verb in dict form on s2 and on s5, say).
+    from text_to_story import KNOWN_AUTO_GRAMMAR_DEFINITIONS  # noqa: E402
+    seen_gids: set[str] = set()
+    for rec in build_report.get("unknown_grammar", []) or []:
+        gid = rec.get("grammar_id") if isinstance(rec, dict) else None
+        if not gid or gid in seen_gids:
+            continue
+        seen_gids.add(gid)
+        defn = KNOWN_AUTO_GRAMMAR_DEFINITIONS.get(gid)
+        if defn:
+            # Copy so callers can't mutate the registry by accident.
+            plan["new_grammar_definitions"][gid] = dict(defn)
+
     return plan
 
 

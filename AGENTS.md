@@ -72,6 +72,23 @@ and an authoring-tools package at `pipeline/tools/`.
 - A bilingual spec (`pipeline/inputs/story_N.bilingual.json`) is the
   AUTHORITATIVE editable source. The shipped `stories/story_N.json` is
   a derived artifact — do NOT hand-edit it.
+- **Auto-tagged grammar IDs not yet in `grammar_state.json` are
+  registered in `text_to_story.KNOWN_AUTO_GRAMMAR_DEFINITIONS`.** Some
+  paradigm anchors (most prominently `G055_plain_nonpast_pair`,
+  catalog id `N5_dictionary_form`) were never bulk-loaded into
+  `data/grammar_state.json`. The tagger emits them whenever a verb
+  appears in plain dictionary form, AND the registry carries the
+  full state-entry definition (title/short/long/jlpt/catalog_id) so
+  `state_updater` can attribute them on first use without a
+  hand-written plan. Three loci consult the registry: (1) the
+  validator's plan (built by `step_validate` from the build report's
+  `unknown_grammar`), (2) the gauntlet's `step_coverage_floor`
+  gid→catalog_id fallback, and (3) `_build_state_plan`'s
+  `new_grammar_definitions` splice. To add a new auto-tagged paradigm
+  anchor: add a token-level `grammar_id` to `_classify_inflection` (or
+  another tagger site) AND add a matching entry to
+  `KNOWN_AUTO_GRAMMAR_DEFINITIONS`. Regression tests live in
+  `pipeline/tests/test_dictionary_form_attribution.py`.
 
 ---
 
@@ -278,6 +295,15 @@ commitments documented in `docs/v2-strategy-2026-04-27.md` and
 ---
 
 ## Notes
+
+### Standing user preference: auto-commit and push after a clean ship
+As of 2026-04-28, the user gave a permanent instruction: "commit and
+push, do not ask ever again." For any clean ship of a Monogatari story
+(gauntlet `VERDICT: ship`, full pytest green, F.2 self-review pass),
+proceed directly to `git add … && git commit … && git push` WITHOUT
+asking for confirmation. The Proactivity Guidelines' default to confirm
+write operations is overridden for git in THIS workspace. This applies
+to all future story authoring sessions.
 
 ### When the user says "rewrite story N and run tests, then restore"
 Take backups to `/tmp/` BEFORE editing, do the work, then restore from
