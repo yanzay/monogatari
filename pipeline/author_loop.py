@@ -732,7 +732,9 @@ def main() -> None:
     a.add_argument("--dry-run", action="store_true",
                    help="don't write to stories/; just report")
     a.add_argument("--brief-only", action="store_true",
-                   help="just emit agent_brief JSON for this story id and exit")
+                   help="emit compact author brief JSON for this story id and exit")
+    a.add_argument("--full-brief", action="store_true",
+                   help="with --brief-only, emit the complete tooling brief")
     a.add_argument("--json", action="store_true",
                    help="emit verdict as JSON instead of human format")
     args = p.parse_args()
@@ -740,7 +742,9 @@ def main() -> None:
     story_id = parse_story_id(args.story)
 
     if args.brief_only:
-        brief = agent_brief.build_brief(story_id)
+        brief = (agent_brief.build_brief(story_id)
+                 if args.full_brief
+                 else agent_brief.build_author_brief(story_id))
         print(json.dumps(brief, ensure_ascii=False, indent=2))
         sys.exit(0)
 

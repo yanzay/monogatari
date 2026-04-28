@@ -610,6 +610,105 @@ def _mint_budget_for(target_story: int) -> dict:
     }
 
 
+def _compact_word(entry: dict, category: str | None = None) -> dict:
+    """Keep only fields an author uses while drafting a sentence."""
+    out = {
+        "id": entry.get("word_id"),
+        "jp": entry.get("lemma"),
+        "pos": entry.get("pos"),
+        "meaning": ", ".join((entry.get("meanings") or [])[:2]),
+    }
+    if category:
+        out["category"] = category
+    if entry.get("star"):
+        out["debt"] = entry["star"]
+    if entry.get("last_use") is not None:
+        out["last_use"] = entry.get("last_use")
+    return out
+
+
+def _compact_palette(palette_json: dict, *, per_category: int = 6) -> dict:
+    """Small author palette: debt words first, then enough nouns/verbs to draft."""
+    categories = palette_json.get("categories") or {}
+    by_category: dict[str, list[dict]] = {}
+    debt_words: list[dict] = []
+    for cat, entries in categories.items():
+        ordered = sorted(
+            entries,
+            key=lambda e: (0 if e.get("star") else 1, -(e.get("last_use") or 0)),
+        )
+        by_category[cat] = [_compact_word(e) for e in ordered[:per_category]]
+        for e in entries:
+            if e.get("star"):
+                debt_words.append(_compact_word(e, cat))
+    return {
+        "summary": palette_json.get("summary") or {},
+        "debt_words": debt_words,
+        "by_category": by_category,
+    }
+
+
+def _compact_grammar_intro(debt: dict) -> dict:
+    recs = debt.get("recommended_for_this_story") or []
+    return {
+        "must_introduce": bool(debt.get("must_introduce")),
+        "current_jlpt": debt.get("current_jlpt"),
+        "coverage_summary": debt.get("coverage_summary"),
+        "recommended": [
+            {
+                "catalog_id": r.get("catalog_id"),
+                "title": r.get("title"),
+                "short": r.get("short"),
+                "examples": (r.get("examples") or [])[:2],
+            }
+            for r in recs[:5]
+        ],
+    }
+
+
+def _compact_grammar_reinforcement(debt: dict) -> dict:
+    items = debt.get("items") or []
+    load_bearing = [i for i in items if i.get("must_reinforce")]
+    load_bearing.extend(i for i in items if i.get("should_reinforce"))
+    return {
+        "must_reinforce_count": debt.get("must_reinforce_count", 0),
+        "items": [
+            {
+                "grammar_id": i.get("grammar_id"),
+                "must_reinforce": bool(i.get("must_reinforce")),
+                "intro_in_story": i.get("intro_in_story"),
+                "window_end": i.get("window_end"),
+                "example_surface": (i.get("example") or {}).get("surface"),
+            }
+            for i in load_bearing[:6]
+        ],
+    }
+
+
+def _literary_contract() -> dict:
+    """The compact brief's main purpose: prevent valid-but-dead stories."""
+    return {
+        "one_sentence_test": (
+            "Before drafting, answer: what changes? Use an action/transfer/"
+            "discovery verb, not 'the narrator observes X'."
+        ),
+        "required_arc": [
+            "sentence 1 and closer differ in object location/owner/state or narrator knowledge",
+            "anchor object appears ≥3 times and causes an action, transfer, or discovery",
+            "every character enters the scene and forces action/dialogue/transfer",
+            "reflection adds new information; it must not restate the setting",
+            "closer has a real verb and does not mirror previous closers",
+        ],
+        "avoid": [
+            "decorative noun that appears once and never pays off",
+            "noun-pile closer with です and no verb",
+            "AのY は BのY equivalence",
+            "静か on inanimate objects",
+            "思います for facts already known on the page",
+        ],
+    }
+
+
 # ── Public entry point ──────────────────────────────────────────────────────
 
 def build_brief(target_story: int) -> dict[str, Any]:
@@ -635,6 +734,53 @@ def build_brief(target_story: int) -> dict[str, Any]:
     }
 
 
+def build_author_brief(target_story: int) -> dict[str, Any]:
+    """Concise, author-facing brief: load-bearing constraints + story craft.
+
+    `build_brief()` remains the complete data model for validators and tooling.
+    This compact view is what an LLM author should read before drafting.
+    """
+    full = build_brief(target_story)
+    return {
+        "story_id": target_story,
+        "schema_version": "2026-04-29-author-compact",
+        "hard_limits": {
+            "size_band": full["size_band"],
+            "mint_budget": {
+                k: full["mint_budget"][k]
+                for k in ("min", "max", "target", "rationale")
+            },
+            "grammar_max_new_after_bootstrap": 1,
+            "required_spec_fields": [
+                "intent", "scene_class", "anchor_object", "characters",
+                "sentences[].role",
+            ],
+        },
+        "must_hit": {
+            "grammar_reinforcement": _compact_grammar_reinforcement(
+                full["grammar_reinforcement_debt"]
+            ),
+            "grammar_introduction": _compact_grammar_intro(
+                full["grammar_introduction_debt"]
+            ),
+            "word_reinforcement": full["reinforcement_debt"],
+        },
+        "storytelling": _literary_contract(),
+        "voice_and_variety": {
+            "north_stars": full["north_stars"],
+            "previous_3_stories": full["previous_3_stories"],
+            "previous_closers": full["previous_closers"],
+        },
+        "palette": _compact_palette(full["palette"]),
+        "workflow_reminders": [
+            "Pick intent + scene_class + anchor before writing JP.",
+            "Use would-mint per candidate sentence; keep mints coherent.",
+            "If a grammar obligation harms the story, redesign the scene instead of bolting it on.",
+            "Run author_loop.py author N --dry-run before shipping.",
+        ],
+    }
+
+
 # ── CLI ──────────────────────────────────────────────────────────────────────
 
 def _next_story_id() -> int:
@@ -654,12 +800,14 @@ def main() -> None:
     p.add_argument("target", help="story id, 'story_N', or 'next'")
     p.add_argument("--pretty", action="store_true",
                    help="indent JSON for human reading")
+    p.add_argument("--full", action="store_true",
+                   help="emit the complete tooling brief instead of the compact author brief")
     p.add_argument("--section",
-                   help="emit a single top-level section instead of the full brief")
+                   help="emit a single top-level section instead of the selected brief")
     args = p.parse_args()
 
     target = _parse_target(args.target)
-    brief = build_brief(target)
+    brief = build_brief(target) if args.full else build_author_brief(target)
     if args.section:
         if args.section not in brief:
             print(f"Unknown section '{args.section}'. Available: "
