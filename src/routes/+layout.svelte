@@ -6,6 +6,7 @@
   import { base } from '$app/paths';
   import { learner } from '$lib/state/learner.svelte';
   import { loadVocabIndex, loadGrammar, getWord } from '$lib/data/corpus';
+  import { countDueCards, nextDueChangeTimestamp } from '$lib/util/due-count';
   import { popup } from '$lib/state/popup.svelte';
   import Popup from '$lib/ui/Popup.svelte';
   import WordPopup from '$lib/ui/WordPopup.svelte';
@@ -22,14 +23,40 @@
   let popupWord = $state<Word | null>(null);
   let popupWordError = $state<string | null>(null);
   let bootError = $state<string | null>(null);
+  // Real-time-correct due-count for the menu's "Review N" badge.
+  //
+  // The badge previously read stale because its derivation called
+  // Date.now() directly — Date.now() isn't a reactive dependency, so
+  // a card whose `due` was 5 minutes in the future when the page
+  // loaded never made the badge tick over to "1" when its time came.
+  // Only mutations to the srs map (e.g. grading a card) re-ran the
+  // derivation. Symptom: badge showed yesterday's number until refresh.
+  //
+  // Fix: a reactive `nowTick` $state. The `dueCount` derivation reads
+  // `nowTick` (so it's a dependency) AND the srs map. After every
+  // re-run, an $effect schedules a single, precise setTimeout for the
+  // EXACT moment the next card becomes due — see nextDueChangeTimestamp.
+  // No polling, no fixed cadence, no wasted wakeups: a session with
+  // zero pending cards has zero timers; a session with one card due
+  // in 7 minutes wakes exactly once 7 minutes from now.
+  //
+  // The clamp at 100ms protects against re-entrant scheduling if the
+  // helper somehow returns a target in the past (defensive).
+  let nowTick = $state(Date.now());
   let dueCount = $derived.by(() => {
     if (!learner.ready) return 0;
-    const now = Date.now();
-    return Object.values(learner.state.srs).filter((c) => {
-      if (!c.due) return true;
-      const t = new Date(c.due).getTime();
-      return !Number.isFinite(t) || t <= now;
-    }).length;
+    return countDueCards(learner.state.srs, nowTick);
+  });
+
+  $effect(() => {
+    if (!learner.ready) return;
+    const target = nextDueChangeTimestamp(learner.state.srs, nowTick);
+    if (target === null) return;
+    const wait = Math.max(100, target - Date.now());
+    const id = setTimeout(() => {
+      nowTick = Date.now();
+    }, wait);
+    return () => clearTimeout(id);
   });
 
   onMount(async () => {
