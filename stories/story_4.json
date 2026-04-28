@@ -25,24 +25,25 @@
     "W00023"
   ],
   "new_grammar": [
-    "G003_desu"
+    "G009_mo_also"
   ],
   "all_words_used": [
     "W00021",
     "W00013",
     "W00003",
     "W00001",
+    "W00002",
     "W00014",
+    "W00015",
     "W00022",
     "W00023",
-    "W00010",
-    "W00008",
-    "W00002",
-    "W00004",
-    "W00015",
+    "W00016",
     "W00017",
+    "W00052",
+    "W00051",
     "W00005",
-    "W00012"
+    "W00012",
+    "W00004"
   ],
   "sentences": [
     {
@@ -69,6 +70,51 @@
           "role": "particle",
           "grammar_id": "G001_wa_topic"
         },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "ともだち"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "こうえん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "歩きます",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あるきます",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the morning, I walk through the park with my friend."
+    },
+    {
+      "idx": 1,
+      "tokens": [
         {
           "t": "公園",
           "role": "content",
@@ -119,106 +165,32 @@
           "r": "はな"
         },
         {
-          "t": "を",
+          "t": "が",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "G002_ga_subject"
         },
         {
-          "t": "見ます",
+          "t": "あります",
           "role": "content",
-          "word_id": "W00010",
-          "r": "みます",
+          "word_id": "W00016",
+          "r": "あります",
           "inflection": {
-            "base": "見る",
-            "base_r": "みる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "In the morning, I see a red flower above the park's door."
-    },
-    {
-      "idx": 1,
-      "tokens": [
-        {
-          "t": "小さい",
-          "role": "content",
-          "word_id": "W00008",
-          "r": "ちいさい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "花",
-          "role": "content",
-          "word_id": "W00013",
-          "r": "はな"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu",
-          "is_new_grammar": true
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "It is a small flower."
-    },
-    {
-      "idx": 2,
-      "tokens": [
-        {
-          "t": "友達",
-          "role": "content",
-          "word_id": "W00002",
-          "r": "ともだち"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "道",
-          "role": "content",
-          "word_id": "W00004",
-          "r": "みち"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "歩きます",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あるきます",
-          "inflection": {
-            "base": "歩く",
-            "base_r": "あるく",
+            "base": "ある",
+            "base_r": "ある",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "A friend walks along the path."
+      "gloss_en": "Above the park's door there is a red flower."
     },
     {
-      "idx": 3,
+      "idx": 2,
       "tokens": [
         {
           "t": "友達",
@@ -267,7 +239,52 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend takes the red flower."
+      "gloss_en": "My friend takes the red flower."
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "卵",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "たまご"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also",
+          "is_new_grammar": true
+        },
+        {
+          "t": "花",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "はな"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "暖かい",
+          "role": "content",
+          "word_id": "W00051",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Both the egg and the flower are warm."
     },
     {
       "idx": 4,
@@ -334,7 +351,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend hands the flower into my hand."
+      "gloss_en": "My friend hands the flower into my hand."
     },
     {
       "idx": 5,
@@ -351,10 +368,10 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "私",
+          "t": "朝",
           "role": "content",
-          "word_id": "W00001",
-          "r": "わたし"
+          "word_id": "W00003",
+          "r": "あさ"
         },
         {
           "t": "の",
@@ -362,10 +379,10 @@
           "grammar_id": "G015_no_possessive"
         },
         {
-          "t": "手",
+          "t": "道",
           "role": "content",
-          "word_id": "W00005",
-          "r": "て"
+          "word_id": "W00004",
+          "r": "みち"
         },
         {
           "t": "を",
@@ -373,15 +390,15 @@
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "見ます",
+          "t": "歩きます",
           "role": "content",
-          "word_id": "W00010",
-          "r": "みます",
+          "word_id": "W00015",
+          "r": "あるきます",
           "inflection": {
-            "base": "見る",
-            "base_r": "みる",
+            "base": "歩く",
+            "base_r": "あるく",
             "form": "polite_nonpast",
-            "verb_class": "ichidan"
+            "verb_class": "godan"
           },
           "grammar_id": "G026_masu_nonpast"
         },
@@ -390,7 +407,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend looks at my hand."
+      "gloss_en": "My friend walks back down the morning road."
     }
   ]
 }

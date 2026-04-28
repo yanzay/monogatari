@@ -1,41 +1,45 @@
 {
   "story_id": 3,
   "title": {
-    "jp": "小さい鍵",
-    "en": "The Small Key",
+    "jp": "暖かい卵",
+    "en": "The Warm Egg",
     "tokens": [
       {
-        "t": "小さい",
+        "t": "暖かい",
         "role": "content",
-        "word_id": "W00008",
-        "r": "ちいさい",
+        "word_id": "W00051",
+        "r": "あたたかい",
         "grammar_id": "G022_i_adj"
       },
       {
-        "t": "鍵",
+        "t": "卵",
         "role": "content",
-        "word_id": "W00006",
-        "r": "かぎ"
+        "word_id": "W00052",
+        "r": "たまご"
       }
     ]
   },
-  "new_words": [],
+  "new_words": [
+    "W00051",
+    "W00052"
+  ],
   "new_grammar": [
-    "G015_no_possessive"
+    "G015_no_possessive",
+    "G003_desu"
   ],
   "all_words_used": [
-    "W00008",
-    "W00006",
+    "W00051",
+    "W00052",
     "W00003",
     "W00001",
-    "W00002",
-    "W00004",
+    "W00014",
     "W00015",
+    "W00004",
+    "W00008",
+    "W00013",
+    "W00016",
     "W00005",
-    "W00011",
-    "W00012",
-    "W00010",
-    "W00016"
+    "W00017"
   ],
   "sentences": [
     {
@@ -63,21 +67,10 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "友達",
+          "t": "公園",
           "role": "content",
-          "word_id": "W00002",
-          "r": "ともだち"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "道",
-          "role": "content",
-          "word_id": "W00004",
-          "r": "みち"
+          "word_id": "W00014",
+          "r": "こうえん"
         },
         {
           "t": "を",
@@ -102,27 +95,18 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the morning, I walk down the road with my friend."
+      "gloss_en": "In the morning, I walk through the park.",
+      "audio": "audio/story_3/s0.mp3",
+      "audio_hash": "91eb1372d64b"
     },
     {
       "idx": 1,
       "tokens": [
         {
-          "t": "友達",
+          "t": "道",
           "role": "content",
-          "word_id": "W00002",
-          "r": "ともだち"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "手",
-          "role": "content",
-          "word_id": "W00005",
-          "r": "て"
+          "word_id": "W00004",
+          "r": "みち"
         },
         {
           "t": "に",
@@ -137,168 +121,10 @@
           "grammar_id": "G022_i_adj"
         },
         {
-          "t": "鍵",
+          "t": "花",
           "role": "content",
-          "word_id": "W00006",
-          "r": "かぎ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "持ちます",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "もちます",
-          "inflection": {
-            "base": "持つ",
-            "base_r": "もつ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "My friend holds a small key in their hand."
-    },
-    {
-      "idx": 2,
-      "tokens": [
-        {
-          "t": "友達",
-          "role": "content",
-          "word_id": "W00002",
-          "r": "ともだち"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "鍵",
-          "role": "content",
-          "word_id": "W00006",
-          "r": "かぎ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00001",
-          "r": "わたし"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "渡します",
-          "role": "content",
-          "word_id": "W00012",
-          "r": "わたします",
-          "inflection": {
-            "base": "渡す",
-            "base_r": "わたす",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "My friend hands the key to me."
-    },
-    {
-      "idx": 3,
-      "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00001",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "鍵",
-          "role": "content",
-          "word_id": "W00006",
-          "r": "かぎ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "見ます",
-          "role": "content",
-          "word_id": "W00010",
-          "r": "みます",
-          "inflection": {
-            "base": "見る",
-            "base_r": "みる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I look at the key."
-    },
-    {
-      "idx": 4,
-      "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00001",
-          "r": "わたし"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive",
-          "is_new_grammar": true
-        },
-        {
-          "t": "手",
-          "role": "content",
-          "word_id": "W00005",
-          "r": "て"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "鍵",
-          "role": "content",
-          "word_id": "W00006",
-          "r": "かぎ"
+          "word_id": "W00013",
+          "r": "はな"
         },
         {
           "t": "が",
@@ -323,7 +149,172 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is a key in my hand."
+      "gloss_en": "On the road there is a small flower.",
+      "audio": "audio/story_3/s1.mp3",
+      "audio_hash": "f8d536ec49ea"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "花",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "はな"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "卵",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "たまご",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is a flower and an egg.",
+      "audio": "audio/story_3/s2.mp3",
+      "audio_hash": "52a36dc51643"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "わたし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "is_new_grammar": true
+        },
+        {
+          "t": "手",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "て"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "卵",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "たまご"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "取ります",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "とります",
+          "inflection": {
+            "base": "取る",
+            "base_r": "とる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I pick up the egg with my hand.",
+      "audio": "audio/story_3/s3.mp3",
+      "audio_hash": "e06e4a0e536e"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "卵",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "たまご"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "暖かい",
+          "role": "content",
+          "word_id": "W00051",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The egg is warm.",
+      "audio": "audio/story_3/s4.mp3",
+      "audio_hash": "02578453b6c0"
     }
-  ]
+  ],
+  "word_audio": {
+    "W00051": "audio/story_3/w_W00051.mp3",
+    "W00052": "audio/story_3/w_W00052.mp3"
+  },
+  "word_audio_hash": {
+    "W00051": "3dd9df88c6c2",
+    "W00052": "d9ac2c62ddd7"
+  }
 }
