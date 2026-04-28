@@ -259,13 +259,22 @@ def build_audio_for_story(
         sent["audio_hash"] = _audio_hash(text)
 
     # ── New-word audio (dictionary forms) ──
+    # As of 2026-04-29: word audio lives in a flat per-word directory
+    # `audio/words/<id>.mp3`, NOT in the introducing story's folder.
+    # The decoupling matters because words appear all over the UI
+    # (vocab list, library, review, popups from any story) and tying
+    # the audio path to first_story made the audio undiscoverable from
+    # those contexts (and broke after corpus rewrites that change a
+    # word's introducing story). Sentence audio remains story-scoped.
+    words_dir = audio_root / "words"
+    words_dir.mkdir(parents=True, exist_ok=True)
     word_audio = story.get("word_audio") or {}
     word_audio_hash = story.get("word_audio_hash") or {}
     for wid in story.get("new_words", []):
         word = vocab.get("words", {}).get(wid)
         if not word:
             continue
-        out_path = sub_dir / f"w_{wid}{ext}"
+        out_path = words_dir / f"{wid}{ext}"
         rel = out_path.as_posix()
         text = word_audio_text(word) or wid
         kana = word.get("kana") or text

@@ -221,13 +221,19 @@ function decorateWithAudioPaths(story: Story): Story {
 
   let word_audio = story.word_audio ?? {};
   if (!story.word_audio || Object.keys(story.word_audio).length === 0) {
+    // Word audio is decoupled from any story (since 2026-04-29) — files
+    // live in a flat `audio/words/<id>.mp3` directory so they can be
+    // played from any UI surface that opens a word popup, including
+    // ones with no story context (vocab list, library, review queue).
+    // We still synthesize the map per-story for any callers that
+    // expect story.word_audio to be present.
     const wa: Record<string, string> = {};
     const seen = new Set<string>();
     for (const s of story.sentences) {
       for (const t of s.tokens) {
         if (t.word_id && !seen.has(t.word_id)) {
           seen.add(t.word_id);
-          wa[t.word_id] = `${audioBase}/w_${t.word_id}.mp3`;
+          wa[t.word_id] = `audio/words/${t.word_id}.mp3`;
         }
       }
     }

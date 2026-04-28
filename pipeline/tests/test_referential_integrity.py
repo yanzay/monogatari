@@ -131,9 +131,12 @@ def test_audio_manifest_files_exist_on_disk(root, stories):
 def test_audio_directory_matches_shipped_stories(root, stories):
     """Audio folders must correspond to shipped story files (no orphan story_N folder).
 
-    Audio is referenced by convention: audio/story_N/sentence_M.mp3 and
-    audio/story_N/word_W#####.mp3. We verify each audio/story_N corresponds
-    to a shipped stories/story_N.json.
+    Layout (as of 2026-04-29):
+      audio/story_<N>/s<idx>.mp3   — per-sentence audio (story-scoped)
+      audio/words/<word_id>.mp3    — per-word audio (flat, decoupled
+                                     from any story)
+
+    The flat words/ directory is allowed; only orphan story_N dirs fail.
     """
     audio_dir = root / "audio"
     if not audio_dir.exists():
@@ -166,20 +169,41 @@ def test_audio_sentence_files_match_story_sentence_count(root, stories):
 
 
 def test_audio_word_files_only_for_known_words(root, stories, vocab):
-    """audio/story_N/word_W*.mp3 must reference word_ids that exist in vocab."""
+    """audio/words/<wid>.mp3 must reference word_ids that exist in vocab.
+
+    As of 2026-04-29 word audio lives in a flat per-word directory
+    (`audio/words/`), decoupled from any story. The orphan check also
+    rejects any leftover legacy `audio/story_<N>/w_*.mp3` files — they
+    should have been migrated to the flat layout and a stray one would
+    indicate a half-completed move.
+    """
     audio_dir = root / "audio"
     if not audio_dir.exists():
         pytest.skip("no audio directory")
 
     known_words = set(vocab["words"].keys())
     bad = []
+
+    # Flat per-word directory (current layout).
+    words_dir = audio_dir / "words"
+    if words_dir.is_dir():
+        for f in words_dir.glob("*.mp3"):
+            wid = f.stem
+            if wid not in known_words:
+                bad.append(f"words/{f.name}: unknown word_id")
+
+    # Legacy per-story word audio — should be empty after the migration.
+    legacy = []
     for story_audio in sorted(audio_dir.iterdir()):
-        if not story_audio.is_dir():
+        if not story_audio.is_dir() or not story_audio.name.startswith("story_"):
             continue
         for f in story_audio.glob("w_*.mp3"):
-            wid = f.stem.replace("w_", "")
-            if wid not in known_words:
-                bad.append(f"{story_audio.name}/{f.name}: unknown word_id")
+            legacy.append(f"{story_audio.name}/{f.name}")
+    assert not legacy, (
+        "Legacy per-story word audio still on disk (should be in audio/words/): "
+        + ", ".join(legacy)
+    )
+
     assert not bad, "Audio files for unknown word_ids:\n  " + "\n  ".join(bad)
 
 

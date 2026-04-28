@@ -487,8 +487,11 @@ describe('decorateWithAudioPaths (via loadStoryById)', () => {
     routes['/monogatari/stories/story_3.json'] = () => ok(story(3));
     const m = await loadCorpus();
     const s = await m.loadStoryById(3);
+    // Word audio is decoupled from the story's directory (since
+    // 2026-04-29) — it's served from audio/words/<id>.mp3 regardless
+    // of which story owns the lookup.
     expect(s?.word_audio).toEqual({
-      W00001: 'audio/story_3/w_W00001.mp3',
+      W00001: 'audio/words/W00001.mp3',
     });
   });
 
