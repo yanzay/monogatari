@@ -303,8 +303,9 @@ body {
 /* Sentence-progress-dot styles removed 2026-04-22 along with the
    #progress-dots element in index.html and renderProgressDots() in
    js/app.js. The product no longer tracks per-sentence progress; a
-   story is "done" only when the learner explicitly presses
-   "Mark as read → add to SRS". */
+   story is "done" only when the learner explicitly presses the
+   "I've read this — save new words for review" button (id
+   #btn-mark-read), which also unlocks the "Next →" story-nav button. */
 
 /* Vocab filters row */
 .vocab-filters {

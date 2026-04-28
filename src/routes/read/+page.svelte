@@ -73,6 +73,34 @@
       .filter((r): r is NonNullable<typeof r> => !!r);
   });
 
+  // Track which word IDs have already appeared earlier in the story so we
+  // can pass `isFirstInStory` to <Token>, which controls the red-underline
+  // marker for first occurrences of new vocab. Without this, no token ever
+  // receives the marker and new words look identical to seen-before words.
+  let firstOccurrence = $derived.by(() => {
+    const map = new Map<number, Set<number>>();
+    if (!story) return map;
+    const seen = new Set<string>();
+    // Title tokens render before sentences and should consume "first use"
+    // budget too, so a kanji-titled word doesn't get re-underlined in s0.
+    for (const t of story.title?.tokens ?? []) {
+      if (t.word_id) seen.add(t.word_id);
+    }
+    for (let i = 0; i < story.sentences.length; i += 1) {
+      const sentSet = new Set<number>();
+      const sent = story.sentences[i];
+      for (let ti = 0; ti < sent.tokens.length; ti += 1) {
+        const tok = sent.tokens[ti];
+        if (tok.word_id && !seen.has(tok.word_id)) {
+          sentSet.add(ti);
+          seen.add(tok.word_id);
+        }
+      }
+      map.set(i, sentSet);
+    }
+    return map;
+  });
+
   function openWord(wordId: string, tok: any) {
     popup.openWord(wordId, tok);
   }
@@ -251,7 +279,12 @@
           }}
         >
           {#each sb.tokens as tok, ti (ti)}
-            <TokenEl {tok} onWord={openWord} onGrammar={openGrammar} />
+            <TokenEl
+              {tok}
+              isFirstInStory={firstOccurrence.get(sb.idx)?.has(ti) ?? false}
+              onWord={openWord}
+              onGrammar={openGrammar}
+            />
           {/each}
           {#if sb.audio}
             <button
@@ -294,7 +327,7 @@
       disabled={completed}
       onclick={markAsRead}
     >
-      {completed ? '✓ Already added to review' : 'Mark as read → add to SRS'}
+      {completed ? '✓ Saved for review' : "I've read this — save new words for review"}
     </button>
 
     <div class="story-nav">
@@ -304,7 +337,12 @@
         onclick={prevStory}>← Previous</button
       >
       <span class="story-id-label">Story {story.story_id}</span>
-      <button class="story-nav-btn" onclick={nextStory}>Next →</button>
+      <button
+        class="story-nav-btn"
+        disabled={!completed}
+        title={completed ? '' : 'Mark this story as read first'}
+        onclick={nextStory}>Next →</button
+      >
     </div>
   {/if}
 </div>
