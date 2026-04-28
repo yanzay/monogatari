@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Story, Token } from '$lib/data/types';
+  import { firstOccurrenceInTokens } from '$lib/util/first-occurrence';
   import TokenEl from './Token.svelte';
 
   interface Props {
@@ -9,11 +10,10 @@
   }
   let { title, onWord, onGrammar }: Props = $props();
 
-  let seen = $derived.by(() => {
-    const set = new Set<string>();
-    if (title.tokens) for (const t of title.tokens) if (t.word_id) set.add(t.word_id);
-    return set;
-  });
+  // Title scope is independent from the body. See firstOccurrenceInTokens
+  // for full notes — pre-fix this was always-false because the seen set
+  // was pre-filled with every title token before the membership check.
+  let firstInTitle = $derived.by(() => firstOccurrenceInTokens(title.tokens));
 
   function clickHeader(e: MouseEvent | KeyboardEvent) {
     e.stopPropagation();
@@ -25,7 +25,7 @@
   {#each title.tokens as tok, i (i)}
     <TokenEl
       {tok}
-      isFirstInStory={!seen.has(tok.word_id ?? '__never__')}
+      isFirstInStory={firstInTitle.get(i) ?? false}
       {onWord}
       {onGrammar}
     />

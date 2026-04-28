@@ -12,6 +12,7 @@
   import { popup } from '$lib/state/popup.svelte';
   import RubyHeader from '$lib/ui/RubyHeader.svelte';
   import TokenEl from '$lib/ui/Token.svelte';
+  import { firstOccurrenceInSentences } from '$lib/util/first-occurrence';
   import { mintCardsForStory, isDue } from '$lib/state/srs';
   import type { Story, VocabIndex } from '$lib/data/types';
 
@@ -73,33 +74,13 @@
       .filter((r): r is NonNullable<typeof r> => !!r);
   });
 
-  // Track which word IDs have already appeared earlier in the story so we
-  // can pass `isFirstInStory` to <Token>, which controls the red-underline
-  // marker for first occurrences of new vocab. Without this, no token ever
-  // receives the marker and new words look identical to seen-before words.
-  let firstOccurrence = $derived.by(() => {
-    const map = new Map<number, Set<number>>();
-    if (!story) return map;
-    const seen = new Set<string>();
-    // Title tokens render before sentences and should consume "first use"
-    // budget too, so a kanji-titled word doesn't get re-underlined in s0.
-    for (const t of story.title?.tokens ?? []) {
-      if (t.word_id) seen.add(t.word_id);
-    }
-    for (let i = 0; i < story.sentences.length; i += 1) {
-      const sentSet = new Set<number>();
-      const sent = story.sentences[i];
-      for (let ti = 0; ti < sent.tokens.length; ti += 1) {
-        const tok = sent.tokens[ti];
-        if (tok.word_id && !seen.has(tok.word_id)) {
-          sentSet.add(ti);
-          seen.add(tok.word_id);
-        }
-      }
-      map.set(i, sentSet);
-    }
-    return map;
-  });
+  // Map of sentenceIdx → Set<tokenIdx> for tokens that are the FIRST
+  // occurrence of their word_id in the BODY (the title has its own
+  // independent scope owned by RubyHeader — see firstOccurrenceInTokens).
+  // Drives the red first-occurrence underline via <Token isFirstInStory>.
+  let firstOccurrence = $derived.by(() =>
+    firstOccurrenceInSentences(story?.sentences),
+  );
 
   function openWord(wordId: string, tok: any) {
     popup.openWord(wordId, tok);
