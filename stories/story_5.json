@@ -1,0 +1,473 @@
+{
+  "story_id": 5,
+  "title": {
+    "jp": "公園の鍵",
+    "en": "The Key in the Park",
+    "tokens": [
+      {
+        "t": "公園",
+        "role": "content",
+        "word_id": "W00014",
+        "r": "こうえん"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
+      },
+      {
+        "t": "鍵",
+        "role": "content",
+        "word_id": "W00006",
+        "r": "かぎ"
+      }
+    ]
+  },
+  "new_words": [
+    "W00028",
+    "W00029",
+    "W00030",
+    "W00031"
+  ],
+  "new_grammar": [
+    "G037_ka_question"
+  ],
+  "all_words_used": [
+    "W00014",
+    "W00006",
+    "W00003",
+    "W00001",
+    "W00002",
+    "W00015",
+    "W00007",
+    "W00028",
+    "W00016",
+    "W00029",
+    "W00030",
+    "W00031",
+    "W00004",
+    "W00023",
+    "W00008",
+    "W00010",
+    "W00021",
+    "W00012"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "あさ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "わたし"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "こうえん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "歩きます",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あるきます",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the morning, my friend and I walk through the park.",
+      "audio": "audio/story_5/s0.mp3",
+      "audio_hash": "6e0199e1b510"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "こうえん"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "大きい",
+          "role": "content",
+          "word_id": "W00007",
+          "r": "おおきい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "木",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "き",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is a large tree in the park.",
+      "audio": "audio/story_5/s1.mp3",
+      "audio_hash": "b66d719815fe"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "木",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "き"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "下",
+          "role": "content",
+          "word_id": "W00029",
+          "r": "した",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "椅子",
+          "role": "content",
+          "word_id": "W00030",
+          "r": "いす",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "座ります",
+          "role": "content",
+          "word_id": "W00031",
+          "r": "すわります",
+          "inflection": {
+            "base": "座る",
+            "base_r": "すわる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend sits on the bench under the tree.",
+      "audio": "audio/story_5/s2.mp3",
+      "audio_hash": "63888538f4f5"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "道",
+          "role": "content",
+          "word_id": "W00004",
+          "r": "みち"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "上",
+          "role": "content",
+          "word_id": "W00023",
+          "r": "うえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00008",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "鍵",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "かぎ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I see a small key on the road.",
+      "audio": "audio/story_5/s3.mp3",
+      "audio_hash": "4ce38de4562d"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "鍵",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "かぎ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "赤い",
+          "role": "content",
+          "word_id": "W00021",
+          "r": "あかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The key is red.",
+      "audio": "audio/story_5/s4.mp3",
+      "audio_hash": "907c5968c0c2"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "ともだち"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "鍵",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "かぎ"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question",
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Is it my friend's key?",
+      "audio": "audio/story_5/s5.mp3",
+      "audio_hash": "f28c1e26386c"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "鍵",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "かぎ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "ともだち"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "渡します",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "わたします",
+          "inflection": {
+            "base": "渡す",
+            "base_r": "わたす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I hand the key to my friend.",
+      "audio": "audio/story_5/s6.mp3",
+      "audio_hash": "636c36e056f6"
+    }
+  ],
+  "word_audio": {
+    "W00028": "audio/story_5/w_W00028.mp3",
+    "W00029": "audio/story_5/w_W00029.mp3",
+    "W00030": "audio/story_5/w_W00030.mp3",
+    "W00031": "audio/story_5/w_W00031.mp3"
+  },
+  "word_audio_hash": {
+    "W00028": "9213ab05890b",
+    "W00029": "13c12b064b63",
+    "W00030": "e57f49ca9c81",
+    "W00031": "bbb6f439a143"
+  }
+}

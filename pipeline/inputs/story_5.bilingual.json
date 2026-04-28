@@ -1,0 +1,48 @@
+{
+  "story_id": 5,
+  "title": {
+    "jp": "公園の鍵",
+    "en": "The Key in the Park"
+  },
+  "intent": "Walking through a park in the morning, the narrator and friend pass a large tree where the friend sits down on a bench. The narrator notices a small red key on the road, picks it up, wonders aloud whose it is, and hands it to the friend. The anchor object (key) changes location (road → narrator's hand → friend) and owners — clean object causality. Introduces the question particle か via a genuine moment of uncertainty (whose key is it?). Reinforces G003_desu (must_reinforce window-end at story 9) and G010_to_and via a companion-と with the friend. Mints a coherent park-furniture neighborhood (木, 下, 椅子, 座る) — a deliberate ramp matching the era's north-star (story 5: 「犬は椅子に座ります。」, first sit-down by a non-narrator). Four new words, within budget cap of 5.",
+  "scene_class": "park",
+  "anchor_object": "鍵",
+  "characters": ["narrator", "friend"],
+  "sentences": [
+    {
+      "jp": "朝、私と友達は公園を歩きます。",
+      "en": "In the morning, my friend and I walk through the park.",
+      "role": "setting"
+    },
+    {
+      "jp": "公園に大きい木があります。",
+      "en": "There is a large tree in the park.",
+      "role": "setting"
+    },
+    {
+      "jp": "友達は木の下の椅子に座ります。",
+      "en": "My friend sits on the bench under the tree.",
+      "role": "action"
+    },
+    {
+      "jp": "私は道の上に小さい鍵を見ます。",
+      "en": "I see a small key on the road.",
+      "role": "action"
+    },
+    {
+      "jp": "鍵は赤いです。",
+      "en": "The key is red.",
+      "role": "reflection"
+    },
+    {
+      "jp": "友達の鍵ですか。",
+      "en": "Is it my friend's key?",
+      "role": "inflection"
+    },
+    {
+      "jp": "私は鍵を友達に渡します。",
+      "en": "I hand the key to my friend.",
+      "role": "closer"
+    }
+  ]
+}

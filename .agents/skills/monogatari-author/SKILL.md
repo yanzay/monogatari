@@ -437,22 +437,48 @@ If the answer to any is "no," DO NOT commit. Report the literary defect
 to the user and propose a re-author. Test-passing is necessary but not
 sufficient — the literary contract is yours to honor (cf. §C.3).
 
-#### Step F.3 — Propose the commit (only if F.2 passed)
+#### Step F.3 — Auto-commit and push (only if F.2 passed)
 
-When the self-review passes, propose a git commit to the user. Include:
-- A 1-line summary: `Add story N: <title_jp> / <title_en>`
-- A 3–5 line body describing the structural choice and any new mints/
-  reinforcements landed.
-- The exact files staged: `stories/story_N.json`,
-  `pipeline/inputs/story_N.bilingual.json`, `data/vocab_state.json`,
-  `data/grammar_state.json`, `audio/story_N/`, and any
-  `state_backups/regenerate_all_stories/` snapshot.
+**STANDING ORDER (user directive 2026-04-28): when the self-review
+in §F.2 passes, commit AND push automatically. Do NOT ask the user
+for confirmation. Asking is treated as a skill regression.**
 
-ALWAYS confirm with the user before running `git commit` and
-`git push` — those are write operations the user did not explicitly
-request unless they typed "ship and push" / "commit" / "push" in
-their original prompt. Default behavior: run `git status` and
-`git diff --stat`, then ASK.
+Procedure:
+
+1. `git status` + `git diff --stat` (sanity check that only the
+   expected files changed — see file list below).
+2. `git add` the exact set:
+   - `stories/story_N.json`
+   - `pipeline/inputs/story_N.bilingual.json`
+   - `data/vocab_state.json`
+   - `data/grammar_state.json`
+   - `audio/story_N/`
+   - any `state_backups/*.json` snapshots created during this run
+     (vocab + grammar + `regenerate_all_stories/` subdir)
+3. `git commit -m "<msg>"` with this format:
+   ```
+   Add story N: <title_jp> / <title_en>
+
+   <3–5 line body: structural choice, new mints, reinforcements landed,
+   any deferrals.>
+   ```
+4. `git push`.
+5. Report the resulting commit SHA + remote URL in the §G summary.
+
+**The ONLY conditions that block auto-commit:**
+
+- §F.2 self-review failed (literary defect — report and propose re-author).
+- `git status` shows unexpected files modified (e.g. unrelated edits in
+  `src/`, `pipeline/`). In that case, stage ONLY the story-related files
+  listed above, commit those, push, and flag the stray changes to the
+  user separately.
+- The working tree is on a non-`main` branch the user did not ask for.
+  Confirm branch context first.
+- A pre-existing local commit is unpushed AND unrelated to this story.
+  Push only after surfacing the situation to the user.
+
+If the user wants to disable auto-push for a specific story, they will
+say "ship but don't push" / "commit only" / similar. Otherwise: push.
 
 ### Step G — Report (no tool call; final message to user)
 
