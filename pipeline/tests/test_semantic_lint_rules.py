@@ -141,3 +141,233 @@ def test_location_wo_single_place_does_NOT_fire():
         {"t": "。", "role": "punct"},
     ]))
     assert not any("location-を" in i.message for i in issues)
+
+
+# ── Rule 11.7: closer noun-pile (NEW 2026-04-28) ─────────────────────────────
+
+def _story(sentences):
+    """Wrap multiple sentences in story shape for closer-pile tests."""
+    return {"sentences": [
+        {"idx": i, "tokens": toks} for i, toks in enumerate(sentences)
+    ]}
+
+
+def test_closer_noun_pile_fires_on_story6_closer():
+    """Canonical defect: story 6 s7 '雨の朝、猫や花、静かな窓です。'"""
+    s0 = [  # any non-closer sentence
+        {"t": "私", "word_id": "W00003", "role": "content"},
+        {"t": "は", "grammar_id": "G001_wa_topic", "role": "particle"},
+        {"t": "見ます", "word_id": "W00006", "role": "content",
+         "inflection": {"form": "polite_nonpast"}},
+        {"t": "。", "role": "punct"},
+    ]
+    closer = [
+        {"t": "雨", "word_id": "W00002", "role": "content"},
+        {"t": "の", "grammar_id": "G015_no_possessive", "role": "particle"},
+        {"t": "朝", "word_id": "W00015", "role": "content"},
+        {"t": "、", "role": "punct"},
+        {"t": "猫", "word_id": "W00028", "role": "content"},
+        {"t": "や", "grammar_id": "G011_ya_partial", "role": "particle"},
+        {"t": "花", "word_id": "W00024", "role": "content"},
+        {"t": "、", "role": "punct"},
+        {"t": "静か", "word_id": "W00011", "role": "content"},
+        {"t": "な", "grammar_id": "G016_na_adjective", "role": "particle"},
+        {"t": "窓", "word_id": "W00004", "role": "content"},
+        {"t": "です", "grammar_id": "G003_desu", "role": "aux"},
+        {"t": "。", "role": "punct"},
+    ]
+    issues = semantic_sanity_lint(_story([s0, closer]))
+    assert any("noun-pile" in i.message and i.severity == "error" for i in issues), (
+        f"expected closer noun-pile error; got: {[i.message for i in issues]}"
+    )
+
+
+def test_closer_noun_pile_does_NOT_fire_on_verb_closer():
+    """猫は窓から私を見ます。 — closer with a real verb. No fire."""
+    closer = [
+        {"t": "猫", "word_id": "W00028", "role": "content"},
+        {"t": "は", "grammar_id": "G001_wa_topic", "role": "particle"},
+        {"t": "窓", "word_id": "W00004", "role": "content"},
+        {"t": "から", "grammar_id": "G006_kara_from", "role": "particle"},
+        {"t": "私", "word_id": "W00003", "role": "content"},
+        {"t": "を", "grammar_id": "G005_wo_object", "role": "particle"},
+        {"t": "見ます", "word_id": "W00006", "role": "content",
+         "inflection": {"form": "polite_nonpast"}},
+        {"t": "。", "role": "punct"},
+    ]
+    issues = semantic_sanity_lint(_story([closer]))
+    assert not any("noun-pile" in i.message for i in issues)
+
+
+def test_closer_noun_pile_does_NOT_fire_on_single_noun_predicate():
+    """朝です。 — single noun + copula. Not a list, no fire."""
+    closer = [
+        {"t": "朝", "word_id": "W00015", "role": "content"},
+        {"t": "です", "grammar_id": "G003_desu", "role": "aux"},
+        {"t": "。", "role": "punct"},
+    ]
+    issues = semantic_sanity_lint(_story([closer]))
+    assert not any("noun-pile" in i.message for i in issues)
+
+
+def test_closer_noun_pile_does_NOT_fire_when_mo_present():
+    """猫も犬も友達です。 — も coordination is deliberate parallelism, escape hatch."""
+    closer = [
+        {"t": "猫", "word_id": "W00028", "role": "content"},
+        {"t": "も", "grammar_id": "G009_mo_also", "role": "particle"},
+        {"t": "犬", "word_id": "W00026", "role": "content"},
+        {"t": "も", "grammar_id": "G009_mo_also", "role": "particle"},
+        {"t": "友達", "word_id": "W00022", "role": "content"},
+        {"t": "です", "grammar_id": "G003_desu", "role": "aux"},
+        {"t": "。", "role": "punct"},
+    ]
+    issues = semantic_sanity_lint(_story([closer]))
+    assert not any("noun-pile" in i.message for i in issues)
+
+
+def test_closer_noun_pile_only_fires_on_last_sentence():
+    """A noun-pile in s0 (mid-story) must NOT fire — only closers do."""
+    pile = [
+        {"t": "雨", "word_id": "W00002", "role": "content"},
+        {"t": "や", "grammar_id": "G011_ya_partial", "role": "particle"},
+        {"t": "風", "word_id": "W00027", "role": "content"},
+        {"t": "です", "grammar_id": "G003_desu", "role": "aux"},
+        {"t": "。", "role": "punct"},
+    ]
+    real_closer = [
+        {"t": "私", "word_id": "W00003", "role": "content"},
+        {"t": "は", "grammar_id": "G001_wa_topic", "role": "particle"},
+        {"t": "見ます", "word_id": "W00006", "role": "content",
+         "inflection": {"form": "polite_nonpast"}},
+        {"t": "。", "role": "punct"},
+    ]
+    issues = semantic_sanity_lint(_story([pile, real_closer]))
+    assert not any("noun-pile" in i.message for i in issues)
+
+
+# ── Rule 11.8: tautological possessive equivalence (NEW 2026-04-28) ──────────
+
+def test_tautological_equivalence_fires_on_cat_color_rain_color():
+    """Canonical defect: story 6 s6 '猫の色は、雨の色です。'"""
+    issues = semantic_sanity_lint(_wrap([
+        {"t": "猫", "word_id": "W00028", "role": "content"},
+        {"t": "の", "grammar_id": "G015_no_possessive", "role": "particle"},
+        {"t": "色", "word_id": "W00156", "role": "content"},
+        {"t": "は", "grammar_id": "G001_wa_topic", "role": "particle"},
+        {"t": "、", "role": "punct"},
+        {"t": "雨", "word_id": "W00002", "role": "content"},
+        {"t": "の", "grammar_id": "G015_no_possessive", "role": "particle"},
+        {"t": "色", "word_id": "W00156", "role": "content"},
+        {"t": "です", "grammar_id": "G003_desu", "role": "aux"},
+        {"t": "。", "role": "punct"},
+    ]))
+    assert any("Tautological" in i.message and "色" in i.message for i in issues), (
+        f"expected tautological-possessive error; got: {[i.message for i in issues]}"
+    )
+
+
+def test_tautological_equivalence_does_NOT_fire_on_simple_attribute():
+    """猫の色は赤いです — not a possessive equivalence; no fire."""
+    issues = semantic_sanity_lint(_wrap([
+        {"t": "猫", "word_id": "W00028", "role": "content"},
+        {"t": "の", "grammar_id": "G015_no_possessive", "role": "particle"},
+        {"t": "色", "word_id": "W00156", "role": "content"},
+        {"t": "は", "grammar_id": "G001_wa_topic", "role": "particle"},
+        {"t": "赤い", "word_id": "W00142", "role": "content"},
+        {"t": "です", "grammar_id": "G003_desu", "role": "aux"},
+        {"t": "。", "role": "punct"},
+    ]))
+    assert not any("Tautological" in i.message for i in issues)
+
+
+def test_tautological_equivalence_does_NOT_fire_on_name_identity():
+    """猫の名前は父の名前です — meaningful identity claim, exempt by rule."""
+    issues = semantic_sanity_lint(_wrap([
+        {"t": "猫", "word_id": "W00028", "role": "content"},
+        {"t": "の", "grammar_id": "G015_no_possessive", "role": "particle"},
+        {"t": "名前", "word_id": "W99001", "role": "content"},  # any wid
+        {"t": "は", "grammar_id": "G001_wa_topic", "role": "particle"},
+        {"t": "父", "word_id": "W99002", "role": "content"},
+        {"t": "の", "grammar_id": "G015_no_possessive", "role": "particle"},
+        {"t": "名前", "word_id": "W99001", "role": "content"},
+        {"t": "です", "grammar_id": "G003_desu", "role": "aux"},
+        {"t": "。", "role": "punct"},
+    ]))
+    assert not any("Tautological" in i.message for i in issues)
+
+
+# ── Rule 11.9: bare-known-fact extended (NEW 2026-04-28) ─────────────────────
+
+def test_bare_known_fact_extended_fires_on_summer_is_hot():
+    """Canonical defect: 「夏は暑い」と思います — universal pairing."""
+    issues = semantic_sanity_lint(_wrap([
+        {"t": "夏", "word_id": "W99003", "role": "content"},
+        {"t": "は", "grammar_id": "G001_wa_topic", "role": "particle"},
+        {"t": "暑い", "word_id": "W99004", "role": "content"},
+        {"t": "と", "grammar_id": "G014_to_omoimasu", "role": "particle"},
+        {"t": "思います", "word_id": "W99005", "role": "content",
+         "inflection": {"form": "polite_nonpast"}},
+        {"t": "。", "role": "punct"},
+    ]))
+    assert any("universal-pairing" in i.message for i in issues), (
+        f"expected universal-pairing error; got: {[i.message for i in issues]}"
+    )
+
+
+def test_bare_known_fact_extended_does_NOT_fire_on_uncertain_inference():
+    """猫は元気だと思います — genuinely inferred state of another being."""
+    issues = semantic_sanity_lint(_wrap([
+        {"t": "猫", "word_id": "W00028", "role": "content"},
+        {"t": "は", "grammar_id": "G001_wa_topic", "role": "particle"},
+        {"t": "元気", "word_id": "W99006", "role": "content"},
+        {"t": "だ", "grammar_id": "G003_desu", "role": "aux"},
+        {"t": "と", "grammar_id": "G014_to_omoimasu", "role": "particle"},
+        {"t": "思います", "word_id": "W99005", "role": "content",
+         "inflection": {"form": "polite_nonpast"}},
+        {"t": "。", "role": "punct"},
+    ]))
+    assert not any("universal-pairing" in i.message for i in issues)
+
+
+# ── Rule 11.10: misapplied-quiet adverbial (NEW 2026-04-28) ──────────────────
+
+def test_inanimate_quiet_adverbial_fires_on_book_quietly():
+    """本は静かに〜 — book performing action 'quietly'. Inanimate adverbial."""
+    issues = semantic_sanity_lint(_wrap([
+        {"t": "本", "word_id": "W00033", "role": "content"},
+        {"t": "は", "grammar_id": "G001_wa_topic", "role": "particle"},
+        {"t": "静かに", "word_id": "W99007", "role": "content"},
+        {"t": "あります", "word_id": "W99008", "role": "content",
+         "inflection": {"form": "polite_nonpast"}},
+        {"t": "。", "role": "punct"},
+    ]))
+    assert any("acting 静かに" in i.message and "本" in i.message for i in issues), (
+        f"expected inanimate adverbial error; got: {[i.message for i in issues]}"
+    )
+
+
+def test_inanimate_quiet_adverbial_does_NOT_fire_on_cat_quietly():
+    """猫は静かに見ます — cat IS animate, excluded from rule."""
+    issues = semantic_sanity_lint(_wrap([
+        {"t": "猫", "word_id": "W00028", "role": "content"},
+        {"t": "は", "grammar_id": "G001_wa_topic", "role": "particle"},
+        {"t": "静かに", "word_id": "W99007", "role": "content"},
+        {"t": "見ます", "word_id": "W00006", "role": "content",
+         "inflection": {"form": "polite_nonpast"}},
+        {"t": "。", "role": "punct"},
+    ]))
+    assert not any("acting 静かに" in i.message for i in issues)
+
+
+def test_inanimate_quiet_adverbial_does_NOT_double_fire_with_11_1():
+    """本は静かです — already caught by 11.1; 11.10 must not also fire."""
+    issues = semantic_sanity_lint(_wrap([
+        {"t": "本", "word_id": "W00033", "role": "content"},
+        {"t": "は", "grammar_id": "G001_wa_topic", "role": "particle"},
+        {"t": "静か", "word_id": "W00011", "role": "content"},
+        {"t": "です", "grammar_id": "G003_desu", "role": "aux"},
+        {"t": "。", "role": "punct"},
+    ]))
+    # 11.1 fires; 11.10 must not also fire on the same sentence.
+    quiet_adv = [i for i in issues if "acting 静かに" in i.message]
+    assert not quiet_adv, f"11.10 over-fired alongside 11.1: {quiet_adv}"

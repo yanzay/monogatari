@@ -1,37 +1,38 @@
 {
   "story_id": 1,
   "title": {
-    "jp": "雨",
-    "en": "Rain"
+    "jp": "鍵",
+    "en": "The Key"
   },
+  "intent": "Two friends meet on a road in the morning. The narrator hands a small key to their friend; the friend looks at it; the friend holds it in their large hand. A complete arc — encounter, exchange, acknowledgment — built from concrete actions, not pathetic fallacy. Dialogue is deliberately deferred to story 2+ when the と-quotative grammar point can be properly introduced (it is JLPT-N4, above story 1's tier).",
+  "scene_class": "road_morning",
+  "anchor_object": "鍵",
+  "characters": ["narrator", "tomodachi"],
   "sentences": [
     {
-      "jp": "今朝は雨です。",
-      "en": "This morning, it is raining."
+      "jp": "朝、私は道で友達を見ます。",
+      "en": "Morning. I see my friend on the road.",
+      "role": "setting"
     },
     {
-      "jp": "私は窓から外を見ます。",
-      "en": "I look outside through the window."
+      "jp": "私は手に小さい鍵を持ちます。",
+      "en": "I hold a small key in my hand.",
+      "role": "action"
     },
     {
-      "jp": "木が濡れています。",
-      "en": "The tree is wet."
+      "jp": "私は鍵を友達に渡します。",
+      "en": "I hand the key to my friend.",
+      "role": "action"
     },
     {
-      "jp": "私はお茶を飲みます。",
-      "en": "I drink the tea."
+      "jp": "友達は鍵を見ます。",
+      "en": "My friend looks at the key.",
+      "role": "inflection"
     },
     {
-      "jp": "雨は静かです。",
-      "en": "The rain is quiet."
-    },
-    {
-      "jp": "お茶は温かいです。",
-      "en": "The tea is warm."
-    },
-    {
-      "jp": "今朝はいい気分です。",
-      "en": "This morning feels good."
+      "jp": "友達は鍵を大きい手に持ちます。",
+      "en": "My friend holds the key in their large hand.",
+      "role": "closer"
     }
   ]
 }

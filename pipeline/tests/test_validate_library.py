@@ -4,7 +4,7 @@ This is the build-time twin of `python pipeline/validate.py
 stories/story_N.json` invoked manually for every N. By living inside
 the pytest suite it becomes the authoritative gate: a regression in any
 of the 14 checks (1, 2, 3, 3.5, 3.6, 3.7, 3.8, 4, 5, 6, 7, 9, 10, 11) on
-any of the 30 stories now fails the suite.
+any story in `stories/` now fails the suite.
 
 Test layout:
     * One parametrised test per story_*.json on disk.

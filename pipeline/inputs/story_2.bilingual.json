@@ -1,33 +1,38 @@
 {
   "story_id": 2,
   "title": {
-    "jp": "夕方の公園",
-    "en": "The Evening Park"
+    "jp": "花",
+    "en": "The Flower"
   },
+  "intent": "The narrator and a friend walk through a park. The friend notices a small flower, picks it up by hand, and gives it to the narrator, who holds it. A complete arc — walk, discovery, gathering, exchange, possession — built from concrete actions. Reinforces で (G017_de_means) in its instrument sense via 手で (with the hand) in sentence 3, which is more idiomatic than location-of-action で here and also echoes the anchor 手 from story 1. Mints 取る so the friend's discovery is an act, not passive.",
+  "scene_class": "park_walk",
+  "anchor_object": "花",
+  "characters": ["narrator", "tomodachi"],
   "sentences": [
     {
-      "jp": "夕方、私と友達は公園を歩きます。",
-      "en": "In the evening, my friend and I walk through the park."
+      "jp": "友達と公園を歩きます。",
+      "en": "I walk through the park with my friend.",
+      "role": "setting"
     },
     {
-      "jp": "雨の木は濡れています。",
-      "en": "The rain-soaked trees are wet."
+      "jp": "小さい花があります。",
+      "en": "There is a small flower.",
+      "role": "action"
     },
     {
-      "jp": "夕方の公園は静かです。",
-      "en": "The evening park is quiet."
+      "jp": "友達は手で花を取ります。",
+      "en": "My friend picks the flower with their hand.",
+      "role": "inflection"
     },
     {
-      "jp": "私は温かいお茶を飲みます。",
-      "en": "I drink warm tea."
+      "jp": "友達は花を私に渡します。",
+      "en": "My friend hands the flower to me.",
+      "role": "action"
     },
     {
-      "jp": "友達もお茶を飲みます。",
-      "en": "My friend drinks tea, too."
-    },
-    {
-      "jp": "私もいい気分です。友達もいい気分です。",
-      "en": "I feel good. My friend feels good, too."
+      "jp": "私は花を手に持ちます。",
+      "en": "I hold the flower in my hand.",
+      "role": "closer"
     }
   ]
 }

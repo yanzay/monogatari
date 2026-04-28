@@ -522,6 +522,266 @@ def semantic_sanity_lint(story: dict, vocab: dict | None = None) -> list[Issue]:
                 location=f"sentence {idx}",
             ))
 
+    # ─ Rule 11.7: closer noun-pile (NEW 2026-04-28) ────────────────────────
+    # Pattern: the LAST sentence of a story is just a list of nouns +
+    # です/だ with no verb except the final copula. Form:
+    #   N (や | と | 、) N (Adj? N)* です
+    # The audit found this in ≥15 stories — it's the LLM author's default
+    # closer when nothing concrete happened in the story. Examples:
+    #   #6 s7  「雨の朝、猫や花、静かな窓です。」
+    #   #20 s8 「外は雪、痛い手紙、温かい朝です。」
+    #   #27 s8 「暑い夏、美しい庭、嬉しい一人の朝です。」
+    #
+    # CONSERVATIVE: rule fires only on the highest-idx (closer) sentence,
+    # only when there's NO non-copula verb anywhere in the sentence, and
+    # only when there are ≥2 content nouns AND ≥1 list particle (や/と/、).
+    #
+    # Escape hatches:
+    #   - sentence carries G009_mo_also (も) → likely deliberate parallelism
+    #   - sentence carries G014_to_omoimasu → it's a quoted/inferential closer
+    #     ("I think it's a beautiful evening") which is a different shape
+    if sentence_views:
+        closer = max(sentence_views, key=lambda v: v["idx"] if v["idx"] is not None else -1)
+        toks = closer["tokens"]
+        # Strip trailing punct for the verb-presence check.
+        meaningful = [t for t in toks if t.get("role") != "punct"]
+        if meaningful:
+            # Has any verb other than the final copula?
+            non_copula_verb = False
+            for t in meaningful[:-1]:
+                inf = t.get("inflection") or {}
+                form = inf.get("form", "")
+                if form in ("polite_nonpast", "polite_past", "plain_nonpast",
+                            "plain_past", "te", "nai", "masu", "tai",
+                            "potential", "passive", "causative"):
+                    non_copula_verb = True
+                    break
+            # Final token must be です/だ (the copula closer shape).
+            ends_copula = meaningful[-1].get("t") in ("です", "だ")
+            content_nouns = [t for t in toks if t.get("role") == "content" and t.get("word_id")]
+            list_particles = [t for t in toks
+                              if t.get("role") == "particle" and t.get("t") in ("や", "と", "、")]
+            # Also count 、 as content separator even if tagged as punct
+            commas_in_pile = sum(1 for t in toks if t.get("t") == "、")
+            list_signal = len(list_particles) + commas_in_pile
+            mo_escape = GRAMMAR_MO in closer["gids"]
+            omoimasu_escape = GRAMMAR_TO_OMOIMASU in closer["gids"]
+            if (
+                ends_copula
+                and not non_copula_verb
+                and len(content_nouns) >= 2
+                and list_signal >= 1
+                and not mo_escape
+                and not omoimasu_escape
+            ):
+                surface = "".join(t.get("t", "") for t in toks)
+                issues.append(Issue(
+                    severity="error",
+                    message=(
+                        f"Closer is a noun-pile: a list of nouns + です with no verb. "
+                        f"This is the LLM-author's default closer when nothing "
+                        f"concrete happened. End the story with an action, a "
+                        f"dialogue beat, or a single concrete observation that "
+                        f"resolves the arc — not a decorative inventory of the "
+                        f"scene. (Sentence: 「{surface}」)"
+                    ),
+                    location=f"sentence {closer['idx']}",
+                ))
+
+    # ─ Rule 11.8: tautological possessive equivalence (NEW 2026-04-28) ──────
+    # Pattern: `<N_A> の <N_Y> は <N_B> の <N_Y> です` — same noun on both
+    # sides of は + copula, only the possessor changes. Reads "literary,"
+    # asserts nothing.
+    # Examples from the audit:
+    #   #6 s6  「猫の色は、雨の色です。」
+    #   #11 s5 「友達の手紙の色は、月の色です。」
+    #   #53 s8 「この時計の時間は古いです。」 — borderline; not caught by this rule
+    #
+    # Escape hatches:
+    #   - Y in {名前, 仕事, 家} (W00xxx for these, when present) — meaningful
+    #     identity claim (`私の名前は父の名前です` = "I'm named after my father").
+    #   - Right-hand side carries an adjective modifier — adds real content.
+    EQUIVALENCE_EXEMPT_Y_LEMMAS: frozenset[str] = frozenset({
+        "名前",   # name — identity claim is meaningful
+        "仕事",   # job
+        "家",     # home (literal residence comparison)
+    })
+    for view in sentence_views:
+        toks = view["tokens"]
+        # Walk for the pattern: content_A, の, content_Y, は, content_B, の, content_Y, です/だ
+        # (allow a comma after は or before content_B)
+        # We need to find indices a, no1, y1, wa, b, no2, y2, copula
+        n = len(toks)
+        for a in range(n - 7):
+            t_a = toks[a]
+            if t_a.get("role") != "content" or not t_a.get("word_id"):
+                continue
+            # Skip ahead allowing only the exact shape below
+            i = a + 1
+            t_no1 = toks[i] if i < n else None
+            if not (t_no1 and t_no1.get("t") == "の" and t_no1.get("role") == "particle"):
+                continue
+            i += 1
+            t_y1 = toks[i] if i < n else None
+            if not (t_y1 and t_y1.get("role") == "content" and t_y1.get("word_id")):
+                continue
+            i += 1
+            t_wa = toks[i] if i < n else None
+            if not (t_wa and t_wa.get("t") == "は" and t_wa.get("role") == "particle"):
+                continue
+            i += 1
+            # Optional comma
+            if i < n and toks[i].get("t") == "、":
+                i += 1
+            t_b = toks[i] if i < n else None
+            if not (t_b and t_b.get("role") == "content" and t_b.get("word_id")):
+                continue
+            i += 1
+            t_no2 = toks[i] if i < n else None
+            if not (t_no2 and t_no2.get("t") == "の" and t_no2.get("role") == "particle"):
+                continue
+            i += 1
+            t_y2 = toks[i] if i < n else None
+            if not (t_y2 and t_y2.get("role") == "content" and t_y2.get("word_id")):
+                continue
+            i += 1
+            t_cop = toks[i] if i < n else None
+            if not (t_cop and t_cop.get("t") in ("です", "だ")):
+                continue
+            # Match conditions:
+            #   1. Y on both sides is the same word_id
+            #   2. A and B are different word_ids (else not interesting — same as `XのYはXのYです`)
+            if t_y1.get("word_id") != t_y2.get("word_id"):
+                continue
+            if t_a.get("word_id") == t_b.get("word_id"):
+                continue
+            # Escape: Y is name/job/home (meaningful identity)
+            y_lemma = (t_y1.get("t") or "").strip()
+            if y_lemma in EQUIVALENCE_EXEMPT_Y_LEMMAS:
+                continue
+            surface = "".join(t.get("t", "") for t in toks)
+            issues.append(Issue(
+                severity="error",
+                message=(
+                    f"Tautological possessive equivalence: "
+                    f"「{t_a.get('t')}の{t_y1.get('t')}は{t_b.get('t')}の{t_y2.get('t')}です」 "
+                    f"asserts that two possessors share the same property, but "
+                    f"the property itself ({t_y1.get('t')}) is named on both "
+                    f"sides — the sentence reads profound and means nothing. "
+                    f"Replace with a concrete adjective ('the cat is white'), "
+                    f"a comparison with new content ('the cat's color is brighter "
+                    f"than the rain'), or a different observation. "
+                    f"(Sentence: 「{surface}」)"
+                ),
+                location=f"sentence {view['idx']}",
+            ))
+            break  # one match per sentence is enough
+
+    # ─ Rule 11.9: bare-known-fact extended (NEW 2026-04-28; loosens 11.3) ───
+    # The original rule 11.3 fires only when 〜と思います embeds a CLAUSE OF
+    # ONE CONTENT TOKEN that is a self-known fact. The audit shows defects
+    # where the embedded clause is `<known-fact-noun> + <evaluative-adj/state> + だ`
+    # ALSO ships in real corpora. Loosen as follows:
+    #   - Allow embedded clause of up to 2 content tokens
+    #   - BUT: at least one must be a self-known fact noun
+    #   - AND: the other content token (if any) must be an adjective or
+    #     state expression that describes the known noun in a way the
+    #     narrator should already know (e.g. 暑い for 夏 in summer)
+    # CONSERVATIVE: rule fires only when ALL content tokens are either
+    # known-fact nouns or simple non-evaluative descriptors (universal
+    # statements like 「夏は暑い」). The benign case (`風の朝だと思います`,
+    # which has a NEW descriptive modifier) still has 2+ content tokens
+    # and the modifier is NOT a universal-fact pattern, so it doesn't fire.
+    #
+    # We capture this loosely with a small set of "universal-pairing"
+    # tokens that, combined with a known-fact noun, signal a tautology.
+    UNIVERSAL_PAIRINGS: frozenset[tuple[str, str]] = frozenset({
+        # (known_fact_lemma, descriptor_lemma) — universal facts that the
+        # narrator never has to *infer* via 思います.
+        ("夏", "暑い"),
+        ("冬", "寒い"),
+        ("夜", "暗い"),
+        ("朝", "明るい"),
+        ("雨", "冷たい"),
+    })
+    for view in sentence_views:
+        if GRAMMAR_TO_OMOIMASU not in view["gids"]:
+            continue
+        toks = view["tokens"]
+        cut = next(
+            (
+                i for i, t in enumerate(toks)
+                if t.get("grammar_id") == GRAMMAR_TO_OMOIMASU
+            ),
+            None,
+        )
+        if cut is None:
+            continue
+        embedded = toks[:cut]
+        embedded_content = [t for t in embedded
+                            if t.get("role") == "content" and t.get("word_id")]
+        # Already handled by 11.3: 1-content case
+        if len(embedded_content) != 2:
+            continue
+        # Need both lemmas; check if any (a,b) or (b,a) is a universal pairing
+        lemmas = tuple(t.get("t", "") for t in embedded_content)
+        if (
+            (lemmas[0], lemmas[1]) in UNIVERSAL_PAIRINGS
+            or (lemmas[1], lemmas[0]) in UNIVERSAL_PAIRINGS
+        ):
+            surface = "".join(tt.get("t", "") for tt in toks)
+            issues.append(Issue(
+                severity="error",
+                message=(
+                    f"〜と思います embeds a universal-pairing assertion "
+                    f"({lemmas[0]} + {lemmas[1]}). Things like '夏は暑い' or "
+                    f"'夜は暗い' are universal facts; a narrator standing in "
+                    f"summer doesn't *infer* that summer is hot. Use a plain "
+                    f"assertion, or hedge something genuinely uncertain "
+                    f"(another person's feelings, a future event). "
+                    f"(Sentence: 「{surface}」)"
+                ),
+                location=f"sentence {view['idx']}",
+            ))
+
+    # ─ Rule 11.10: misapplied-quiet adverbial (NEW 2026-04-28; loosens 11.1) ─
+    # The original 11.1 fires on  `INANIMATE は 静か です`. The audit found
+    # the same defect dressed in adverbial form: `INANIMATE は 静かに <verb>`
+    # where the inanimate noun is the subject of the adverb.
+    #   #6 s3 「猫は静かに雨の色を見ます。」 — but cat is animate (excluded)
+    #   The defective pattern is 「<inanimate> は 静かに ...」
+    # CONSERVATIVE: same noun list as 11.1 (does NOT pull in 雨/月/星/空/風 —
+    # those remain valid pathetic-fallacy in JP). Only fires on the same
+    # objects 11.1 already considers nonsense.
+    for view in sentence_views:
+        toks = view["tokens"]
+        for i, tok in enumerate(toks):
+            wid = tok.get("word_id")
+            if wid not in INANIMATE_QUIET_NOUN_IDS:
+                continue
+            # Need: <noun> は <0..3 tokens> 静かに  (must be 静か + に, not 静か + です)
+            tail = toks[i + 1 : i + 7]
+            joined = "".join(t.get("t", "") for t in tail)
+            if "は" in joined and "静かに" in joined:
+                # Make sure this isn't already caught by 11.1 (静か + です/だ)
+                # i.e. 静かに + verb, not 静か + です
+                if "静かです" in joined or "静かだ" in joined:
+                    continue
+                surface = "".join(t.get("t", "") for t in toks)
+                issues.append(Issue(
+                    severity="error",
+                    message=(
+                        f"Inanimate '{tok.get('t')}' described as acting 静かに "
+                        f"(quietly). Books, letters, eggs, chairs etc. cannot "
+                        f"perform actions quietly because they cannot perform "
+                        f"actions at all. Either change the subject to an "
+                        f"animate one, or drop the 静かに modifier. "
+                        f"(Sentence: 「{surface}」)"
+                    ),
+                    location=f"sentence {view['idx']}",
+                ))
+                break  # one inanimate-quiet-adverb error per sentence
+
     return issues
 
 
