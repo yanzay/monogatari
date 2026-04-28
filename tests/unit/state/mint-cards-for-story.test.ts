@@ -187,12 +187,13 @@ describe('mintCardsForStory', () => {
       expect(dueInStory).toBe(story.new_words.length);
     });
 
-    it('buildQueue surfaces every minted card as a New entry (subject to caps)', () => {
+    it('buildQueue surfaces every minted card as a New entry', () => {
+      // Since 2026-04-29 there is no `maxNew` cap; the user has already
+      // opted into these words by reading the story they came from.
       const story = tenWordStory();
       const srs = mintCardsForStory(story, {}, NOW);
       const q = buildQueue(srs, {
         now: NOW,
-        maxNew: 100,
         maxReviews: 100,
         newPerReview: 0,
       });

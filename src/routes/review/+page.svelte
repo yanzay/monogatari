@@ -37,23 +37,22 @@
 
   function rebuildQueue() {
     learner.rolloverDailyIfNeeded();
-    const remainingNew = Math.max(
-      0,
-      (learner.state.prefs.daily_max_new ?? 20) - (learner.state.daily.new_introduced ?? 0),
-    );
-    const remainingReviews = Math.max(
-      0,
-      (learner.state.prefs.daily_max_reviews ?? 200) - (learner.state.daily.reviewed ?? 0),
-    );
+    // Only the optional review cap (null = no cap) is honored. The
+    // previous `maxNew` cap was removed: in a graded reader the user
+    // has already opted into every word in the SRS map by reading the
+    // story it came from, so throttling those cards is the app
+    // overruling its own user.
+    const reviewCap = learner.state.prefs.daily_max_reviews;
+    const remainingReviews =
+      reviewCap === null || reviewCap === undefined
+        ? Infinity
+        : Math.max(0, reviewCap - (learner.state.daily.reviewed ?? 0));
     queue = buildQueue(learner.state.srs ?? {}, {
-      maxNew: remainingNew,
       maxReviews: remainingReviews,
       newPerReview: learner.state.prefs.new_per_review ?? 4,
     });
-    // Compute the no-caps "true due" count using the same predicate as the
-    // menu badge so the two views can never disagree. If the page would say
-    // "All caught up" while the badge says "8 due", we have a bug worth
-    // surfacing — see the empty-state branches that consume this.
+    // Use the same predicate as the menu badge so the two views can
+    // never disagree about "is anything due?".
     trueDueCount = countDueCards(learner.state.srs, new Date());
     revealed = false;
     lastUndoable = (learner.state.history?.length ?? 0) > 0;
@@ -133,11 +132,9 @@
 
   function grade(g: Grade) {
     if (!card) return;
-    const wasNew = card.status === 'new';
     const result = applyGrade(card, g, new Date(), learner.state.prefs.target_retention);
     learner.state.srs[card.word_id] = result.card;
     learner.pushHistory(result.log);
-    if (wasNew) learner.state.daily.new_introduced += 1;
     learner.save();
     revealed = false;
     queue = queue.slice(1);
@@ -192,7 +189,7 @@
         <span class="review-stat" title="New cards this session">+ {queueStats.news}</span>
         <span class="review-stat-spacer"></span>
         <span class="review-stat-muted">
-          today: {learner.state.daily.reviewed}/{learner.state.prefs.daily_max_reviews}
+          today: {learner.state.daily.reviewed}{#if learner.state.prefs.daily_max_reviews != null}/{learner.state.prefs.daily_max_reviews}{/if}
         </span>
         {#if lastUndoable}
           <button class="review-undo" onclick={undo} title="Undo last review (U)">↶ Undo</button>
@@ -207,44 +204,25 @@
           {:else}
             <p class="empty-state">Nothing due. Read the next story or come back later.</p>
           {/if}
+        {:else if learner.state.prefs.daily_max_reviews != null}
+          <!-- The user opted into a self-imposed review cap and has hit it.
+               The badge correctly shows the true due count; we explain
+               why this session is empty and how to lift the cap. -->
+          <p class="empty-state">
+            Daily review limit reached
+            ({learner.state.daily.reviewed}/{learner.state.prefs.daily_max_reviews}).
+            {trueDueCount} card{trueDueCount === 1 ? '' : 's'} still due — come back tomorrow,
+            or raise <code>daily_max_reviews</code> in Stats &amp; settings (or set it
+            blank for no cap).
+          </p>
         {:else}
-          <!-- There ARE due cards (the menu badge is right) but the daily
-               cap has clipped them out of this session. Tell the user the
-               truth so they don't see a "0" page that contradicts an "8"
-               badge in the same nav. We figure out which cap is binding by
-               looking at remaining headroom. -->
-          {@const remNew = Math.max(0, (learner.state.prefs.daily_max_new ?? 20) - (learner.state.daily.new_introduced ?? 0))}
-          {@const remRev = Math.max(0, (learner.state.prefs.daily_max_reviews ?? 200) - (learner.state.daily.reviewed ?? 0))}
-          {#if remRev === 0 && remNew === 0}
-            <p class="empty-state">
-              Daily limits reached for both new cards and reviews
-              ({learner.state.daily.new_introduced}/{learner.state.prefs.daily_max_new} new,
-              {learner.state.daily.reviewed}/{learner.state.prefs.daily_max_reviews} reviews).
-              {trueDueCount} card{trueDueCount === 1 ? '' : 's'} still due — come back tomorrow,
-              or raise the limits in your prefs.
-            </p>
-          {:else if remRev === 0}
-            <p class="empty-state">
-              Daily review limit reached
-              ({learner.state.daily.reviewed}/{learner.state.prefs.daily_max_reviews}).
-              {trueDueCount} card{trueDueCount === 1 ? '' : 's'} still due — come back tomorrow,
-              or raise <code>daily_max_reviews</code> in your prefs.
-            </p>
-          {:else if remNew === 0}
-            <p class="empty-state">
-              Daily new-card limit reached
-              ({learner.state.daily.new_introduced}/{learner.state.prefs.daily_max_new}).
-              {trueDueCount} new card{trueDueCount === 1 ? '' : 's'} waiting — come back tomorrow,
-              or raise <code>daily_max_new</code> in your prefs.
-            </p>
-          {:else}
-            <!-- Headroom on both caps but queue is empty: this would be a real bug.
-                 Surface it loudly rather than silently lying to the user. -->
-            <p class="empty-state">
-              {trueDueCount} card{trueDueCount === 1 ? '' : 's'} due, but the session queue
-              came up empty. Try refreshing — if this persists, please report it.
-            </p>
-          {/if}
+          <!-- No cap set, yet there are due cards but the queue is empty.
+               This would be a genuine bug. Surface it loudly rather than
+               silently lying to the user with "All caught up". -->
+          <p class="empty-state">
+            {trueDueCount} card{trueDueCount === 1 ? '' : 's'} due, but the session queue
+            came up empty. Try refreshing — if this persists, please report it.
+          </p>
         {/if}
       {:else if !word}
         <p class="empty-state">Loading card…</p>

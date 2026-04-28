@@ -163,15 +163,32 @@ describe('buildQueue', () => {
     expect(buildQueue({}, { now: NOW })).toEqual([]);
   });
 
-  it('caps maxNew and maxReviews', () => {
+  it('caps maxReviews (the only remaining cap)', () => {
+    // The previous `maxNew` cap was removed 2026-04-29 — see QueueOptions
+    // docstring for the rationale (graded reader; user already opted into
+    // every word in the SRS map by reading the story).
     const srs: Record<string, Card> = {};
     for (let i = 0; i < 30; i++) {
       const c = fresh(`W${String(i).padStart(5, '0')}`);
       const grad = graduateToReview(c, NOW).card;
       srs[grad.word_id] = due(grad, bumpHours(NOW, -1));
     }
-    const q = buildQueue(srs, { now: NOW, maxNew: 5, maxReviews: 10, newPerReview: 0 });
-    expect(q.length).toBeLessThanOrEqual(15);
+    const q = buildQueue(srs, { now: NOW, maxReviews: 10, newPerReview: 0 });
+    expect(q.length).toBeLessThanOrEqual(10);
+  });
+
+  it('uncapped by default — every due card surfaces', () => {
+    // Default QueueOptions = no maxReviews cap. A user with a long backlog
+    // should never see "all caught up" lies because of an Anki-inherited
+    // session ceiling.
+    const srs: Record<string, Card> = {};
+    for (let i = 0; i < 50; i++) {
+      const c = fresh(`W${String(i).padStart(5, '0')}`);
+      const grad = graduateToReview(c, NOW).card;
+      srs[grad.word_id] = due(grad, bumpHours(NOW, -1));
+    }
+    const q = buildQueue(srs, { now: NOW });
+    expect(q.length).toBe(50);
   });
 
   it('filters out non-due cards', () => {

@@ -72,12 +72,12 @@ beforeEach(() => {
       audio_listen_first: false,
       theme: 'auto',
       target_retention: 0.9,
-      daily_max_new: 20,
-      daily_max_reviews: 200,
+      // daily_max_new removed 2026-04-29; daily_max_reviews defaults to null (no cap).
+      daily_max_reviews: null,
       new_per_review: 4,
     },
     history: [],
-    daily: { date: todayLocal(), reviewed: 0, new_introduced: 0 },
+    daily: { date: todayLocal(), reviewed: 0 },
   });
 });
 
@@ -99,22 +99,20 @@ describe('LearnerStore', () => {
 
   describe('rolloverDailyIfNeeded', () => {
     it('does nothing when date matches today', () => {
-      learner.state.daily = { date: todayLocal(), reviewed: 5, new_introduced: 2 };
+      learner.state.daily = { date: todayLocal(), reviewed: 5 };
       learner.rolloverDailyIfNeeded();
       expect(learner.state.daily.reviewed).toBe(5);
-      expect(learner.state.daily.new_introduced).toBe(2);
     });
 
-    it('resets reviewed/new_introduced when date is stale', () => {
-      learner.state.daily = { date: '2000-01-01', reviewed: 99, new_introduced: 99 };
+    it('resets reviewed when date is stale', () => {
+      learner.state.daily = { date: '2000-01-01', reviewed: 99 };
       learner.rolloverDailyIfNeeded();
       expect(learner.state.daily.reviewed).toBe(0);
-      expect(learner.state.daily.new_introduced).toBe(0);
       expect(learner.state.daily.date).toBe(todayLocal());
     });
 
     it('is idempotent — second call after rollover is a no-op', () => {
-      learner.state.daily = { date: '1999-12-31', reviewed: 5, new_introduced: 1 };
+      learner.state.daily = { date: '1999-12-31', reviewed: 5 };
       learner.rolloverDailyIfNeeded();
       const after = { ...learner.state.daily };
       learner.rolloverDailyIfNeeded();

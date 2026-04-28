@@ -235,39 +235,50 @@ describe('sanitizeImported', () => {
   describe('daily counters', () => {
     it("keeps daily counters when date matches today's local date", () => {
       const out = sanitizeImported({
-        daily: { date: todayLocal(), reviewed: 7, new_introduced: 3 },
+        daily: { date: todayLocal(), reviewed: 7 },
       });
       expect(out.daily.reviewed).toBe(7);
-      expect(out.daily.new_introduced).toBe(3);
       expect(out.daily.date).toBe(todayLocal());
     });
 
     it('resets daily counters when date is in the past', () => {
       const out = sanitizeImported({
-        daily: { date: '2000-01-01', reviewed: 99, new_introduced: 99 },
+        daily: { date: '2000-01-01', reviewed: 99 },
       });
       expect(out.daily.reviewed).toBe(0);
-      expect(out.daily.new_introduced).toBe(0);
       expect(out.daily.date).toBe(todayLocal());
     });
 
-    it('coerces non-numeric reviewed/new_introduced to 0', () => {
+    it('coerces non-numeric reviewed to 0', () => {
       const out = sanitizeImported({
         daily: {
           date: todayLocal(),
           reviewed: 'lots' as unknown as number,
-          new_introduced: null as unknown as number,
         },
       });
       expect(out.daily.reviewed).toBe(0);
-      expect(out.daily.new_introduced).toBe(0);
+    });
+
+    it('silently drops the legacy new_introduced field on import', () => {
+      // The pref it served (daily_max_new) was removed; the counter has
+      // no consumer and shouldn't survive a sanitize pass.
+      const out = sanitizeImported({
+        daily: {
+          date: todayLocal(),
+          reviewed: 5,
+          new_introduced: 3,
+        } as unknown as Record<string, unknown>,
+      });
+      expect(out.daily.reviewed).toBe(5);
+      expect(
+        (out.daily as unknown as Record<string, unknown>).new_introduced,
+      ).toBeUndefined();
     });
 
     it('uses defaults when daily field is missing', () => {
       const out = sanitizeImported({});
       expect(out.daily.date).toBe(todayLocal());
       expect(out.daily.reviewed).toBe(0);
-      expect(out.daily.new_introduced).toBe(0);
     });
   });
 
@@ -394,29 +405,36 @@ describe('sanitizeImported', () => {
     });
 
     describe('numeric quotas', () => {
-      it('floors fractional daily_max_new', () => {
-        const out = sanitizeImported({ prefs: { daily_max_new: 7.9 } });
-        expect(out.prefs.daily_max_new).toBe(7);
+      it('silently drops the legacy daily_max_new pref on import', () => {
+        // Removed 2026-04-29 — see Prefs.daily_max_reviews docstring.
+        const out = sanitizeImported({ prefs: { daily_max_new: 7 } });
+        expect(
+          (out.prefs as unknown as Record<string, unknown>).daily_max_new,
+        ).toBeUndefined();
       });
 
-      it('accepts zero for daily_max_new', () => {
-        const out = sanitizeImported({ prefs: { daily_max_new: 0 } });
-        expect(out.prefs.daily_max_new).toBe(0);
-      });
-
-      it('rejects negative daily_max_new (defaults to 20)', () => {
-        const out = sanitizeImported({ prefs: { daily_max_new: -5 } });
-        expect(out.prefs.daily_max_new).toBe(20);
-      });
-
-      it('floors and accepts daily_max_reviews', () => {
+      it('accepts a positive daily_max_reviews and floors it', () => {
         const out = sanitizeImported({ prefs: { daily_max_reviews: 150.5 } });
         expect(out.prefs.daily_max_reviews).toBe(150);
       });
 
-      it('rejects negative daily_max_reviews (defaults to 200)', () => {
+      it('coerces zero daily_max_reviews to null (no-cap)', () => {
+        // Zero would mean "I want zero reviews per day" — the user almost
+        // certainly didn't mean that, so collapse to the no-cap default.
+        const out = sanitizeImported({ prefs: { daily_max_reviews: 0 } });
+        expect(out.prefs.daily_max_reviews).toBeNull();
+      });
+
+      it('coerces negative daily_max_reviews to null (no-cap)', () => {
         const out = sanitizeImported({ prefs: { daily_max_reviews: -1 } });
-        expect(out.prefs.daily_max_reviews).toBe(200);
+        expect(out.prefs.daily_max_reviews).toBeNull();
+      });
+
+      it('coerces non-numeric daily_max_reviews to null (no-cap)', () => {
+        const out = sanitizeImported({
+          prefs: { daily_max_reviews: 'lots' as unknown as number },
+        });
+        expect(out.prefs.daily_max_reviews).toBeNull();
       });
 
       it('floors and accepts new_per_review', () => {
@@ -438,8 +456,8 @@ describe('sanitizeImported', () => {
         audio_listen_first: false,
         theme: 'auto',
         target_retention: DEFAULT_TARGET_RETENTION,
-        daily_max_new: 20,
-        daily_max_reviews: 200,
+        // daily_max_new removed 2026-04-29; default review cap is null (no cap).
+        daily_max_reviews: null,
         new_per_review: 4,
       });
     });
@@ -499,7 +517,7 @@ describe('sanitizeImported', () => {
         prefs: { theme: 'dark', target_retention: 0.92 },
         srs: { W00001: makeCard() },
         history: [makeHistoryEntry()],
-        daily: { date: todayLocal(), reviewed: 4, new_introduced: 2 },
+        daily: { date: todayLocal(), reviewed: 4 },
       });
       const second = sanitizeImported(seed);
       expect(second.current_story).toBe(seed.current_story);

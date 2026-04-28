@@ -46,16 +46,28 @@ export interface Prefs {
   audio_listen_first: boolean;
   theme?: 'auto' | 'light' | 'dark';
   target_retention: number;
-  daily_max_new: number;
-  daily_max_reviews: number;
+  /**
+   * Optional self-imposed soft cap on review cards per day. `null` means
+   * no cap (the default — see ADR in the commit history). Set a positive
+   * integer to opt into Anki-style throttling; the review page surfaces
+   * a "daily review limit reached" message when hit.
+   *
+   * Note: the previous `daily_max_new` pref was removed. In a graded
+   * reader, the user has already deliberately read every story whose
+   * words enter the SRS map, so throttling the *introduction* of those
+   * cards is the app overruling its own user. SRS here is the retention
+   * layer on top of an already-completed acquisition event.
+   */
+  daily_max_reviews: number | null;
   new_per_review: number;
 }
 
 export interface DailyCounters {
   /** Local-date string YYYY-MM-DD. Used to roll counters at midnight. */
   date: string;
+  /** Number of reviews graded today. Incremented in pushHistory(),
+   *  decremented in popHistory(), reset by rolloverDailyIfNeeded(). */
   reviewed: number;
-  new_introduced: number;
 }
 
 export interface LearnerState {
@@ -84,14 +96,14 @@ function defaultPrefs(): Prefs {
     audio_listen_first: false,
     theme: 'auto',
     target_retention: DEFAULT_TARGET_RETENTION,
-    daily_max_new: 20,
-    daily_max_reviews: 200,
+    // Default: no cap. See Prefs.daily_max_reviews docstring for rationale.
+    daily_max_reviews: null,
     new_per_review: 4,
   };
 }
 
 function defaultDaily(): DailyCounters {
-  return { date: todayLocal(), reviewed: 0, new_introduced: 0 };
+  return { date: todayLocal(), reviewed: 0 };
 }
 
 function defaultState(): LearnerState {
@@ -152,7 +164,8 @@ export function sanitizeImported(raw: unknown): LearnerState {
             out.daily = {
               date: d.date,
               reviewed: typeof d.reviewed === 'number' ? d.reviewed : 0,
-              new_introduced: typeof d.new_introduced === 'number' ? d.new_introduced : 0,
+              // Note: legacy `new_introduced` field is silently dropped on
+              // import. The pref it served (daily_max_new) was removed.
             };
           }
         }
@@ -188,14 +201,14 @@ export function sanitizeImported(raw: unknown): LearnerState {
             p.target_retention <= 0.99
               ? p.target_retention
               : DEFAULT_TARGET_RETENTION,
-          daily_max_new:
-            typeof p.daily_max_new === 'number' && p.daily_max_new >= 0
-              ? Math.floor(p.daily_max_new)
-              : 20,
+          // null = no cap. Accept positive ints; coerce 0/negative/NaN
+          // to null (the default) since the user almost certainly didn't
+          // mean "I want zero reviews per day". The legacy `daily_max_new`
+          // pref is silently dropped on import.
           daily_max_reviews:
-            typeof p.daily_max_reviews === 'number' && p.daily_max_reviews >= 0
+            typeof p.daily_max_reviews === 'number' && p.daily_max_reviews > 0
               ? Math.floor(p.daily_max_reviews)
-              : 200,
+              : null,
           new_per_review:
             typeof p.new_per_review === 'number' && p.new_per_review >= 0
               ? Math.floor(p.new_per_review)
@@ -289,7 +302,7 @@ class LearnerStore {
   rolloverDailyIfNeeded(): void {
     const today = todayLocal();
     if (this.state.daily.date !== today) {
-      this.state.daily = { date: today, reviewed: 0, new_introduced: 0 };
+      this.state.daily = { date: today, reviewed: 0 };
     }
   }
 

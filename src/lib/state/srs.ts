@@ -206,9 +206,18 @@ export function isDue(card: Pick<Card, 'due'>, now: Date = new Date()): boolean 
 }
 
 export interface QueueOptions {
-  /** Max NEW cards (status=new) introduced this session. Default 20. */
-  maxNew?: number;
-  /** Max REVIEW cards (status=young/mature/relearning/leech). Default 200. */
+  /**
+   * Max REVIEW cards (status=young/mature/relearning/leech) per session.
+   * Default Infinity (no cap). The previous default (200, Anki-inherited)
+   * was clipping due cards out of sessions when the user had a long
+   * backlog; the user almost always wants to see every due card. Pass
+   * a positive integer to opt into a session cap.
+   *
+   * The previous `maxNew` cap was removed for the same reason — see
+   * Prefs.daily_max_reviews docstring for the full rationale. New cards
+   * in this app are cards the user just deliberately read; throttling
+   * their introduction is the app overruling its own user.
+   */
   maxReviews?: number;
   /**
    * Interleave ratio: roughly one new card every N review cards. Default 4.
@@ -233,7 +242,7 @@ export function buildQueue(
   srs: Record<string, Card>,
   opts: QueueOptions = {},
 ): Card[] {
-  const { maxNew = 20, maxReviews = 200, newPerReview = 4, now = new Date() } = opts;
+  const { maxReviews = Infinity, newPerReview = 4, now = new Date() } = opts;
   const t = now.getTime();
 
   const learning: Card[] = [];
@@ -260,10 +269,11 @@ export function buildQueue(
 
   // Apply caps. Learning cards count against the review cap because they
   // are short-term cards that we MUST clear in this session — no point
-  // exempting them and then never letting the user finish.
+  // exempting them and then never letting the user finish. New cards are
+  // uncapped on purpose (see QueueOptions docstring).
   const learningSlice = learning.slice(0, maxReviews);
   const cappedReviews = reviews.slice(0, Math.max(0, maxReviews - learningSlice.length));
-  const cappedNews = news.slice(0, maxNew);
+  const cappedNews = news;
 
   // Interleave: learning at the very front (must clear short-term), then
   // weave news into the review stream at every Nth position.

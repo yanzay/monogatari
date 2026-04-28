@@ -17,12 +17,29 @@
       learner.save();
     }
   }
-  function bindNum(key: 'daily_max_new' | 'daily_max_reviews' | 'new_per_review', e: Event) {
+  function bindNum(key: 'new_per_review', e: Event) {
     const v = parseInt((e.target as HTMLInputElement).value, 10);
     if (Number.isFinite(v) && v >= 0) {
       learner.state.prefs[key] = v;
       learner.save();
     }
+  }
+  /**
+   * Bind the optional review cap. The pref is `number | null` where null
+   * means "no cap" (the default). The number input emits an empty string
+   * when cleared; we coerce that — and any zero/negative — back to null
+   * so the user has a clean way to opt out of throttling entirely.
+   */
+  function bindReviewCap(e: Event) {
+    const raw = (e.target as HTMLInputElement).value;
+    if (raw === '') {
+      learner.state.prefs.daily_max_reviews = null;
+    } else {
+      const v = parseInt(raw, 10);
+      learner.state.prefs.daily_max_reviews =
+        Number.isFinite(v) && v > 0 ? v : null;
+    }
+    learner.save();
   }
   function bindBool(
     key: 'audio_on_review_reveal' | 'audio_listen_first',
@@ -101,23 +118,22 @@
         <span class="settings-value">{Math.round((prefs.target_retention ?? 0.9) * 100)}%</span>
       </label>
       <label class="settings-row">
-        <span>Daily max new</span>
+        <span>
+          Daily max reviews
+          <small class="settings-hint">
+            Optional self-imposed cap on review cards per day. Leave blank
+            for no cap (the default). New cards from stories you've read
+            are never throttled — they enter the SRS map the moment you
+            press "Save for review", which is consent enough.
+          </small>
+        </span>
         <input
           type="number"
-          min="0"
-          max="500"
-          value={prefs.daily_max_new}
-          oninput={(e) => bindNum('daily_max_new', e)}
-        />
-      </label>
-      <label class="settings-row">
-        <span>Daily max reviews</span>
-        <input
-          type="number"
-          min="0"
+          min="1"
           max="2000"
-          value={prefs.daily_max_reviews}
-          oninput={(e) => bindNum('daily_max_reviews', e)}
+          placeholder="no cap"
+          value={prefs.daily_max_reviews ?? ''}
+          oninput={bindReviewCap}
         />
       </label>
       <label class="settings-row">
