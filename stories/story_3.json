@@ -1,45 +1,41 @@
 {
   "story_id": 3,
   "title": {
-    "jp": "朝ごはん",
-    "en": "Breakfast",
+    "jp": "小さい鍵",
+    "en": "The Small Key",
     "tokens": [
       {
-        "t": "朝ごはん",
+        "t": "小さい",
         "role": "content",
-        "word_id": "W00019",
-        "r": "あさごはん"
+        "word_id": "W00008",
+        "r": "ちいさい",
+        "grammar_id": "G022_i_adj"
+      },
+      {
+        "t": "鍵",
+        "role": "content",
+        "word_id": "W00006",
+        "r": "かぎ"
       }
     ]
   },
-  "new_words": [
-    "W00019",
-    "W00015",
-    "W00166",
-    "W00021",
-    "W00044",
-    "W00020"
-  ],
+  "new_words": [],
   "new_grammar": [
-    "G004_ni_location",
-    "G021_aru_iru",
-    "G016_na_adjective"
+    "G015_no_possessive"
   ],
   "all_words_used": [
-    "W00019",
+    "W00008",
+    "W00006",
+    "W00003",
+    "W00001",
+    "W00002",
+    "W00004",
     "W00015",
     "W00005",
-    "W00002",
-    "W00166",
-    "W00012",
-    "W00021",
-    "W00044",
     "W00011",
-    "W00009",
-    "W00003",
-    "W00020",
-    "W00013",
-    "W00014"
+    "W00012",
+    "W00010",
+    "W00016"
   ],
   "sentences": [
     {
@@ -48,19 +44,18 @@
         {
           "t": "朝",
           "role": "content",
-          "word_id": "W00015",
-          "r": "あさ",
-          "is_new": true
+          "word_id": "W00003",
+          "r": "あさ"
         },
         {
           "t": "、",
           "role": "punct"
         },
         {
-          "t": "外",
+          "t": "私",
           "role": "content",
-          "word_id": "W00005",
-          "r": "そと"
+          "word_id": "W00001",
+          "r": "わたし"
         },
         {
           "t": "は",
@@ -68,52 +63,250 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "雨",
+          "t": "友達",
           "role": "content",
           "word_id": "W00002",
-          "r": "あめ"
+          "r": "ともだち"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "道",
+          "role": "content",
+          "word_id": "W00004",
+          "r": "みち"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "歩きます",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あるきます",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "Morning — outside, it's raining."
+      "gloss_en": "In the morning, I walk down the road with my friend.",
+      "audio": "audio/story_3/s0.mp3",
+      "audio_hash": "cfbe11d826c5"
     },
     {
       "idx": 1,
       "tokens": [
         {
-          "t": "皿",
+          "t": "友達",
           "role": "content",
-          "word_id": "W00166",
-          "r": "さら",
-          "is_new": true
+          "word_id": "W00002",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "手",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "て"
         },
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location",
-          "is_new_grammar": true
+          "grammar_id": "G004_ni_location"
         },
         {
-          "t": "温かい",
+          "t": "小さい",
           "role": "content",
-          "word_id": "W00012",
-          "r": "あたたかい",
+          "word_id": "W00008",
+          "r": "ちいさい",
           "grammar_id": "G022_i_adj"
         },
         {
-          "t": "卵",
+          "t": "鍵",
           "role": "content",
-          "word_id": "W00021",
-          "r": "たまご",
-          "is_new": true
+          "word_id": "W00006",
+          "r": "かぎ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "持ちます",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "もちます",
+          "inflection": {
+            "base": "持つ",
+            "base_r": "もつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend holds a small key in their hand.",
+      "audio": "audio/story_3/s1.mp3",
+      "audio_hash": "692a10eab417"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "鍵",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "かぎ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "わたし"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "渡します",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "わたします",
+          "inflection": {
+            "base": "渡す",
+            "base_r": "わたす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend hands the key to me.",
+      "audio": "audio/story_3/s2.mp3",
+      "audio_hash": "d5980b54bb71"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "鍵",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "かぎ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I look at the key.",
+      "audio": "audio/story_3/s3.mp3",
+      "audio_hash": "9c8862511893"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "わたし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "is_new_grammar": true
+        },
+        {
+          "t": "手",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "て"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "鍵",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "かぎ"
         },
         {
           "t": "が",
@@ -123,7 +316,7 @@
         {
           "t": "あります",
           "role": "content",
-          "word_id": "W00044",
+          "word_id": "W00016",
           "r": "あります",
           "inflection": {
             "base": "ある",
@@ -131,221 +324,18 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G021_aru_iru",
-          "is_new": true,
-          "is_new_grammar": true
+          "grammar_id": "G021_aru_iru"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "On the plate are warm eggs."
-    },
-    {
-      "idx": 2,
-      "tokens": [
-        {
-          "t": "静か",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
-        },
-        {
-          "t": "な",
-          "role": "particle",
-          "grammar_id": "G016_na_adjective",
-          "is_new_grammar": true
-        },
-        {
-          "t": "朝ごはん",
-          "role": "content",
-          "word_id": "W00019",
-          "r": "あさごはん",
-          "is_new": true
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "卵",
-          "role": "content",
-          "word_id": "W00021",
-          "r": "たまご"
-        },
-        {
-          "t": "と",
-          "role": "particle",
-          "grammar_id": "G010_to_and"
-        },
-        {
-          "t": "お茶",
-          "role": "content",
-          "word_id": "W00009",
-          "r": "おちゃ"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "A quiet breakfast: eggs and tea."
-    },
-    {
-      "idx": 3,
-      "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "卵",
-          "role": "content",
-          "word_id": "W00021",
-          "r": "たまご"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "食べます",
-          "role": "content",
-          "word_id": "W00020",
-          "r": "たべます",
-          "inflection": {
-            "base": "食べる",
-            "base_r": "たべる",
-            "form": "polite_nonpast",
-            "verb_class": "ichidan"
-          },
-          "grammar_id": "G026_masu_nonpast",
-          "is_new": true
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I eat the eggs."
-    },
-    {
-      "idx": 4,
-      "tokens": [
-        {
-          "t": "お茶",
-          "role": "content",
-          "word_id": "W00009",
-          "r": "おちゃ"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "温かい",
-          "role": "content",
-          "word_id": "W00012",
-          "r": "あたたかい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "The tea is warm, too."
-    },
-    {
-      "idx": 5,
-      "tokens": [
-        {
-          "t": "雨",
-          "role": "content",
-          "word_id": "W00002",
-          "r": "あめ"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "朝",
-          "role": "content",
-          "word_id": "W00015",
-          "r": "あさ"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "温かい",
-          "role": "content",
-          "word_id": "W00012",
-          "r": "あたたかい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "朝ごはん",
-          "role": "content",
-          "word_id": "W00019",
-          "r": "あさごはん"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "いい",
-          "role": "content",
-          "word_id": "W00013",
-          "r": "いい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "気分",
-          "role": "content",
-          "word_id": "W00014",
-          "r": "きぶん"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "A rainy morning, a warm breakfast — a good feeling."
+      "gloss_en": "There is a key in my hand.",
+      "audio": "audio/story_3/s4.mp3",
+      "audio_hash": "e77bc2a1d412"
     }
-  ]
+  ],
+  "word_audio": {},
+  "word_audio_hash": {}
 }

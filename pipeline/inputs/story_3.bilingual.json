@@ -1,33 +1,38 @@
 {
   "story_id": 3,
   "title": {
-    "jp": "朝ごはん",
-    "en": "Breakfast"
+    "jp": "小さい鍵",
+    "en": "The Small Key"
   },
+  "intent": "Two characters walk together on a morning road; the friend hands the narrator a small key; the narrator looks at it and the key comes to rest in their hand. A real micro-arc with possession changing — the inverse of story 1's transfer (where the narrator gave the key to the friend), so the corpus has a complementary giving-and-receiving pair without needing new vocab. Diversifies story 2's gift-template by making the act of LOOKING at the new possession its own beat rather than a closer cliché. The closer is a spatial-existence beat (「私の手に鍵があります」 — there is a key in my hand) that uses the canonical 〜に〜があります construction, which simultaneously reinforces G002_ga_subject (the existential が) and G021_aru_iru (the existential verb) — both intro'd in story 2 — without needing a separate sentence each. Mint budget: 0 — the story earns its slot through structure, not novelty. Reinforces G010_to_and (companion-と, native fit: walking together is the natural opening), G002_ga_subject, and G021_aru_iru.",
+  "scene_class": "road_walk_morning",
+  "anchor_object": "鍵",
+  "characters": ["narrator", "tomodachi"],
   "sentences": [
     {
-      "jp": "朝、外は雨です。",
-      "en": "Morning — outside, it's raining."
+      "jp": "朝、私は友達と道を歩きます。",
+      "en": "In the morning, I walk down the road with my friend.",
+      "role": "setting"
     },
     {
-      "jp": "皿に温かい卵があります。",
-      "en": "On the plate are warm eggs."
+      "jp": "友達は手に小さい鍵を持ちます。",
+      "en": "My friend holds a small key in their hand.",
+      "role": "action"
     },
     {
-      "jp": "静かな朝ごはんは、卵とお茶です。",
-      "en": "A quiet breakfast: eggs and tea."
+      "jp": "友達は鍵を私に渡します。",
+      "en": "My friend hands the key to me.",
+      "role": "inflection"
     },
     {
-      "jp": "私は卵を食べます。",
-      "en": "I eat the eggs."
+      "jp": "私は鍵を見ます。",
+      "en": "I look at the key.",
+      "role": "action"
     },
     {
-      "jp": "お茶も温かいです。",
-      "en": "The tea is warm, too."
-    },
-    {
-      "jp": "雨の朝、温かい朝ごはん、いい気分です。",
-      "en": "A rainy morning, a warm breakfast — a good feeling."
+      "jp": "私の手に鍵があります。",
+      "en": "There is a key in my hand.",
+      "role": "closer"
     }
   ]
 }
