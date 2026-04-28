@@ -1,0 +1,20 @@
+{
+  "story_id": 10,
+  "title": {
+    "jp": "月と手紙",
+    "en": "The Moon and the Letter"
+  },
+  "intent": "Causal arc: bright moonlight draws the narrator outside, where a friend's letter waits on the garden chair with the narrator's own name on it. The narrator takes it, sits, opens it, and the letter settles in their hand (real change of state from chair to hand; real change in narrator's knowledge that the letter is for them). Reinforces 月/外/手紙 from story 9 and the te-form from story 9 (取って). Introduces N5_dakara (だから) — preferred over the brief's first-ranked N5_dictionary_form because the premise is causal: the bright-moon → step-outside link is the natural place for a 'therefore' connector, and the dictionary-form construction would be bolted-on filler. Mints three coherent neighbors of the night/letter neighborhood: 光 (light, paired with 月), 出る (to leave/exit, paired with 外), and 名前 (name, paired with 手紙).",
+  "scene_class": "garden",
+  "anchor_object": "手紙",
+  "characters": ["narrator", "friend (off-stage, via the letter)"],
+  "sentences": [
+    {"jp": "夜、月の光が明るいです。", "en": "It is night, and the moonlight is bright.", "role": "setting"},
+    {"jp": "だから、私は外に出ます。", "en": "So I go outside.", "role": "action"},
+    {"jp": "椅子の上に手紙が有ります。", "en": "On the chair, there is a letter.", "role": "setting"},
+    {"jp": "私は手紙を取って、椅子に座ります。", "en": "I pick up the letter and sit on the chair.", "role": "action"},
+    {"jp": "私は手紙を開けます。", "en": "I open the letter.", "role": "action"},
+    {"jp": "手紙に私の名前が有ります。", "en": "On the letter, there is my name.", "role": "reflection"},
+    {"jp": "手紙は私の手の中に有ります。", "en": "The letter rests in my hand.", "role": "closer"}
+  ]
+}
