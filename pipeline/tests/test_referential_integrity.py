@@ -292,10 +292,16 @@ def test_sentence_audio_hash_matches_tokens(stories):
 
 
 def test_word_audio_hash_matches_vocab(stories, vocab):
-    """Each story's `word_audio_hash[wid]` must match the current vocab
-    surface for that word. Mismatch == the dictionary form of the word
-    was edited after the audio was built, and the word audio must be
-    regenerated."""
+    """Each story's `word_audio_hash[wid]` must match the current TTS
+    input string for that word. Mismatch == either the vocab surface/kana
+    was edited after the audio was built, or the word_audio_text() rule
+    itself was changed (e.g. the 2026-04-29 switch to kana-first); both
+    cases require word audio to be regenerated.
+
+    Note: this test imports the SAME helper that audio_builder uses to
+    pick the TTS input string, so the two can never silently diverge.
+    """
+    from pipeline.audio_builder import word_audio_text  # local: avoid cycles
     drifted = []
     for story in stories:
         wah = story.get("word_audio_hash") or {}
@@ -306,12 +312,12 @@ def test_word_audio_hash_matches_vocab(stories, vocab):
             if not word:
                 drifted.append(f"{story['_id']} {wid}: word not in vocab")
                 continue
-            text = word.get("surface") or word.get("kana") or ""
+            text = word_audio_text(word)
             actual = _recompute_word_hash(text)
             if stored != actual:
                 drifted.append(
                     f"{story['_id']} word_audio[{wid}]: "
                     f"stored {stored} != current {actual} "
-                    f"(surface now '{text}') — regenerate audio with --force"
+                    f"(TTS input now '{text}') — regenerate audio with --force"
                 )
     assert not drifted, "Word audio drift detected:\n  " + "\n  ".join(drifted)

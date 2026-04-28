@@ -214,8 +214,27 @@ def sentence_audio_text(sent: dict) -> str:
 
 
 def word_audio_text(word: dict) -> str:
-    """The exact string the TTS backend speaks for a new-word entry."""
-    return (word or {}).get("surface") or (word or {}).get("kana") or ""
+    """The exact string the TTS backend speaks for a new-word entry.
+
+    Prefers KANA over surface so single-kanji words are pronounced with
+    the intended reading instead of TTS's default on-yomi guess. The
+    canonical example: 道 in isolation. Sent as the surface string,
+    Google's ja-JP-Neural2-B reads 「どう」 (on-yomi). Sent as 「みち」
+    (the kana field), it correctly reads 「みち」 (kun-yomi). Same
+    failure mode applies to any single-kanji entry where surface and
+    kana differ — 月 → 「がつ」 vs 「つき」, 手 → 「しゅ」 vs 「て」,
+    家 → 「か」 vs 「いえ」, etc.
+
+    This is safe for multi-character entries too: 友達 → 「ともだち」
+    is unambiguous, and pure-kana entries already have surface == kana.
+
+    The function still falls back to surface when kana is missing
+    (extremely rare; surface should never be) and finally to the empty
+    string so the caller can substitute the word_id.
+    """
+    if not word:
+        return ""
+    return word.get("kana") or word.get("surface") or ""
 
 
 def build_audio_for_story(

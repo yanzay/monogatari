@@ -159,15 +159,39 @@ contamination.
 
 ### Audio cleanup after an ID-changing re-ship
 
-`pipeline/audio_builder.py` writes per-sentence (`s0.mp3` …) AND
-per-word (`w_W00xxx.mp3`) files. If a re-ship changes word IDs (e.g.
-because the previous attempt's W00xxx got dropped as an orphan and
-the next mint reused the slot at a different position), stale
-`w_W*.mp3` files become orphans and the integrity test
+`pipeline/audio_builder.py` writes per-sentence audio to
+`audio/story_<N>/s<idx>.mp3` and per-word audio to a FLAT
+`audio/words/<wid>.mp3` directory (changed 2026-04-29; see
+"Audio layout" below). If a re-ship changes word IDs (e.g. because
+the previous attempt's W00xxx got dropped as an orphan and the next
+mint reused the slot at a different position), stale
+`audio/words/W*.mp3` files become orphans and the integrity test
 `test_audio_word_files_only_for_known_words` fails. After an
-ID-changing re-ship, either rebuild from a clean `audio/story_N/`
-directory or hand-delete the stale `w_W*.mp3` files whose IDs are
-no longer in `data/vocab_state.json`.
+ID-changing re-ship, hand-delete the stale `audio/words/W*.mp3`
+files whose IDs are no longer in `data/vocab_state.json`.
+
+### Audio layout (since 2026-04-29)
+
+- `audio/story_<N>/s<idx>.mp3` — per-sentence audio. Story-scoped,
+  because a sentence belongs to exactly one story.
+- `audio/words/<wid>.mp3` — per-word audio. **Flat, decoupled from
+  any story.** A word can appear in any number of stories and in
+  the vocab list, library, review queue, and word popups opened
+  from any context — tying its audio path to the introducing story
+  made the audio undiscoverable from those contexts and broke
+  whenever a corpus rewrite changed which story introduces a word.
+  The migration moved 42 existing files from
+  `audio/story_<N>/w_W*.mp3` → `audio/words/W*.mp3` and updated
+  every consumer in lockstep:
+    - `pipeline/audio_builder.py` writes to `words_dir`
+    - `pipeline/tests/test_referential_integrity.py` orphan test
+      checks `audio/words/` and rejects stray `audio/story_*/w_*.mp3`
+    - `src/lib/util/word-audio.ts::wordAudioPath` returns the new
+      flat path and no longer needs `first_story`
+    - `src/lib/data/corpus.ts::decorateWithAudioPaths` synthesizes
+      the flat path
+- The legacy per-story word audio in `legacy/v1-audio/story_*/` is
+  intentionally left in place; v1 is retired and self-contained.
 
 ### Per-story vocabulary cadence has BOTH a max AND a min
 
