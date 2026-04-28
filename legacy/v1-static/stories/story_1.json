@@ -1,0 +1,359 @@
+{
+  "story_id": 1,
+  "title": {
+    "jp": "雨",
+    "en": "Rain",
+    "tokens": [
+      {
+        "t": "雨",
+        "role": "content",
+        "word_id": "W00002",
+        "r": "あめ"
+      }
+    ]
+  },
+  "new_words": [
+    "W00002",
+    "W00001",
+    "W00003",
+    "W00004",
+    "W00005",
+    "W00006",
+    "W00007",
+    "W00008",
+    "W00009",
+    "W00010",
+    "W00011",
+    "W00012",
+    "W00013",
+    "W00014"
+  ],
+  "new_grammar": [
+    "G001_wa_topic",
+    "G003_desu",
+    "G006_kara_from",
+    "G005_wo_object",
+    "G026_masu_nonpast",
+    "G002_ga_subject",
+    "G007_te_form",
+    "G008_te_iru",
+    "G022_i_adj"
+  ],
+  "all_words_used": [
+    "W00002",
+    "W00001",
+    "W00003",
+    "W00004",
+    "W00005",
+    "W00006",
+    "W00007",
+    "W00008",
+    "W00009",
+    "W00010",
+    "W00011",
+    "W00012",
+    "W00013",
+    "W00014"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "今朝",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "けさ",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "is_new_grammar": true
+        },
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あめ",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "This morning, it is raining."
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "窓",
+          "role": "content",
+          "word_id": "W00004",
+          "r": "まど",
+          "is_new": true
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from",
+          "is_new_grammar": true
+        },
+        {
+          "t": "外",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "そと",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object",
+          "is_new_grammar": true
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I look outside through the window."
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "木",
+          "role": "content",
+          "word_id": "W00007",
+          "r": "き",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject",
+          "is_new_grammar": true
+        },
+        {
+          "t": "濡れて",
+          "role": "content",
+          "word_id": "W00008",
+          "r": "ぬれて",
+          "inflection": {
+            "base": "濡れる",
+            "base_r": "ぬれる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G007_te_form",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "います",
+          "role": "aux",
+          "grammar_id": "G008_te_iru",
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The tree is wet."
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00009",
+          "r": "おちゃ",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "飲みます",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "のみます",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I drink the tea."
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あめ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The rain is quiet."
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00009",
+          "r": "おちゃ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "温かい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The tea is warm."
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "今朝",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "けさ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "いい",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "いい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "気分",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "きぶん",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "This morning feels good."
+    }
+  ]
+}

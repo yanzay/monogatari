@@ -1,0 +1,636 @@
+{
+  "story_id": 15,
+  "title": {
+    "jp": "夜の空",
+    "en": "The Night Sky",
+    "tokens": [
+      {
+        "t": "夜",
+        "role": "content",
+        "word_id": "W00030",
+        "r": "よる"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
+      },
+      {
+        "t": "空",
+        "role": "content",
+        "word_id": "W00047",
+        "r": "そら"
+      }
+    ]
+  },
+  "new_words": [
+    "W00047",
+    "W00051",
+    "W00165",
+    "W00066"
+  ],
+  "new_grammar": [
+    "G018_toki_when"
+  ],
+  "all_words_used": [
+    "W00030",
+    "W00047",
+    "W00046",
+    "W00003",
+    "W00017",
+    "W00006",
+    "W00032",
+    "W00031",
+    "W00044",
+    "W00011",
+    "W00043",
+    "W00055",
+    "W00051",
+    "W00164",
+    "W00165",
+    "W00066",
+    "W00025",
+    "W00026",
+    "W00037",
+    "W00009",
+    "W00012",
+    "W00013",
+    "W00014"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "明日",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "あした"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夜",
+          "role": "content",
+          "word_id": "W00030",
+          "r": "よる"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "歩きます",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "あるきます",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Tomorrow night, I will walk outside."
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "歩いて",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "あるいて",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "空",
+          "role": "content",
+          "word_id": "W00047",
+          "r": "そら",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "After walking, I look at the sky."
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "空",
+          "role": "content",
+          "word_id": "W00047",
+          "r": "そら"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "星",
+          "role": "content",
+          "word_id": "W00032",
+          "r": "ほし"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "月",
+          "role": "content",
+          "word_id": "W00031",
+          "r": "つき"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the sky there are stars and the moon."
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "歩く",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "あるく",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "plain_nonpast",
+            "verb_class": "godan"
+          }
+        },
+        {
+          "t": "とき",
+          "role": "particle",
+          "grammar_id": "G018_toki_when",
+          "is_new_grammar": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "夜",
+          "role": "content",
+          "word_id": "W00030",
+          "r": "よる"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "だ",
+          "role": "aux",
+          "grammar_id": "G024_da"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G014_to_omoimasu"
+        },
+        {
+          "t": "思います",
+          "role": "aux",
+          "word_id": "W00043",
+          "r": "おもいます",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "When I walk, I think: \"the night is quiet.\""
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00055",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "子供",
+          "role": "content",
+          "word_id": "W00051",
+          "r": "こども",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "歌",
+          "role": "content",
+          "word_id": "W00164",
+          "r": "うた"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "夜",
+          "role": "content",
+          "word_id": "W00030",
+          "r": "よる"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "音楽",
+          "role": "content",
+          "word_id": "W00165",
+          "r": "おんがく",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A small child's song is the night's music."
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "夜",
+          "role": "content",
+          "word_id": "W00030",
+          "r": "よる"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "新しい",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "あたらしい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G014_to_omoimasu"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "思います",
+          "role": "aux",
+          "word_id": "W00043",
+          "r": "おもいます",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"The night is new,\" I think."
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "星",
+          "role": "content",
+          "word_id": "W00032",
+          "r": "ほし"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見て",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "みて",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "ドア",
+          "role": "content",
+          "word_id": "W00025",
+          "r": "ドア"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "帰ります",
+          "role": "content",
+          "word_id": "W00026",
+          "r": "かえります",
+          "inflection": {
+            "base": "帰る",
+            "base_r": "かえる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "After looking at the stars, I go home through the door."
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "机",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "つくえ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00009",
+          "r": "おちゃ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "温かい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The tea on the desk is warm."
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "月",
+          "role": "content",
+          "word_id": "W00031",
+          "r": "つき"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "星",
+          "role": "content",
+          "word_id": "W00032",
+          "r": "ほし"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "歌",
+          "role": "content",
+          "word_id": "W00164",
+          "r": "うた"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "音楽",
+          "role": "content",
+          "word_id": "W00165",
+          "r": "おんがく"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "いい",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "いい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "気分",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "きぶん"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Moon, stars, song, and music — a good feeling."
+    }
+  ]
+}

@@ -1,0 +1,1039 @@
+{
+  "story_id": 56,
+  "title": {
+    "jp": "橋まで",
+    "en": "As Far as the Bridge",
+    "tokens": [
+      {
+        "t": "橋",
+        "role": "content",
+        "word_id": "W00257",
+        "r": "はし"
+      },
+      {
+        "t": "まで",
+        "role": "particle",
+        "grammar_id": "G052_made_until"
+      }
+    ]
+  },
+  "new_words": [
+    "W00257",
+    "W00258",
+    "W00252",
+    "W00259",
+    "W00260"
+  ],
+  "new_grammar": [
+    "G052_made_until"
+  ],
+  "all_words_used": [
+    "W00257",
+    "W00081",
+    "W00258",
+    "W00018",
+    "W00003",
+    "W00078",
+    "W00111",
+    "W00065",
+    "W00017",
+    "W00064",
+    "W00011",
+    "W00027",
+    "W00012",
+    "W00232",
+    "W00212",
+    "W00091",
+    "W00190",
+    "W00044",
+    "W00052",
+    "W00085",
+    "W00109",
+    "W00252",
+    "W00259",
+    "W00047",
+    "W00057",
+    "W00092",
+    "W00183",
+    "W00237",
+    "W00032",
+    "W00006",
+    "W00201",
+    "W00245",
+    "W00181",
+    "W00177",
+    "W00120",
+    "W00221",
+    "W00043",
+    "W00030",
+    "W00260",
+    "W00026",
+    "W00185",
+    "W00244",
+    "W00055",
+    "W00156",
+    "W00147",
+    "W00179"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "夏",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "なつ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "終わり",
+          "role": "content",
+          "word_id": "W00258",
+          "r": "おわり",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夕方",
+          "role": "content",
+          "word_id": "W00018",
+          "r": "ゆうがた"
+        },
+        {
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "G013_mashita_past",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It was an evening at the end of summer."
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "川",
+          "role": "content",
+          "word_id": "W00111",
+          "r": "かわ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "橋",
+          "role": "content",
+          "word_id": "W00257",
+          "r": "はし",
+          "is_new": true
+        },
+        {
+          "t": "まで",
+          "role": "particle",
+          "grammar_id": "G052_made_until",
+          "is_new_grammar": true
+        },
+        {
+          "t": "一人",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ひとり",
+          "grammar_id": "G025_counters"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "歩きました",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "あるきました",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Alone, I walked from my house as far as the river bridge."
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "道",
+          "role": "content",
+          "word_id": "W00064",
+          "r": "みち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "G013_mashita_past",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "風",
+          "role": "content",
+          "word_id": "W00027",
+          "r": "かぜ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "温かかった",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "あたたかかった",
+          "inflection": {
+            "form": "i_adj_past"
+          },
+          "grammar_id": "G047_i_adj_past"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The road was quiet. The wind was warm."
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "橋",
+          "role": "content",
+          "word_id": "W00257",
+          "r": "はし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "前",
+          "role": "content",
+          "word_id": "W00232",
+          "r": "まえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "緑",
+          "role": "content",
+          "word_id": "W00212",
+          "r": "みどり"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "葉",
+          "role": "content",
+          "word_id": "W00091",
+          "r": "は"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "少し",
+          "role": "content",
+          "word_id": "W00190",
+          "r": "すこし"
+        },
+        {
+          "t": "ありました",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "ありました",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Before the bridge, there were a few green leaves."
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "ベンチ",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "ベンチ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "座って",
+          "role": "content",
+          "word_id": "W00085",
+          "r": "すわって",
+          "inflection": {
+            "base": "座る",
+            "base_r": "すわる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "川",
+          "role": "content",
+          "word_id": "W00111",
+          "r": "かわ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "音",
+          "role": "content",
+          "word_id": "W00109",
+          "r": "おと"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "ゆっくり",
+          "role": "content",
+          "word_id": "W00252",
+          "r": "ゆっくり",
+          "is_new": true
+        },
+        {
+          "t": "聞きました",
+          "role": "content",
+          "word_id": "W00259",
+          "r": "ききました",
+          "inflection": {
+            "base": "聞く",
+            "base_r": "きく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I sat on the bench and slowly listened to the sound of the river."
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "夕方",
+          "role": "content",
+          "word_id": "W00018",
+          "r": "ゆうがた"
+        },
+        {
+          "t": "まで",
+          "role": "particle",
+          "grammar_id": "G052_made_until"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "空",
+          "role": "content",
+          "word_id": "W00047",
+          "r": "そら"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "大きい",
+          "role": "content",
+          "word_id": "W00057",
+          "r": "おおきい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "雲",
+          "role": "content",
+          "word_id": "W00092",
+          "r": "くも"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "ありました",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "ありました",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Until evening, there were big clouds in the sky."
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "晩",
+          "role": "content",
+          "word_id": "W00183",
+          "r": "ばん"
+        },
+        {
+          "t": "まで",
+          "role": "particle",
+          "grammar_id": "G052_made_until"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "橋",
+          "role": "content",
+          "word_id": "W00257",
+          "r": "はし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "上",
+          "role": "content",
+          "word_id": "W00237",
+          "r": "うえ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "星",
+          "role": "content",
+          "word_id": "W00032",
+          "r": "ほし"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ました",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "みました",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Until night, I watched the stars above the bridge."
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "町",
+          "role": "content",
+          "word_id": "W00201",
+          "r": "まち"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "鐘",
+          "role": "content",
+          "word_id": "W00245",
+          "r": "かね"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "音",
+          "role": "content",
+          "word_id": "W00109",
+          "r": "おと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "夕飯",
+          "role": "content",
+          "word_id": "W00181",
+          "r": "ゆうはん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "時間",
+          "role": "content",
+          "word_id": "W00177",
+          "r": "じかん"
+        },
+        {
+          "t": "まで",
+          "role": "particle",
+          "grammar_id": "G052_made_until"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "しずか"
+        },
+        {
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "G013_mashita_past",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The town bell's sound was quiet, until dinner time."
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "夏",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "なつ"
+        },
+        {
+          "t": "まで",
+          "role": "particle",
+          "grammar_id": "G052_made_until"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "心",
+          "role": "content",
+          "word_id": "W00120",
+          "r": "こころ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "中",
+          "role": "content",
+          "word_id": "W00221",
+          "r": "なか"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "思いました",
+          "role": "content",
+          "word_id": "W00043",
+          "r": "おもいました",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Until [next] summer,\" I thought, in my heart."
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "夜",
+          "role": "content",
+          "word_id": "W00030",
+          "r": "よる"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "道",
+          "role": "content",
+          "word_id": "W00064",
+          "r": "みち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "暗かった",
+          "role": "content",
+          "word_id": "W00260",
+          "r": "くらかった",
+          "inflection": {
+            "form": "i_adj_past"
+          },
+          "grammar_id": "G047_i_adj_past",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The night road was dark."
+    },
+    {
+      "idx": 10,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "橋",
+          "role": "content",
+          "word_id": "W00257",
+          "r": "はし"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "いえ"
+        },
+        {
+          "t": "まで",
+          "role": "particle",
+          "grammar_id": "G052_made_until"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "ゆっくり",
+          "role": "content",
+          "word_id": "W00252",
+          "r": "ゆっくり"
+        },
+        {
+          "t": "帰りました",
+          "role": "content",
+          "word_id": "W00026",
+          "r": "かえりました",
+          "inflection": {
+            "base": "帰る",
+            "base_r": "かえる",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "From the bridge as far as my house, I walked home slowly."
+    },
+    {
+      "idx": 11,
+      "tokens": [
+        {
+          "t": "玄関",
+          "role": "content",
+          "word_id": "W00185",
+          "r": "げんかん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "前",
+          "role": "content",
+          "word_id": "W00232",
+          "r": "まえ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "上着",
+          "role": "content",
+          "word_id": "W00244",
+          "r": "うわぎ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "中",
+          "role": "content",
+          "word_id": "W00221",
+          "r": "なか"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00055",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "葉",
+          "role": "content",
+          "word_id": "W00091",
+          "r": "は"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ました",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "みました",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In front of the entryway, I looked at the small leaf inside my coat."
+    },
+    {
+      "idx": 12,
+      "tokens": [
+        {
+          "t": "夏",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "なつ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "色",
+          "role": "content",
+          "word_id": "W00156",
+          "r": "いろ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "葉",
+          "role": "content",
+          "word_id": "W00091",
+          "r": "は"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "あの",
+          "role": "content",
+          "word_id": "W00147",
+          "r": "あの",
+          "grammar_id": "G043_kosoado_pre_nominal"
+        },
+        {
+          "t": "日",
+          "role": "content",
+          "word_id": "W00179",
+          "r": "ひ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "夏",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "なつ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "色",
+          "role": "content",
+          "word_id": "W00156",
+          "r": "いろ"
+        },
+        {
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "G013_mashita_past",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A leaf the color of summer — the color of that day's summer."
+    }
+  ]
+}

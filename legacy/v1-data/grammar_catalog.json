@@ -1,0 +1,2396 @@
+{
+  "schema_version": 1,
+  "generated_by": "pipeline/build_grammar_catalog.py",
+  "source_policy": "Each entry cross-referenced against ≥2 of: JLPTSensei (jlpt_sensei), BunPro (bunpro_nX), Genki I/II (genki_LN), Tobira (tobira_LN). Disagreements resolved conservatively (lower JLPT = harder = wait longer).",
+  "entries": [
+    {
+      "id": "N5_aru_iru",
+      "marker": "ある/いる",
+      "jlpt": "N5",
+      "category": "existence",
+      "title": "ある・いる — exists",
+      "short": "inanimate / animate existence",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L4"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_attributive",
+      "marker": "noun-mod",
+      "jlpt": "N5",
+      "category": "structure",
+      "title": "verb/adj modifies noun",
+      "short": "relative-clause-like noun modification",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L9"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_dictionary_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_counters",
+      "marker": "助数詞",
+      "jlpt": "N5",
+      "category": "structure",
+      "title": "counters",
+      "short": "numeric counters (人, 個, 枚, …)",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L4"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_da",
+      "marker": "だ",
+      "jlpt": "N5",
+      "category": "copula",
+      "title": "だ — plain copula",
+      "short": "casual 'is/am/are'",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L8"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_desu"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_dakara",
+      "marker": "だから",
+      "jlpt": "N5",
+      "category": "connector",
+      "title": "だから — so / therefore",
+      "short": "causal sentence connector",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L8"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_dare_who",
+      "marker": "誰",
+      "jlpt": "N5",
+      "category": "question",
+      "title": "誰 — who",
+      "short": "interrogative 'who'",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L1"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_de_means",
+      "marker": "で",
+      "jlpt": "N5",
+      "category": "particle",
+      "title": "で — by means / at",
+      "short": "means/method or activity location",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L3"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_demo",
+      "marker": "でも",
+      "jlpt": "N5",
+      "category": "connector",
+      "title": "でも — but",
+      "short": "contrastive sentence connector",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L4"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_desu",
+      "marker": "です",
+      "jlpt": "N5",
+      "category": "copula",
+      "title": "です — polite copula",
+      "short": "polite 'is/am/are'",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L1"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_dictionary_form",
+      "marker": "〜る/う",
+      "jlpt": "N5",
+      "category": "verb_form",
+      "title": "plain non-past (dictionary form)",
+      "short": "casual present/future affirmative",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L8"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_doko_where",
+      "marker": "どこ",
+      "jlpt": "N5",
+      "category": "question",
+      "title": "どこ — where",
+      "short": "interrogative 'where'",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L2"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_kosoado"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_e_direction",
+      "marker": "へ",
+      "jlpt": "N5",
+      "category": "particle",
+      "title": "へ — direction",
+      "short": "movement toward",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L3"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_ga_but",
+      "marker": "〜が(逆接)",
+      "jlpt": "N5",
+      "category": "connector",
+      "title": "〜が — but (clause)",
+      "short": "contrastive clause-joiner",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L7"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_ga_subject",
+      "marker": "が",
+      "jlpt": "N5",
+      "category": "particle",
+      "title": "が — subject",
+      "short": "marks the subject (and new info)",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L2"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_hoshii",
+      "marker": "〜がほしい",
+      "jlpt": "N5",
+      "category": "verb_form",
+      "title": "〜がほしい — want (noun)",
+      "short": "want a thing",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L11"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_ga_subject"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_i_adj",
+      "marker": "い-adj",
+      "jlpt": "N5",
+      "category": "adjective",
+      "title": "い-adjectives",
+      "short": "adjectives ending in い",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L5"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_i_adj_neg",
+      "marker": "〜くない",
+      "jlpt": "N5",
+      "category": "adjective",
+      "title": "〜くない — i-adj negative",
+      "short": "い-adjective negative",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L5"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_i_adj"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_i_adj_past",
+      "marker": "〜かった",
+      "jlpt": "N5",
+      "category": "adjective",
+      "title": "〜かった — i-adj past",
+      "short": "い-adjective past",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L5"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_i_adj"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_i_adj_te",
+      "marker": "〜くて",
+      "jlpt": "N5",
+      "category": "adjective",
+      "title": "〜くて — i-adj te-form (linking)",
+      "short": "links i-adjectives ('old and quiet')",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L7"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_i_adj"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_itsu_when",
+      "marker": "いつ",
+      "jlpt": "N5",
+      "category": "question",
+      "title": "いつ — when",
+      "short": "interrogative 'when'",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L3"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_ka_question",
+      "marker": "か",
+      "jlpt": "N5",
+      "category": "particle",
+      "title": "か — question",
+      "short": "sentence-final question marker",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L1"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_kara_because",
+      "marker": "〜から(理由)",
+      "jlpt": "N5",
+      "category": "connector",
+      "title": "〜から — because (clause)",
+      "short": "reason clause-final particle",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L6"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_kara_from"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_kara_from",
+      "marker": "から",
+      "jlpt": "N5",
+      "category": "particle",
+      "title": "から — from",
+      "short": "starting point (place/time)",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L3"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_ko_arimasen",
+      "marker": "ありません",
+      "jlpt": "N5",
+      "category": "existence",
+      "title": "ありません — does not exist",
+      "short": "negative existence",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L4"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_aru_iru"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_kosoado",
+      "marker": "こ/そ/あ/ど",
+      "jlpt": "N5",
+      "category": "demonstrative",
+      "title": "こ・そ・あ・ど series",
+      "short": "this / that / that-over-there / which",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L2"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_made_until",
+      "marker": "まで",
+      "jlpt": "N5",
+      "category": "particle",
+      "title": "まで — until",
+      "short": "endpoint (place/time)",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L3"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_masen",
+      "marker": "〜ません",
+      "jlpt": "N5",
+      "category": "verb_form",
+      "title": "〜ません — polite negative",
+      "short": "polite present negative",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L3"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_masu_nonpast"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_masen_deshita",
+      "marker": "〜ませんでした",
+      "jlpt": "N5",
+      "category": "verb_form",
+      "title": "〜ませんでした — polite past negative",
+      "short": "polite past negative",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L4"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_mashita"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_masenka",
+      "marker": "〜ませんか",
+      "jlpt": "N5",
+      "category": "verb_form",
+      "title": "〜ませんか — won't you?",
+      "short": "invitation",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L5"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_masen"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_mashita",
+      "marker": "〜ました",
+      "jlpt": "N5",
+      "category": "verb_form",
+      "title": "〜ました — polite past",
+      "short": "polite past affirmative",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L4"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_masu_nonpast"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_masho",
+      "marker": "〜ましょう",
+      "jlpt": "N5",
+      "category": "verb_form",
+      "title": "〜ましょう — let's / shall we",
+      "short": "polite volitional",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L5"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_masu_nonpast"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_masu_nonpast",
+      "marker": "〜ます",
+      "jlpt": "N5",
+      "category": "verb_form",
+      "title": "〜ます — polite non-past",
+      "short": "polite present/future verb",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L3"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_mo_also",
+      "marker": "も",
+      "jlpt": "N5",
+      "category": "particle",
+      "title": "も — also/too",
+      "short": "'also' / 'too' / 'either'",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L2"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_na_adj",
+      "marker": "な-adj",
+      "jlpt": "N5",
+      "category": "adjective",
+      "title": "な-adjectives",
+      "short": "noun-like adjectives",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L5"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_na_adj_neg",
+      "marker": "〜じゃない",
+      "jlpt": "N5",
+      "category": "adjective",
+      "title": "〜じゃない — na-adj/noun negative",
+      "short": "な-adjective / noun negative",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L5"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_na_adj"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_nai_form",
+      "marker": "〜ない",
+      "jlpt": "N5",
+      "category": "verb_form",
+      "title": "〜ない — plain negative",
+      "short": "casual present negative",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L8"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_masen"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_nakatta",
+      "marker": "〜なかった",
+      "jlpt": "N5",
+      "category": "verb_form",
+      "title": "〜なかった — plain past negative",
+      "short": "casual past negative",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L9"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_nai_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_nan_what",
+      "marker": "何/なに",
+      "jlpt": "N5",
+      "category": "question",
+      "title": "何 — what",
+      "short": "interrogative 'what'",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L1"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_naze_doshite",
+      "marker": "なぜ/どうして",
+      "jlpt": "N5",
+      "category": "question",
+      "title": "なぜ・どうして — why",
+      "short": "interrogative 'why'",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L6"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_ne_confirm",
+      "marker": "ね",
+      "jlpt": "N5",
+      "category": "particle",
+      "title": "ね — seeking agreement",
+      "short": "'right?' / 'isn't it?'",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L1"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_ni_location",
+      "marker": "に",
+      "jlpt": "N5",
+      "category": "particle",
+      "title": "に — location/time/goal",
+      "short": "static location, time, indirect object",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L3"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_no_pos",
+      "marker": "の",
+      "jlpt": "N5",
+      "category": "particle",
+      "title": "の — possessive/attributive",
+      "short": "links nouns: A の B",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L1"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_o_object",
+      "marker": "を",
+      "jlpt": "N5",
+      "category": "particle",
+      "title": "を — direct object",
+      "short": "marks the direct object",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L3"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_soshite",
+      "marker": "そして",
+      "jlpt": "N5",
+      "category": "connector",
+      "title": "そして — and then",
+      "short": "additive sentence connector",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L4"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_ta_form",
+      "marker": "〜た",
+      "jlpt": "N5",
+      "category": "verb_form",
+      "title": "〜た — plain past",
+      "short": "casual past affirmative",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L9"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_mashita"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_tai",
+      "marker": "〜たい",
+      "jlpt": "N5",
+      "category": "verb_form",
+      "title": "〜たい — want to (verb)",
+      "short": "want to do something",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L11"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_masu_nonpast"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_te_form",
+      "marker": "〜て",
+      "jlpt": "N5",
+      "category": "verb_form",
+      "title": "〜て — te-form",
+      "short": "connector / request / progressive base",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L6"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_masu_nonpast"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_te_iru",
+      "marker": "〜ている",
+      "jlpt": "N5",
+      "category": "verb_form",
+      "title": "〜ている — progressive / state",
+      "short": "ongoing or resulting state",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L7"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_te_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_te_kudasai",
+      "marker": "〜てください",
+      "jlpt": "N5",
+      "category": "verb_form",
+      "title": "〜てください — please do",
+      "short": "polite request",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L6"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_te_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_te_mo_ii",
+      "marker": "〜てもいい",
+      "jlpt": "N5",
+      "category": "verb_form",
+      "title": "〜てもいい — may / it's ok to",
+      "short": "permission",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L6"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_te_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_to_and",
+      "marker": "と",
+      "jlpt": "N5",
+      "category": "particle",
+      "title": "と — exhaustive 'and'",
+      "short": "joins nouns: A と B",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L4"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_wa_topic",
+      "marker": "は",
+      "jlpt": "N5",
+      "category": "particle",
+      "title": "は — topic",
+      "short": "marks the topic",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L1"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N5_ya_partial",
+      "marker": "や",
+      "jlpt": "N5",
+      "category": "particle",
+      "title": "や — partial 'and'",
+      "short": "non-exhaustive listing",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L11"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_to_and"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N5_yo_emphasis",
+      "marker": "よ",
+      "jlpt": "N5",
+      "category": "particle",
+      "title": "よ — emphasis/new info",
+      "short": "asserts new information",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n5",
+        "genki_L1"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_ato_de",
+      "marker": "〜あとで",
+      "jlpt": "N4",
+      "category": "time",
+      "title": "〜あとで — after",
+      "short": "after doing",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L17"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_ta_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_ba",
+      "marker": "〜ば",
+      "jlpt": "N4",
+      "category": "conditional",
+      "title": "〜ば — if (provisional)",
+      "short": "hypothetical conditional",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L18"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_dictionary_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_causative",
+      "marker": "〜させる",
+      "jlpt": "N4",
+      "category": "verb_form",
+      "title": "〜させる — causative",
+      "short": "make / let someone do",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L22"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_dictionary_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_causative_passive",
+      "marker": "〜させられる",
+      "jlpt": "N4",
+      "category": "verb_form",
+      "title": "〜させられる — causative-passive",
+      "short": "be made to do",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L23"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N4_causative",
+        "N4_passive"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_deshou",
+      "marker": "〜でしょう",
+      "jlpt": "N4",
+      "category": "conjecture",
+      "title": "〜でしょう — probably / right?",
+      "short": "polite conjecture / confirmation",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L12"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_dochira_ga",
+      "marker": "どちらが",
+      "jlpt": "N4",
+      "category": "comparison",
+      "title": "どちらが〜 — which is more 〜",
+      "short": "binary comparison question",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L10"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_embedded_q",
+      "marker": "〜か(間接)",
+      "jlpt": "N4",
+      "category": "embedded",
+      "title": "embedded question with か",
+      "short": "indirect interrogative",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L17"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_ka_question"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_ga_jouzu",
+      "marker": "〜が上手",
+      "jlpt": "N4",
+      "category": "preference",
+      "title": "〜が上手・下手 — good/bad at",
+      "short": "skill description",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L11"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_ga_subject"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_ga_suki",
+      "marker": "〜が好き",
+      "jlpt": "N4",
+      "category": "preference",
+      "title": "〜が好き — like",
+      "short": "preference / dislike",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L5"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_ga_subject"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_hou_ga_ii",
+      "marker": "〜ほうがいい",
+      "jlpt": "N4",
+      "category": "advice",
+      "title": "〜ほうがいい — should",
+      "short": "advice / recommendation",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L12"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_ta_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_hou_ga_yori",
+      "marker": "〜のほうが〜より",
+      "jlpt": "N4",
+      "category": "comparison",
+      "title": "Aのほうが Bより〜 — A is more 〜 than B",
+      "short": "explicit comparative",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L10"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N4_yori"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_ichiban",
+      "marker": "一番〜",
+      "jlpt": "N4",
+      "category": "comparison",
+      "title": "一番〜 — most",
+      "short": "superlative",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L10"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_ka_dou_ka",
+      "marker": "〜かどうか",
+      "jlpt": "N4",
+      "category": "embedded",
+      "title": "〜かどうか — whether or not",
+      "short": "embedded yes/no question",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L17"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_ka_question"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_kamo_shirenai",
+      "marker": "〜かもしれない",
+      "jlpt": "N4",
+      "category": "conjecture",
+      "title": "〜かもしれない — might / maybe",
+      "short": "possibility",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L12"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_koto_ga_dekiru",
+      "marker": "〜ことができる",
+      "jlpt": "N4",
+      "category": "verb_form",
+      "title": "〜ことができる — can do",
+      "short": "alternative potential",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L13"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_dictionary_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_koto_nominalizer",
+      "marker": "〜こと(名詞化)",
+      "jlpt": "N4",
+      "category": "nominalizer",
+      "title": "〜こと — nominalizer",
+      "short": "abstract nominalizer",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L11"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_mae_ni",
+      "marker": "〜まえに",
+      "jlpt": "N4",
+      "category": "time",
+      "title": "〜まえに — before",
+      "short": "before doing",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L17"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_dictionary_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_mitai",
+      "marker": "〜みたい",
+      "jlpt": "N4",
+      "category": "conjecture",
+      "title": "〜みたい — looks like / similar to",
+      "short": "casual 〜ようだ",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L18"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N4_youda"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_nagara",
+      "marker": "〜ながら",
+      "jlpt": "N4",
+      "category": "manner",
+      "title": "〜ながら — while",
+      "short": "simultaneous actions",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L19"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_masu_nonpast"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_nakereba",
+      "marker": "〜なければならない",
+      "jlpt": "N4",
+      "category": "necessity",
+      "title": "〜なければならない — must do",
+      "short": "obligation",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L12"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_nai_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_nakute_mo_ii",
+      "marker": "〜なくてもいい",
+      "jlpt": "N4",
+      "category": "necessity",
+      "title": "〜なくてもいい — don't have to",
+      "short": "absence of obligation",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L12"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_nai_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_nara",
+      "marker": "〜なら",
+      "jlpt": "N4",
+      "category": "conditional",
+      "title": "〜なら — if it's the case that",
+      "short": "topic-conditional",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L18"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_no_nominalizer",
+      "marker": "〜の(名詞化)",
+      "jlpt": "N4",
+      "category": "nominalizer",
+      "title": "〜の — nominalizer",
+      "short": "turns clause into noun",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L9"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_passive",
+      "marker": "〜られる(受身)",
+      "jlpt": "N4",
+      "category": "verb_form",
+      "title": "〜(ら)れる — passive",
+      "short": "passive form",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L21"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_dictionary_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_potential",
+      "marker": "〜られる(可能)",
+      "jlpt": "N4",
+      "category": "verb_form",
+      "title": "〜(ら)れる — can / be able to",
+      "short": "potential form",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L13"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_dictionary_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_rashii",
+      "marker": "〜らしい",
+      "jlpt": "N4",
+      "category": "conjecture",
+      "title": "〜らしい — seems (hearsay)",
+      "short": "evidential / hearsay",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L17"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_sou_da_appear",
+      "marker": "〜そうだ(様態)",
+      "jlpt": "N4",
+      "category": "conjecture",
+      "title": "〜そうだ — looks like…",
+      "short": "evidential 'looks like'",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L13"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_sou_da_hearsay",
+      "marker": "〜そうだ(伝聞)",
+      "jlpt": "N4",
+      "category": "conjecture",
+      "title": "〜そうだ — I hear that…",
+      "short": "hearsay reportative",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L17"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_sugiru",
+      "marker": "〜すぎる",
+      "jlpt": "N4",
+      "category": "degree",
+      "title": "〜すぎる — too much",
+      "short": "excess",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L12"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_tameni",
+      "marker": "〜ために",
+      "jlpt": "N4",
+      "category": "purpose",
+      "title": "〜ために — for the purpose of",
+      "short": "purpose / benefit",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L17"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_tara",
+      "marker": "〜たら",
+      "jlpt": "N4",
+      "category": "conditional",
+      "title": "〜たら — if/when",
+      "short": "general conditional",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L17"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_ta_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_te_ageru",
+      "marker": "〜てあげる",
+      "jlpt": "N4",
+      "category": "giving",
+      "title": "〜てあげる — do for someone",
+      "short": "do a favor for another",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L16"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_te_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_te_kara",
+      "marker": "〜てから",
+      "jlpt": "N4",
+      "category": "time",
+      "title": "〜てから — after doing",
+      "short": "sequential action 'and then'",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L7"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_te_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_te_kureru",
+      "marker": "〜てくれる",
+      "jlpt": "N4",
+      "category": "giving",
+      "title": "〜てくれる — someone does for me",
+      "short": "favor received from another",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L16"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_te_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_te_miru",
+      "marker": "〜てみる",
+      "jlpt": "N4",
+      "category": "verb_form",
+      "title": "〜てみる — try doing",
+      "short": "attempt / experiment",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L15"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_te_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_te_morau",
+      "marker": "〜てもらう",
+      "jlpt": "N4",
+      "category": "giving",
+      "title": "〜てもらう — have someone do for me",
+      "short": "request a favor",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L16"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_te_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_te_oku",
+      "marker": "〜ておく",
+      "jlpt": "N4",
+      "category": "verb_form",
+      "title": "〜ておく — do in advance",
+      "short": "do in preparation / leave as-is",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L15"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_te_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_te_shimau",
+      "marker": "〜てしまう",
+      "jlpt": "N4",
+      "category": "verb_form",
+      "title": "〜てしまう — do completely / regrettably",
+      "short": "completion or regret nuance",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L18"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_te_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_te_wa_ikenai",
+      "marker": "〜てはいけない",
+      "jlpt": "N4",
+      "category": "prohibition",
+      "title": "〜てはいけない — must not",
+      "short": "prohibition",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L13"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_te_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_to_iimasu",
+      "marker": "〜と言います",
+      "jlpt": "N4",
+      "category": "reported",
+      "title": "〜と言います — says that…",
+      "short": "indirect quotation",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L8"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_to_natural",
+      "marker": "〜と(自然)",
+      "jlpt": "N4",
+      "category": "conditional",
+      "title": "〜と — whenever / natural result",
+      "short": "natural / inevitable consequence",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L18"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_to_omoimasu",
+      "marker": "〜と思います",
+      "jlpt": "N4",
+      "category": "reported",
+      "title": "〜と思います — I think that…",
+      "short": "first-person opinion",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L8"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_toki",
+      "marker": "〜とき",
+      "jlpt": "N4",
+      "category": "time",
+      "title": "〜とき — when",
+      "short": "temporal subordinate clause",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L13"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_tsumori",
+      "marker": "〜つもり",
+      "jlpt": "N4",
+      "category": "intent",
+      "title": "〜つもり — intend to",
+      "short": "stated intention",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L15"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_dictionary_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_volitional_plain",
+      "marker": "〜よう/〜おう",
+      "jlpt": "N4",
+      "category": "verb_form",
+      "title": "〜よう — plain volitional",
+      "short": "casual 'let's' / intention",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L15"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_masho"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_yasui_nikui",
+      "marker": "〜やすい/にくい",
+      "jlpt": "N4",
+      "category": "degree",
+      "title": "〜やすい・にくい — easy/hard to",
+      "short": "ease of doing",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L19"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_yori",
+      "marker": "〜より",
+      "jlpt": "N4",
+      "category": "comparison",
+      "title": "〜より — than",
+      "short": "comparative 'than'",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L10"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_yotei",
+      "marker": "〜予定",
+      "jlpt": "N4",
+      "category": "intent",
+      "title": "〜予定 — scheduled to",
+      "short": "fixed plan",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L15"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N4_youda",
+      "marker": "〜ようだ",
+      "jlpt": "N4",
+      "category": "conjecture",
+      "title": "〜ようだ — seems / like",
+      "short": "inference / simile",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n4",
+        "genki_L18"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_aida_ni",
+      "marker": "〜あいだに",
+      "jlpt": "N3",
+      "category": "time",
+      "title": "〜あいだに — during/while",
+      "short": "during a span",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L6"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_ba_yokatta",
+      "marker": "〜ばよかった",
+      "jlpt": "N3",
+      "category": "regret",
+      "title": "〜ばよかった — should have…",
+      "short": "retrospective regret",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3"
+      ],
+      "source_count": 2,
+      "prerequisites": [
+        "N4_ba"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N3_bakari",
+      "marker": "〜ばかり",
+      "jlpt": "N3",
+      "category": "degree",
+      "title": "〜ばかり — only/just",
+      "short": "limit / 'just done'",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L7"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_beki",
+      "marker": "〜べき",
+      "jlpt": "N3",
+      "category": "advice",
+      "title": "〜べき — should / ought to",
+      "short": "moral 'should'",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L8"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_dake",
+      "marker": "〜だけ",
+      "jlpt": "N3",
+      "category": "degree",
+      "title": "〜だけ — only",
+      "short": "exclusive limit",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L7"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_hazu",
+      "marker": "〜はず",
+      "jlpt": "N3",
+      "category": "conjecture",
+      "title": "〜はず — should/expected to",
+      "short": "expectation based on knowledge",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L5"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_hodo",
+      "marker": "〜ほど",
+      "jlpt": "N3",
+      "category": "comparison",
+      "title": "〜ほど — to the extent of",
+      "short": "degree comparison",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L7"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_kakeru",
+      "marker": "〜かける",
+      "jlpt": "N3",
+      "category": "aspect",
+      "title": "〜かける — partway through",
+      "short": "incomplete action",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3"
+      ],
+      "source_count": 2,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_koto_ni_naru",
+      "marker": "〜ことになる",
+      "jlpt": "N3",
+      "category": "change",
+      "title": "〜ことになる — be decided that",
+      "short": "external decision",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L4"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N4_koto_nominalizer"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N3_koto_ni_suru",
+      "marker": "〜ことにする",
+      "jlpt": "N3",
+      "category": "intent",
+      "title": "〜ことにする — decide to",
+      "short": "decision",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L4"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N4_koto_nominalizer"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N3_kurai",
+      "marker": "〜くらい/ぐらい",
+      "jlpt": "N3",
+      "category": "comparison",
+      "title": "〜くらい — about / to the extent",
+      "short": "approximate or extent",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3"
+      ],
+      "source_count": 2,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_kuse_ni",
+      "marker": "〜くせに",
+      "jlpt": "N3",
+      "category": "connector",
+      "title": "〜くせに — even though (criticism)",
+      "short": "critical 'even though'",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L6"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N3_noni"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N3_mama",
+      "marker": "〜まま",
+      "jlpt": "N3",
+      "category": "manner",
+      "title": "〜まま — as is / unchanged",
+      "short": "leaving in a state",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L4"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_nakute_mo",
+      "marker": "〜なくても",
+      "jlpt": "N3",
+      "category": "conditional",
+      "title": "〜なくても — even if not",
+      "short": "negative concessive",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3"
+      ],
+      "source_count": 2,
+      "prerequisites": [
+        "N5_nai_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N3_ni_chigainai",
+      "marker": "〜にちがいない",
+      "jlpt": "N3",
+      "category": "conjecture",
+      "title": "〜にちがいない — must be",
+      "short": "strong certainty",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L5"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_ni_kanshite",
+      "marker": "〜に関して",
+      "jlpt": "N3",
+      "category": "structure",
+      "title": "〜に関して — regarding",
+      "short": "topic marker (formal)",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3"
+      ],
+      "source_count": 2,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_ni_taishite",
+      "marker": "〜に対して",
+      "jlpt": "N3",
+      "category": "structure",
+      "title": "〜に対して — toward / against",
+      "short": "directional / opposition",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3"
+      ],
+      "source_count": 2,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_ni_tsuite",
+      "marker": "〜について",
+      "jlpt": "N3",
+      "category": "structure",
+      "title": "〜について — about / concerning",
+      "short": "topical 'about'",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L4"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_ni_yotte",
+      "marker": "〜によって",
+      "jlpt": "N3",
+      "category": "structure",
+      "title": "〜によって — by means of / depending on",
+      "short": "agent / cause / dependency",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L5"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_nodewa_naika",
+      "marker": "〜のではないか",
+      "jlpt": "N3",
+      "category": "conjecture",
+      "title": "〜のではないか — isn't it that…?",
+      "short": "tentative suggestion",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3"
+      ],
+      "source_count": 2,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_noni",
+      "marker": "〜のに",
+      "jlpt": "N3",
+      "category": "connector",
+      "title": "〜のに — although / despite",
+      "short": "unexpected contrast",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L6"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_o_v_ni_naru",
+      "marker": "お〜になる",
+      "jlpt": "N3",
+      "category": "honorific",
+      "title": "お〜になる — honorific verb form",
+      "short": "honorific polite",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L9"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_o_v_suru",
+      "marker": "お〜する",
+      "jlpt": "N3",
+      "category": "honorific",
+      "title": "お〜する — humble verb form",
+      "short": "humble polite",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L9"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_shika",
+      "marker": "〜しか",
+      "jlpt": "N3",
+      "category": "degree",
+      "title": "〜しか〜ない — only (negative)",
+      "short": "exclusive negative",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L7"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_tabi_ni",
+      "marker": "〜たびに",
+      "jlpt": "N3",
+      "category": "time",
+      "title": "〜たびに — every time",
+      "short": "iterative 'whenever'",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3"
+      ],
+      "source_count": 2,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_te_hoshii",
+      "marker": "〜てほしい",
+      "jlpt": "N3",
+      "category": "request",
+      "title": "〜てほしい — want someone to",
+      "short": "want another to do",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L4"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_te_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N3_temo",
+      "marker": "〜ても",
+      "jlpt": "N3",
+      "category": "conditional",
+      "title": "〜ても — even if",
+      "short": "concessive",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "genki_L23"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N5_te_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N3_toiu",
+      "marker": "〜という",
+      "jlpt": "N3",
+      "category": "structure",
+      "title": "〜という — called / that",
+      "short": "naming / quoted complement",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L4"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_toiu_koto",
+      "marker": "〜ということ",
+      "jlpt": "N3",
+      "category": "structure",
+      "title": "〜ということ — the fact that…",
+      "short": "abstract nominalised clause",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L4"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N3_toiu"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N3_tokoro_da",
+      "marker": "〜ところだ",
+      "jlpt": "N3",
+      "category": "aspect",
+      "title": "〜ところだ — about to / just did",
+      "short": "phase of action",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L4"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_toshite",
+      "marker": "〜として",
+      "jlpt": "N3",
+      "category": "structure",
+      "title": "〜として — as / in the role of",
+      "short": "role / capacity",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L5"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_totan_ni",
+      "marker": "〜とたんに",
+      "jlpt": "N3",
+      "category": "time",
+      "title": "〜とたんに — the moment that",
+      "short": "abrupt sequencing",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3"
+      ],
+      "source_count": 2,
+      "prerequisites": [
+        "N5_ta_form"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N3_uchi_ni",
+      "marker": "〜うちに",
+      "jlpt": "N3",
+      "category": "time",
+      "title": "〜うちに — while (still)",
+      "short": "do before condition changes",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L6"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_wake_da",
+      "marker": "〜わけだ",
+      "jlpt": "N3",
+      "category": "explanation",
+      "title": "〜わけだ — that's why",
+      "short": "logical conclusion",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3"
+      ],
+      "source_count": 2,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_wake_dewa_nai",
+      "marker": "〜わけではない",
+      "jlpt": "N3",
+      "category": "explanation",
+      "title": "〜わけではない — it's not that…",
+      "short": "soft negation of inference",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3"
+      ],
+      "source_count": 2,
+      "prerequisites": [
+        "N3_wake_da"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N3_you_ni",
+      "marker": "〜ように(様態)",
+      "jlpt": "N3",
+      "category": "manner",
+      "title": "〜ように — in such a way / like",
+      "short": "manner / simile",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L3"
+      ],
+      "source_count": 3,
+      "prerequisites": [
+        "N4_youda"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N3_you_ni_naru",
+      "marker": "〜ようになる",
+      "jlpt": "N3",
+      "category": "change",
+      "title": "〜ようになる — come to do",
+      "short": "change of state / habit",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L3"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_you_ni_suru",
+      "marker": "〜ようにする",
+      "jlpt": "N3",
+      "category": "change",
+      "title": "〜ようにする — make a point of",
+      "short": "deliberate effort",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3",
+        "tobira_L3"
+      ],
+      "source_count": 3,
+      "prerequisites": [],
+      "disputed": false
+    },
+    {
+      "id": "N3_zaru_o_enai",
+      "marker": "〜ざるを得ない",
+      "jlpt": "N3",
+      "category": "necessity",
+      "title": "〜ざるを得ない — have no choice but to",
+      "short": "unavoidable obligation",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro_n3"
+      ],
+      "source_count": 2,
+      "prerequisites": [],
+      "disputed": false
+    }
+  ]
+}

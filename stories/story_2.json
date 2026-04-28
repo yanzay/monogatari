@@ -1,75 +1,51 @@
 {
   "story_id": 2,
   "title": {
-    "jp": "夕方の公園",
-    "en": "The Evening Park",
+    "jp": "花",
+    "en": "The Flower",
     "tokens": [
       {
-        "t": "夕方",
+        "t": "花",
         "role": "content",
-        "word_id": "W00018",
-        "r": "ゆうがた"
-      },
-      {
-        "t": "の",
-        "role": "particle",
-        "grammar_id": "G015_no_possessive"
-      },
-      {
-        "t": "公園",
-        "role": "content",
-        "word_id": "W00016",
-        "r": "こうえん"
+        "word_id": "W00013",
+        "r": "はな"
       }
     ]
   },
   "new_words": [
-    "W00018",
+    "W00013",
+    "W00014",
+    "W00015",
     "W00016",
-    "W00022",
     "W00017"
   ],
   "new_grammar": [
-    "G015_no_possessive",
     "G010_to_and",
-    "G009_mo_also"
+    "G002_ga_subject",
+    "G021_aru_iru"
   ],
   "all_words_used": [
-    "W00018",
-    "W00016",
-    "W00003",
-    "W00022",
-    "W00017",
-    "W00002",
-    "W00007",
-    "W00008",
-    "W00011",
-    "W00012",
-    "W00009",
-    "W00010",
     "W00013",
-    "W00014"
+    "W00002",
+    "W00014",
+    "W00015",
+    "W00008",
+    "W00016",
+    "W00005",
+    "W00017",
+    "W00001",
+    "W00012",
+    "W00011"
   ],
   "sentences": [
     {
       "idx": 0,
       "tokens": [
         {
-          "t": "夕方",
+          "t": "友達",
           "role": "content",
-          "word_id": "W00018",
-          "r": "ゆうがた",
-          "is_new": true
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
+          "word_id": "W00002",
+          "r": "ともだち"
         },
         {
           "t": "と",
@@ -78,21 +54,9 @@
           "is_new_grammar": true
         },
         {
-          "t": "友達",
-          "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち",
-          "is_new": true
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
           "t": "公園",
           "role": "content",
-          "word_id": "W00016",
+          "word_id": "W00014",
           "r": "こうえん",
           "is_new": true
         },
@@ -104,7 +68,7 @@
         {
           "t": "歩きます",
           "role": "content",
-          "word_id": "W00017",
+          "word_id": "W00015",
           "r": "あるきます",
           "inflection": {
             "base": "歩く",
@@ -120,78 +84,61 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "In the evening, my friend and I walk through the park."
+      "gloss_en": "I walk through the park with my friend."
     },
     {
       "idx": 1,
       "tokens": [
         {
-          "t": "雨",
+          "t": "小さい",
           "role": "content",
-          "word_id": "W00002",
-          "r": "あめ"
+          "word_id": "W00008",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
         },
         {
-          "t": "の",
+          "t": "花",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "はな",
+          "is_new": true
+        },
+        {
+          "t": "が",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
+          "grammar_id": "G002_ga_subject",
           "is_new_grammar": true
         },
         {
-          "t": "木",
+          "t": "あります",
           "role": "content",
-          "word_id": "W00007",
-          "r": "き"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "濡れて",
-          "role": "content",
-          "word_id": "W00008",
-          "r": "ぬれて",
+          "word_id": "W00016",
+          "r": "あります",
           "inflection": {
-            "base": "濡れる",
-            "base_r": "ぬれる",
-            "form": "te",
-            "verb_class": "ichidan"
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
           },
-          "grammar_id": "G007_te_form"
-        },
-        {
-          "t": "います",
-          "role": "aux",
-          "grammar_id": "G008_te_iru"
+          "grammar_id": "G021_aru_iru",
+          "is_new": true,
+          "is_new_grammar": true
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The rain-soaked trees are wet."
+      "gloss_en": "There is a small flower."
     },
     {
       "idx": 2,
       "tokens": [
         {
-          "t": "夕方",
+          "t": "友達",
           "role": "content",
-          "word_id": "W00018",
-          "r": "ゆうがた"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "公園",
-          "role": "content",
-          "word_id": "W00016",
-          "r": "こうえん"
+          "word_id": "W00002",
+          "r": "ともだち"
         },
         {
           "t": "は",
@@ -199,30 +146,111 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "静か",
+          "t": "手",
           "role": "content",
-          "word_id": "W00011",
-          "r": "しずか"
+          "word_id": "W00005",
+          "r": "て"
         },
         {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "花",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "はな"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "取ります",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "とります",
+          "inflection": {
+            "base": "取る",
+            "base_r": "とる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The evening park is quiet."
+      "gloss_en": "My friend picks the flower with their hand."
     },
     {
       "idx": 3,
       "tokens": [
         {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "花",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "はな"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
           "t": "私",
           "role": "content",
-          "word_id": "W00003",
+          "word_id": "W00001",
+          "r": "わたし"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "渡します",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "わたします",
+          "inflection": {
+            "base": "渡す",
+            "base_r": "わたす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend hands the flower to me."
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00001",
           "r": "わたし"
         },
         {
@@ -231,17 +259,10 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "温かい",
+          "t": "花",
           "role": "content",
-          "word_id": "W00012",
-          "r": "あたたかい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "お茶",
-          "role": "content",
-          "word_id": "W00009",
-          "r": "おちゃ"
+          "word_id": "W00013",
+          "r": "はな"
         },
         {
           "t": "を",
@@ -249,13 +270,24 @@
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "飲みます",
+          "t": "手",
           "role": "content",
-          "word_id": "W00010",
-          "r": "のみます",
+          "word_id": "W00005",
+          "r": "て"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "持ちます",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "もちます",
           "inflection": {
-            "base": "飲む",
-            "base_r": "のむ",
+            "base": "持つ",
+            "base_r": "もつ",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
@@ -266,125 +298,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I drink warm tea."
-    },
-    {
-      "idx": 4,
-      "tokens": [
-        {
-          "t": "友達",
-          "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also",
-          "is_new_grammar": true
-        },
-        {
-          "t": "お茶",
-          "role": "content",
-          "word_id": "W00009",
-          "r": "おちゃ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "飲みます",
-          "role": "content",
-          "word_id": "W00010",
-          "r": "のみます",
-          "inflection": {
-            "base": "飲む",
-            "base_r": "のむ",
-            "form": "polite_nonpast",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G026_masu_nonpast"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "My friend drinks tea, too."
-    },
-    {
-      "idx": 5,
-      "tokens": [
-        {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00003",
-          "r": "わたし"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "いい",
-          "role": "content",
-          "word_id": "W00013",
-          "r": "いい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "気分",
-          "role": "content",
-          "word_id": "W00014",
-          "r": "きぶん"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        },
-        {
-          "t": "友達",
-          "role": "content",
-          "word_id": "W00022",
-          "r": "ともだち"
-        },
-        {
-          "t": "も",
-          "role": "particle",
-          "grammar_id": "G009_mo_also"
-        },
-        {
-          "t": "いい",
-          "role": "content",
-          "word_id": "W00013",
-          "r": "いい",
-          "grammar_id": "G022_i_adj"
-        },
-        {
-          "t": "気分",
-          "role": "content",
-          "word_id": "W00014",
-          "r": "きぶん"
-        },
-        {
-          "t": "です",
-          "role": "aux",
-          "grammar_id": "G003_desu"
-        },
-        {
-          "t": "。",
-          "role": "punct"
-        }
-      ],
-      "gloss_en": "I feel good. My friend feels good, too."
+      "gloss_en": "I hold the flower in my hand."
     }
   ]
 }
