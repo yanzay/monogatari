@@ -1,0 +1,53 @@
+{
+  "story_id": 7,
+  "title": {
+    "jp": "公園の箱",
+    "en": "The Box in the Park"
+  },
+  "intent": "A small box in the park contains a key and an old book. The friend takes the book and gives it to the narrator, who reads it and finds a small paper inside; this reinforces story 6 vocabulary while keeping the new mints in one concrete container/object neighborhood.",
+  "scene_class": "park",
+  "anchor_object": "箱",
+  "characters": ["narrator", "friend"],
+  "sentences": [
+    {
+      "jp": "公園に小さい箱があります。",
+      "en": "There is a small box in the park.",
+      "role": "setting"
+    },
+    {
+      "jp": "箱の中に鍵があります。",
+      "en": "There is a key inside the box.",
+      "role": "setting"
+    },
+    {
+      "jp": "古い本は箱の中にあります。",
+      "en": "An old book is inside the box.",
+      "role": "inflection"
+    },
+    {
+      "jp": "友達は本を取ります。",
+      "en": "My friend takes the book.",
+      "role": "action"
+    },
+    {
+      "jp": "そして、私に渡します。",
+      "en": "Then my friend hands it to me.",
+      "role": "action"
+    },
+    {
+      "jp": "でも、私は古い本を読みます。",
+      "en": "But I read the old book.",
+      "role": "action"
+    },
+    {
+      "jp": "本の中に小さい紙があります。",
+      "en": "There is a small paper inside the book.",
+      "role": "reflection"
+    },
+    {
+      "jp": "私は紙を読みます。",
+      "en": "I read the paper.",
+      "role": "closer"
+    }
+  ]
+}
