@@ -451,6 +451,155 @@ def uncovered_in_tier(
     return out
 
 
+# ── Recommendation ranking (leverage scoring) ───────────────────────────────
+#
+# The agent brief shows recommended grammar intros for the next story.
+# Without ranking, the list is alphabetical and the agent (or a
+# rushed human author) picks based on what reads first — which is
+# usually a noisy choice. Worse, the foundational unblockers
+# (te-form, mashita, masen, dictionary_form) sit deep in the
+# alphabet next to one-shot interrogatives like 誰 / いつ.
+#
+# rank_uncovered() returns the prereq-ready uncovered points sorted by
+# leverage. Higher score = pick first. The ranking is deterministic and
+# explainable — every recommendation comes with a rationale showing
+# which factors fired so the agent can sanity-check.
+#
+# Score components (additive):
+#   * direct_unlocks: # of currently-uncovered points that have THIS
+#     point as a direct prerequisite. Te-form unlocks 3 (te_iru,
+#     te_kudasai, te_mo_ii); mashita unlocks 2 (ta_form,
+#     masen_deshita); etc.
+#   * paradigm_bonus: +5 for points that anchor an entire grammatical
+#     paradigm (tense, negation, te-paradigm, copula split, adjective
+#     class). Curated set; foundational shape, not popularity.
+#   * earlier_tier_bonus: +20 if the point belongs to an earlier tier
+#     than the current story's tier. Earlier-tier coverage is required
+#     for tier advancement (Check 3.9), so any earlier-tier unlocked
+#     point trumps current-tier picks.
+#
+# The brief surfaces the top 3 of the ranked list as the
+# `recommended_for_this_story`, with the score breakdown as a
+# `priority_rationale` field on each item.
+
+
+# Manually curated "anchors a paradigm" set. Editing this list is the
+# documented way to nudge future recommendations toward foundational
+# coverage without rewriting the catalog. The bias of +5 was chosen
+# so a paradigm-anchor with zero direct unlocks still outranks a
+# leaf-node interrogative.
+PARADIGM_ANCHORS: set[str] = {
+    # Tense
+    "N5_mashita",          # polite past — unlocks ta-form, past negative
+    "N5_dictionary_form",  # plain non-past — unlocks attributive + plain paradigm
+    # Negation
+    "N5_masen",            # polite negative — unlocks nai-form, masenka, etc.
+    # Te-paradigm
+    "N5_te_form",          # verb te-form — unlocks te-iru, te-kudasai, te-mo-ii
+    "N5_i_adj_te",         # i-adj te-form — unlocks adjective chaining
+    # Copula / na-adjectives
+    "N5_da",               # plain copula — required for casual writing
+    "N5_na_adj",           # na-adjectives — unlocks descriptive predicates
+    # Sentence-final / connectives
+    "N5_kara_because",     # because-clause — most common reason connector
+    "N5_ga_but",           # but-clause — most common contrast connector
+    # Counters: arguably foundational because counted-nouns appear in
+    # nearly every concrete scene; without them everything is "an X"
+    # without a number.
+    "N5_counters",
+    # N4 paradigm anchors (for when we cross into N4 around story 11):
+    "N4_te_iru",
+    "N4_potential",
+    "N4_passive",
+    "N4_volitional",
+    "N4_conditional_tara",
+}
+
+
+PARADIGM_BONUS_POINTS  = 5
+EARLIER_TIER_BONUS     = 20
+
+
+def rank_uncovered(
+    state: dict | None = None,
+    catalog: dict | None = None,
+    target_story: int | None = None,
+) -> list[dict]:
+    """Rank ALL prereq-ready uncovered points by leverage score, descending.
+
+    Returns a list of dicts with the catalog fields plus:
+      * `_score`: total integer score
+      * `_score_breakdown`: dict of contributing factors → points
+      * `_unlocks`: list of catalog ids this point would directly unlock
+      * `_paradigm_anchor`: True if in PARADIGM_ANCHORS
+      * `_earlier_tier`: True if from a tier earlier than target_story's tier
+
+    target_story is optional; if None, the earlier-tier bonus is skipped
+    (the function then returns a globally-ranked list useful for offline
+    inspection). The brief always passes target_story.
+    """
+    if state is None or catalog is None:
+        s, c = _load_state_and_catalog()
+        state = state or s
+        catalog = catalog or c
+
+    cov = coverage_status(state=state, catalog=catalog)
+    covered_cids = set(cov["covered_catalog_ids"].keys())
+
+    # Build prereq → list-of-dependents from the FULL catalog. We count
+    # a point as a "dependent" only if it is also currently uncovered;
+    # already-covered points don't need unlocking.
+    dependents: dict[str, list[str]] = {}
+    for entry in catalog.get("entries", []):
+        if entry["id"] in covered_cids:
+            continue
+        for prereq in entry.get("prerequisites") or []:
+            dependents.setdefault(prereq, []).append(entry["id"])
+
+    # Determine target story's tier (used for earlier-tier bonus).
+    target_jlpt = active_jlpt(target_story) if target_story is not None else None
+    target_tier = JLPT_TO_TIER.get(target_jlpt, 99) if target_jlpt else 99
+
+    ranked: list[dict] = []
+    for entry in catalog.get("entries", []):
+        cid = entry["id"]
+        if cid in covered_cids:
+            continue
+        prereqs = entry.get("prerequisites") or []
+        if not all(p in covered_cids for p in prereqs):
+            continue  # not prereq-ready
+
+        unlocks = sorted(dependents.get(cid, []))
+        direct_unlocks = len(unlocks)
+
+        is_paradigm = cid in PARADIGM_ANCHORS
+        paradigm_pts = PARADIGM_BONUS_POINTS if is_paradigm else 0
+
+        entry_jlpt = entry.get("jlpt")
+        entry_tier = JLPT_TO_TIER.get(entry_jlpt, 99) if entry_jlpt else 99
+        is_earlier_tier = (target_tier < 99 and entry_tier < target_tier)
+        earlier_pts = EARLIER_TIER_BONUS if is_earlier_tier else 0
+
+        score = direct_unlocks + paradigm_pts + earlier_pts
+        ranked.append({
+            **entry,
+            "_score": score,
+            "_score_breakdown": {
+                "direct_unlocks":     direct_unlocks,
+                "paradigm_bonus":     paradigm_pts,
+                "earlier_tier_bonus": earlier_pts,
+            },
+            "_unlocks": unlocks,
+            "_paradigm_anchor": is_paradigm,
+            "_earlier_tier":    is_earlier_tier,
+        })
+
+    # Higher score first; ties broken by id for determinism (so that
+    # repeated invocations produce identical brief output).
+    ranked.sort(key=lambda e: (-e["_score"], e["id"]))
+    return ranked
+
+
 def tier_coverage_complete(
     jlpt_label: str,
     state: dict | None = None,

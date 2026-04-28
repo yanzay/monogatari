@@ -100,6 +100,21 @@ This emits the JSON `agent_brief` for story N. Read it. The brief contains:
   `pedagogical_sanity` step blocks if you skip them. Each item ships
   with an `example.surface` showing a concrete construction you can
   adapt.
+- `must_hit.grammar_introduction.recommended` — **The first item is
+  the default pick.** Recommendations are ranked by leverage score
+  (direct unlocks + paradigm bonus + earlier-tier bonus); see
+  `default_pick_policy` in the brief and `grammar_progression.PARADIGM_ANCHORS`
+  for the curated paradigm-anchor list. Each recommendation ships with
+  a `priority_rationale` string explaining why it scored where it did
+  (e.g. "unlocks 13 downstream points; anchors a foundational paradigm
+  (score 18)"). **Use recommended[0] unless the story's premise makes
+  a different choice clearly more natural** — and if you swap to
+  recommended[1] or [2], document the deferral in the spec's `intent`
+  field. Do NOT pick a low-scoring leaf point (e.g. an interrogative
+  like 誰 or いつ) just because it's easier to land — that's curriculum
+  drift, and the post-ship coverage report will show the foundational
+  unblocker still missing.
+
 - `must_hit.word_reinforcement` — **READ THIS BEFORE drafting.** Every
   word intro'd in the immediately previous story that still needs
   reinforcement. Items with `must_reinforce: true` MUST appear in this
@@ -480,9 +495,13 @@ discard.
 
 #### Step F.3 — Auto-commit and push (only if F.2 passed)
 
-**STANDING ORDER (user directive 2026-04-28): when the self-review
-in §F.2 passes, commit AND push automatically. Do NOT ask the user
-for confirmation. Asking is treated as a skill regression.**
+**STANDING ORDER (user directive 2026-04-28, reaffirmed 2026-04-28
+17:50): when the self-review in §F.2 passes, commit AND push
+automatically. Do NOT ask the user for confirmation. Asking is treated
+as a skill regression. The directive is permanent and applies to ALL
+authoring sessions and ALL related tooling-fix sessions, not just the
+session where it was issued. The only exception is when §F.2 itself
+fails — in that case do NOT commit (see "blocking conditions" below).**
 
 Procedure:
 

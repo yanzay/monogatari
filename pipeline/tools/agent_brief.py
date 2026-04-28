@@ -524,6 +524,30 @@ def _grammar_reinforcement_debt(target_story: int) -> dict:
     }
 
 
+def _ranking_explanation(r: dict) -> str:
+    """One-line, human-readable why-this-was-ranked-here.
+
+    Used in the compact brief so the agent isn't just told "pick this" —
+    it's told why. Keeps the agent's autonomy: if the rationale doesn't
+    match the story they want to write, they can pick #2 or #3 and
+    document the deferral in the spec's `intent` field.
+    """
+    parts: list[str] = []
+    n = r["_score_breakdown"]["direct_unlocks"]
+    if n:
+        sample = ", ".join((r.get("_unlocks") or [])[:3])
+        parts.append(
+            f"unlocks {n} downstream point(s) ({sample}{'…' if n > 3 else ''})"
+        )
+    if r.get("_paradigm_anchor"):
+        parts.append("anchors a foundational paradigm")
+    if r.get("_earlier_tier"):
+        parts.append("earlier-tier — required for tier advancement (Check 3.9)")
+    if not parts:
+        parts.append("no special leverage; baseline coverage candidate")
+    return "; ".join(parts) + f" (score {r['_score']})"
+
+
 def _grammar_introduction_debt(target_story: int) -> dict:
     """Tell the agent which N-tier grammar points are still uncovered.
 
@@ -552,6 +576,7 @@ def _grammar_introduction_debt(target_story: int) -> dict:
             TIER_WINDOWS,
             coverage_status,
             uncovered_in_tier,
+            rank_uncovered,
             JLPT_TO_TIER,
         )
     except Exception:  # pragma: no cover — defensive
@@ -608,16 +633,34 @@ def _grammar_introduction_debt(target_story: int) -> dict:
         for e in cur_uncov_full
     ]
 
-    # Recommended picks: top 3 prereq-ready entries from the current tier
-    # (or earlier tiers, which are even more urgent).
-    candidate_pool = []
-    candidate_pool.extend(
-        e for e in earlier_uncovered if e["prereqs_satisfied"]
-    )
-    candidate_pool.extend(
-        e for e in uncovered_in_current_tier if e["prereqs_satisfied"]
-    )
-    recommended = candidate_pool[:3]
+    # Recommended picks: top 3 prereq-ready entries by leverage score.
+    # The ranking accounts for direct unlocks (how many uncovered points
+    # have THIS as a prereq), a paradigm-anchor bonus for foundational
+    # picks (te-form, mashita, masen, etc.), and an earlier-tier bonus
+    # so any earlier-tier point trumps current-tier picks (Check 3.9
+    # tier-advancement gate). See grammar_progression.rank_uncovered for
+    # the scoring rationale. Replaces the previous alphabetic pool which
+    # buried foundational picks next to leaf interrogatives.
+    ranked = rank_uncovered(target_story=target_story)
+    recommended = []
+    for r in ranked[:3]:
+        recommended.append({
+            "catalog_id":   r["id"],
+            "jlpt":         r.get("jlpt"),
+            "title":        r.get("title"),
+            "short":        r.get("short"),
+            "examples":     r.get("examples") or [],
+            "prereqs_satisfied": True,        # rank_uncovered guarantees this
+            "unmet_prereqs":     [],
+            "priority_score":     r["_score"],
+            "priority_rationale": {
+                "direct_unlocks":   r["_score_breakdown"]["direct_unlocks"],
+                "unlocks":          r["_unlocks"],
+                "paradigm_anchor":  r["_paradigm_anchor"],
+                "earlier_tier":     r["_earlier_tier"],
+                "explanation": _ranking_explanation(r),
+            },
+        })
 
     # Decide must_introduce.
     must = False
@@ -775,17 +818,35 @@ def _compact_palette(palette_json: dict, *, per_category: int = 6) -> dict:
 
 
 def _compact_grammar_intro(debt: dict) -> dict:
+    """Compact grammar-intro recommendations.
+
+    The recommendations are sorted by leverage score (see
+    grammar_progression.rank_uncovered). The first item is the
+    skill's default pick; the second/third are alternatives the agent
+    may swap in if the default doesn't fit the story's premise. Each
+    item ships with a `priority_rationale.explanation` string so the
+    agent can sanity-check the ranking without reading the scoring code.
+    """
     recs = debt.get("recommended_for_this_story") or []
     return {
         "must_introduce": bool(debt.get("must_introduce")),
         "current_jlpt": debt.get("current_jlpt"),
         "coverage_summary": debt.get("coverage_summary"),
+        "default_pick_policy": (
+            "Pick recommended[0] unless the story's premise makes a "
+            "different choice clearly more natural. Document any deferral "
+            "in the spec's `intent` field. Recommendations are ranked by "
+            "leverage (direct unlocks + paradigm bonus + earlier-tier "
+            "bonus) — see grammar_progression.PARADIGM_ANCHORS."
+        ),
         "recommended": [
             {
                 "catalog_id": r.get("catalog_id"),
                 "title": r.get("title"),
                 "short": r.get("short"),
                 "examples": (r.get("examples") or [])[:2],
+                "priority_score":     r.get("priority_score"),
+                "priority_rationale": (r.get("priority_rationale") or {}).get("explanation"),
             }
             for r in recs[:5]
         ],
