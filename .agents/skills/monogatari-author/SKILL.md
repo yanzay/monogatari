@@ -543,6 +543,66 @@ Procedure:
 If the user wants to disable auto-push for a specific story, they will
 say "ship but don't push" / "commit only" / similar. Otherwise: push.
 
+#### Step F.4 — Reconcile the spec's `intent` prose with what actually shipped
+
+**Added 2026-04-28 evening after a fresh-eyes subagent audit caught a
+defect class the prior procedure had no rule for: spec/artifact drift.**
+
+When a story goes through several rewrites in one session — closer
+rotated to escape a cascade trap, mints swapped, a new sentence
+inserted to satisfy must-reuse — the `sentences[]` array gets updated
+on every iteration but the `intent` prose paragraph almost never does.
+By ship time, `intent` describes the story you originally PLANNED to
+write, not the one that actually shipped. Future agents reading the
+spec (including subagent audits, future cascade-impact reviews, and
+your own next-session memory) will trust the prose and be wrong about
+what the corpus actually contains.
+
+**Concrete example from this session (story 7):** the intent paragraph
+claimed the closer was 「読む紙は暖かいです」 (introducing
+G055_plain_nonpast_pair via a relative clause + threading the warmth
+motif), but the shipped sentences[] array carried 「紙は古いです」 because
+mid-rewrite the closer was rotated to escape G055's cascade-debt trap.
+The prose was never updated. A subagent audit reading the spec
+flagged it as REWRITE-SENTENCE on the (false) grounds that
+"spec ≠ artifact."
+
+**The rule:** After §F.3 commit-and-push completes, re-read the
+spec's `intent` paragraph alongside the final `sentences[]` array.
+For each load-bearing claim in the intent, verify the sentences
+support it. Look specifically for:
+
+1. **Closer surface form** — if the intent quotes a closer in 「…」,
+   confirm it matches the actual closer sentence verbatim.
+2. **Grammar introduction claim** — if the intent says "introduces
+   N5_X" or "G0NN_…", confirm the actual `new_grammar` array in
+   `stories/story_N.json` contains it (and only it, if the intent
+   claims a single intro).
+3. **Mint count and identity** — if the intent says "mints exactly
+   K new words (W, X, Y)", confirm the `new_words` array matches.
+4. **Reinforcement claims** — if the intent says "reinforces W in
+   sentence S", confirm sentence S contains W.
+5. **Cascade-debt claims** — if the intent says "addressed by adding
+   a relative clause to story N+1", confirm story N+1's spec actually
+   contains that addition. (Catches the case where the cascade-fix
+   plan was abandoned mid-session.)
+
+**If you find drift:** rewrite the intent paragraph to describe what
+actually shipped. If the original plan changed for a documented
+reason (cascade trap, lint failure, must-reuse insertion, etc.), add
+a `HISTORICAL NOTE:` clause explaining what the original plan was
+and why it was abandoned — this is more useful to future readers
+than silently overwriting. The intent rewrite is text-only, never
+changes the built artifact, never invalidates tests; just commit it
+as a fast-follow with message `Reconcile story N intent prose with
+shipped artifact`.
+
+**If you find no drift:** skip the rewrite, but log "intent verified
+matches artifact" in your §G report.
+
+This step should be invisible to the user — they should not have to
+ask for it. Treat it as part of §F's shipping contract, like audio.
+
 ### Step G — Report (no tool call; final message to user)
 
 In ≤15 lines: ship status, the 1-line title in JP/EN, the structural
