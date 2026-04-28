@@ -217,16 +217,18 @@ MIN_REINFORCEMENT_USES = 1   # the point must appear in ≥1 of those 5 stories
 #     (story N+1 … N+W). This catches "one-and-done" introductions while
 #     the word is still warm in working memory.
 #
-#     Window: 10 stories. Minimum reuses: 2.
+#     Window: 10 stories. Minimum reuses: 1.
 #     Rationale: The grammar reinforcement window (5/1) is calibrated for
 #     grammar *structures*, which are reused implicitly via any sentence.
 #     Content vocabulary needs more deliberate repetition because it isn't
 #     automatically carried by every sentence. Ten stories gives the author
 #     enough runway to weave the word back in naturally without forcing it
-#     into every subsequent story. Two hits (not one) avoids the case where
-#     a word sneaks into one story and then disappears — two exposures in the
-#     window is the minimum signal that the word has an ongoing role.
-#     This maps to ENCOUNTERS_TO_NOTICE (10) as a long-run target; the
+#     into every subsequent story. The minimum bar is ONE follow-up
+#     reinforcement: a single re-encounter within the window is enough
+#     signal that the introduction wasn't a one-shot. (Relaxed 2026-04-28
+#     from 2 → 1 because the previous 2-hit bar created structural debt
+#     that propagated cascades onto adjacent already-shipped stories.) This
+#     maps to ENCOUNTERS_TO_NOTICE (10) as the long-run target; the
 #     early-window check is the on-ramp.
 #
 #   Rule R2 (no abandoned words) — RETIRED 2026-04-24:
@@ -252,7 +254,9 @@ MIN_REINFORCEMENT_USES = 1   # the point must appear in ≥1 of those 5 stories
 #     deprecation notice.
 #
 VOCAB_REINFORCE_WINDOW   = 10   # look at the next 10 stories after introduction
-VOCAB_REINFORCE_MIN_USES = 2    # must appear in ≥2 of those 10 stories
+VOCAB_REINFORCE_MIN_USES = 1    # must appear in ≥1 of those 10 stories
+                                # (relaxed 2026-04-28 from 2 → 1; see Rule R1
+                                #  rationale block above)
 # (VOCAB_MAX_GAP and VOCAB_ABANDON_GRACE — the R2 abandonment-rule constants —
 #  were retired 2026-04-24 along with the rule itself.)
 

@@ -506,10 +506,11 @@ def test_vocab_words_are_reinforced(stories, root):
 
     Rationale: introducing a word once and then leaving it unseen for the
     entire reinforcement window means it was never truly in the curriculum.
-    Two appearances in the next ten stories is the minimum bar for the word
+    One appearance in the next ten stories is the minimum bar for the word
     to have any chance of landing in long-term memory (cf. Nation 2022:
     vocabulary needs ~10 spaced encounters for reliable incidental retention;
-    the early-window check seeds the first two of those encounters).
+    the early-window check seeds the first of those encounters). Relaxed
+    2026-04-28 from 2 → 1; see Rule R1 in pipeline/grammar_progression.py.
 
     Stories near the end of the library may have a shorter look-ahead window;
     in that case the test only requires that the word appears in
