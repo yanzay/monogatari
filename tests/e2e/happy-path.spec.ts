@@ -85,38 +85,71 @@ test('stats view loads', async ({ page }) => {
   await expect(page.locator('input[type="range"]').first()).toBeVisible();
 });
 
-test('library navigation: open story 2', async ({ page }) => {
+test('library navigation: open story 1 (always unlocked seed)', async ({ page }) => {
+  // Per the strict graded-reader unlock policy (2026-04-29), a fresh
+  // learner has only story 1 unlocked; story N≥2 is locked until
+  // story N-1 is marked completed. We exercise the library-card →
+  // /read flow against story 1 because it is the only card that any
+  // visitor (fresh CI run or returning user) can be guaranteed to
+  // have unlocked. The previous version of this test clicked Story 2
+  // — that card is disabled for a fresh user and the click would be
+  // intercepted, breaking CI.
   await page.goto('/');
   await page.locator('a.nav-btn[data-view="library"]').click();
   await expect(page).toHaveURL(/\/library/);
 
   // Wait for cards to render (virtualized — only the first slice).
   const card = page
-    .locator('button.story-card', { hasText: 'Story 2' })
+    .locator('button.story-card', { hasText: 'Story 1' })
     .first();
   await card.waitFor({ state: 'visible', timeout: 15_000 });
+  // Sanity: story 1 is the seed and must always be enabled.
+  await expect(card).toBeEnabled();
   await card.click();
-  await expect(page).toHaveURL(/\/read\?story=2/);
-  await expect(page.locator('.story-id-label')).toHaveText('Story 2');
+  await expect(page).toHaveURL(/\/read\?story=1/);
+  await expect(page.locator('.story-id-label')).toHaveText('Story 1');
 });
 
 test('vocab view loads and search filters', async ({ page }) => {
+  // The vocab view now defaults to "learner's known words only" (the
+  // entire corpus dictionary is overwhelming for a fresh user). The
+  // page renders an empty-state CTA "show all N words in the corpus"
+  // for fresh visitors; clicking that CTA flips the showAll toggle
+  // and is the user-facing path we should exercise. We don't poke
+  // the underlying checkbox directly because Svelte-5 hydration
+  // races make the input flaky to target by selector.
   await page.goto('/');
   await page.locator('a.nav-btn[data-view="vocab"]').click();
   await expect(page).toHaveURL(/\/vocab/);
 
-  // Stats visible
-  const stats = page.locator('.vocab-stats');
-  await expect(stats).toBeVisible();
+  // Stats render unconditionally.
+  await expect(page.locator('.vocab-stats')).toBeVisible();
 
-  // Type a search that should filter results
+  // Wait for the vocab index to finish loading. For a fresh learner
+  // (zero known words), this surfaces the "show all" CTA in an
+  // empty-state. For a returning learner with known words, the rows
+  // render directly. Handle both paths so the test is portable
+  // across environments.
+  const showAllCta = page.locator('button.link-button', { hasText: /show all/i });
+  const anyRow = page.locator('button.vocab-row').first();
+  await Promise.race([
+    showAllCta.waitFor({ state: 'visible', timeout: 15_000 }).catch(() => null),
+    anyRow.waitFor({ state: 'visible', timeout: 15_000 }).catch(() => null),
+  ]);
+  if (await showAllCta.isVisible().catch(() => false)) {
+    await showAllCta.click();
+  }
+  // Either way, rows should now be visible (full corpus is non-empty).
+  await expect(anyRow).toBeVisible({ timeout: 10_000 });
+
+  // Type a search that should filter to nothing.
   const search = page.locator('input.vocab-search');
   await search.fill('zzz_no_match_xyzzy');
   await expect(page.locator('.empty-state')).toBeVisible();
 
   await search.fill('');
-  // At least one row should reappear
-  await expect(page.locator('button.vocab-row').first()).toBeVisible({ timeout: 5_000 });
+  // At least one row should reappear.
+  await expect(anyRow).toBeVisible({ timeout: 5_000 });
 });
 
 test('grammar view shows entries with prebuilt examples', async ({ page }) => {
