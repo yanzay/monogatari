@@ -55,6 +55,20 @@ and an authoring-tools package at `pipeline/tools/`.
 - Grammar state file structure: `{"version": ..., "points": {gid: {...}}}`.
   The points dict has `examples` but field names like `label`/`description`/
   `pattern` are inconsistently present.
+- **Two parallel grammar id namespaces — reconcile via `catalog_id`.**
+  `data/grammar_state.json` keys grammar by internal ids `G001_wa_topic`
+  / `G003_desu` / etc. `data/grammar_catalog.json` keys by JLPT-tagged
+  ids `N5_wa_topic` / `N5_desu` / etc. The bridge is the `catalog_id`
+  field on each grammar_state entry. Coverage analysis (which catalog
+  points have been introduced?) MUST join via `catalog_id`. Use
+  `pipeline/grammar_progression.coverage_status()` rather than rolling
+  your own. The agent_brief and validator both use the helper.
+- **`grammar_state.json::points[gid]["intro_in_story"]` is the
+  load-bearing field for coverage tracking.** A point with
+  `intro_in_story=None` is treated as "not yet covered" by Check 3.10
+  / 3.9 / the brief. State_updater sets it on every ship; the
+  one-shot `pipeline/tools/backfill_grammar_intros.py` will repair
+  legacy bulk-loaded entries that lack it.
 - A bilingual spec (`pipeline/inputs/story_N.bilingual.json`) is the
   AUTHORITATIVE editable source. The shipped `stories/story_N.json` is
   a derived artifact — do NOT hand-edit it.
@@ -75,6 +89,26 @@ The three things that cascade across the corpus when you change a story:
 The thing that does NOT cascade automatically: **other stories' validation**
 when an early story removes a grammar/vocab introduction. Verify with
 `pytest pipeline/tests/test_validate_library.py -q` after any v1 spec edit.
+
+## Post-ship state chain ORDER matters
+
+`pipeline/author_loop.py author N` writes ONLY `stories/story_N.json`.
+It does NOT update `data/vocab_state.json`, `data/grammar_state.json`,
+or set the `is_new` flags. The post-ship chain MUST run in this order:
+
+1. `regenerate_all_stories.py --story N --apply` — populates
+   `new_words` and `new_grammar` arrays in the story file by walking
+   the corpus to find first-occurrences.
+2. `state_updater.py stories/story_N.json` — reads those arrays and
+   mutates `data/vocab_state.json` (mints W0xx ids) +
+   `data/grammar_state.json` (sets `intro_in_story`).
+3. `regenerate_all_stories.py --story N --apply` again — rewrites
+   `is_new` flags and stable word_ids now that state is final.
+
+The 2026-04-28 session bit on this: running state_updater BEFORE the
+first regenerate left `Words added: []` and `Grammar added: []`
+because the story's `new_words`/`new_grammar` arrays were still empty.
+Always regenerate → state_updater → regenerate.
 
 ---
 
@@ -164,6 +198,15 @@ commitments documented in `docs/v2-strategy-2026-04-27.md` and
   reflection, closer}.
 - **Recurring human audit every 10 stories** because reviewer model is
   same family as author (shared blind-spot risk).
+- **Per-story grammar floor (added 2026-04-28).** Every post-bootstrap
+  story (story 4+) MUST introduce ≥1 new grammar point until the
+  current JLPT tier is fully covered (then the same rule for N4, then
+  N3). Validator Check 3.10 + gauntlet `coverage_floor` step
+  hard-block any story that violates this. The brief surfaces the
+  uncovered list under `grammar_introduction_debt`. Tier advancement
+  (e.g. story 11 → N4) requires every prior-tier point to be covered
+  first (Check 3.9). Coverage status today: see
+  `python3 pipeline/grammar_progression.py`.
 
 ---
 

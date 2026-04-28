@@ -45,6 +45,17 @@ variant. If the user says only `author` with no number, default to "next"
    uses** — e.g. `言います` looks N5 but `「X」と言います` is N4 (G028).
 5. **NEVER touch `data/vocab_state.json` or `data/grammar_state.json`
    directly.** Only `state_updater` modifies them, only at ship time.
+6. **EVERY post-bootstrap story (story 4+) must introduce ≥1 new
+   grammar point** until the current JLPT tier (and all earlier
+   tiers) are fully covered by the catalog. The brief's
+   `grammar_introduction_debt.must_introduce` flag tells you when
+   this rule fires; the gauntlet's `coverage_floor` step and
+   validator Check 3.10 hard-block any story that violates it. The
+   only way out is to actually pick a new point from
+   `grammar_introduction_debt.recommended_for_this_story` and weave
+   it in. Tier advancement (e.g. story 11 → N4) is gated by Check
+   3.9 — cannot enter the next tier while the previous one has
+   uncovered points.
 
 ## 2. The procedure (the entire flow)
 
@@ -64,12 +75,31 @@ This emits the JSON `agent_brief` for story N. Read it. The brief contains:
 - `palette.categories` — every available word grouped by sense (★ = due,
   ★★ = critical-debt; prefer star-tagged words)
 - `grammar_points` — every available grammar point
-- `grammar_reinforcement_debt` — **READ THIS FIRST.** Lists every grammar
-  point intro'd in the last W stories that still needs reinforcement.
-  Items with `must_reinforce: true` MUST appear in this story; the
-  gauntlet's `pedagogical_sanity` step blocks if you skip them. Each
-  item ships with an `example.surface` showing a concrete construction
-  you can adapt.
+- `grammar_introduction_debt` — **READ THIS BEFORE drafting.** Tells you
+  which JLPT-tier catalog points are still uncovered and which are
+  prereq-ready. Fields:
+    * `must_introduce: bool` — if true, this story MUST add ≥1 new
+      grammar point (or `coverage_floor` and validator Check 3.10 will
+      hard-block the ship).
+    * `current_jlpt` / `current_tier_window` — your tier ladder.
+    * `coverage_summary` — `{N5: {covered, total, remaining}, …}`.
+    * `recommended_for_this_story` — top 3 prereq-ready picks with
+      `catalog_id`, `title`, `short`, and `examples`. **Alphabetic
+      ordering caveat:** the list is currently sorted alphabetically,
+      not pedagogically. Foundational picks like `N5_desu` (です),
+      `N5_ka_question` (か), `N5_mashita_past` (ました), `N5_masen` may
+      not be at the top even though they're the most natural earliest
+      additions. Always scan the full `uncovered_in_current_tier` list
+      before committing to a recommended pick.
+    * `earlier_uncovered` — points from PRIOR tiers that should never
+      have been skipped; if non-empty, address them first (they'll
+      block tier advancement via Check 3.9).
+- `grammar_reinforcement_debt` — Lists every grammar point intro'd in
+  the last W stories that still needs reinforcement. Items with
+  `must_reinforce: true` MUST appear in this story; the gauntlet's
+  `pedagogical_sanity` step blocks if you skip them. Each item ships
+  with an `example.surface` showing a concrete construction you can
+  adapt.
 - `north_stars` — the era's 1–3 voice templates (this is the tone you must match)
 - `previous_3_stories` — what the prior corpus just did (avoid repeating motifs)
 - `previous_closers` — the literal closer of the last 3 stories. Do NOT
@@ -78,8 +108,9 @@ This emits the JSON `agent_brief` for story N. Read it. The brief contains:
 - `lint_rules_active` — the 10 rules your spec must pass
 - `anti_patterns_to_avoid` — the 5 audit defects with bad/fix examples
 
-**Internalize the north_stars, anti_patterns, AND `must_reinforce`
-items before drafting a single sentence.** Do not skim them.
+**Internalize the north_stars, anti_patterns, `must_introduce`,
+AND `must_reinforce` items before drafting a single sentence.** Do
+not skim them.
 
 ### Step B — Choose intent and anchor (no tool call; in head)
 
@@ -308,7 +339,9 @@ cp pipeline/inputs/story_N.bilingual.json /tmp/story_N.bilingual.json.bak
 source .venv/bin/activate && python3 pipeline/author_loop.py author N --dry-run
 ```
 
-This runs: spec_exists → agent_brief → build → validate (incl. all 10 lints)
+This runs: spec_exists → agent_brief → build → validate (incl. all 10
+lints AND Checks 3.6/3.9/3.10 grammar coverage) → mint_budget →
+pedagogical_sanity (reinforcement) → coverage_floor (introduction)
 → literary_review (stub) → would-write → audio (stub).
 
 **Read the output carefully.** If `VERDICT: would_ship`, proceed to Step F.
@@ -320,10 +353,31 @@ If `VERDICT: fail`, see §3 (failure recovery).
 source .venv/bin/activate && python3 pipeline/author_loop.py author N
 ```
 
-(Same command without `--dry-run`.) Then run the regenerator to set the
-`is_new` flags correctly:
+(Same command without `--dry-run`.)
+
+**The author_loop only writes `stories/story_N.json`.** It does NOT
+update `data/vocab_state.json`, `data/grammar_state.json`, or set the
+`is_new` flags on the story tokens. You MUST run the post-ship chain
+in this exact order (running the steps in the wrong order silently
+loses attribution data — the bug bit story 4 in the 2026-04-28
+session, where `state_updater` ran before `regenerate_all_stories` and
+the new G003_desu intro was not recorded):
 
 ```bash
+# 1. Regenerate first — this fills new_words and new_grammar arrays
+#    AND the is_new / is_new_grammar token flags by re-traversing the
+#    library. WITHOUT this, state_updater sees empty arrays and
+#    nothing gets minted.
+source .venv/bin/activate && python3 pipeline/regenerate_all_stories.py --story N --apply
+
+# 2. State_updater consumes the populated story file and mutates
+#    data/vocab_state.json + data/grammar_state.json (sets
+#    intro_in_story for any newly-introduced grammar point).
+source .venv/bin/activate && python3 pipeline/state_updater.py stories/story_N.json
+
+# 3. Regenerate ONE MORE TIME to recompute is_new under the now-final
+#    word_id assignments. (state_updater renumbers W0001x → W0002x for
+#    fresh mints; the first regenerate had placeholder ids.)
 source .venv/bin/activate && python3 pipeline/regenerate_all_stories.py --story N --apply
 ```
 
@@ -350,6 +404,20 @@ matching content hash, so it's cheap to re-run. Use `--force` only when
 you've changed an existing sentence and need to overwrite. The builder
 writes to `audio/story_N/`. **Do NOT skip this step** — incomplete audio
 ships a broken reading experience to the user.
+
+**Also verify older stories have their audio.** When the user says
+"verify audio for all previous stories" (or you're shipping into a
+corpus that may have skipped audio), loop the builder over every
+shipped story — it's incremental and cheap. The 2026-04-28 session
+discovered stories 1 and 2 had no audio at all because earlier ship
+commits skipped this step:
+
+```bash
+for n in $(seq 1 N); do
+  source .venv/bin/activate && python3 pipeline/audio_builder.py \
+      --vocab data/vocab_state.json stories/story_$n.json
+done
+```
 
 If the audio builder fails (network, GCP credentials, quota), STOP and
 report the failure to the user; do NOT proceed to commit. Audio is part
@@ -465,6 +533,33 @@ recovery options:
   count, then re-run. This is legitimate when the new words form a
   coherent neighborhood matching the story's purpose; not legitimate
   when they're accidental fallout.
+
+### Halted at `coverage_floor`
+The story introduced 0 new grammar points but the current JLPT tier
+(or an earlier tier) still has uncovered catalog entries. Validator
+Check 3.10 fires for the same reason. Recovery:
+
+1. Open the brief: `python3 pipeline/author_loop.py author N --brief-only`
+2. Read `grammar_introduction_debt.recommended_for_this_story` — the
+   prereq-ready picks. Cross-reference with the FULL
+   `uncovered_in_current_tier` list because the recommendation list
+   is alphabetic, not pedagogical.
+3. Pick a point whose construction fits naturally in your current
+   spec. The cheapest-to-introduce N5 points are typically:
+     * `N5_desu` (です) — append a copula reflection sentence like
+       「<adj> <noun>です。」 (zero new vocab, fits any scene).
+     * `N5_ka_question` (か) — turn one assertion into a question.
+     * `N5_mashita_past` (ました) — one past-tense verb.
+     * `N5_masen` (ません) / `N5_arimasen` (ありません) — a single
+       negative.
+     * `N5_dare_who` / `N5_doko_where` — an interrogative inserted
+       into a dialogue or reflection sentence.
+4. Rewrite ONE sentence (or add one) to use the picked construction.
+   Re-run `would-mint` to confirm no extra mints were introduced.
+5. Re-run the gauntlet.
+
+If `earlier_uncovered` is non-empty (a prior tier has gaps), address
+THOSE first — Check 3.9 will hard-block tier advancement otherwise.
 
 ### Halted at `pedagogical_sanity`
 Your story did not reinforce a grammar point that has `must_reinforce:
@@ -589,11 +684,29 @@ python3 pipeline/author_loop.py author N --dry-run
 # Run the gauntlet, ship (Step F)
 python3 pipeline/author_loop.py author N
 
-# Recompute is_new flags (Step F, after shipping)
-python3 pipeline/regenerate_all_stories.py --story N --apply
+# Post-ship state chain — REQUIRED, in this order. The author_loop
+# only writes stories/story_N.json; the state files and is_new flags
+# are NOT updated until you run the next three steps.
+python3 pipeline/regenerate_all_stories.py --story N --apply       # populate new_words / new_grammar
+python3 pipeline/state_updater.py stories/story_N.json             # mint to vocab/grammar state
+python3 pipeline/regenerate_all_stories.py --story N --apply       # rewrite is_new under final ids
+
+# Backfill grammar intro_in_story across the whole corpus (idempotent;
+# only needed once after a fresh clone of an old corpus). Run if the
+# brief shows zero grammar_palette / coverage data despite shipped
+# stories.
+python3 pipeline/tools/backfill_grammar_intros.py
+
+# Catalog coverage report (per-tier covered/remaining)
+python3 pipeline/grammar_progression.py
 
 # Generate audio for a shipped story (Step F.1, REQUIRED for new stories)
 python3 pipeline/audio_builder.py --vocab data/vocab_state.json stories/story_N.json
+
+# Verify older stories also have audio (cheap, incremental)
+for n in $(seq 1 N); do
+  python3 pipeline/audio_builder.py --vocab data/vocab_state.json stories/story_$n.json
+done
 
 # Full test sweep (Step F)
 python3 -m pytest pipeline/tests/ -q
