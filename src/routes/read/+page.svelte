@@ -17,7 +17,8 @@
     isStoryUnlocked,
     highestUnlockedStory,
   } from '$lib/util/story-progression';
-  import { mintCardsForStory, isDue } from '$lib/state/srs';
+  import { mintCardsForStory } from '$lib/state/srs';
+  import { countDueCards, nextDueChangeTimestamp } from '$lib/util/due-count';
   import type { Story, VocabIndex } from '$lib/data/types';
 
   let story = $state<Story | null>(null);
@@ -170,20 +171,44 @@
   }
 
   // Story-level "review N due here?" CTA.
-  let dueInThisStory = $derived.by(() => {
-    if (!story || !learner.state.srs) return 0;
-    const idsInStory = new Set<string>();
+  // Real-time-correct due-count for the in-page "N due word here —
+  // review now" CTA. Same event-driven pattern as the menu badge in
+  // +layout.svelte (commit 9ba37dc): a reactive nowTick advances at
+  // the EXACT moment the next card becomes due, no polling, no
+  // staleness, zero wakeups when no cards are pending.
+  //
+  // We compute the story's "slice" of the srs map first — only cards
+  // for words that actually appear in this story — and feed that
+  // slice to both helpers. That way the CTA's wakeup schedule is
+  // scoped to the story; cards in OTHER stories don't trigger
+  // unrelated re-renders of this view.
+  let nowTick = $state(Date.now());
+  let storySrsSlice = $derived.by(() => {
+    if (!story || !learner.state.srs) return {};
+    const slice: Record<string, NonNullable<typeof learner.state.srs>[string]> = {};
+    const seen = new Set<string>();
     for (const sent of story.sentences) {
       for (const tok of sent.tokens) {
-        if (tok.word_id) idsInStory.add(tok.word_id);
+        const wid = tok.word_id;
+        if (wid && !seen.has(wid)) {
+          seen.add(wid);
+          const card = learner.state.srs[wid];
+          if (card) slice[wid] = card;
+        }
       }
     }
-    let n = 0;
-    for (const id of idsInStory) {
-      const card = learner.state.srs[id];
-      if (card && isDue(card)) n += 1;
-    }
-    return n;
+    return slice;
+  });
+  let dueInThisStory = $derived(countDueCards(storySrsSlice, nowTick));
+
+  $effect(() => {
+    const target = nextDueChangeTimestamp(storySrsSlice, nowTick);
+    if (target === null) return;
+    const wait = Math.max(100, target - Date.now());
+    const id = setTimeout(() => {
+      nowTick = Date.now();
+    }, wait);
+    return () => clearTimeout(id);
   });
 
   function prevStory() {
