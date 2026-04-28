@@ -4,6 +4,7 @@
   import { loadStoryById, getWord, loadVocabIndex } from '$lib/data/corpus';
   import { audioFor } from '$lib/data/audio';
   import { applyGrade, buildQueue, GRADES } from '$lib/state/srs';
+  import { resolveReviewKey } from '$lib/util/review-keymap';
   import type { Sentence, Word, VocabIndex } from '$lib/data/types';
   import type { Card, Grade } from '$lib/state/types';
 
@@ -140,18 +141,25 @@
 
   function onKeydown(e: KeyboardEvent) {
     if (!card) return;
-    if (e.target && (e.target as HTMLElement).tagName === 'INPUT') return;
-    if (!revealed) {
-      if (e.key === ' ' || e.key === 'Enter') {
-        e.preventDefault();
+    const focusedTag = (e.target as HTMLElement | null)?.tagName;
+    const action = resolveReviewKey(e.key, revealed, focusedTag);
+    switch (action.kind) {
+      case 'ignore':
+        return;
+      case 'reveal':
+        if (action.preventDefault) e.preventDefault();
         reveal();
-      }
-      return;
+        return;
+      case 'grade':
+        if (action.preventDefault) e.preventDefault();
+        if (action.grade === 'again') grade(GRADES.AGAIN);
+        else if (action.grade === 'good') grade(GRADES.GOOD);
+        else if (action.grade === 'easy') grade(GRADES.EASY);
+        return;
+      case 'undo':
+        undo();
+        return;
     }
-    if (e.key === '1') grade(GRADES.AGAIN);
-    else if (e.key === '2') grade(GRADES.GOOD);
-    else if (e.key === '3') grade(GRADES.EASY);
-    else if (e.key.toLowerCase() === 'u') undo();
   }
 
   onMount(() => {
@@ -239,7 +247,7 @@
               Again<span class="grade-label">1</span>
             </button>
             <button class="grade-btn" onclick={() => grade(GRADES.GOOD)}>
-              Good<span class="grade-label">2</span>
+              Good<span class="grade-label">2 / Space</span>
             </button>
             <button class="grade-btn" onclick={() => grade(GRADES.EASY)}>
               Easy<span class="grade-label">3</span>
