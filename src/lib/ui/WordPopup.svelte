@@ -2,6 +2,7 @@
   import type { Word, Story, Token, GrammarState } from '$lib/data/types';
   import { audioFor } from '$lib/data/audio';
   import { learner } from '$lib/state/learner.svelte';
+  import { wordAudioPath } from '$lib/util/word-audio';
 
   interface Props {
     word: Word;
@@ -14,7 +15,14 @@
 
   let isNew = $derived(!!story?.new_words?.includes(word.id));
   let inflection = $derived(tok?.inflection);
-  let audioSrc = $derived(story?.word_audio?.[word.id]);
+  // Prefer a story-supplied path (set by corpus.decorateWithAudioPaths
+  // when the popup is opened from the read view); otherwise fall back
+  // to deriving the canonical per-word audio path from the word's own
+  // first_story metadata. The fallback is what makes the play button
+  // work when the popup is opened from the vocab list, library, review
+  // screen, or — as it turns out — the read view itself, because the
+  // layout's WordPopup invocation hard-codes story={null}.
+  let audioSrc = $derived(story?.word_audio?.[word.id] ?? wordAudioPath(word) ?? undefined);
   let srs = $derived(learner.state.srs?.[word.id]);
   let hasKanji = $derived(word.surface !== word.kana);
 
