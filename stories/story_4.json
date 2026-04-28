@@ -1,0 +1,418 @@
+{
+  "story_id": 4,
+  "title": {
+    "jp": "赤い花",
+    "en": "The Red Flower",
+    "tokens": [
+      {
+        "t": "赤い",
+        "role": "content",
+        "word_id": "W00021",
+        "r": "あかい",
+        "grammar_id": "G022_i_adj"
+      },
+      {
+        "t": "花",
+        "role": "content",
+        "word_id": "W00013",
+        "r": "はな"
+      }
+    ]
+  },
+  "new_words": [
+    "W00021",
+    "W00022",
+    "W00023"
+  ],
+  "new_grammar": [
+    "G003_desu"
+  ],
+  "all_words_used": [
+    "W00021",
+    "W00013",
+    "W00003",
+    "W00001",
+    "W00014",
+    "W00022",
+    "W00023",
+    "W00010",
+    "W00008",
+    "W00002",
+    "W00004",
+    "W00015",
+    "W00017",
+    "W00005",
+    "W00012"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "あさ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "こうえん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "ドア",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "どあ",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "上",
+          "role": "content",
+          "word_id": "W00023",
+          "r": "うえ",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "赤い",
+          "role": "content",
+          "word_id": "W00021",
+          "r": "あかい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "花",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "はな"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the morning, I see a red flower above the park's door.",
+      "audio": "audio/story_4/s0.mp3",
+      "audio_hash": "22d3903b57d9"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00008",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "花",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "はな"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is a small flower.",
+      "audio": "audio/story_4/s1.mp3",
+      "audio_hash": "395d3e8f0afa"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "道",
+          "role": "content",
+          "word_id": "W00004",
+          "r": "みち"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "歩きます",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あるきます",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A friend walks along the path.",
+      "audio": "audio/story_4/s2.mp3",
+      "audio_hash": "9e7fac2eb03d"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "赤い",
+          "role": "content",
+          "word_id": "W00021",
+          "r": "あかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "花",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "はな"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "取ります",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "とります",
+          "inflection": {
+            "base": "取る",
+            "base_r": "とる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend takes the red flower.",
+      "audio": "audio/story_4/s3.mp3",
+      "audio_hash": "b888c0cd2104"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "花",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "はな"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "わたし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "手",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "て"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "渡します",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "わたします",
+          "inflection": {
+            "base": "渡す",
+            "base_r": "わたす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend hands the flower into my hand.",
+      "audio": "audio/story_4/s4.mp3",
+      "audio_hash": "68a96a19645e"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "わたし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "手",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "て"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The friend looks at my hand.",
+      "audio": "audio/story_4/s5.mp3",
+      "audio_hash": "c7f21fda1ac0"
+    }
+  ],
+  "word_audio": {
+    "W00021": "audio/story_4/w_W00021.mp3",
+    "W00022": "audio/story_4/w_W00022.mp3",
+    "W00023": "audio/story_4/w_W00023.mp3"
+  },
+  "word_audio_hash": {
+    "W00021": "8e4b46ee4106",
+    "W00022": "baab70513536",
+    "W00023": "db5ba671d244"
+  }
+}

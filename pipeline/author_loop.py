@@ -409,6 +409,104 @@ def step_pedagogical_sanity(story_id: int, built_story: dict) -> StepResult:
         )
 
 
+def step_coverage_floor(story_id: int, built_story: dict) -> StepResult:
+    """Hard-block step: does this story introduce ≥1 new grammar point
+    while the current tier still has uncovered catalog entries?
+
+    Mirrors validator's Check 3.10 but reports earlier in the gauntlet
+    with a concrete pick list pulled from the brief's
+    `grammar_introduction_debt.recommended_for_this_story`. Skipped during
+    the bootstrap window (stories 1..BOOTSTRAP_END) since the bootstrap is
+    policed in aggregate, not per-story.
+    """
+    try:
+        from grammar_progression import BOOTSTRAP_END  # noqa: E402
+    except Exception:
+        BOOTSTRAP_END = 3
+    if story_id <= BOOTSTRAP_END:
+        return StepResult(
+            "coverage_floor", "skipped",
+            f"Bootstrap window (stories 1..{BOOTSTRAP_END}) — per-story "
+            f"floor doesn't apply.",
+            blocking=False,
+        )
+    try:
+        brief = agent_brief.build_brief(story_id)
+        debt = brief.get("grammar_introduction_debt") or {}
+        if not debt.get("must_introduce"):
+            return StepResult(
+                "coverage_floor", "ok",
+                f"All tiers ≤ {debt.get('current_jlpt','?')} are fully "
+                f"covered; no introduction required.",
+                details={"coverage_summary": debt.get("coverage_summary")},
+            )
+        # Walk the built story's `new_grammar` array.
+        story_intros = built_story.get("new_grammar") or []
+        # text_to_story leaves new_grammar empty until the post-pass; the
+        # first-occurrence flagger runs in regenerate_all_stories, not here.
+        # As a fallback, inspect tokens directly for grammar_ids that are
+        # not yet in grammar_state with intro_in_story != None.
+        if not story_intros:
+            try:
+                from grammar_progression import coverage_status as _cov
+                covered_cids = set(_cov()["covered_catalog_ids"].keys())
+                # Map gid → catalog_id via grammar_state
+                import json as _json
+                from _paths import DATA as _DATA
+                gstate = _json.loads((_DATA / "grammar_state.json").read_text())
+                gid_to_cid = {
+                    gid: e.get("catalog_id")
+                    for gid, e in (gstate.get("points") or {}).items()
+                }
+                used_gids: set[str] = set()
+                for sent in built_story.get("sentences", []):
+                    for tok in sent.get("tokens", []):
+                        for g in (tok.get("grammar_id"),
+                                  (tok.get("inflection") or {}).get("grammar_id")):
+                            if g:
+                                used_gids.add(g)
+                story_intros = [
+                    g for g in used_gids
+                    if (cid := gid_to_cid.get(g)) and cid not in covered_cids
+                ]
+            except Exception:
+                pass
+
+        if story_intros:
+            return StepResult(
+                "coverage_floor", "ok",
+                f"Story introduces {len(story_intros)} new grammar point(s): "
+                f"{sorted(story_intros)}.",
+                details={"intros": sorted(story_intros)},
+            )
+        # Fail — build a clear pick list.
+        recs = debt.get("recommended_for_this_story") or []
+        rec_lines = [
+            f"  - {r['catalog_id']} ({r.get('jlpt')}): {r.get('title','')}"
+            f" — {r.get('short','')}"
+            for r in recs
+        ] or ["  (no prereq-ready picks; check earlier_uncovered first)"]
+        return StepResult(
+            "coverage_floor", "fail",
+            f"Story {story_id} introduces 0 new grammar points but the "
+            f"current tier ({debt.get('current_jlpt','?')}) still has "
+            f"{sum(b['remaining'] for b in (debt.get('coverage_summary') or {}).values())} "
+            f"uncovered point(s). Pick at least one from "
+            f"`grammar_introduction_debt.recommended_for_this_story`.",
+            details={
+                "coverage_summary": debt.get("coverage_summary"),
+                "recommended": recs,
+                "recommendations_human": "\n".join(rec_lines),
+            },
+        )
+    except Exception as e:
+        return StepResult(
+            "coverage_floor", "fail",
+            f"coverage_floor crashed: {e}",
+            details=traceback.format_exc(),
+        )
+
+
 def step_mint_budget(story_id: int, build_report: dict | None) -> StepResult:
     """Soft-block check: did this story respect its mint_budget?
 
@@ -536,6 +634,15 @@ def run_gauntlet(story_id: int, *, dry_run: bool) -> dict:
     steps.append(s_ped)
     if s_ped.status == "fail":
         return _make_verdict(story_id, steps, dry_run, halted_at="pedagogical_sanity")
+
+    # Step 5.7: coverage floor (HARD BLOCK). Every post-bootstrap story
+    # must introduce ≥1 new grammar point until the current JLPT tier
+    # is fully covered. Mirrors validator's Check 3.10 with a clearer
+    # pick list pulled from the brief.
+    s_cov = step_coverage_floor(story_id, built)
+    steps.append(s_cov)
+    if s_cov.status == "fail":
+        return _make_verdict(story_id, steps, dry_run, halted_at="coverage_floor")
 
     # Step 6: literary review (non-blocking)
     s_rev = step_literary_review(built)

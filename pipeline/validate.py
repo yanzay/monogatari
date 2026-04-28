@@ -770,11 +770,134 @@ def validate(
                 intros_by_n: dict[int, list[str]] = {n: _intros_of(d) for n, d in library.items()}
                 used_by_n:   dict[int, set[str]]  = {n: _grammar_used(d) for n, d in library.items()}
 
-                # Check 3.6 (cadence: max-per-story / bootstrap-cap / rolling
-                # minimum) is intentionally disabled. With the honest
-                # library-wide first-occurrence semantics now in force, the
-                # `new_grammar` array is whatever it is — pacing is no longer
-                # a story-authoring constraint.
+                # ── Check 3.6: rolling-window cadence minimum ────────────
+                # Only enforced when the window's lower bound is past the
+                # bootstrap region (otherwise we'd penalise stories 4..7 for
+                # the bootstrap aggregate cap).
+                if sid_for_tier > BOOTSTRAP_END + CADENCE_WINDOW - 1:
+                    lo = sid_for_tier - CADENCE_WINDOW + 1
+                    count = sum(
+                        len(intros_by_n.get(i, []))
+                        for i in range(lo, sid_for_tier + 1)
+                    )
+                    if count < MIN_NEW_PER_WINDOW:
+                        result.add_error(
+                            "3.6",
+                            f"Cadence floor violated: stories {lo}..{sid_for_tier} "
+                            f"introduce only {count} new grammar point(s); "
+                            f"minimum is {MIN_NEW_PER_WINDOW} per "
+                            f"{CADENCE_WINDOW}-story window. Declare at least "
+                            f"one new_grammar in this story."
+                        )
+
+                # ── Check 3.10: per-story floor while tier is uncovered ──
+                # Every post-bootstrap story must introduce ≥1 new grammar
+                # point AS LONG AS the current tier (or any earlier tier)
+                # still has uncovered catalog entries. This is the strong
+                # form of the user-requested rule "all stories should
+                # introduce new grammar until N5/N4/N3 are completely
+                # covered."
+                #
+                # Implementation note: the story's `new_grammar` array is
+                # populated by the regenerate_all_stories post-pass, NOT by
+                # text_to_story.build_story. validate() runs *between* those
+                # two stages during the gauntlet, so reading new_grammar
+                # alone gives a false negative. We instead compute "what
+                # WILL this story end up introducing" by walking the story's
+                # tokens and counting any grammar_id whose state-entry has
+                # `intro_in_story is None` (i.e. genuinely new to the corpus).
+                if sid_for_tier > BOOTSTRAP_END:
+                    try:
+                        from grammar_progression import (
+                            active_jlpt as _active_jlpt,
+                            JLPT_TO_TIER as _JLPT_TO_TIER,
+                            coverage_status as _coverage_status,
+                        )
+                        # Coverage status BEFORE this story's intros are
+                        # applied. Stories already shipped have populated
+                        # state; the current story's intros are reflected
+                        # via state_updater AFTER validate(), so the disk
+                        # state is the right baseline here.
+                        cov = _coverage_status()
+                        cur_jlpt = _active_jlpt(sid_for_tier)
+                        cur_tier = _JLPT_TO_TIER.get(cur_jlpt, 1)
+                        # Any uncovered points in current-or-earlier tier?
+                        any_uncov = any(
+                            b.get("remaining", 0) > 0
+                            for j, b in cov["by_jlpt"].items()
+                            if _JLPT_TO_TIER.get(j, 99) <= cur_tier
+                        )
+                        # Compute effective intros for this story — both the
+                        # already-declared `new_grammar` AND any token-level
+                        # grammar_id whose state entry has no intro yet.
+                        declared_intros = set(intros_by_n.get(sid_for_tier, []))
+                        effective_intros = set(declared_intros)
+                        for gid in used_by_n.get(sid_for_tier, set()):
+                            gp = grammar_points.get(gid, {})
+                            if gp.get("intro_in_story") is None:
+                                effective_intros.add(gid)
+                        story_intros_count = len(effective_intros)
+                        if any_uncov and story_intros_count == 0:
+                            # Build a hint about ready picks.
+                            from grammar_progression import uncovered_in_tier as _u
+                            ready = [
+                                e["id"]
+                                for e in _u(cur_jlpt)
+                                if e["_prereqs_satisfied"]
+                            ][:5]
+                            result.add_error(
+                                "3.10",
+                                f"Story {sid_for_tier} introduces 0 new grammar "
+                                f"point(s); current tier ({cur_jlpt}) still has "
+                                f"uncovered points. Every post-bootstrap story "
+                                f"must introduce ≥1 new grammar point until the "
+                                f"current tier is fully covered. Ready picks "
+                                f"(prereqs satisfied): {ready or '(none — fix '
+                                f'earlier-tier coverage first)'}.",
+                            )
+                    except ImportError:
+                        pass
+
+                # ── Check 3.9: tier coverage gate ────────────────────────
+                # A story whose tier is HIGHER than the previous story's
+                # tier may only ship if every catalog point in the prior
+                # tier has been introduced. Prevents jumping into N4
+                # while N5 still has gaps.
+                if sid_for_tier > 1:
+                    try:
+                        from grammar_progression import (
+                            active_tier as _active_tier,
+                            active_jlpt as _active_jlpt,
+                            TIER_WINDOWS as _TIER_WINDOWS,
+                            coverage_status as _coverage_status,
+                        )
+                        prev_tier = _active_tier(sid_for_tier - 1)
+                        cur_tier  = _active_tier(sid_for_tier)
+                        if cur_tier > prev_tier:
+                            cov = _coverage_status()
+                            prev_jlpt = next(
+                                (j for t, _, _, j in _TIER_WINDOWS if t == prev_tier),
+                                None,
+                            )
+                            remaining = (
+                                cov["by_jlpt"].get(prev_jlpt, {}).get("remaining", 0)
+                            )
+                            if remaining > 0:
+                                uncovered_ids = (
+                                    cov["by_jlpt"].get(prev_jlpt, {})
+                                    .get("uncovered_ids", [])[:8]
+                                )
+                                result.add_error(
+                                    "3.9",
+                                    f"Tier-coverage gate: cannot advance from "
+                                    f"tier {prev_tier} ({prev_jlpt}) to tier "
+                                    f"{cur_tier} at story {sid_for_tier} while "
+                                    f"{remaining} {prev_jlpt} catalog point(s) "
+                                    f"remain uncovered. First {len(uncovered_ids)} "
+                                    f"uncovered: {uncovered_ids}",
+                                )
+                    except ImportError:
+                        pass
 
                 # Check 3.8 (grammar reinforcement window) is enforced live by
                 # `pipeline/tools/cadence.py grammar-reinforce` and the

@@ -1,0 +1,43 @@
+{
+  "story_id": 4,
+  "title": {
+    "jp": "赤い花",
+    "en": "The Red Flower"
+  },
+  "intent": "A friend takes a red flower from above the park's doorway and hands it to the narrator, then looks at the narrator's hand. Real possession transfer in a new scene class (park-gate vignette). Reinforces G015_no_possessive (must_reinforce: true) four times via 公園のドア / ドアの上 / 私の手 / 私の手, and INTRODUCES G003_desu — the polite copula です — via a single reflection sentence 「小さい花です。」 between the setting and the action. This satisfies Check 3.10 (per-story floor while N5 is uncovered) by introducing a foundational N5 point (the most-used grammar in the canonical Japanese sentence shape Xです) without straining the size band or mint budget. Mint budget: 3 (赤い, ドア, 上) — coherent 'spatial framing + named color' neighborhood drawn from the era's north-star.",
+  "scene_class": "park",
+  "anchor_object": "赤い花",
+  "characters": ["narrator", "friend"],
+  "sentences": [
+    {
+      "jp": "朝、私は公園のドアの上に赤い花を見ます。",
+      "en": "In the morning, I see a red flower above the park's door.",
+      "role": "setting"
+    },
+    {
+      "jp": "小さい花です。",
+      "en": "It is a small flower.",
+      "role": "reflection"
+    },
+    {
+      "jp": "友達は道を歩きます。",
+      "en": "A friend walks along the path.",
+      "role": "action"
+    },
+    {
+      "jp": "友達は赤い花を取ります。",
+      "en": "The friend takes the red flower.",
+      "role": "action"
+    },
+    {
+      "jp": "友達は花を私の手に渡します。",
+      "en": "The friend hands the flower into my hand.",
+      "role": "action"
+    },
+    {
+      "jp": "友達は私の手を見ます。",
+      "en": "The friend looks at my hand.",
+      "role": "closer"
+    }
+  ]
+}

@@ -142,12 +142,35 @@ def update_state(
         new_vocab["next_word_id"] = f"W{max_n + 1:05d}"
 
     # ── 2. Add new grammar points ─────────────────────────────────────────────
+    #
+    # Two distinct cases:
+    #   (a) gid is brand-new to grammar_state — build a fresh entry from the
+    #       plan's new_grammar_definitions block (requires title/short/long).
+    #   (b) gid already exists in grammar_state but has no `intro_in_story`
+    #       (legacy state from the bulk pre-load). We patch `intro_in_story`
+    #       and `first_story` so coverage tracking works going forward.
+    #       This is the common path right now — most G0XX points were
+    #       loaded with metadata but no story attribution.
     added_grammar = []
     plan_grammar_defs = (plan or {}).get("new_grammar_definitions", {})
     for gid in story_new_grammar:
         if gid in new_grammar["points"]:
+            # Case (b): patch intro_in_story / first_story on the legacy
+            # entry. We only set them when not already set — re-shipping a
+            # story should not overwrite an earlier-shipped attribution.
+            entry = new_grammar["points"][gid]
+            patched = False
+            if entry.get("intro_in_story") is None:
+                entry["intro_in_story"] = story_id
+                patched = True
+            if not entry.get("first_story"):
+                entry["first_story"] = first_story_label
+                patched = True
+            if patched:
+                added_grammar.append(gid)
             continue
 
+        # Case (a): brand-new gid — definition required.
         defn = plan_grammar_defs.get(gid)
         if not defn or not defn.get("title") or not defn.get("short") or not defn.get("long"):
             # Refuse to write a placeholder. Surfacing the error here is the
@@ -158,14 +181,15 @@ def update_state(
             )
 
         entry = {
-            "id":            gid,
-            "title":         defn["title"],
-            "short":         defn["short"],
-            "long":          defn["long"],
-            "jlpt":          defn.get("jlpt"),
-            "catalog_id":    defn.get("catalog_id"),
-            "first_story":   first_story_label,
-            "prerequisites": list(defn.get("prerequisites", []) or []),
+            "id":              gid,
+            "title":           defn["title"],
+            "short":           defn["short"],
+            "long":            defn["long"],
+            "jlpt":            defn.get("jlpt"),
+            "catalog_id":      defn.get("catalog_id"),
+            "first_story":     first_story_label,
+            "intro_in_story":  story_id,
+            "prerequisites":   list(defn.get("prerequisites", []) or []),
         }
         # Optional reference fields — only emit when present and non-null;
         # the JSON schema requires them to be strings, so a `None` from a

@@ -168,6 +168,100 @@ _skip_cadence = pytest.mark.skipif(
     reason="Cadence/reinforcement rules deferred — see is_new_grammar honest semantics",
 )
 
+def test_tier_coverage_gate(stories, root):
+    """Tier-coverage gate: a story whose tier is HIGHER than the previous
+    story's tier may only ship if every catalog point in the prior tier
+    has `intro_in_story` set in `data/grammar_state.json`.
+
+    Mirrors validator's Check 3.9. Prevents jumping into N4 while N5
+    still has gaps.
+    """
+    sys.path.insert(0, str(root / "pipeline"))
+    from grammar_progression import (
+        active_tier,
+        TIER_WINDOWS,
+        coverage_status,
+    )
+    cov = coverage_status()
+
+    bad: list[str] = []
+    sids = sorted(int(s["_id"].split("_")[1]) for s in stories)
+    for n in sids:
+        if n <= 1:
+            continue
+        prev_t = active_tier(n - 1)
+        cur_t = active_tier(n)
+        if cur_t <= prev_t:
+            continue
+        prev_jlpt = next((j for t, _, _, j in TIER_WINDOWS if t == prev_t), None)
+        rem = cov["by_jlpt"].get(prev_jlpt, {}).get("remaining", 0)
+        if rem > 0:
+            bad.append(
+                f"story_{n} advances from tier {prev_t} ({prev_jlpt}) to "
+                f"tier {cur_t} but {rem} {prev_jlpt} point(s) are still "
+                f"uncovered (first few: "
+                f"{cov['by_jlpt'].get(prev_jlpt, {}).get('uncovered_ids', [])[:5]})"
+            )
+    assert not bad, "Tier-coverage gate violations:\n  " + "\n  ".join(bad)
+
+
+def test_per_story_grammar_floor_while_tier_uncovered(stories, root):
+    """Per-story floor: every post-bootstrap story whose current tier still
+    has uncovered catalog points must declare ≥1 new_grammar.
+
+    Mirrors validator's Check 3.10 and the user-requested rule "all stories
+    should introduce new grammar until N5/N4/N3 are completely covered."
+
+    The check uses post-shipping state to determine "uncovered". Because
+    every shipped story populates `intro_in_story`, the count grows
+    monotonically; the only way to fail this test after shipping is to
+    have shipped a story that should have introduced something but
+    declared `new_grammar = []` while uncovered points remained in its
+    tier (or any earlier tier).
+    """
+    sys.path.insert(0, str(root / "pipeline"))
+    from grammar_progression import (
+        BOOTSTRAP_END,
+        active_jlpt,
+        JLPT_TO_TIER,
+        coverage_status,
+    )
+    cov = coverage_status()
+
+    # Compute, for each tier, whether ANY of that tier's points are still
+    # uncovered. (Coverage only ever grows over time, so today's snapshot
+    # is enough — if N5 has uncovered points NOW, every past post-bootstrap
+    # N5 story should have introduced at least one.)
+    by_jlpt = cov["by_jlpt"]
+
+    bad: list[str] = []
+    for s in stories:
+        n = int(s["_id"].split("_")[1])
+        if n <= BOOTSTRAP_END:
+            continue
+        ng = s.get("new_grammar") or []
+        if ng:
+            continue  # already pulling its weight
+        cur_jlpt = active_jlpt(n)
+        cur_tier = JLPT_TO_TIER.get(cur_jlpt, 1)
+        any_uncov = any(
+            b.get("remaining", 0) > 0
+            for j, b in by_jlpt.items()
+            if JLPT_TO_TIER.get(j, 99) <= cur_tier
+        )
+        if any_uncov:
+            bad.append(
+                f"story_{n} ({cur_jlpt}) declares 0 new_grammar but tier(s) "
+                f"≤ {cur_jlpt} still have uncovered points: "
+                f"{ {j: b['remaining'] for j, b in by_jlpt.items()
+                     if JLPT_TO_TIER.get(j, 99) <= cur_tier and b['remaining'] > 0} }"
+            )
+    assert not bad, (
+        "Per-story grammar floor violations (Check 3.10):\n  "
+        + "\n  ".join(bad)
+    )
+
+
 @_skip_cadence
 def test_grammar_introduction_cadence(stories, root):
     """Slow-but-steady grammar cadence — see grammar_progression.py for rationale.

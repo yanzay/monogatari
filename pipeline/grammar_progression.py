@@ -314,9 +314,164 @@ def show_curve() -> None:
           f"automatic={ENCOUNTERS_TO_PROCEDURALISE} encounters")
 
 
+# ── Tier coverage helpers ────────────────────────────────────────────────────
+#
+# Coverage = "for tier T, how many catalog points have intro_in_story set?"
+# A tier is "uncovered" when at least one of its catalog entries has not
+# yet appeared in any shipped story's `new_grammar` list.
+#
+# These helpers reconcile the two id namespaces:
+#   * `data/grammar_catalog.json` — uses `N5_*` / `N4_*` ids.
+#   * `data/grammar_state.json`   — uses internal `G0XX_*` ids that point
+#     back to the catalog via the `catalog_id` field on each entry.
+#
+# A catalog point is "covered" iff some grammar_state entry has
+# `catalog_id == <catalog point id>` AND `intro_in_story is not None`.
+#
+# Why this lives here (and not in agent_brief.py): both the validator
+# (Check 3.9 / 3.10) and the brief need this; centralising avoids drift.
+
+
+def _load_state_and_catalog() -> tuple[dict, dict]:
+    """Load grammar_state and grammar_catalog from disk via _paths."""
+    import json
+    from _paths import DATA  # local import to avoid hard dep at import time
+    state = json.loads((DATA / "grammar_state.json").read_text(encoding="utf-8"))
+    catalog = json.loads((DATA / "grammar_catalog.json").read_text(encoding="utf-8"))
+    return state, catalog
+
+
+def coverage_status(
+    state: dict | None = None,
+    catalog: dict | None = None,
+) -> dict:
+    """Return per-tier coverage of the catalog by the current state.
+
+    Output schema:
+      {
+        "by_jlpt": {
+          "N5": {
+             "total": 64,
+             "covered": 10,
+             "remaining": 54,
+             "covered_ids":   ["N5_wa_topic", ...],
+             "uncovered_ids": ["N5_dare_who", ...],
+          },
+          "N4": {...},
+          ...
+        },
+        # gid_to_intro is a flat catalog_id → intro_in_story map for
+        # quick lookups by callers that already know what they're after.
+        "covered_catalog_ids": {"N5_wa_topic": 1, ...},
+      }
+    """
+    if state is None or catalog is None:
+        s, c = _load_state_and_catalog()
+        state = state or s
+        catalog = catalog or c
+
+    # Build catalog_id → intro_in_story from state (a state entry's
+    # `catalog_id` is the bridge; `intro_in_story` is what makes it covered).
+    covered_cid_to_intro: dict[str, int] = {}
+    for _gid, entry in (state.get("points") or {}).items():
+        cid = entry.get("catalog_id")
+        intro = entry.get("intro_in_story")
+        if not cid or intro is None:
+            continue
+        # Earliest intro wins on duplicates (shouldn't happen, but be safe).
+        if cid not in covered_cid_to_intro or covered_cid_to_intro[cid] > intro:
+            covered_cid_to_intro[cid] = int(intro)
+
+    by_jlpt: dict[str, dict] = {}
+    for entry in catalog.get("entries", []):
+        cid = entry["id"]
+        jlpt = entry.get("jlpt") or "?"
+        bucket = by_jlpt.setdefault(jlpt, {
+            "total": 0,
+            "covered": 0,
+            "remaining": 0,
+            "covered_ids": [],
+            "uncovered_ids": [],
+        })
+        bucket["total"] += 1
+        if cid in covered_cid_to_intro:
+            bucket["covered"] += 1
+            bucket["covered_ids"].append(cid)
+        else:
+            bucket["remaining"] += 1
+            bucket["uncovered_ids"].append(cid)
+    # Stable id order in each list
+    for bucket in by_jlpt.values():
+        bucket["covered_ids"].sort()
+        bucket["uncovered_ids"].sort()
+    return {
+        "by_jlpt": by_jlpt,
+        "covered_catalog_ids": covered_cid_to_intro,
+    }
+
+
+def uncovered_in_tier(
+    jlpt_label: str,
+    state: dict | None = None,
+    catalog: dict | None = None,
+) -> list[dict]:
+    """Return the catalog entries (full dicts) that are NOT yet covered for the given JLPT label.
+
+    Useful for the brief's `grammar_introduction_debt.recommended_for_this_story`.
+    Sorted so that points whose prerequisites are ALREADY covered come first
+    (a point is "ready" only when its prereqs are introduced).
+    """
+    if state is None or catalog is None:
+        s, c = _load_state_and_catalog()
+        state = state or s
+        catalog = catalog or c
+
+    cov = coverage_status(state=state, catalog=catalog)
+    covered_cids = set(cov["covered_catalog_ids"].keys())
+    out = []
+    for entry in catalog.get("entries", []):
+        if (entry.get("jlpt") or "?") != jlpt_label:
+            continue
+        cid = entry["id"]
+        if cid in covered_cids:
+            continue
+        prereqs = entry.get("prerequisites") or []
+        prereqs_satisfied = all(p in covered_cids for p in prereqs)
+        out.append({
+            **entry,
+            "_prereqs_satisfied": prereqs_satisfied,
+            "_unmet_prereqs": [p for p in prereqs if p not in covered_cids],
+        })
+    # Ready (prereqs satisfied) first, then by id for determinism.
+    out.sort(key=lambda e: (not e["_prereqs_satisfied"], e["id"]))
+    return out
+
+
+def tier_coverage_complete(
+    jlpt_label: str,
+    state: dict | None = None,
+    catalog: dict | None = None,
+) -> bool:
+    """True iff every catalog entry tagged with `jlpt_label` is covered."""
+    cov = coverage_status(state=state, catalog=catalog)
+    return cov["by_jlpt"].get(jlpt_label, {"remaining": 0})["remaining"] == 0
+
+
 if __name__ == "__main__":
     show_curve()
     print()
     print("── per-story tier ──")
     for sid in [1, 5, 10, 11, 15, 25, 26, 50, 51]:
         print(f"  story {sid:>3}: tier {active_tier(sid)} ({active_jlpt(sid)})")
+    print()
+    print("── catalog coverage ──")
+    try:
+        cov = coverage_status()
+        for jlpt in ("N5", "N4", "N3", "N2", "N1", "?"):
+            b = cov["by_jlpt"].get(jlpt)
+            if not b:
+                continue
+            print(f"  {jlpt}: covered {b['covered']:3d}/{b['total']:3d}  "
+                  f"remaining {b['remaining']:3d}")
+    except Exception as e:  # pragma: no cover — defensive when run outside repo
+        print(f"  (could not load state/catalog: {e})")

@@ -398,6 +398,152 @@ def _grammar_reinforcement_debt(target_story: int) -> dict:
     }
 
 
+def _grammar_introduction_debt(target_story: int) -> dict:
+    """Tell the agent which N-tier grammar points are still uncovered.
+
+    Until every catalog point in the *current tier* (and all earlier tiers)
+    has an `intro_in_story`, every post-bootstrap story MUST introduce at
+    least one new grammar point. The validator's Check 3.10 enforces this;
+    this section gives the agent the menu and a recommended pick.
+
+    Output schema:
+      {
+        "policy": {...},
+        "current_jlpt": "N5",
+        "current_tier_window": [1, 10],
+        "must_introduce": True/False,
+        "must_introduce_reasons": [...],
+        "coverage_summary": {"N5": {"covered": 10, "total": 54, "remaining": 44}, ...},
+        "uncovered_in_current_tier": [<catalog entries, prereqs-ready-first>],
+        "earlier_uncovered": [...],          # earlier-tier points still uncovered
+        "recommended_for_this_story": [<top 3 ready picks with examples>]
+      }
+    """
+    try:
+        from grammar_progression import (  # noqa: E402
+            active_jlpt,
+            BOOTSTRAP_END,
+            TIER_WINDOWS,
+            coverage_status,
+            uncovered_in_tier,
+            JLPT_TO_TIER,
+        )
+    except Exception:  # pragma: no cover — defensive
+        return {
+            "implemented": False,
+            "note": "grammar_progression coverage helpers unavailable",
+        }
+
+    cov = coverage_status()
+    current_jlpt = active_jlpt(target_story)
+    current_tier = JLPT_TO_TIER.get(current_jlpt, 1)
+    tier_window = next(
+        ([lo, hi] for t, lo, hi, _ in TIER_WINDOWS if t == current_tier),
+        [1, 10],
+    )
+
+    # Coverage summary across every tier — collapses our "covered_ids" /
+    # "uncovered_ids" lists down to scalar counts for at-a-glance reading.
+    coverage_summary = {
+        jlpt: {"covered": b["covered"],
+               "total":   b["total"],
+               "remaining": b["remaining"]}
+        for jlpt, b in cov["by_jlpt"].items()
+    }
+
+    # Earlier-tier uncovered (these are URGENT — they should never have been
+    # skipped; the gauntlet's tier-coverage-gate forbids advancing past them).
+    earlier_uncovered: list[dict] = []
+    for t, _lo, _hi, jlpt in TIER_WINDOWS:
+        if t >= current_tier:
+            continue
+        for entry in uncovered_in_tier(jlpt):
+            earlier_uncovered.append({
+                "catalog_id": entry["id"],
+                "jlpt": entry.get("jlpt"),
+                "title": entry.get("title"),
+                "short": entry.get("short"),
+                "prereqs_satisfied": entry["_prereqs_satisfied"],
+                "unmet_prereqs": entry["_unmet_prereqs"],
+            })
+
+    # Current tier uncovered, prereq-ready first.
+    cur_uncov_full = uncovered_in_tier(current_jlpt)
+    uncovered_in_current_tier = [
+        {
+            "catalog_id": e["id"],
+            "jlpt": e.get("jlpt"),
+            "title": e.get("title"),
+            "short": e.get("short"),
+            "examples": e.get("examples") or [],
+            "prereqs_satisfied": e["_prereqs_satisfied"],
+            "unmet_prereqs": e["_unmet_prereqs"],
+        }
+        for e in cur_uncov_full
+    ]
+
+    # Recommended picks: top 3 prereq-ready entries from the current tier
+    # (or earlier tiers, which are even more urgent).
+    candidate_pool = []
+    candidate_pool.extend(
+        e for e in earlier_uncovered if e["prereqs_satisfied"]
+    )
+    candidate_pool.extend(
+        e for e in uncovered_in_current_tier if e["prereqs_satisfied"]
+    )
+    recommended = candidate_pool[:3]
+
+    # Decide must_introduce.
+    must = False
+    reasons = []
+    if target_story > BOOTSTRAP_END:
+        if any(b["remaining"] > 0
+               for jlpt, b in coverage_summary.items()
+               if JLPT_TO_TIER.get(jlpt, 99) <= current_tier):
+            must = True
+            reasons.append(
+                f"current tier {current_jlpt} has uncovered points; "
+                "every post-bootstrap story must introduce ≥1 grammar point "
+                "while uncovered points remain in current or earlier tiers."
+            )
+    else:
+        # Bootstrap — soft nudge, not hard requirement (cap policed elsewhere).
+        if uncovered_in_current_tier:
+            reasons.append(
+                f"bootstrap window: cap {15} aggregate intros across "
+                f"stories 1..{BOOTSTRAP_END}, but try to keep the foundational "
+                "set well-distributed."
+            )
+
+    return {
+        "policy": {
+            "rule": (
+                "Every post-bootstrap story must introduce at least one new "
+                "grammar point until the current tier (and all earlier tiers) "
+                "have been fully covered. The current tier is JLPT-determined "
+                "by story_id (see grammar_progression.TIER_WINDOWS). The "
+                "validator's Check 3.10 hard-blocks the build if this is "
+                "violated; the gauntlet's `coverage_floor` step blocks the "
+                "ship."
+            ),
+            "advancement": (
+                "A story whose tier is higher than the previous story's tier "
+                "may only ship if every catalog point in the previous tier "
+                "has `intro_in_story` set (Check 3.9 tier-coverage-gate)."
+            ),
+            "bootstrap_end": BOOTSTRAP_END,
+        },
+        "current_jlpt": current_jlpt,
+        "current_tier_window": tier_window,
+        "must_introduce": must,
+        "must_introduce_reasons": reasons,
+        "coverage_summary": coverage_summary,
+        "uncovered_in_current_tier": uncovered_in_current_tier,
+        "earlier_uncovered": earlier_uncovered,
+        "recommended_for_this_story": recommended,
+    }
+
+
 def _previous_closers(target_story: int, n: int = 3) -> list[dict]:
     """The literal JP closer of the last n stories.
 
@@ -475,6 +621,7 @@ def build_brief(target_story: int) -> dict[str, Any]:
         "mint_budget": _mint_budget_for(target_story),
         "palette": palette_json,
         "grammar_points": grammar_palette,
+        "grammar_introduction_debt": _grammar_introduction_debt(target_story),
         "grammar_reinforcement_debt": _grammar_reinforcement_debt(target_story),
         "north_stars": _north_stars_stub(target_story),
         "scene_coverage": _scene_coverage_stub(target_story),
