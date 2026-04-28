@@ -279,7 +279,7 @@ describe('sanitizeImported', () => {
           '2': { completed: false },
           '3': { completed: true },
           '4': {},
-        } as Record<string, { completed: boolean }>,
+        } as unknown as Record<string, { completed: boolean }>,
       });
       expect(Object.keys(out.story_progress).sort()).toEqual(['1', '3']);
       expect(out.story_progress['1']).toEqual({ completed: true });
@@ -292,7 +292,7 @@ describe('sanitizeImported', () => {
 
     it('drops null entries silently', () => {
       const out = sanitizeImported({
-        story_progress: { '1': null, '2': { completed: true } } as Record<
+        story_progress: { '1': null, '2': { completed: true } } as unknown as Record<
           string,
           { completed: boolean }
         >,

@@ -31,6 +31,7 @@ import {
   type Card as FsrsCard,
 } from 'ts-fsrs';
 import type { Card, Grade, SrsStatus, ReviewLogEntry } from './types';
+import type { Story } from '../data/types';
 
 /* ── Configuration ───────────────────────────────────────────────── */
 
@@ -290,17 +291,54 @@ export function buildQueue(
 /* ── Fuzz / jitter (intervals ≥ 1 day get ±5–10% noise) ────────── */
 
 /**
- * Already applied internally by ts-fsrs (enable_fuzz: true). Re-exported
- * here for the read-view "new-card dribble" feature, which staggers
- * `due` times for newly-added cards by a small random delta.
- *
- * Returns a number of MILLISECONDS to add to `due`.
+ * Returns a number of MILLISECONDS to add to a new card's `due` time
+ * to spread a batch of fresh cards across the start of the next review
+ * session. Currently RETAINED for backwards compatibility with stored
+ * data and any external callers, but `mintCardsForStory` no longer
+ * applies it (see that function's note).
  */
 export function dribbleOffset(index: number): number {
-  // 0, 90s, 180s, ... up to ~5 minutes apart. Deterministic-ish so
-  // batches of ten new cards from one story all have distinct due times
-  // without falling outside the same review session.
+  // 0, 90s, 180s, ... up to ~5 minutes apart.
   return Math.min(index, 30) * 90 * 1000;
+}
+
+/**
+ * Mint fresh SRS cards for every word in `story.new_words` that does
+ * not already have an entry in `srs`. Pure: returns a new srs map,
+ * does not mutate the input.
+ *
+ * Each minted card's `due` is `now` — the cards are immediately
+ * available for review. (Earlier versions added `dribbleOffset(i)` to
+ * push later cards minutes into the future, but that meant pressing
+ * "Save for review" on a 10-word story made the read-view's
+ * "N due word here" CTA and the menu's review badge both read "1"
+ * for the next ~15 minutes — actively misleading the learner about
+ * what's available. Card ordering across the resulting review session
+ * is `buildQueue`'s job; it sorts new cards stably by word_id.)
+ *
+ * The card's `context_sentence_idx` points at the FIRST sentence in
+ * the story that contains the word — the read-back UI uses this to
+ * jump to the source sentence on review.
+ */
+export function mintCardsForStory(
+  story: Story,
+  srs: Record<string, Card>,
+  now: Date = new Date(),
+): Record<string, Card> {
+  const next = { ...srs };
+  for (const wid of story.new_words) {
+    if (next[wid]) continue;
+    const sentIdx = story.sentences.findIndex((s) =>
+      s.tokens.some((t) => t.word_id === wid),
+    );
+    next[wid] = newCard({
+      word_id: wid,
+      story_id: story.story_id,
+      context_sentence_idx: sentIdx,
+      now,
+    });
+  }
+  return next;
 }
 
 /* ── Stats helpers ──────────────────────────────────────────────── */
