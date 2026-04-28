@@ -69,6 +69,12 @@ export interface GrammarPoint {
   long?: string;
   genki_ref?: string;
   prerequisites?: string[];
+  /**
+   * The story id where this grammar point is first introduced. `null`
+   * (or missing) means the learner has not yet encountered it in the
+   * corpus — useful for filtering the grammar tab to "seen so far".
+   */
+  intro_in_story?: number | null;
   _needs_review?: boolean;
 }
 

@@ -2,15 +2,29 @@
   import { onMount } from 'svelte';
   import { loadGrammar, loadGrammarExamples } from '$lib/data/corpus';
   import { isGrammarEntryIncomplete } from '$lib/util/grammar';
+  import { isSeenGrammar } from '$lib/util/known-filters';
   import type { GrammarState, GrammarPoint, GrammarExamplesIndex } from '$lib/data/types';
 
   let grammar = $state<GrammarState | null>(null);
   let examples = $state<GrammarExamplesIndex | null>(null);
   let openIds = $state<Set<string>>(new Set());
+  // Default to the grammar points the learner has actually
+  // encountered — i.e. those introduced by some shipped story
+  // (intro_in_story is set). The full catalog (currently 49 points,
+  // many JLPT N4/N3 placeholders not yet on-curriculum) is available
+  // behind a "Show all" toggle for the curious.
+  let showAll = $state(false);
 
   onMount(async () => {
     [grammar, examples] = await Promise.all([loadGrammar(), loadGrammarExamples()]);
   });
+
+  let allPoints = $derived<GrammarPoint[]>(
+    grammar ? Object.values(grammar.points) : [],
+  );
+  let visiblePoints = $derived<GrammarPoint[]>(
+    showAll ? allPoints : allPoints.filter(isSeenGrammar),
+  );
 
   function toggle(gp: GrammarPoint) {
     const next = new Set(openIds);
@@ -21,11 +35,25 @@
 </script>
 
 <div id="view-grammar" class="view active">
+  <div class="grammar-toolbar">
+    <label class="grammar-show-all" title="Include grammar points the corpus hasn't introduced yet">
+      <input type="checkbox" bind:checked={showAll} />
+      <span>Show all ({allPoints.length})</span>
+    </label>
+  </div>
   <div class="grammar-list" id="grammar-list">
     {#if !grammar}
       <p class="empty-state">Loading…</p>
+    {:else if visiblePoints.length === 0 && !showAll}
+      <p class="empty-state">
+        You haven't encountered any grammar yet. Read a story to see the
+        first grammar point — or
+        <button class="link-button" type="button" onclick={() => (showAll = true)}>
+          show all {allPoints.length} grammar points in the corpus
+        </button>.
+      </p>
     {:else}
-      {#each Object.values(grammar.points) as gp (gp.id)}
+      {#each visiblePoints as gp (gp.id)}
         {@const incomplete = isGrammarEntryIncomplete(gp)}
         {@const isOpen = openIds.has(gp.id)}
         {@const exs = (examples?.examples?.[gp.id] ?? []).slice(0, 5)}

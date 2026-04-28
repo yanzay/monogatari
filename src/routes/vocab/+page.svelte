@@ -4,18 +4,26 @@
   import { learner } from '$lib/state/learner.svelte';
   import { popup } from '$lib/state/popup.svelte';
   import VList from '$lib/ui/VList.svelte';
+  import { isKnownWord } from '$lib/util/known-filters';
   import type { VocabIndex, VocabIndexRow } from '$lib/data/types';
 
   let vocabIndex = $state<VocabIndex | null>(null);
   let q = $state('');
   let statusFilter = $state<'all' | 'new' | 'learning' | 'young' | 'mature' | 'leech'>('all');
   let storyFilter = $state<'all' | string>('all');
+  // Default to the learner's known words only — the entire corpus
+  // dictionary is overwhelming and most rows are unactionable.
+  // Toggle 'Show all' for the full catalog.
+  let showAll = $state(false);
 
   onMount(async () => {
     vocabIndex = await loadVocabIndex();
   });
 
-  let words = $derived<VocabIndexRow[]>(vocabIndex?.words ?? []);
+  let allWords = $derived<VocabIndexRow[]>(vocabIndex?.words ?? []);
+  let words = $derived<VocabIndexRow[]>(
+    showAll ? allWords : allWords.filter((w) => isKnownWord(w, learner.state.srs)),
+  );
 
   let stats = $derived.by(() => {
     const s = { total: words.length, new: 0, learning: 0, young: 0, mature: 0, leech: 0 };
@@ -106,12 +114,28 @@
         <option value={sid}>Story {sid}</option>
       {/each}
     </select>
+    <label class="vocab-show-all" title="Include words you haven't started learning yet">
+      <input type="checkbox" bind:checked={showAll} />
+      <span>Show all</span>
+    </label>
   </div>
+
+  {#if !showAll && allWords.length > 0 && words.length === 0}
+    <p class="empty-state">
+      You haven't started learning any words yet. Read a story and press
+      "save new words for review" to start, or
+      <button class="link-button" type="button" onclick={() => (showAll = true)}>
+        show all {allWords.length} words in the corpus
+      </button>.
+    </p>
+  {/if}
 
   {#if !vocabIndex}
     <p class="empty-state">Loading…</p>
-  {:else if !filtered.length}
+  {:else if !filtered.length && words.length > 0}
     <p class="empty-state">No vocabulary matches the current filters.</p>
+  {:else if !filtered.length && words.length === 0 && showAll}
+    <p class="empty-state">No vocabulary in the corpus yet.</p>
   {:else if useVirtualization}
     <VList items={filtered} itemHeight={56} height={viewportHeight}>
       {#snippet children(word)}
