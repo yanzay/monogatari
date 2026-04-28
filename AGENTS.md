@@ -90,25 +90,92 @@ The thing that does NOT cascade automatically: **other stories' validation**
 when an early story removes a grammar/vocab introduction. Verify with
 `pytest pipeline/tests/test_validate_library.py -q` after any v1 spec edit.
 
-## Post-ship state chain ORDER matters
+## Post-ship state chain (now automatic)
 
-`pipeline/author_loop.py author N` writes ONLY `stories/story_N.json`.
-It does NOT update `data/vocab_state.json`, `data/grammar_state.json`,
-or set the `is_new` flags. The post-ship chain MUST run in this order:
+**As of 2026-04-28 evening, `pipeline/author_loop.py author N` (live ship,
+no `--dry-run`) runs the complete post-ship chain in one shot.** A single
+invocation handles:
 
-1. `regenerate_all_stories.py --story N --apply` — populates
-   `new_words` and `new_grammar` arrays in the story file by walking
-   the corpus to find first-occurrences.
-2. `state_updater.py stories/story_N.json` — reads those arrays and
-   mutates `data/vocab_state.json` (mints W0xx ids) +
-   `data/grammar_state.json` (sets `intro_in_story`).
-3. `regenerate_all_stories.py --story N --apply` again — rewrites
-   `is_new` flags and stable word_ids now that state is final.
+1. Build + all gauntlet checks (validate, mint_budget,
+   pedagogical_sanity, vocab_reinforcement, coverage_floor).
+2. Write `stories/story_N.json`.
+3. `state_updater` with a plan auto-built from the build report
+   (mints W-IDs with full surface/kana/reading/pos/verb_class/adj_class
+   metadata). **Hand-written plan JSON files are no longer required** —
+   the previous defect of `state_updater scaffolding empty entries
+   (surface = "W00xxx")` is impossible because the build report carries
+   complete definitions for every mint.
+4. `regenerate_all_stories --story N --apply` to rewrite is_new flags
+   under final word_ids.
+5. `audio_builder` to generate per-sentence and per-word MP3s
+   (incremental — re-runs are cheap).
 
-The 2026-04-28 session bit on this: running state_updater BEFORE the
-first regenerate left `Words added: []` and `Grammar added: []`
-because the story's `new_words`/`new_grammar` arrays were still empty.
-Always regenerate → state_updater → regenerate.
+If any of these fails, the gauntlet exits non-zero with a clear
+`halted_at: <step>` and `state_backups/` retains the prior
+vocab/grammar state for restore. The legacy three-command dance
+(`regenerate → state_updater → regenerate`) survives only as a manual
+recovery path documented in the SKILL.md "Quick reference" section.
+
+### Re-shipping in the same session
+
+The state-backup discipline below still applies — restoring from a
+pre-attempt backup before re-shipping is the safe path when an attempt
+attributed grammar that the revised attempt no longer wants.
+
+### Re-shipping after a failed attempt: state-backup discipline
+
+If a story is shipped, then revised and re-shipped in the same
+session, the second `state_updater` call does NOT clear attributions
+made by the first call. Concretely: if attempt 1 introduced grammar
+point G_A and attempt 2 introduces G_B instead, BOTH end up with
+`intro_in_story=N` in `grammar_state.json`. The author_loop dry-run
+will say "1 new grammar point" (G_B), but the corpus-wide cadence
+test `test_grammar_introduction_cadence` will count BOTH and fail
+with "introduces 2 new grammar points (max 1 after bootstrap)."
+
+The right recovery is to restore `data/{vocab,grammar}_state.json`
+from a pre-attempt state backup (the timestamped files in
+`state_backups/`) BEFORE re-shipping the revised story. The
+backup taken immediately before the very first `state_updater` of
+the session is the safe restore point; later backups carry the
+contamination.
+
+### Audio cleanup after an ID-changing re-ship
+
+`pipeline/audio_builder.py` writes per-sentence (`s0.mp3` …) AND
+per-word (`w_W00xxx.mp3`) files. If a re-ship changes word IDs (e.g.
+because the previous attempt's W00xxx got dropped as an orphan and
+the next mint reused the slot at a different position), stale
+`w_W*.mp3` files become orphans and the integrity test
+`test_audio_word_files_only_for_known_words` fails. After an
+ID-changing re-ship, either rebuild from a clean `audio/story_N/`
+directory or hand-delete the stale `w_W*.mp3` files whose IDs are
+no longer in `data/vocab_state.json`.
+
+### Per-story vocabulary cadence has BOTH a max AND a min
+
+The mint_budget surfaced in the brief is `{min, max, target}` for a
+reason — both bounds matter. The gauntlet's `mint_budget` step only
+enforces the max; the corpus-wide test
+`test_vocabulary_introduction_cadence` enforces the min
+(`MIN_NEW_WORDS_PER_STORY = 3` after bootstrap). A dry-run that
+ships a single new word will pass the gauntlet AND fail the test
+suite. Always read the brief's `mint_budget.min` as a hard floor,
+not a soft suggestion.
+
+### Dry-run green ≠ corpus tests green
+
+The gauntlet pulls SOME pedagogical checks forward
+(`pedagogical_sanity`, `coverage_floor`, `mint_budget`), but several
+corpus-wide rules still only fire under `pytest pipeline/tests/`:
+
+- `test_vocabulary_introduction_cadence` (per-story min new words)
+- `test_vocab_words_are_reinforced` (per-word reinforcement window)
+- `test_grammar_introduction_cadence` (per-story max new grammar)
+- `test_audio_word_files_only_for_known_words` (audio orphans)
+
+Always run `pytest pipeline/tests/ -q` after the post-ship chain.
+Dry-run green is necessary but not sufficient.
 
 ---
 

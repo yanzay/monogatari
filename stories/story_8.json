@@ -1,0 +1,405 @@
+{
+  "story_id": 8,
+  "title": {
+    "jp": "夜の窓",
+    "en": "The Night Window",
+    "tokens": [
+      {
+        "t": "夜",
+        "role": "content",
+        "word_id": "W00041",
+        "r": "よる"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
+      },
+      {
+        "t": "窓",
+        "role": "content",
+        "word_id": "W00042",
+        "r": "まど"
+      }
+    ]
+  },
+  "new_words": [
+    "W00041",
+    "W00042",
+    "W00043",
+    "W00044"
+  ],
+  "new_grammar": [
+    "G006_kara_from"
+  ],
+  "all_words_used": [
+    "W00041",
+    "W00042",
+    "W00030",
+    "W00023",
+    "W00008",
+    "W00038",
+    "W00016",
+    "W00001",
+    "W00017",
+    "W00043",
+    "W00039",
+    "W00035",
+    "W00040",
+    "W00044",
+    "W00002"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "夜",
+          "role": "content",
+          "word_id": "W00041",
+          "r": "よる",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It is night.",
+      "audio": "/Users/ograchov/projects/japanese-reading/audio/story_8/s0.mp3",
+      "audio_hash": "e81d3b78f313"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "椅子",
+          "role": "content",
+          "word_id": "W00030",
+          "r": "いす"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "上",
+          "role": "content",
+          "word_id": "W00023",
+          "r": "うえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00008",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "箱",
+          "role": "content",
+          "word_id": "W00038",
+          "r": "ばこ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "On the chair there is a small box.",
+      "audio": "/Users/ograchov/projects/japanese-reading/audio/story_8/s1.mp3",
+      "audio_hash": "9f9971d5f352"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "箱",
+          "role": "content",
+          "word_id": "W00038",
+          "r": "ばこ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "取ります",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "とります",
+          "inflection": {
+            "base": "取る",
+            "base_r": "とる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I take the box.",
+      "audio": "/Users/ograchov/projects/japanese-reading/audio/story_8/s2.mp3",
+      "audio_hash": "a6f75f1af81e"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "箱",
+          "role": "content",
+          "word_id": "W00038",
+          "r": "ばこ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "開けます",
+          "role": "content",
+          "word_id": "W00043",
+          "r": "あけます",
+          "inflection": {
+            "base": "開ける",
+            "base_r": "あける",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I open the box.",
+      "audio": "/Users/ograchov/projects/japanese-reading/audio/story_8/s3.mp3",
+      "audio_hash": "a8e6638f6361"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "箱",
+          "role": "content",
+          "word_id": "W00038",
+          "r": "ばこ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "中",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "なか"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00035",
+          "r": "ふるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "紙",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "かみ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Inside the box there is an old slip of paper.",
+      "audio": "/Users/ograchov/projects/japanese-reading/audio/story_8/s4.mp3",
+      "audio_hash": "1cf1c4ea012b"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "でも",
+          "role": "particle",
+          "grammar_id": "G032_demo"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "窓",
+          "role": "content",
+          "word_id": "W00042",
+          "r": "まど",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But the window is bright.",
+      "audio": "/Users/ograchov/projects/japanese-reading/audio/story_8/s5.mp3",
+      "audio_hash": "e04036cdea98"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "紙",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "かみ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "ともだち"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from",
+          "is_new_grammar": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The paper is from my friend.",
+      "audio": "/Users/ograchov/projects/japanese-reading/audio/story_8/s6.mp3",
+      "audio_hash": "0d9ff4331068"
+    }
+  ],
+  "word_audio": {
+    "W00041": "/Users/ograchov/projects/japanese-reading/audio/story_8/w_W00041.mp3",
+    "W00042": "/Users/ograchov/projects/japanese-reading/audio/story_8/w_W00042.mp3",
+    "W00043": "/Users/ograchov/projects/japanese-reading/audio/story_8/w_W00043.mp3",
+    "W00044": "/Users/ograchov/projects/japanese-reading/audio/story_8/w_W00044.mp3"
+  },
+  "word_audio_hash": {
+    "W00041": "a519542a5fb4",
+    "W00042": "f035c560d705",
+    "W00043": "ced972c22ac8",
+    "W00044": "53b4a762f917"
+  }
+}

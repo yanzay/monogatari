@@ -257,6 +257,132 @@ def _reinforcement_debt_from_palette(palette_json: dict) -> dict:
     return {"critical": critical, "due": due}
 
 
+def _vocab_reinforcement_debt(target_story: int) -> dict:
+    """Words intro'd in the last VOCAB_REINFORCE_WINDOW stories that still
+    need a follow-up use, classified by urgency.
+
+    The post-ship test `test_vocab_words_are_reinforced` (Rule R1) fails
+    if a word intro'd in story N doesn't reappear in ≥1 of the next
+    VOCAB_REINFORCE_WINDOW=10 stories. The palette-star path
+    (`_reinforcement_debt_from_palette`) only flags words unused for ≥8
+    stories, so words intro'd in the most recent story (N-1) — which
+    are the load-bearing ones for the R1 window — are completely
+    invisible there. This function plugs the gap.
+
+    Output schema:
+      {
+        "window": 10,
+        "min_uses": 1,
+        "must_reinforce_count": int,    # immediate-prev-story words
+        "items": [
+          {
+            "word_id": "W00038",
+            "lemma": "箱",
+            "intro_in_story": 7,
+            "stories_since_intro": 1,
+            "must_reinforce": True/False,   # True iff this is the LAST
+                                             # chance to keep a follow-up
+                                             # in the per-story window
+            "should_reinforce": True/False, # True iff intro'd recently
+                                             # but not strictly required
+                                             # this story.
+          }, ...
+        ]
+      }
+
+    The hard "must_reinforce" rule: for every introduced word, the test
+    requires ≥min_uses appearances in the next-window slice. If by THIS
+    story (target_story-1 follow-ups have already shipped without using
+    it) the word still has 0 uses AND only one slot remains in the
+    window, this story is its last chance. We tag those `must_reinforce`.
+    Otherwise — recently introduced but with slack — we tag
+    `should_reinforce` (warn, not block).
+    """
+    try:
+        from grammar_progression import (  # noqa: E402
+            VOCAB_REINFORCE_WINDOW,
+            VOCAB_REINFORCE_MIN_USES,
+        )
+    except Exception:
+        VOCAB_REINFORCE_WINDOW = 10
+        VOCAB_REINFORCE_MIN_USES = 1
+
+    # Build per-word usage map across all shipped stories.
+    used_in: dict[str, set[int]] = {}
+    intro_in: dict[str, int] = {}
+    word_lemma: dict[str, str] = {}
+    for sid, s in iter_stories():
+        for sent in s.get("sentences", []):
+            for tok in sent.get("tokens", []):
+                wid = tok.get("word_id")
+                if not wid:
+                    continue
+                used_in.setdefault(wid, set()).add(sid)
+
+    try:
+        vocab = load_vocab().get("words") or {}
+    except Exception:
+        vocab = {}
+    for wid, w in vocab.items():
+        fs = w.get("first_story")
+        if isinstance(fs, str) and fs.startswith("story_"):
+            try:
+                intro_in[wid] = int(fs.split("_", 1)[1])
+            except Exception:
+                pass
+        elif isinstance(fs, int):
+            intro_in[wid] = fs
+        word_lemma[wid] = w.get("surface") or wid
+
+    items: list[dict] = []
+    must_count = 0
+    for wid, n in intro_in.items():
+        if n >= target_story:
+            continue            # word intro'd in this story or later — N/A
+        # The R1 window for word intro'd at story n inspects stories
+        # (n+1)..(n+VOCAB_REINFORCE_WINDOW). target_story is one of those
+        # if n < target_story <= n + VOCAB_REINFORCE_WINDOW.
+        if target_story - n > VOCAB_REINFORCE_WINDOW:
+            continue            # window already closed; can't fix here
+        # How many shipped follow-up stories used it?
+        followups_shipped = [i for i in range(n + 1, target_story)
+                             if i in used_in.get(wid, set())]
+        if followups_shipped:
+            continue            # already reinforced; no debt
+        # No follow-up has used it yet. The R1 test fires the moment ANY
+        # follow-up story ships without using the word — concretely:
+        # at the time story N+1 is shipped, followups=[N+1] satisfies
+        # the "len(followups) >= MIN_USES" guard, and the test then
+        # demands ≥1 of those 1 follow-ups uses the word. So target_story
+        # = n+1 is ALREADY the last guaranteed chance to keep the test
+        # green. Mark it must_reinforce. Later slots within the window
+        # exist only as a recovery path if the test gets relaxed; we
+        # mark them should_reinforce (gentle reminder, non-blocking).
+        is_immediate_followup = (target_story == n + 1)
+        must = is_immediate_followup
+        if must:
+            must_count += 1
+        items.append({
+            "word_id": wid,
+            "lemma":   word_lemma.get(wid, wid),
+            "intro_in_story":      n,
+            "stories_since_intro": target_story - n,
+            "window_end":          n + VOCAB_REINFORCE_WINDOW,
+            "must_reinforce":      must,
+            "should_reinforce":    not must,
+        })
+
+    # Sort: must_reinforce first, then by intro recency (closer = more urgent).
+    items.sort(key=lambda i: (0 if i["must_reinforce"] else 1,
+                              -i["intro_in_story"]))
+    return {
+        "window":               VOCAB_REINFORCE_WINDOW,
+        "min_uses":             VOCAB_REINFORCE_MIN_USES,
+        "must_reinforce_count": must_count,
+        "items":                items,
+    }
+
+
 def _grammar_reinforcement_debt(target_story: int) -> dict:
     """The single most load-bearing field for "ship in one go".
 
@@ -666,6 +792,32 @@ def _compact_grammar_intro(debt: dict) -> dict:
     }
 
 
+def _compact_vocab_reinforcement(debt: dict) -> dict:
+    """Compact view: must-reinforce items first, then a sample of shoulds.
+
+    The author should use every must-reinforce item in this story
+    (Rule R1 hard-block); should-reinforce items are gentler reminders.
+    """
+    items = debt.get("items") or []
+    must = [i for i in items if i.get("must_reinforce")]
+    should = [i for i in items if i.get("should_reinforce")]
+    return {
+        "window":               debt.get("window"),
+        "min_uses":             debt.get("min_uses"),
+        "must_reinforce_count": debt.get("must_reinforce_count", 0),
+        "items": [
+            {
+                "word_id":             i["word_id"],
+                "lemma":               i["lemma"],
+                "intro_in_story":      i["intro_in_story"],
+                "stories_since_intro": i["stories_since_intro"],
+                "must_reinforce":      bool(i.get("must_reinforce")),
+            }
+            for i in (must + should)[:8]
+        ],
+    }
+
+
 def _compact_grammar_reinforcement(debt: dict) -> dict:
     items = debt.get("items") or []
     load_bearing = [i for i in items if i.get("must_reinforce")]
@@ -726,6 +878,7 @@ def build_brief(target_story: int) -> dict[str, Any]:
         "scene_coverage": _scene_coverage_stub(target_story),
         "echo_warnings": _echo_warnings_stub(target_story),
         "reinforcement_debt": _reinforcement_debt_from_palette(palette_json),
+        "vocab_reinforcement_debt": _vocab_reinforcement_debt(target_story),
         "lint_rules_active": _LINT_RULES_ACTIVE,
         "anti_patterns_to_avoid": _ANTI_PATTERNS,
         "previous_3_stories": _previous_3_stories_summary(target_story),
@@ -763,7 +916,12 @@ def build_author_brief(target_story: int) -> dict[str, Any]:
             "grammar_introduction": _compact_grammar_intro(
                 full["grammar_introduction_debt"]
             ),
-            "word_reinforcement": full["reinforcement_debt"],
+            "word_reinforcement": _compact_vocab_reinforcement(
+                full["vocab_reinforcement_debt"]
+            ),
+            # Long-tail palette-star debt (words unused for ≥8 stories) is
+            # informational, not load-bearing for the next ship.
+            "word_palette_debt": full["reinforcement_debt"],
         },
         "storytelling": _literary_contract(),
         "voice_and_variety": {

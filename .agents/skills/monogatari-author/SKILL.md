@@ -100,11 +100,18 @@ This emits the JSON `agent_brief` for story N. Read it. The brief contains:
   `pedagogical_sanity` step blocks if you skip them. Each item ships
   with an `example.surface` showing a concrete construction you can
   adapt.
+- `must_hit.word_reinforcement` — **READ THIS BEFORE drafting.** Every
+  word intro'd in the immediately previous story that still needs
+  reinforcement. Items with `must_reinforce: true` MUST appear in this
+  story (per Rule R1, `test_vocab_words_are_reinforced`); the gauntlet's
+  `vocab_reinforcement` step hard-blocks if you skip them. The brief
+  shows `intro_in_story`, `lemma`, and `stories_since_intro` for each.
+  Distinguish from `must_hit.word_palette_debt`, which is the long-tail
+  ★/★★ list (informational, not load-bearing for the next ship).
 - `north_stars` — the era's 1–3 voice templates (this is the tone you must match)
 - `previous_3_stories` — what the prior corpus just did (avoid repeating motifs)
 - `previous_closers` — the literal closer of the last 3 stories. Do NOT
   echo their structure; vary openings AND endings.
-- `reinforcement_debt` — words you MUST use soon
 - `lint_rules_active` — the 10 rules your spec must pass
 - `anti_patterns_to_avoid` — the 5 audit defects with bad/fix examples
 
@@ -341,8 +348,10 @@ source .venv/bin/activate && python3 pipeline/author_loop.py author N --dry-run
 
 This runs: spec_exists → agent_brief → build → validate (incl. all 10
 lints AND Checks 3.6/3.9/3.10 grammar coverage) → mint_budget →
-pedagogical_sanity (reinforcement) → coverage_floor (introduction)
-→ literary_review (stub) → would-write → audio (stub).
+pedagogical_sanity (grammar reinforcement) → vocab_reinforcement (R1
+must-reinforce words) → coverage_floor (grammar introduction)
+→ literary_review (stub) → would-write → audio (skipped on dry-run;
+real on live ship).
 
 **Read the output carefully.** If `VERDICT: would_ship`, proceed to Step F.
 If `VERDICT: fail`, see §3 (failure recovery).
@@ -355,64 +364,46 @@ source .venv/bin/activate && python3 pipeline/author_loop.py author N
 
 (Same command without `--dry-run`.)
 
-**The author_loop only writes `stories/story_N.json`.** It does NOT
-update `data/vocab_state.json`, `data/grammar_state.json`, or set the
-`is_new` flags on the story tokens. You MUST run the post-ship chain
-in this exact order (running the steps in the wrong order silently
-loses attribution data — the bug bit story 4 in the 2026-04-28
-session, where `state_updater` ran before `regenerate_all_stories` and
-the new G003_desu intro was not recorded):
+**The live ship now runs the full post-ship chain automatically**
+(as of 2026-04-28). A single `author_loop.py author N` invocation:
 
-```bash
-# 1. Regenerate first — this fills new_words and new_grammar arrays
-#    AND the is_new / is_new_grammar token flags by re-traversing the
-#    library. WITHOUT this, state_updater sees empty arrays and
-#    nothing gets minted.
-source .venv/bin/activate && python3 pipeline/regenerate_all_stories.py --story N --apply
+1. Builds the story from the spec.
+2. Runs all gauntlet checks (validate, mint_budget, pedagogical_sanity,
+   vocab_reinforcement, coverage_floor).
+3. Writes `stories/story_N.json`.
+4. Runs `state_updater` with a plan auto-built from the build report
+   (mints new W-IDs, attributes new grammar points). No hand-written
+   plan JSON is required — `text_to_story` already records full mint
+   metadata (surface/kana/reading/pos/verb_class/adj_class/meanings).
+5. Runs `regenerate_all_stories --story N --apply` to set
+   `is_new` / `is_new_grammar` flags and `new_words` / `new_grammar`
+   arrays.
+6. Runs `audio_builder` against the shipped story (incremental — skips
+   files that already exist).
 
-# 2. State_updater consumes the populated story file and mutates
-#    data/vocab_state.json + data/grammar_state.json (sets
-#    intro_in_story for any newly-introduced grammar point).
-source .venv/bin/activate && python3 pipeline/state_updater.py stories/story_N.json
+If any step fails, the gauntlet reports `halted_at: <step>` and exits
+non-zero; partial state may be written to `stories/`, but `state_backups/`
+captures the prior `data/{vocab,grammar}_state.json` for restore.
 
-# 3. Regenerate ONE MORE TIME to recompute is_new under the now-final
-#    word_id assignments. (state_updater renumbers W0001x → W0002x for
-#    fresh mints; the first regenerate had placeholder ids.)
-source .venv/bin/activate && python3 pipeline/regenerate_all_stories.py --story N --apply
-```
-
-Then verify the full test suite (NOT just the per-story slice — the
-post-ship state may break other stories' reinforcement windows):
+**You only need to verify the test suite** after a successful ship:
 
 ```bash
 source .venv/bin/activate && python3 -m pytest pipeline/tests/ -q
 ```
 
-#### Step F.1 — Generate audio (REQUIRED for new stories)
+#### Step F.1 — Audio is built automatically (Step F covers it)
 
-For any newly-shipped story (or any story where the sentence count or
-text changed), generate audio. This is part of shipping, not a separate
-manual step:
+The author_loop's `audio` step calls `pipeline/audio_builder.py` with
+the just-shipped story file. Per-sentence and per-word MP3s are written
+to `audio/story_N/`. The builder is incremental — re-running is cheap;
+existing files with matching content hashes are skipped.
 
-```bash
-source .venv/bin/activate && python3 pipeline/audio_builder.py \
-    --vocab data/vocab_state.json stories/story_N.json
-```
-
-The builder is incremental — it skips files that already exist with the
-matching content hash, so it's cheap to re-run. Use `--force` only when
-you've changed an existing sentence and need to overwrite. The builder
-writes to `audio/story_N/`. **Do NOT skip this step** — incomplete audio
-ships a broken reading experience to the user.
-
-**Also verify older stories have their audio.** When the user says
-"verify audio for all previous stories" (or you're shipping into a
-corpus that may have skipped audio), loop the builder over every
-shipped story — it's incremental and cheap. The 2026-04-28 session
-discovered stories 1 and 2 had no audio at all because earlier ship
-commits skipped this step:
+If you need to back-fill audio for older stories (e.g. a corpus that
+shipped before audio was wired in), the same builder is exposed as a
+standalone CLI:
 
 ```bash
+# Back-fill all older stories (cheap; incremental).
 for n in $(seq 1 N); do
   source .venv/bin/activate && python3 pipeline/audio_builder.py \
       --vocab data/vocab_state.json stories/story_$n.json
@@ -423,19 +414,69 @@ If the audio builder fails (network, GCP credentials, quota), STOP and
 report the failure to the user; do NOT proceed to commit. Audio is part
 of the shipping contract.
 
-#### Step F.2 — Self-review BEFORE proposing the commit
+#### Step F.2 — Critical literary review (DISCARD-AND-REWRITE gate)
 
-Before committing, run the §C.4 self-audit ONE MORE TIME on the actual
-shipped artifact. Open `stories/story_N.json` and re-read the sentences
-in order. Ask:
+**This is a hard quality gate, not a formality.** Tests passing means
+the story is technically valid — not that it is good. Bad stories are
+permanent corpus pollution; the cost of one extra rewrite iteration is
+trivial next to shipping a defect that future stories will be measured
+against.
 
-- Does it tell a story? (Not "did it pass tests" — does it READ as a story?)
-- Would I ship this if a human reviewer were going to read it next?
-- Does the closer earn its slot, or is it filler?
+Re-open `stories/story_N.json` and read the sentences in order, **as
+if you were a human learner picking the corpus up for the first time**
+(no knowledge of mints, debt, lints, or tier policy — just the story).
+Then answer ALL of these. **Each "no" is a discard signal.**
 
-If the answer to any is "no," DO NOT commit. Report the literary defect
-to the user and propose a re-author. Test-passing is necessary but not
-sufficient — the literary contract is yours to honor (cf. §C.3).
+**The five-question gate:**
+
+1. **What HAPPENS in this story?** State it in one sentence with a
+   verb of action, transfer, or discovery. If you can only say "the
+   narrator notices X" or "X exists, then Y exists" — that is
+   observational filler. **Discard.**
+2. **Does the closer surprise, settle, or land?** A great closer either
+   resolves a tension (object found, action completed, character
+   responds) or leaves a deliberate sensory beat. A closer that simply
+   restates the setting in different words, or that mirrors the closer
+   of the last 3 stories, is filler. **Discard.**
+3. **Does the anchor object DO something?** It must change owners,
+   change state (open/close/break/cook/write/tear), change location
+   meaningfully, OR trigger an action. If it only gets *looked at* and
+   *held*, it is decoration. **Discard.**
+4. **Is each sentence load-bearing?** Cover each sentence with your
+   mental hand and re-read. If the story still works without that
+   sentence, it was filler. Even ONE filler sentence in a 6–9 sentence
+   story is a 12–17% padding ratio — too high. **Discard.**
+5. **Does it read like a story a Japanese-learning human would want
+   to re-read aloud?** Not "does it parse" — does the rhythm earn its
+   slot? Awkward repetition (e.g. 「明るい窓に…明るい窓に…」), filler
+   reflection that just restates the setting (「本は古いです。本は古くて
+   小さいです。」), or a final sentence that loops back to the opening
+   without adding anything — all of these are LLM "literary tells"
+   that the v2 lints can't catch. **Discard.**
+
+**If ANY question gets a "no": DISCARD, do NOT commit.** The recovery
+path is:
+
+1. Restore `data/{vocab,grammar}_state.json` from the pre-ship backup
+   (the `state_backups/*.json` snapshot taken by `state_updater` during
+   the failed ship's chain). This un-mints the new W-IDs and clears
+   the new grammar attribution.
+2. Delete `stories/story_N.json` and `audio/story_N/`.
+3. Re-do Steps B → F with a different intent / scene_class /
+   anchor_object. **Do NOT just tweak sentences** — if Step F.2 failed,
+   the *premise* was weak; cosmetic changes will produce another weak
+   story.
+4. Cap rewrites at 3. After the 3rd discard, escalate to the user with
+   ≤5 lines explaining what keeps failing and why.
+
+**Honesty rule:** be brutal here. If you find yourself rationalizing
+a "no" into a "yes" ("well, technically the closer does change the
+location of the object…"), that IS the defect. The user will read
+the story; pre-emptive defensive justification doesn't help them.
+
+A good story passes all 5 questions cleanly with no "yeah but" caveats.
+A so-so story has 1 caveat — discard. A bad story has 2+ — definitely
+discard.
 
 #### Step F.3 — Auto-commit and push (only if F.2 passed)
 
@@ -467,7 +508,10 @@ Procedure:
 
 **The ONLY conditions that block auto-commit:**
 
-- §F.2 self-review failed (literary defect — report and propose re-author).
+- §F.2 critical literary review found a "no" on ANY of the five
+  questions. **The discard path is mandatory** — restore state from
+  backup, delete artifacts, re-author with a different premise. Do NOT
+  commit a story that failed §F.2 just because the gauntlet was green.
 - `git status` shows unexpected files modified (e.g. unrelated edits in
   `src/`, `pipeline/`). In that case, stage ONLY the story-related files
   listed above, commit those, push, and flag the stray changes to the
@@ -586,6 +630,19 @@ Check 3.10 fires for the same reason. Recovery:
 
 If `earlier_uncovered` is non-empty (a prior tier has gaps), address
 THOSE first — Check 3.9 will hard-block tier advancement otherwise.
+
+### Halted at `vocab_reinforcement`
+Your story did not reuse a word that has `must_reinforce: true` in the
+brief's `must_hit.word_reinforcement.items`. The error message names every
+missing `word_id` and `lemma`. These are words intro'd in the immediately
+previous story; if your draft doesn't reuse them, the post-ship test
+`test_vocab_words_are_reinforced` (Rule R1) will fail. Recovery:
+1. Open the brief: `python3 pipeline/author_loop.py author N --brief-only`
+2. Find each missing `word_id` in `must_hit.word_reinforcement.items`.
+3. Add ONE sentence that uses each missing word (or fold them into
+   existing sentences). The words are already in the palette by ID —
+   `would-mint` will not flag them as new.
+4. Re-run the gauntlet.
 
 ### Halted at `pedagogical_sanity`
 Your story did not reinforce a grammar point that has `must_reinforce:
@@ -707,34 +764,31 @@ python3 pipeline/tools/vocab.py would-mint "候補の日本語"
 # Run the gauntlet, dry-run (Step E)
 python3 pipeline/author_loop.py author N --dry-run
 
-# Run the gauntlet, ship (Step F)
+# Run the gauntlet, ship (Step F — runs state_updater,
+# regenerate_all_stories, and audio_builder automatically as part of
+# the live ship; no manual chain needed.)
 python3 pipeline/author_loop.py author N
 
-# Post-ship state chain — REQUIRED, in this order. The author_loop
-# only writes stories/story_N.json; the state files and is_new flags
-# are NOT updated until you run the next three steps.
-python3 pipeline/regenerate_all_stories.py --story N --apply       # populate new_words / new_grammar
-python3 pipeline/state_updater.py stories/story_N.json             # mint to vocab/grammar state
-python3 pipeline/regenerate_all_stories.py --story N --apply       # rewrite is_new under final ids
+# Manual recovery: re-run individual post-ship steps if a ship was
+# interrupted (rarely needed; the gauntlet runs all of these on a
+# successful live ship).
+python3 pipeline/regenerate_all_stories.py --story N --apply
+python3 pipeline/state_updater.py stories/story_N.json
+python3 pipeline/audio_builder.py --vocab data/vocab_state.json stories/story_N.json
 
 # Backfill grammar intro_in_story across the whole corpus (idempotent;
-# only needed once after a fresh clone of an old corpus). Run if the
-# brief shows zero grammar_palette / coverage data despite shipped
-# stories.
+# only needed once after a fresh clone of an old corpus).
 python3 pipeline/tools/backfill_grammar_intros.py
 
 # Catalog coverage report (per-tier covered/remaining)
 python3 pipeline/grammar_progression.py
 
-# Generate audio for a shipped story (Step F.1, REQUIRED for new stories)
-python3 pipeline/audio_builder.py --vocab data/vocab_state.json stories/story_N.json
-
-# Verify older stories also have audio (cheap, incremental)
+# Backfill audio for older stories (cheap, incremental)
 for n in $(seq 1 N); do
   python3 pipeline/audio_builder.py --vocab data/vocab_state.json stories/story_$n.json
 done
 
-# Full test sweep (Step F)
+# Full test sweep (Step F — also use after manual edits)
 python3 -m pytest pipeline/tests/ -q
 
 # Inspect a single shipped story

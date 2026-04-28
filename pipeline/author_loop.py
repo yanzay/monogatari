@@ -409,6 +409,105 @@ def step_pedagogical_sanity(story_id: int, built_story: dict) -> StepResult:
         )
 
 
+def step_vocab_reinforcement(story_id: int, built_story: dict) -> StepResult:
+    """Hard-block step: would shipping break per-word reinforcement (R1)?
+
+    For every entry in `vocab_reinforcement_debt` flagged
+    `must_reinforce: true`, the built story MUST contain a token whose
+    `word_id` matches. Same shape as step_pedagogical_sanity but for
+    vocab. Catches the failure mode that bit story 8 (where 箱 and 紙
+    were intro'd in story 7 but never showed up in the brief's
+    `word_reinforcement.critical/due` because the palette-star path
+    only kicks in after 8 stories of unused).
+    """
+    try:
+        brief = agent_brief.build_brief(story_id)
+        debt = brief.get("vocab_reinforcement_debt") or {}
+        items = debt.get("items") or []
+        if not items:
+            return StepResult(
+                "vocab_reinforcement", "ok",
+                "No vocab reinforcement debt to satisfy.",
+            )
+
+        used: set[str] = set()
+        for sec in (built_story.get("title") or {},):
+            for tok in sec.get("tokens", []) or []:
+                if tok.get("word_id"):
+                    used.add(tok["word_id"])
+        for sent in built_story.get("sentences", []):
+            for tok in sent.get("tokens", []):
+                if tok.get("word_id"):
+                    used.add(tok["word_id"])
+
+        missing_must: list[dict] = []
+        carried_must: list[str] = []
+        missing_should: list[dict] = []
+        carried_should: list[str] = []
+        for item in items:
+            wid = item["word_id"]
+            if item.get("must_reinforce"):
+                if wid in used:
+                    carried_must.append(wid)
+                else:
+                    missing_must.append(item)
+            elif item.get("should_reinforce"):
+                if wid in used:
+                    carried_should.append(wid)
+                else:
+                    missing_should.append(item)
+
+        if missing_must:
+            lines = []
+            for it in missing_must:
+                lines.append(
+                    f"  - {it['word_id']} ({it['lemma']}): intro'd in story "
+                    f"{it['intro_in_story']}, no shipped follow-up has reused "
+                    f"it; this story must carry it (R1 window {debt.get('window')})."
+                )
+            return StepResult(
+                "vocab_reinforcement", "fail",
+                f"Story {story_id} must reuse {len(missing_must)} word(s) "
+                f"intro'd in the immediately previous story; "
+                f"the built story does not. Add a sentence using each.",
+                details={
+                    "must_reinforce_missing":   [it["word_id"] for it in missing_must],
+                    "must_reinforce_satisfied": carried_must,
+                    "should_reinforce_missing": [it["word_id"] for it in missing_should],
+                    "explanation":              "\n".join(lines),
+                },
+            )
+
+        status = "warn" if missing_should else "ok"
+        summary = (
+            f"All {len(carried_must)} must-reinforce word(s) carried."
+            if carried_must
+            else "No must-reinforce words required."
+        )
+        if missing_should:
+            summary += (
+                f" {len(missing_should)} should-reinforce word(s) deferred "
+                f"to a later story (within window): "
+                f"{', '.join(it['word_id'] for it in missing_should[:5])}"
+                f"{'…' if len(missing_should) > 5 else ''}."
+            )
+        return StepResult(
+            "vocab_reinforcement", status, summary,
+            details={
+                "must_reinforce_satisfied":   carried_must,
+                "should_reinforce_satisfied": carried_should,
+                "should_reinforce_deferred":  [it["word_id"] for it in missing_should],
+            },
+            blocking=False,
+        )
+    except Exception as e:
+        return StepResult(
+            "vocab_reinforcement", "fail",
+            f"vocab_reinforcement crashed: {e}",
+            details=traceback.format_exc(),
+        )
+
+
 def step_coverage_floor(story_id: int, built_story: dict) -> StepResult:
     """Hard-block step: does this story introduce ≥1 new grammar point
     while the current tier still has uncovered catalog entries?
@@ -560,31 +659,201 @@ def step_literary_review(built_story: dict) -> StepResult:
     )
 
 
-def step_audio(story_id: int) -> StepResult:
-    """STUB until wired to pipeline/audio_builder."""
-    return StepResult(
-        "audio", "skipped",
-        "Stub: audio rebuild is not yet wired (Phase 3a future task). "
-        "Run pipeline/audio_builder.py manually if voice files are needed.",
-        blocking=False,
-    )
+def step_audio(story_id: int, dry_run: bool) -> StepResult:
+    """Build per-sentence and per-word MP3s via Google TTS.
+
+    Skipped on --dry-run. The audio_builder is incremental — re-running
+    is cheap; it skips files that exist with a matching content hash.
+    Audio is part of the shipping contract (per skill §F.1), so any
+    failure here is a hard fail at ship time.
+    """
+    if dry_run:
+        return StepResult(
+            "audio", "skipped",
+            "--dry-run: skipping audio build.",
+            blocking=False,
+        )
+    try:
+        from audio_builder import build_audio_for_story  # noqa: E402
+        sp = story_path(story_id)
+        if not sp.exists():
+            return StepResult(
+                "audio", "skipped",
+                f"Story file {sp.name} not found (write step skipped or failed).",
+                blocking=False,
+            )
+        from _paths import DATA as _DATA
+        vocab = json.loads((_DATA / "vocab_state.json").read_text(encoding="utf-8"))
+        summary = build_audio_for_story(sp, vocab, audio_root=ROOT / "audio")
+        return StepResult(
+            "audio", "ok",
+            f"Audio built: {summary['sentences']} sentence(s), "
+            f"{summary['words']} word(s) → {summary['out_dir']}.",
+            details=summary,
+        )
+    except Exception as e:
+        return StepResult(
+            "audio", "fail",
+            f"audio build failed: {e}",
+            details=traceback.format_exc(),
+        )
 
 
-def step_write(story_id: int, built_story: dict, dry_run: bool) -> StepResult:
+def _build_state_plan(build_report: dict | None) -> dict:
+    """Convert text_to_story's mint records into a state_updater plan.
+
+    text_to_story.build_story emits `report["new_words"]` with full
+    metadata (surface, kana, reading, pos, meanings, verb_class, adj_class,
+    `_minted_by`). state_updater wants
+    `plan["new_word_definitions"][wid]` with surface/kana/reading/pos/
+    meanings/verb_class/adj_class. Building the plan from the report
+    eliminates the entire hand-written sidecar JSON step that bit story 8.
+    """
+    plan: dict = {"new_word_definitions": {}, "new_grammar_definitions": {}}
+    if not build_report:
+        return plan
+    for rec in build_report.get("new_words", []) or []:
+        wid = rec.get("id")
+        if not wid:
+            continue
+        defn: dict = {
+            "surface":  rec.get("surface", wid),
+            "kana":     rec.get("kana", ""),
+            "reading":  rec.get("reading", ""),
+            "pos":      rec.get("pos", "noun"),
+            "meanings": list(rec.get("meanings") or []),
+        }
+        if rec.get("verb_class"):
+            defn["verb_class"] = rec["verb_class"]
+        if rec.get("adj_class"):
+            defn["adj_class"] = rec["adj_class"]
+        plan["new_word_definitions"][wid] = defn
+    return plan
+
+
+def step_write(story_id: int, built_story: dict,
+               build_report: dict | None, dry_run: bool) -> StepResult:
+    """Write the built story AND update vocab/grammar state AND set is_new flags.
+
+    On --dry-run: no-op (skipped, non-blocking).
+
+    On live ship, runs the full post-ship state chain in one shot:
+      1. write stories/story_N.json
+      2. state_updater(plan from build_report) — mints new W-IDs and
+         attributes new grammar points.
+      3. regenerate_all_stories(--story N) — rewrites is_new / is_new_grammar
+         flags now that state is final.
+
+    This collapses the four-command dance documented in AGENTS.md
+    ("regenerate → state_updater(--plan) → regenerate") into a single
+    author_loop invocation. Hand-built plan files are no longer required.
+    """
     if dry_run:
         return StepResult(
             "write", "skipped",
-            f"--dry-run: would have written {story_path(story_id).name}.",
+            f"--dry-run: would have written {story_path(story_id).name} "
+            "and persisted vocab/grammar state.",
             blocking=False,
         )
     try:
         sp = story_path(story_id)
         write_json(sp, built_story)
-        return StepResult("write", "ok", f"Wrote {sp.name}.")
     except Exception as e:
         return StepResult("write", "fail",
                           f"Could not write story file: {e}",
                           details=traceback.format_exc())
+
+    # The chain order is: regenerate → state_updater → regenerate.
+    # The first regenerate populates the story file's `new_words` and
+    # `new_grammar` arrays by walking the corpus to find first-occurrence
+    # word_ids; without those arrays, state_updater sees nothing to
+    # add and silently mints zero records (the bug that bit story 8 in
+    # the 2026-04-28 session, twice). The second regenerate refreshes
+    # `is_new` flags now that vocab/grammar state is final. Both
+    # invocations are shelled out because regenerate_all_stories has
+    # corpus-wide side effects (index.json, paged caches) wrapped in
+    # its argparse main().
+    import subprocess
+
+    def _regen_one() -> StepResult | None:
+        result = subprocess.run(
+            [sys.executable, str(PIPELINE / "regenerate_all_stories.py"),
+             "--story", str(story_id), "--apply"],
+            capture_output=True, text=True, cwd=str(ROOT),
+        )
+        if result.returncode != 0:
+            return StepResult(
+                "write", "fail",
+                f"regenerate_all_stories failed: {result.stderr.strip()}",
+                details={"stdout": result.stdout, "stderr": result.stderr},
+            )
+        return None
+
+    # --- Regenerate #1: populate new_words / new_grammar arrays ---------
+    try:
+        err = _regen_one()
+        if err is not None:
+            return err
+    except Exception as e:
+        return StepResult(
+            "write", "fail",
+            f"regenerate_all_stories crashed (first pass): {e}",
+            details=traceback.format_exc(),
+        )
+
+    # --- State update: mint vocab + attribute grammar -------------------
+    try:
+        from state_updater import update_state  # noqa: E402
+        from _paths import DATA as _DATA
+        vocab_path   = _DATA / "vocab_state.json"
+        grammar_path = _DATA / "grammar_state.json"
+
+        vocab   = json.loads(vocab_path.read_text(encoding="utf-8"))
+        grammar = json.loads(grammar_path.read_text(encoding="utf-8"))
+        # Re-read the just-regenerated story so state_updater sees the
+        # new_words / new_grammar arrays the regenerator populated.
+        story_for_state = json.loads(sp.read_text(encoding="utf-8"))
+        plan = _build_state_plan(build_report)
+
+        new_vocab, new_grammar, summary = update_state(
+            story_for_state, vocab, grammar, plan,
+        )
+        # Backups (mirrors state_updater.main behavior).
+        from state_updater import backup as _backup
+        _backup(vocab_path)
+        _backup(grammar_path)
+        write_json(vocab_path,   new_vocab)
+        write_json(grammar_path, new_grammar)
+    except Exception as e:
+        return StepResult(
+            "write", "fail",
+            f"state_updater failed after regenerate: {e}",
+            details=traceback.format_exc(),
+        )
+
+    # --- Regenerate #2: rewrite is_new flags under final word_ids -------
+    try:
+        err = _regen_one()
+        if err is not None:
+            return err
+    except Exception as e:
+        return StepResult(
+            "write", "fail",
+            f"regenerate_all_stories crashed (second pass): {e}",
+            details=traceback.format_exc(),
+        )
+
+    return StepResult(
+        "write", "ok",
+        f"Wrote {sp.name}, updated vocab/grammar state "
+        f"({len(summary.get('words_added') or [])} new word(s), "
+        f"{len(summary.get('grammar_added') or [])} new grammar point(s)), "
+        f"and refreshed is_new flags.",
+        details={
+            "words_added":   summary.get("words_added"),
+            "grammar_added": summary.get("grammar_added"),
+        },
+    )
 
 
 # ── The orchestrator ────────────────────────────────────────────────────────
@@ -635,6 +904,14 @@ def run_gauntlet(story_id: int, *, dry_run: bool) -> dict:
     if s_ped.status == "fail":
         return _make_verdict(story_id, steps, dry_run, halted_at="pedagogical_sanity")
 
+    # Step 5.65: vocab reinforcement (HARD BLOCK on must-reinforce). Catches
+    # the test_vocab_words_are_reinforced (R1) failure that bit story 8 —
+    # words intro'd in story N-1 must reappear in story N.
+    s_vocab = step_vocab_reinforcement(story_id, built)
+    steps.append(s_vocab)
+    if s_vocab.status == "fail":
+        return _make_verdict(story_id, steps, dry_run, halted_at="vocab_reinforcement")
+
     # Step 5.7: coverage floor (HARD BLOCK). Every post-bootstrap story
     # must introduce ≥1 new grammar point until the current JLPT tier
     # is fully covered. Mirrors validator's Check 3.10 with a clearer
@@ -648,14 +925,19 @@ def run_gauntlet(story_id: int, *, dry_run: bool) -> dict:
     s_rev = step_literary_review(built)
     steps.append(s_rev)
 
-    # Step 7: write
-    s_write = step_write(story_id, built, dry_run)
+    # Step 7: write (also persists vocab/grammar state and refreshes
+    # is_new flags on a live ship — see step_write docstring).
+    s_write = step_write(story_id, built, report, dry_run)
     steps.append(s_write)
     if s_write.status == "fail":
         return _make_verdict(story_id, steps, dry_run, halted_at="write")
 
-    # Step 8: audio
-    steps.append(step_audio(story_id))
+    # Step 8: audio (skipped on --dry-run; hard-fails the ship if it
+    # crashes since audio is part of the shipping contract).
+    s_audio = step_audio(story_id, dry_run)
+    steps.append(s_audio)
+    if s_audio.status == "fail":
+        return _make_verdict(story_id, steps, dry_run, halted_at="audio")
 
     return _make_verdict(story_id, steps, dry_run)
 
