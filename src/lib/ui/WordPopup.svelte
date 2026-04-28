@@ -26,17 +26,6 @@
   let srs = $derived(learner.state.srs?.[word.id]);
   let hasKanji = $derived(word.surface !== word.kana);
 
-  $effect(() => {
-    if (audioSrc && learner.state.prefs?.audio_autoplay) {
-      const a = audioFor(audioSrc);
-      try {
-        a?.play();
-      } catch {
-        /* noop */
-      }
-    }
-  });
-
   function playWord() {
     const a = audioFor(audioSrc);
     if (!a) return;

@@ -141,14 +141,12 @@
     if (!story) return;
     const sent = story.sentences[i];
     if (!sent.audio) return;
-    if (learner.state.prefs.audio_autoplay) {
-      sequencePlayback = true;
-      setSequencePlaying(true);
-      playFrom(i);
-    } else {
-      playingIdx = i;
-      playOnce(sent.audio, { onEnd: () => (playingIdx = null) });
-    }
+    // Plays exactly one sentence. The "▶ Play story" button is the
+    // dedicated affordance for sequential playback; per-sentence
+    // triangles always play just the sentence the learner clicked,
+    // which matches the intuitive single-tap → single-clip model.
+    playingIdx = i;
+    playOnce(sent.audio, { onEnd: () => (playingIdx = null) });
   }
 
   function showSentencePopup(i: number) {
@@ -237,17 +235,6 @@
       >
         ▶ Play story
       </button>
-      <label class="autoplay-toggle">
-        <input
-          type="checkbox"
-          checked={learner.state.prefs.audio_autoplay}
-          onchange={(e) => {
-            learner.state.prefs.audio_autoplay = (e.target as HTMLInputElement).checked;
-            learner.save();
-          }}
-        />
-        <span>Autoplay next sentence</span>
-      </label>
     </div>
 
     <div id="sentences-container" class="story-body" lang="ja">

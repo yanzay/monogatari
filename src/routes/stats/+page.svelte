@@ -25,7 +25,7 @@
     }
   }
   function bindBool(
-    key: 'audio_on_review_reveal' | 'audio_autoplay' | 'audio_listen_first',
+    key: 'audio_on_review_reveal' | 'audio_listen_first',
     e: Event,
   ) {
     learner.state.prefs[key] = (e.target as HTMLInputElement).checked;
@@ -152,14 +152,6 @@
             audio fall back to text. No added review volume.
           </small>
         </span>
-      </label>
-      <label class="settings-row settings-row-checkbox">
-        <input
-          type="checkbox"
-          checked={prefs.audio_autoplay}
-          onchange={(e) => bindBool('audio_autoplay', e)}
-        />
-        <span>Autoplay next sentence in story</span>
       </label>
     </div>
   </section>

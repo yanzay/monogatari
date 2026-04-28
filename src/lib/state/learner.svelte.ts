@@ -32,7 +32,6 @@ const CURRENT_VERSION = 3;
 
 export interface Prefs {
   show_gloss_by_default: boolean;
-  audio_autoplay: boolean;
   audio_on_review_reveal: boolean;
   /**
    * Listening-first review mode.
@@ -81,7 +80,6 @@ function todayLocal(): string {
 function defaultPrefs(): Prefs {
   return {
     show_gloss_by_default: false,
-    audio_autoplay: false,
     audio_on_review_reveal: true,
     audio_listen_first: false,
     theme: 'auto',
@@ -176,7 +174,6 @@ export function sanitizeImported(raw: unknown): LearnerState {
         out.prefs = {
           ...defaultPrefs(),
           show_gloss_by_default: !!p.show_gloss_by_default,
-          audio_autoplay: !!p.audio_autoplay,
           audio_on_review_reveal:
             typeof p.audio_on_review_reveal === 'boolean' ? p.audio_on_review_reveal : true,
           audio_listen_first:

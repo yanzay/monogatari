@@ -68,7 +68,6 @@ beforeEach(() => {
     story_progress: {},
     prefs: {
       show_gloss_by_default: false,
-      audio_autoplay: false,
       audio_on_review_reveal: true,
       audio_listen_first: false,
       theme: 'auto',

@@ -302,15 +302,22 @@ describe('sanitizeImported', () => {
   });
 
   describe('prefs', () => {
-    it('coerces booleans for show_gloss_by_default and audio_autoplay', () => {
+    it('coerces truthy values for show_gloss_by_default', () => {
       const out = sanitizeImported({
         prefs: {
           show_gloss_by_default: 'yes',
-          audio_autoplay: 1,
         },
       });
       expect(out.prefs.show_gloss_by_default).toBe(true);
-      expect(out.prefs.audio_autoplay).toBe(true);
+    });
+
+    it('silently drops removed pref keys (e.g. legacy audio_autoplay)', () => {
+      const out = sanitizeImported({
+        prefs: {
+          audio_autoplay: true, // removed 2026-04-29
+        },
+      });
+      expect((out.prefs as unknown as Record<string, unknown>).audio_autoplay).toBeUndefined();
     });
 
     it('preserves explicit false for audio_on_review_reveal', () => {
@@ -427,7 +434,6 @@ describe('sanitizeImported', () => {
       const out = sanitizeImported({});
       expect(out.prefs).toEqual({
         show_gloss_by_default: false,
-        audio_autoplay: false,
         audio_on_review_reveal: true,
         audio_listen_first: false,
         theme: 'auto',

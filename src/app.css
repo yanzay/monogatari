@@ -302,7 +302,6 @@ body {
 }
 .btn-audio:hover { background: var(--bg); }
 .btn-audio.playing { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
-.autoplay-toggle { display: inline-flex; align-items: center; gap: 0.35rem; cursor: pointer; }
 .token-audio-icon, .sentence-audio-icon {
   display: inline-block;
   font-size: 0.65rem;
