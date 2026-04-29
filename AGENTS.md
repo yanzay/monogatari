@@ -551,6 +551,84 @@ N1 advanced-vocab story), the corpus must show that kanji in actual
 sentence text first; the mint guard will then keep the kanji surface
 because the on-page form contains it.
 
+### Lexical difficulty cap (since 2026-04-29 evening)
+
+Parallel to the grammar coverage_floor (which prevents over-jumping
+to advanced grammar), `pipeline/lexical_difficulty.py` enforces a
+JLPT+nf-band cap on newly-minted vocab. The cap that motivated this:
+W00030 包丁 ("kitchen knife", JLPT N2) was minted in story 3 — a
+bootstrap-tier story that should only mint N5 vocab. The author
+(human or LLM) had no automated signal that 包丁 was an early-tier
+hazard. Now they do.
+
+Per-story cap progression:
+
+  Story 1–10  (bootstrap)   → max JLPT = N5,  max nf = nf06 (~rank 3,000)
+  Story 11–25                → max JLPT = N4,  max nf = nf12 (~rank 6,000)
+  Story 26–50                → max JLPT = N3,  max nf = nf24 (~rank 12,000)
+  Story 51+                  → max JLPT = N2,  max nf = nf48 (any)
+
+A word PASSES if it satisfies EITHER signal (belt-and-suspenders).
+Words with no JLPT entry but with `ichi1` (Ichimango basic-vocab
+tag) are rescued — this catches Tanos JLPT-list gaps like りんご,
+バナナ, かばん that are universally agreed N5-equivalent.
+
+**Data file:** `data/jlpt_vocab.json` (~280KB, sourced from
+stephenmk/yomitan-jlpt-vocab on 2026-04-29). Hardlinked to
+`static/data/jlpt_vocab.json`. Levels are ints 5..1 where 5=N5
+(most basic). The file has FOUR lookup keys:
+
+  - `by_jmdict_seq[seq]` → level (best for disambiguation)
+  - `by_kanji_kana["kanji|kana"]` → level (canonical when both known)
+  - `by_kanji[kanji]` → lowest-level (loose; may collide on homographs)
+  - `by_kana[kana]` → lowest-level (loose)
+
+The lookup function in `pipeline/lexical_difficulty.py` uses the
+specific keys first and falls back to the loose keys, so e.g. 店|みせ
+correctly resolves to N5 rather than N1 (which is what 店|てん returns
+under the loose `by_kanji` lookup).
+
+**Three integration points:**
+
+1. **Mint enrichment** (`text_to_story.py::_ensure_word`): every new
+   vocab record gets `jlpt`, `nf_band`, `common_tags` cached at mint
+   time so downstream tools don't re-query jamdict per validation.
+   Failure-tolerant — missing data file is non-fatal.
+2. **Agent brief** (`agent_brief.py::_lexical_difficulty_constraints`):
+   surfaces the cap, the override discipline, and the existing
+   above-cap palette words BEFORE drafting. Visible in both the
+   verbose `build_brief` output and the compact `build_author_brief`
+   under `hard_limits.lexical_difficulty_cap`.
+3. **Gauntlet step** (`author_loop.py::step_vocab_difficulty`):
+   inspects newly-minted words from the build report and warns if
+   any exceed the cap. Currently SOFT-WARN per "implement the
+   machinery, defer the corpus backfill" decision (2026-04-29).
+
+**Override discipline:** the spec MAY declare
+`lexical_overrides: ["surface", ...]` to consciously absorb up to
+1 above-cap mint per story. The override must be acknowledged in
+spec.intent. Mirrors v2 grammar override discipline.
+
+**Soft-warn → hard-block conversion checklist (when corpus is clean):**
+
+1. Audit corpus via `pytest pipeline/tests/test_lexical_difficulty.py`.
+2. For each above-cap entry, either rewrite the spec to use a more
+   common alternative, or add the surface to spec.lexical_overrides.
+3. In `pipeline/author_loop.py::step_vocab_difficulty`, change
+   `status="warn"` → `status="fail"` and add the gauntlet halt
+   clause in `run_gauntlet`.
+4. In `pipeline/tests/test_lexical_difficulty.py`, remove the
+   `@pytest.mark.xfail` decorator from
+   `test_no_above_tier_vocab_without_override`.
+
+**Known above-cap legacy entries (audited 2026-04-29):**
+- W00026 袋 (story 2, N3): "bag" — common in everyday Japanese but
+  technically N3. Either rewrite story 2 or add to lexical_overrides.
+- W00029 皿 (story 3, N3): "plate" — same situation.
+- W00030 包丁 (story 3, N2): "kitchen knife" — the bug that
+  motivated this whole feature. Story 3 should probably use ナイフ
+  (N5, more general) and reserve 包丁 for a later "cooking" story.
+
 ---
 
 ## Notes

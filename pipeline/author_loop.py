@@ -742,6 +742,128 @@ def step_mint_budget(story_id: int, build_report: dict | None) -> StepResult:
         )
 
 
+def step_vocab_difficulty(story_id: int, build_report: dict | None) -> StepResult:
+    """Soft warn: are any newly-minted words above this story's tier cap?
+
+    Per the lexical-difficulty cap added 2026-04-29, each story has a
+    JLPT level + nf-band ceiling on what it may mint. This step
+    inspects the newly-minted words from the build report and warns if
+    any exceed the cap — but does NOT block the ship for now (per the
+    user's "implement, defer backfill" choice on 2026-04-29). The hard
+    block is intended once the existing corpus has been audited and
+    either rewritten or had `lexical_overrides` retroactively added.
+
+    The spec MAY declare `lexical_overrides: ["surface", ...]` to
+    consciously absorb above-cap mints. An override is logged here as
+    a soft warning even when accepted.
+
+    To convert this from soft-warn to hard-block in the future:
+      1. Audit existing corpus & either rewrite above-cap stories or
+         add lexical_overrides for the genuinely necessary cases.
+      2. Change `status="warn"` below to `status="fail"`.
+      3. Add the gauntlet halt clause in run_gauntlet (currently absent).
+      4. Update the regression test from `xfail`/skip to enabled.
+    """
+    try:
+        from lexical_difficulty import (  # noqa: E402
+            tier_cap,
+            difficulty_from_vocab_record,
+            lookup_difficulty,
+            evaluate_cap,
+            MAX_OVERRIDES_PER_STORY,
+        )
+        from _paths import load_spec  # noqa: E402
+
+        cap_jlpt, cap_nf = tier_cap(story_id)
+        new_words = list((build_report or {}).get("new_words") or [])
+        # Pull declared overrides from the spec.
+        try:
+            spec = load_spec(story_id) or {}
+            overrides = list(spec.get("lexical_overrides") or [])
+        except Exception:
+            overrides = []
+        flagged: list[dict] = []
+        accepted_overrides: list[dict] = []
+        for w in new_words:
+            # Build report's "new_words" entries are the freshly-minted
+            # vocab records — they should already carry jlpt/nf_band
+            # from the mint enrichment, but lookup_difficulty handles
+            # missing fields gracefully.
+            diff = (
+                difficulty_from_vocab_record(w)
+                if any(k in w for k in ("jlpt", "nf_band", "common_tags"))
+                else lookup_difficulty(w.get("surface", ""), w.get("kana", ""))
+            )
+            dec = evaluate_cap(diff, story_id)
+            if dec.above_cap:
+                surface = w.get("surface", "")
+                bucket = (
+                    accepted_overrides if surface in overrides else flagged
+                )
+                bucket.append({
+                    "id": w.get("id"),
+                    "surface": surface,
+                    "kana": w.get("kana", ""),
+                    "jlpt": diff.jlpt,
+                    "nf_band": diff.nf_band,
+                    "reason": dec.reason,
+                })
+        # Even when all flagged words are absorbed by overrides, we
+        # surface a warning so the author sees the override budget burn.
+        if len(accepted_overrides) > MAX_OVERRIDES_PER_STORY:
+            return StepResult(
+                "vocab_difficulty", "warn",
+                f"Story {story_id} accepts {len(accepted_overrides)} "
+                f"lexical overrides but the per-story max is "
+                f"{MAX_OVERRIDES_PER_STORY}. Trim mints or split the "
+                f"scene across stories.",
+                details={
+                    "cap_jlpt": cap_jlpt, "cap_nf": cap_nf,
+                    "accepted_overrides": accepted_overrides,
+                    "flagged": flagged,
+                    "policy": "soft-warn (defer-backfill mode 2026-04-29)",
+                },
+            )
+        if flagged:
+            return StepResult(
+                "vocab_difficulty", "warn",
+                f"Story {story_id} mints {len(flagged)} above-cap "
+                f"word(s) without `lexical_overrides`: "
+                f"{', '.join(w['surface'] for w in flagged)}. "
+                f"Cap is N{cap_jlpt}/nf{cap_nf:02d}. "
+                f"Either rewrite to use a more common word, or add to "
+                f"spec.lexical_overrides if genuinely load-bearing.",
+                details={
+                    "cap_jlpt": cap_jlpt, "cap_nf": cap_nf,
+                    "flagged": flagged,
+                    "accepted_overrides": accepted_overrides,
+                    "policy": "soft-warn (defer-backfill mode 2026-04-29)",
+                },
+            )
+        if accepted_overrides:
+            return StepResult(
+                "vocab_difficulty", "ok",
+                f"Story {story_id}: {len(accepted_overrides)} lexical "
+                f"override(s) accepted; {len(new_words)} mints overall.",
+                details={
+                    "cap_jlpt": cap_jlpt, "cap_nf": cap_nf,
+                    "accepted_overrides": accepted_overrides,
+                },
+            )
+        return StepResult(
+            "vocab_difficulty", "ok",
+            f"All {len(new_words)} new mint(s) at or below "
+            f"N{cap_jlpt}/nf{cap_nf:02d} cap.",
+            details={"cap_jlpt": cap_jlpt, "cap_nf": cap_nf},
+        )
+    except Exception as e:
+        return StepResult(
+            "vocab_difficulty", "warn",
+            f"vocab_difficulty crashed (non-blocking): {e}",
+            details=traceback.format_exc(),
+        )
+
+
 ## Retired 2026-04-29: step_literary_review.
 ##
 ## Originally a stub awaiting `pipeline/literary_review.py` (Task 1.10).
@@ -1057,6 +1179,13 @@ def run_gauntlet(story_id: int, *, dry_run: bool) -> dict:
     steps.append(s_mint)
     if s_mint.status == "fail":
         return _make_verdict(story_id, steps, dry_run, halted_at="mint_budget")
+
+    # Step 5.55: vocab difficulty (SOFT WARN — implemented 2026-04-29 but
+    # currently non-blocking per the user's "implement, defer backfill"
+    # choice; see step_vocab_difficulty docstring for the upgrade
+    # checklist to make it a hard-block).
+    s_vdiff = step_vocab_difficulty(story_id, report)
+    steps.append(s_vdiff)
 
     # Step 5.6: pedagogical sanity (HARD BLOCK on must-reinforce; warn on
     # should-reinforce). Catches grammar reinforcement debt BEFORE shipping

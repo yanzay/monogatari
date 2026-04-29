@@ -988,6 +988,93 @@ def _compact_grammar_reinforcement(debt: dict) -> dict:
     }
 
 
+def _lexical_difficulty_constraints(target_story: int) -> dict:
+    """Brief section: spell out the lexical-difficulty cap for this story.
+
+    Tells the author what JLPT level / nf-band the story may mint, and
+    lists existing palette words that would EXCEED that cap (so the
+    author can avoid drawing them into the next story without
+    consciously taking an `lexical_overrides` slot). The override
+    discipline mirrors v2 grammar-override discipline: max one per
+    story; must be mentioned in the spec's `intent` field.
+    """
+    try:
+        from lexical_difficulty import (  # noqa: E402
+            tier_cap,
+            difficulty_from_vocab_record,
+            evaluate_cap,
+            MAX_OVERRIDES_PER_STORY,
+        )
+    except Exception:
+        return {
+            "available": False,
+            "note": "lexical_difficulty module unavailable",
+        }
+    cap_jlpt, cap_nf = tier_cap(target_story)
+    out: dict[str, Any] = {
+        "available": True,
+        "cap": {
+            "max_jlpt_level": cap_jlpt,
+            "max_jlpt_label": f"N{cap_jlpt}",
+            "max_nf_band": cap_nf,
+            "rule": (
+                f"Each newly minted word for story {target_story} must "
+                f"satisfy EITHER (a) JLPT level ≤ N{cap_jlpt}, OR "
+                f"(b) JMdict nf-band ≤ nf{cap_nf:02d} (i.e. roughly "
+                f"top {cap_nf*500:,} in the news-frequency corpus). "
+                f"Words with NO frequency signal at all (no JLPT entry, "
+                f"no nf-band tag, no `ichi1` basic-vocab tag) are "
+                f"automatically above-cap — likely very rare."
+            ),
+            "max_overrides_per_story": MAX_OVERRIDES_PER_STORY,
+            "override_field": "lexical_overrides",
+            "override_note": (
+                "If a single above-cap word is genuinely load-bearing "
+                "for the scene, list it in spec.lexical_overrides "
+                "(an array of surface strings) AND mention it in "
+                "spec.intent so the choice is visible. The gauntlet "
+                "warns on override use; ≥2 overrides hard-fails."
+            ),
+        },
+    }
+    # Survey the existing vocab and surface words that are ABOVE this
+    # story's cap. These are not banned (they're already in the corpus
+    # and the author may want to reuse them — that's even pedagogically
+    # good for reinforcement) — but for the AUTHOR to know which ones
+    # cost an "override slot" if newly introduced concepts are bolted
+    # onto them. In practice this is mostly an informational warning;
+    # the cap only fires on NEW mints.
+    try:
+        from _paths import load_vocab  # noqa: E402
+
+        vocab = load_vocab()
+    except Exception:
+        return out
+    above_cap_existing = []
+    for wid, w in sorted(vocab.get("words", {}).items()):
+        diff = difficulty_from_vocab_record(w)
+        dec = evaluate_cap(diff, target_story)
+        if dec.above_cap:
+            above_cap_existing.append({
+                "word_id": wid,
+                "surface": w.get("surface", ""),
+                "kana": w.get("kana", ""),
+                "jlpt": diff.jlpt,
+                "nf_band": diff.nf_band,
+                "first_story": w.get("first_story"),
+                "reason": dec.reason,
+            })
+    out["existing_above_cap"] = above_cap_existing[:20]  # cap output volume
+    out["existing_above_cap_total"] = len(above_cap_existing)
+    out["how_to_use"] = (
+        "Reusing an above-cap existing word is FINE (it's already in "
+        "the corpus and learners have seen it). The cap only blocks "
+        "MINTING a new above-cap word. If you must mint one, list it "
+        "in spec.lexical_overrides."
+    )
+    return out
+
+
 def _literary_contract() -> dict:
     """The compact brief's main purpose: prevent valid-but-dead stories."""
     return {
@@ -1046,6 +1133,7 @@ def build_brief(target_story: int) -> dict[str, Any]:
         "echo_warnings": _echo_warnings_stub(target_story),
         "reinforcement_debt": _reinforcement_debt_from_palette(palette_json),
         "vocab_reinforcement_debt": _vocab_reinforcement_debt(target_story),
+        "lexical_difficulty_constraints": _lexical_difficulty_constraints(target_story),
         "lint_rules_active": _LINT_RULES_ACTIVE,
         "anti_patterns_to_avoid": _ANTI_PATTERNS,
         "previous_3_stories": _previous_3_stories_summary(target_story),
@@ -1075,6 +1163,9 @@ def build_author_brief(target_story: int) -> dict[str, Any]:
             "ladder": ladder,
             "grammar_max_new": ladder.get("grammar_max"),
             "grammar_min_new": ladder.get("grammar_min"),
+            "lexical_difficulty_cap": full.get(
+                "lexical_difficulty_constraints", {}
+            ).get("cap"),
             "required_spec_fields": [
                 "intent", "scene_class", "anchor_object", "characters",
                 "sentences[].role",

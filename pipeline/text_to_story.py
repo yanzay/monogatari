@@ -820,6 +820,23 @@ def _ensure_word(merged: dict, st: BuildState) -> Optional[dict]:
         "meanings": [meaning or "<TODO meaning>"],
         "_minted_by": "text_to_story",
     }
+    # Lexical-difficulty enrichment (added 2026-04-29). Cache the JLPT
+    # level, JMdict nf-band, and primary commonness tags on the vocab
+    # record at mint time so downstream tools (agent_brief warnings,
+    # gauntlet vocab_difficulty step, regression test) can read them
+    # without re-querying jamdict per word per validation. The lookup
+    # itself is cheap but also failure-tolerant — if jamdict isn't
+    # importable or the JLPT data file is missing, the fields are just
+    # set to None and consumers treat the word as "unknown signal."
+    try:
+        from lexical_difficulty import lookup_difficulty  # type: ignore
+
+        diff = lookup_difficulty(chosen_surface, clean_kana or kana)
+        rec["jlpt"] = diff.jlpt
+        rec["nf_band"] = diff.nf_band
+        rec["common_tags"] = list(diff.common_tags)
+    except Exception:  # pragma: no cover - never block a mint on enrichment
+        pass
     if pos == "verb":
         info = analyze_verb(surface) or {}
         rec["verb_class"] = info.get("verb_class") or "ichidan"
