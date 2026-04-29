@@ -204,6 +204,49 @@ ships a single new word will pass the gauntlet AND fail the test
 suite. Always read the brief's `mint_budget.min` as a hard floor,
 not a soft suggestion.
 
+### text_to_story mint dedup was surface-keyed (fixed 2026-04-29)
+
+`pipeline/text_to_story.py::_ensure_word` keyed `BuildState.minted` (the
+in-flight per-build mint pool) by the on-page **surface** of each token.
+For non-inflectables (nouns/pronouns) this was correct because surface
+== dictionary form. For inflectables (verbs / i-adj / na-adj), each
+inflected on-page surface (書きました vs 書きます; 大きい vs 大きかった)
+hashed to a different key, AND `vocab_index.lookup` only sees the
+pre-build vocab_state (not in-flight mints), so the second occurrence
+of the same lemma in a different inflected form would mint a SECOND
+W-id for the same word.
+
+Concrete trigger: story 4 v2 draft (`友達の名前`, 2026-04-29 22:35) had
+`書きました` in s1 and `書きます` in s5 — same lemma 書く, two W-ids
+(W00039 and W00043). The story registered 9 mints instead of 8 and
+tripped the gauntlet's `mint_budget` hard-block. The session
+worked around it by using the same tense in both sentences — but
+the bug was real.
+
+**The fix** introduces `_mint_dedup_key(pos1, surface, lemma)` which
+returns `pos1|normalized_lemma` for inflectables (UniDic POS in
+{動詞, 形容詞, 形状詞, 助動詞}) and `pos1|surface` otherwise. The
+`st.minted` map is now keyed by this stable identity. Both halves
+of the change are atomic — the lookup at the start of `_ensure_word`
+and the insert at the end use the same key.
+
+**Regression test:** `pipeline/tests/test_mint_dedup.py` (7 tests).
+Pins:
+  * dual-tense verb collapses to one mint (the headline case).
+  * dual-form i-adjective collapses to one mint (same family).
+  * distinct lemmas with the same kana still mint separately
+    (no over-dedup).
+  * lemma-empty fallback to surface (well-defined behavior when the
+    tagger fails to provide a lemma).
+  * POS-separator in the key prevents pathological cross-POS collisions.
+
+**Practical consequence for authoring:** previously, an author had to
+either (a) keep verbs single-tense across the story or (b) burn budget
+on duplicate W-ids. With the fix, the same verb can appear in past,
+nonpast, te-form, and negative across one story and counts as ONE
+mint. This unlocks `for-the-second-time-in-tense-X` constructions
+that were previously cost-prohibitive at the cap.
+
 ### Story 4 (2026-04-29) — §E.7 rubber-stamped a worksheet-shaped story
 
 `私の名前` (story 4, classroom seed) shipped 2026-04-29 21:14 with a

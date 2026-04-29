@@ -559,7 +559,15 @@ class BuildState:
     grammar_state: dict
     vocab_index: VocabIndex
     new_word_meanings: dict[str, str]
-    minted: dict[str, dict]               # surface → minted vocab record
+    minted: dict[str, dict]               # dedup key → minted vocab record
+    # `minted` is keyed by a STABLE identity for the lexeme — for nouns and
+    # particles the on-page surface; for verbs and adjectives the kana
+    # dictionary form (so 書きました and 書きます — same lemma 書く, same
+    # JMdict entry — collapse to a single mint instead of two W-IDs). The
+    # `_mint_dedup_key()` helper computes the key. Without this, each
+    # inflected on-page form of a freshly-minted verb gets its own W-ID
+    # because `vocab_index.lookup()` only sees the pre-build vocab_state,
+    # not in-flight mints.
     report: dict
     # NB: is_new / is_new_grammar / new_words / new_grammar are NOT decided here.
     # They are owned by the library-wide first-occurrence pass in
@@ -733,6 +741,27 @@ def _godan_to_dict(stem_kana: str, conj_type: str) -> str:
     return ""
 
 
+def _mint_dedup_key(pos1: str, surface: str, lemma: str) -> str:
+    """Stable per-build dedup key for `_ensure_word`'s `st.minted` map.
+
+    For inflectable POS (verb / i-adj / na-adj / aux) the same lexeme can
+    appear under many on-page surfaces in a single story (書きました,
+    書きます, 書いて, 書かない, …). All of those must collapse to one W-ID.
+    The dictionary-form lemma — normalized via `_normalize_lemma` — is
+    the right identity. Where the lemma is empty (rare; usually a tagger
+    miss), fall back to the on-page surface so the dedup map stays
+    well-defined.
+
+    For non-inflectable POS (noun, pronoun, adverb, adnominal) the surface
+    IS the dictionary form, so keying by surface is correct and matches
+    pre-fix behavior.
+    """
+    INFLECTABLE = {"動詞", "形容詞", "形状詞", "助動詞"}
+    if pos1 in INFLECTABLE and lemma:
+        return f"{pos1}|{_normalize_lemma(lemma)}"
+    return f"{pos1}|{surface}"
+
+
 def _ensure_word(merged: dict, st: BuildState) -> Optional[dict]:
     """
     Return the vocab record for this token (existing or freshly minted).
@@ -762,8 +791,14 @@ def _ensure_word(merged: dict, st: BuildState) -> Optional[dict]:
     # Mint a new one — content tokens only (noun / verb / adj)
     if merged["_pos1"] not in ("名詞", "動詞", "形容詞", "形状詞", "副詞", "代名詞", "連体詞"):
         return None
-    if surface in st.minted:
-        return st.minted[surface]
+    # Dedup against fresh mints from earlier in this same build pass.
+    # For inflectables (verbs / i-adj / na-adj) we key by lemma so that
+    # 書きました and 書きます collapse to one W-ID; for non-inflectables we
+    # key by surface (the surface IS the dictionary form). See
+    # `_mint_dedup_key` docstring for the full rationale.
+    dedup_key = _mint_dedup_key(merged["_pos1"], surface, lemma)
+    if dedup_key in st.minted:
+        return st.minted[dedup_key]
     new_id = next_word_id(st.vocab_state, {r["id"] for r in st.minted.values()})
     kana = derive_kana(lemma) if lemma else derive_kana(surface) or ""
     kana = katakana_to_hiragana(kana or "")
@@ -844,7 +879,7 @@ def _ensure_word(merged: dict, st: BuildState) -> Optional[dict]:
         rec["adj_class"] = "i"
     if pos == "na_adjective":
         rec["adj_class"] = "na"
-    st.minted[surface] = rec
+    st.minted[dedup_key] = rec
     st.report["new_words"].append(rec)
     return rec
 
