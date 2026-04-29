@@ -1,0 +1,501 @@
+{
+  "story_id": 3,
+  "title": {
+    "jp": "黄色い卵",
+    "en": "The Yellow Yolk",
+    "tokens": [
+      {
+        "t": "黄色い",
+        "role": "content",
+        "word_id": "W00027",
+        "r": "きいろい",
+        "grammar_id": "G022_i_adj"
+      },
+      {
+        "t": "卵",
+        "role": "content",
+        "word_id": "W00028",
+        "r": "たまご"
+      }
+    ]
+  },
+  "new_words": [
+    "W00027",
+    "W00028",
+    "W00029",
+    "W00030",
+    "W00031",
+    "W00032",
+    "W00033",
+    "W00034"
+  ],
+  "new_grammar": [
+    "G013_mashita_past",
+    "G007_te_form",
+    "G035_arimasen"
+  ],
+  "all_words_used": [
+    "W00027",
+    "W00028",
+    "W00002",
+    "W00004",
+    "W00011",
+    "W00005",
+    "W00026",
+    "W00029",
+    "W00018",
+    "W00030",
+    "W00031",
+    "W00032",
+    "W00014",
+    "W00033",
+    "W00034"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あさ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "台所",
+          "role": "content",
+          "word_id": "W00004",
+          "r": "だいどころ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "卵",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "たまご",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the morning, there is an egg in the kitchen.",
+      "audio": "audio/story_3/s0.mp3",
+      "audio_hash": "0b3b323ceb21"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "袋",
+          "role": "content",
+          "word_id": "W00026",
+          "r": "ふくろ"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from"
+        },
+        {
+          "t": "皿",
+          "role": "content",
+          "word_id": "W00029",
+          "r": "さら",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "持ちました",
+          "role": "content",
+          "word_id": "W00018",
+          "r": "もちました",
+          "inflection": {
+            "base": "持つ",
+            "base_r": "もつ",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past",
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Mother took a plate out of the bag.",
+      "audio": "audio/story_3/s1.mp3",
+      "audio_hash": "3984a2acefb5"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "包丁",
+          "role": "content",
+          "word_id": "W00030",
+          "r": "ほうちょう",
+          "is_new": true
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "卵",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "たまご"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "切りました",
+          "role": "content",
+          "word_id": "W00031",
+          "r": "きりました",
+          "inflection": {
+            "base": "切る",
+            "base_r": "きる",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Mother cut the egg with the knife.",
+      "audio": "audio/story_3/s2.mp3",
+      "audio_hash": "e64de606f2b8"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "白い",
+          "role": "content",
+          "word_id": "W00032",
+          "r": "しろい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "皿",
+          "role": "content",
+          "word_id": "W00029",
+          "r": "さら"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "持って",
+          "role": "content",
+          "word_id": "W00018",
+          "r": "もって",
+          "inflection": {
+            "base": "持つ",
+            "base_r": "もつ",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form",
+          "is_new_grammar": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "黄色い",
+          "role": "content",
+          "word_id": "W00027",
+          "r": "きいろい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "卵",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "たまご"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたくし"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "見せました",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "みせました",
+          "inflection": {
+            "base": "見せる",
+            "base_r": "みせる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G013_mashita_past",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Mother held the white plate and showed me the yellow yolk.",
+      "audio": "audio/story_3/s3.mp3",
+      "audio_hash": "85018e9f5461"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたくし"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "卵",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "たまご"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "切りました",
+          "role": "content",
+          "word_id": "W00031",
+          "r": "きりました",
+          "inflection": {
+            "base": "切る",
+            "base_r": "きる",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G013_mashita_past"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I cut an egg too.",
+      "audio": "audio/story_3/s4.mp3",
+      "audio_hash": "293dbf1e0e1c"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたくし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "卵",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "たまご"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "食べました",
+          "role": "content",
+          "word_id": "W00034",
+          "r": "たべました",
+          "inflection": {
+            "base": "食べる",
+            "base_r": "たべる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G013_mashita_past",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I ate the egg with mother.",
+      "audio": "audio/story_3/s5.mp3",
+      "audio_hash": "4acd0145b3a5"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "卵",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "たまご"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "ありません",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "ありません",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G035_arimasen",
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There are no eggs left.",
+      "audio": "audio/story_3/s6.mp3",
+      "audio_hash": "b20079b82081"
+    }
+  ],
+  "word_audio": {
+    "W00027": "audio/words/W00027.mp3",
+    "W00028": "audio/words/W00028.mp3",
+    "W00029": "audio/words/W00029.mp3",
+    "W00030": "audio/words/W00030.mp3",
+    "W00031": "audio/words/W00031.mp3",
+    "W00032": "audio/words/W00032.mp3",
+    "W00033": "audio/words/W00033.mp3",
+    "W00034": "audio/words/W00034.mp3"
+  },
+  "word_audio_hash": {
+    "W00027": "7abdf046a165",
+    "W00028": "b5e7e89b1fbf",
+    "W00029": "e6316d04337f",
+    "W00030": "1a0a6233d638",
+    "W00031": "eb89ababd65c",
+    "W00032": "7b1b01735abb",
+    "W00033": "3184e589aa84",
+    "W00034": "3e027e9f1056"
+  }
+}
