@@ -675,34 +675,142 @@ sufficiently independent judgment to catch what I missed. AGENTS.md
 ("Parallel subagents are great for…") records this pattern working
 already.
 
+**Why the prompt is structured the way it is.** A user audit on
+2026-04-29 found the prior §E.7 prompt ("What HAPPENS?", "Did
+anything surprise you?", "SHIP / REWRITE-SENTENCE / REWRITE-STORY")
+was rubber-stamping technically-valid stories that read as bolted-
+together obligation lists (story 4 — "私の名前" — passed §E.7 SHIP
+despite a teleporting friend with no entrance, an arbitrary "no
+pencil" assertion to satisfy arimasen-reinforcement, and a
+3-token classroom "transfer" with no emotional weight). The problem
+was prompt-shaped: "what happens" only asks for a verb-bearing
+sentence (which a checklist of pedagogical sentences trivially has),
+and "did anything surprise you" lets a polite reader default to
+"no." The replacement prompt below briefs the subagent as a
+**hostile reviewer**, names the **specific failure modes** to hunt
+for, and **biases the default verdict to REWRITE** so SHIP must be
+positively earned, not passively accepted.
+
 **Freshness rule (same as §E.5/E.6):** §E.7 runs ONLY after §E is
 green AND §E.5/E.6 returned SHIP. The subagent reads the spec file
 directly, so the spec on disk MUST be the gauntlet-green version. Any
 subsequent sentence edit invalidates the prior §E.7 verdict — re-run.
 
-Delegate to an `Explore` subagent with this exact task:
+Delegate to an `Explore` subagent with this **exact** task (do not
+soften the framing — the hostility is load-bearing):
 
-> "Read `pipeline/inputs/story_N.bilingual.json` (only — no other
-> files, no priors, no AGENTS.md, no SKILL). In ≤120 words, answer:
-> (a) What HAPPENS in this story? Use one sentence with a verb of
->     action, transfer, or discovery.
-> (b) Does it remind you of any of `pipeline/inputs/story_{N-3}.bilingual.json`,
->     `pipeline/inputs/story_{N-2}.bilingual.json`, or
->     `pipeline/inputs/story_{N-1}.bilingual.json`? In what specific way
->     (anchor type, event shape, sentence rhythm, closer template)?
-> (c) Is there any sentence whose CONTENT surprised you, in either a
->     good or bad way (implausibility, oddness, beauty)?
-> (d) One-line verdict: SHIP / REWRITE-SENTENCE / REWRITE-STORY with
->     a one-line reason."
+> "You are a HOSTILE LITERARY REVIEWER for a Japanese graded-reader
+> corpus. Your job is to find reasons to REJECT this story, not to
+> approve it. The default verdict is REWRITE; SHIP is only earned
+> when the story survives every probe below. Polite "good enough"
+> approvals have shipped defects into the corpus — do not be polite.
+>
+> READ ONLY:
+>   - `pipeline/inputs/story_N.bilingual.json` (the candidate)
+>   - `pipeline/inputs/story_{N-1}.bilingual.json`
+>   - `pipeline/inputs/story_{N-2}.bilingual.json`
+>   - `pipeline/inputs/story_{N-3}.bilingual.json` (if it exists)
+> Do NOT read AGENTS.md, the SKILL, the brief, the corpus, or
+> anything else. You must judge ONLY what is on the page in front
+> of a learner.
+>
+> READ THE EN GLOSSES FIRST, then the JP. If the EN reads like a
+> story you would want to read again, that is a positive signal. If
+> the EN reads like 'sentence 1, sentence 2, sentence 3 — done' with
+> no scene, no stakes, no human feel, that is the failure mode this
+> review is built to catch.
+>
+> Then, in ≤250 words, answer ALL eight probes. Be specific (quote
+> sentence ids and surface forms) — vague answers count as N.
+>
+> 1. ONE-SENTENCE EVENT. Write the story in one sentence using a
+>    verb of action, transfer, decision, refusal, discovery, or
+>    revelation (NOT "observes", NOT "is", NOT "notices"). If the
+>    only verb you can honestly use is observational, that is a
+>    REWRITE-STORY signal — the story has no event.
+>
+> 2. CHARACTER ENTRANCES. For every character other than the
+>    narrator, name the sentence in which they ENTER the scene
+>    (door opens, footsteps, a voice from elsewhere, a spatial
+>    placement that earns its keep — 'the friend behind me' counts
+>    ONLY if the spatial relationship pays off later). A character
+>    who simply appears mid-story with no entrance is a TELEPORT
+>    and is REWRITE-STORY-grade.
+>
+> 3. WHY-IS-EACH-FACT-HERE. For every assertion in the story
+>    (especially negative ones — "X has no Y", "X doesn't know Y"),
+>    explain in one phrase why the story would suffer if that
+>    assertion were deleted. If the honest answer is "to satisfy a
+>    grammar slot" or "to set up the closer mechanically", call it
+>    a PEDAGOGICAL BOLT-ON. Two or more bolt-ons = REWRITE-STORY.
+>
+> 4. ANCHOR CAUSALITY. Name the sentences in which the anchor
+>    object appears. Does the anchor (a) change owners, (b) change
+>    state, (c) change location meaningfully, or (d) trigger an
+>    action by a character? If the anchor only gets held / looked
+>    at / mentioned, it is decoration → REWRITE-STORY.
+>
+> 5. CLOSER WEIGHT. Read the closer sentence aloud (in head). Does
+>    it land — does it carry the emotional or narrative weight of
+>    everything before it? Or is it a mechanical 'and then X
+>    happened' that could have been any other action? A weak closer
+>    is REWRITE-SENTENCE at minimum.
+>
+> 6. SAMENESS PROBE. Compare to stories N-1, N-2, N-3. Note any
+>    repetition of: anchor TYPE (small portable object vs. fixed
+>    feature vs. food), event SHAPE (narrator-acts-on-object,
+>    object-changes-hands, character-arrives, character-departs),
+>    sentence RHYTHM (every sentence is subject-particle-object-
+>    verb with no variation), closer TEMPLATE (X-が-Y / X-は-Y-を-V
+>    / X-は-Y-に-Z-を-V). Three+ sames = REWRITE-STORY.
+>
+> 7. THE LEARNER TEST. Imagine a JLPT N5 learner reading this in
+>    week 4 of self-study. Do they (a) feel they have READ A STORY
+>    today, (b) feel they have done a GRAMMAR EXERCISE today, or
+>    (c) feel confused? Only (a) is SHIP. (b) is REWRITE-STORY —
+>    the v2 corpus's whole reason to exist is to NOT be (b).
+>
+> 8. THE 'WOULD I WRITE THIS' TEST. If a human author who had been
+>    paid to write a literary children's vignette around the
+>    available vocabulary handed YOU this draft, would you accept
+>    it or send it back? Send-back = REWRITE.
+>
+> VERDICT (one of three; the default is REWRITE):
+>   - SHIP — only if probes 1–8 all return positive signals AND you
+>     can honestly say 'this is a story, not a worksheet'.
+>   - REWRITE-SENTENCE — name the offending sentence(s) and the
+>     specific defect in one line each. Use this ONLY when the
+>     story is fundamentally sound and 1–2 surgical edits would
+>     fix it.
+>   - REWRITE-STORY — the premise itself is the problem (no event,
+>     teleporting characters, decoration anchor, two+ bolt-ons,
+>     learner-test fails). Recommend a different premise direction
+>     in one sentence.
+>
+> If you find yourself wanting to write 'mostly fine' or 'good
+> enough' or 'technically valid' — that is a REWRITE verdict
+> wearing a polite mask. Strip the mask."
 
 If the subagent says SHIP → proceed to Step F.
 If REWRITE-SENTENCE → fix the named sentence, BOUNCE BACK to §E
 (re-run the gauntlet — the edit may have broken correctness), and
 re-run §E.5/E.6/E.7 on the new text.
 If REWRITE-STORY → discard, restart Step B. Override the verdict
-ONLY by spending a §G override (max 1 per session).
+ONLY by spending a §G override (max 1 per session) — and document
+WHY the subagent's REWRITE was wrong, sentence by sentence, in the
+override note. "I disagree" is NOT a valid override; you must
+identify a concrete error in the subagent's reasoning.
 
-Cost: ~1 tool call, ~5 seconds. Cheap.
+**Calibration check (every 5th story).** If the last 5 §E.7 verdicts
+were all SHIP, suspect the prompt has been internalized as a
+formality and re-deploy with a paraphrase that asks the subagent to
+ARGUE FOR REWRITE explicitly first, then optionally retract. The
+v2 corpus is small and the cost of one false-SHIP is permanent
+pollution; the cost of one false-REWRITE is one extra drafting
+loop.
+
+Cost: ~1 tool call, ~10–15 seconds. Still cheap relative to a
+shipped defect.
 
 ### Step E.8 — Round-trip cap and the trivial-edit carryover
 

@@ -204,6 +204,64 @@ ships a single new word will pass the gauntlet AND fail the test
 suite. Always read the brief's `mint_budget.min` as a hard floor,
 not a soft suggestion.
 
+### Story 4 (2026-04-29) — §E.7 rubber-stamped a worksheet-shaped story
+
+`私の名前` (story 4, classroom seed) shipped 2026-04-29 21:14 with a
+unanimously-green pre-ship discipline (§E.5 prosecutor table all Y,
+§E.6 EN-only re-read SHIP, §E.7 fresh-eyes subagent SHIP), then was
+read by the user 30 minutes later and called "a piece of shit."
+Rightly. The story is mechanically valid — every grammar obligation
+landed, every must-reinforce item covered, the gauntlet green on the
+first try — and reads as 6 sentences a worksheet author wrote to
+satisfy 6 boxes:
+
+  s0 私は学校にいます。     (set the scene_class)
+  s1 先生は私の名前を書きました。 (land mashita reinforce + 名前 mint)
+  s2 私は鉛筆を持っています。  (intro te_iru + anchor mention #1)
+  s3 後ろの友達は私の名前を知りません。 (intro masen + teleport friend in)
+  s4 友達の鉛筆はありません。   (land arimasen reinforce — bolt-on)
+  s5 私は友達に鉛筆を見せました。 (closer; "transfer" of 3 tokens)
+
+The friend has no entrance. The "no pencil" assertion exists ONLY to
+satisfy G035_arimasen reinforcement. The "transfer" closer is a
+3-token classroom moment with zero stakes. The aggregate is technically
+a story (verbs, characters, change of state on paper) and emotionally
+nothing.
+
+Why didn't §E.7 catch it? The prompt was too soft:
+  - "What HAPPENS in this story?" → trivially satisfied by a
+    sentence containing a verb. A worksheet of pedagogical sentences
+    has many verbs.
+  - "Did anything surprise you?" → a polite reader's default is "no."
+  - SHIP / REWRITE-SENTENCE / REWRITE-STORY with no default bias →
+    SHIP is the path of least resistance.
+
+Fix applied 2026-04-29 21:45 in
+`.agents/skills/monogatari-author/SKILL.md` §E.7: replaced the soft
+prompt with a HOSTILE LITERARY REVIEWER prompt that:
+  - Names the failure mode explicitly (worksheet-shaped story).
+  - Defaults the verdict to REWRITE (SHIP must be earned).
+  - Has 8 specific probes naming concrete defects to hunt
+    (one-sentence event with non-observational verb; character
+    entrances; pedagogical bolt-ons; anchor causality; closer weight;
+    sameness probe; learner test; "would I write this" test).
+  - Forbids the polite escape hatches ("mostly fine", "good
+    enough", "technically valid").
+  - Adds a calibration rule: if 5 stories in a row pass §E.7 SHIP,
+    suspect the prompt has been internalized as a formality and
+    re-deploy with an "argue for REWRITE first" paraphrase.
+
+Story 4 is in the corpus (commit df013fd) and not being unshipped —
+unshipping requires a state-backup restore + audio cleanup chain that
+is more expensive than the defect, and the next 3-5 stories will
+overwrite the impression. But the prompt is the lasting fix.
+
+The general lesson: a literary-quality gate that shares a model
+family with the author needs to be **adversarially briefed** to be
+worth running. Same model + neutral prompt = same blind spots; same
+model + hostile prompt + named failure modes + REWRITE default =
+useful signal.
+
 ### Story 2 (2026-04-29) shipped without §B.0/§B.1/§E.5/§E.6/§E.7
 
 For honesty: story 2 (`小さいりんご`, commit e7f0556) was shipped
