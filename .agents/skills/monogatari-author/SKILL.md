@@ -23,6 +23,56 @@ Trigger phrases: "author story N", "author next story", "write story N",
 variant. If the user says only `author` with no number, default to "next"
 (= max(existing story id) + 1).
 
+### 0.0 The full ordered procedure (READ EVERY ACTIVATION; do not skip)
+
+The activation summary that an agent skims often stops at "Step F —
+Ship," producing the recurring failure mode where §B.0, §B.1, §E.5,
+§E.6, §E.7 are silently skipped because they are subsections inside
+§2 rather than top-level steps. They are NOT optional and they are NOT
+covered by the gauntlet. The complete ordered procedure for ANY ship
+is exactly:
+
+1. **§A** — get the brief (`author_loop.py author N --brief-only`).
+2. **§A.5** — internalize the seed plan (stories 1–10).
+3. **§B** — choose intent + scene_class + anchor (in head).
+4. **§B.0** — write the **PREMISE CONTRACT** into the spec's `intent`
+   field, in English, with all six fields filled crisply. If you can't
+   fill a field, the premise is too weak — restart §B. **REQUIRED.**
+5. **§B.1** — run `pipeline/tools/forbid.py N` and paste the SUMMARY
+   block under a `FORBIDDEN THIS STORY:` heading inside the spec's
+   `intent`, then satisfy ALL four zones (or burn one §G override).
+   **REQUIRED.**
+6. **§B.2 / §C / §C.1–§C.4** — narrative coherence checklist, mint
+   budget, draft sentences with would-mint, self-audit.
+7. **§D** — write the bilingual spec.
+8. **§E** — run the gauntlet dry-run; iterate to `would_ship`.
+9. **§E.5** — write `.author-scratch/prosecution_N.md` (the structured
+   prosecutor table); re-read it; ANY contract row = N → discard.
+   **REQUIRED.**
+10. **§E.6** — read the EN glosses of stories N, N-1, N-2 only; write
+    the one-sentence "what is materially different about EVENTS"
+    answer; check for escape-hatch language. **REQUIRED.**
+11. **§E.7** — delegate the fresh-eyes subagent review to a fresh
+    Explore subagent. SHIP / REWRITE-SENTENCE / REWRITE-STORY.
+    **REQUIRED.**
+12. **§E.8** — round-trip cap: max 3 §E↔§E.5/E.6/E.7 loops; escalate
+    on the 4th.
+13. **§F** — live ship (`author_loop.py author N`). Pytest sweep.
+14. **§F.3** — auto-commit and push (per standing user directive).
+15. **§F.4** — verify spec/artifact drift; fast-follow commit if drift.
+16. **§G** — final report; record `overrides_used: <count>/1`.
+
+**If you skipped any of §B.0, §B.1, §E.5, §E.6, §E.7 on a ship, you
+violated the discipline. Backfill the missing artifacts (write the
+prosecution table post-hoc, run the subagent post-hoc, etc.) and log
+the procedural lapse in `.author-scratch/prosecution_N.md` so the
+audit trail is honest.**
+
+The §F.2 self-audit that a naive scan of the skill suggests using
+INSTEAD of §E.5–E.7 was **RETIRED 2026-04-29**. It runs after
+state_updater has already minted W-IDs and is therefore too expensive
+to honor. See §F.2 docstring for the explicit retirement note.
+
 ## 0.1 The current authoring contract (read first if cold-starting)
 
 The full design constraints for stories 1..10 live in
@@ -510,6 +560,16 @@ that the rewrites silently introduced.
 
 **Once `VERDICT: would_ship`, proceed to §E.5.** Do NOT skip to §F.
 
+> ⛔ **STOP — DO NOT RUN `author_loop.py author N` (live ship) NEXT.**
+> The next steps are §E.5, §E.6, §E.7. They are REQUIRED, not optional.
+> The gauntlet's `would_ship` verdict is a *correctness* verdict, not a
+> *literary* verdict. The literary contract (§B.0) is checked here, by
+> hand, in `.author-scratch/prosecution_N.md`, and by a fresh-eyes
+> subagent (§E.7). Skipping §E.5/E.6/E.7 ships convergence defects that
+> the gauntlet is structurally incapable of catching. If you ever find
+> yourself reading "Step F" right after this line without having first
+> created `.author-scratch/prosecution_N.md`, you've slipped — go back.
+
 ### Step E.5 — Prosecutor pass (ONLY after §E is green; re-run after every gauntlet iteration)
 
 **Why this exists.** A green dry-run says the story is technically
@@ -679,6 +739,15 @@ result of a forced compromise. Better to defer and re-tune the seed
 plan or the ladder for that slot.
 
 ### Step F — Ship (only when §E, §E.5, §E.6, §E.7 are ALL green on the SAME text)
+
+> ⛔ **GATE.** Before running the live ship command below, confirm:
+> - `.author-scratch/prosecution_N.md` exists, all contract rows = Y. (§E.5)
+> - You have written down the §E.6 "materially different EVENTS" sentence
+>   and it does NOT use any escape-hatch phrase.
+> - The §E.7 fresh-eyes subagent returned `SHIP`.
+>
+> If any of those is false, do NOT run the live ship. Either complete
+> the missing gate, or — if the gate FAILS — discard and restart §B.
 
 ```bash
 source .venv/bin/activate && python3 pipeline/author_loop.py author N

@@ -204,6 +204,33 @@ ships a single new word will pass the gauntlet AND fail the test
 suite. Always read the brief's `mint_budget.min` as a hard floor,
 not a soft suggestion.
 
+### Story 2 (2026-04-29) shipped without §B.0/§B.1/§E.5/§E.6/§E.7
+
+For honesty: story 2 (`小さいりんご`, commit e7f0556) was shipped
+having ONLY run the retired §F.2 self-audit — the in-skill literary
+gates (§B.0 premise contract, §B.1 forbid.py mechanical zones, §E.5
+prosecutor table, §E.6 EN-only re-read, §E.7 fresh-eyes subagent)
+were all skipped. The user noticed and asked. The discipline was
+backfilled post-hoc:
+  * `.author-scratch/prosecution_2.md` written retroactively (all rows
+    Y, including the §B.0 contract checks reconstructed from the
+    actual spec).
+  * `pipeline/tools/forbid.py 2` ran clean (all four zones organically
+    honored).
+  * §E.7-equivalent fresh-eyes subagent returned `SHIP` with the
+    same key findings as the prosecutor table.
+
+The corpus is fine because the story genuinely satisfies all gates,
+but the audit trail was incomplete until the backfill. The skill
+(`SKILL.md`) was patched in the same exchange to add §0.0 (the
+top-level full ordered procedure list) and two ⛔ STOP callouts at
+the §E→§E.5 and §E.7→§F transitions, so the literary gates are
+impossible to skip on a normal scan.
+
+If you find yourself activating the skill and your activation
+summary stops at "Step F — Ship," you've fallen into the same trap.
+Re-read §0.0 and §E.5–§E.7 before drafting.
+
 ### vocab_reinforcement gauntlet step is "last-slot only" since 2026-04-29
 
 The gauntlet's `vocab_reinforcement` step (in `pipeline/author_loop.py`)
