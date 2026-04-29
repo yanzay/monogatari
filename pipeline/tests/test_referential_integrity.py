@@ -234,6 +234,60 @@ def _recompute_word_hash(surface_or_kana: str) -> str:
     return _audio_hash(surface_or_kana)
 
 
+def test_audio_paths_in_shipped_stories_are_repo_relative(root, stories):
+    """Every audio path embedded in a shipped story JSON must be a
+    repo-root-relative POSIX path (e.g. "audio/story_1/s0.mp3").
+
+    REGRESSION GUARD (added 2026-04-29 after the v2.5 reload shipped
+    story 1 with absolute filesystem paths like
+    "/Users/ograchov/.../audio/story_1/s0.mp3" to prod). The frontend
+    loads these as URLs relative to the page origin; an absolute
+    filesystem path generates a 404 against the wrong host. The fix in
+    `pipeline/audio_builder.py::_rel_for_json` makes this impossible
+    to write at build time; this test pins the on-disk invariant so a
+    future regression is caught by `pytest pipeline/tests/` before
+    ship.
+
+    The same shape of guard applies to:
+      - sentences[*].audio
+      - word_audio[*]
+      - the manifest's stories[*].path (covered by
+        test_stories_manifest_lists_every_story implicitly because
+        it joins with `root`; the explicit check is here).
+    """
+    bad: list[str] = []
+
+    def _check(label: str, value: str | None):
+        if value is None or value == "":
+            return
+        if value.startswith("/") or value.startswith("\\"):
+            bad.append(f"{label}: absolute path {value!r}")
+        elif ".." in Path(value).parts:
+            bad.append(f"{label}: parent-traversal path {value!r}")
+        elif "://" in value:
+            bad.append(f"{label}: URL-shaped audio path {value!r}")
+
+    for story in stories:
+        sid = story["_id"]
+        for sent in story.get("sentences", []):
+            _check(f"{sid} sentence {sent.get('idx')} .audio", sent.get("audio"))
+        for wid, path in (story.get("word_audio") or {}).items():
+            _check(f"{sid} word_audio[{wid}]", path)
+
+    # Also check the manifest itself.
+    manifest_path = root / "stories" / "index.json"
+    if manifest_path.exists():
+        manifest = json.loads(manifest_path.read_text())
+        for entry in manifest.get("stories", []):
+            _check(f"manifest story_{entry.get('story_id')}.path", entry.get("path"))
+
+    assert not bad, (
+        "Audio paths must be repo-relative POSIX paths "
+        "(see pipeline/audio_builder.py::_rel_for_json):\n  "
+        + "\n  ".join(bad)
+    )
+
+
 def test_audio_no_zero_byte_files(root, stories):
     """Every shipped audio file must be > 0 bytes. Catches ship failures
     where the TTS call returned an error but the empty file was still

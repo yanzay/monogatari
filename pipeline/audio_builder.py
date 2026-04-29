@@ -256,6 +256,44 @@ def build_audio_for_story(
 
     ext = _AUDIO_EXTENSION.get(audio_encoding_name.upper(), ".mp3")
 
+    # ── Path-rewriting policy (added 2026-04-29 after the v2.5 reload
+    # shipped story 1 with absolute audio paths to prod) ─────────────
+    #
+    # Audio paths stored INTO the story JSON must be repo-root-relative
+    # POSIX paths (e.g. "audio/story_1/s0.mp3"), NEVER absolute
+    # filesystem paths. The frontend serves the static site under a
+    # web origin and treats `s.audio` as a URL relative to the page —
+    # an absolute filesystem path like `/Users/.../audio/story_1/s0.mp3`
+    # generates a 404 against the wrong origin.
+    #
+    # The bug was that `step_audio` in author_loop passes
+    # `audio_root=ROOT / "audio"` (absolute, sensible for the OS) and
+    # we naively used `out_path.as_posix()` (which preserves
+    # absoluteness). The fix below makes the stored path relative to
+    # the project root regardless of how `audio_root` was passed.
+    repo_root = audio_root.resolve().parent
+
+    def _rel_for_json(p: Path) -> str:
+        """Return p as a repo-root-relative POSIX path, suitable for
+        embedding into a story JSON. Falls back to a raw POSIX path
+        only if `p` lives outside `repo_root` (which would be a real
+        bug — assert before shipping)."""
+        try:
+            rel = p.resolve().relative_to(repo_root).as_posix()
+        except ValueError:
+            rel = p.as_posix()
+        # Hard guard: under no circumstances may we write an absolute
+        # path into the story JSON.
+        if rel.startswith("/") or rel.startswith("\\"):
+            raise RuntimeError(
+                f"audio_builder refuses to write an absolute path "
+                f"into the story JSON: {rel!r}. The audio_root "
+                f"({audio_root!r}) does not appear to live under the "
+                f"project root ({repo_root!r}). Pass an audio_root "
+                f"that is `<repo_root>/audio`."
+            )
+        return rel
+
     common = dict(
         voice_name=voice_name,
         language_code=language_code,
@@ -266,7 +304,7 @@ def build_audio_for_story(
     for sent in story["sentences"]:
         idx = sent["idx"]
         out_path = sub_dir / f"s{idx}{ext}"
-        rel = out_path.as_posix()
+        rel = _rel_for_json(out_path)
         text = sentence_audio_text(sent)
         kana = "".join(t.get("r", t["t"]) for t in sent["tokens"] if t.get("role") != "punct")
         if force or not out_path.exists():
@@ -294,7 +332,7 @@ def build_audio_for_story(
         if not word:
             continue
         out_path = words_dir / f"{wid}{ext}"
-        rel = out_path.as_posix()
+        rel = _rel_for_json(out_path)
         text = word_audio_text(word) or wid
         kana = word.get("kana") or text
         if force or not out_path.exists():

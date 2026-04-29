@@ -50,6 +50,22 @@ PAGE_SIZE = 50
 
 
 def _scan_stories(stories_dir: Path) -> list[dict]:
+    """Scan stories/ and produce one manifest row per story.
+
+    All paths emitted into the manifest are repo-root-relative POSIX
+    paths (e.g. "stories/story_1.json", "audio/story_1/s0.mp3"). The
+    manifest ships in the static site and is fetched relative to the
+    web origin — absolute filesystem paths would 404. The
+    `audio_path_relative` test in pipeline/tests pins this invariant.
+    """
+    # Compute repo root so we can emit repo-relative POSIX paths even
+    # when this script is invoked with an absolute `stories_dir`
+    # (which is what `step_audio` / author_loop do — they pass `ROOT /
+    # "stories"`). Without this rewrite the manifest's `path` field
+    # ships as `/Users/.../stories/story_1.json` and the frontend 404s.
+    repo_root = stories_dir.resolve().parent
+    audio_root = repo_root / "audio"
+
     rows: list[dict] = []
     for sid, s in iter_stories(stories_dir):
         sentences = s.get("sentences", [])
@@ -59,17 +75,39 @@ def _scan_stories(stories_dir: Path) -> list[dict]:
             for tok in sent.get("tokens", [])
             if tok.get("role") in ("content", "aux")
         )
+        story_path = (stories_dir / f"story_{sid}.json").resolve()
+        try:
+            rel_path = story_path.relative_to(repo_root).as_posix()
+        except ValueError:
+            rel_path = story_path.as_posix()
+        # Hard guard: refuse to ship an absolute path in the manifest.
+        if rel_path.startswith("/") or rel_path.startswith("\\"):
+            raise RuntimeError(
+                f"build_manifest refuses to emit an absolute path: "
+                f"{rel_path!r}. stories_dir ({stories_dir!r}) does not "
+                f"live under repo_root ({repo_root!r})."
+            )
+        # `has_audio` is true iff the per-sentence audio dir actually
+        # exists on disk for this story. Reading `sentences[0].audio`
+        # is unreliable: the field may be a stale absolute path from a
+        # pre-fix build, or empty for legacy stories whose audio is
+        # synthesized by the frontend by convention.
+        story_audio_dir = audio_root / f"story_{sid}"
+        has_audio = (
+            story_audio_dir.exists()
+            and any(story_audio_dir.glob("s*.mp3"))
+        )
         rows.append(
             {
                 "story_id": s.get("story_id", sid),
-                "path": (stories_dir / f"story_{sid}.json").as_posix(),
+                "path": rel_path,
                 "title_jp": (s.get("title") or {}).get("jp", ""),
                 "title_en": (s.get("title") or {}).get("en", ""),
                 "n_sentences": len(sentences),
                 "n_content_tokens": n_content,
                 "n_new_words": len(s.get("new_words", [])),
                 "n_new_grammar": len(s.get("new_grammar", [])),
-                "has_audio": bool(sentences and sentences[0].get("audio")),
+                "has_audio": has_audio,
             }
         )
     return rows

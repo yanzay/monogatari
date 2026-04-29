@@ -779,6 +779,36 @@ def step_audio(story_id: int, dry_run: bool) -> StepResult:
         from _paths import DATA as _DATA
         vocab = json.loads((_DATA / "vocab_state.json").read_text(encoding="utf-8"))
         summary = build_audio_for_story(sp, vocab, audio_root=ROOT / "audio")
+
+        # ── Post-condition guard (added 2026-04-29 after the v2.5
+        # reload shipped story 1 with absolute audio paths to prod).
+        # The audio_builder's _rel_for_json helper should make this
+        # impossible to construct, but a defense-in-depth check here
+        # surfaces any regression at the gauntlet level instead of at
+        # `pytest pipeline/tests/` time. Cheap; runs once per ship.
+        try:
+            shipped = json.loads(sp.read_text(encoding="utf-8"))
+        except Exception:
+            shipped = {}
+        absolute_paths: list[str] = []
+        for sent in shipped.get("sentences", []):
+            ap = sent.get("audio")
+            if ap and (ap.startswith("/") or ap.startswith("\\")):
+                absolute_paths.append(f"sentence {sent.get('idx')}: {ap}")
+        for wid, ap in (shipped.get("word_audio") or {}).items():
+            if ap and (ap.startswith("/") or ap.startswith("\\")):
+                absolute_paths.append(f"word_audio[{wid}]: {ap}")
+        if absolute_paths:
+            return StepResult(
+                "audio", "fail",
+                f"Audio built BUT story JSON contains absolute paths "
+                f"that will 404 on prod. This means audio_builder's "
+                f"path-rewriting policy regressed. Fix "
+                f"`_rel_for_json` in pipeline/audio_builder.py.\n  "
+                + "\n  ".join(absolute_paths),
+                details={"absolute_paths": absolute_paths},
+            )
+
         return StepResult(
             "audio", "ok",
             f"Audio built: {summary['sentences']} sentence(s), "
