@@ -234,6 +234,72 @@ def _recompute_word_hash(surface_or_kana: str) -> str:
     return _audio_hash(surface_or_kana)
 
 
+def test_story_surface_kanji_match_vocab_surface(stories, vocab):
+    """For every content token whose surface contains kanji, that kanji
+    must appear in the resolved vocab entry's surface field.
+
+    REGRESSION GUARD (added 2026-04-29 after story 1 shipped with
+    「お茶は暖かいです」 where 暖かい is the weather/temperature kanji
+    used for warm rooms/days, but the resolved vocab W00017 had
+    surface=温かい — the touch/object kanji used for warm food/drink/
+    objects). Both kanji are alternate forms of the same lemma per
+    JMdict/UniDic so the build accepted the mismatch silently. This
+    is a real, learner-facing pedagogical defect: a textbook would
+    never write 「お茶は暖かい」; it would write 「お茶は温かい」.
+
+    Pure-kana surfaces (e.g. polite-form inflections like あります for
+    vocab surface 有る, or hiragana-only words like パン) are
+    automatically permitted because there's no kanji to compare —
+    the failure mode this rule catches is *different kanji for the
+    same kana reading*, not *kana inflection of a kanji lemma*.
+
+    The rule is intentionally conservative: it only fires when the
+    story surface contains a kanji character that does NOT appear
+    anywhere in the vocab surface. False positives are unlikely; if
+    they ever surface, add an explicit alternate-forms whitelist on
+    the vocab entry (not implemented yet — defer until a real case
+    arrives).
+    """
+    KANJI_RANGE = (0x4E00, 0x9FFF)  # CJK unified ideographs
+
+    def _kanji_set(s: str) -> set[str]:
+        return {c for c in s if KANJI_RANGE[0] <= ord(c) <= KANJI_RANGE[1]}
+
+    bad: list[str] = []
+    for story in stories:
+        sid = story["_id"]
+        sentences = story.get("sentences", [])
+        for sent in sentences:
+            for tok in sent.get("tokens", []):
+                if tok.get("role") != "content":
+                    continue
+                wid = tok.get("word_id")
+                if not wid:
+                    continue
+                vrec = vocab.get("words", {}).get(wid)
+                if not vrec:
+                    continue
+                story_kanji = _kanji_set(tok.get("t", ""))
+                if not story_kanji:
+                    continue  # pure-kana surface; nothing to compare
+                vocab_kanji = _kanji_set(vrec.get("surface", ""))
+                missing = story_kanji - vocab_kanji
+                if missing:
+                    bad.append(
+                        f"{sid} sentence {sent.get('idx')}: "
+                        f"surface {tok['t']!r} (word_id={wid}) "
+                        f"uses kanji {sorted(missing)} that don't appear in "
+                        f"vocab surface {vrec.get('surface')!r}. "
+                        f"Likely an alternate-kanji confusion "
+                        f"(e.g. 暖かい vs 温かい for warm)."
+                    )
+    assert not bad, (
+        "Story surface kanji must match the resolved vocab entry's "
+        "kanji (alternate-kanji confusion is a silent pedagogical "
+        "defect — see test docstring):\n  " + "\n  ".join(bad)
+    )
+
+
 def test_audio_paths_in_shipped_stories_are_repo_relative(root, stories):
     """Every audio path embedded in a shipped story JSON must be a
     repo-root-relative POSIX path (e.g. "audio/story_1/s0.mp3").
