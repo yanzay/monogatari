@@ -30,20 +30,47 @@ const ALLOWED_KEYS = [
  */
 const CURRENT_VERSION = 3;
 
+/**
+ * "Echo" policy for sentence audio after a successful reading-card
+ * grade. Replaces the retired `audio_listen_first` toggle (which was
+ * a re-skin of the same card, not new signal).
+ *
+ *   - 'never'        — no echo. Pure text-first review, no audio side
+ *                       effect on grade.
+ *   - 'mature_only'  — echo only when the just-graded card was already
+ *                       young or mature (i.e. you've recognized this
+ *                       word from text more than once). Default. New /
+ *                       learning / relearning cards skip the echo so
+ *                       fresh introductions don't get distracted by
+ *                       sentence audio whose meaning the learner just
+ *                       looked up.
+ *   - 'always'       — echo after every Good/Easy. Power-user setting.
+ *
+ * The echo is the SENTENCE audio (`audio/story_<n>/s<idx>.mp3`), not
+ * the word audio — sentence prosody, particles, and contractions are
+ * the listening signal isolated word audio can't deliver. Echoes never
+ * fire on Again grades (you didn't earn the audio).
+ */
+export type EchoPolicy = 'never' | 'mature_only' | 'always';
+
 export interface Prefs {
   show_gloss_by_default: boolean;
   audio_on_review_reveal: boolean;
+  /** See EchoPolicy. Default `'mature_only'`. Replaces the retired
+   *  `audio_listen_first` boolean (legacy import maps `true` → 'mature_only',
+   *  `false` → 'never'). */
+  audio_echo_on_grade: EchoPolicy;
   /**
-   * Listening-first review mode.
+   * Listening-card interleave rate: one listening card every N reading
+   * cards in the review queue. Default 6. Set to 0 to drop all
+   * listening cards from sessions (the SRS map still mints them — you
+   * can flip this back on later without losing schedule history).
    *
-   * When true: on each review card, the sentence text is hidden and the
-   * word audio autoplays. The user must recall the word from sound alone
-   * before pressing reveal. Drills aural recognition with zero added
-   * review volume — the same recognition card is just answered from a
-   * different cue. Cards lacking audio fall back to the normal text-first
-   * presentation.
+   * Listening cards are a separate modality keyed
+   * `L:<story_id>:<sentence_idx>` with their own FSRS stability; they
+   * are ADDED to reading sessions, never replacing reading cards.
    */
-  audio_listen_first: boolean;
+  listening_per_review: number;
   theme?: 'auto' | 'light' | 'dark';
   target_retention: number;
   /**
@@ -93,7 +120,13 @@ function defaultPrefs(): Prefs {
   return {
     show_gloss_by_default: false,
     audio_on_review_reveal: true,
-    audio_listen_first: false,
+    // Replaces the retired `audio_listen_first` toggle. Default
+    // `'mature_only'` so new learners see the feature working on words
+    // they already know without it being intrusive on first sight.
+    audio_echo_on_grade: 'mature_only',
+    // One listening card every 6 reading cards by default — a typical
+    // session of ~12-18 reading cards picks up 2-3 listening prompts.
+    listening_per_review: 6,
     theme: 'auto',
     target_retention: DEFAULT_TARGET_RETENTION,
     // Default: no cap. See Prefs.daily_max_reviews docstring for rationale.
@@ -184,13 +217,37 @@ export function sanitizeImported(raw: unknown): LearnerState {
       }
       case 'prefs': {
         const p = value as Record<string, unknown>;
+        // Migration: the retired boolean `audio_listen_first` maps to
+        // the new EchoPolicy. Old true → 'mature_only' (the safe new
+        // default that DOES introduce sentence audio without hijacking
+        // recognition); old false → 'never'. If the new pref is
+        // already present in the import payload, it wins.
+        let echoPolicy: 'never' | 'mature_only' | 'always' = 'mature_only';
+        if (
+          p.audio_echo_on_grade === 'never' ||
+          p.audio_echo_on_grade === 'mature_only' ||
+          p.audio_echo_on_grade === 'always'
+        ) {
+          echoPolicy = p.audio_echo_on_grade;
+        } else if (typeof p.audio_listen_first === 'boolean') {
+          echoPolicy = p.audio_listen_first ? 'mature_only' : 'never';
+        }
+        // Listening interleave rate: floor to non-negative int. 0 = off.
+        let listeningRate = 6;
+        if (
+          typeof p.listening_per_review === 'number' &&
+          p.listening_per_review >= 0 &&
+          Number.isFinite(p.listening_per_review)
+        ) {
+          listeningRate = Math.floor(p.listening_per_review);
+        }
         out.prefs = {
           ...defaultPrefs(),
           show_gloss_by_default: !!p.show_gloss_by_default,
           audio_on_review_reveal:
             typeof p.audio_on_review_reveal === 'boolean' ? p.audio_on_review_reveal : true,
-          audio_listen_first:
-            typeof p.audio_listen_first === 'boolean' ? p.audio_listen_first : false,
+          audio_echo_on_grade: echoPolicy,
+          listening_per_review: listeningRate,
           theme:
             p.theme === 'light' || p.theme === 'dark' || p.theme === 'auto'
               ? p.theme

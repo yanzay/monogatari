@@ -2,17 +2,23 @@
   import { onMount } from 'svelte';
   import { learner } from '$lib/state/learner.svelte';
   import { loadStoryById, getWord, loadVocabIndex } from '$lib/data/corpus';
-  import { audioFor } from '$lib/data/audio';
+  import { audioFor, playOnce } from '$lib/data/audio';
   import { applyGrade, buildQueue, GRADES } from '$lib/state/srs';
   import { resolveReviewKey } from '$lib/util/review-keymap';
   import type { Sentence, Word, VocabIndex } from '$lib/data/types';
   import type { Card, Grade } from '$lib/state/types';
+  import { cardKind } from '$lib/state/types';
 
   import { countDueCards } from '$lib/util/due-count';
 
   let queue = $state<Card[]>([]);
   let revealed = $state(false);
   let contextSentence = $state<Sentence | null>(null);
+  /** The full story object the current card belongs to, kept around
+   *  so the listening card can grab its sentence audio path and so
+   *  the echo step can fire after grading without a second fetch. */
+  let contextStory = $state<Awaited<ReturnType<typeof loadStoryById>>>(null);
+  /** Reading cards have a Word; listening cards leave this null. */
   let word = $state<Word | null>(null);
   let vocabIndex = $state<VocabIndex | null>(null);
   let lastUndoable = $state(false);
@@ -22,13 +28,13 @@
    *  we owe the user an honest explanation rather than "All caught up."
    *  See the empty-state branches below. */
   let trueDueCount = $state(0);
-  /** Per-card audio source captured at load time so Replay/Show-text don't
-   *  need to reload the story. Null = no audio available for this card. */
+  /** Per-word audio source for reading cards (post-reveal replay).
+   *  Null when no per-word audio is available. */
   let cardAudioSrc = $state<string | null>(null);
-  /** True when the current card is in listening-first mode AND audio is
-   *  available AND the user hasn't yet bailed to text. The sentence is
-   *  hidden until the user reveals or hits "Show text". */
-  let textHidden = $state(false);
+  /** Per-sentence audio source — used by listening cards as the prompt
+   *  AND by reading cards' echo step after a successful grade. Null
+   *  when the story / sentence has no audio. */
+  let sentenceAudioSrc = $state<string | null>(null);
 
   onMount(async () => {
     vocabIndex = await loadVocabIndex();
@@ -50,6 +56,10 @@
     queue = buildQueue(learner.state.srs ?? {}, {
       maxReviews: remainingReviews,
       newPerReview: learner.state.prefs.new_per_review ?? 4,
+      // Listening cards are the second modality (variant A). Default
+      // weave: 1 listening card every 6 reading cards. Pref `0`
+      // suppresses listening cards entirely from sessions.
+      listeningPerReview: learner.state.prefs.listening_per_review ?? 6,
     });
     // Use the same predicate as the menu badge so the two views can
     // never disagree about "is anything due?".
@@ -59,6 +69,10 @@
   }
 
   let card = $derived<Card | null>(queue[0] ?? null);
+  /** Discriminator used throughout the template. Listening cards lack
+   *  a `word` and reveal the sentence text + gloss instead of a word
+   *  meaning. Reading cards behave exactly as before. */
+  let isListening = $derived(card ? cardKind(card) === 'listening' : false);
   let queueStats = $derived.by(() => {
     let learning = 0,
       reviews = 0,
@@ -77,19 +91,42 @@
 
   async function loadCurrent() {
     contextSentence = null;
+    contextStory = null;
     word = null;
     cardAudioSrc = null;
-    textHidden = false;
+    sentenceAudioSrc = null;
     if (!card) return;
-    const w = await getWord(card.word_id);
-    if (!w || card !== queue[0]) return;
-    word = w;
 
-    let storyId: number | null = card.context_story ?? null;
-    if (!storyId && w.first_story) storyId = Number(w.first_story);
+    // Resolve story_id. Reading cards always carry context_story;
+    // listening card ids encode (story, sentence) too.
+    const storyId = card.context_story;
     if (!storyId) return;
     const story = await loadStoryById(storyId);
     if (!story || card !== queue[0]) return;
+    contextStory = story;
+
+    if (cardKind(card) === 'listening') {
+      // Listening card: prompt is the sentence audio. The sentence text
+      // (and gloss) become the answer revealed on Space.
+      const sent = story.sentences[card.context_sentence_idx] ?? null;
+      contextSentence = sent;
+      sentenceAudioSrc = sent?.audio ?? null;
+      // Auto-play once on load so the prompt is present immediately.
+      // Browsers may block until the user has interacted with the page;
+      // the on-screen Replay button is the recovery path.
+      if (sentenceAudioSrc) {
+        // Tiny delay so the audio dispatch doesn't race the
+        // component's first paint (same trick as the legacy code).
+        setTimeout(() => playSentenceAudio(), 80);
+      }
+      return;
+    }
+
+    // Reading card path (unchanged behavior except no listen-first
+    // hiding — that variant is retired in favor of the post-grade echo).
+    const w = await getWord(card.word_id);
+    if (!w || card !== queue[0]) return;
+    word = w;
     const exact = story.sentences[card.context_sentence_idx];
     if (exact && exact.tokens.some((t) => t.word_id === card.word_id)) {
       contextSentence = exact;
@@ -98,14 +135,7 @@
         story.sentences.find((s) => s.tokens.some((t) => t.word_id === card.word_id)) ?? null;
     }
     cardAudioSrc = story.word_audio?.[card.word_id] ?? null;
-
-    // Listen-first: hide text + autoplay audio, but ONLY if audio exists.
-    // Cards without audio fall back to normal text-first presentation.
-    if (learner.state.prefs.audio_listen_first && cardAudioSrc) {
-      textHidden = true;
-      // Small delay so the autoplay isn't lost to the page-mount race.
-      setTimeout(() => playCardAudio(), 80);
-    }
+    sentenceAudioSrc = contextSentence?.audio ?? null;
   }
 
   function playCardAudio() {
@@ -118,20 +148,58 @@
     }
   }
 
-  function showText() {
-    textHidden = false;
+  /** Listening-card prompt + Replay button + post-grade echo all share
+   *  this dispatcher. Uses playOnce so a second press cleanly stops the
+   *  first attempt (no overlapping audio when the user mashes buttons). */
+  function playSentenceAudio() {
+    if (!sentenceAudioSrc) return;
+    playOnce(sentenceAudioSrc);
   }
 
   function reveal() {
     revealed = true;
-    textHidden = false; // any reveal forces text to show
     if (learner.state.prefs.audio_on_review_reveal && card && word) {
       playCardAudio();
     }
   }
 
+  /**
+   * Should the post-grade ECHO (variant B) fire on this card?
+   *
+   *   - Only after Good (1) or Easy (2) — never Again. The echo is a
+   *     reward for recognition, not a do-over.
+   *   - Only on READING cards. Listening cards already played the
+   *     sentence audio as their prompt; replaying after grading would
+   *     just be noise.
+   *   - Only when sentence audio actually exists (cardAudioSrc is the
+   *     per-word path; we use sentenceAudioSrc for the echo so the
+   *     learner gets prosody, not isolated word audio).
+   *   - Policy `'never'` always returns false; `'always'` always returns
+   *     true (subject to the other gates); `'mature_only'` requires the
+   *     PRE-grade card status to be `young` or `mature` so brand-new
+   *     and learning cards don't get distracted by sentence audio
+   *     whose meaning the user just looked up.
+   */
+  function shouldEchoAfterGrade(c: Card, g: Grade): boolean {
+    if (g === GRADES.AGAIN) return false;
+    if (cardKind(c) === 'listening') return false;
+    if (!sentenceAudioSrc) return false;
+    const policy = learner.state.prefs.audio_echo_on_grade ?? 'mature_only';
+    if (policy === 'never') return false;
+    if (policy === 'always') return true;
+    // 'mature_only': only echo on cards that have already graduated.
+    return c.status === 'young' || c.status === 'mature';
+  }
+
   function grade(g: Grade) {
     if (!card) return;
+    // Capture the echo decision against the PRE-grade card snapshot —
+    // applyGrade may flip the status (e.g. mature → relearning on
+    // Again, which is moot since Again skips echo, or new → learning
+    // on Good, which we explicitly want to NOT echo on). Reading the
+    // post-grade status would defeat the point of `mature_only`.
+    const echo = shouldEchoAfterGrade(card, g);
+    const echoSrc = sentenceAudioSrc;
     const result = applyGrade(card, g, new Date(), learner.state.prefs.target_retention);
     learner.state.srs[card.word_id] = result.card;
     learner.pushHistory(result.log);
@@ -140,6 +208,19 @@
     queue = queue.slice(1);
     if (queue.length === 0) rebuildQueue();
     lastUndoable = true;
+    // Echo the sentence audio AFTER state mutation but with a tiny
+    // delay so the new card's loadCurrent autoplay (listening cards)
+    // doesn't race against ours. The echo is interruptible — pressing
+    // grade on the next card calls stopCurrent via playOnce / playCardAudio.
+    if (echo && echoSrc) {
+      setTimeout(() => {
+        // Only fire if the user hasn't already triggered fresh audio
+        // (e.g. by landing on a listening card whose autoplay started).
+        // playOnce calls stopCurrent internally so worst case is a
+        // sub-second overlap; the explicit guard keeps it cleaner.
+        playOnce(echoSrc);
+      }, 60);
+    }
   }
 
   function undo() {
@@ -224,42 +305,85 @@
             came up empty. Try refreshing — if this persists, please report it.
           </p>
         {/if}
-      {:else if !word}
-        <p class="empty-state">Loading card…</p>
-      {:else}
+      {:else if isListening}
+        <!-- LISTENING card (variant A): sentence audio is the prompt;
+             the JP text and gloss are the revealed answer. The card
+             tests sentence-level comprehension as a separate retention
+             track from word recognition (different SRS row, same FSRS).
+
+             NOTE: this branch must precede the `!word` guard below —
+             listening cards never load a Word and would otherwise be
+             stuck on "Loading card…" forever. -->
         <div class="review-card">
-          {#if textHidden}
-            <!-- Listen-first mode: sentence is hidden, audio replaces it. -->
-            <div class="review-listen-prompt" aria-live="polite">
-              <button class="btn-audio review-listen-replay" onclick={playCardAudio}>
+          <div class="review-card-kind" aria-label="Card type">🎧 Listening</div>
+          <div class="review-listen-prompt" aria-live="polite">
+            {#if sentenceAudioSrc}
+              <button class="btn-audio review-listen-replay" onclick={playSentenceAudio}>
                 ▶ Replay
-              </button>
-              <button class="review-listen-show" onclick={showText}>
-                Show text
               </button>
               <p class="review-listen-hint">
                 Listen, then press <kbd>Space</kbd> to reveal.
               </p>
-            </div>
-          {:else}
-            <div class="review-sentence" lang="ja">
-              {#if contextSentence}
-                {#each contextSentence.tokens as tok, ti (ti)}
-                  {#if tok.word_id === card.word_id}
-                    <span class="review-highlight">{tok.t}</span>
-                  {:else}
-                    <span>{tok.t}</span>
-                  {/if}
-                {/each}
-              {:else}
-                <span class="review-highlight">{word.surface}</span>
-              {/if}
-            </div>
+            {:else}
+              <p class="review-listen-hint">
+                No audio available for this sentence — press <kbd>Space</kbd> to reveal and grade.
+              </p>
+            {/if}
+          </div>
+          <div class="review-answer" class:visible={revealed} id="review-answer">
             {#if contextSentence}
+              <div class="review-sentence review-sentence-listen" lang="ja">
+                {#each contextSentence.tokens as tok, ti (ti)}
+                  <span>{tok.t}</span>
+                {/each}
+              </div>
+              <div class="review-gloss">{contextSentence.gloss_en}</div>
               <div class="review-source">
                 — Story {card.context_story}, sentence {card.context_sentence_idx + 1}
               </div>
             {/if}
+          </div>
+        </div>
+
+        {#if !revealed}
+          <button class="btn-reveal" onclick={reveal}>Show text <kbd>Space</kbd></button>
+        {:else}
+          <div class="grade-buttons">
+            <button class="grade-btn" onclick={() => grade(GRADES.AGAIN)}>
+              Again<span class="grade-label">1</span>
+            </button>
+            <button class="grade-btn" onclick={() => grade(GRADES.GOOD)}>
+              Good<span class="grade-label">2 / Space</span>
+            </button>
+            <button class="grade-btn" onclick={() => grade(GRADES.EASY)}>
+              Easy<span class="grade-label">3</span>
+            </button>
+          </div>
+        {/if}
+      {:else if !word}
+        <!-- Reading card: word data still in flight. -->
+        <p class="empty-state">Loading card…</p>
+      {:else}
+        <!-- READING card (the original deck). Highlighted word in its
+             native sentence; reveal exposes word details + gloss. -->
+        <div class="review-card">
+          <div class="review-sentence" lang="ja">
+            {#if contextSentence}
+              {#each contextSentence.tokens as tok, ti (ti)}
+                {#if tok.word_id === card.word_id}
+                  <span class="review-highlight">{tok.t}</span>
+                {:else}
+                  <span>{tok.t}</span>
+                {/if}
+              {/each}
+            {:else}
+              <span class="review-highlight">{word.surface}</span>
+            {/if}
+          </div>
+          {#if contextSentence}
+            <div class="review-source">
+              — Story {card.context_story}, sentence {card.context_sentence_idx + 1}
+            </div>
           {/if}
           <div class="review-answer" class:visible={revealed} id="review-answer">
             <div class="review-word-jp" lang="ja">{word.surface}</div>
@@ -345,15 +469,29 @@
     font-size: 1rem;
     padding: 0.55rem 1.4rem;
   }
-  .review-listen-show {
+  /* Card-kind chip on the listening branch — small, muted, top-aligned
+     so the user can tell at a glance that this is the second modality
+     and not a broken reading card. */
+  .review-card-kind {
+    display: inline-block;
     font-family: var(--font-mono);
     font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     color: var(--text-muted);
-    background: none;
-    text-decoration: underline;
-    cursor: pointer;
+    background: var(--surface2);
+    border-radius: 4px;
+    padding: 0.15rem 0.55rem;
+    margin-bottom: 0.7rem;
   }
-  .review-listen-show:hover { color: var(--text); }
+  /* Listening-card revealed sentence: slightly smaller than the
+     reading card's centered sentence so the gloss + source line
+     don't crowd. */
+  .review-sentence-listen {
+    font-size: 1.15rem;
+    line-height: 1.85;
+    margin-top: 0.4rem;
+  }
   .review-listen-hint {
     font-size: 0.78rem;
     color: var(--text-muted);

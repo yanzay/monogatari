@@ -30,7 +30,8 @@ import {
   type FSRS,
   type Card as FsrsCard,
 } from 'ts-fsrs';
-import type { Card, Grade, SrsStatus, ReviewLogEntry } from './types';
+import type { Card, CardKind, Grade, SrsStatus, ReviewLogEntry } from './types';
+import { cardKind, listeningCardId } from './types';
 import type { Story } from '../data/types';
 
 /* ── Configuration ───────────────────────────────────────────────── */
@@ -99,15 +100,21 @@ function statusFor(card: { state: State; lapses: number; scheduled_days: number 
 }
 
 export function newCard(args: {
+  /** SRS map key. For reading cards this is the word_id; for listening
+   *  cards it's `listeningCardId(story_id, sentence_idx)`. */
   word_id: string;
   story_id: number;
   context_sentence_idx: number;
+  /** Defaults to `'reading'` for backwards compat with the only
+   *  pre-2026-04-29 caller. */
+  kind?: CardKind;
   now?: Date;
 }): Card {
   const now = args.now ?? new Date();
   const empty = createEmptyCard(now);
   return {
     word_id: args.word_id,
+    kind: args.kind ?? 'reading',
     first_learned_story: args.story_id,
     context_story: args.story_id,
     context_sentence_idx: args.context_sentence_idx,
@@ -217,6 +224,10 @@ export interface QueueOptions {
    * Prefs.daily_max_reviews docstring for the full rationale. New cards
    * in this app are cards the user just deliberately read; throttling
    * their introduction is the app overruling its own user.
+   *
+   * The cap counts BOTH reading and listening review cards together —
+   * both modalities cost the user the same per-card effort and a single
+   * cap matches the intuitive "I want at most N cards in a session".
    */
   maxReviews?: number;
   /**
@@ -224,6 +235,18 @@ export interface QueueOptions {
    * Set to 0 to put all news at the end (Anki "after reviews").
    */
   newPerReview?: number;
+  /**
+   * Listening-card interleave: one listening card every N reading cards.
+   * Default 6 (so a typical session of ~12-18 reading cards picks up
+   * 2-3 listening prompts). Set to 0 to drop all listening cards from
+   * the queue — the user opted out at the prefs level.
+   *
+   * Listening cards live on the same FSRS scheduler but a separate
+   * deck. They never replace a reading card; they're woven IN. A
+   * session that's 0% listening (because none are due, or the pref is
+   * 0) is identical to the pre-2026-04-29 reading-only queue.
+   */
+  listeningPerReview?: number;
   now?: Date;
 }
 
@@ -231,71 +254,147 @@ export interface QueueOptions {
  * Build the review queue for a session.
  *
  * Sort:
- *   1. Learning + Relearning (short-term cards, intra-session priority).
- *      Sub-sort: oldest due first.
- *   2. Review cards (young/mature/leech). Sub-sort: most overdue first.
- *   3. New cards. Sub-sort: by word_id (stable).
+ *   1. Learning + Relearning READING cards (short-term, intra-session
+ *      priority). Sub-sort: oldest due first.
+ *   2. Review READING cards (young/mature/leech). Sub-sort: most
+ *      overdue first.
+ *   3. New READING cards. Sub-sort: by word_id (stable).
+ *   4. Listening cards (any status). Sub-sort: most overdue first,
+ *      then by id for stable ordering.
  *
- * Then we apply caps and interleave "new" into the review stream.
+ * Reading cards are then capped + interleaved as before. Listening
+ * cards are woven into the resulting reading stream at the
+ * `listeningPerReview` rate so they never replace reading cards —
+ * they're additive, matching the product call that listening should
+ * be addition not choice.
+ *
+ * Listening learning/relearning cards (i.e. you got an Again on a
+ * listening prompt) get the same intra-session priority as reading
+ * learning cards: they're hoisted to the front so the user can clear
+ * the short-term debt before fresh material.
  */
 export function buildQueue(
   srs: Record<string, Card>,
   opts: QueueOptions = {},
 ): Card[] {
-  const { maxReviews = Infinity, newPerReview = 4, now = new Date() } = opts;
+  const {
+    maxReviews = Infinity,
+    newPerReview = 4,
+    listeningPerReview = 6,
+    now = new Date(),
+  } = opts;
   const t = now.getTime();
 
+  // Reading buckets.
   const learning: Card[] = [];
   const reviews: Card[] = [];
   const news: Card[] = [];
+  // Listening buckets (separate so the rate-based interleave is clean).
+  const listenLearning: Card[] = [];
+  const listenReviews: Card[] = [];
+  const listenNews: Card[] = [];
 
   for (const card of Object.values(srs)) {
     if (!isDue(card, now)) continue;
+    const isListen = cardKind(card) === 'listening';
     if (card.state === State.Learning || card.state === State.Relearning) {
-      learning.push(card);
+      (isListen ? listenLearning : learning).push(card);
     } else if (card.state === State.Review) {
-      reviews.push(card);
+      (isListen ? listenReviews : reviews).push(card);
     } else {
-      news.push(card);
+      (isListen ? listenNews : news).push(card);
     }
   }
 
-  // Learning: oldest due first
+  // Reading sub-sorts (unchanged).
   learning.sort((a, b) => new Date(a.due).getTime() - new Date(b.due).getTime());
-  // Reviews: most overdue first (largest t-due)
   reviews.sort((a, b) => t - new Date(b.due).getTime() - (t - new Date(a.due).getTime()));
-  // News: stable by word_id
   news.sort((a, b) => a.word_id.localeCompare(b.word_id));
+  // Listening sub-sorts: same predicates.
+  listenLearning.sort((a, b) => new Date(a.due).getTime() - new Date(b.due).getTime());
+  listenReviews.sort((a, b) => t - new Date(b.due).getTime() - (t - new Date(a.due).getTime()));
+  listenNews.sort((a, b) => a.word_id.localeCompare(b.word_id));
 
-  // Apply caps. Learning cards count against the review cap because they
-  // are short-term cards that we MUST clear in this session — no point
-  // exempting them and then never letting the user finish. New cards are
-  // uncapped on purpose (see QueueOptions docstring).
-  const learningSlice = learning.slice(0, maxReviews);
-  const cappedReviews = reviews.slice(0, Math.max(0, maxReviews - learningSlice.length));
+  // Apply caps. Both reading and listening review cards count against
+  // the same cap so the user's "I want N cards per session" request is
+  // honored as a TOTAL, not a per-modality multiplier.
+  // Learning cards (both kinds) count against the cap because they're
+  // short-term and we MUST clear them — see original rationale above.
+  // Reading learning fills first (matches the legacy ordering pinned
+  // by buildQueue's "learning + relearning come first" test), then
+  // listening learning, then reviews fill the remainder.
+  const learnSliceR = learning.slice(0, maxReviews);
+  const learnSliceL = listenLearning.slice(
+    0,
+    Math.max(0, maxReviews - learnSliceR.length),
+  );
+  const learnTotal = learnSliceR.length + learnSliceL.length;
+  const reviewBudget = Math.max(0, maxReviews - learnTotal);
+  // Split the review budget. Fill reading reviews first up to its
+  // share, then top off with listening reviews. This matches the
+  // user-facing principle that reading is the primary skill and
+  // listening rides along.
+  const cappedReviews = reviews.slice(0, reviewBudget);
+  const cappedListenReviews = listenReviews.slice(
+    0,
+    Math.max(0, reviewBudget - cappedReviews.length),
+  );
+  // News are uncapped (both kinds) — the user just opted into them.
   const cappedNews = news;
+  const cappedListenNews = listenNews;
 
-  // Interleave: learning at the very front (must clear short-term), then
-  // weave news into the review stream at every Nth position.
-  const woven: Card[] = [];
-  let ni = 0;
-  let ri = 0;
-  while (ri < cappedReviews.length || ni < cappedNews.length) {
-    // Place a new card every newPerReview reviews, or once reviews run out.
-    if (
-      ni < cappedNews.length &&
-      newPerReview > 0 &&
-      (ri === cappedReviews.length || (ri + ni) % (newPerReview + 1) === newPerReview)
-    ) {
-      woven.push(cappedNews[ni++]);
-    } else if (ri < cappedReviews.length) {
-      woven.push(cappedReviews[ri++]);
-    } else {
-      woven.push(cappedNews[ni++]);
+  // First weave: reading cards into a single ordered stream (existing
+  // behavior — interleave new among reviews at newPerReview cadence).
+  const reading: Card[] = [];
+  {
+    let ni = 0;
+    let ri = 0;
+    while (ri < cappedReviews.length || ni < cappedNews.length) {
+      if (
+        ni < cappedNews.length &&
+        newPerReview > 0 &&
+        (ri === cappedReviews.length || (ri + ni) % (newPerReview + 1) === newPerReview)
+      ) {
+        reading.push(cappedNews[ni++]);
+      } else if (ri < cappedReviews.length) {
+        reading.push(cappedReviews[ri++]);
+      } else {
+        reading.push(cappedNews[ni++]);
+      }
     }
   }
 
-  return [...learningSlice, ...woven];
+  // Second weave: listening reviews + new into the reading stream at
+  // the listeningPerReview cadence. listening news interleave at the
+  // SAME cadence — there are far fewer of them than reading news so
+  // a single shared rate keeps the math (and the user mental model)
+  // simple.
+  const listenStream: Card[] = [...cappedListenReviews, ...cappedListenNews];
+  const woven: Card[] = [];
+  if (listeningPerReview <= 0 || listenStream.length === 0) {
+    woven.push(...reading, ...listenStream); // listening always at end if any leak in
+    if (listeningPerReview <= 0) woven.length = reading.length; // hard drop when pref=0
+  } else {
+    let li = 0;
+    let ri = 0;
+    while (ri < reading.length || li < listenStream.length) {
+      if (
+        li < listenStream.length &&
+        (ri === reading.length || (ri + li) % (listeningPerReview + 1) === listeningPerReview)
+      ) {
+        woven.push(listenStream[li++]);
+      } else if (ri < reading.length) {
+        woven.push(reading[ri++]);
+      } else {
+        woven.push(listenStream[li++]);
+      }
+    }
+  }
+
+  // Both flavors of learning (reading + listening) hoist to the very
+  // front. Reading learning first because the existing test pins that
+  // ordering, then listening learning behind it.
+  return [...learnSliceR, ...learnSliceL, ...woven];
 }
 
 /* ── Fuzz / jitter (intervals ≥ 1 day get ±5–10% noise) ────────── */
@@ -329,11 +428,29 @@ export function dribbleOffset(index: number): number {
  * The card's `context_sentence_idx` points at the FIRST sentence in
  * the story that contains the word — the read-back UI uses this to
  * jump to the source sentence on review.
+ *
+ * Also mints LISTENING cards — one per sentence in the story that has
+ * audio. Listening cards live in the same map keyed
+ * `L:<story_id>:<sentence_idx>` and are scheduled by the same FSRS
+ * config but on independent stability/difficulty curves so the two
+ * modalities don't contaminate each other's retention model.
+ *
+ * If `mintListening` is false, only reading cards are minted (kept as
+ * an escape hatch for callers who want the legacy behavior — e.g. a
+ * future "reading-only mode" preference). Default true.
+ *
+ * Skipping rules for listening cards:
+ *   - already in `srs` (duplicate mint is a no-op, same as reading).
+ *   - sentence has no `audio` field (no source material to prompt
+ *     with). The decorateWithAudioPaths corpus helper synthesizes
+ *     audio paths for every sentence when missing, so in practice
+ *     this only skips when the corpus loader hasn't decorated yet.
  */
 export function mintCardsForStory(
   story: Story,
   srs: Record<string, Card>,
   now: Date = new Date(),
+  mintListening: boolean = true,
 ): Record<string, Card> {
   const next = { ...srs };
   for (const wid of story.new_words) {
@@ -345,8 +462,28 @@ export function mintCardsForStory(
       word_id: wid,
       story_id: story.story_id,
       context_sentence_idx: sentIdx,
+      kind: 'reading',
       now,
     });
+  }
+  if (mintListening) {
+    for (let i = 0; i < story.sentences.length; i++) {
+      const sent = story.sentences[i];
+      // Listening cards need source audio. If the sentence has no
+      // `audio` field AND we can't synthesize one (no story_id), skip.
+      // In practice every shipped sentence has audio synthesized by
+      // decorateWithAudioPaths, but we defend against the edge.
+      if (!sent.audio) continue;
+      const id = listeningCardId(story.story_id, i);
+      if (next[id]) continue;
+      next[id] = newCard({
+        word_id: id,
+        story_id: story.story_id,
+        context_sentence_idx: i,
+        kind: 'listening',
+        now,
+      });
+    }
   }
   return next;
 }

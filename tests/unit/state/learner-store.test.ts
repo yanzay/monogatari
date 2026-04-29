@@ -69,7 +69,11 @@ beforeEach(() => {
     prefs: {
       show_gloss_by_default: false,
       audio_on_review_reveal: true,
-      audio_listen_first: false,
+      // audio_listen_first retired 2026-04-29 — replaced by the new
+      // EchoPolicy + listening_per_review (variant A+B). See
+      // learner.svelte.ts for the migration semantics.
+      audio_echo_on_grade: 'mature_only',
+      listening_per_review: 6,
       theme: 'auto',
       target_retention: 0.9,
       // daily_max_new removed 2026-04-29; daily_max_reviews defaults to null (no cap).

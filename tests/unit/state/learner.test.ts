@@ -343,16 +343,84 @@ describe('sanitizeImported', () => {
       expect(out.prefs.audio_on_review_reveal).toBe(true);
     });
 
-    it('preserves explicit true for audio_listen_first', () => {
-      const out = sanitizeImported({
-        prefs: { audio_listen_first: true },
+    describe('audio_echo_on_grade (replaces retired audio_listen_first)', () => {
+      it('defaults to "mature_only" when absent', () => {
+        const out = sanitizeImported({ prefs: {} });
+        expect(out.prefs.audio_echo_on_grade).toBe('mature_only');
       });
-      expect(out.prefs.audio_listen_first).toBe(true);
+
+      it.each(['never', 'mature_only', 'always'] as const)(
+        'preserves explicit %s',
+        (policy) => {
+          const out = sanitizeImported({ prefs: { audio_echo_on_grade: policy } });
+          expect(out.prefs.audio_echo_on_grade).toBe(policy);
+        },
+      );
+
+      it('rejects unknown policy strings (defaults to mature_only)', () => {
+        const out = sanitizeImported({ prefs: { audio_echo_on_grade: 'often' } });
+        expect(out.prefs.audio_echo_on_grade).toBe('mature_only');
+      });
+
+      it('migrates legacy audio_listen_first=true → "mature_only"', () => {
+        // The retired toggle's spirit was "I want some sentence audio
+        // exposure"; mature_only is the safe modernization.
+        const out = sanitizeImported({ prefs: { audio_listen_first: true } });
+        expect(out.prefs.audio_echo_on_grade).toBe('mature_only');
+      });
+
+      it('migrates legacy audio_listen_first=false → "never"', () => {
+        const out = sanitizeImported({ prefs: { audio_listen_first: false } });
+        expect(out.prefs.audio_echo_on_grade).toBe('never');
+      });
+
+      it('explicit new pref wins over legacy bool when both are present', () => {
+        const out = sanitizeImported({
+          prefs: { audio_listen_first: true, audio_echo_on_grade: 'never' },
+        });
+        expect(out.prefs.audio_echo_on_grade).toBe('never');
+      });
+
+      it('silently drops the legacy audio_listen_first field on import', () => {
+        // The new pref is audio_echo_on_grade; the boolean should not
+        // survive a sanitize pass.
+        const out = sanitizeImported({ prefs: { audio_listen_first: true } });
+        expect(
+          (out.prefs as unknown as Record<string, unknown>).audio_listen_first,
+        ).toBeUndefined();
+      });
     });
 
-    it('defaults audio_listen_first to false when absent', () => {
-      const out = sanitizeImported({ prefs: {} });
-      expect(out.prefs.audio_listen_first).toBe(false);
+    describe('listening_per_review', () => {
+      it('defaults to 6 when absent', () => {
+        const out = sanitizeImported({ prefs: {} });
+        expect(out.prefs.listening_per_review).toBe(6);
+      });
+
+      it('preserves a positive integer', () => {
+        const out = sanitizeImported({ prefs: { listening_per_review: 4 } });
+        expect(out.prefs.listening_per_review).toBe(4);
+      });
+
+      it('floors a fractional value', () => {
+        const out = sanitizeImported({ prefs: { listening_per_review: 6.9 } });
+        expect(out.prefs.listening_per_review).toBe(6);
+      });
+
+      it('accepts 0 as "drop listening cards from sessions"', () => {
+        const out = sanitizeImported({ prefs: { listening_per_review: 0 } });
+        expect(out.prefs.listening_per_review).toBe(0);
+      });
+
+      it('rejects negative values (defaults to 6)', () => {
+        const out = sanitizeImported({ prefs: { listening_per_review: -1 } });
+        expect(out.prefs.listening_per_review).toBe(6);
+      });
+
+      it('rejects non-numeric values (defaults to 6)', () => {
+        const out = sanitizeImported({ prefs: { listening_per_review: 'lots' } });
+        expect(out.prefs.listening_per_review).toBe(6);
+      });
     });
 
     describe('theme', () => {
@@ -453,7 +521,11 @@ describe('sanitizeImported', () => {
       expect(out.prefs).toEqual({
         show_gloss_by_default: false,
         audio_on_review_reveal: true,
-        audio_listen_first: false,
+        // audio_listen_first retired 2026-04-29 → audio_echo_on_grade.
+        // listening_per_review added 2026-04-29 (variant A: separate
+        // listening deck woven into reading sessions at 1-per-N).
+        audio_echo_on_grade: 'mature_only',
+        listening_per_review: 6,
         theme: 'auto',
         target_retention: DEFAULT_TARGET_RETENTION,
         // daily_max_new removed 2026-04-29; default review cap is null (no cap).

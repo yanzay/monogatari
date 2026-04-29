@@ -17,10 +17,20 @@
       learner.save();
     }
   }
-  function bindNum(key: 'new_per_review', e: Event) {
+  function bindNum(key: 'new_per_review' | 'listening_per_review', e: Event) {
     const v = parseInt((e.target as HTMLInputElement).value, 10);
     if (Number.isFinite(v) && v >= 0) {
       learner.state.prefs[key] = v;
+      learner.save();
+    }
+  }
+  /** Bind the EchoPolicy select. The pref is a string union — we
+   *  defend against arbitrary input by ignoring anything off the
+   *  whitelist (which can only happen if a user hand-edits the DOM). */
+  function bindEchoPolicy(e: Event) {
+    const v = (e.target as HTMLSelectElement).value;
+    if (v === 'never' || v === 'mature_only' || v === 'always') {
+      learner.state.prefs.audio_echo_on_grade = v;
       learner.save();
     }
   }
@@ -42,7 +52,7 @@
     learner.save();
   }
   function bindBool(
-    key: 'audio_on_review_reveal' | 'audio_listen_first',
+    key: 'audio_on_review_reveal',
     e: Event,
   ) {
     learner.state.prefs[key] = (e.target as HTMLInputElement).checked;
@@ -154,20 +164,46 @@
         />
         <span>Play word audio on review reveal</span>
       </label>
-      <label class="settings-row settings-row-checkbox">
-        <input
-          type="checkbox"
-          checked={prefs.audio_listen_first}
-          onchange={(e) => bindBool('audio_listen_first', e)}
-        />
+      <label class="settings-row">
         <span>
-          Listen first
+          Listening cards per review
           <small class="settings-hint">
-            On each review card, play the word audio with the sentence
-            hidden. Recall from sound alone, then reveal. Cards without
-            audio fall back to text. No added review volume.
+            Listening cards are a separate deck (sentence audio is the
+            prompt; the JP text + gloss is the answer). They're WOVEN
+            into reading sessions at this rate — e.g. 6 means one
+            listening card every 6 reading cards. Set to 0 to drop
+            listening cards from sessions entirely (the SRS map keeps
+            them so you can flip the rate back on later without losing
+            their schedule).
           </small>
         </span>
+        <input
+          type="number"
+          min="0"
+          max="20"
+          value={prefs.listening_per_review}
+          oninput={(e) => bindNum('listening_per_review', e)}
+        />
+      </label>
+      <label class="settings-row">
+        <span>
+          Sentence audio echo on grade
+          <small class="settings-hint">
+            After grading a reading card Good or Easy, optionally
+            replay the sentence audio. Reinforces sentence prosody on
+            words you've just shown you can recognize. Never fires on
+            Again grades or on listening cards (where audio was the
+            prompt). Default: only on already-graduated cards.
+          </small>
+        </span>
+        <select
+          value={prefs.audio_echo_on_grade}
+          onchange={bindEchoPolicy}
+        >
+          <option value="never">Never</option>
+          <option value="mature_only">Only on graduated cards</option>
+          <option value="always">After every Good / Easy</option>
+        </select>
       </label>
     </div>
   </section>

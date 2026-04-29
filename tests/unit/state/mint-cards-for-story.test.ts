@@ -214,4 +214,95 @@ describe('mintCardsForStory', () => {
       }
     });
   });
+
+  describe('listening cards (variant A — separate modality)', () => {
+    /** Decorate the test story with sentence-audio paths the way
+     *  decorateWithAudioPaths does at runtime. Tests then exercise the
+     *  full mint behavior including listening cards. */
+    function withAudio(story: Story): Story {
+      return {
+        ...story,
+        sentences: story.sentences.map((s, i) => ({
+          ...s,
+          audio: s.audio ?? `audio/story_${story.story_id}/s${i}.mp3`,
+        })),
+      };
+    }
+
+    it('mints one listening card per sentence WITH audio, keyed L:<sid>:<idx>', () => {
+      const story = withAudio(tenWordStory());
+      const srs = mintCardsForStory(story, {}, NOW);
+      // 3 sentences in the test story → 3 listening cards.
+      const listeningIds = Object.keys(srs).filter((k) => k.startsWith('L:'));
+      expect(listeningIds.sort()).toEqual([
+        'L:4:0',
+        'L:4:1',
+        'L:4:2',
+      ]);
+    });
+
+    it('listening cards have kind="listening" and reading cards have kind="reading"', () => {
+      const story = withAudio(tenWordStory());
+      const srs = mintCardsForStory(story, {}, NOW);
+      for (const [id, card] of Object.entries(srs)) {
+        if (id.startsWith('L:')) {
+          expect(card.kind).toBe('listening');
+        } else {
+          expect(card.kind).toBe('reading');
+        }
+      }
+    });
+
+    it('listening cards point at their sentence via context_sentence_idx', () => {
+      const story = withAudio(tenWordStory());
+      const srs = mintCardsForStory(story, {}, NOW);
+      expect(srs['L:4:0'].context_sentence_idx).toBe(0);
+      expect(srs['L:4:1'].context_sentence_idx).toBe(1);
+      expect(srs['L:4:2'].context_sentence_idx).toBe(2);
+      // And all carry the source story.
+      for (const id of ['L:4:0', 'L:4:1', 'L:4:2']) {
+        expect(srs[id].context_story).toBe(4);
+      }
+    });
+
+    it('skips sentences without audio (no source material to prompt with)', () => {
+      const story = tenWordStory(); // no audio fields synthesized
+      const srs = mintCardsForStory(story, {}, NOW);
+      const listeningIds = Object.keys(srs).filter((k) => k.startsWith('L:'));
+      expect(listeningIds).toEqual([]);
+      // Reading cards still mint normally.
+      expect(Object.keys(srs).length).toBe(story.new_words.length);
+    });
+
+    it('mintListening=false reproduces the legacy reading-only behavior', () => {
+      const story = withAudio(tenWordStory());
+      const srs = mintCardsForStory(story, {}, NOW, false);
+      const listeningIds = Object.keys(srs).filter((k) => k.startsWith('L:'));
+      expect(listeningIds).toEqual([]);
+      expect(Object.keys(srs).length).toBe(story.new_words.length);
+    });
+
+    it('all listening cards are due NOW (same invariant as reading cards)', () => {
+      const story = withAudio(tenWordStory());
+      const srs = mintCardsForStory(story, {}, NOW);
+      const listening = Object.values(srs).filter((c) => c.kind === 'listening');
+      expect(listening.length).toBe(3);
+      for (const c of listening) {
+        expect(isDue(c, NOW)).toBe(true);
+      }
+    });
+
+    it('idempotent: a second mint pass does not duplicate listening cards', () => {
+      const story = withAudio(tenWordStory());
+      const first = mintCardsForStory(story, {}, NOW);
+      const later = new Date(NOW.getTime() + 60 * 60 * 1000);
+      const second = mintCardsForStory(story, first, later);
+      expect(Object.keys(second).sort()).toEqual(Object.keys(first).sort());
+      // Listening cards' `due` field should NOT be bumped forward by
+      // re-minting — same invariant as reading cards.
+      for (const id of Object.keys(first).filter((k) => k.startsWith('L:'))) {
+        expect(second[id].due).toBe(first[id].due);
+      }
+    });
+  });
 });

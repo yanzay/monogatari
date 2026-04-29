@@ -5,7 +5,9 @@
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
   import { learner } from '$lib/state/learner.svelte';
-  import { loadVocabIndex, loadGrammar, getWord } from '$lib/data/corpus';
+  import { loadVocabIndex, loadGrammar, getWord, loadStoryById } from '$lib/data/corpus';
+  import { mintCardsForStory } from '$lib/state/srs';
+  import { cardKind } from '$lib/state/types';
   import { countDueCards, nextDueChangeTimestamp } from '$lib/util/due-count';
   import { popup } from '$lib/state/popup.svelte';
   import Popup from '$lib/ui/Popup.svelte';
@@ -63,11 +65,69 @@
     try {
       await learner.init();
       [vocabIndex, grammar] = await Promise.all([loadVocabIndex(), loadGrammar()]);
+      // One-time backfill of LISTENING cards for stories the user
+      // already completed before listening cards existed (pre-2026-04-29).
+      // Idempotent: mintCardsForStory(mintListening=true) skips any card
+      // already present in srs, so subsequent boots are no-ops once the
+      // backfill is done. Cheap because loadStoryById is LRU-cached.
+      //
+      // We schedule it AFTER the grammar/vocab fetch so it doesn't
+      // contend for the first-paint network budget. Errors here are
+      // logged but never block the app — the worst case is the user
+      // has fewer listening cards until they re-mark a story as read.
+      void backfillListeningCards().catch((err) => {
+        console.warn('Listening-card backfill failed:', err);
+      });
     } catch (e) {
       console.error('Boot failed:', e);
       bootError = 'Could not load corpus. Please reload the page.';
     }
   });
+
+  /**
+   * Walk completed stories in the learner's progress map and mint any
+   * missing listening cards. Pre-2026-04-29 stories were marked
+   * "completed" without ever spawning listening cards (they didn't
+   * exist), so this back-pass installs them once.
+   *
+   * Detection of "needs backfill" is per-story: if the SRS map
+   * contains zero `kind === 'listening'` cards keyed for the story id,
+   * we mint. (We don't try to detect partial backfills — the mint helper
+   * is idempotent at the per-card level so re-minting is harmless.)
+   */
+  async function backfillListeningCards(): Promise<void> {
+    const completed = Object.entries(learner.state.story_progress ?? {})
+      .filter(([, p]) => p?.completed)
+      .map(([sid]) => Number(sid))
+      .filter((n) => Number.isFinite(n) && n > 0);
+    if (completed.length === 0) return;
+    // Quick prefilter: which story ids already have at least one
+    // listening card? Skip those entirely so the common case (boot
+    // after the first backfill is done) costs O(srs).
+    const haveListening = new Set<number>();
+    for (const card of Object.values(learner.state.srs ?? {})) {
+      if (cardKind(card) !== 'listening') continue;
+      const sid = card.context_story;
+      if (typeof sid === 'number') haveListening.add(sid);
+    }
+    const todo = completed.filter((sid) => !haveListening.has(sid));
+    if (todo.length === 0) return;
+    let nextSrs = learner.state.srs ?? {};
+    let mintedAny = false;
+    for (const sid of todo) {
+      const story = await loadStoryById(sid);
+      if (!story) continue;
+      const before = nextSrs;
+      nextSrs = mintCardsForStory(story, nextSrs, new Date());
+      if (nextSrs !== before && Object.keys(nextSrs).length !== Object.keys(before).length) {
+        mintedAny = true;
+      }
+    }
+    if (mintedAny) {
+      learner.state.srs = nextSrs;
+      learner.save();
+    }
+  }
 
   // Lazy-load the full Word record whenever a word popup opens.
   $effect(() => {
