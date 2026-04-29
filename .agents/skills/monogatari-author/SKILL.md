@@ -474,7 +474,7 @@ it up to `/tmp/` first** before overwriting:
 cp pipeline/inputs/story_N.bilingual.json /tmp/story_N.bilingual.json.bak
 ```
 
-### Step E — Run the full gauntlet (1 tool call)
+### Step E — Run the full gauntlet (1 tool call) AND iterate to green FIRST
 
 ```bash
 source .venv/bin/activate && python3 pipeline/author_loop.py author N --dry-run
@@ -487,25 +487,54 @@ must-reinforce words) → coverage_floor (grammar introduction)
 → would-write → audio (skipped on dry-run;
 real on live ship).
 
-**Read the output carefully.** If `VERDICT: would_ship`, proceed to Step F.
-If `VERDICT: fail`, see §3 (failure recovery).
+**Iterate to green BEFORE running the literary review.** If the dry-run
+fails, see §3 (failure recovery), edit the spec, and re-run the gauntlet
+until `VERDICT: would_ship`. The prosecutor pass (§E.5) and the
+fresh-eyes subagent (§E.7) are EXPENSIVE and must run only against text
+that is already correctness-clean — running them against drafts that
+later get rewritten by the gauntlet wastes the review and ships defects
+that the rewrites silently introduced.
 
-### Step E.5 — Prosecutor pass (BEFORE the live ship)
+> **Ordering postmortem (2026-04-29):** an earlier version of this
+> skill ran §E.5/E.6/E.7 *before* the gauntlet, on the assumption that
+> the literary review should bind the discard criteria as early as
+> possible. This was a real bug: when the gauntlet then forced a
+> sentence rewrite (lint 11.x fix, mint trim, grammar swap), the
+> prosecutor's verdict was on text that no longer existed, and the
+> rewritten text could ship with literary defects the prosecutor never
+> saw. The cheap correctness step runs FIRST as a filter; the
+> expensive literary step runs SECOND on the survivor. If the literary
+> step then forces a sentence edit, you bounce BACK to the gauntlet
+> (see §E.8 round-trip cap) — the loop only exits when both
+> correctness AND literary are green on the SAME text.
+
+**Once `VERDICT: would_ship`, proceed to §E.5.** Do NOT skip to §F.
+
+### Step E.5 — Prosecutor pass (ONLY after §E is green; re-run after every gauntlet iteration)
 
 **Why this exists.** A green dry-run says the story is technically
 valid, not that it is good. The audit found that 8 of 10 stories had
 shipped with a green gauntlet despite being structurally identical to
 the previous one. The prosecutor pass forces a structured, written
-critique against the §B.0 contract — written to a temp file, then
-re-read — so I can't soften "no" into "yeah but" inline.
+critique against the §B.0 contract — written to a file in
+`.author-scratch/` (NOT `/tmp/` — the workspace doesn't permit `/tmp`),
+then re-read — so I can't soften "no" into "yeah but" inline.
+
+**The freshness rule.** §E.5 must run against the text that came out of
+the most recent green gauntlet iteration. If you have to bounce back to
+§E (re-run gauntlet) after this step for any reason — including because
+§E.5 itself forced a sentence edit — you MUST re-run §E.5 against the
+new text. The prior verdict is invalidated by ANY sentence-level edit.
+The only carryover exception is the trivial-edit rule in §E.8.
 
 After Step E reports `would_ship`:
 
 1. Open `pipeline/inputs/story_N.bilingual.json` and re-read the spec
    AS A HOSTILE CRITIC whose only job is to argue against shipping.
-2. Write a structured table to `/tmp/prosecution_N.md` (use
-   `create_file`). The table has one row per sentence plus four
-   contract rows:
+2. Write a structured table to `.author-scratch/prosecution_N.md` (use
+   `create_file`). NOTE: the workspace forbids writes to `/tmp/`; use
+   the in-workspace scratch dir. The table has one row per sentence
+   plus four contract rows:
 
 ```markdown
 # PROSECUTION — story N
@@ -530,18 +559,21 @@ After Step E reports `would_ship`:
 | obligations_absorbed | Y / N | … |
 ```
 
-3. Re-open `/tmp/prosecution_N.md` and READ IT. The cells are Y or N.
-   "Yeah but" / "technically Y because…" answers are **N for the
-   purposes of this gate.**
+3. Re-open `.author-scratch/prosecution_N.md` and READ IT. The cells
+   are Y or N. "Yeah but" / "technically Y because…" answers are **N
+   for the purposes of this gate.**
 4. **Decision rule:** ANY contract row = N → **discard, restart from
    Step B with a different premise.** Do NOT just tweak sentences;
    §B.0 is a premise discard, not a sentence discard. Per-sentence
    rows = N (deletable / non-physical / non-load-bearing) → fix that
-   sentence and re-run E.5; if you can't fix it without breaking the
-   contract, also discard.
+   sentence, BOUNCE BACK to §E (re-run gauntlet to confirm the edit
+   didn't break anything), and re-run §E.5 on the new text. If you
+   can't fix it without breaking the contract, also discard.
 
-The temp file persists across this session; if a subagent audits the
+The scratch file persists across this session; if a subagent audits the
 session later it can see the verdict you committed to before the ship.
+The `.author-scratch/` directory is gitignored-by-convention; do NOT
+commit prosecution tables (they're working notes, not artifacts).
 
 ### Step E.6 — Two-blind-readings comparison (cheap; kills sameness)
 
@@ -549,6 +581,10 @@ session later it can see the verdict you committed to before the ship.
 weakest on is "this is technically a different story but materially
 identical to the last one." Reading EN-only blocks the JP-attentional
 context that makes me say "but the grammar is different!"
+
+**Freshness rule (same as §E.5):** §E.6 runs ONLY after §E is green
+AND §E.5 returned SHIP. Any subsequent sentence edit invalidates the
+prior §E.6 verdict — re-run on the new text.
 
 Read **only the English glosses** of stories N, N-1, N-2 in order
 (use `open_files` on `pipeline/inputs/story_{N,N-1,N-2}.bilingual.json`
@@ -579,6 +615,11 @@ sufficiently independent judgment to catch what I missed. AGENTS.md
 ("Parallel subagents are great for…") records this pattern working
 already.
 
+**Freshness rule (same as §E.5/E.6):** §E.7 runs ONLY after §E is
+green AND §E.5/E.6 returned SHIP. The subagent reads the spec file
+directly, so the spec on disk MUST be the gauntlet-green version. Any
+subsequent sentence edit invalidates the prior §E.7 verdict — re-run.
+
 Delegate to an `Explore` subagent with this exact task:
 
 > "Read `pipeline/inputs/story_N.bilingual.json` (only — no other
@@ -595,13 +636,49 @@ Delegate to an `Explore` subagent with this exact task:
 >     a one-line reason."
 
 If the subagent says SHIP → proceed to Step F.
-If REWRITE-SENTENCE → fix the named sentence, re-run E.5–E.7.
+If REWRITE-SENTENCE → fix the named sentence, BOUNCE BACK to §E
+(re-run the gauntlet — the edit may have broken correctness), and
+re-run §E.5/E.6/E.7 on the new text.
 If REWRITE-STORY → discard, restart Step B. Override the verdict
 ONLY by spending a §G override (max 1 per session).
 
 Cost: ~1 tool call, ~5 seconds. Cheap.
 
-### Step F — Ship (only if Steps E, E.5, E.6, E.7 were all clean)
+### Step E.8 — Round-trip cap and the trivial-edit carryover
+
+**Why this exists.** The §E ↔ §E.5/E.6/E.7 loop can in principle
+ping-pong: gauntlet says "trim a mint," I trim, prosecutor says "the
+trim broke the closer," I rewrite the closer, gauntlet says "the new
+closer fails lint X," etc. Without a cap, this loop can burn an entire
+session. With a too-cheap cap, real defects get suppressed by
+escalation fatigue.
+
+**The cap:** at most **3 round-trips** through §E ↔ §E.5/E.6/E.7
+per story. A round-trip is "gauntlet went green → literary review
+forced an edit → gauntlet had to be re-run." After the third
+round-trip, **stop and escalate to the user.** Surface in ≤5 lines:
+what each round-trip changed, what the current blocker is, and one
+proposed simplification (usually: pick a different anchor, or pick a
+different grammar floor pick that makes the must-reinforce easier).
+
+**The trivial-edit carryover.** A "round-trip" only counts when the
+edit changed at least one full sentence. Pure punctuation fixes,
+single-particle swaps within the same sentence, or whitespace fixes do
+NOT invalidate the prior §E.5/E.6/E.7 verdicts and do NOT consume a
+round-trip slot. The threshold is sentence-level: if `git diff
+pipeline/inputs/story_N.bilingual.json` shows changes to a `jp` field
+that altered the sentence's surface lemmas or its predicate, it's a
+real edit; smaller deltas carry over.
+
+**Hard rule on round-trip 4+:** if you ever find yourself running §E
+for the fourth time on a single story, the obligations and the
+literary contract are in irreconcilable tension. Escalate. Do NOT
+ship a story that took 4+ round-trips even if it eventually went
+green — the corpus does not need a story whose every sentence is the
+result of a forced compromise. Better to defer and re-tune the seed
+plan or the ladder for that slot.
+
+### Step F — Ship (only when §E, §E.5, §E.6, §E.7 are ALL green on the SAME text)
 
 ```bash
 source .venv/bin/activate && python3 pipeline/author_loop.py author N
