@@ -468,8 +468,18 @@ def regen_one(
                 nxt  = toks[j + 1] if j + 1 < len(toks) else None
                 if prev is not None and nxt is not None:
                     prev_t = prev.get("t", "")
-                    # Contrastive が follows a predicate surface
-                    if prev_t in {"です", "だ", "ます", "せん"} or prev.get("role") == "aux":
+                    # Contrastive が follows a predicate surface. The build's
+                    # tokenizer collapses 〜ます/〜ません/〜ました into single
+                    # multi-mora content tokens (e.g. "読みません"), so the
+                    # bare-suffix set isn't enough — also check suffix shape.
+                    is_predicate = (
+                        prev_t in {"です", "だ", "ます", "せん"}
+                        or prev_t.endswith("ます")
+                        or prev_t.endswith("ません")
+                        or prev_t.endswith("した")
+                        or prev.get("role") == "aux"
+                    )
+                    if is_predicate:
                         tok["grammar_id"] = "G049_ga_but"
     strip_audio(regen)
     return spec, regen, report

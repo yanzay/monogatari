@@ -14,6 +14,10 @@ VALID_POS = {
     "noun", "verb", "i_adjective", "na_adjective", "adverb",
     "pronoun", "expression", "particle", "interjection", "conjunction",
     "counter", "prefix", "suffix",
+    # adnominal (連体詞) — pre-nominal demonstratives like その/この/あの/どの.
+    # Added 2026-04-30 when story 6 first minted その via N5_kosoado introduction.
+    # text_to_story.py emits "adnominal" for UniDic POS 連体詞 (see pos_map there).
+    "adnominal",
 }
 # Note: the legacy bare "adjective" tag was deliberately removed on
 # 2026-04-23 in favour of the canonical i_adjective / na_adjective split.

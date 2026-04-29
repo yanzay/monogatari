@@ -1,0 +1,432 @@
+{
+  "story_id": 6,
+  "title": {
+    "jp": "椅子の下の紙",
+    "en": "The Paper Under the Bench",
+    "tokens": [
+      {
+        "t": "椅子",
+        "role": "content",
+        "word_id": "W00048",
+        "r": "いす"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
+      },
+      {
+        "t": "下",
+        "role": "content",
+        "word_id": "W00049",
+        "r": "した"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
+      },
+      {
+        "t": "紙",
+        "role": "content",
+        "word_id": "W00040",
+        "r": "かみ"
+      }
+    ]
+  },
+  "new_words": [
+    "W00048",
+    "W00049",
+    "W00050",
+    "W00051",
+    "W00052",
+    "W00053",
+    "W00054"
+  ],
+  "new_grammar": [
+    "G049_ga_but",
+    "G043_kosoado_pre_nominal"
+  ],
+  "all_words_used": [
+    "W00048",
+    "W00049",
+    "W00040",
+    "W00050",
+    "W00005",
+    "W00014",
+    "W00051",
+    "W00052",
+    "W00053",
+    "W00016",
+    "W00012",
+    "W00011",
+    "W00054",
+    "W00031",
+    "W00033",
+    "W00034"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00050",
+          "r": "こうえん",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "椅子",
+          "role": "content",
+          "word_id": "W00048",
+          "r": "いす",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたくし"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "座ります",
+          "role": "content",
+          "word_id": "W00051",
+          "r": "すわります",
+          "inflection": {
+            "base": "座る",
+            "base_r": "すわる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Mother and I sit on a bench in the park."
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "ほん",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "読みます",
+          "role": "content",
+          "word_id": "W00053",
+          "r": "よみます",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Mother reads a book."
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたくし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "ほん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "読みません",
+          "role": "content",
+          "word_id": "W00053",
+          "r": "よみません",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G036_masen"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G049_ga_but",
+          "is_new_grammar": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "椅子",
+          "role": "content",
+          "word_id": "W00048",
+          "r": "いす"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "下",
+          "role": "content",
+          "word_id": "W00049",
+          "r": "した",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I do not read the book, but I look under the bench."
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "椅子",
+          "role": "content",
+          "word_id": "W00048",
+          "r": "いす"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "下",
+          "role": "content",
+          "word_id": "W00049",
+          "r": "した"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "紙",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "かみ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Under the bench, there is a small paper."
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "その",
+          "role": "content",
+          "word_id": "W00054",
+          "r": "その",
+          "grammar_id": "G043_kosoado_pre_nominal",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "紙",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "かみ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "見せます",
+          "role": "content",
+          "word_id": "W00031",
+          "r": "みせます",
+          "inflection": {
+            "base": "見せる",
+            "base_r": "みせる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I show that paper to mother."
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "名前",
+          "role": "content",
+          "word_id": "W00034",
+          "r": "なまえ"
+        },
+        {
+          "t": "だ",
+          "role": "aux",
+          "grammar_id": "G024_da"
+        },
+        {
+          "t": "ね",
+          "role": "particle",
+          "grammar_id": "G034_ne_confirm"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It's a friend's name, isn't it."
+    }
+  ]
+}

@@ -310,6 +310,25 @@ def _apply_post_pass_attributions(built_story: dict) -> None:
                         toks[k]["grammar_id"] = quot_gid
                         toks[j]["role"] = "aux"
                         break
+        # Pass C: clause-conjunctive が ("but") — mirrors regenerate_all_stories.
+        # Without this the gauntlet's coverage_floor undercounts G049_ga_but
+        # at dry-run time, even though the post-ship regen WILL tag it. See
+        # AGENTS.md "auto-tagged grammar IDs" section for the broader context.
+        for j, tok in enumerate(toks):
+            if tok.get("t") == "が" and tok.get("role") == "particle":
+                prev = toks[j - 1] if j > 0 else None
+                nxt  = toks[j + 1] if j + 1 < len(toks) else None
+                if prev is not None and nxt is not None:
+                    prev_t = prev.get("t", "")
+                    is_predicate = (
+                        prev_t in {"です", "だ", "ます", "せん"}
+                        or prev_t.endswith("ます")
+                        or prev_t.endswith("ません")
+                        or prev_t.endswith("した")
+                        or prev.get("role") == "aux"
+                    )
+                    if is_predicate:
+                        tok["grammar_id"] = "G049_ga_but"
 
 
 def step_pedagogical_sanity(story_id: int, built_story: dict) -> StepResult:
