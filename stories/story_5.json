@@ -7,7 +7,7 @@
       {
         "t": "駅",
         "role": "content",
-        "word_id": "W00043",
+        "word_id": "W00041",
         "r": "えき"
       },
       {
@@ -18,40 +18,37 @@
       {
         "t": "傘",
         "role": "content",
-        "word_id": "W00044",
+        "word_id": "W00042",
         "r": "かさ"
       }
     ]
   },
   "new_words": [
+    "W00041",
+    "W00042",
     "W00043",
     "W00044",
     "W00045",
     "W00046",
-    "W00047",
-    "W00048",
-    "W00049"
+    "W00047"
   ],
   "new_grammar": [
-    "G044_te_kudasai",
+    "G024_da",
     "G034_ne_confirm"
   ],
   "all_words_used": [
-    "W00043",
-    "W00044",
+    "W00041",
+    "W00042",
     "W00014",
     "W00005",
     "W00006",
+    "W00043",
+    "W00044",
     "W00045",
     "W00046",
-    "W00047",
-    "W00048",
-    "W00041",
-    "W00018",
-    "W00023",
-    "W00049",
+    "W00039",
     "W00015",
-    "W00011"
+    "W00047"
   ],
   "sentences": [
     {
@@ -61,7 +58,7 @@
           "t": "私",
           "role": "content",
           "word_id": "W00014",
-          "r": "わたし"
+          "r": "わたくし"
         },
         {
           "t": "は",
@@ -82,7 +79,7 @@
         {
           "t": "駅",
           "role": "content",
-          "word_id": "W00043",
+          "word_id": "W00041",
           "r": "えき",
           "is_new": true
         },
@@ -120,7 +117,7 @@
           "t": "私",
           "role": "content",
           "word_id": "W00014",
-          "r": "わたし"
+          "r": "わたくし"
         },
         {
           "t": "は",
@@ -141,7 +138,7 @@
         {
           "t": "電車",
           "role": "content",
-          "word_id": "W00045",
+          "word_id": "W00043",
           "r": "でんしゃ",
           "is_new": true
         },
@@ -153,7 +150,7 @@
         {
           "t": "待ちます",
           "role": "content",
-          "word_id": "W00046",
+          "word_id": "W00044",
           "r": "まちます",
           "inflection": {
             "base": "待つ",
@@ -179,7 +176,7 @@
         {
           "t": "女",
           "role": "content",
-          "word_id": "W00047",
+          "word_id": "W00045",
           "r": "おんな",
           "is_new": true
         },
@@ -191,7 +188,7 @@
         {
           "t": "人",
           "role": "content",
-          "word_id": "W00048",
+          "word_id": "W00046",
           "r": "ひと",
           "is_new": true
         },
@@ -201,31 +198,9 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00014",
-          "r": "わたし"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "前",
-          "role": "content",
-          "word_id": "W00041",
-          "r": "まえ"
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means"
-        },
-        {
           "t": "傘",
           "role": "content",
-          "word_id": "W00044",
+          "word_id": "W00042",
           "r": "かさ",
           "is_new": true
         },
@@ -237,7 +212,7 @@
         {
           "t": "持って",
           "role": "content",
-          "word_id": "W00018",
+          "word_id": "W00039",
           "r": "もって",
           "inflection": {
             "base": "持つ",
@@ -257,9 +232,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "A woman in front of me is holding an umbrella.",
+      "gloss_en": "A woman is holding an umbrella.",
       "audio": "audio/story_5/s2.mp3",
-      "audio_hash": "f1813ab7c9ee"
+      "audio_hash": "d6a4bbcd1259"
     },
     {
       "idx": 3,
@@ -267,7 +242,7 @@
         {
           "t": "女",
           "role": "content",
-          "word_id": "W00047",
+          "word_id": "W00045",
           "r": "おんな"
         },
         {
@@ -278,53 +253,13 @@
         {
           "t": "人",
           "role": "content",
-          "word_id": "W00048",
+          "word_id": "W00046",
           "r": "ひと"
         },
         {
           "t": "は",
           "role": "particle",
           "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "道",
-          "role": "content",
-          "word_id": "W00023",
-          "r": "みち"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "傘",
-          "role": "content",
-          "word_id": "W00044",
-          "r": "かさ"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "置いて",
-          "role": "content",
-          "word_id": "W00049",
-          "r": "おいて",
-          "inflection": {
-            "base": "置く",
-            "base_r": "おく",
-            "form": "te",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G007_te_form",
-          "is_new": true
-        },
-        {
-          "t": "、",
-          "role": "punct"
         },
         {
           "t": "歩きます",
@@ -344,56 +279,17 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The woman sets the umbrella down on the path and walks away.",
+      "gloss_en": "The woman walks away.",
       "audio": "audio/story_5/s3.mp3",
-      "audio_hash": "98b297913197"
+      "audio_hash": "cf45bbfe75db"
     },
     {
       "idx": 4,
       "tokens": [
         {
-          "t": "傘",
-          "role": "content",
-          "word_id": "W00044",
-          "r": "かさ"
-        },
-        {
-          "t": "は",
-          "role": "particle",
-          "grammar_id": "G001_wa_topic"
-        },
-        {
-          "t": "道",
-          "role": "content",
-          "word_id": "W00023",
-          "r": "みち"
-        },
-        {
-          "t": "に",
-          "role": "particle",
-          "grammar_id": "G004_ni_location"
-        },
-        {
-          "t": "あって",
-          "role": "content",
-          "word_id": "W00011",
-          "r": "あって",
-          "inflection": {
-            "base": "ある",
-            "base_r": "ある",
-            "form": "te",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G007_te_form"
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
           "t": "女",
           "role": "content",
-          "word_id": "W00047",
+          "word_id": "W00045",
           "r": "おんな"
         },
         {
@@ -404,7 +300,7 @@
         {
           "t": "人",
           "role": "content",
-          "word_id": "W00048",
+          "word_id": "W00046",
           "r": "ひと"
         },
         {
@@ -413,15 +309,15 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "持ちません",
+          "t": "いません",
           "role": "content",
-          "word_id": "W00018",
-          "r": "もちません",
+          "word_id": "W00006",
+          "r": "いません",
           "inflection": {
-            "base": "持つ",
-            "base_r": "もつ",
+            "base": "いる",
+            "base_r": "いる",
             "form": "negative_polite",
-            "verb_class": "godan"
+            "verb_class": "ichidan"
           },
           "grammar_id": "G036_masen"
         },
@@ -430,18 +326,18 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The umbrella is on the path, and the woman is no longer holding it.",
+      "gloss_en": "The woman is no longer there.",
       "audio": "audio/story_5/s4.mp3",
-      "audio_hash": "4c5acafb158f"
+      "audio_hash": "9b7cc6b3daa9"
     },
     {
       "idx": 5,
       "tokens": [
         {
-          "t": "私",
+          "t": "傘",
           "role": "content",
-          "word_id": "W00014",
-          "r": "わたし"
+          "word_id": "W00042",
+          "r": "かさ"
         },
         {
           "t": "は",
@@ -449,26 +345,31 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "「",
-          "role": "punct"
+          "t": "女",
+          "role": "content",
+          "word_id": "W00045",
+          "r": "おんな"
         },
         {
-          "t": "待って",
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "人",
           "role": "content",
           "word_id": "W00046",
-          "r": "まって",
-          "inflection": {
-            "base": "待つ",
-            "base_r": "まつ",
-            "form": "te",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G007_te_form"
+          "r": "ひと"
         },
         {
-          "t": "ください",
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "だ",
           "role": "aux",
-          "grammar_id": "G044_te_kudasai",
+          "grammar_id": "G024_da",
           "is_new_grammar": true
         },
         {
@@ -478,37 +379,22 @@
           "is_new_grammar": true
         },
         {
-          "t": "」",
-          "role": "punct"
-        },
-        {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I call out, \"Please wait, won't you?\"",
+      "gloss_en": "Ah — it's the woman's umbrella.",
       "audio": "audio/story_5/s5.mp3",
-      "audio_hash": "e8bf9ef3ec93"
+      "audio_hash": "46a23f7d331c"
     },
     {
       "idx": 6,
       "tokens": [
         {
-          "t": "女",
+          "t": "私",
           "role": "content",
-          "word_id": "W00047",
-          "r": "おんな"
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
-          "t": "人",
-          "role": "content",
-          "word_id": "W00048",
-          "r": "ひと"
+          "word_id": "W00014",
+          "r": "わたくし"
         },
         {
           "t": "は",
@@ -516,20 +402,9 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "私",
-          "role": "content",
-          "word_id": "W00014",
-          "r": "わたし"
-        },
-        {
-          "t": "から",
-          "role": "particle",
-          "grammar_id": "G006_kara_from"
-        },
-        {
           "t": "傘",
           "role": "content",
-          "word_id": "W00044",
+          "word_id": "W00042",
           "r": "かさ"
         },
         {
@@ -538,44 +413,45 @@
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "持ちました",
+          "t": "取りました",
           "role": "content",
-          "word_id": "W00018",
-          "r": "もちました",
+          "word_id": "W00047",
+          "r": "とりました",
           "inflection": {
-            "base": "持つ",
-            "base_r": "もつ",
+            "base": "取る",
+            "base_r": "とる",
             "form": "polite_past",
             "verb_class": "godan"
           },
-          "grammar_id": "G013_mashita_past"
+          "grammar_id": "G013_mashita_past",
+          "is_new": true
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "The woman took the umbrella from me.",
+      "gloss_en": "I picked up the umbrella.",
       "audio": "audio/story_5/s6.mp3",
-      "audio_hash": "9dd94cd6599f"
+      "audio_hash": "fd70447aeecf"
     }
   ],
   "word_audio": {
+    "W00041": "audio/words/W00041.mp3",
+    "W00042": "audio/words/W00042.mp3",
     "W00043": "audio/words/W00043.mp3",
     "W00044": "audio/words/W00044.mp3",
     "W00045": "audio/words/W00045.mp3",
     "W00046": "audio/words/W00046.mp3",
-    "W00047": "audio/words/W00047.mp3",
-    "W00048": "audio/words/W00048.mp3",
-    "W00049": "audio/words/W00049.mp3"
+    "W00047": "audio/words/W00047.mp3"
   },
   "word_audio_hash": {
-    "W00043": "c02bb5c1eec5",
-    "W00044": "34edf5f90cac",
-    "W00045": "e79bee27152b",
-    "W00046": "c00428b5636f",
-    "W00047": "a12b45ddd516",
-    "W00048": "fb8e646fc262",
-    "W00049": "74f94e7a2081"
+    "W00041": "c02bb5c1eec5",
+    "W00042": "34edf5f90cac",
+    "W00043": "e79bee27152b",
+    "W00044": "c00428b5636f",
+    "W00045": "a12b45ddd516",
+    "W00046": "fb8e646fc262",
+    "W00047": "59267e4c4b0c"
   }
 }

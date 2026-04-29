@@ -7,7 +7,7 @@
       {
         "t": "友達",
         "role": "content",
-        "word_id": "W00035",
+        "word_id": "W00033",
         "r": "ともだち"
       },
       {
@@ -18,38 +18,37 @@
       {
         "t": "名前",
         "role": "content",
-        "word_id": "W00036",
+        "word_id": "W00034",
         "r": "なまえ"
       }
     ]
   },
   "new_words": [
+    "W00033",
+    "W00034",
     "W00035",
     "W00036",
     "W00037",
     "W00038",
     "W00039",
-    "W00040",
-    "W00041",
-    "W00042"
+    "W00040"
   ],
   "new_grammar": [
     "G008_te_iru",
     "G036_masen"
   ],
   "all_words_used": [
-    "W00035",
-    "W00036",
+    "W00033",
+    "W00034",
     "W00014",
-    "W00037",
+    "W00035",
     "W00006",
+    "W00036",
+    "W00037",
     "W00038",
     "W00039",
     "W00040",
-    "W00018",
-    "W00041",
-    "W00011",
-    "W00042"
+    "W00011"
   ],
   "sentences": [
     {
@@ -59,7 +58,7 @@
           "t": "私",
           "role": "content",
           "word_id": "W00014",
-          "r": "わたし"
+          "r": "わたくし"
         },
         {
           "t": "は",
@@ -69,7 +68,7 @@
         {
           "t": "学校",
           "role": "content",
-          "word_id": "W00037",
+          "word_id": "W00035",
           "r": "がっこう",
           "is_new": true
         },
@@ -106,7 +105,7 @@
         {
           "t": "先生",
           "role": "content",
-          "word_id": "W00038",
+          "word_id": "W00036",
           "r": "せんせい",
           "is_new": true
         },
@@ -119,7 +118,7 @@
           "t": "私",
           "role": "content",
           "word_id": "W00014",
-          "r": "わたし"
+          "r": "わたくし"
         },
         {
           "t": "の",
@@ -129,7 +128,7 @@
         {
           "t": "名前",
           "role": "content",
-          "word_id": "W00036",
+          "word_id": "W00034",
           "r": "なまえ",
           "is_new": true
         },
@@ -141,7 +140,7 @@
         {
           "t": "書きました",
           "role": "content",
-          "word_id": "W00039",
+          "word_id": "W00037",
           "r": "かきました",
           "inflection": {
             "base": "書く",
@@ -168,7 +167,7 @@
           "t": "私",
           "role": "content",
           "word_id": "W00014",
-          "r": "わたし"
+          "r": "わたくし"
         },
         {
           "t": "は",
@@ -178,7 +177,7 @@
         {
           "t": "鉛筆",
           "role": "content",
-          "word_id": "W00040",
+          "word_id": "W00038",
           "r": "えんぴつ",
           "is_new": true
         },
@@ -190,7 +189,7 @@
         {
           "t": "持って",
           "role": "content",
-          "word_id": "W00018",
+          "word_id": "W00039",
           "r": "もって",
           "inflection": {
             "base": "持つ",
@@ -198,7 +197,8 @@
             "form": "te",
             "verb_class": "godan"
           },
-          "grammar_id": "G007_te_form"
+          "grammar_id": "G007_te_form",
+          "is_new": true
         },
         {
           "t": "います",
@@ -219,10 +219,10 @@
       "idx": 3,
       "tokens": [
         {
-          "t": "前",
+          "t": "紙",
           "role": "content",
-          "word_id": "W00041",
-          "r": "まえ",
+          "word_id": "W00040",
+          "r": "かみ",
           "is_new": true
         },
         {
@@ -233,7 +233,7 @@
         {
           "t": "友達",
           "role": "content",
-          "word_id": "W00035",
+          "word_id": "W00033",
           "r": "ともだち",
           "is_new": true
         },
@@ -245,7 +245,7 @@
         {
           "t": "名前",
           "role": "content",
-          "word_id": "W00036",
+          "word_id": "W00034",
           "r": "なまえ"
         },
         {
@@ -271,29 +271,17 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "My friend's name isn't up at the front.",
+      "gloss_en": "My friend's name isn't on the paper.",
       "audio": "audio/story_4/s3.mp3",
-      "audio_hash": "b43343d718b7"
+      "audio_hash": "dee4e7b89df9"
     },
     {
       "idx": 4,
       "tokens": [
         {
-          "t": "後ろ",
-          "role": "content",
-          "word_id": "W00042",
-          "r": "うしろ",
-          "is_new": true
-        },
-        {
-          "t": "の",
-          "role": "particle",
-          "grammar_id": "G015_no_possessive"
-        },
-        {
           "t": "友達",
           "role": "content",
-          "word_id": "W00035",
+          "word_id": "W00033",
           "r": "ともだち"
         },
         {
@@ -304,7 +292,7 @@
         {
           "t": "学校",
           "role": "content",
-          "word_id": "W00037",
+          "word_id": "W00035",
           "r": "がっこう"
         },
         {
@@ -331,9 +319,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "The friend who sits behind me isn't at school.",
+      "gloss_en": "My friend isn't at school.",
       "audio": "audio/story_4/s4.mp3",
-      "audio_hash": "844dc7095115"
+      "audio_hash": "0006822f70f7"
     },
     {
       "idx": 5,
@@ -342,7 +330,7 @@
           "t": "私",
           "role": "content",
           "word_id": "W00014",
-          "r": "わたし"
+          "r": "わたくし"
         },
         {
           "t": "は",
@@ -350,9 +338,20 @@
           "grammar_id": "G001_wa_topic"
         },
         {
+          "t": "鉛筆",
+          "role": "content",
+          "word_id": "W00038",
+          "r": "えんぴつ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
           "t": "友達",
           "role": "content",
-          "word_id": "W00035",
+          "word_id": "W00033",
           "r": "ともだち"
         },
         {
@@ -363,7 +362,7 @@
         {
           "t": "名前",
           "role": "content",
-          "word_id": "W00036",
+          "word_id": "W00034",
           "r": "なまえ"
         },
         {
@@ -374,7 +373,7 @@
         {
           "t": "書きました",
           "role": "content",
-          "word_id": "W00039",
+          "word_id": "W00037",
           "r": "かきました",
           "inflection": {
             "base": "書く",
@@ -389,29 +388,29 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I wrote my friend's name.",
+      "gloss_en": "I wrote my friend's name with a pencil.",
       "audio": "audio/story_4/s5.mp3",
-      "audio_hash": "24a30b5a36ef"
+      "audio_hash": "44187105342d"
     }
   ],
   "word_audio": {
+    "W00033": "audio/words/W00033.mp3",
+    "W00034": "audio/words/W00034.mp3",
     "W00035": "audio/words/W00035.mp3",
     "W00036": "audio/words/W00036.mp3",
     "W00037": "audio/words/W00037.mp3",
     "W00038": "audio/words/W00038.mp3",
     "W00039": "audio/words/W00039.mp3",
-    "W00040": "audio/words/W00040.mp3",
-    "W00041": "audio/words/W00041.mp3",
-    "W00042": "audio/words/W00042.mp3"
+    "W00040": "audio/words/W00040.mp3"
   },
   "word_audio_hash": {
-    "W00035": "e3610f8de2ae",
-    "W00036": "d8d3e6f210e2",
-    "W00037": "95ec5cbb2da5",
-    "W00038": "dacf3872be30",
-    "W00039": "8706c91ddebd",
-    "W00040": "81f8589c1612",
-    "W00041": "d86aa031b0d9",
-    "W00042": "b1a82c9c9489"
+    "W00033": "e3610f8de2ae",
+    "W00034": "d8d3e6f210e2",
+    "W00035": "95ec5cbb2da5",
+    "W00036": "dacf3872be30",
+    "W00037": "8706c91ddebd",
+    "W00038": "81f8589c1612",
+    "W00039": "757be4f5ed17",
+    "W00040": "e233a42c00f0"
   }
 }

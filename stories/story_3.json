@@ -7,49 +7,48 @@
       {
         "t": "黄色い",
         "role": "content",
-        "word_id": "W00027",
+        "word_id": "W00025",
         "r": "きいろい",
         "grammar_id": "G022_i_adj"
       },
       {
         "t": "卵",
         "role": "content",
-        "word_id": "W00028",
+        "word_id": "W00026",
         "r": "たまご"
       }
     ]
   },
   "new_words": [
+    "W00025",
+    "W00026",
     "W00027",
     "W00028",
     "W00029",
     "W00030",
     "W00031",
-    "W00032",
-    "W00033",
-    "W00034"
+    "W00032"
   ],
   "new_grammar": [
-    "G013_mashita_past",
+    "G017_de_means",
     "G007_te_form",
     "G035_arimasen"
   ],
   "all_words_used": [
-    "W00027",
-    "W00028",
+    "W00025",
+    "W00026",
     "W00002",
     "W00004",
     "W00011",
     "W00005",
-    "W00026",
+    "W00024",
+    "W00027",
+    "W00028",
     "W00029",
-    "W00018",
     "W00030",
-    "W00031",
-    "W00032",
     "W00014",
-    "W00033",
-    "W00034"
+    "W00031",
+    "W00032"
   ],
   "sentences": [
     {
@@ -79,7 +78,7 @@
         {
           "t": "卵",
           "role": "content",
-          "word_id": "W00028",
+          "word_id": "W00026",
           "r": "たまご",
           "is_new": true
         },
@@ -127,7 +126,7 @@
         {
           "t": "袋",
           "role": "content",
-          "word_id": "W00026",
+          "word_id": "W00024",
           "r": "ふくろ"
         },
         {
@@ -138,7 +137,7 @@
         {
           "t": "皿",
           "role": "content",
-          "word_id": "W00029",
+          "word_id": "W00027",
           "r": "さら",
           "is_new": true
         },
@@ -148,18 +147,18 @@
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "持ちました",
+          "t": "出しました",
           "role": "content",
-          "word_id": "W00018",
-          "r": "もちました",
+          "word_id": "W00028",
+          "r": "だしました",
           "inflection": {
-            "base": "持つ",
-            "base_r": "もつ",
+            "base": "出す",
+            "base_r": "だす",
             "form": "polite_past",
             "verb_class": "godan"
           },
           "grammar_id": "G013_mashita_past",
-          "is_new_grammar": true
+          "is_new": true
         },
         {
           "t": "。",
@@ -168,7 +167,7 @@
       ],
       "gloss_en": "Mother took a plate out of the bag.",
       "audio": "audio/story_3/s1.mp3",
-      "audio_hash": "3984a2acefb5"
+      "audio_hash": "77d34a4c3ad8"
     },
     {
       "idx": 2,
@@ -187,19 +186,20 @@
         {
           "t": "包丁",
           "role": "content",
-          "word_id": "W00030",
+          "word_id": "W00029",
           "r": "ほうちょう",
           "is_new": true
         },
         {
           "t": "で",
           "role": "particle",
-          "grammar_id": "G017_de_means"
+          "grammar_id": "G017_de_means",
+          "is_new_grammar": true
         },
         {
           "t": "卵",
           "role": "content",
-          "word_id": "W00028",
+          "word_id": "W00026",
           "r": "たまご"
         },
         {
@@ -210,7 +210,7 @@
         {
           "t": "切りました",
           "role": "content",
-          "word_id": "W00031",
+          "word_id": "W00030",
           "r": "きりました",
           "inflection": {
             "base": "切る",
@@ -226,7 +226,7 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Mother cut the egg with the knife.",
+      "gloss_en": "Mother cut the egg with a knife.",
       "audio": "audio/story_3/s2.mp3",
       "audio_hash": "e64de606f2b8"
     },
@@ -245,46 +245,9 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "白い",
-          "role": "content",
-          "word_id": "W00032",
-          "r": "しろい",
-          "grammar_id": "G022_i_adj",
-          "is_new": true
-        },
-        {
-          "t": "皿",
-          "role": "content",
-          "word_id": "W00029",
-          "r": "さら"
-        },
-        {
-          "t": "を",
-          "role": "particle",
-          "grammar_id": "G005_wo_object"
-        },
-        {
-          "t": "持って",
-          "role": "content",
-          "word_id": "W00018",
-          "r": "もって",
-          "inflection": {
-            "base": "持つ",
-            "base_r": "もつ",
-            "form": "te",
-            "verb_class": "godan"
-          },
-          "grammar_id": "G007_te_form",
-          "is_new_grammar": true
-        },
-        {
-          "t": "、",
-          "role": "punct"
-        },
-        {
           "t": "黄色い",
           "role": "content",
-          "word_id": "W00027",
+          "word_id": "W00025",
           "r": "きいろい",
           "grammar_id": "G022_i_adj",
           "is_new": true
@@ -292,7 +255,7 @@
         {
           "t": "卵",
           "role": "content",
-          "word_id": "W00028",
+          "word_id": "W00026",
           "r": "たまご"
         },
         {
@@ -314,7 +277,7 @@
         {
           "t": "見せました",
           "role": "content",
-          "word_id": "W00033",
+          "word_id": "W00031",
           "r": "みせました",
           "inflection": {
             "base": "見せる",
@@ -330,9 +293,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "Mother held the white plate and showed me the yellow yolk.",
+      "gloss_en": "Mother showed me the yellow yolk.",
       "audio": "audio/story_3/s3.mp3",
-      "audio_hash": "85018e9f5461"
+      "audio_hash": "82b1c84ec8f6"
     },
     {
       "idx": 4,
@@ -351,7 +314,7 @@
         {
           "t": "卵",
           "role": "content",
-          "word_id": "W00028",
+          "word_id": "W00026",
           "r": "たまご"
         },
         {
@@ -360,26 +323,45 @@
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "切りました",
+          "t": "切って",
           "role": "content",
-          "word_id": "W00031",
-          "r": "きりました",
+          "word_id": "W00030",
+          "r": "きって",
           "inflection": {
             "base": "切る",
             "base_r": "きる",
-            "form": "polite_past",
+            "form": "te",
             "verb_class": "godan"
           },
-          "grammar_id": "G013_mashita_past"
+          "grammar_id": "G007_te_form",
+          "is_new_grammar": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "食べました",
+          "role": "content",
+          "word_id": "W00032",
+          "r": "たべました",
+          "inflection": {
+            "base": "食べる",
+            "base_r": "たべる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G013_mashita_past",
+          "is_new": true
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I cut an egg too.",
+      "gloss_en": "I also cut an egg and ate it.",
       "audio": "audio/story_3/s4.mp3",
-      "audio_hash": "293dbf1e0e1c"
+      "audio_hash": "f10575945f19"
     },
     {
       "idx": 5,
@@ -409,7 +391,7 @@
         {
           "t": "卵",
           "role": "content",
-          "word_id": "W00028",
+          "word_id": "W00026",
           "r": "たまご"
         },
         {
@@ -420,7 +402,7 @@
         {
           "t": "食べました",
           "role": "content",
-          "word_id": "W00034",
+          "word_id": "W00032",
           "r": "たべました",
           "inflection": {
             "base": "食べる",
@@ -428,15 +410,14 @@
             "form": "polite_past",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G013_mashita_past",
-          "is_new": true
+          "grammar_id": "G013_mashita_past"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I ate the egg with mother.",
+      "gloss_en": "I ate eggs with mother.",
       "audio": "audio/story_3/s5.mp3",
       "audio_hash": "4acd0145b3a5"
     },
@@ -446,7 +427,7 @@
         {
           "t": "卵",
           "role": "content",
-          "word_id": "W00028",
+          "word_id": "W00026",
           "r": "たまご"
         },
         {
@@ -479,23 +460,23 @@
     }
   ],
   "word_audio": {
+    "W00025": "audio/words/W00025.mp3",
+    "W00026": "audio/words/W00026.mp3",
     "W00027": "audio/words/W00027.mp3",
     "W00028": "audio/words/W00028.mp3",
     "W00029": "audio/words/W00029.mp3",
     "W00030": "audio/words/W00030.mp3",
     "W00031": "audio/words/W00031.mp3",
-    "W00032": "audio/words/W00032.mp3",
-    "W00033": "audio/words/W00033.mp3",
-    "W00034": "audio/words/W00034.mp3"
+    "W00032": "audio/words/W00032.mp3"
   },
   "word_audio_hash": {
-    "W00027": "7abdf046a165",
-    "W00028": "b5e7e89b1fbf",
-    "W00029": "e6316d04337f",
-    "W00030": "1a0a6233d638",
-    "W00031": "eb89ababd65c",
-    "W00032": "7b1b01735abb",
-    "W00033": "3184e589aa84",
-    "W00034": "3e027e9f1056"
+    "W00025": "7abdf046a165",
+    "W00026": "b5e7e89b1fbf",
+    "W00027": "e6316d04337f",
+    "W00028": "b5f6a5523562",
+    "W00029": "1a0a6233d638",
+    "W00030": "eb89ababd65c",
+    "W00031": "3184e589aa84",
+    "W00032": "3e027e9f1056"
   }
 }

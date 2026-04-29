@@ -4,11 +4,17 @@
     "jp": "黄色い卵",
     "en": "The Yellow Yolk"
   },
-  "intent": "Mother takes a plate from the bag, cuts an egg with the knife, holds the white plate up so I can see the yellow yolk, and I copy her cut. Then we eat the egg together. The lesson is small but concrete: I learn a kitchen skill, the egg is actually consumed, and at the end the egg is gone.\n\nPREMISE CONTRACT (story 3)\n  one_sentence_event:    Mother cuts an egg, shows me the yellow yolk on a white plate, I copy the cut, and we eat the egg together until none is left.\n  change_of_state:       at s0 a whole egg sits in the kitchen; at the closer the egg has been cut, shown, copied, eaten, and is gone. X (uncut, uneaten egg in kitchen) ≠ Y (no eggs).\n  scene_novelty_claim:   I am NOT writing a home_morning or walk_to_shop story because the last two were. This is a kitchen scene; mother and I are at a counter doing one concrete thing.\n  anchor_novelty_claim:  Anchor is the egg. The egg has never appeared in the corpus before.\n  closer_shape_claim:    Closer shape: existential negation (the eggs are no more). NOT a noun-WA-noun-NO-noun-NI-noun mirror of story 2, NOT a noun-WA-noun-WO-noun mirror of story 1. Shape: noun-WA-VERB-MASEN.\n  why_not_filler:        母 — agent of the lesson: takes the plate, cuts, holds the plate, shows. 私 — learner: copies the cut, eats. 卵 — load-bearing object: cut, shown, copied, eaten, finally gone (full state arc). 皿 — carrier with color attention (white) and a holding-and-showing beat. 包丁 — instrument anchor for the で-means reinforcement.\n  obligations_absorbed:  must_reinforce G010_to_and lands organically in s5 (母と私 eat the egg together — eating-together is the natural seal of the lesson). must_reinforce G006_kara_from lands in s1 (mother takes the plate FROM the bag, which is how kitchen prep works). must_reinforce G017_de_means lands in s2 (包丁で — the knife is the obvious instrument). New grammar: N5_te_form (s3 持って, the connective in the show-action), N5_mashita_past (every action sentence — past-tense narration is the seed plan's whole point), N5_ko_arimasen (s6 ありません — the eggs are gone, which closes the arc). Mo (G009) is reinforced in s4 私も as a refresher even though it was introduced in story 1.\n\nFORBIDDEN THIS STORY:\n  scene_class    (last 3 stories): home_morning, walk_to_shop\n  anchor_object  (last 5 stories): apple, tea_cup\n  closer_shape   (last 3 stories): noun-WA-noun-NO-noun-NI-noun, noun-WA-noun-WO-noun\n  opening_seqs   (last 3 stories' first 3 content tokens):\n    - 朝 / 家 / 台所\n    - 朝 / 母 / 私\n  All four zones honored: scene = kitchen; anchor = egg; closer = noun-WA-VERB-MASEN (fresh shape, not a noun-pile, has a real verb); opening = 朝 / 台所 / 卵 (fresh sequence — not 朝/家/台所, not 朝/母/私).\n\nLEXICAL_OVERRIDES (added 2026-04-29 evening, after the lexical-difficulty cap landed):\n  - 皿 (plate, JLPT N3, nf32): used three times (s1, s3, s3 again as 白い皿) and is the visual centerpiece of the lesson — mother HOLDS UP the white plate to show the yellow yolk. Replacing with お皿 doesn't help (same word + honorific). The plate is the canvas the yolk is shown on; without it the show-action collapses into 卵を見せました with no staging.\n  - 包丁 (kitchen knife, JLPT N2, nf10): used once (s2) as the で-means instrument anchor for must_reinforce G017_de_means. The simpler alternative ナイフ (N5) means 'table knife / penknife' in Japanese and would be linguistically wrong for a kitchen-cutting scene; 包丁 is the unambiguously correct word for this affordance. The whole intent block frames this as 'I learn a kitchen skill,' which presupposes the real implement.\n  Override budget: 2 of MAX_OVERRIDES_PER_STORY=2 used. Accepted on the basis that both words are domain-correct and structurally load-bearing; no third above-cap mint exists in this story.",
-  "lexical_overrides": ["皿", "包丁"],
+  "intent": "Mother takes a plate from the bag, cuts an egg with the knife, holds the white plate up so I can see the yellow yolk, and I copy her cut. Then we eat the egg together. The lesson is small but concrete: I learn a kitchen skill, the egg is actually consumed, and at the end the egg is gone.\n\nPREMISE CONTRACT (story 3)\n  one_sentence_event:    Mother cuts an egg, shows me the yellow yolk on a white plate, I copy the cut, and we eat the egg together until none is left.\n  change_of_state:       at s0 a whole egg sits in the kitchen; at the closer the egg has been cut, shown, copied, eaten, and is gone. X (uncut, uneaten egg in kitchen) ≠ Y (no eggs).\n  scene_novelty_claim:   I am NOT writing a home_morning or walk_to_shop story because the last two were. This is a kitchen scene; mother and I are at a counter doing one concrete thing.\n  anchor_novelty_claim:  Anchor is the egg. The egg has never appeared in the corpus before.\n  closer_shape_claim:    Closer shape: existential negation (the eggs are no more). NOT a noun-WA-noun-NO-noun-NI-noun mirror of story 2, NOT a noun-WA-noun-WO-noun mirror of story 1. Shape: noun-WA-VERB-MASEN.\n  why_not_filler:        母 — agent of the lesson: takes the plate, cuts, holds the plate, shows. 私 — learner: copies the cut, eats. 卵 — load-bearing object: cut, shown, copied, eaten, finally gone (full state arc). 皿 — carrier with color attention (white) and a holding-and-showing beat. 包丁 — instrument anchor for the で-means reinforcement.\n  obligations_absorbed:  must_reinforce G010_to_and lands organically in s5 (母と私 eat the egg together — eating-together is the natural seal of the lesson). must_reinforce G006_kara_from lands in s1 (mother takes the plate FROM the bag, which is how kitchen prep works). must_reinforce G017_de_means lands in s2 (包丁で — the knife is the obvious instrument). New grammar: N5_te_form (s3 持って, the connective in the show-action), N5_mashita_past (every action sentence — past-tense narration is the seed plan's whole point), N5_ko_arimasen (s6 ありません — the eggs are gone, which closes the arc). Mo (G009) is reinforced in s4 私も as a refresher even though it was introduced in story 1.\n\nFORBIDDEN THIS STORY:\n  scene_class    (last 3 stories): home_morning, walk_to_shop\n  anchor_object  (last 5 stories): apple, tea_cup\n  closer_shape   (last 3 stories): noun-WA-noun-NO-noun-NI-noun, noun-WA-noun-WO-noun\n  opening_seqs   (last 3 stories' first 3 content tokens):\n    - 朝 / 家 / 台所\n    - 朝 / 母 / 私\n  All four zones honored: scene = kitchen; anchor = egg; closer = noun-WA-VERB-MASEN (fresh shape, not a noun-pile, has a real verb); opening = 朝 / 台所 / 卵 (fresh sequence — not 朝/家/台所, not 朝/母/私).\n\nLEXICAL_OVERRIDES (added 2026-04-29 evening, after the lexical-difficulty cap landed):\n  - 皿 (plate, JLPT N3, nf32): used three times (s1, s3, s3 again as 白い皿) and is the visual centerpiece of the lesson — mother HOLDS UP the white plate to show the yellow yolk. Replacing with お皿 doesn't help (same word + honorific). The plate is the canvas the yolk is shown on; without it the show-action collapses into 卵を見せました with no staging.\n  - 包丁 (kitchen knife, JLPT N2, nf10): used once (s2) as the で-means instrument anchor for must_reinforce G017_de_means. The simpler alternative ナイフ (N5) means 'table knife / penknife' in Japanese and would be linguistically wrong for a kitchen-cutting scene; 包丁 is the unambiguously correct word for this affordance. The whole intent block frames this as 'I learn a kitchen skill,' which presupposes the real implement.\n  Override budget: 2 of MAX_OVERRIDES_PER_STORY=2 used. Accepted on the basis that both words are domain-correct and structurally load-bearing; no third above-cap mint exists in this story.\n\nNATURALNESS REWRITE 2026-04-30: s1 swapped 持ちました → 出しました (持つ ≠ remove from bag; 出す is the natural verb); s3 dropped the awkward 持って connector and the redundant 白い (mother no longer 'holds the white plate while showing'; just shows the yolk). Net: 出す replaces 持つ as new mint, 白い dropped from corpus, 持つ first_story shifts to story 4, structure remains 7 sentences.",
+  "lexical_overrides": [
+    "皿",
+    "包丁"
+  ],
   "scene_class": "kitchen",
   "anchor_object": "egg",
-  "characters": ["私", "母"],
+  "characters": [
+    "私",
+    "母"
+  ],
   "sentences": [
     {
       "jp": "朝、台所に卵があります。",
@@ -16,28 +22,28 @@
       "role": "setting"
     },
     {
-      "jp": "母は袋から皿を持ちました。",
+      "jp": "母は袋から皿を出しました。",
       "en": "Mother took a plate out of the bag.",
       "role": "action"
     },
     {
       "jp": "母は包丁で卵を切りました。",
-      "en": "Mother cut the egg with the knife.",
+      "en": "Mother cut the egg with a knife.",
       "role": "action"
     },
     {
-      "jp": "母は白い皿を持って、黄色い卵を私に見せました。",
-      "en": "Mother held the white plate and showed me the yellow yolk.",
+      "jp": "母は黄色い卵を私に見せました。",
+      "en": "Mother showed me the yellow yolk.",
       "role": "action"
     },
     {
-      "jp": "私も卵を切りました。",
-      "en": "I cut an egg too.",
+      "jp": "私も卵を切って、食べました。",
+      "en": "I also cut an egg and ate it.",
       "role": "action"
     },
     {
       "jp": "私は母と卵を食べました。",
-      "en": "I ate the egg with mother.",
+      "en": "I ate eggs with mother.",
       "role": "action"
     },
     {

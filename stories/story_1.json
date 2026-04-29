@@ -36,8 +36,7 @@
     "W00014",
     "W00015",
     "W00016",
-    "W00017",
-    "W00018"
+    "W00017"
   ],
   "new_grammar": [
     "G022_i_adj",
@@ -69,8 +68,7 @@
     "W00014",
     "W00015",
     "W00016",
-    "W00017",
-    "W00018"
+    "W00017"
   ],
   "sentences": [
     {
@@ -216,10 +214,10 @@
           "grammar_id": "G004_ni_location"
         },
         {
-          "t": "小さい",
+          "t": "温かい",
           "role": "content",
           "word_id": "W00009",
-          "r": "ちいさい",
+          "r": "あたたかい",
           "grammar_id": "G022_i_adj",
           "is_new": true
         },
@@ -255,18 +253,18 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "By the window there is a small (cup of) tea.",
+      "gloss_en": "By the window there is a warm cup of tea.",
       "audio": "audio/story_1/s2.mp3",
-      "audio_hash": "0d459ca0c15c"
+      "audio_hash": "6001be85cd63"
     },
     {
       "idx": 3,
       "tokens": [
         {
-          "t": "大きい",
+          "t": "小さい",
           "role": "content",
           "word_id": "W00012",
-          "r": "おおきい",
+          "r": "ちいさい",
           "grammar_id": "G022_i_adj",
           "is_new": true
         },
@@ -301,9 +299,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is big bread too.",
+      "gloss_en": "There is a small piece of bread too.",
       "audio": "audio/story_1/s3.mp3",
-      "audio_hash": "a0d44bc17ed5"
+      "audio_hash": "7fb5646d3168"
     },
     {
       "idx": 4,
@@ -360,10 +358,10 @@
       "idx": 5,
       "tokens": [
         {
-          "t": "私",
+          "t": "母",
           "role": "content",
-          "word_id": "W00014",
-          "r": "わたくし"
+          "word_id": "W00005",
+          "r": "はは"
         },
         {
           "t": "は",
@@ -371,10 +369,10 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "母",
+          "t": "私",
           "role": "content",
-          "word_id": "W00005",
-          "r": "はは"
+          "word_id": "W00014",
+          "r": "わたくし"
         },
         {
           "t": "を",
@@ -401,9 +399,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I look at mother.",
+      "gloss_en": "Mother looks at me.",
       "audio": "audio/story_1/s5.mp3",
-      "audio_hash": "1abda785685e"
+      "audio_hash": "19bcc1bfe68d"
     },
     {
       "idx": 6,
@@ -422,10 +420,9 @@
         {
           "t": "温かい",
           "role": "content",
-          "word_id": "W00017",
+          "word_id": "W00009",
           "r": "あたたかい",
-          "grammar_id": "G022_i_adj",
-          "is_new": true
+          "grammar_id": "G022_i_adj"
         },
         {
           "t": "です",
@@ -467,13 +464,13 @@
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "持ちます",
+          "t": "飲みます",
           "role": "content",
-          "word_id": "W00018",
-          "r": "もちます",
+          "word_id": "W00017",
+          "r": "のみます",
           "inflection": {
-            "base": "持つ",
-            "base_r": "もつ",
+            "base": "飲む",
+            "base_r": "のむ",
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
@@ -485,9 +482,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "I hold the tea.",
+      "gloss_en": "I drink the tea.",
       "audio": "audio/story_1/s7.mp3",
-      "audio_hash": "261ae23cff86"
+      "audio_hash": "27b769a8aec7"
     }
   ],
   "word_audio": {
@@ -507,8 +504,7 @@
     "W00014": "audio/words/W00014.mp3",
     "W00015": "audio/words/W00015.mp3",
     "W00016": "audio/words/W00016.mp3",
-    "W00017": "audio/words/W00017.mp3",
-    "W00018": "audio/words/W00018.mp3"
+    "W00017": "audio/words/W00017.mp3"
   },
   "word_audio_hash": {
     "W00001": "27bee3131d9d",
@@ -519,15 +515,14 @@
     "W00006": "da884372835a",
     "W00007": "3affb05ae07a",
     "W00008": "b22cdbd6dd5c",
-    "W00009": "31f7cf1485ef",
+    "W00009": "377c51458a0e",
     "W00010": "b1a50b20d27b",
     "W00011": "82b6cc40ee9a",
-    "W00012": "569e083bc189",
+    "W00012": "31f7cf1485ef",
     "W00013": "984d9e3133d6",
-    "W00014": "53f24f734e70",
+    "W00014": "613b845a89b3",
     "W00015": "47cdfab9c721",
     "W00016": "adc57a7c6309",
-    "W00017": "377c51458a0e",
-    "W00018": "757be4f5ed17"
+    "W00017": "49f11c7d8e76"
   }
 }

@@ -771,3 +771,126 @@ Three subagents reading 19 stories each in parallel gave a far better
 audit than one agent reading 56 sequentially — and the rubric convergence
 across independent agents is itself signal. Use this pattern for any
 "survey the whole corpus / repo / dataset" task.
+
+### Naturalness defects in early-bootstrap stories (2026-04-30 corpus rewrite)
+
+A user audit on 2026-04-30 revealed that all 5 shipped stories had at
+least one sentence flagged by a strict native-Japanese reviewer as
+unnatural. The defect pattern was systematic, not random:
+
+  * **持つ overloaded as take/receive/remove**: 持つ in Japanese
+    means "hold/carry as ongoing state" — it does NOT mean "pick up,"
+    "receive from," or "remove from." Past 持ちました reads as "began
+    carrying briefly," not "took." For these meanings the natural
+    verbs are 取る (pick up — N5), 受け取る (receive — N3), 出す
+    (take out — N5). Story 1's first ship had 「お茶を持ちます」 (closer
+    for "I pick up the tea"); story 3's had 「袋から皿を持ちました」
+    ("took a plate out of the bag" — wrong); story 5's first ship used
+    持つ in three different wrong senses across s2/s4/s6. The fix in
+    each case is the right verb, not a paraphrase: 飲む for tea-as-
+    closer, 出す for remove-from-bag, 取る for pick-up.
+
+  * **Size-on-mass-noun (小さい/大きい on liquids/foods)**: 小さい
+    お茶 (small tea) is not natural — お茶 is a mass noun and isn't
+    sized; you can size the cup (お茶碗) but not the tea itself.
+    Same for 大きいパン (which is borderline — bread is countable
+    enough that big bread is OK, but pedagogically lazy if it's there
+    just to land 大きい). The fix is to drop the size adjective or
+    move it to a genuinely countable noun (a small piece of bread).
+
+  * **Pedagogically-redundant particles**: 「お金で買います」
+    (buy with money) — buying always implies money in Japanese, so
+    お金で is empty pedagogy. Native: just 買います. The fix is to
+    introduce で-means via a verb where the means is genuinely
+    informative (e.g. 包丁で切ります — cut WITH a knife, not just
+    "with hand").
+
+  * **Bare 持ちません vs 持っていません for state-change**: "no
+    longer holding" is a STATE-CHANGE meaning, requiring te-iru
+    + ません: 「持っていません」. Bare 「持ちません」 reads as
+    habitual non-past ("doesn't hold [as a habit]"). This is a real
+    grammatical defect that the lints don't catch because both forms
+    are grammatically valid; only the SEMANTICS distinguish them.
+
+  * **Bare quoted 「…」 lines without 言う/呼ぶ framing**: A
+    sentence consisting of a topic + 「quote」 with no main verb of
+    saying reads as a stage direction, not natural prose. Either the
+    framing verb is needed, or the quote should be a standalone
+    sentence with no subject framing. Story 5's first ship had
+    「私は『待ってくださいね』。」 — broken pedagogy; native readers
+    don't parse this as natural.
+
+  * **Wrong location particles for stative verbs**: で is for
+    activity-location ("at" — where the action happens); に is for
+    state-location ("at" — where the entity is). 「私の前で傘を持って
+    います」 wrongly uses で for static positioning; correct is
+    「私の前に立って、傘を持っています」 (uses 立つ to introduce the
+    standing as activity, then 持つ for the state).
+
+  * **歩く vs 行く for room-to-room movement**: 歩く foregrounds the
+    manner of walking; 行く is the neutral "go to." For "I walk to
+    the kitchen" inside a house, 行く is more natural unless the
+    walking itself is the point.
+
+  * **見る on people in greeting context**: 「私は母を見ます」
+    reads as clinical/distant; native expression for noticing a
+    family member is 母に会う (meet) or just an action describing
+    the interaction. Flipping to 「母は私を見ます」 ("mother sees
+    me") is more natural in a greeting moment because mother
+    notices the child entering.
+
+These are surface-level lexical/idiomatic concerns that the validator's
+Checks 1–11 cannot model: they require a native intuition for
+verb-meaning fit, register, and idiomaticity. The §E.7.5 native-
+naturalness subagent (added to SKILL.md on 2026-04-30) is the gate
+that catches them prospectively. **Run §E.7.5 before EVERY ship.**
+
+The 2026-04-30 rewrite of stories 1–5 was the corpus-wide fix:
+state was reset, all 5 specs edited for naturalness, all 5 re-shipped
+through the gauntlet + §E.7.5. Final corpus state: 36 vocab words,
+20 grammar points, 147 tests passing. Audio rebuilt for all changed
+sentences and words.
+
+### When to do a full state reset vs in-place spec edit
+
+For corpus-wide rewrites that change vocab introduction order (e.g.
+moving 持つ's first_story from story 1 to story 4), the operationally
+cheaper path is to **delete data/vocab_state.json + grammar_state.json
++ stories/ + audio/story_* + audio/words/W*.mp3** and re-author all
+stories sequentially via author_loop. The state_updater does NOT
+reset attributions; trying to patch state in-place produces
+inconsistencies that the integrity tests catch but require manual
+fixes for each. Full reset is one shot, deterministic, and the
+backup snapshot at /tmp/ provides a safety net.
+
+The reset script (run from project root):
+
+```bash
+mkdir -p /tmp/monogatari_pre_reset
+cp data/vocab_state.json /tmp/monogatari_pre_reset/
+cp data/grammar_state.json /tmp/monogatari_pre_reset/
+cp -r stories audio /tmp/monogatari_pre_reset/
+
+# empty state files
+python3 -c "
+import json
+v = json.load(open('data/vocab_state.json'))
+g = json.load(open('data/grammar_state.json'))
+v['words'] = {}
+v['next_word_id'] = 'W00001'
+v['last_story_id'] = None
+for p in g['points'].values():
+    p['intro_in_story'] = None
+    p['last_seen_story'] = None
+g['last_story_id'] = None
+json.dump(v, open('data/vocab_state.json','w'), indent=2, ensure_ascii=False)
+json.dump(g, open('data/grammar_state.json','w'), indent=2, ensure_ascii=False)
+"
+
+rm -rf stories/* audio/story_* audio/words/W*.mp3
+
+# then re-author each story in order:
+for n in 1 2 3 4 5; do
+  python3 pipeline/author_loop.py author $n
+done
+```

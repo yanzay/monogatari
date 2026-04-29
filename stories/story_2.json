@@ -7,51 +7,49 @@
       {
         "t": "小さい",
         "role": "content",
-        "word_id": "W00009",
+        "word_id": "W00012",
         "r": "ちいさい",
         "grammar_id": "G022_i_adj"
       },
       {
         "t": "りんご",
         "role": "content",
-        "word_id": "W00019",
+        "word_id": "W00018",
         "r": "りんご"
       }
     ]
   },
   "new_words": [
+    "W00018",
     "W00019",
     "W00020",
     "W00021",
     "W00022",
     "W00023",
-    "W00024",
-    "W00025",
-    "W00026"
+    "W00024"
   ],
   "new_grammar": [
     "G010_to_and",
     "G006_kara_from",
-    "G017_de_means"
+    "G013_mashita_past"
   ],
   "all_words_used": [
-    "W00009",
-    "W00019",
+    "W00012",
+    "W00018",
     "W00002",
     "W00005",
     "W00014",
-    "W00020",
+    "W00019",
     "W00003",
+    "W00020",
     "W00021",
-    "W00022",
     "W00015",
-    "W00023",
+    "W00022",
     "W00001",
     "W00011",
     "W00013",
-    "W00024",
-    "W00025",
-    "W00026"
+    "W00023",
+    "W00024"
   ],
   "sentences": [
     {
@@ -93,7 +91,7 @@
         {
           "t": "一緒",
           "role": "content",
-          "word_id": "W00020",
+          "word_id": "W00019",
           "r": "いっしょ",
           "is_new": true
         },
@@ -116,7 +114,7 @@
         {
           "t": "出ます",
           "role": "content",
-          "word_id": "W00021",
+          "word_id": "W00020",
           "r": "でます",
           "inflection": {
             "base": "出る",
@@ -176,7 +174,7 @@
         {
           "t": "店",
           "role": "content",
-          "word_id": "W00022",
+          "word_id": "W00021",
           "r": "みせ",
           "is_new": true
         },
@@ -213,7 +211,7 @@
         {
           "t": "道",
           "role": "content",
-          "word_id": "W00023",
+          "word_id": "W00022",
           "r": "みち",
           "is_new": true
         },
@@ -249,7 +247,7 @@
         {
           "t": "店",
           "role": "content",
-          "word_id": "W00022",
+          "word_id": "W00021",
           "r": "みせ"
         },
         {
@@ -260,14 +258,14 @@
         {
           "t": "小さい",
           "role": "content",
-          "word_id": "W00009",
+          "word_id": "W00012",
           "r": "ちいさい",
           "grammar_id": "G022_i_adj"
         },
         {
           "t": "りんご",
           "role": "content",
-          "word_id": "W00019",
+          "word_id": "W00018",
           "r": "りんご",
           "is_new": true
         },
@@ -302,6 +300,17 @@
       "idx": 4,
       "tokens": [
         {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00021",
+          "r": "みせ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
           "t": "パン",
           "role": "content",
           "word_id": "W00013",
@@ -330,9 +339,9 @@
           "role": "punct"
         }
       ],
-      "gloss_en": "There is bread too.",
+      "gloss_en": "At the shop there is also bread.",
       "audio": "audio/story_2/s4.mp3",
-      "audio_hash": "46a2382c347d"
+      "audio_hash": "b3cb9b10805e"
     },
     {
       "idx": 5,
@@ -349,22 +358,9 @@
           "grammar_id": "G001_wa_topic"
         },
         {
-          "t": "お金",
-          "role": "content",
-          "word_id": "W00024",
-          "r": "おかね",
-          "is_new": true
-        },
-        {
-          "t": "で",
-          "role": "particle",
-          "grammar_id": "G017_de_means",
-          "is_new_grammar": true
-        },
-        {
           "t": "りんご",
           "role": "content",
-          "word_id": "W00019",
+          "word_id": "W00018",
           "r": "りんご"
         },
         {
@@ -373,27 +369,28 @@
           "grammar_id": "G005_wo_object"
         },
         {
-          "t": "買います",
+          "t": "買いました",
           "role": "content",
-          "word_id": "W00025",
-          "r": "かいます",
+          "word_id": "W00023",
+          "r": "かいました",
           "inflection": {
             "base": "買う",
             "base_r": "かう",
-            "form": "polite_nonpast",
+            "form": "polite_past",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast",
-          "is_new": true
+          "grammar_id": "G013_mashita_past",
+          "is_new": true,
+          "is_new_grammar": true
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "Mother buys the apple with money.",
+      "gloss_en": "Mother bought the apple.",
       "audio": "audio/story_2/s5.mp3",
-      "audio_hash": "783317c411a0"
+      "audio_hash": "af23d3ca042f"
     },
     {
       "idx": 6,
@@ -401,7 +398,7 @@
         {
           "t": "りんご",
           "role": "content",
-          "word_id": "W00019",
+          "word_id": "W00018",
           "r": "りんご"
         },
         {
@@ -423,7 +420,7 @@
         {
           "t": "袋",
           "role": "content",
-          "word_id": "W00026",
+          "word_id": "W00024",
           "r": "ふくろ",
           "is_new": true
         },
@@ -456,23 +453,21 @@
     }
   ],
   "word_audio": {
+    "W00018": "audio/words/W00018.mp3",
     "W00019": "audio/words/W00019.mp3",
     "W00020": "audio/words/W00020.mp3",
     "W00021": "audio/words/W00021.mp3",
     "W00022": "audio/words/W00022.mp3",
     "W00023": "audio/words/W00023.mp3",
-    "W00024": "audio/words/W00024.mp3",
-    "W00025": "audio/words/W00025.mp3",
-    "W00026": "audio/words/W00026.mp3"
+    "W00024": "audio/words/W00024.mp3"
   },
   "word_audio_hash": {
-    "W00019": "4261abfc9132",
-    "W00020": "eb1a94247e38",
-    "W00021": "5de9c1dd3273",
-    "W00022": "82bae538d2c2",
-    "W00023": "e1acc6ebfed9",
-    "W00024": "a2277461238f",
-    "W00025": "5f262b6e2129",
-    "W00026": "fd55d629da65"
+    "W00018": "4261abfc9132",
+    "W00019": "eb1a94247e38",
+    "W00020": "5de9c1dd3273",
+    "W00021": "82bae538d2c2",
+    "W00022": "e1acc6ebfed9",
+    "W00023": "5f262b6e2129",
+    "W00024": "fd55d629da65"
   }
 }
