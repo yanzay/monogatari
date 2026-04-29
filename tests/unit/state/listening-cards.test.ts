@@ -10,7 +10,7 @@
  * replacement" — the structural promise that drove this design.
  */
 import { describe, it, expect } from 'vitest';
-import { applyGrade, buildQueue, GRADES, newCard } from '../../../src/lib/state/srs';
+import { applyGrade, buildQueue, GRADES, newCard, sentenceListeningReady, tickListeningMinting } from '../../../src/lib/state/srs';
 import {
   cardKind,
   listeningCardId,
@@ -113,6 +113,74 @@ describe('cardKind', () => {
     expect(cardKind(fakeCard({ word_id: 'L:4:2', kind: undefined }))).toBe(
       'listening',
     );
+  });
+});
+
+/* ── sentenceListeningReady ─────────────────────────────────────── */
+describe('sentenceListeningReady', () => {
+  function matureCard(wid: string): Card {
+    // Create a card whose status is 'mature' by setting scheduled_days
+    // above the MATURE_THRESHOLD_DAYS constant (21 in srs.ts).
+    return {
+      word_id: wid,
+      kind: 'reading',
+      first_learned_story: 1,
+      context_story: 1,
+      context_sentence_idx: 0,
+      due: NOW.toISOString(),
+      stability: 30,
+      difficulty: 5,
+      elapsed_days: 25,
+      scheduled_days: 25, // > 21 → 'mature'
+      learning_steps: 0,
+      reps: 5,
+      lapses: 0,
+      state: 2 as Card['state'], // State.Review
+      status: 'mature',
+    };
+  }
+  function youngCard(wid: string): Card {
+    return { ...matureCard(wid), scheduled_days: 4, status: 'young' };
+  }
+  function newCard_(wid: string): Card {
+    return { ...matureCard(wid), scheduled_days: 0, state: 0 as Card['state'], status: 'new' };
+  }
+
+  it('returns true when every content word is mature', () => {
+    const srs = { W1: matureCard('W1'), W2: matureCard('W2') };
+    const sent = { tokens: [{ word_id: 'W1' }, { word_id: 'W2' }] };
+    expect(sentenceListeningReady(sent, srs)).toBe(true);
+  });
+
+  it('returns false when any word is young (not yet mature)', () => {
+    const srs = { W1: matureCard('W1'), W2: youngCard('W2') };
+    const sent = { tokens: [{ word_id: 'W1' }, { word_id: 'W2' }] };
+    expect(sentenceListeningReady(sent, srs)).toBe(false);
+  });
+
+  it('returns false when any word is new', () => {
+    const srs = { W1: matureCard('W1'), W2: newCard_('W2') };
+    const sent = { tokens: [{ word_id: 'W1' }, { word_id: 'W2' }] };
+    expect(sentenceListeningReady(sent, srs)).toBe(false);
+  });
+
+  it('returns false when any word has no SRS row at all', () => {
+    const srs = { W1: matureCard('W1') };
+    const sent = { tokens: [{ word_id: 'W1' }, { word_id: 'W2' }] };
+    expect(sentenceListeningReady(sent, srs)).toBe(false);
+  });
+
+  it('returns false for a sentence with no content word_ids (punctuation-only)', () => {
+    const srs = { W1: matureCard('W1') };
+    const sent = { tokens: [{ t: '。' }, { t: '、' }] }; // no word_id
+    expect(sentenceListeningReady(sent, srs)).toBe(false);
+  });
+
+  it('ignores tokens without word_id when others are mature', () => {
+    // Function words / particles have no word_id; they should be skipped.
+    const srs = { W1: matureCard('W1') };
+    const sent = { tokens: [{ word_id: 'W1' }, { t: 'は' }] };
+    expect(sentenceListeningReady(sent, srs)).toBe(true);
   });
 });
 

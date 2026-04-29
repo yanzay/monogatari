@@ -450,8 +450,13 @@ export function mintCardsForStory(
   story: Story,
   srs: Record<string, Card>,
   now: Date = new Date(),
-  mintListening: boolean = true,
 ): Record<string, Card> {
+  // Only reading cards are minted at "Save for review" time. Listening
+  // cards are deferred until every word in the sentence is mature —
+  // prompting a learner to comprehend a sentence they just looked up
+  // is a cold-listening test, not comprehension review. The deferred
+  // mint is handled by tickListeningMinting(), which is called after
+  // every grade in the review page and on boot.
   const next = { ...srs };
   for (const wid of story.new_words) {
     if (next[wid]) continue;
@@ -466,24 +471,86 @@ export function mintCardsForStory(
       now,
     });
   }
-  if (mintListening) {
-    for (let i = 0; i < story.sentences.length; i++) {
-      const sent = story.sentences[i];
-      // Listening cards need source audio. If the sentence has no
-      // `audio` field AND we can't synthesize one (no story_id), skip.
-      // In practice every shipped sentence has audio synthesized by
-      // decorateWithAudioPaths, but we defend against the edge.
-      if (!sent.audio) continue;
-      const id = listeningCardId(story.story_id, i);
-      if (next[id]) continue;
-      next[id] = newCard({
-        word_id: id,
-        story_id: story.story_id,
-        context_sentence_idx: i,
-        kind: 'listening',
-        now,
-      });
-    }
+  return next;
+}
+
+/**
+ * The maturity gate for listening-card minting.
+ *
+ * A sentence is ready for a listening card when EVERY content word
+ * in it is `mature` on the reading deck — meaning FSRS has scheduled
+ * it out ≥ MATURE_THRESHOLD_DAYS days, i.e. the learner has truly
+ * internalized each word's reading→meaning association and is ready
+ * to encounter the sentence purely by ear.
+ *
+ * Words with no SRS row (unknown to the reading deck entirely) block
+ * the sentence — this catches words that appear in a story the user
+ * hasn't saved for review yet, preventing listening cards from being
+ * minted for sentences that haven't been studied at all.
+ *
+ * @param sentence The sentence to check (from Story.sentences).
+ * @param srs      The learner's SRS map.
+ * @returns true when every content word is mature; false otherwise.
+ */
+export function sentenceListeningReady(
+  sentence: { tokens: Array<{ word_id?: string }> },
+  srs: Record<string, Card>,
+): boolean {
+  const wordIds = sentence.tokens
+    .map((t) => t.word_id)
+    .filter((id): id is string => !!id);
+  if (wordIds.length === 0) return false; // No content words at all (punctuation-only) — skip.
+  for (const wid of wordIds) {
+    const card = srs[wid];
+    if (!card) return false; // Word not yet in the reading deck → block.
+    if (card.status !== 'mature') return false;
+  }
+  return true;
+}
+
+/**
+ * Check whether any listening cards are now eligible to be minted
+ * for the given story (i.e. every word in their sentence is mature
+ * on the reading deck) and mint them if so.
+ *
+ * This is the deferred-mint path: called after every grade in the
+ * review page and once on boot, so listening cards dribble in
+ * naturally as the learner's reading mastery grows, rather than all
+ * at once when a story is first saved.
+ *
+ * Pure: returns a new SRS map. No-op (returns the same reference)
+ * when nothing new would be minted — callers can use reference
+ * equality to avoid spurious saves.
+ *
+ * @param story The story whose sentences to check.
+ * @param srs   The current SRS map.
+ * @param now   Clock reference (default: new Date()).
+ * @returns A new SRS map (or the same reference if nothing changed).
+ */
+export function tickListeningMinting(
+  story: Story,
+  srs: Record<string, Card>,
+  now: Date = new Date(),
+): Record<string, Card> {
+  let next = srs;
+  for (let i = 0; i < story.sentences.length; i++) {
+    const sent = story.sentences[i];
+    // Skip sentences without audio (no source material).
+    if (!sent.audio) continue;
+    const id = listeningCardId(story.story_id, i);
+    // Already minted — skip (idempotent).
+    if (next[id]) continue;
+    // Gate: every content word must be mature.
+    if (!sentenceListeningReady(sent, srs)) continue;
+    // First mint — lazily copy on write so the no-op path costs nothing.
+    if (next === srs) next = { ...srs };
+    next[id] = newCard({
+      word_id: id,
+      story_id: story.story_id,
+      context_sentence_idx: i,
+      kind: 'listening',
+      now,
+    });
   }
   return next;
 }

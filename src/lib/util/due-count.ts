@@ -19,6 +19,8 @@
  * before any review has happened.
  */
 import type { Card } from '../state/types';
+import { cardKind } from '../state/types';
+import type { CardKind } from '../state/types';
 
 export function isCardDue(card: Card | null | undefined, now: Date | number): boolean {
   if (!card) return false;
@@ -37,6 +39,26 @@ export function countDueCards(
   let n = 0;
   for (const card of Object.values(srs)) {
     if (isCardDue(card, now)) n += 1;
+  }
+  return n;
+}
+
+/**
+ * Count due cards of a specific kind (modality).
+ *
+ * Used by the nav badges to show separate reading and listening
+ * due-counts, so "Review 5" and "Listen 3" are independently
+ * meaningful rather than summed into a single confusing number.
+ */
+export function countDueByKind(
+  srs: Record<string, Card> | undefined | null,
+  now: Date | number,
+  kind: CardKind,
+): number {
+  if (!srs) return 0;
+  let n = 0;
+  for (const card of Object.values(srs)) {
+    if (cardKind(card) === kind && isCardDue(card, now)) n += 1;
   }
   return n;
 }

@@ -391,35 +391,22 @@ describe('sanitizeImported', () => {
       });
     });
 
-    describe('listening_per_review', () => {
-      it('defaults to 6 when absent', () => {
-        const out = sanitizeImported({ prefs: {} });
-        expect(out.prefs.listening_per_review).toBe(6);
-      });
-
-      it('preserves a positive integer', () => {
+    describe('listening_per_review (short-lived pref, now removed)', () => {
+      // listening_per_review existed only on 2026-04-29. It was removed when
+      // listening became a separate tab. The sanitizer silently drops it;
+      // these tests verify the field does NOT appear on the imported prefs.
+      it('is silently dropped and does not appear in imported prefs', () => {
         const out = sanitizeImported({ prefs: { listening_per_review: 4 } });
-        expect(out.prefs.listening_per_review).toBe(4);
+        expect(
+          (out.prefs as unknown as Record<string, unknown>).listening_per_review,
+        ).toBeUndefined();
       });
 
-      it('floors a fractional value', () => {
-        const out = sanitizeImported({ prefs: { listening_per_review: 6.9 } });
-        expect(out.prefs.listening_per_review).toBe(6);
-      });
-
-      it('accepts 0 as "drop listening cards from sessions"', () => {
-        const out = sanitizeImported({ prefs: { listening_per_review: 0 } });
-        expect(out.prefs.listening_per_review).toBe(0);
-      });
-
-      it('rejects negative values (defaults to 6)', () => {
-        const out = sanitizeImported({ prefs: { listening_per_review: -1 } });
-        expect(out.prefs.listening_per_review).toBe(6);
-      });
-
-      it('rejects non-numeric values (defaults to 6)', () => {
-        const out = sanitizeImported({ prefs: { listening_per_review: 'lots' } });
-        expect(out.prefs.listening_per_review).toBe(6);
+      it('does not appear in default prefs either', () => {
+        const out = sanitizeImported({});
+        expect(
+          (out.prefs as unknown as Record<string, unknown>).listening_per_review,
+        ).toBeUndefined();
       });
     });
 
@@ -521,11 +508,10 @@ describe('sanitizeImported', () => {
       expect(out.prefs).toEqual({
         show_gloss_by_default: false,
         audio_on_review_reveal: true,
-        // audio_listen_first retired 2026-04-29 → audio_echo_on_grade.
-        // listening_per_review added 2026-04-29 (variant A: separate
-        // listening deck woven into reading sessions at 1-per-N).
+        // audio_listen_first retired → audio_echo_on_grade (2026-04-29).
+        // listening_per_review removed: listening is now a separate tab,
+        // not an interleave rate.
         audio_echo_on_grade: 'mature_only',
-        listening_per_review: 6,
         theme: 'auto',
         target_retention: DEFAULT_TARGET_RETENTION,
         // daily_max_new removed 2026-04-29; default review cap is null (no cap).

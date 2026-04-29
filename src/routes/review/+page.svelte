@@ -3,13 +3,13 @@
   import { learner } from '$lib/state/learner.svelte';
   import { loadStoryById, getWord, loadVocabIndex } from '$lib/data/corpus';
   import { audioFor, playOnce } from '$lib/data/audio';
-  import { applyGrade, buildQueue, GRADES } from '$lib/state/srs';
+  import { applyGrade, buildQueue, GRADES, tickListeningMinting } from '$lib/state/srs';
   import { resolveReviewKey } from '$lib/util/review-keymap';
   import type { Sentence, Word, VocabIndex } from '$lib/data/types';
   import type { Card, Grade } from '$lib/state/types';
   import { cardKind } from '$lib/state/types';
 
-  import { countDueCards } from '$lib/util/due-count';
+  import { countDueByKind } from '$lib/util/due-count';
 
   let queue = $state<Card[]>([]);
   let revealed = $state(false);
@@ -53,17 +53,16 @@
       reviewCap === null || reviewCap === undefined
         ? Infinity
         : Math.max(0, reviewCap - (learner.state.daily.reviewed ?? 0));
+    // Review tab is reading-only. Listening cards live in the /listen
+    // tab with their own queue. Setting listeningPerReview to 0 ensures
+    // none leak into this session even if the SRS map contains them.
     queue = buildQueue(learner.state.srs ?? {}, {
       maxReviews: remainingReviews,
       newPerReview: learner.state.prefs.new_per_review ?? 4,
-      // Listening cards are the second modality (variant A). Default
-      // weave: 1 listening card every 6 reading cards. Pref `0`
-      // suppresses listening cards entirely from sessions.
-      listeningPerReview: learner.state.prefs.listening_per_review ?? 6,
+      listeningPerReview: 0,
     });
-    // Use the same predicate as the menu badge so the two views can
-    // never disagree about "is anything due?".
-    trueDueCount = countDueCards(learner.state.srs, new Date());
+    // Badge uses reading-only count to match the nav badge.
+    trueDueCount = countDueByKind(learner.state.srs, new Date(), 'reading');
     revealed = false;
     lastUndoable = (learner.state.history?.length ?? 0) > 0;
   }
@@ -200,9 +199,18 @@
     // post-grade status would defeat the point of `mature_only`.
     const echo = shouldEchoAfterGrade(card, g);
     const echoSrc = sentenceAudioSrc;
+    const gradedStory = contextStory; // captured for tick below
     const result = applyGrade(card, g, new Date(), learner.state.prefs.target_retention);
     learner.state.srs[card.word_id] = result.card;
     learner.pushHistory(result.log);
+    // After grading, check whether any listening cards in the current
+    // story have become eligible (their words may have just hit mature
+    // thanks to this grade). tickListeningMinting is O(sentences) and
+    // pure (copy-on-write), so this is cheap and safe.
+    if (gradedStory) {
+      const ticked = tickListeningMinting(gradedStory, learner.state.srs);
+      if (ticked !== learner.state.srs) learner.state.srs = ticked;
+    }
     learner.save();
     revealed = false;
     queue = queue.slice(1);

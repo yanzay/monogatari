@@ -6,9 +6,9 @@
   import { base } from '$app/paths';
   import { learner } from '$lib/state/learner.svelte';
   import { loadVocabIndex, loadGrammar, getWord, loadStoryById } from '$lib/data/corpus';
-  import { mintCardsForStory } from '$lib/state/srs';
+  import { mintCardsForStory, tickListeningMinting } from '$lib/state/srs';
   import { cardKind } from '$lib/state/types';
-  import { countDueCards, nextDueChangeTimestamp } from '$lib/util/due-count';
+  import { countDueCards, countDueByKind, nextDueChangeTimestamp } from '$lib/util/due-count';
   import { popup } from '$lib/state/popup.svelte';
   import Popup from '$lib/ui/Popup.svelte';
   import WordPopup from '$lib/ui/WordPopup.svelte';
@@ -45,9 +45,15 @@
   // The clamp at 100ms protects against re-entrant scheduling if the
   // helper somehow returns a target in the past (defensive).
   let nowTick = $state(Date.now());
+  // Reading-only badge (for the Review tab).
   let dueCount = $derived.by(() => {
     if (!learner.ready) return 0;
-    return countDueCards(learner.state.srs, nowTick);
+    return countDueByKind(learner.state.srs, nowTick, 'reading');
+  });
+  // Listening-only badge (for the Listen tab).
+  let listenDueCount = $derived.by(() => {
+    if (!learner.ready) return 0;
+    return countDueByKind(learner.state.srs, nowTick, 'listening');
   });
 
   $effect(() => {
@@ -75,8 +81,8 @@
       // contend for the first-paint network budget. Errors here are
       // logged but never block the app — the worst case is the user
       // has fewer listening cards until they re-mark a story as read.
-      void backfillListeningCards().catch((err) => {
-        console.warn('Listening-card backfill failed:', err);
+      void bootListeningMaintenance().catch((err) => {
+        console.warn('Boot listening maintenance failed:', err);
       });
     } catch (e) {
       console.error('Boot failed:', e);
@@ -85,45 +91,74 @@
   });
 
   /**
-   * Walk completed stories in the learner's progress map and mint any
-   * missing listening cards. Pre-2026-04-29 stories were marked
-   * "completed" without ever spawning listening cards (they didn't
-   * exist), so this back-pass installs them once.
+   * On-boot listening-card maintenance.
    *
-   * Detection of "needs backfill" is per-story: if the SRS map
-   * contains zero `kind === 'listening'` cards keyed for the story id,
-   * we mint. (We don't try to detect partial backfills — the mint helper
-   * is idempotent at the per-card level so re-minting is harmless.)
+   * Two jobs in one pass over completed stories:
+   *
+   * 1. CLEANUP: Drop any listening cards that were minted without the
+   *    mature-word gate (the first version of this feature, 2026-04-29,
+   *    minted all listening cards immediately at "Save for review" time).
+   *    We detect these as listening cards whose context sentence has at
+   *    least one word that isn't mature — meaning the card was minted
+   *    eagerly. We delete them from the SRS map so they can be
+   *    re-minted organically once all words mature.
+   *    This migration is idempotent: once the card is gone, this branch
+   *    simply never matches again.
+   *
+   * 2. TICK: Run tickListeningMinting for every completed story so that
+   *    sentences whose words have ALL matured since the last boot get
+   *    their listening cards minted now, without waiting for the user
+   *    to explicitly grade a card.
    */
-  async function backfillListeningCards(): Promise<void> {
+  async function bootListeningMaintenance(): Promise<void> {
     const completed = Object.entries(learner.state.story_progress ?? {})
       .filter(([, p]) => p?.completed)
       .map(([sid]) => Number(sid))
       .filter((n) => Number.isFinite(n) && n > 0);
     if (completed.length === 0) return;
-    // Quick prefilter: which story ids already have at least one
-    // listening card? Skip those entirely so the common case (boot
-    // after the first backfill is done) costs O(srs).
-    const haveListening = new Set<number>();
-    for (const card of Object.values(learner.state.srs ?? {})) {
-      if (cardKind(card) !== 'listening') continue;
-      const sid = card.context_story;
-      if (typeof sid === 'number') haveListening.add(sid);
+
+    let nextSrs = { ...(learner.state.srs ?? {}) };
+    let changed = false;
+
+    // Step 1: purge ungated listening cards (ones minted before the
+    // mature-word gate existed). A listening card is "ungated" when its
+    // context sentence has any content word that isn't mature.
+    // We need the story to look up the sentence tokens; load lazily.
+    const storyCache = new Map<number, Awaited<ReturnType<typeof loadStoryById>>>();
+    async function getStory(sid: number) {
+      if (!storyCache.has(sid)) storyCache.set(sid, await loadStoryById(sid));
+      return storyCache.get(sid) ?? null;
     }
-    const todo = completed.filter((sid) => !haveListening.has(sid));
-    if (todo.length === 0) return;
-    let nextSrs = learner.state.srs ?? {};
-    let mintedAny = false;
-    for (const sid of todo) {
-      const story = await loadStoryById(sid);
+
+    for (const [id, card] of Object.entries(nextSrs)) {
+      if (cardKind(card) !== 'listening') continue;
+      const story = await getStory(card.context_story);
       if (!story) continue;
-      const before = nextSrs;
-      nextSrs = mintCardsForStory(story, nextSrs, new Date());
-      if (nextSrs !== before && Object.keys(nextSrs).length !== Object.keys(before).length) {
-        mintedAny = true;
+      const sent = story.sentences[card.context_sentence_idx];
+      if (!sent) continue;
+      // If every word is now mature the card was gated correctly —
+      // leave it alone. If any word is not mature, this card was minted
+      // prematurely: delete and let tickListeningMinting re-mint it
+      // when the gate is actually satisfied.
+      const { sentenceListeningReady } = await import('$lib/state/srs');
+      if (!sentenceListeningReady(sent, nextSrs)) {
+        delete nextSrs[id];
+        changed = true;
       }
     }
-    if (mintedAny) {
+
+    // Step 2: tick deferred minting for all completed stories.
+    for (const sid of completed) {
+      const story = await getStory(sid);
+      if (!story) continue;
+      const after = tickListeningMinting(story, nextSrs);
+      if (after !== nextSrs) {
+        nextSrs = after as typeof nextSrs;
+        changed = true;
+      }
+    }
+
+    if (changed) {
       learner.state.srs = nextSrs;
       learner.save();
     }
@@ -162,14 +197,16 @@
     document.documentElement.removeAttribute('data-theme');
   });
 
-  const views = [
-    { name: 'read', label: 'Read', href: `${base}/read` },
-    { name: 'library', label: 'Library', href: `${base}/library` },
-    { name: 'review', label: 'Review', href: `${base}/review` },
-    { name: 'vocab', label: 'Vocab', href: `${base}/vocab` },
-    { name: 'grammar', label: 'Grammar', href: `${base}/grammar` },
-    { name: 'stats', label: 'Stats', href: `${base}/stats` },
-  ];
+  // `badge` is a reactive accessor so the nav re-renders when due-counts change.
+  const views = $derived([
+    { name: 'read',    label: 'Read',    href: `${base}/read`,    badge: 0 },
+    { name: 'library', label: 'Library', href: `${base}/library`, badge: 0 },
+    { name: 'review',  label: 'Review',  href: `${base}/review`,  badge: dueCount },
+    { name: 'listen',  label: 'Listen',  href: `${base}/listen`,  badge: listenDueCount },
+    { name: 'vocab',   label: 'Vocab',   href: `${base}/vocab`,   badge: 0 },
+    { name: 'grammar', label: 'Grammar', href: `${base}/grammar`, badge: 0 },
+    { name: 'stats',   label: 'Stats',   href: `${base}/stats`,   badge: 0 },
+  ]);
 
   function activeView(): string {
     const p = page.url.pathname;
@@ -246,8 +283,8 @@
           goto(v.href);
         }}
       >
-        {v.label}{#if v.name === 'review' && dueCount > 0}
-          <span class="review-badge">{dueCount}</span>
+        {v.label}{#if v.badge > 0}
+          <span class="review-badge">{v.badge}</span>
         {/if}
       </a>
     {/each}

@@ -17,7 +17,7 @@
       learner.save();
     }
   }
-  function bindNum(key: 'new_per_review' | 'listening_per_review', e: Event) {
+  function bindNum(key: 'new_per_review', e: Event) {
     const v = parseInt((e.target as HTMLInputElement).value, 10);
     if (Number.isFinite(v) && v >= 0) {
       learner.state.prefs[key] = v;
@@ -163,27 +163,6 @@
           onchange={(e) => bindBool('audio_on_review_reveal', e)}
         />
         <span>Play word audio on review reveal</span>
-      </label>
-      <label class="settings-row">
-        <span>
-          Listening cards per review
-          <small class="settings-hint">
-            Listening cards are a separate deck (sentence audio is the
-            prompt; the JP text + gloss is the answer). They're WOVEN
-            into reading sessions at this rate — e.g. 6 means one
-            listening card every 6 reading cards. Set to 0 to drop
-            listening cards from sessions entirely (the SRS map keeps
-            them so you can flip the rate back on later without losing
-            their schedule).
-          </small>
-        </span>
-        <input
-          type="number"
-          min="0"
-          max="20"
-          value={prefs.listening_per_review}
-          oninput={(e) => bindNum('listening_per_review', e)}
-        />
       </label>
       <label class="settings-row">
         <span>

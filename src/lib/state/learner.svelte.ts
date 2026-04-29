@@ -60,17 +60,6 @@ export interface Prefs {
    *  `audio_listen_first` boolean (legacy import maps `true` → 'mature_only',
    *  `false` → 'never'). */
   audio_echo_on_grade: EchoPolicy;
-  /**
-   * Listening-card interleave rate: one listening card every N reading
-   * cards in the review queue. Default 6. Set to 0 to drop all
-   * listening cards from sessions (the SRS map still mints them — you
-   * can flip this back on later without losing schedule history).
-   *
-   * Listening cards are a separate modality keyed
-   * `L:<story_id>:<sentence_idx>` with their own FSRS stability; they
-   * are ADDED to reading sessions, never replacing reading cards.
-   */
-  listening_per_review: number;
   theme?: 'auto' | 'light' | 'dark';
   target_retention: number;
   /**
@@ -124,9 +113,6 @@ function defaultPrefs(): Prefs {
     // `'mature_only'` so new learners see the feature working on words
     // they already know without it being intrusive on first sight.
     audio_echo_on_grade: 'mature_only',
-    // One listening card every 6 reading cards by default — a typical
-    // session of ~12-18 reading cards picks up 2-3 listening prompts.
-    listening_per_review: 6,
     theme: 'auto',
     target_retention: DEFAULT_TARGET_RETENTION,
     // Default: no cap. See Prefs.daily_max_reviews docstring for rationale.
@@ -232,22 +218,15 @@ export function sanitizeImported(raw: unknown): LearnerState {
         } else if (typeof p.audio_listen_first === 'boolean') {
           echoPolicy = p.audio_listen_first ? 'mature_only' : 'never';
         }
-        // Listening interleave rate: floor to non-negative int. 0 = off.
-        let listeningRate = 6;
-        if (
-          typeof p.listening_per_review === 'number' &&
-          p.listening_per_review >= 0 &&
-          Number.isFinite(p.listening_per_review)
-        ) {
-          listeningRate = Math.floor(p.listening_per_review);
-        }
+        // listening_per_review was a short-lived pref (2026-04-29 only)
+        // that was removed when listening became a separate tab. Drop it
+        // silently from any import payload that carries it.
         out.prefs = {
           ...defaultPrefs(),
           show_gloss_by_default: !!p.show_gloss_by_default,
           audio_on_review_reveal:
             typeof p.audio_on_review_reveal === 'boolean' ? p.audio_on_review_reveal : true,
           audio_echo_on_grade: echoPolicy,
-          listening_per_review: listeningRate,
           theme:
             p.theme === 'light' || p.theme === 'dark' || p.theme === 'auto'
               ? p.theme
