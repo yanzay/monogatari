@@ -54,6 +54,57 @@ def _verb_token(built: dict, surface: str) -> dict | None:
     return None
 
 
+def test_honorific_prefix_merges_into_single_noun(vocab, grammar):
+    """Phase 4.1 (2026-04-29): UniDic tokenizes honorific-prefix nouns
+    as TWO tokens (接頭辞 御/お,ご + 名詞). text_to_story::merge_tokens
+    Rule 0a glues them into a single content token whose surface and
+    lemma are the concatenation (お茶 / お金 / ご家族 / お土産).
+
+    Without this rule, the prefix becomes a stranded <TODO> in the
+    build report and the noun gets minted as a separate W-id (e.g. 茶
+    alone instead of お茶) — pedagogically wrong because every textbook
+    treats the prefixed form as the canonical learner-facing lemma.
+
+    Lexicalized prefix-noun compounds (e.g. ご飯 → 御飯) are tokenized
+    as a single 名詞 by UniDic and don't enter the merge branch; this
+    test only covers the productive-prefix path.
+    """
+    samples = [
+        ("お茶があります。",       "お茶",   "おちゃ"),
+        ("お皿は小さいです。",     "お皿",   "おさら"),
+        ("お金で買います。",       "お金",   "おかね"),
+        ("ご家族と話します。",     "ご家族", "ごかぞく"),
+    ]
+    for jp, expected_surface, expected_kana in samples:
+        built, report = _build([{"jp": jp, "en": ""}], vocab, grammar)
+        content = [
+            t for t in built["sentences"][0]["tokens"]
+            if t.get("role") == "content"
+        ]
+        # The honorific noun must be the FIRST content token and a
+        # single token (not split into two: お + 茶).
+        assert content, f"no content tokens for {jp!r}"
+        first = content[0]
+        assert first["t"] == expected_surface, (
+            f"{jp!r}: expected first content token surface {expected_surface!r}, "
+            f"got {first['t']!r} — honorific-prefix merge regressed"
+        )
+        # Reading must include the prefix kana.
+        assert first.get("r") == expected_kana, (
+            f"{jp!r}: expected reading {expected_kana!r}, "
+            f"got {first.get('r')!r}"
+        )
+        # No <TODO> stranded prefix anywhere in the build report.
+        unresolved_surfaces = [
+            (u.get("surface") if isinstance(u, dict) else u)
+            for u in (report.get("unresolved") or [])
+        ]
+        assert "お" not in unresolved_surfaces and "ご" not in unresolved_surfaces, (
+            f"{jp!r}: stranded honorific prefix in unresolved: "
+            f"{unresolved_surfaces}"
+        )
+
+
 def test_plain_form_of_polite_vocab_tags_g055(vocab, grammar):
     """見る (plain form of polite-form vocab 見ます) must carry
     grammar_id G055_plain_nonpast_pair AND inflection.form='plain_nonpast'.

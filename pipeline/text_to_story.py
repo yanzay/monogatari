@@ -340,6 +340,49 @@ def merge_tokens(raw: list[Token], vocab: VocabIndex) -> list[dict]:
     while i < n:
         t = raw[i]
 
+        # Rule 0a (Phase 4.1, 2026-04-29): honorific-prefix merge.
+        #
+        # UniDic tokenizes お茶 / お皿 / お金 / ご家族 as TWO tokens:
+        #   pos1=接頭辞 (prefix; lemma=御, surface=お/ご)
+        #   pos1=名詞   (the noun)
+        # without this rule, the prefix becomes a stranded <TODO> in the
+        # build report and the noun gets minted as a separate W-id (e.g.
+        # 茶 alone instead of お茶) — pedagogically wrong because every
+        # textbook treats お茶 / お金 / ご飯 as the canonical learner-
+        # facing lemma.
+        #
+        # Lexicalized prefix-noun compounds (e.g. ご飯) are already
+        # tokenized as a single 名詞 by UniDic and don't enter this branch.
+        # Only the productive-prefix path needs glueing.
+        #
+        # The merged token's surface and lemma both become the
+        # concatenation (お茶 / お金 / ご家族); kana is computed from the
+        # noun's reading with the appropriate prefix kana prepended.
+        # pos1 is set to 名詞 so downstream rules treat it as a noun.
+        if (
+            t.pos1 == "接頭辞"
+            and t.lemma == "御"
+            and t.surface in ("お", "ご")
+            and i + 1 < n
+            and raw[i + 1].pos1 == "名詞"
+        ):
+            noun = raw[i + 1]
+            m = _new_merged(noun)
+            joined_surface = t.surface + noun.surface
+            m["surface"] = joined_surface
+            m["_lemma"] = joined_surface
+            m["_aux"] = []  # the prefix is consumed into the head; no aux
+            m["_pos1"] = "名詞"
+            # Kana: prefix kana + noun kana (use noun.kana if present,
+            # else fall back to noun.surface). The Token dataclass
+            # exposes the reading via .kana on UniDic features.
+            prefix_kana = "お" if t.surface == "お" else "ご"
+            noun_kana = getattr(noun, "kana", None) or noun.surface
+            m["_kana"] = prefix_kana + noun_kana
+            out.append(m)
+            i += 2
+            continue
+
         # Rule 0: compound grammar surface (について, によって, etc.) — try
         # to glue 2–4 tokens whose joined surface matches the table.
         matched = False

@@ -19,7 +19,7 @@
         {"lemma": "朝",     "pos": "noun",        "meaning": "morning"},
         {"lemma": "家",     "pos": "noun",        "meaning": "house/home"},
         {"lemma": "台所",   "pos": "noun",        "meaning": "kitchen"},
-        {"lemma": "茶",     "pos": "noun",        "meaning": "tea (use 茶 for now; honorific お-prefix tokenization is a Phase 4.1 follow-up — see seed plan amendment 2026-04-29)"},
+        {"lemma": "お茶",   "pos": "noun",        "meaning": "tea (Phase 4.1 honorific-prefix tokenization landed 2026-04-29 — お茶 is now correctly tokenized as a single noun)"},
         {"lemma": "持ちます","pos": "verb",       "meaning": "hold/carry (manipulation verb; without it the slot has no transitive action)"},
         {"lemma": "パン",   "pos": "noun",        "meaning": "bread"},
         {"lemma": "窓",     "pos": "noun",        "meaning": "window"},
@@ -44,7 +44,8 @@
     "_amendments_log": {
       "2026-04-29": [
         "Story 1 grammar_seed: ADDED N5_no_possessive, N5_he_direction, N5_mo_also; DROPPED N5_de_means (deferred to story 2). Reason: first author cycle proved that any natural opening sentence in JP requires possessive-の and direction-へ, which the original 8-point seed plan undercounted.",
-        "Story 1 vocab_seed: DROPPED お茶, ADDED 茶 + 持ちます. Reasons: (a) honorific お-prefix tokenization needs a Phase 4.1 fix (the empty-corpus tokenizer splits お+茶); (b) the original seed had only perception verbs (見ます) and existence verbs (あります/います), giving the narrator nothing to DO — 持ちます is the minimum viable manipulation verb.",
+        "Story 1 vocab_seed: ADDED 持ちます (manipulation verb without which the narrator can only see, never act). 持ちます stays in.",
+        "Story 1 vocab_seed (Phase 4.1, 2026-04-29): RESTORED お茶 after the honorific-prefix tokenization fix landed in pipeline/text_to_story.py merge_tokens Rule 0a. The temporary 茶-only fallback is no longer needed; W00010 was migrated 茶→お茶 in place.",
         "Story 1 ladder: grammar_max 8→10, grammar_min 6→8 to accommodate the 3-point grammar additions.",
         "Story 2 should now consume N5_de_means (お金でりんごを買います) as part of its buying scene, in addition to its prior seed."
       ]
