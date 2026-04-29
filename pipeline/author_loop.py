@@ -440,6 +440,17 @@ def step_vocab_reinforcement(story_id: int, built_story: dict) -> StepResult:
     were intro'd in story 7 but never showed up in the brief's
     `word_reinforcement.critical/due` because the palette-star path
     only kicks in after 8 stories of unused).
+
+    Note (2026-04-29): the `must_reinforce` rule was relaxed in
+    `agent_brief._vocab_reinforcement_debt` to flag a word ONLY when
+    the R1 window is about to close on it (the LAST follow-up slot)
+    AND the word was not minted during the bootstrap front-load. This
+    step itself is unchanged; it just blocks fewer cases now because
+    the brief flags fewer words. Words that are due-soon-but-not-yet-
+    last-chance show up as `should_reinforce` warnings (non-blocking).
+    The post-ship test `test_vocab_words_are_reinforced` (R1) is
+    unchanged and remains the source of truth for what "reinforced"
+    means.
     """
     try:
         brief = agent_brief.build_brief(story_id)

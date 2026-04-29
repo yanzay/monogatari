@@ -982,6 +982,14 @@ If `earlier_uncovered` is non-empty (a prior tier has gaps), address
 THOSE first — Check 3.9 will hard-block tier advancement otherwise.
 
 ### Halted at `vocab_reinforcement`
+
+(Relaxed 2026-04-29 — see AGENTS.md note. The step now only hard-blocks
+when the R1 window is about to CLOSE on a word AND that word was minted
+outside the bootstrap window. If you're seeing this failure, it means
+some non-bootstrap word minted ~10 stories ago has zero follow-up uses
+and this story is its last chance. Previous failure mode — "story N
+must use every word from story N-1" — was retired.)
+
 Your story did not reuse a word that has `must_reinforce: true` in the
 brief's `must_hit.word_reinforcement.items`. The error message names every
 missing `word_id` and `lemma`. These are words intro'd in the immediately

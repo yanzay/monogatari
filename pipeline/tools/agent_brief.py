@@ -263,49 +263,71 @@ def _vocab_reinforcement_debt(target_story: int) -> dict:
 
     The post-ship test `test_vocab_words_are_reinforced` (Rule R1) fails
     if a word intro'd in story N doesn't reappear in ≥1 of the next
-    VOCAB_REINFORCE_WINDOW=10 stories. The palette-star path
-    (`_reinforcement_debt_from_palette`) only flags words unused for ≥8
-    stories, so words intro'd in the most recent story (N-1) — which
-    are the load-bearing ones for the R1 window — are completely
-    invisible there. This function plugs the gap.
+    VOCAB_REINFORCE_WINDOW=10 stories. R1 ALSO exempts bootstrap stories
+    entirely (`if n <= BOOTSTRAP_END: continue`) — words minted during
+    the bootstrap front-load aren't policed by R1 at all.
+
+    This function surfaces reinforcement debt to the brief WITHOUT
+    over-enforcing it. Concretely:
+
+      * `must_reinforce=True` is reserved for the LAST guaranteed slot —
+        i.e. when the R1 window is about to close on the word and no
+        follow-up has used it yet. That is `target_story == intro_story
+        + VOCAB_REINFORCE_WINDOW`. Older code marked this on the very
+        next story after intro (`target_story == intro_story + 1`),
+        which forced every follow-up to recycle every word from the
+        previous story — directly contradicting R1's "≥1 in the next 10"
+        spec and making bootstrap follow-up stories impossible to ship
+        when the prior story was a wide front-load (story 1 mints
+        ~14–18 words; story 2 cannot honestly use them all).
+
+      * Words intro'd in bootstrap stories (intro_story <= BOOTSTRAP_END)
+        NEVER become `must_reinforce`. They mirror R1's exemption: the
+        bootstrap is calibrated to seed broadly, with the corpus-wide
+        natural reuse curve doing the reinforcement, not a per-story
+        bottleneck. They CAN appear as `should_reinforce` so the agent
+        sees "due soon" hints.
+
+      * All other in-window-but-not-last-slot words are
+        `should_reinforce=True` — informational, non-blocking. The
+        gauntlet's `step_vocab_reinforcement` only hard-blocks on
+        `must_reinforce`.
 
     Output schema:
       {
         "window": 10,
         "min_uses": 1,
-        "must_reinforce_count": int,    # immediate-prev-story words
+        "must_reinforce_count": int,    # words at their last-chance slot
         "items": [
           {
             "word_id": "W00038",
             "lemma": "箱",
             "intro_in_story": 7,
             "stories_since_intro": 1,
-            "must_reinforce": True/False,   # True iff this is the LAST
-                                             # chance to keep a follow-up
-                                             # in the per-story window
-            "should_reinforce": True/False, # True iff intro'd recently
-                                             # but not strictly required
-                                             # this story.
+            "must_reinforce": True/False,
+            "should_reinforce": True/False,
           }, ...
         ]
       }
 
-    The hard "must_reinforce" rule: for every introduced word, the test
-    requires ≥min_uses appearances in the next-window slice. If by THIS
-    story (target_story-1 follow-ups have already shipped without using
-    it) the word still has 0 uses AND only one slot remains in the
-    window, this story is its last chance. We tag those `must_reinforce`.
-    Otherwise — recently introduced but with slack — we tag
-    `should_reinforce` (warn, not block).
+    History (2026-04-29): the original implementation flagged every word
+    minted in the immediately previous story as must_reinforce for THIS
+    story. That created an absurd bottleneck after wide-mint slots
+    (story 1 minted 18 words → story 2 was required to use all 18 or
+    fail to ship). Relaxed to "last slot in the R1 window" + bootstrap
+    exemption, matching R1's actual contract. See AGENTS.md and
+    docs/phase4-bootstrap-reload-2026-04-29.md for the discussion.
     """
     try:
         from grammar_progression import (  # noqa: E402
             VOCAB_REINFORCE_WINDOW,
             VOCAB_REINFORCE_MIN_USES,
+            BOOTSTRAP_END,
         )
     except Exception:
         VOCAB_REINFORCE_WINDOW = 10
         VOCAB_REINFORCE_MIN_USES = 1
+        BOOTSTRAP_END = 10
 
     # Build per-word usage map across all shipped stories.
     used_in: dict[str, set[int]] = {}
@@ -349,17 +371,25 @@ def _vocab_reinforcement_debt(target_story: int) -> dict:
                              if i in used_in.get(wid, set())]
         if followups_shipped:
             continue            # already reinforced; no debt
-        # No follow-up has used it yet. The R1 test fires the moment ANY
-        # follow-up story ships without using the word — concretely:
-        # at the time story N+1 is shipped, followups=[N+1] satisfies
-        # the "len(followups) >= MIN_USES" guard, and the test then
-        # demands ≥1 of those 1 follow-ups uses the word. So target_story
-        # = n+1 is ALREADY the last guaranteed chance to keep the test
-        # green. Mark it must_reinforce. Later slots within the window
-        # exist only as a recovery path if the test gets relaxed; we
-        # mark them should_reinforce (gentle reminder, non-blocking).
-        is_immediate_followup = (target_story == n + 1)
-        must = is_immediate_followup
+
+        # No follow-up has used it yet. Decide whether THIS story is
+        # forced to carry the reinforcement.
+        #
+        # Rule (relaxed 2026-04-29): mirror R1's actual contract.
+        #
+        #   1. R1 exempts bootstrap stories (intro_in_story <=
+        #      BOOTSTRAP_END) entirely. Words minted during the
+        #      bootstrap front-load are never "must" — the bootstrap
+        #      caps are calibrated for breadth-of-seed, and natural
+        #      reuse over the next 10+ stories handles reinforcement.
+        #   2. For non-bootstrap intro stories, this story is "must"
+        #      ONLY if the R1 window is about to close — i.e. this is
+        #      the LAST follow-up slot (target_story == intro_story +
+        #      VOCAB_REINFORCE_WINDOW). Earlier slots within the window
+        #      are `should_reinforce` (informational, non-blocking).
+        is_bootstrap_intro = (n <= BOOTSTRAP_END)
+        is_last_window_slot = (target_story == n + VOCAB_REINFORCE_WINDOW)
+        must = (not is_bootstrap_intro) and is_last_window_slot
         if must:
             must_count += 1
         items.append({

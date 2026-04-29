@@ -1,0 +1,478 @@
+{
+  "story_id": 2,
+  "title": {
+    "jp": "小さいりんご",
+    "en": "A Small Apple",
+    "tokens": [
+      {
+        "t": "小さい",
+        "role": "content",
+        "word_id": "W00009",
+        "r": "ちいさい",
+        "grammar_id": "G022_i_adj"
+      },
+      {
+        "t": "りんご",
+        "role": "content",
+        "word_id": "W00019",
+        "r": "りんご"
+      }
+    ]
+  },
+  "new_words": [
+    "W00019",
+    "W00020",
+    "W00021",
+    "W00022",
+    "W00023",
+    "W00024",
+    "W00025",
+    "W00026"
+  ],
+  "new_grammar": [
+    "G010_to_and",
+    "G006_kara_from",
+    "G017_de_means"
+  ],
+  "all_words_used": [
+    "W00009",
+    "W00019",
+    "W00002",
+    "W00005",
+    "W00014",
+    "W00020",
+    "W00003",
+    "W00021",
+    "W00022",
+    "W00015",
+    "W00023",
+    "W00001",
+    "W00011",
+    "W00013",
+    "W00024",
+    "W00025",
+    "W00026"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あさ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and",
+          "is_new_grammar": true
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたくし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "一緒",
+          "role": "content",
+          "word_id": "W00020",
+          "r": "いっしょ",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "いえ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "出ます",
+          "role": "content",
+          "word_id": "W00021",
+          "r": "でます",
+          "inflection": {
+            "base": "出る",
+            "base_r": "でる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the morning, mother and I leave the house together.",
+      "audio": "audio/story_2/s0.mp3",
+      "audio_hash": "b9ac652a8f1e"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたくし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "いえ"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "G006_kara_from",
+          "is_new_grammar": true
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "みせ",
+          "is_new": true
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "G050_he_direction"
+        },
+        {
+          "t": "歩きます",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あるきます",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Mother and I walk from the house to the shop.",
+      "audio": "audio/story_2/s1.mp3",
+      "audio_hash": "42ddb4c42328"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "道",
+          "role": "content",
+          "word_id": "W00023",
+          "r": "みち",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The road is bright.",
+      "audio": "audio/story_2/s2.mp3",
+      "audio_hash": "f7373fb59e21"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "みせ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00009",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "りんご",
+          "role": "content",
+          "word_id": "W00019",
+          "r": "りんご",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "At the shop there is a small apple.",
+      "audio": "audio/story_2/s3.mp3",
+      "audio_hash": "60e7b6870c59"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "パン",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "ぱん"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is bread too.",
+      "audio": "audio/story_2/s4.mp3",
+      "audio_hash": "46a2382c347d"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "お金",
+          "role": "content",
+          "word_id": "W00024",
+          "r": "おかね",
+          "is_new": true
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means",
+          "is_new_grammar": true
+        },
+        {
+          "t": "りんご",
+          "role": "content",
+          "word_id": "W00019",
+          "r": "りんご"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "買います",
+          "role": "content",
+          "word_id": "W00025",
+          "r": "かいます",
+          "inflection": {
+            "base": "買う",
+            "base_r": "かう",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Mother buys the apple with money.",
+      "audio": "audio/story_2/s5.mp3",
+      "audio_hash": "783317c411a0"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "りんご",
+          "role": "content",
+          "word_id": "W00019",
+          "r": "りんご"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "袋",
+          "role": "content",
+          "word_id": "W00026",
+          "r": "ふくろ",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The apple is in mother's bag.",
+      "audio": "audio/story_2/s6.mp3",
+      "audio_hash": "714d098f56fe"
+    }
+  ],
+  "word_audio": {
+    "W00019": "audio/words/W00019.mp3",
+    "W00020": "audio/words/W00020.mp3",
+    "W00021": "audio/words/W00021.mp3",
+    "W00022": "audio/words/W00022.mp3",
+    "W00023": "audio/words/W00023.mp3",
+    "W00024": "audio/words/W00024.mp3",
+    "W00025": "audio/words/W00025.mp3",
+    "W00026": "audio/words/W00026.mp3"
+  },
+  "word_audio_hash": {
+    "W00019": "4261abfc9132",
+    "W00020": "eb1a94247e38",
+    "W00021": "5de9c1dd3273",
+    "W00022": "82bae538d2c2",
+    "W00023": "e1acc6ebfed9",
+    "W00024": "a2277461238f",
+    "W00025": "5f262b6e2129",
+    "W00026": "fd55d629da65"
+  }
+}

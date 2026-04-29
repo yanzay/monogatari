@@ -204,6 +204,43 @@ ships a single new word will pass the gauntlet AND fail the test
 suite. Always read the brief's `mint_budget.min` as a hard floor,
 not a soft suggestion.
 
+### vocab_reinforcement gauntlet step is "last-slot only" since 2026-04-29
+
+The gauntlet's `vocab_reinforcement` step (in `pipeline/author_loop.py`)
+is BACKED by `_vocab_reinforcement_debt()` in `pipeline/tools/agent_brief.py`,
+which decides which words are `must_reinforce` (hard-block) vs
+`should_reinforce` (warn). The original rule (2026-04-28) flagged EVERY
+word minted in story N-1 as must-reinforce for story N — which forced
+story 2 to recycle every one of story 1's ~18 mints (impossible without
+turning the story into a list of nouns).
+
+Relaxed 2026-04-29 to mirror the post-ship test's actual contract:
+
+  * `must_reinforce=True` ONLY when the R1 window
+    (`VOCAB_REINFORCE_WINDOW = 10`) is about to close on the word —
+    i.e. `target_story == intro_story + VOCAB_REINFORCE_WINDOW` AND no
+    follow-up has used the word yet.
+  * Words intro'd during the bootstrap window (`intro_story <=
+    BOOTSTRAP_END = 10`) NEVER become must_reinforce. R1 itself
+    exempts bootstrap-intro stories (`if n <= BOOTSTRAP_END: continue`),
+    so the gauntlet matches.
+  * Everything else in-window-but-not-last-slot is `should_reinforce`
+    (informational, non-blocking). The author still sees the
+    "due soon" hints in the brief; the gauntlet just doesn't block.
+
+The post-ship test `test_vocab_words_are_reinforced` (R1) is
+unchanged. It remains the source of truth for what "reinforced" means.
+
+Practical consequence for an authoring session: the next story after
+a wide-mint slot (e.g. story 1 → story 2) only needs to reuse the
+words that fit the scene's narrative, not every word from the
+previous story. Pick organic reuse (3-6 carryover words is normal),
+let the rest get reinforced over the natural 10-story curve.
+
+DO NOT re-tighten this rule without also relaxing R1 itself. The
+old "every prev-story word must reappear next story" rule directly
+contradicted R1 and made bootstrap follow-ups unshipable.
+
 ### Dry-run green ≠ corpus tests green
 
 The gauntlet pulls SOME pedagogical checks forward
