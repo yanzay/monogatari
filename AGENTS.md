@@ -600,34 +600,34 @@ under the loose `by_kanji` lookup).
    verbose `build_brief` output and the compact `build_author_brief`
    under `hard_limits.lexical_difficulty_cap`.
 3. **Gauntlet step** (`author_loop.py::step_vocab_difficulty`):
-   inspects newly-minted words from the build report and warns if
-   any exceed the cap. Currently SOFT-WARN per "implement the
-   machinery, defer the corpus backfill" decision (2026-04-29).
+   inspects newly-minted words from the build report and HARD-FAILS
+   the ship if any exceed the cap and aren't absorbed by
+   `lexical_overrides`. Promoted from soft-warn → hard-block on
+   2026-04-29 evening after the corpus backfill was complete.
 
 **Override discipline:** the spec MAY declare
 `lexical_overrides: ["surface", ...]` to consciously absorb up to
-1 above-cap mint per story. The override must be acknowledged in
-spec.intent. Mirrors v2 grammar override discipline.
+**MAX_OVERRIDES_PER_STORY=2** above-cap mints per story (raised from
+1 → 2 on 2026-04-29 evening — bootstrap stories often need to
+introduce a domain (kitchen scene = 皿+包丁, garden scene = a tree
++ a flower) where the second above-cap mint is genuinely scene-
+grounding rather than indulgent). The override must be acknowledged
+in spec.intent. A story asking for ≥3 overrides should split the
+scene. Mirrors v2 grammar override discipline.
 
-**Soft-warn → hard-block conversion checklist (when corpus is clean):**
+**Backfilled legacy entries (2026-04-29 evening):**
+- W00026 袋 (story 2, N3): scene-grounding for the change_of_state
+  contract; no good N5 alternative (かばん would mis-cue 'satchel').
+  → `lexical_overrides=["袋"]` in story_2 spec.
+- W00029 皿 (story 3, N3): visual centerpiece (the white plate the
+  yolk is shown on). → `lexical_overrides=["皿","包丁"]`.
+- W00030 包丁 (story 3, N2): instrument anchor for G017_de_means;
+  ナイフ would be linguistically wrong (it means table/penknife,
+  not kitchen knife in JP). → same override list as 皿.
 
-1. Audit corpus via `pytest pipeline/tests/test_lexical_difficulty.py`.
-2. For each above-cap entry, either rewrite the spec to use a more
-   common alternative, or add the surface to spec.lexical_overrides.
-3. In `pipeline/author_loop.py::step_vocab_difficulty`, change
-   `status="warn"` → `status="fail"` and add the gauntlet halt
-   clause in `run_gauntlet`.
-4. In `pipeline/tests/test_lexical_difficulty.py`, remove the
-   `@pytest.mark.xfail` decorator from
-   `test_no_above_tier_vocab_without_override`.
-
-**Known above-cap legacy entries (audited 2026-04-29):**
-- W00026 袋 (story 2, N3): "bag" — common in everyday Japanese but
-  technically N3. Either rewrite story 2 or add to lexical_overrides.
-- W00029 皿 (story 3, N3): "plate" — same situation.
-- W00030 包丁 (story 3, N2): "kitchen knife" — the bug that
-  motivated this whole feature. Story 3 should probably use ナイフ
-  (N5, more general) and reserve 包丁 for a later "cooking" story.
+After the backfill, the corpus is clean and `step_vocab_difficulty`
+is now a HARD-BLOCK (status="fail"). The regression test
+`test_no_above_tier_vocab_without_override` runs without xfail.
 
 ---
 

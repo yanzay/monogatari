@@ -70,7 +70,12 @@ TIER_TABLE: list[tuple[int, int, int, int]] = [
     (51, 10**9, 2, 48),  # ≤N2 or anywhere in news-frequency corpus
 ]
 
-MAX_OVERRIDES_PER_STORY = 1
+MAX_OVERRIDES_PER_STORY = 2  # raised from 1 → 2 on 2026-04-29 evening: bootstrap stories
+                              # often need to introduce a domain (kitchen scene = 皿+包丁,
+                              # garden scene = a tree + a flower) where the second above-cap
+                              # mint is genuinely scene-grounding rather than indulgent. Two
+                              # is still tight enough to discipline the author — a story
+                              # asking for ≥3 overrides should split the scene.
 
 
 @dataclass

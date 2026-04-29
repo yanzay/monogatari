@@ -119,16 +119,6 @@ def test_tier_cap_progression():
     assert tier_cap(51) == (2, 48), "story 51+ ≤N2 / nf48 (any)"
 
 
-@pytest.mark.xfail(
-    strict=False,
-    reason=(
-        "Lexical-difficulty cap is in soft-warn mode (2026-04-29). "
-        "The current corpus has 3 known above-cap mints: W00026 袋 "
-        "(story 2 N3), W00029 皿 (story 3 N3), W00030 包丁 (story 3 "
-        "N2). They pre-date this rule and need either a corpus rewrite "
-        "or a `lexical_overrides` retrofit. See test docstring."
-    ),
-)
 def test_no_above_tier_vocab_without_override(stories, vocab):
     """REGRESSION GUARD: every newly-introduced word in every story
     must satisfy its tier cap, OR appear in the spec's
