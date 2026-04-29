@@ -23,6 +23,18 @@ Trigger phrases: "author story N", "author next story", "write story N",
 variant. If the user says only `author` with no number, default to "next"
 (= max(existing story id) + 1).
 
+## 0.1 The current authoring contract (read first if cold-starting)
+
+The full design constraints for stories 1..10 live in
+**`docs/phase4-bootstrap-reload-2026-04-29.md`**. Read it before
+authoring any story 1..10. The brief surfaces the load-bearing
+fields (`hard_limits.ladder`, `must_hit.seed_plan`,
+`must_hit.scene_affordances`) but the doc has the full rationale,
+the validation gates, and the cascade procedure.
+
+For stories 11+ the legacy steady-state policy applies (1 grammar /
+3–5 vocab per story; no scene constraint).
+
 ## 1. Hard invariants (never violate, no exceptions)
 
 1. **NEVER edit `stories/story_N.json` directly.** That file is built. The
@@ -134,6 +146,33 @@ This emits the JSON `agent_brief` for story N. Read it. The brief contains:
 AND `must_reinforce` items before drafting a single sentence.** Do
 not skim them.
 
+### Step A.5 — Read the seed-plan slot for stories 1..10 (no tool call)
+
+If story_id is in the bootstrap window (1..10), the brief's
+`must_hit.seed_plan` field carries a prescriptive plan for this
+slot:
+  * `scene_class` — the planned scene; default for the slot
+  * `intent_seed` — a 1–2 sentence prose seed for the spec's intent
+  * `anchor_object_candidates` — 2–3 candidate anchors for the slot
+  * `characters_min` — minimum number of distinct characters
+  * `vocab_seed` — the prescribed lemmas this slot must mint (the
+    ladder enforces the COUNT bound; this prescribes the IDENTITY of
+    the mints)
+  * `grammar_seed` — the prescribed catalog ids this slot must intro
+  * `rationale` — why these specific picks
+
+The seed plan is the single most important thing to internalize
+before drafting in the bootstrap window. It is what prevents the
+"warm egg on a road"-class divergence from the planned ladder. If
+you must deviate from the seed plan (e.g. swap a lemma because the
+scene needs something the seed missed), burn one of the session's
+§G overrides and document the swap in the spec's `intent`
+paragraph. Do NOT silently substitute lemmas — the count tests will
+still pass but the next story's slot will then be drawing from an
+unseeded vocabulary.
+
+For stories 11+ the seed plan is empty; fall through to Step B.
+
 ### Step B — Choose intent and anchor (no tool call; in head)
 
 Before writing JP, decide three things and write them down briefly:
@@ -152,7 +191,87 @@ Before writing JP, decide three things and write them down briefly:
 
 If you cannot answer these three crisply, the story will fail. Restart.
 
-#### Step B.1 — Narrative coherence checklist (THE LITERARY CONTRACT)
+#### Step B.0 — Premise contract (THE EARLY-BINDING CONTRACT)
+
+**Why this exists.** Audit 2026-04-29 found that the v2 corpus had
+converged on essentially one story (small-object-anchor, walk-or-room,
+narrator picks up the object) for 10 consecutive ships. The §F.2
+self-review at the end of the gauntlet was supposed to catch this and
+didn't, because by the time it ran the agent had spent ~30 iterations
+on the story, the gauntlet was green, and the cost of "discard" felt
+prohibitive. The fix is to bind the discard criteria BEFORE drafting,
+so the prosecutor pass at §E.5 is judging against a written contract,
+not against post-hoc taste.
+
+Before writing a single JP token, paste a **premise contract** into
+the spec's `intent` field, in English. The contract has six fields:
+
+```
+PREMISE CONTRACT (story N)
+  one_sentence_event:    <subject> <action verb> <object> because <reason>.
+  change_of_state:       at s0 the world has X; at closer the world has Y; X≠Y.
+  scene_novelty_claim:   "I am NOT writing a {prev scene_class} story
+                         because the last 3 were."  (or honest exception:
+                         "I AM, because <reason that will survive a hostile
+                         re-read>.")
+  anchor_novelty_claim:  "Anchor is <X>. <X> last appeared in story <N or never>."
+  closer_shape_claim:    "Closer shape: <action|dialogue|sensory beat>. NOT
+                         a noun-pile, NOT a 「Nは Adj です」 mirror of stories
+                         <prev_3>."
+  why_not_filler:        in 1 sentence per character/object, why does each
+                         EARN its slot? (a character that only "looks" with
+                         the narrator is filler; an object that only gets
+                         "held" is decoration)
+  obligations_absorbed:  must-reinforce <wid…>, must-introduce <gid>; how
+                         each is metabolized by the premise (NOT "bolted
+                         on at s4")
+```
+
+The contract is the discard criterion. **Once written, you may not
+soften it after drafting.** §E.5 (the prosecutor pass) will check the
+finished story against this exact text. If a field cannot be filled
+crisply, the premise is too weak — restart Step B with a different
+intent. Do not paper over a weak premise with prettier sentences.
+
+#### Step B.1 — Forbidden zones (mechanical, NOT subjective)
+
+**Why this exists.** The brief's `previous_3_stories` and
+`previous_closers` fields surface recent stories as raw text, which an
+LLM author tends to pattern-match into "I'll do something similar."
+The audit found `motif_rotation_lint`'s 3-story window was both too
+narrow AND not actually consulted in practice. Mechanical zones with
+explicit forbidden values bind harder than vibes.
+
+Run:
+
+```bash
+source .venv/bin/activate && python3 pipeline/tools/forbid.py N
+```
+
+This prints four forbidden zones for story N:
+- `scene_class` used in the last 3 stories
+- `anchor_object` used in the last 5 stories
+- opening token sequences (first 3 content tokens of s0) of the last 3 stories
+- closer morphological shapes (e.g. `noun-WA-iadj-DESU`) of the last 3 stories
+
+**Paste the SUMMARY block verbatim into the spec's `intent` field**,
+under a `FORBIDDEN THIS STORY:` heading, immediately below the premise
+contract from §B.0. Then satisfy them ALL.
+
+If a forbidden value is unavoidable (e.g. a must-reinforce word IS the
+forbidden anchor of story N-1), you may take a deliberate exception —
+but it counts toward the per-session **override budget** (§G; max 1
+override per session). Document the override in the spec's `intent`:
+```
+  OVERRIDE: anchor_novelty_claim violated because <wid> is must_reinforce
+  from story N-1 and the only sane host sentence makes it the anchor.
+  Mitigation: <X>.
+```
+
+`forbid.py` is purely descriptive — it never edits files, never blocks.
+The discipline is yours; the tool just supplies the facts.
+
+#### Step B.2 — Narrative coherence checklist (THE LITERARY CONTRACT)
 
 Lints catch nonsense sentences. They cannot catch a story that is
 structurally correct and narratively dead — the "checklist-driven
@@ -365,13 +484,124 @@ This runs: spec_exists → agent_brief → build → validate (incl. all 10
 lints AND Checks 3.6/3.9/3.10 grammar coverage) → mint_budget →
 pedagogical_sanity (grammar reinforcement) → vocab_reinforcement (R1
 must-reinforce words) → coverage_floor (grammar introduction)
-→ literary_review (stub) → would-write → audio (skipped on dry-run;
+→ would-write → audio (skipped on dry-run;
 real on live ship).
 
 **Read the output carefully.** If `VERDICT: would_ship`, proceed to Step F.
 If `VERDICT: fail`, see §3 (failure recovery).
 
-### Step F — Ship (only if Step E was clean)
+### Step E.5 — Prosecutor pass (BEFORE the live ship)
+
+**Why this exists.** A green dry-run says the story is technically
+valid, not that it is good. The audit found that 8 of 10 stories had
+shipped with a green gauntlet despite being structurally identical to
+the previous one. The prosecutor pass forces a structured, written
+critique against the §B.0 contract — written to a temp file, then
+re-read — so I can't soften "no" into "yeah but" inline.
+
+After Step E reports `would_ship`:
+
+1. Open `pipeline/inputs/story_N.bilingual.json` and re-read the spec
+   AS A HOSTILE CRITIC whose only job is to argue against shipping.
+2. Write a structured table to `/tmp/prosecution_N.md` (use
+   `create_file`). The table has one row per sentence plus four
+   contract rows:
+
+```markdown
+# PROSECUTION — story N
+
+| sentence | role | could I delete it and lose nothing? | concrete-physical verb? | object load-bearing? |
+|---|---|---|---|---|
+| s0 | setting | Y / N + reason | — | — |
+| s1 | action  | Y / N + reason | Y / N | Y / N |
+| …  |         |                |       |       |
+| closer | closer | matches §B.0 closer_shape_claim? Y/N | mirrors prev 3? Y/N | — |
+
+## Contract checks (against §B.0 PREMISE CONTRACT)
+
+| field | honored? | concrete evidence (sentence id + surface) |
+|---|---|---|
+| one_sentence_event   | Y / N | … |
+| change_of_state      | Y / N | s0 = …, closer = …, X≠Y? Y/N |
+| scene_novelty_claim  | Y / N | … |
+| anchor_novelty_claim | Y / N | … |
+| closer_shape_claim   | Y / N | … |
+| why_not_filler       | Y / N (per row) | … |
+| obligations_absorbed | Y / N | … |
+```
+
+3. Re-open `/tmp/prosecution_N.md` and READ IT. The cells are Y or N.
+   "Yeah but" / "technically Y because…" answers are **N for the
+   purposes of this gate.**
+4. **Decision rule:** ANY contract row = N → **discard, restart from
+   Step B with a different premise.** Do NOT just tweak sentences;
+   §B.0 is a premise discard, not a sentence discard. Per-sentence
+   rows = N (deletable / non-physical / non-load-bearing) → fix that
+   sentence and re-run E.5; if you can't fix it without breaking the
+   contract, also discard.
+
+The temp file persists across this session; if a subagent audits the
+session later it can see the verdict you committed to before the ship.
+
+### Step E.6 — Two-blind-readings comparison (cheap; kills sameness)
+
+**Why this exists.** The mode of failure the prosecutor pass is
+weakest on is "this is technically a different story but materially
+identical to the last one." Reading EN-only blocks the JP-attentional
+context that makes me say "but the grammar is different!"
+
+Read **only the English glosses** of stories N, N-1, N-2 in order
+(use `open_files` on `pipeline/inputs/story_{N,N-1,N-2}.bilingual.json`
+and look at the `en` fields only — ignore `jp`, ignore everything
+else). Then write one sentence answering:
+
+> "What is materially different about the EVENTS of story N compared
+> to N-1 and N-2?"
+
+If your sentence uses any of these escape hatches, it is a discard
+signal:
+- "the anchor is a different object" (anchor identity ≠ event difference)
+- "the scene_class is different" (scene ≠ event)
+- "the grammar point is different" (pedagogy ≠ event)
+- "the mood/tone is different" (tone ≠ event)
+
+Acceptable difference vocabulary: discovers, transfers, refuses,
+chooses, fails, surprises, breaks, finishes, decides, declines,
+reveals. Verb of action/transfer/discovery, per §B.0.
+
+If you can't write the sentence without escape hatches → discard.
+
+### Step E.7 — Fresh-eyes subagent review (1 tool call)
+
+**Why this exists.** Same model + same context = same blind spots.
+Same model + DIFFERENT context (no priors, no drafting state) gives
+sufficiently independent judgment to catch what I missed. AGENTS.md
+("Parallel subagents are great for…") records this pattern working
+already.
+
+Delegate to an `Explore` subagent with this exact task:
+
+> "Read `pipeline/inputs/story_N.bilingual.json` (only — no other
+> files, no priors, no AGENTS.md, no SKILL). In ≤120 words, answer:
+> (a) What HAPPENS in this story? Use one sentence with a verb of
+>     action, transfer, or discovery.
+> (b) Does it remind you of any of `pipeline/inputs/story_{N-3}.bilingual.json`,
+>     `pipeline/inputs/story_{N-2}.bilingual.json`, or
+>     `pipeline/inputs/story_{N-1}.bilingual.json`? In what specific way
+>     (anchor type, event shape, sentence rhythm, closer template)?
+> (c) Is there any sentence whose CONTENT surprised you, in either a
+>     good or bad way (implausibility, oddness, beauty)?
+> (d) One-line verdict: SHIP / REWRITE-SENTENCE / REWRITE-STORY with
+>     a one-line reason."
+
+If the subagent says SHIP → proceed to Step F.
+If REWRITE-SENTENCE → fix the named sentence, re-run E.5–E.7.
+If REWRITE-STORY → discard, restart Step B. Override the verdict
+ONLY by spending a §G override (max 1 per session).
+
+Cost: ~1 tool call, ~5 seconds. Cheap.
+
+### Step F — Ship (only if Steps E, E.5, E.6, E.7 were all clean)
 
 ```bash
 source .venv/bin/activate && python3 pipeline/author_loop.py author N
@@ -429,78 +659,41 @@ If the audio builder fails (network, GCP credentials, quota), STOP and
 report the failure to the user; do NOT proceed to commit. Audio is part
 of the shipping contract.
 
-#### Step F.2 — Critical literary review (DISCARD-AND-REWRITE gate)
+#### Step F.2 — RETIRED 2026-04-29 (replaced by §E.5–E.7)
 
-**This is a hard quality gate, not a formality.** Tests passing means
-the story is technically valid — not that it is good. Bad stories are
-permanent corpus pollution; the cost of one extra rewrite iteration is
-trivial next to shipping a defect that future stories will be measured
-against.
+The post-ship five-question gate that used to live here was retired
+because it ran AFTER `state_updater` had already minted W-IDs and
+attributed grammar — which made "discard" disproportionately
+expensive (full state restore, audio cleanup, regenerator re-runs)
+and therefore discouraged honest answers. The replacement runs
+BEFORE the live ship:
 
-Re-open `stories/story_N.json` and read the sentences in order, **as
-if you were a human learner picking the corpus up for the first time**
-(no knowledge of mints, debt, lints, or tier policy — just the story).
-Then answer ALL of these. **Each "no" is a discard signal.**
+- §B.0 binds the discard criteria (premise contract) before any JP
+  is drafted.
+- §B.1 mechanically forbids the convergence patterns the audit
+  found (`pipeline/tools/forbid.py`).
+- §E.5 forces a written prosecutor table against §B.0 (in
+  `/tmp/prosecution_N.md`) before the ship.
+- §E.6 forces an EN-only re-read against the previous 2 stories.
+- §E.7 spends 1 tool call on a fresh-eyes subagent that has no
+  drafting context.
+- §G caps the per-session override budget at 1, so I can't quietly
+  downgrade three rejections into "yeah but"s.
 
-**The five-question gate:**
+If §E.5/E.6/E.7 said SHIP, the ship is the ship. There is no second
+post-ship review. If you want to re-read the shipped story for
+spec/artifact drift, that's §F.4 — narrow, mechanical, NOT a
+quality gate.
 
-1. **What HAPPENS in this story?** State it in one sentence with a
-   verb of action, transfer, or discovery. If you can only say "the
-   narrator notices X" or "X exists, then Y exists" — that is
-   observational filler. **Discard.**
-2. **Does the closer surprise, settle, or land?** A great closer either
-   resolves a tension (object found, action completed, character
-   responds) or leaves a deliberate sensory beat. A closer that simply
-   restates the setting in different words, or that mirrors the closer
-   of the last 3 stories, is filler. **Discard.**
-3. **Does the anchor object DO something?** It must change owners,
-   change state (open/close/break/cook/write/tear), change location
-   meaningfully, OR trigger an action. If it only gets *looked at* and
-   *held*, it is decoration. **Discard.**
-4. **Is each sentence load-bearing?** Cover each sentence with your
-   mental hand and re-read. If the story still works without that
-   sentence, it was filler. Even ONE filler sentence in a 6–9 sentence
-   story is a 12–17% padding ratio — too high. **Discard.**
-5. **Does it read like a story a Japanese-learning human would want
-   to re-read aloud?** Not "does it parse" — does the rhythm earn its
-   slot? Awkward repetition (e.g. 「明るい窓に…明るい窓に…」), filler
-   reflection that just restates the setting (「本は古いです。本は古くて
-   小さいです。」), or a final sentence that loops back to the opening
-   without adding anything — all of these are LLM "literary tells"
-   that the v2 lints can't catch. **Discard.**
-
-**If ANY question gets a "no": DISCARD, do NOT commit.** The recovery
-path is:
-
-1. Restore `data/{vocab,grammar}_state.json` from the pre-ship backup
-   (the `state_backups/*.json` snapshot taken by `state_updater` during
-   the failed ship's chain). This un-mints the new W-IDs and clears
-   the new grammar attribution.
-2. Delete `stories/story_N.json` and `audio/story_N/`.
-3. Re-do Steps B → F with a different intent / scene_class /
-   anchor_object. **Do NOT just tweak sentences** — if Step F.2 failed,
-   the *premise* was weak; cosmetic changes will produce another weak
-   story.
-4. Cap rewrites at 3. After the 3rd discard, escalate to the user with
-   ≤5 lines explaining what keeps failing and why.
-
-**Honesty rule:** be brutal here. If you find yourself rationalizing
-a "no" into a "yes" ("well, technically the closer does change the
-location of the object…"), that IS the defect. The user will read
-the story; pre-emptive defensive justification doesn't help them.
-
-A good story passes all 5 questions cleanly with no "yeah but" caveats.
-A so-so story has 1 caveat — discard. A bad story has 2+ — definitely
-discard.
-
-#### Step F.3 — Auto-commit and push (only if F.2 passed)
+#### Step F.3 — Auto-commit and push (only if §E.5/E.6/E.7 passed)
 
 **STANDING ORDER (user directive 2026-04-28, reaffirmed 2026-04-28
-17:50): when the self-review in §F.2 passes, commit AND push
-automatically. Do NOT ask the user for confirmation. Asking is treated
-as a skill regression. The directive is permanent and applies to ALL
-authoring sessions and ALL related tooling-fix sessions, not just the
-session where it was issued. The only exception is when §F.2 itself
+17:50): when the pre-ship discipline in §E.5/E.6/E.7 passed and the
+gauntlet is green, commit AND push automatically. Do NOT ask the user
+for confirmation. Asking is treated as a skill regression. The
+directive is permanent and applies to ALL authoring sessions and ALL
+related tooling-fix sessions, not just the session where it was
+issued. The only exception is when §E.5/E.6/E.7 itself
 fails — in that case do NOT commit (see "blocking conditions" below).**
 
 Procedure:
@@ -527,10 +720,11 @@ Procedure:
 
 **The ONLY conditions that block auto-commit:**
 
-- §F.2 critical literary review found a "no" on ANY of the five
-  questions. **The discard path is mandatory** — restore state from
-  backup, delete artifacts, re-author with a different premise. Do NOT
-  commit a story that failed §F.2 just because the gauntlet was green.
+- §E.5 prosecutor pass / §E.6 EN-only re-read / §E.7 fresh-eyes
+  subagent flagged a contract violation or REWRITE verdict. **The
+  discard path runs BEFORE the ship** so this should never block at
+  commit time — but if for any reason a story made it past §E.5–E.7
+  with an unresolved REWRITE flag, do NOT commit.
 - `git status` shows unexpected files modified (e.g. unrelated edits in
   `src/`, `pipeline/`). In that case, stage ONLY the story-related files
   listed above, commit those, push, and flag the stray changes to the
@@ -739,9 +933,11 @@ This step exists because the post-ship pytest suite checks the same
 thing; without this step, the failure surfaces only after `--ship` and
 requires a clean-up. The gauntlet pulls it forward to dry-run.
 
-### `literary_review` warned (won't happen yet — stub)
-Reviewer not implemented; treat as `skipped`. When implemented, follow its
-hints in the same retry loop, max 3 rounds, then escalate to user.
+### Halted at `literary_review` (CANNOT HAPPEN — retired 2026-04-29)
+The Python `step_literary_review` was removed from `author_loop.py`.
+If you ever see this step name in gauntlet output, you're running an
+old checkout — pull. The literary-review discipline now lives entirely
+in this skill (§B.0, §B.1, §E.5, §E.6, §E.7, §G).
 
 ## 4. Best-practice patterns (from the audit + SHIP-list analysis)
 
@@ -799,6 +995,43 @@ revert to pure observation.
 feel "that sounded poetic," it probably failed the v2 lints. Read it
 again with the anti-patterns in mind.
 
+## 6.5. The override budget (§G — the ONE rationalization cap)
+
+**Why this exists.** Every gate above is honest only if "no" actually
+costs something. Without a hard cap, a tired or hurried author will
+quietly downgrade three "no"s into "yeah but"s and ship anyway. The
+override budget is the single mechanism that makes the gates bite.
+
+**The rule:** every authoring session has **one (1) override token**.
+An override is consumed when:
+
+- §B.1 forbidden zone is violated by deliberate exception
+  (`OVERRIDE: <field> violated because…` in the spec's `intent`).
+- §E.5 prosecutor table has a contract row marked N and the story
+  ships anyway because "the alternative is worse" (DISCOURAGED — almost
+  always means restart Step B).
+- §E.6 EN-only difference sentence required an escape hatch and
+  the story ships anyway.
+- §E.7 fresh-eyes subagent returned REWRITE-STORY and the story
+  ships anyway.
+
+**The second override in a session forces escalation:** stop, do NOT
+ship, surface to the user with ≤5 lines describing what each override
+was for and why proceeding looked tempting. The user decides whether
+to spend the second override or to restart from a different premise.
+
+**Track the budget visibly** in the §G report at the end of the
+session: `overrides_used: <count>/<1>; details: …`. Future sessions
+reading the spec's `intent` block will see the override note and know
+why an apparent rule violation was tolerated. If the corpus ever
+audits to "every story has an override," the rules are mis-calibrated
+and need to be re-tuned, not the budget bumped.
+
+**Override-by-budget is the only sanctioned bypass.** "Yeah but
+technically Y" is NOT an override — it's the failure mode the budget
+exists to prevent. If you find yourself writing "technically" in §E.5,
+that IS a §E.5 = N answer.
+
 ## 7. Escalation criteria (when to stop and ask)
 
 Stop and ask the user (do NOT keep retrying) when:
@@ -816,9 +1049,19 @@ options. Do not silently soldier on.
 
 ## 8. Reference docs (for cases this skill doesn't cover)
 
-- `docs/audit-2026-04-27.md` — the literary audit; defect inventory + SHIP-list patterns
+- **`docs/phase4-bootstrap-reload-2026-04-29.md`** — **THE current authoring contract.**
+  Defines the v2.5 BOOTSTRAP_LADDER (per-story vocab/grammar caps for stories
+  1..10), the prescriptive seed plan (`data/v2_5_seed_plan.json`), the scene
+  plan, the validation gates, and the cascade procedure used to wipe v2.0.
+  Read this BEFORE any story 1..10 ship; the brief's `must_hit.seed_plan`
+  surfaces the relevant slot but the doc gives the full rationale.
+- `data/v2_5_seed_plan.json` — per-slot prescriptive vocab + grammar + scene
+  plan for stories 1..10 (read by the brief).
+- `data/scene_affordances.json` — per-scene noun/character/action palette
+  (read by the brief and surfaced as `must_hit.scene_affordances`).
+- `docs/audit-2026-04-27.md` — the v1 literary audit; defect inventory + SHIP-list patterns
 - `docs/v2-strategy-2026-04-27.md` — the v2 architecture (lints, tools, agent reframe)
-- `docs/phase3-tasks-2026-04-28.md` — the Phase-3 task plan + open questions
+- `docs/phase3-tasks-2026-04-28.md` — the Phase-3 task plan (most superseded by Phase 4)
 - `AGENTS.md` (workspace root) — schema gotchas, cascade rules, shell quirks
 - `pipeline/semantic_lint.py` — the rules themselves (only read if you need to know WHY a rule fired)
 
@@ -828,14 +1071,22 @@ options. Do not silently soldier on.
 # Activate venv FIRST in any bash invocation that touches fugashi/jamdict
 source .venv/bin/activate
 
-# Get the brief (Step A)
+# Get the brief (Step A) — surfaces ladder + seed_plan + scene_affordances
+# for stories 1..10 (BOOTSTRAP_LADDER); falls through to steady-state for 11+.
 python3 pipeline/author_loop.py author N --brief-only
 
 # Pretty-printed brief
 python3 pipeline/tools/agent_brief.py N --pretty
 
+# Inspect the ladder + seed plan for a slot directly (no brief overhead)
+python3 -c "import sys; sys.path.insert(0,'pipeline'); from grammar_progression import ladder_for; print(ladder_for(N))"
+python3 -c "import json; print(json.dumps(json.load(open('data/v2_5_seed_plan.json'))['stories'].get(str(N), {}), ensure_ascii=False, indent=2))"
+
 # Just the palette in human format
 python3 pipeline/tools/palette.py N --format human --include-grammar
+
+# Compute the mechanical forbidden zones (Step B.1 — paste SUMMARY into spec)
+python3 pipeline/tools/forbid.py N
 
 # Check a candidate sentence (Step C — every sentence)
 python3 pipeline/tools/vocab.py would-mint "候補の日本語"

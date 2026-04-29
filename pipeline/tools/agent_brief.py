@@ -741,42 +741,102 @@ def _previous_closers(target_story: int, n: int = 3) -> list[dict]:
 
 
 def _mint_budget_for(target_story: int) -> dict:
-    """Default per-story mint budget, per the monogatari-author skill §C.
+    """Per-story mint budget, read from the v2.5 BOOTSTRAP_LADDER.
 
-    These are advisory caps the author should respect; `would-mint` reports
-    against them and the gauntlet's mint-budget step (when wired) enforces.
-
-    Defaults:
-      story 1:           10–16 (cold start)
-      stories 2–5:        2–5
-      stories 6–15:       1–4
-      stories 16+:        0–3
+    Replaces the prior hand-coded defaults with a single source of
+    truth: `pipeline/grammar_progression.BOOTSTRAP_LADDER`. The ladder
+    has explicit per-story (vocab_min, vocab_max) bounds for stories
+    1..BOOTSTRAP_END (= 10) tapering from a wide front-load to the
+    steady-state policy by story 11. See
+    `docs/phase4-bootstrap-reload-2026-04-29.md` §3 for the table.
     """
-    if target_story <= 1:
-        lo, hi = 10, 16
-        rationale = "cold start — needs the founding word ladder"
-    elif target_story <= 5:
-        lo, hi = 2, 5
-        rationale = "early ramp — small coherent neighborhoods only"
-    elif target_story <= 15:
-        lo, hi = 1, 4
+    try:
+        from grammar_progression import ladder_for  # noqa: E402
+        ladder = ladder_for(target_story)
+    except Exception:
+        # Defensive fallback (matches the legacy steady-state defaults).
+        ladder = {"vocab_min": 1, "vocab_max": 4, "in_bootstrap": False}
+    lo = ladder["vocab_min"]
+    hi = ladder["vocab_max"] if ladder["vocab_max"] is not None else lo + 2
+    if ladder.get("in_bootstrap"):
+        rationale = (
+            f"bootstrap slot {target_story} of "
+            f"{__import__('grammar_progression').BOOTSTRAP_END} — "
+            f"front-loaded ladder per Phase 4 reload"
+        )
+    elif target_story <= 25:
         rationale = "establishment phase — corpus is still thin"
     else:
-        lo, hi = 0, 3
         rationale = "consolidation — prefer reinforcement over expansion"
     return {
         "min": lo,
         "max": hi,
         "target": (lo + hi) // 2,
+        "in_bootstrap": ladder.get("in_bootstrap", False),
         "rationale": rationale,
         "enforcement": (
             "HARD BLOCK at the gauntlet's `mint_budget` step: "
-            "exceeding `max` fails dry-run AND ship. Use `would-mint` "
-            "per candidate sentence to keep a running count; if you "
-            "must exceed the cap, document the expansion in the spec's "
-            "`intent` field and stop to ask the user."
+            "minting outside [min, max] fails dry-run AND ship. "
+            "Bootstrap slots ALSO enforce a min (the slot prescribes "
+            "WHICH words to seed — see `must_hit.seed_plan`). "
+            "Use `would-mint` per candidate sentence to keep a running "
+            "count; if you must override the bounds, burn one of the "
+            "session's §G overrides and document in the spec's `intent`."
         ),
     }
+
+
+def _seed_plan_for_story(target_story: int) -> dict:
+    """Read the prescriptive seed plan for `target_story` from
+    `data/v2_5_seed_plan.json`.
+
+    The seed plan is the bootstrap-window companion to the ladder:
+    it prescribes which lemmas + grammar IDs each slot 1..10 must
+    seed. The agent's brief surfaces this as `must_hit.seed_plan`
+    and the gauntlet's mint_budget + coverage_floor steps enforce
+    the count bounds; the lemma-identity prescription is enforced
+    softly (logged as warning if a slot ships different lemmas).
+
+    Returns an empty dict for stories outside the bootstrap window
+    or when the file is absent (graceful degradation).
+    """
+    try:
+        from _paths import DATA  # noqa: E402
+    except Exception:
+        return {}
+    plan_path = DATA / "v2_5_seed_plan.json"
+    if not plan_path.exists():
+        return {}
+    try:
+        import json as _json
+        plan = _json.loads(plan_path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    return plan.get("stories", {}).get(str(target_story), {}) or {}
+
+
+def _scene_affordances_for(scene_class: str | None) -> dict:
+    """Read the noun palette for a scene from `data/scene_affordances.json`.
+
+    Used by the brief to surface "the nouns that naturally live in
+    this scene" so the agent doesn't have to guess (which is what
+    produced "warm egg on a road"-class implausibilities in v2.0).
+    """
+    if not scene_class:
+        return {}
+    try:
+        from _paths import DATA  # noqa: E402
+    except Exception:
+        return {}
+    aff_path = DATA / "scene_affordances.json"
+    if not aff_path.exists():
+        return {}
+    try:
+        import json as _json
+        aff = _json.loads(aff_path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    return aff.get("scenes", {}).get(scene_class, {})
 
 
 def _compact_word(entry: dict, category: str | None = None) -> dict:
@@ -927,10 +987,26 @@ def _literary_contract() -> dict:
 def build_brief(target_story: int) -> dict[str, Any]:
     palette_json = _palette.build_palette(target_story)
     grammar_palette = _palette.build_grammar_palette(target_story)
+    seed_plan = _seed_plan_for_story(target_story)
+    # Pull the planned scene_class from the ladder; fall back to the
+    # seed plan's `scene_class` field if present (the seed plan can
+    # override the ladder for a specific slot, e.g. when the user
+    # consciously swaps two slots).
+    try:
+        from grammar_progression import ladder_for  # noqa: E402
+        ladder = ladder_for(target_story)
+    except Exception:
+        ladder = {"scene_class": None, "in_bootstrap": False,
+                  "vocab_min": None, "vocab_max": None,
+                  "grammar_min": None, "grammar_max": None}
+    planned_scene = seed_plan.get("scene_class") or ladder.get("scene_class")
     return {
         "story_id": target_story,
         "size_band": _size_band_for(target_story),
         "mint_budget": _mint_budget_for(target_story),
+        "ladder": ladder,
+        "seed_plan": seed_plan,
+        "scene_affordances": _scene_affordances_for(planned_scene),
         "palette": palette_json,
         "grammar_points": grammar_palette,
         "grammar_introduction_debt": _grammar_introduction_debt(target_story),
@@ -944,7 +1020,7 @@ def build_brief(target_story: int) -> dict[str, Any]:
         "anti_patterns_to_avoid": _ANTI_PATTERNS,
         "previous_3_stories": _previous_3_stories_summary(target_story),
         "previous_closers": _previous_closers(target_story),
-        "schema_version": "2026-04-29",
+        "schema_version": "2026-04-29-v2.5",
     }
 
 
@@ -955,22 +1031,28 @@ def build_author_brief(target_story: int) -> dict[str, Any]:
     This compact view is what an LLM author should read before drafting.
     """
     full = build_brief(target_story)
+    ladder = full.get("ladder", {})
+    seed_plan = full.get("seed_plan", {})
     return {
         "story_id": target_story,
-        "schema_version": "2026-04-29-author-compact",
+        "schema_version": "2026-04-29-v2.5-author-compact",
         "hard_limits": {
             "size_band": full["size_band"],
             "mint_budget": {
                 k: full["mint_budget"][k]
-                for k in ("min", "max", "target", "rationale")
+                for k in ("min", "max", "target", "rationale", "in_bootstrap")
             },
-            "grammar_max_new_after_bootstrap": 1,
+            "ladder": ladder,
+            "grammar_max_new": ladder.get("grammar_max"),
+            "grammar_min_new": ladder.get("grammar_min"),
             "required_spec_fields": [
                 "intent", "scene_class", "anchor_object", "characters",
                 "sentences[].role",
             ],
         },
         "must_hit": {
+            "seed_plan": seed_plan,                 # v2.5 — prescriptive bootstrap seed
+            "scene_affordances": full.get("scene_affordances", {}),
             "grammar_reinforcement": _compact_grammar_reinforcement(
                 full["grammar_reinforcement_debt"]
             ),

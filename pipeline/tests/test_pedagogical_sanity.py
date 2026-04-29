@@ -289,6 +289,7 @@ def test_grammar_introduction_cadence(stories, root):
         MAX_NEW_PER_STORY,
         CADENCE_WINDOW,
         MIN_NEW_PER_WINDOW,
+        ladder_for,
     )
 
     intros: dict[int, list[str]] = {}
@@ -309,20 +310,17 @@ def test_grammar_introduction_cadence(stories, root):
 
     bad: list[str] = []
 
-    # ── Rule A: per-story max (with bootstrap aggregate) ──────────────────
-    bootstrap_total = sum(len(intros.get(i, [])) for i in range(1, BOOTSTRAP_END + 1))
-    if bootstrap_total > BOOTSTRAP_MAX_TOTAL:
-        bad.append(
-            f"bootstrap stories 1..{BOOTSTRAP_END}: introduced {bootstrap_total} points "
-            f"(cap {BOOTSTRAP_MAX_TOTAL})"
-        )
+    # ── Rule A: per-story max (read from the ladder, not a flat constant) ──
+    # The v2.5 reload (2026-04-29) replaced the legacy single-int
+    # MAX_NEW_PER_STORY policy with a per-story ladder for stories
+    # 1..BOOTSTRAP_END (= 10). Stories outside the ladder fall through
+    # to the steady-state MAX_NEW_PER_STORY = 1.
     for n, ids in intros.items():
-        if n <= BOOTSTRAP_END:
-            continue  # policed in aggregate above
-        if len(ids) > MAX_NEW_PER_STORY:
+        cap = ladder_for(n)["grammar_max"]
+        if len(ids) > cap:
             bad.append(
                 f"story_{n}: introduces {len(ids)} new grammar points "
-                f"(max {MAX_NEW_PER_STORY} after bootstrap): {ids}"
+                f"(ladder grammar_max = {cap}): {ids}"
             )
 
     # ── Rule B: rolling-window min cadence ────────────────────────────────
@@ -361,21 +359,21 @@ def test_vocabulary_introduction_cadence(stories, root):
     window), so a window rule would be redundant.
     """
     sys.path.insert(0, str(root / "pipeline"))
-    from grammar_progression import (
-        BOOTSTRAP_END,
-        MIN_NEW_WORDS_PER_STORY,
-    )
+    from grammar_progression import ladder_for
 
+    # The v2.5 reload (2026-04-29) made bootstrap stories no longer
+    # exempt from the vocab floor — instead each bootstrap story has its
+    # own (vocab_min, vocab_max) row in BOOTSTRAP_LADDER. Stories 11+
+    # fall through to the steady-state floor (MIN_NEW_WORDS_PER_STORY=3).
     bad: list[str] = []
     for story in stories:
         n = int(story["_id"].split("_")[1])
-        if n <= BOOTSTRAP_END:
-            continue  # bootstrap stories are exempt
+        floor = ladder_for(n)["vocab_min"]
         new_words = story.get("new_words") or []
-        if len(new_words) < MIN_NEW_WORDS_PER_STORY:
+        if len(new_words) < floor:
             bad.append(
                 f"story_{n}: introduces {len(new_words)} new vocabulary item(s) "
-                f"(minimum {MIN_NEW_WORDS_PER_STORY} after bootstrap): {new_words}"
+                f"(ladder vocab_min = {floor}): {new_words}"
             )
 
     assert not bad, (

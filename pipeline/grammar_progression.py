@@ -151,30 +151,62 @@ ENCOUNTERS_TO_NOTICE = 10
 ENCOUNTERS_TO_INTERNALISE = 40
 ENCOUNTERS_TO_PROCEDURALISE = 80
 
-BOOTSTRAP_END = 3            # stories 1..3 may load the foundational set
-BOOTSTRAP_MAX_TOTAL = 15     # aggregate cap for the bootstrap window.
-                             # Justification (2026-04-24, Phase 6 of quality
-                             # plan): the irreducible reader-bootstrap set is
-                             # 15 points — 9 in story_1 (は/が/を/です/ます/
-                             # て-form/て-いる/i-adj/から), 3 in story_2 (の/と/
-                             # も) and 3 in story_3 (な-adjective, に-location,
-                             # ある/いる). The に-location and ある/いる firsts
-                             # were woven into story_3 during Phase 6 cadence
-                             # smoothing; all 15 are genuine, irreducible
-                             # firsts whose surface appears unavoidably in the
-                             # first 3 stories. Phase 1 of
-                             # the quality plan investigated all 9 story_1
-                             # intros as potential cramming and confirmed each
-                             # is genuinely required to read story_1 at all
-                             # (no transitive verb without を, no copular
-                             # sentence without です, etc.). Forcing a cap
-                             # below 13 would either make the reader
-                             # ungrammatical or push intros into a fictitious
-                             # "story 0", neither of which serves learners.
-                             # Beyond the bootstrap window the per-story cap
-                             # (MAX_NEW_PER_STORY) and rolling-window minimum
-                             # remain in force as before.
-MAX_NEW_PER_STORY = 1        # after bootstrap: at most one introduction per story
+## ── Bootstrap ladder (Phase 4 reload, 2026-04-29) ──────────────────────────
+##
+## Replaces the legacy single-int `BOOTSTRAP_END = 3` policy. The new
+## bootstrap window is 10 stories, and each story has explicit
+## per-story (vocab_min, vocab_max, grammar_min, grammar_max) caps
+## that taper from a wide front-load (story 1: 14–18 mints + 6–8
+## grammar) down to the steady-state policy (1 grammar / 3–5 vocab)
+## by story 11.
+##
+## Why a ladder, not a single constant: the v2.0 corpus (10 stories
+## under the legacy 1-grammar / ~5-vocab policy) convergence-failed on
+## the same defect the v1 audit identified — a tight palette can only
+## express tight stories. See `docs/phase4-bootstrap-reload-2026-04-29.md`
+## §3 for the derivation. The ladder is paired with `data/v2_5_seed_plan.json`
+## which prescribes WHICH words/grammar each slot mints, so the wider
+## caps go to planned diversity, not opportunistic adjacency.
+##
+## Schema for each row:
+##   (vocab_min, vocab_max, grammar_min, grammar_max, scene_class)
+##
+## - `vocab_min` / `vocab_max`: per-story bounds on the count of new
+##   word IDs minted. Validator's mint_budget step enforces max;
+##   `test_vocabulary_introduction_cadence` enforces min.
+## - `grammar_min` / `grammar_max`: per-story bounds on the count of
+##   new grammar points introduced. Validator's coverage_floor enforces
+##   min; `test_grammar_introduction_cadence` enforces max.
+## - `scene_class`: the planned scene_class for the slot. Surfaced in
+##   the brief as `must_hit.seed_plan.scene`. The agent may override
+##   this only by spending a §G override (and the override has to be
+##   documented in the spec's `intent`). Defaults the §B.1 forbid.py
+##   tool's "scene novelty" check.
+##
+## Stories 11+ fall through to the legacy policy
+## (MAX_NEW_PER_STORY=1, MIN_NEW_WORDS_PER_STORY=3, no scene constraint).
+BOOTSTRAP_LADDER: dict[int, dict] = {
+    1:  {"vocab_min": 14, "vocab_max": 18, "grammar_min": 6, "grammar_max": 8, "scene_class": "home_morning"},
+    2:  {"vocab_min":  6, "vocab_max": 10, "grammar_min": 3, "grammar_max": 5, "scene_class": "walk_to_shop"},
+    3:  {"vocab_min":  5, "vocab_max":  8, "grammar_min": 3, "grammar_max": 4, "scene_class": "kitchen"},
+    4:  {"vocab_min":  5, "vocab_max":  8, "grammar_min": 2, "grammar_max": 4, "scene_class": "classroom"},
+    5:  {"vocab_min":  4, "vocab_max":  7, "grammar_min": 2, "grammar_max": 4, "scene_class": "station"},
+    6:  {"vocab_min":  4, "vocab_max":  7, "grammar_min": 2, "grammar_max": 3, "scene_class": "park_bench"},
+    7:  {"vocab_min":  4, "vocab_max":  6, "grammar_min": 2, "grammar_max": 3, "scene_class": "rainy_doorway"},
+    8:  {"vocab_min":  3, "vocab_max":  6, "grammar_min": 1, "grammar_max": 3, "scene_class": "shop_counter"},
+    9:  {"vocab_min":  3, "vocab_max":  5, "grammar_min": 1, "grammar_max": 2, "scene_class": "phone_call"},
+    10: {"vocab_min":  3, "vocab_max":  5, "grammar_min": 1, "grammar_max": 2, "scene_class": "rooftop"},
+}
+
+BOOTSTRAP_END = max(BOOTSTRAP_LADDER.keys())   # = 10 under the v2.5 ladder
+BOOTSTRAP_MAX_TOTAL = sum(row["vocab_max"] for row in BOOTSTRAP_LADDER.values())  # informational; was 15 under the legacy single-int policy.
+
+## ── Steady-state policy (story 11+) ────────────────────────────────────────
+## After the bootstrap ladder taper, the per-story cap collapses to a
+## single new grammar point. This is the legacy v2.0 steady-state policy
+## and remains correct for stories where the existing palette is broad
+## enough to express varied stories from a single new pick.
+MAX_NEW_PER_STORY = 1        # after bootstrap (story 11+): at most one grammar intro / story
 CADENCE_WINDOW = 5           # rolling window (stories) for the minimum rule
 MIN_NEW_PER_WINDOW = 1       # at least this many introductions per window
 
@@ -262,11 +294,59 @@ VOCAB_REINFORCE_MIN_USES = 1    # must appear in ≥1 of those 10 stories
 
 
 
+def ladder_for(story_id: int) -> dict:
+    """Return the per-story ladder row for `story_id`, or the steady-state
+    fallback for stories outside the bootstrap window.
+
+    Schema (always present, never None):
+        {
+          "vocab_min":     int,    # min new words this story must mint
+          "vocab_max":     int,    # max new words this story may mint
+          "grammar_min":   int,    # min new grammar points this story must intro
+          "grammar_max":   int,    # max new grammar points this story may intro
+          "scene_class":   str|None,
+                                   # planned scene_class for the slot;
+                                   # None for stories 11+ (no constraint)
+          "in_bootstrap":  bool,   # True iff this slot is in BOOTSTRAP_LADDER
+        }
+
+    The brief, the gauntlet's mint_budget step, the gauntlet's
+    coverage_floor step, and the corpus-wide cadence tests all read
+    this single helper. To change a story's policy, edit
+    `BOOTSTRAP_LADDER` above (no other code change required).
+    """
+    row = BOOTSTRAP_LADDER.get(story_id)
+    if row is not None:
+        return {**row, "in_bootstrap": True}
+    # Steady-state fallback (story 11+).
+    return {
+        "vocab_min":   MIN_NEW_WORDS_PER_STORY,   # = 3 (legacy v2.0 default)
+        "vocab_max":   None,                       # no hard cap; brief surfaces a soft target
+        "grammar_min": MIN_NEW_PER_WINDOW,         # = 1 (steady-state floor)
+        "grammar_max": MAX_NEW_PER_STORY,          # = 1 (steady-state ceiling)
+        "scene_class": None,                       # no scene constraint
+        "in_bootstrap": False,
+    }
+
+
 def cadence_max_per_story(story_id: int) -> int:
-    """Maximum legal number of new grammar introductions in this story."""
-    if story_id <= BOOTSTRAP_END:
-        return BOOTSTRAP_MAX_TOTAL  # the bootstrap window is policed in aggregate
-    return MAX_NEW_PER_STORY
+    """Maximum legal number of new grammar introductions in this story.
+
+    Reads the bootstrap ladder for stories 1..BOOTSTRAP_END; returns the
+    steady-state `MAX_NEW_PER_STORY` (= 1) for stories 11+.
+    """
+    return ladder_for(story_id)["grammar_max"]
+
+
+def cadence_min_per_story(story_id: int) -> int:
+    """Minimum legal number of new grammar introductions in this story.
+
+    The validator's coverage_floor step uses this to know whether the
+    story has hit its grammar floor. Steady-state floor is 1 (when there
+    are uncovered points in the active tier); bootstrap stories have
+    explicit per-story floors per the ladder.
+    """
+    return ladder_for(story_id)["grammar_min"]
 
 
 def cadence_window_for(story_id: int) -> tuple[int, int] | None:
@@ -276,7 +356,7 @@ def cadence_window_for(story_id: int) -> tuple[int, int] | None:
     inside or straddles the bootstrap region (where the rule does not apply).
 
     A window of CADENCE_WINDOW consecutive stories is only enforced once both
-    its endpoints sit beyond BOOTSTRAP_END.
+    its endpoints sit beyond BOOTSTRAP_END (= 10 under the v2.5 ladder).
     """
     lo = story_id - CADENCE_WINDOW + 1
     if lo <= BOOTSTRAP_END:

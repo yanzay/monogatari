@@ -1,0 +1,90 @@
+{
+  "schema_version": "2026-04-29-v2.5",
+  "description": "Curated table of which lemmas plausibly live in which scenes. Used by the brief's must_hit.scene_affordances field to give the agent a noun palette grouped by where things naturally appear, instead of forcing it to guess (which produced 'warm egg on a road'-class implausibilities in v2.0). Surface for the agent at draft time; the gauntlet does NOT enforce — this is curator-authored guidance, not a hard rule.",
+  "policy": {
+    "completeness": "intentionally incomplete — only the bootstrap scenes (stories 1..10) are populated initially; future stories add new entries as needed",
+    "enforcement": "advisory only; no lint fires when an off-list noun is used. The brief surfaces this so the agent has a positive option, not a constraint."
+  },
+  "scenes": {
+    "home_morning": {
+      "characters": ["私", "母", "父"],
+      "anchor_objects": ["tea_cup", "bread", "window", "table", "kettle"],
+      "supporting_nouns": ["お茶", "パン", "皿", "椅子", "台所", "朝", "窓", "家", "光"],
+      "natural_actions": ["see", "walk", "sit", "exist (animate/inanimate)"],
+      "natural_adjectives": ["warm", "bright", "big", "small", "quiet"],
+      "implausibility_warnings": ["egg before story 3", "rain inside the kitchen", "stranger in the kitchen"]
+    },
+    "walk_to_shop": {
+      "characters": ["私", "母", "店員"],
+      "anchor_objects": ["money", "bread_bag", "fruit", "umbrella"],
+      "supporting_nouns": ["道", "店", "お金", "りんご", "袋", "鞄"],
+      "natural_actions": ["walk", "go", "buy", "wait", "carry"],
+      "natural_adjectives": ["new", "long (road)", "small (coin)"],
+      "implausibility_warnings": ["sitting on the road", "egg on the road", "anchor object materializes from nowhere"]
+    },
+    "kitchen": {
+      "characters": ["私", "母"],
+      "anchor_objects": ["egg", "plate", "knife", "kettle", "tea_cup"],
+      "supporting_nouns": ["卵", "皿", "包丁", "お茶", "パン", "りんご", "塩"],
+      "natural_actions": ["cut", "show", "see", "give", "pour"],
+      "natural_adjectives": ["warm", "white", "yellow", "small", "soft"],
+      "implausibility_warnings": ["furniture in cooking sequences", "egg on a non-flat surface"]
+    },
+    "classroom": {
+      "characters": ["私", "先生", "友達", "生徒"],
+      "anchor_objects": ["pencil", "notebook", "blackboard", "chair", "name_card"],
+      "supporting_nouns": ["学校", "教室", "鉛筆", "ノート", "名前", "黒板"],
+      "natural_actions": ["write", "say", "stand", "sit", "ask"],
+      "natural_adjectives": ["new", "big (classroom)", "kind"],
+      "implausibility_warnings": ["food in classroom", "rain inside"]
+    },
+    "station": {
+      "characters": ["私", "母", "おばあさん", "駅員"],
+      "anchor_objects": ["umbrella", "ticket", "handkerchief", "bag", "newspaper"],
+      "supporting_nouns": ["駅", "電車", "傘", "切符", "ベンチ", "改札"],
+      "natural_actions": ["wait", "stand", "say", "give", "thank"],
+      "natural_adjectives": ["cold", "loud", "kind"],
+      "implausibility_warnings": ["furniture on platform other than bench", "private behavior in public space"]
+    },
+    "park_bench": {
+      "characters": ["私", "祖母", "祖父", "鳥"],
+      "anchor_objects": ["book", "leaf", "bird", "feather", "stone"],
+      "supporting_nouns": ["公園", "椅子", "木", "花", "葉", "鳥"],
+      "natural_actions": ["read", "sit", "see", "find"],
+      "natural_adjectives": ["green", "soft", "quiet", "old"],
+      "implausibility_warnings": ["indoor objects on bench", "novel large fauna without setup"]
+    },
+    "rainy_doorway": {
+      "characters": ["私", "知らない人", "お店の人"],
+      "anchor_objects": ["towel", "raincoat", "shoes", "umbrella"],
+      "supporting_nouns": ["雨", "玄関", "靴", "傘", "タオル", "傘立て"],
+      "natural_actions": ["wait", "wipe", "give", "stand"],
+      "natural_adjectives": ["cold (touch)", "wet", "kind", "warm (towel)"],
+      "implausibility_warnings": ["food, books, electronics in the wet"]
+    },
+    "shop_counter": {
+      "characters": ["私", "店員"],
+      "anchor_objects": ["book", "coin", "bag", "receipt"],
+      "supporting_nouns": ["本屋", "本", "袋", "お金", "棚"],
+      "natural_actions": ["ask", "answer", "buy", "show", "smile"],
+      "natural_adjectives": ["small", "new", "kind", "happy"],
+      "implausibility_warnings": ["food on book counter", "long emotional speeches"]
+    },
+    "phone_call": {
+      "characters": ["私", "友達"],
+      "anchor_objects": ["phone", null],
+      "supporting_nouns": ["電話", "声", "今日", "昨日"],
+      "natural_actions": ["talk", "say", "hear", "answer", "ask"],
+      "natural_adjectives": ["happy", "sad", "tired", "kind"],
+      "implausibility_warnings": ["physical-presence verbs (sit/stand/walk-with) — they are on different sides of the call"]
+    },
+    "rooftop": {
+      "characters": ["私", "(optional second)"],
+      "anchor_objects": ["sky", "cloud", "star", "city"],
+      "supporting_nouns": ["屋根", "空", "雲", "星", "夕方", "夜", "町"],
+      "natural_actions": ["see", "stand", "wait", "feel"],
+      "natural_adjectives": ["wide", "high", "quiet", "cold", "bright"],
+      "implausibility_warnings": ["food, books, formal interactions on a rooftop", "warm-egg-on-the-tile-class implausibilities"]
+    }
+  }
+}

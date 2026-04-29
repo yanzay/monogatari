@@ -4,27 +4,37 @@
 Per `docs/phase3-tasks-2026-04-28.md` Task 1.11 + §B2.1 of the strategy doc.
 The agent never edits `stories/*.json` directly; it writes a bilingual spec
 to `pipeline/inputs/story_N.bilingual.json` and runs this orchestrator. The
-orchestrator runs the full gauntlet:
+orchestrator runs the full deterministic gauntlet:
 
-    1. agent_brief         — assemble the JSON context the agent should
-                              have consulted before writing the spec
-    2. precheck            — fast preflight on the spec
-    3. build               — deterministic tokenization (text_to_story)
-    4. semantic_lint       — all 14 checks incl. v2 rules 11.7–11.10
-    5. validate            — full library validator (Checks 1–11)
-    5.5 mint_budget        — caps new vocab per story (skill §C defaults)
-    5.6 pedagogical_sanity — every grammar point in `must_reinforce` debt
-                              MUST appear in this story (mirrors the
-                              test_pedagogical_sanity suite, pulled forward
-                              into the gauntlet)
-    6. literary_review     — STUB until Task 1.10 lands
-    7. write to stories/   — only if every prior step passed
-    8. audio rebuild       — STUB until wired to audio_builder
+    1. agent_brief             — assemble the JSON context the agent should
+                                  have consulted before writing the spec
+    2. spec_exists             — fast preflight on the spec
+    3. build                   — deterministic tokenization (text_to_story)
+    4. validate                — full library validator (Checks 1–11,
+                                  semantic_lint via Check 11)
+    5. mint_budget             — caps new vocab per story (skill §C defaults)
+    6. pedagogical_sanity      — every grammar point in `must_reinforce` debt
+                                  MUST appear in this story
+    7. vocab_reinforcement     — every word in the R1 must-reinforce list
+                                  MUST appear in this story
+    8. coverage_floor          — every post-bootstrap story must introduce
+                                  ≥1 new grammar point until the current
+                                  JLPT tier is fully covered
+    9. write to stories/       — runs state_updater + regenerate_all_stories
+                                  to mint W-IDs and refresh `is_new` flags
+   10. audio rebuild           — per-sentence + per-word MP3s
 
-Steps 1–5.6 are HARD BLOCK per Phase 3 §0.1: a deterministic failure does
-not ship the story. Step 6 is best-effort + warn (the literary review is
-the single place where agentic judgment overrides; deterministic checks
-do not).
+ALL gauntlet steps are deterministic and HARD BLOCK per Phase 3 §0.1: a
+failure does not ship the story.
+
+This orchestrator does NOT contain a `step_literary_review` step. The
+literary-review discipline that was originally specced as a Python LLM
+gate (`pipeline/literary_review.py`) was retired 2026-04-29 in favour of
+an in-skill discipline (SKILL §B.0 premise contract, §B.1 forbidden
+zones via `pipeline/tools/forbid.py`, §E.5 prosecutor pass, §E.6 EN-only
+re-read, §E.7 fresh-eyes subagent review, §G override budget). The
+in-skill discipline runs BEFORE the live ship in author_loop, so the
+discard cost is re-draft-only (not re-state). See SKILL.md for details.
 
 Usage
 -----
@@ -39,8 +49,6 @@ Exit codes
     0  — gauntlet passed (story shipped, or dry-run reported pass)
     1  — gauntlet failed at a hard-block step
     2  — usage / file-not-found error
-    3  — gauntlet passed but literary-review escalated (story shipped with
-         `reviewer_escalation: true` flag)
 """
 from __future__ import annotations
 
@@ -531,21 +539,27 @@ def step_coverage_floor(story_id: int, built_story: dict) -> StepResult:
     the bootstrap window (stories 1..BOOTSTRAP_END) since the bootstrap is
     policed in aggregate, not per-story.
     """
+    # The v2.5 reload (2026-04-29) replaced the "skip during bootstrap"
+    # behavior with an explicit per-story grammar_min from the ladder.
+    # Bootstrap stories now MUST hit their ladder-prescribed floor
+    # (story 1: 6, story 2: 3, etc., tapering to 1 by story 9) — they
+    # don't get a free pass anymore. Stories 11+ keep the legacy
+    # "must_introduce when uncovered points remain" rule.
     try:
-        from grammar_progression import BOOTSTRAP_END  # noqa: E402
+        from grammar_progression import ladder_for  # noqa: E402
+        ladder = ladder_for(story_id)
+        grammar_floor = ladder["grammar_min"]
     except Exception:
-        BOOTSTRAP_END = 3
-    if story_id <= BOOTSTRAP_END:
-        return StepResult(
-            "coverage_floor", "skipped",
-            f"Bootstrap window (stories 1..{BOOTSTRAP_END}) — per-story "
-            f"floor doesn't apply.",
-            blocking=False,
-        )
+        ladder = {"grammar_min": 1, "in_bootstrap": False}
+        grammar_floor = 1
     try:
         brief = agent_brief.build_brief(story_id)
         debt = brief.get("grammar_introduction_debt") or {}
-        if not debt.get("must_introduce"):
+        # Steady-state stories (no ladder row) keep the legacy
+        # "skip if no must_introduce" behavior; bootstrap stories with
+        # a positive grammar_min are evaluated against that floor
+        # regardless of must_introduce.
+        if not ladder.get("in_bootstrap") and not debt.get("must_introduce"):
             return StepResult(
                 "coverage_floor", "ok",
                 f"All tiers ≤ {debt.get('current_jlpt','?')} are fully "
@@ -605,12 +619,14 @@ def step_coverage_floor(story_id: int, built_story: dict) -> StepResult:
             except Exception:
                 pass
 
-        if story_intros:
+        if len(story_intros) >= grammar_floor:
             return StepResult(
                 "coverage_floor", "ok",
-                f"Story introduces {len(story_intros)} new grammar point(s): "
-                f"{sorted(story_intros)}.",
-                details={"intros": sorted(story_intros)},
+                f"Story introduces {len(story_intros)} new grammar point(s) "
+                f"(ladder floor = {grammar_floor}): {sorted(story_intros)}.",
+                details={"intros": sorted(story_intros),
+                         "grammar_floor": grammar_floor,
+                         "in_bootstrap": ladder.get("in_bootstrap")},
             )
         # Fail — build a clear pick list.
         recs = debt.get("recommended_for_this_story") or []
@@ -621,12 +637,16 @@ def step_coverage_floor(story_id: int, built_story: dict) -> StepResult:
         ] or ["  (no prereq-ready picks; check earlier_uncovered first)"]
         return StepResult(
             "coverage_floor", "fail",
-            f"Story {story_id} introduces 0 new grammar points but the "
-            f"current tier ({debt.get('current_jlpt','?')}) still has "
-            f"{sum(b['remaining'] for b in (debt.get('coverage_summary') or {}).values())} "
-            f"uncovered point(s). Pick at least one from "
-            f"`grammar_introduction_debt.recommended_for_this_story`.",
+            f"Story {story_id} introduces {len(story_intros)} new grammar "
+            f"point(s) but the ladder floor for this slot is {grammar_floor}. "
+            f"Pick at least {grammar_floor - len(story_intros)} more from "
+            f"`grammar_introduction_debt.recommended_for_this_story` "
+            f"(the seed plan in `data/v2_5_seed_plan.json` lists the "
+            f"prescribed picks for bootstrap slots).",
             details={
+                "story_intros": sorted(story_intros),
+                "grammar_floor": grammar_floor,
+                "in_bootstrap": ladder.get("in_bootstrap"),
                 "coverage_summary": debt.get("coverage_summary"),
                 "recommended": recs,
                 "recommendations_human": "\n".join(rec_lines),
@@ -648,27 +668,60 @@ def step_mint_budget(story_id: int, build_report: dict | None) -> StepResult:
     error when the cap is breached so the user notices instead of
     silently absorbing curriculum drift.
     """
+    # The v2.5 reload (2026-04-29) reads vocab caps from the bootstrap
+    # ladder. Stories 1..BOOTSTRAP_END (= 10) get explicit per-story
+    # (vocab_min, vocab_max) bounds; stories 11+ fall through to the
+    # brief's `mint_budget` block (which still defaults to ~5).
+    try:
+        from grammar_progression import ladder_for  # noqa: E402
+        ladder = ladder_for(story_id)
+    except Exception:
+        ladder = {"vocab_min": 0, "vocab_max": None, "in_bootstrap": False}
     try:
         brief = agent_brief.build_brief(story_id)
         budget = brief.get("mint_budget") or {}
-        cap = int(budget.get("max", 9999))
+        # Ladder cap (if any) takes precedence; brief is the fallback for
+        # steady-state stories where vocab_max is None.
+        cap = ladder.get("vocab_max")
+        if cap is None:
+            cap = int(budget.get("max", 9999))
+        floor = ladder.get("vocab_min", int(budget.get("min", 0)))
         new_words = list((build_report or {}).get("new_words") or [])
         n_minted = len(new_words)
-        if n_minted <= cap:
+        if n_minted > cap:
             return StepResult(
-                "mint_budget", "ok",
-                f"Minted {n_minted} new word(s); within cap of {cap}.",
-                details={"minted": [w.get("id") for w in new_words], "cap": cap},
+                "mint_budget", "fail",
+                f"Minted {n_minted} new word(s) but cap is {cap}"
+                f"{' (ladder)' if ladder.get('in_bootstrap') else ''}. "
+                f"Trim mints or document the expansion in the spec's "
+                f"`intent` (and burn an override per SKILL §G).",
+                details={
+                    "minted": [w.get("id") for w in new_words],
+                    "cap": cap, "floor": floor,
+                    "in_bootstrap": ladder.get("in_bootstrap"),
+                    "rationale": budget.get("rationale", ""),
+                },
+            )
+        if n_minted < floor:
+            return StepResult(
+                "mint_budget", "fail",
+                f"Minted {n_minted} new word(s) but floor is {floor}"
+                f"{' (ladder)' if ladder.get('in_bootstrap') else ''}. "
+                f"The bootstrap slot prescribes a wider seed than was "
+                f"used; pull from `data/v2_5_seed_plan.json` for this "
+                f"slot's must-mint set.",
+                details={
+                    "minted": [w.get("id") for w in new_words],
+                    "cap": cap, "floor": floor,
+                    "in_bootstrap": ladder.get("in_bootstrap"),
+                },
             )
         return StepResult(
-            "mint_budget", "fail",
-            f"Minted {n_minted} new word(s) but cap is {cap}. "
-            f"Trim mints or document the expansion in the spec's `intent`.",
-            details={
-                "minted": [w.get("id") for w in new_words],
-                "cap": cap,
-                "rationale": budget.get("rationale", ""),
-            },
+            "mint_budget", "ok",
+            f"Minted {n_minted} new word(s); ladder window [{floor}, {cap}].",
+            details={"minted": [w.get("id") for w in new_words],
+                     "cap": cap, "floor": floor,
+                     "in_bootstrap": ladder.get("in_bootstrap")},
         )
     except Exception as e:
         return StepResult(
@@ -678,19 +731,26 @@ def step_mint_budget(story_id: int, build_report: dict | None) -> StepResult:
         )
 
 
-def step_literary_review(built_story: dict) -> StepResult:
-    """STUB until Task 1.10 (`pipeline/literary_review.py`) lands.
-
-    Per Phase 3 §0.1, the literary reviewer is the ONE non-blocking step:
-    failures cause the story to ship with `reviewer_escalation: true`,
-    not to halt the pipeline.
-    """
-    return StepResult(
-        "literary_review", "skipped",
-        "Stub: pipeline/literary_review.py is not yet implemented "
-        "(Phase 3a Task 1.10). Story ships without literary review for now.",
-        blocking=False,
-    )
+## Retired 2026-04-29: step_literary_review.
+##
+## Originally a stub awaiting `pipeline/literary_review.py` (Task 1.10).
+## The whole gate has been moved out of the pipeline and into the
+## monogatari-author skill, where it sits BEFORE the live ship as
+## §B.0 (premise contract), §B.1 (forbidden zones via
+## pipeline/tools/forbid.py), §E.5 (prosecutor pass), §E.6 (EN-only
+## re-read), §E.7 (fresh-eyes subagent review), and §G (override
+## budget). A Python LLM call would have used the same model family as
+## the author with a worse prompt; the in-skill discipline avoids
+## that, runs cheaper, and avoids the sunk-cost problem (because it
+## happens BEFORE state mutations, not after).
+##
+## Do NOT add a step_literary_review back to this file. Adding one
+## just re-introduces the failure mode where a stub silently returns
+## "skipped" and gives every reader the impression that quality has
+## been gated when it has not been. If the in-skill discipline ever
+## proves insufficient, build a NEW step with a clearly different
+## name (e.g. `step_corpus_diversity_lint`) and a real, non-stub
+## implementation.
 
 
 def step_audio(story_id: int, dry_run: bool) -> StepResult:
@@ -982,9 +1042,11 @@ def run_gauntlet(story_id: int, *, dry_run: bool) -> dict:
     if s_cov.status == "fail":
         return _make_verdict(story_id, steps, dry_run, halted_at="coverage_floor")
 
-    # Step 6: literary review (non-blocking)
-    s_rev = step_literary_review(built)
-    steps.append(s_rev)
+    # Step 6 (RETIRED 2026-04-29): literary review used to live here as
+    # `step_literary_review`. The gate now lives in the monogatari-author
+    # skill (§B.0 / §B.1 / §E.5 / §E.6 / §E.7 / §G) and runs BEFORE the
+    # live `author_loop.py author N` invocation. Do not re-add a Python
+    # gate here — see the tombstone comment near step_audio for why.
 
     # Step 7: write (also persists vocab/grammar state and refreshes
     # is_new flags on a live ship — see step_write docstring).
@@ -1006,15 +1068,14 @@ def run_gauntlet(story_id: int, *, dry_run: bool) -> dict:
 def _make_verdict(story_id: int, steps: list[StepResult],
                   dry_run: bool, halted_at: str | None = None) -> dict:
     blocking_failures = [s for s in steps if s.blocking and s.status == "fail"]
-    reviewer_escalated = any(
-        s.name == "literary_review" and s.status == "warn" for s in steps
-    )
+    # NOTE: the `reviewer_escalated` / exit-code-3 branch was retired with
+    # step_literary_review on 2026-04-29. The verdict is now binary:
+    # "fail" (any blocking step failed) or "ship"/"would_ship" otherwise.
+    # The literary-review discipline lives in the skill and is a separate
+    # human-visible step — see SKILL §E.5–E.7.
     if blocking_failures:
         verdict = "fail"
         exit_code = 1
-    elif reviewer_escalated:
-        verdict = "ship_with_warning"
-        exit_code = 3
     else:
         verdict = "ship" if not dry_run else "would_ship"
         exit_code = 0
