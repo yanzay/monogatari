@@ -1,535 +1,133 @@
 # AGENTS.md — Monogatari workspace memory
 
-This file accumulates concrete, workspace-specific knowledge for future agent
-sessions. Keep entries short, factual, and pointed at things that would have
-saved a real iteration if known earlier.
+Workspace-specific knowledge for future agent sessions. Concrete, factual, pointed.
 
 ---
 
-## Project shape (1-paragraph orientation)
+## Project shape
 
-Monogatari is a graded-reader Japanese short-story corpus + reading-app +
-authoring pipeline. Stories live in `stories/story_N.json` (built artifact),
-authored from `pipeline/inputs/story_N.bilingual.json` (the editable spec).
-Vocabulary and grammar progression are tracked in `data/vocab_state.json`
-and `data/grammar_state.json`. The pipeline (`pipeline/`) is mature and
-includes a deterministic validator, semantic-sanity lints, audio builder,
-and an authoring-tools package at `pipeline/tools/`.
+Monogatari = graded-reader Japanese short-story corpus + reading-app + authoring pipeline. Stories live in `stories/story_N.json` (built artifact), authored from `pipeline/inputs/story_N.bilingual.json` (editable spec). Vocab/grammar progression in `data/vocab_state.json` and `data/grammar_state.json`. Pipeline (`pipeline/`) has deterministic validator, semantic-sanity lints, audio builder, and authoring tools at `pipeline/tools/`.
 
----
+## Key files
 
-## Key files & where things actually live
-
-- `pipeline/_paths.py` — **canonical** path discovery and JSON I/O. Use
-  `from _paths import load_vocab, load_grammar, load_spec, load_story,
-  iter_stories, parse_story_id, write_json, ROOT, STORIES, DATA, INPUTS`.
-  Do NOT recompute `ROOT = Path(__file__)...` ad hoc.
-- `pipeline/tools/_common.py` — re-exports the above plus `color()`,
-  `iter_tokens()`, `build()` (the deterministic converter), `mint_check()`,
-  `list_word_occurrences()`. CLIs in `pipeline/tools/` import from here.
-- `pipeline/semantic_lint.py` — sentence-level "is this nonsense" rules.
-  Numbered 11.x. Each new rule should follow the same `Issue` dataclass
-  pattern with `severity` ∈ {`error`, `warning`} and a `location` like
-  `"sentence 3"`. Existing rules: 11.1–11.6 (v1), 11.7–11.10 (v2).
-- `pipeline/validate.py` — full Checks 1–11 validator; `validate(story,
-  vocab, grammar, plan=None)` returns a `ValidationResult` with `.valid`,
-  `.errors`, `.warnings`. Check 11 wraps semantic_lint.
-- `pipeline/text_to_story.py::build_story(spec, vocab, grammar)` — the
-  deterministic converter. Returns `(built_story, build_report)`.
-- `pipeline/tools/vocab.py would-mint "<JP>"` — **killer preview tool**:
-  returns the words a candidate sentence would silently mint. Always
-  consult before drafting any new sentence.
-- `pipeline/regenerate_all_stories.py --story N --apply` — the only
-  sanctioned way to rebuild a single story's `is_new` flags after a spec
-  edit. Use `--dry-run` first to preview cascade.
-
----
+- **`pipeline/_paths.py`** — canonical path discovery + JSON I/O. Use `from _paths import load_vocab, load_grammar, load_spec, load_story, iter_stories, parse_story_id, write_json, ROOT, STORIES, DATA, INPUTS`. Do NOT recompute `ROOT = Path(__file__)…` ad hoc.
+- **`pipeline/tools/_common.py`** — re-exports above + `color()`, `iter_tokens()`, `build()`, `mint_check()`, `list_word_occurrences()`.
+- **`pipeline/semantic_lint.py`** — sentence-level "is this nonsense" rules (11.1–11.10). New rules use `Issue` dataclass with `severity` ∈ {`error`, `warning`} and `location` like `"sentence 3"`.
+- **`pipeline/validate.py`** — Checks 1–11 validator. `validate(story, vocab, grammar, plan=None)` → `ValidationResult` with `.valid`, `.errors`, `.warnings`. Check 11 wraps semantic_lint.
+- **`pipeline/text_to_story.py::build_story(spec, vocab, grammar)`** — deterministic converter. Returns `(built_story, build_report)`.
+- **`pipeline/tools/vocab.py would-mint "<JP>"`** — preview tool. Returns words a candidate sentence would silently mint. Always consult before drafting a new sentence.
+- **`pipeline/regenerate_all_stories.py --story N --apply`** — only sanctioned way to rebuild a single story's `is_new` flags after a spec edit. Use `--dry-run` first.
 
 ## Vocab/grammar schema gotchas
 
-- `vocab_state.json::words[wid]["first_story"]` is a **string** like
-  `"story_1"`, not an int. Use `parse_story_id()` from `_paths.py` to
-  coerce. Same applies to `last_seen_story` and grammar `intro_in_story`.
-- The "lemma" of a word is its `surface` field (the kanji/kana display
-  form), not a separate `lemma` key. The `reading` field is romaji.
-- Grammar state file structure: `{"version": ..., "points": {gid: {...}}}`.
-  The points dict has `examples` but field names like `label`/`description`/
-  `pattern` are inconsistently present.
-- **Two parallel grammar id namespaces — reconcile via `catalog_id`.**
-  `data/grammar_state.json` keys grammar by internal ids `G001_wa_topic`
-  / `G003_desu` / etc. `data/grammar_catalog.json` keys by JLPT-tagged
-  ids `N5_wa_topic` / `N5_desu` / etc. The bridge is the `catalog_id`
-  field on each grammar_state entry. Coverage analysis (which catalog
-  points have been introduced?) MUST join via `catalog_id`. Use
-  `pipeline/grammar_progression.coverage_status()` rather than rolling
-  your own. The agent_brief and validator both use the helper.
-- **`grammar_state.json::points[gid]["intro_in_story"]` is the
-  load-bearing field for coverage tracking.** A point with
-  `intro_in_story=None` is treated as "not yet covered" by Check 3.10
-  / 3.9 / the brief. State_updater sets it on every ship; the
-  one-shot `pipeline/tools/backfill_grammar_intros.py` will repair
-  legacy bulk-loaded entries that lack it.
-- A bilingual spec (`pipeline/inputs/story_N.bilingual.json`) is the
-  AUTHORITATIVE editable source. The shipped `stories/story_N.json` is
-  a derived artifact — do NOT hand-edit it.
-- **Auto-tagged grammar IDs not yet in `grammar_state.json` are
-  registered in `text_to_story.KNOWN_AUTO_GRAMMAR_DEFINITIONS`.** Some
-  paradigm anchors (most prominently `G055_plain_nonpast_pair`,
-  catalog id `N5_dictionary_form`) were never bulk-loaded into
-  `data/grammar_state.json`. The tagger emits them whenever a verb
-  appears in plain dictionary form, AND the registry carries the
-  full state-entry definition (title/short/long/jlpt/catalog_id) so
-  `state_updater` can attribute them on first use without a
-  hand-written plan. Three loci consult the registry: (1) the
-  validator's plan (built by `step_validate` from the build report's
-  `unknown_grammar`), (2) the gauntlet's `step_coverage_floor`
-  gid→catalog_id fallback, and (3) `_build_state_plan`'s
-  `new_grammar_definitions` splice. To add a new auto-tagged paradigm
-  anchor: add a token-level `grammar_id` to `_classify_inflection` (or
-  another tagger site) AND add a matching entry to
-  `KNOWN_AUTO_GRAMMAR_DEFINITIONS`. Regression tests live in
-  `pipeline/tests/test_dictionary_form_attribution.py`.
+- `vocab_state.json::words[wid]["first_story"]` is a STRING (`"story_1"`), not int. Use `parse_story_id()` to coerce. Same for `last_seen_story` and grammar `intro_in_story`.
+- "Lemma" of a word = `surface` field (kanji/kana display form), NOT a separate `lemma` key. `reading` is romaji.
+- Grammar state: `{"version": ..., "points": {gid: {...}}}`. `label`/`description`/`pattern` field names are inconsistently present.
+- **Two parallel grammar id namespaces — bridge via `catalog_id`.** `data/grammar_state.json` keys by `G001_wa_topic` etc. `data/grammar_catalog.json` keys by `N5_wa_topic` etc. Coverage analysis MUST join via `catalog_id`. Use `pipeline/grammar_progression.coverage_status()`.
+- **`grammar_state.json::points[gid]["intro_in_story"]`** is the load-bearing field for coverage tracking. `None` = not yet covered (Check 3.10/3.9, brief). `state_updater` sets it on every ship; `pipeline/tools/backfill_grammar_intros.py` repairs legacy entries.
+- A bilingual spec is AUTHORITATIVE. The shipped story is derived — do NOT hand-edit.
+- **Auto-tagged grammar IDs not yet in `grammar_state.json` are registered in `text_to_story.KNOWN_AUTO_GRAMMAR_DEFINITIONS`.** Some paradigm anchors (notably `G055_plain_nonpast_pair` / `N5_dictionary_form`) were never bulk-loaded. The registry carries the full state-entry definition (title/short/long/jlpt/catalog_id) so `state_updater` can attribute on first use without a hand-written plan. Three loci consult it: validator's plan (built by `step_validate` from build report's `unknown_grammar`), gauntlet's `step_coverage_floor` gid→catalog_id fallback, and `_build_state_plan`'s `new_grammar_definitions` splice. **To add a new auto-tagged paradigm anchor:** add a token-level `grammar_id` to `_classify_inflection` (or another tagger site) AND add a matching entry to `KNOWN_AUTO_GRAMMAR_DEFINITIONS`. Tests in `pipeline/tests/test_dictionary_form_attribution.py`.
 
----
+## Cascade rules
 
-## Cascade rules when editing a story
+Three things cascade across the corpus when you change a story:
+1. **`new_words` / `new_grammar` flags** — `regenerate_all_stories.py`. Cheap.
+2. **`is_new=true` token markers** — same regenerator.
+3. **Audio files** — `audio/story_N/*` per-sentence. Sentence-count changes require audio rebuild for that story (bounded to one story).
 
-The three things that cascade across the corpus when you change a story:
-
-1. **`new_words` / `new_grammar` flags** — derived from
-   `regenerate_all_stories.py`. Rerun after any spec change. Cheap.
-2. **`is_new=true` token markers** — same regenerator handles these.
-3. **Audio files** — `audio/story_N/*` is per-sentence. Sentence-count
-   changes require audio rebuild for that story. **Bounded to one story**
-   if other stories' sentences are unchanged.
-
-The thing that does NOT cascade automatically: **other stories' validation**
-when an early story removes a grammar/vocab introduction. Verify with
-`pytest pipeline/tests/test_validate_library.py -q` after any v1 spec edit.
+Does NOT cascade automatically: **other stories' validation** when an early story removes a grammar/vocab introduction. Verify with `pytest pipeline/tests/test_validate_library.py -q` after any v1 spec edit.
 
 ## Post-ship state chain (now automatic)
 
-**As of 2026-04-28 evening, `pipeline/author_loop.py author N` (live ship,
-no `--dry-run`) runs the complete post-ship chain in one shot.** A single
-invocation handles:
-
-1. Build + all gauntlet checks (validate, mint_budget,
-   pedagogical_sanity, vocab_reinforcement, coverage_floor).
+`pipeline/author_loop.py author N` (live ship, no `--dry-run`) runs the complete chain:
+1. Build + all gauntlet checks (validate, mint_budget, pedagogical_sanity, vocab_reinforcement, coverage_floor).
 2. Write `stories/story_N.json`.
-3. `state_updater` with a plan auto-built from the build report
-   (mints W-IDs with full surface/kana/reading/pos/verb_class/adj_class
-   metadata). **Hand-written plan JSON files are no longer required** —
-   the previous defect of `state_updater scaffolding empty entries
-   (surface = "W00xxx")` is impossible because the build report carries
-   complete definitions for every mint.
-4. `regenerate_all_stories --story N --apply` to rewrite is_new flags
-   under final word_ids.
-5. `audio_builder` to generate per-sentence and per-word MP3s
-   (incremental — re-runs are cheap).
+3. `state_updater` with plan auto-built from build report (mints W-IDs with full surface/kana/reading/pos/verb_class/adj_class metadata). **Hand-written plan JSON files no longer required.**
+4. `regenerate_all_stories --story N --apply` to rewrite is_new flags under final word_ids.
+5. `audio_builder` per-sentence and per-word MP3s (incremental).
 
-If any of these fails, the gauntlet exits non-zero with a clear
-`halted_at: <step>` and `state_backups/` retains the prior
-vocab/grammar state for restore. The legacy three-command dance
-(`regenerate → state_updater → regenerate`) survives only as a manual
-recovery path documented in the SKILL.md "Quick reference" section.
+Failure → exits non-zero with `halted_at: <step>`; `state_backups/` retains prior state. Legacy three-command dance (`regenerate → state_updater → regenerate`) is the manual recovery path only.
 
-### Re-shipping in the same session
+## Re-shipping discipline
 
-The state-backup discipline below still applies — restoring from a
-pre-attempt backup before re-shipping is the safe path when an attempt
-attributed grammar that the revised attempt no longer wants.
+### After failed attempt: state-backup restore
 
-### Re-shipping after a failed attempt: state-backup discipline
+A second `state_updater` call does NOT clear attributions made by the first. If attempt 1 introduced G_A and attempt 2 introduces G_B, BOTH end up with `intro_in_story=N` in `grammar_state.json`. The dry-run will say "1 new grammar point" (G_B), but `test_grammar_introduction_cadence` will count BOTH and fail.
 
-If a story is shipped, then revised and re-shipped in the same
-session, the second `state_updater` call does NOT clear attributions
-made by the first call. Concretely: if attempt 1 introduced grammar
-point G_A and attempt 2 introduces G_B instead, BOTH end up with
-`intro_in_story=N` in `grammar_state.json`. The author_loop dry-run
-will say "1 new grammar point" (G_B), but the corpus-wide cadence
-test `test_grammar_introduction_cadence` will count BOTH and fail
-with "introduces 2 new grammar points (max 1 after bootstrap)."
+**Recovery:** restore `data/{vocab,grammar}_state.json` from a pre-attempt state backup in `state_backups/` BEFORE re-shipping. The backup taken immediately before the very first `state_updater` of the session is the safe restore point.
 
-The right recovery is to restore `data/{vocab,grammar}_state.json`
-from a pre-attempt state backup (the timestamped files in
-`state_backups/`) BEFORE re-shipping the revised story. The
-backup taken immediately before the very first `state_updater` of
-the session is the safe restore point; later backups carry the
-contamination.
+### After ID-changing re-ship: clean stale audio
 
-### Audio cleanup after an ID-changing re-ship
-
-`pipeline/audio_builder.py` writes per-sentence audio to
-`audio/story_<N>/s<idx>.mp3` and per-word audio to a FLAT
-`audio/words/<wid>.mp3` directory (changed 2026-04-29; see
-"Audio layout" below). If a re-ship changes word IDs (e.g. because
-the previous attempt's W00xxx got dropped as an orphan and the next
-mint reused the slot at a different position), stale
-`audio/words/W*.mp3` files become orphans and the integrity test
-`test_audio_word_files_only_for_known_words` fails. After an
-ID-changing re-ship, hand-delete the stale `audio/words/W*.mp3`
-files whose IDs are no longer in `data/vocab_state.json`.
+`audio_builder.py` writes per-sentence audio to `audio/story_<N>/s<idx>.mp3` and per-word audio to flat `audio/words/<wid>.mp3`. If a re-ship changes word IDs (slot reuse at different position), stale `audio/words/W*.mp3` files become orphans → `test_audio_word_files_only_for_known_words` fails. Hand-delete stale files whose IDs are no longer in `data/vocab_state.json`.
 
 ### Audio layout (since 2026-04-29)
 
-- `audio/story_<N>/s<idx>.mp3` — per-sentence audio. Story-scoped,
-  because a sentence belongs to exactly one story.
-- `audio/words/<wid>.mp3` — per-word audio. **Flat, decoupled from
-  any story.** A word can appear in any number of stories and in
-  the vocab list, library, review queue, and word popups opened
-  from any context — tying its audio path to the introducing story
-  made the audio undiscoverable from those contexts and broke
-  whenever a corpus rewrite changed which story introduces a word.
-  The migration moved 42 existing files from
-  `audio/story_<N>/w_W*.mp3` → `audio/words/W*.mp3` and updated
-  every consumer in lockstep:
-    - `pipeline/audio_builder.py` writes to `words_dir`
-    - `pipeline/tests/test_referential_integrity.py` orphan test
-      checks `audio/words/` and rejects stray `audio/story_*/w_*.mp3`
-    - `src/lib/util/word-audio.ts::wordAudioPath` returns the new
-      flat path and no longer needs `first_story`
-    - `src/lib/data/corpus.ts::decorateWithAudioPaths` synthesizes
-      the flat path
-- The legacy per-story word audio in `legacy/v1-audio/story_*/` is
-  intentionally left in place; v1 is retired and self-contained.
+- `audio/story_<N>/s<idx>.mp3` — per-sentence, story-scoped.
+- `audio/words/<wid>.mp3` — per-word, FLAT (decoupled from story). A word can appear anywhere; tying audio to the introducing story made it undiscoverable from review/library/popups.
+- Migration moved 42 files from `audio/story_<N>/w_W*.mp3` → `audio/words/W*.mp3`. Consumers updated in lockstep: `audio_builder.py` (writes `words_dir`), `test_referential_integrity.py` (orphan test), `src/lib/util/word-audio.ts::wordAudioPath`, `src/lib/data/corpus.ts::decorateWithAudioPaths`.
+- Legacy `legacy/v1-audio/story_*/` left in place (v1 retired, self-contained).
 
-### Per-story vocabulary cadence has BOTH a max AND a min
+## Per-story vocabulary cadence: BOTH max AND min
 
-The mint_budget surfaced in the brief is `{min, max, target}` for a
-reason — both bounds matter. The gauntlet's `mint_budget` step only
-enforces the max; the corpus-wide test
-`test_vocabulary_introduction_cadence` enforces the min
-(`MIN_NEW_WORDS_PER_STORY = 3` after bootstrap). A dry-run that
-ships a single new word will pass the gauntlet AND fail the test
-suite. Always read the brief's `mint_budget.min` as a hard floor,
-not a soft suggestion.
+`mint_budget` is `{min, max, target}`. Gauntlet `mint_budget` step enforces only the max. `test_vocabulary_introduction_cadence` enforces the min (`MIN_NEW_WORDS_PER_STORY = 3` after bootstrap). Always read brief's `mint_budget.min` as a hard floor.
 
-### text_to_story mint dedup was surface-keyed (fixed 2026-04-29)
+## text_to_story mint dedup (fixed 2026-04-29)
 
-`pipeline/text_to_story.py::_ensure_word` keyed `BuildState.minted` (the
-in-flight per-build mint pool) by the on-page **surface** of each token.
-For non-inflectables (nouns/pronouns) this was correct because surface
-== dictionary form. For inflectables (verbs / i-adj / na-adj), each
-inflected on-page surface (書きました vs 書きます; 大きい vs 大きかった)
-hashed to a different key, AND `vocab_index.lookup` only sees the
-pre-build vocab_state (not in-flight mints), so the second occurrence
-of the same lemma in a different inflected form would mint a SECOND
-W-id for the same word.
+`_ensure_word` now keys `BuildState.minted` by `_mint_dedup_key(pos1, surface, lemma)` which returns `pos1|normalized_lemma` for inflectables (UniDic POS in {動詞, 形容詞, 形状詞, 助動詞}) and `pos1|surface` otherwise. Same verb across past/nonpast/te-form/negative in one story now counts as ONE mint.
 
-Concrete trigger: story 4 v2 draft (`友達の名前`, 2026-04-29 22:35) had
-`書きました` in s1 and `書きます` in s5 — same lemma 書く, two W-ids
-(W00039 and W00043). The story registered 9 mints instead of 8 and
-tripped the gauntlet's `mint_budget` hard-block. The session
-worked around it by using the same tense in both sentences — but
-the bug was real.
+Tests: `pipeline/tests/test_mint_dedup.py` (7 tests pinning dual-tense verb collapse, dual-form i-adj collapse, no over-dedup on distinct lemmas with same kana, lemma-empty fallback, POS-separator preventing cross-POS collisions).
 
-**The fix** introduces `_mint_dedup_key(pos1, surface, lemma)` which
-returns `pos1|normalized_lemma` for inflectables (UniDic POS in
-{動詞, 形容詞, 形状詞, 助動詞}) and `pos1|surface` otherwise. The
-`st.minted` map is now keyed by this stable identity. Both halves
-of the change are atomic — the lookup at the start of `_ensure_word`
-and the insert at the end use the same key.
+## vocab_reinforcement gauntlet step is "last-slot only" (since 2026-04-29)
 
-**Regression test:** `pipeline/tests/test_mint_dedup.py` (7 tests).
-Pins:
-  * dual-tense verb collapses to one mint (the headline case).
-  * dual-form i-adjective collapses to one mint (same family).
-  * distinct lemmas with the same kana still mint separately
-    (no over-dedup).
-  * lemma-empty fallback to surface (well-defined behavior when the
-    tagger fails to provide a lemma).
-  * POS-separator in the key prevents pathological cross-POS collisions.
+`_vocab_reinforcement_debt()` in `pipeline/tools/agent_brief.py` rules:
+- `must_reinforce=True` ONLY when R1 window (`VOCAB_REINFORCE_WINDOW = 10`) is about to close on the word: `target_story == intro_story + VOCAB_REINFORCE_WINDOW` AND no follow-up has used it.
+- Bootstrap-intro words (`intro_story <= BOOTSTRAP_END = 10`) NEVER become must_reinforce.
+- Everything in-window-but-not-last-slot is `should_reinforce` (informational, non-blocking).
 
-**Practical consequence for authoring:** previously, an author had to
-either (a) keep verbs single-tense across the story or (b) burn budget
-on duplicate W-ids. With the fix, the same verb can appear in past,
-nonpast, te-form, and negative across one story and counts as ONE
-mint. This unlocks `for-the-second-time-in-tense-X` constructions
-that were previously cost-prohibitive at the cap.
+Post-ship test `test_vocab_words_are_reinforced` (R1) is unchanged. Authoring: 3-6 carryover words is normal; pick organic reuse.
 
-### Story 4 (2026-04-29) — §E.7 rubber-stamped a worksheet-shaped story
+DO NOT re-tighten without also relaxing R1 itself.
 
-`私の名前` (story 4, classroom seed) shipped 2026-04-29 21:14 with a
-unanimously-green pre-ship discipline (§E.5 prosecutor table all Y,
-§E.6 EN-only re-read SHIP, §E.7 fresh-eyes subagent SHIP), then was
-read by the user 30 minutes later and called "a piece of shit."
-Rightly. The story is mechanically valid — every grammar obligation
-landed, every must-reinforce item covered, the gauntlet green on the
-first try — and reads as 6 sentences a worksheet author wrote to
-satisfy 6 boxes:
+## Dry-run green ≠ corpus tests green
 
-  s0 私は学校にいます。     (set the scene_class)
-  s1 先生は私の名前を書きました。 (land mashita reinforce + 名前 mint)
-  s2 私は鉛筆を持っています。  (intro te_iru + anchor mention #1)
-  s3 後ろの友達は私の名前を知りません。 (intro masen + teleport friend in)
-  s4 友達の鉛筆はありません。   (land arimasen reinforce — bolt-on)
-  s5 私は友達に鉛筆を見せました。 (closer; "transfer" of 3 tokens)
-
-The friend has no entrance. The "no pencil" assertion exists ONLY to
-satisfy G035_arimasen reinforcement. The "transfer" closer is a
-3-token classroom moment with zero stakes. The aggregate is technically
-a story (verbs, characters, change of state on paper) and emotionally
-nothing.
-
-Why didn't §E.7 catch it? The prompt was too soft:
-  - "What HAPPENS in this story?" → trivially satisfied by a
-    sentence containing a verb. A worksheet of pedagogical sentences
-    has many verbs.
-  - "Did anything surprise you?" → a polite reader's default is "no."
-  - SHIP / REWRITE-SENTENCE / REWRITE-STORY with no default bias →
-    SHIP is the path of least resistance.
-
-Fix applied 2026-04-29 21:45 in
-`.agents/skills/monogatari-author/SKILL.md` §E.7: replaced the soft
-prompt with a HOSTILE LITERARY REVIEWER prompt that:
-  - Names the failure mode explicitly (worksheet-shaped story).
-  - Defaults the verdict to REWRITE (SHIP must be earned).
-  - Has 8 specific probes naming concrete defects to hunt
-    (one-sentence event with non-observational verb; character
-    entrances; pedagogical bolt-ons; anchor causality; closer weight;
-    sameness probe; learner test; "would I write this" test).
-  - Forbids the polite escape hatches ("mostly fine", "good
-    enough", "technically valid").
-  - Adds a calibration rule: if 5 stories in a row pass §E.7 SHIP,
-    suspect the prompt has been internalized as a formality and
-    re-deploy with an "argue for REWRITE first" paraphrase.
-
-Story 4 is in the corpus (commit df013fd) and not being unshipped —
-unshipping requires a state-backup restore + audio cleanup chain that
-is more expensive than the defect, and the next 3-5 stories will
-overwrite the impression. But the prompt is the lasting fix.
-
-The general lesson: a literary-quality gate that shares a model
-family with the author needs to be **adversarially briefed** to be
-worth running. Same model + neutral prompt = same blind spots; same
-model + hostile prompt + named failure modes + REWRITE default =
-useful signal.
-
-### Story 2 (2026-04-29) shipped without §B.0/§B.1/§E.5/§E.6/§E.7
-
-For honesty: story 2 (`小さいりんご`, commit e7f0556) was shipped
-having ONLY run the retired §F.2 self-audit — the in-skill literary
-gates (§B.0 premise contract, §B.1 forbid.py mechanical zones, §E.5
-prosecutor table, §E.6 EN-only re-read, §E.7 fresh-eyes subagent)
-were all skipped. The user noticed and asked. The discipline was
-backfilled post-hoc:
-  * `.author-scratch/prosecution_2.md` written retroactively (all rows
-    Y, including the §B.0 contract checks reconstructed from the
-    actual spec).
-  * `pipeline/tools/forbid.py 2` ran clean (all four zones organically
-    honored).
-  * §E.7-equivalent fresh-eyes subagent returned `SHIP` with the
-    same key findings as the prosecutor table.
-
-The corpus is fine because the story genuinely satisfies all gates,
-but the audit trail was incomplete until the backfill. The skill
-(`SKILL.md`) was patched in the same exchange to add §0.0 (the
-top-level full ordered procedure list) and two ⛔ STOP callouts at
-the §E→§E.5 and §E.7→§F transitions, so the literary gates are
-impossible to skip on a normal scan.
-
-If you find yourself activating the skill and your activation
-summary stops at "Step F — Ship," you've fallen into the same trap.
-Re-read §0.0 and §E.5–§E.7 before drafting.
-
-### vocab_reinforcement gauntlet step is "last-slot only" since 2026-04-29
-
-The gauntlet's `vocab_reinforcement` step (in `pipeline/author_loop.py`)
-is BACKED by `_vocab_reinforcement_debt()` in `pipeline/tools/agent_brief.py`,
-which decides which words are `must_reinforce` (hard-block) vs
-`should_reinforce` (warn). The original rule (2026-04-28) flagged EVERY
-word minted in story N-1 as must-reinforce for story N — which forced
-story 2 to recycle every one of story 1's ~18 mints (impossible without
-turning the story into a list of nouns).
-
-Relaxed 2026-04-29 to mirror the post-ship test's actual contract:
-
-  * `must_reinforce=True` ONLY when the R1 window
-    (`VOCAB_REINFORCE_WINDOW = 10`) is about to close on the word —
-    i.e. `target_story == intro_story + VOCAB_REINFORCE_WINDOW` AND no
-    follow-up has used the word yet.
-  * Words intro'd during the bootstrap window (`intro_story <=
-    BOOTSTRAP_END = 10`) NEVER become must_reinforce. R1 itself
-    exempts bootstrap-intro stories (`if n <= BOOTSTRAP_END: continue`),
-    so the gauntlet matches.
-  * Everything else in-window-but-not-last-slot is `should_reinforce`
-    (informational, non-blocking). The author still sees the
-    "due soon" hints in the brief; the gauntlet just doesn't block.
-
-The post-ship test `test_vocab_words_are_reinforced` (R1) is
-unchanged. It remains the source of truth for what "reinforced" means.
-
-Practical consequence for an authoring session: the next story after
-a wide-mint slot (e.g. story 1 → story 2) only needs to reuse the
-words that fit the scene's narrative, not every word from the
-previous story. Pick organic reuse (3-6 carryover words is normal),
-let the rest get reinforced over the natural 10-story curve.
-
-DO NOT re-tighten this rule without also relaxing R1 itself. The
-old "every prev-story word must reappear next story" rule directly
-contradicted R1 and made bootstrap follow-ups unshipable.
-
-### Dry-run green ≠ corpus tests green
-
-The gauntlet pulls SOME pedagogical checks forward
-(`pedagogical_sanity`, `coverage_floor`, `mint_budget`), but several
-corpus-wide rules still only fire under `pytest pipeline/tests/`:
-
+Gauntlet pulls some checks forward (`pedagogical_sanity`, `coverage_floor`, `mint_budget`), but corpus-wide rules only fire under `pytest pipeline/tests/`:
 - `test_vocabulary_introduction_cadence` (per-story min new words)
 - `test_vocab_words_are_reinforced` (per-word reinforcement window)
 - `test_grammar_introduction_cadence` (per-story max new grammar)
 - `test_audio_word_files_only_for_known_words` (audio orphans)
 
 Always run `pytest pipeline/tests/ -q` after the post-ship chain.
-Dry-run green is necessary but not sufficient.
 
----
+## v1 is RETIRED
 
-## Critical workflow lessons learned 2026-04-28
+v1 corpus moved to `legacy/v1-stories/`. `V1_INCOMPATIBLE_WITH_V2_LINTS` xfail set in `test_validate_library.py` deleted. Every story in `stories/` must pass full validator (Checks 1–11) cleanly. If a v1 motif tempts you, port via `pipeline/author_loop.py author N`; do not resurrect a v1 file.
 
-### Edit a single early story → may cascade many stories
-When trimming/rewriting an early story's spec, the user warned this
-correctly: any vocab dropped that was the *only* source of a later
-grammar reinforcement breaks downstream. Before rewriting story N,
-run `lookup.py --reuse-preflight` (if available) or grep
-`grep -l "G0XX_" stories/story_*.json | head` to find the *next*
-story that still relies on each grammar point N introduces.
+## v2 architectural commitments
 
-### `would-mint` from `pipeline/tools/vocab.py` is the right preflight
-Avoid the multi-iteration "draft → tokenize → discover I introduced 同じ
-which doesn't exist yet" loop by using `vocab.py would-mint` BEFORE
-committing a candidate sentence to a spec. Each iteration of that loop
-is a wasted ~3 tool calls.
+Documented in `docs/v2-strategy-2026-04-27.md` and `docs/phase3-tasks-2026-04-28.md`:
 
-### `pipeline/inputs/story_N.bilingual.json` is the only file to edit
-Never rewrite `stories/story_N.json` directly. Always edit the spec,
-run `regenerate_all_stories.py --story N --apply`, then validate.
+- **Author = LLM agent.** No hand-authoring. Agent drafts spec, runs `author_loop.py author N`.
+- **Deterministic lints are HARD BLOCK.** Validate (1–11), mint_budget, pedagogical_sanity all hard-fail. Only LLM literary reviewer is best-effort.
+- **Gauntlet steps:** spec_exists → agent_brief → build → validate → mint_budget → pedagogical_sanity → literary_review (stub) → write → audio (stub). `pedagogical_sanity` pulls `test_introduced_grammar_is_reinforced` forward.
+- **Brief is the agent's only memory.** Read once, fully, before drafting.
+- **Override discipline:** logged soft override; same rule overridden 3× auto-suspends and escalates to human.
+- **Required v2 spec fields:** `intent`, `scene_class`, `anchor_object`, per-sentence `role` ∈ {setting, action, dialogue, inflection, reflection, closer}.
+- **Recurring human audit every 10 stories** (reviewer model = same family as author).
+- **Per-story grammar floor (2026-04-28).** Story 4+ MUST introduce ≥1 new grammar point until current JLPT tier is fully covered. Validator Check 3.10 + gauntlet `coverage_floor` hard-block. Brief surfaces `grammar_introduction_debt`. Tier advancement (story 11 → N4) requires every prior-tier point covered (Check 3.9).
 
-### Existing tooling is far more comprehensive than first appears
-The `pipeline/tools/` package and `pipeline/lookup.py` together cover
-~80% of authoring-support needs already. Always inventory the existing
-tools (`ls pipeline/tools/ && head pipeline/lookup.py`) before
-proposing new ones.
-
-### Conservatism in lint design is documented and intentional
-`semantic_lint.py`'s `INANIMATE_QUIET_NOUN_IDS` deliberately **excludes**
-雨/月/星/空/風 because the author considers these natural JP pathetic-
-fallacy. When proposing rule changes, respect existing exclusion lists
-and module-level docstrings — they encode native-speaker calls that
-overrule audit findings.
-
-### v1 is RETIRED — only v2 stories live in `stories/`
-The v1 corpus has been moved to `legacy/v1-stories/` and the
-`V1_INCOMPATIBLE_WITH_V2_LINTS` xfail set in
-`pipeline/tests/test_validate_library.py` has been **deleted**. Every
-story in `stories/` must pass the full validator (Checks 1–11) cleanly
-— there are no expected-failure escape hatches. If a v1 motif tempts
-you, port the idea into a v2 spec via `pipeline/author_loop.py author
-N`; do not resurrect a v1 file.
-
----
-
-## Shell quirks observed
-
-- `cd pipeline/tools && python3 ...` sometimes fails because the bash
-  tool's CWD doesn't persist across invocations as expected. **Always
-  invoke scripts with their full path from project root**:
-  `python3 pipeline/tools/palette.py ...` (no cd).
-- The project uses `.venv/`. Always prepend `source .venv/bin/activate &&`
-  to commands that import `fugashi`/`jaconv`/`jamdict`. The bare
-  `/opt/homebrew/.../python3.14` will fail with "fugashi/jaconv/jamdict
-  are required."
-
----
-
-## v2 architectural commitments (active as of 2026-04-28)
-
-v1 has been retired (`legacy/v1-stories/`). v2 is the only path. Key
-commitments documented in `docs/v2-strategy-2026-04-27.md` and
-`docs/phase3-tasks-2026-04-28.md`:
-
-- **Author = LLM agent.** No hand-authoring of stories. The agent
-  drafts a bilingual spec and runs `pipeline/author_loop.py author N`.
-- **Deterministic lints are HARD BLOCK.** Validate (Checks 1–11),
-  mint_budget, and pedagogical_sanity all hard-fail the gauntlet.
-  Only the LLM literary reviewer is best-effort + warn.
-- **The gauntlet steps (in order):** spec_exists → agent_brief →
-  build → validate → mint_budget → pedagogical_sanity →
-  literary_review (stub) → write → audio (stub). The
-  `pedagogical_sanity` step pulls the test_introduced_grammar_is_reinforced
-  check forward into the gauntlet so reinforcement debt is caught at
-  dry-run, not after shipping.
-- **The brief is the agent's only memory.** Always read it once, fully,
-  before drafting. Key fields: `mint_budget`, `grammar_reinforcement_debt`
-  (especially `must_reinforce: true` items), `previous_closers` (don't
-  clone a closing pattern), `previous_3_stories`, `north_stars`,
-  `anti_patterns_to_avoid`.
-- **Override discipline:** logged soft override; same rule overridden
-  3× auto-suspends and escalates to human.
-- **Required spec fields (v2):** `intent`, `scene_class`, `anchor_object`,
-  per-sentence `role` ∈ {setting, action, dialogue, inflection,
-  reflection, closer}.
-- **Recurring human audit every 10 stories** because reviewer model is
-  same family as author (shared blind-spot risk).
-- **Per-story grammar floor (added 2026-04-28).** Every post-bootstrap
-  story (story 4+) MUST introduce ≥1 new grammar point until the
-  current JLPT tier is fully covered (then the same rule for N4, then
-  N3). Validator Check 3.10 + gauntlet `coverage_floor` step
-  hard-block any story that violates this. The brief surfaces the
-  uncovered list under `grammar_introduction_debt`. Tier advancement
-  (e.g. story 11 → N4) requires every prior-tier point to be covered
-  first (Check 3.9). Coverage status today: see
-  `python3 pipeline/grammar_progression.py`.
-
----
-
-## Lessons learned 2026-04-28 evening (audit + 3-story rewrite cycle)
+## Authoring lessons
 
 ### G055_plain_nonpast_pair (relative-clause plain-form verbs) is a cascade trap
 
-Twice in one session, an attempt to introduce `G055_plain_nonpast_pair`
-in a story 4–7 (via a relative clause like 「読む紙」 / 「卵を持つ友達」)
-failed the corpus-wide `test_introduced_grammar_is_reinforced` because
-NO story 4–10 currently uses any verb in plain dictionary form. Each
-attempt led to one of two cascade failures:
+Introducing G055 in story 4–7 fails `test_introduced_grammar_is_reinforced` because no story 4–10 currently uses plain dictionary form. Adding a downstream relative clause to story N+1 then violates `test_grammar_introduction_cadence` (max 1 after bootstrap). Spirals into 3+ story edits per attempt.
 
-1. **Add a downstream relative clause to story N+1** to satisfy
-   reinforcement → that downstream story now has 2 new grammar points
-   (its original intro + G055), which violates `test_grammar_introduction_cadence`
-   (max 1 after bootstrap).
-2. **Introduce in story N AND ALSO add a different downstream sentence**
-   to absorb it → spirals into 3+ story edits per attempt.
-
-**Rule:** Do NOT introduce `G055_plain_nonpast_pair` (or any other
-auto-tagged grammar point with no downstream usage) until at least
-ONE story 5–10 already organically uses the construction. Today the
-corpus has zero plain-form verb usage anywhere — G055 is effectively
-locked behind a story 11+ first introduction. The brief's
-recommended[0] = N5_dictionary_form is misleadingly high-priority;
-treat it as a stretch goal that requires planning across ≥2 stories
-in advance.
-
-The general form of this rule: **Before introducing any grammar point
-G in story N, grep `stories/story_{N+1..N+5}.json` for at least one
-token whose `grammar_id == G`.** If none, deferring is cheaper than
-the cascade.
+**Rule:** Do NOT introduce G055 (or any auto-tagged grammar point with no downstream usage) until at least ONE story 5–10 already organically uses the construction. **General form:** before introducing grammar G in story N, grep `stories/story_{N+1..N+5}.json` for at least one token whose `grammar_id == G`. If none, defer.
 
 ### grammar_state.intro_in_story drifts from corpus first-use after rewrites
 
-Every time a story is re-shipped (especially after spec edits to s0
-or early sentences that change WHICH story first uses a particle/
-construction), the `intro_in_story` field in `data/grammar_state.json`
-can drift from the actual corpus first-occurrence. The
-`state_updater` doesn't reset existing attributions; the regenerator
-uses one rule, the validator another. Symptom: pytest reports that
-story N "introduces 2 new grammar points" when a rewrite shifted one
-intro from N+k back to N.
+Re-shipping (especially after spec edits to s0 or early sentences) can drift `intro_in_story` from actual corpus first-occurrence. Symptom: pytest reports story N "introduces 2 new grammar points" when a rewrite shifted one intro from N+k back to N.
 
-**Fix:** A reconciliation pass that walks all 10 stories in order,
-records the FIRST story_id each grammar_id appears in, and rewrites
-`intro_in_story` to match (clearing entries that no longer appear
-anywhere in the corpus to None). The inline script used three times
-this session:
+**Reconciliation script** (run AFTER `regenerate_all_stories.py --apply` and BEFORE final pytest, then run regenerate ONCE MORE):
 
 ```python
 import json
@@ -539,331 +137,115 @@ for n in range(1, 11):
     s = json.load(open(f'stories/story_{n}.json'))
     for sec_name in ['title']:
         for tok in (s.get(sec_name) or {}).get('tokens', []):
-            for gid in [tok.get('grammar_id'),
-                        (tok.get('inflection') or {}).get('grammar_id')]:
-                if gid and gid not in first_use:
-                    first_use[gid] = n
+            for gid in [tok.get('grammar_id'), (tok.get('inflection') or {}).get('grammar_id')]:
+                if gid and gid not in first_use: first_use[gid] = n
     for sent in s.get('sentences', []):
         for tok in sent.get('tokens', []):
-            for gid in [tok.get('grammar_id'),
-                        (tok.get('inflection') or {}).get('grammar_id')]:
-                if gid and gid not in first_use:
-                    first_use[gid] = n
+            for gid in [tok.get('grammar_id'), (tok.get('inflection') or {}).get('grammar_id')]:
+                if gid and gid not in first_use: first_use[gid] = n
 for gid in list(g['points'].keys()):
     if gid not in first_use and g['points'][gid].get('intro_in_story') is not None:
         g['points'][gid]['intro_in_story'] = None
 for gid, n in first_use.items():
-    if gid in g['points']:
-        g['points'][gid]['intro_in_story'] = n
+    if gid in g['points']: g['points'][gid]['intro_in_story'] = n
 json.dump(g, open('data/grammar_state.json','w'), indent=2, ensure_ascii=False)
 ```
 
-This script should be folded into a `pipeline/tools/reconcile_grammar_state.py`
-CLI in a future session — the inline form is fine for now but every
-rewrite session needs it. Always run AFTER `regenerate_all_stories.py
---apply` and BEFORE the final pytest, then run regenerate ONE MORE
-TIME so the per-story `new_grammar` arrays match the reconciled state.
+TODO: fold into `pipeline/tools/reconcile_grammar_state.py`.
 
-### Closer cliché ladder needs ongoing curation, not just §C.2
+### Closer cliché ladder needs ongoing curation
 
-Three-pass observation: as new fresh closer patterns get used, they
-themselves become clichés after 2–3 stories. The current corpus has
-sub-templates emerging:
+Fresh patterns become clichés after 2–3 stories. Sub-templates emerging:
+- `Nは[i-adj]です` as closer (stories 3, 7) → ban next i-adj-attribute closer.
+- Departure-walks (story 4) → ban for stories 5–9.
+- Listing-と reflection (`N₁とN₂は…です`) → variants OK; same-shape repeats banned.
 
-- `Nは[i-adj]です` as closer (story 3 「卵は暖かいです」, story 7
-  「紙は古いです」). Two uses. Becomes a banned ladder entry on the
-  next i-adj-attribute closer.
-- Departure-walks (story 4 「友達は朝の道を歩きます」). One use.
-  Banned for stories 5–9.
-- Listing-と reflection (「N₁とN₂は…です」). Used in story 4
-  reflection. Variants OK; same-shape repeats banned.
+**Rule:** scan previous 3 stories' closers for SHAPE (subject-particle-attribute-copula, possessive-departure-verb, listing-equivalence). Match shape = rotate.
 
-**Rule:** When proposing a closer, scan the previous 3 stories'
-closers for shape (not just surface). If your closer matches the
-SHAPE (subject-particle-attribute-copula, possessive-departure-verb,
-listing-equivalence, etc.), rotate.
+### Re-ship cleanup chain (failed attempt with mints + grammar)
 
-### Re-ship discipline (extends AGENTS.md state-backup section)
-
-If a re-ship attempt fails AND it minted new vocab AND it attributed
-new grammar, the cleanup chain is:
-
-1. Restore `data/{vocab,grammar}_state.json` from the pre-attempt
-   backup in `state_backups/` or `/tmp/`.
-2. Hand-delete stale `audio/story_N/w_W*.mp3` files for IDs that no
-   longer exist in vocab_state.
-3. Hand-delete stale `audio/story_N/sX.mp3` files where X exceeds
-   the new sentence count.
+1. Restore `data/{vocab,grammar}_state.json` from pre-attempt backup in `state_backups/` or `/tmp/`.
+2. Hand-delete stale `audio/story_N/w_W*.mp3` for IDs no longer in vocab_state.
+3. Hand-delete stale `audio/story_N/sX.mp3` where X exceeds new sentence count.
 4. Re-ship the revised story.
-5. Run the reconciliation script above.
+5. Run reconciliation script above.
 6. `regenerate_all_stories.py --apply`.
-7. `audio_builder.py` for any story whose sentence text changed.
+7. `audio_builder.py` for stories whose sentence text changed.
 8. Full pytest sweep.
 
-This whole chain has run cleanly three times in a row this session
-following this exact ordering.
+### Orthographic consistency: hiragana for grammaticalized verbs
 
-### Orthographic consistency: prefer hiragana for grammaticalized verbs
-
-Stories 9 and 10 originally used `有ります` (kanji) where stories 1–8
-used `あります` (hiragana). For grammaticalized existence verbs (ある,
-いる, なる, できる, etc.), the corpus convention is HIRAGANA. The
-spec's source-of-truth is the bilingual.json; sed-normalize in place
-when drift is detected:
+For grammaticalized existence verbs (ある, いる, なる, できる, etc.), use HIRAGANA. Stories 9 and 10 originally used `有ります`; corrected with:
 
 ```bash
 sed -i.tmp 's/有ります/あります/g' pipeline/inputs/story_*.bilingual.json
 rm pipeline/inputs/*.tmp
 ```
 
-Then regen + audio rebuild for the affected stories.
+Then regen + audio rebuild.
 
 ### No-obscure-kanji mint guard (since 2026-04-29 evening)
 
-The minted vocab `surface` field is what the review screen, vocab list,
-and word popups display to learners. Historically `_ensure_word` in
-`pipeline/text_to_story.py` used the UniDic *lemma* (which prefers
-kanji canonical forms) as the surface, even when the on-page surface
-was pure hiragana. This silently introduced obscure kanji forms the
-learner never encounters in any story:
+Minted vocab `surface` field is what the learner sees. `_ensure_word` previously used UniDic *lemma* (which prefers kanji canonical forms) even when on-page surface was hiragana. Defects: W00019→`林檎`, W00006→`居る`, W00011→`有る`.
 
-  * W00019 → `林檎` (apple) for りんご
-  * W00006 → `居る` (iru, exist-animate) for いる
-  * W00011 → `有る` (aru, exist-inanimate) for ある
+**Mint guard:** when on-page `surface` has no kanji, mint with on-page surface (nouns/adj) or kana dictionary form (verbs). Kanji lemmas only kept if corpus actually uses kanji.
 
-All three are real defects: 林檎 is JLPT-out-of-scope kanji, and
-居る/有る directly violate the corpus convention from the previous
-section. Fix:
+**Regression test:** `test_no_obscure_kanji_surface_in_vocab` in `pipeline/tests/test_referential_integrity.py`. Walks vocab surfaces; each kanji must appear ≥1 in some story.
 
-1. **Mint guard** in `_ensure_word` (committed): when the on-page
-   `surface` has no kanji, mint with the on-page surface (for nouns/
-   adj/etc.) or the kana dictionary form (for verbs). Kanji lemmas
-   are only kept if the corpus actually uses kanji in that position.
-2. **Regression test** `test_no_obscure_kanji_surface_in_vocab` in
-   `pipeline/tests/test_referential_integrity.py`: walks every vocab
-   entry's surface and asserts each kanji character appears at least
-   once somewhere in the corpus (any story title or sentence).
-   Failure mode and repair recipe documented in the test docstring.
-3. The three legacy entries (W00006/W00011/W00019) were rewritten
-   in-place to use their hiragana surfaces.
-
-If you ever DO want to introduce an obscure-kanji form (e.g. for an
-N1 advanced-vocab story), the corpus must show that kanji in actual
-sentence text first; the mint guard will then keep the kanji surface
-because the on-page form contains it.
+To introduce an obscure-kanji form intentionally, use it in actual sentence text first; the guard then keeps the kanji surface.
 
 ### Lexical difficulty cap (since 2026-04-29 evening)
 
-Parallel to the grammar coverage_floor (which prevents over-jumping
-to advanced grammar), `pipeline/lexical_difficulty.py` enforces a
-JLPT+nf-band cap on newly-minted vocab. The cap that motivated this:
-W00030 包丁 ("kitchen knife", JLPT N2) was minted in story 3 — a
-bootstrap-tier story that should only mint N5 vocab. The author
-(human or LLM) had no automated signal that 包丁 was an early-tier
-hazard. Now they do.
+Per-story JLPT+nf-band cap on newly-minted vocab:
 
-Per-story cap progression:
-
-  Story 1–10  (bootstrap)   → max JLPT = N5,  max nf = nf06 (~rank 3,000)
-  Story 11–25                → max JLPT = N4,  max nf = nf12 (~rank 6,000)
-  Story 26–50                → max JLPT = N3,  max nf = nf24 (~rank 12,000)
-  Story 51+                  → max JLPT = N2,  max nf = nf48 (any)
-
-A word PASSES if it satisfies EITHER signal (belt-and-suspenders).
-Words with no JLPT entry but with `ichi1` (Ichimango basic-vocab
-tag) are rescued — this catches Tanos JLPT-list gaps like りんご,
-バナナ, かばん that are universally agreed N5-equivalent.
-
-**Data file:** `data/jlpt_vocab.json` (~280KB, sourced from
-stephenmk/yomitan-jlpt-vocab on 2026-04-29). Hardlinked to
-`static/data/jlpt_vocab.json`. Levels are ints 5..1 where 5=N5
-(most basic). The file has FOUR lookup keys:
-
-  - `by_jmdict_seq[seq]` → level (best for disambiguation)
-  - `by_kanji_kana["kanji|kana"]` → level (canonical when both known)
-  - `by_kanji[kanji]` → lowest-level (loose; may collide on homographs)
-  - `by_kana[kana]` → lowest-level (loose)
-
-The lookup function in `pipeline/lexical_difficulty.py` uses the
-specific keys first and falls back to the loose keys, so e.g. 店|みせ
-correctly resolves to N5 rather than N1 (which is what 店|てん returns
-under the loose `by_kanji` lookup).
-
-**Three integration points:**
-
-1. **Mint enrichment** (`text_to_story.py::_ensure_word`): every new
-   vocab record gets `jlpt`, `nf_band`, `common_tags` cached at mint
-   time so downstream tools don't re-query jamdict per validation.
-   Failure-tolerant — missing data file is non-fatal.
-2. **Agent brief** (`agent_brief.py::_lexical_difficulty_constraints`):
-   surfaces the cap, the override discipline, and the existing
-   above-cap palette words BEFORE drafting. Visible in both the
-   verbose `build_brief` output and the compact `build_author_brief`
-   under `hard_limits.lexical_difficulty_cap`.
-3. **Gauntlet step** (`author_loop.py::step_vocab_difficulty`):
-   inspects newly-minted words from the build report and HARD-FAILS
-   the ship if any exceed the cap and aren't absorbed by
-   `lexical_overrides`. Promoted from soft-warn → hard-block on
-   2026-04-29 evening after the corpus backfill was complete.
-
-**Override discipline:** the spec MAY declare
-`lexical_overrides: ["surface", ...]` to consciously absorb up to
-**MAX_OVERRIDES_PER_STORY=2** above-cap mints per story (raised from
-1 → 2 on 2026-04-29 evening — bootstrap stories often need to
-introduce a domain (kitchen scene = 皿+包丁, garden scene = a tree
-+ a flower) where the second above-cap mint is genuinely scene-
-grounding rather than indulgent). The override must be acknowledged
-in spec.intent. A story asking for ≥3 overrides should split the
-scene. Mirrors v2 grammar override discipline.
-
-**Backfilled legacy entries (2026-04-29 evening):**
-- W00026 袋 (story 2, N3): scene-grounding for the change_of_state
-  contract; no good N5 alternative (かばん would mis-cue 'satchel').
-  → `lexical_overrides=["袋"]` in story_2 spec.
-- W00029 皿 (story 3, N3): visual centerpiece (the white plate the
-  yolk is shown on). → `lexical_overrides=["皿","包丁"]`.
-- W00030 包丁 (story 3, N2): instrument anchor for G017_de_means;
-  ナイフ would be linguistically wrong (it means table/penknife,
-  not kitchen knife in JP). → same override list as 皿.
-
-After the backfill, the corpus is clean and `step_vocab_difficulty`
-is now a HARD-BLOCK (status="fail"). The regression test
-`test_no_above_tier_vocab_without_override` runs without xfail.
-
----
-
-## Notes
-
-### Standing user preference: auto-commit and push after a clean ship
-As of 2026-04-28, the user gave a permanent instruction: "commit and
-push, do not ask ever again." For any clean ship of a Monogatari story
-(gauntlet `VERDICT: ship`, full pytest green, F.2 self-review pass),
-proceed directly to `git add … && git commit … && git push` WITHOUT
-asking for confirmation. The Proactivity Guidelines' default to confirm
-write operations is overridden for git in THIS workspace. This applies
-to all future story authoring sessions.
-
-### When the user says "rewrite story N and run tests, then restore"
-Take backups to `/tmp/` BEFORE editing, do the work, then restore from
-backups and re-verify tests at the end. The user means it literally.
-Pattern that worked:
-
-```bash
-cp pipeline/inputs/story_N.bilingual.json /tmp/story_N.bilingual.json.bak
-cp stories/story_N.json /tmp/story_N.json.bak
-# ...do work...
-cp /tmp/story_N.bilingual.json.bak pipeline/inputs/story_N.bilingual.json
-cp /tmp/story_N.json.bak stories/story_N.json
-python3 -m pytest pipeline/tests/ -q
+```
+Story 1–10  (bootstrap) → max JLPT N5, max nf06 (~rank 3,000)
+Story 11–25             → max JLPT N4, max nf12 (~rank 6,000)
+Story 26–50             → max JLPT N3, max nf24 (~rank 12,000)
+Story 51+               → max JLPT N2, max nf48 (any)
 ```
 
-### When the user is venting about quality and asking "what to do"
-The user has put real effort into this project; defects feel personal.
-The right move is: (1) acknowledge the frustration honestly without
-fawning, (2) gather evidence before promising a plan, (3) propose
-something **bounded** rather than "rebuild from scratch," (4) explicitly
-flag the implications of choices that look reasonable but aren't (e.g.
-"default retire" + "best-effort + warn" together is a hidden quality
-regression).
+Word PASSES if it satisfies EITHER signal. No-JLPT but `ichi1` tag (Ichimango basic-vocab) is rescued — catches Tanos gaps like りんご, バナナ, かばん.
 
-### Parallel subagents are great for "read N stories with the same rubric"
-Three subagents reading 19 stories each in parallel gave a far better
-audit than one agent reading 56 sequentially — and the rubric convergence
-across independent agents is itself signal. Use this pattern for any
-"survey the whole corpus / repo / dataset" task.
+**Data:** `data/jlpt_vocab.json` (~280KB; sourced from stephenmk/yomitan-jlpt-vocab). Hardlinked to `static/data/jlpt_vocab.json`. Levels are ints 5..1 (5=N5). Four lookup keys:
+- `by_jmdict_seq[seq]` → level (best for disambiguation)
+- `by_kanji_kana["kanji|kana"]` → level (canonical when both known)
+- `by_kanji[kanji]` → lowest-level (loose; collides on homographs)
+- `by_kana[kana]` → lowest-level (loose)
 
-### Naturalness defects in early-bootstrap stories (2026-04-30 corpus rewrite)
+`pipeline/lexical_difficulty.py` lookup uses specific keys first, falls back to loose.
 
-A user audit on 2026-04-30 revealed that all 5 shipped stories had at
-least one sentence flagged by a strict native-Japanese reviewer as
-unnatural. The defect pattern was systematic, not random:
+**Three integration points:**
+1. **Mint enrichment** (`text_to_story.py::_ensure_word`): every new vocab gets `jlpt`, `nf_band`, `common_tags` cached at mint time. Failure-tolerant.
+2. **Agent brief** (`agent_brief.py::_lexical_difficulty_constraints`): surfaces cap + override discipline + existing above-cap palette words. In `hard_limits.lexical_difficulty_cap`.
+3. **Gauntlet step** (`author_loop.py::step_vocab_difficulty`): inspects newly-minted words; HARD-FAILS if any exceed cap and aren't absorbed by `lexical_overrides`.
 
-  * **持つ overloaded as take/receive/remove**: 持つ in Japanese
-    means "hold/carry as ongoing state" — it does NOT mean "pick up,"
-    "receive from," or "remove from." Past 持ちました reads as "began
-    carrying briefly," not "took." For these meanings the natural
-    verbs are 取る (pick up — N5), 受け取る (receive — N3), 出す
-    (take out — N5). Story 1's first ship had 「お茶を持ちます」 (closer
-    for "I pick up the tea"); story 3's had 「袋から皿を持ちました」
-    ("took a plate out of the bag" — wrong); story 5's first ship used
-    持つ in three different wrong senses across s2/s4/s6. The fix in
-    each case is the right verb, not a paraphrase: 飲む for tea-as-
-    closer, 出す for remove-from-bag, 取る for pick-up.
+**Override discipline:** spec MAY declare `lexical_overrides: ["surface", ...]` to absorb up to **MAX_OVERRIDES_PER_STORY=2** above-cap mints per story (raised from 1 → 2 on 2026-04-29 — bootstrap stories often need a domain where the second above-cap mint is scene-grounding). Override must be acknowledged in `spec.intent`. ≥3 overrides → split the scene.
 
-  * **Size-on-mass-noun (小さい/大きい on liquids/foods)**: 小さい
-    お茶 (small tea) is not natural — お茶 is a mass noun and isn't
-    sized; you can size the cup (お茶碗) but not the tea itself.
-    Same for 大きいパン (which is borderline — bread is countable
-    enough that big bread is OK, but pedagogically lazy if it's there
-    just to land 大きい). The fix is to drop the size adjective or
-    move it to a genuinely countable noun (a small piece of bread).
+**Backfilled legacy entries:**
+- W00026 袋 (story 2, N3) → `lexical_overrides=["袋"]`.
+- W00029 皿 + W00030 包丁 (story 3, N3 + N2) → `lexical_overrides=["皿","包丁"]` (instrument anchor for G017_de_means; ナイフ is wrong — means table/penknife in JP).
 
-  * **Pedagogically-redundant particles**: 「お金で買います」
-    (buy with money) — buying always implies money in Japanese, so
-    お金で is empty pedagogy. Native: just 買います. The fix is to
-    introduce で-means via a verb where the means is genuinely
-    informative (e.g. 包丁で切ります — cut WITH a knife, not just
-    "with hand").
+After backfill: `step_vocab_difficulty` is HARD-BLOCK; `test_no_above_tier_vocab_without_override` runs without xfail.
 
-  * **Bare 持ちません vs 持っていません for state-change**: "no
-    longer holding" is a STATE-CHANGE meaning, requiring te-iru
-    + ません: 「持っていません」. Bare 「持ちません」 reads as
-    habitual non-past ("doesn't hold [as a habit]"). This is a real
-    grammatical defect that the lints don't catch because both forms
-    are grammatically valid; only the SEMANTICS distinguish them.
+## Naturalness defects (corrected 2026-04-30)
 
-  * **Bare quoted 「…」 lines without 言う/呼ぶ framing**: A
-    sentence consisting of a topic + 「quote」 with no main verb of
-    saying reads as a stage direction, not natural prose. Either the
-    framing verb is needed, or the quote should be a standalone
-    sentence with no subject framing. Story 5's first ship had
-    「私は『待ってくださいね』。」 — broken pedagogy; native readers
-    don't parse this as natural.
+Surface-level lexical/idiomatic concerns the validator cannot model. The §E.7.5 native-naturalness subagent (in SKILL.md) is the prospective gate. **Run §E.7.5 before EVERY ship.**
 
-  * **Wrong location particles for stative verbs**: で is for
-    activity-location ("at" — where the action happens); に is for
-    state-location ("at" — where the entity is). 「私の前で傘を持って
-    います」 wrongly uses で for static positioning; correct is
-    「私の前に立って、傘を持っています」 (uses 立つ to introduce the
-    standing as activity, then 持つ for the state).
+Defect patterns:
 
-  * **歩く vs 行く for room-to-room movement**: 歩く foregrounds the
-    manner of walking; 行く is the neutral "go to." For "I walk to
-    the kitchen" inside a house, 行く is more natural unless the
-    walking itself is the point.
+- **持つ overloaded as take/receive/remove**: 持つ = "hold/carry as ongoing state" only. Past 持ちました reads as "began carrying briefly," not "took." Use 取る (pick up — N5), 受け取る (receive — N3), 出す (take out — N5).
+- **Size-on-mass-noun (小さい/大きい on liquids/foods)**: 小さいお茶 not natural — お茶 is mass; size the container (お茶碗) not the tea. Same for 大きいパン (borderline).
+- **Pedagogically-redundant particles**: 「お金で買います」 — buying always implies money; お金で is empty pedagogy. Use で-means via verb where means is genuinely informative (包丁で切ります).
+- **Bare 持ちません vs 持っていません for state-change**: "no longer holding" is state-change → te-iru + ません. Bare 持ちません = habitual non-past.
+- **Bare quoted 「…」 with no 言う/呼ぶ framing**: reads as stage direction, not prose.
+- **Wrong location particles for stative verbs**: で = activity-location; に = state-location. 「私の前で傘を持っています」 wrongly uses で; correct: 「私の前に立って、傘を持っています」.
+- **歩く vs 行く for room-to-room movement**: 歩く foregrounds manner; 行く is neutral "go to." Inside a house, prefer 行く.
+- **見る on people in greeting context**: 「私は母を見ます」 reads clinical. Use 母に会う or flip to 「母は私を見ます」.
 
-  * **見る on people in greeting context**: 「私は母を見ます」
-    reads as clinical/distant; native expression for noticing a
-    family member is 母に会う (meet) or just an action describing
-    the interaction. Flipping to 「母は私を見ます」 ("mother sees
-    me") is more natural in a greeting moment because mother
-    notices the child entering.
+## Full state reset vs in-place spec edit
 
-These are surface-level lexical/idiomatic concerns that the validator's
-Checks 1–11 cannot model: they require a native intuition for
-verb-meaning fit, register, and idiomaticity. The §E.7.5 native-
-naturalness subagent (added to SKILL.md on 2026-04-30) is the gate
-that catches them prospectively. **Run §E.7.5 before EVERY ship.**
-
-The 2026-04-30 rewrite of stories 1–5 was the corpus-wide fix:
-state was reset, all 5 specs edited for naturalness, all 5 re-shipped
-through the gauntlet + §E.7.5. Final corpus state: 36 vocab words,
-20 grammar points, 147 tests passing. Audio rebuilt for all changed
-sentences and words.
-
-### When to do a full state reset vs in-place spec edit
-
-For corpus-wide rewrites that change vocab introduction order (e.g.
-moving 持つ's first_story from story 1 to story 4), the operationally
-cheaper path is to **delete data/vocab_state.json + grammar_state.json
-+ stories/ + audio/story_* + audio/words/W*.mp3** and re-author all
-stories sequentially via author_loop. The state_updater does NOT
-reset attributions; trying to patch state in-place produces
-inconsistencies that the integrity tests catch but require manual
-fixes for each. Full reset is one shot, deterministic, and the
-backup snapshot at /tmp/ provides a safety net.
-
-The reset script (run from project root):
+For corpus-wide rewrites that change vocab introduction order, full reset is operationally cheaper than patching state in-place. Reset script:
 
 ```bash
 mkdir -p /tmp/monogatari_pre_reset
@@ -871,7 +253,6 @@ cp data/vocab_state.json /tmp/monogatari_pre_reset/
 cp data/grammar_state.json /tmp/monogatari_pre_reset/
 cp -r stories audio /tmp/monogatari_pre_reset/
 
-# empty state files
 python3 -c "
 import json
 v = json.load(open('data/vocab_state.json'))
@@ -889,8 +270,55 @@ json.dump(g, open('data/grammar_state.json','w'), indent=2, ensure_ascii=False)
 
 rm -rf stories/* audio/story_* audio/words/W*.mp3
 
-# then re-author each story in order:
 for n in 1 2 3 4 5; do
   python3 pipeline/author_loop.py author $n
 done
 ```
+
+The 2026-04-30 corpus rewrite of stories 1–5 used this path. Final state: 36 vocab words, 20 grammar points, 147 tests passing.
+
+## Shell quirks
+
+- `cd pipeline/tools && python3 ...` sometimes fails (CWD doesn't persist). **Always invoke scripts with full path from project root**: `python3 pipeline/tools/palette.py ...` (no cd).
+- Project uses `.venv/`. Always prepend `source .venv/bin/activate &&` for fugashi/jaconv/jamdict imports. Bare `/opt/homebrew/.../python3.14` will fail with "fugashi/jaconv/jamdict are required."
+
+## Standing user preferences
+
+### Auto-commit and push after a clean ship (permanent, since 2026-04-28)
+
+User instruction: "commit and push, do not ask ever again." For any clean ship (gauntlet `VERDICT: ship`, full pytest green, §E.5/E.6/E.7/E.7.5 pass), proceed directly to `git add … && git commit … && git push` WITHOUT asking. Default-confirm-on-write is overridden for git in this workspace.
+
+### "Rewrite story N and run tests, then restore"
+
+Take backups to `/tmp/` BEFORE editing, do the work, restore from backups, re-verify tests at the end:
+
+```bash
+cp pipeline/inputs/story_N.bilingual.json /tmp/story_N.bilingual.json.bak
+cp stories/story_N.json /tmp/story_N.json.bak
+# work
+cp /tmp/story_N.bilingual.json.bak pipeline/inputs/story_N.bilingual.json
+cp /tmp/story_N.json.bak stories/story_N.json
+python3 -m pytest pipeline/tests/ -q
+```
+
+### When the user vents about quality
+
+(1) Acknowledge frustration honestly without fawning. (2) Gather evidence before promising a plan. (3) Propose something **bounded** (not "rebuild from scratch"). (4) Flag implications of seemingly-reasonable choices ("default retire" + "best-effort + warn" together = hidden quality regression).
+
+## Patterns
+
+### Parallel subagents for "read N stories with same rubric"
+
+Three subagents reading 19 stories each in parallel beat one agent reading 56 sequentially. Rubric convergence across independent agents is itself signal. Use for any "survey the whole corpus / repo / dataset" task.
+
+### Conservatism in lint design is intentional
+
+`semantic_lint.py`'s `INANIMATE_QUIET_NOUN_IDS` deliberately EXCLUDES 雨/月/星/空/風 (natural JP pathetic-fallacy). Respect existing exclusion lists and module-level docstrings — they encode native-speaker calls overruling audit findings.
+
+### Existing tooling is comprehensive
+
+`pipeline/tools/` + `pipeline/lookup.py` cover ~80% of authoring-support needs. Inventory existing tools (`ls pipeline/tools/ && head pipeline/lookup.py`) before proposing new ones.
+
+### `would-mint` is the right preflight
+
+Avoid the multi-iteration "draft → tokenize → discover unknown word → rewrite" loop. Each iteration ≈ 3 wasted tool calls.
