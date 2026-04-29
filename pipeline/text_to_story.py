@@ -784,9 +784,36 @@ def _ensure_word(merged: dict, st: BuildState) -> Optional[dict]:
                 meaning = hits[0].senses[0]
         except Exception:
             meaning = None
+    # Mint surface choice. By default we use the lemma (so verbs get their
+    # dictionary/polite canonical form, not the inflected on-page surface),
+    # BUT if the on-page surface has no kanji we must NOT silently mint a
+    # kanji-bearing lemma (e.g. spec writes りんご and UniDic returns 林檎,
+    # or the corpus convention is hiragana for grammaticalized verbs like
+    # ある/いる/なる). The display in vocab/review/popups uses this
+    # `surface` field, and a kanji form the corpus never actually uses is
+    # an obscure-kanji UX bug.
+    #
+    # Rule:
+    #   - For NOUNS/ADJECTIVES/etc. (non-verbs): if the on-page surface is
+    #     pure kana, mint with that pure-kana surface, not the kanji lemma.
+    #   - For VERBS: keep the lemma (we want the dictionary form), but if
+    #     the lemma is kanji AND the on-page surface is pure kana, swap the
+    #     surface to the kana dictionary form (clean_kana / derive_kana).
+    chosen_surface = clean_lemma or surface
+    if not has_kanji(surface):
+        if pos == "verb":
+            # Use the kana dictionary form when the on-page form is hiragana.
+            # clean_kana is the on-page reading; we need the *dictionary* form.
+            # derive_kana on the lemma (kanji or kana) yields the kana base.
+            kana_base = derive_kana(clean_lemma) if clean_lemma else None
+            kana_base = katakana_to_hiragana(kana_base or "") if kana_base else ""
+            if kana_base and not has_kanji(kana_base):
+                chosen_surface = kana_base
+        else:
+            chosen_surface = surface
     rec = {
         "id": new_id,
-        "surface": clean_lemma or surface,
+        "surface": chosen_surface,
         "kana": clean_kana or kana,
         "reading": kana_to_romaji(clean_kana or kana),
         "pos": pos,

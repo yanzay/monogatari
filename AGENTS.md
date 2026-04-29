@@ -517,6 +517,40 @@ rm pipeline/inputs/*.tmp
 
 Then regen + audio rebuild for the affected stories.
 
+### No-obscure-kanji mint guard (since 2026-04-29 evening)
+
+The minted vocab `surface` field is what the review screen, vocab list,
+and word popups display to learners. Historically `_ensure_word` in
+`pipeline/text_to_story.py` used the UniDic *lemma* (which prefers
+kanji canonical forms) as the surface, even when the on-page surface
+was pure hiragana. This silently introduced obscure kanji forms the
+learner never encounters in any story:
+
+  * W00019 → `林檎` (apple) for りんご
+  * W00006 → `居る` (iru, exist-animate) for いる
+  * W00011 → `有る` (aru, exist-inanimate) for ある
+
+All three are real defects: 林檎 is JLPT-out-of-scope kanji, and
+居る/有る directly violate the corpus convention from the previous
+section. Fix:
+
+1. **Mint guard** in `_ensure_word` (committed): when the on-page
+   `surface` has no kanji, mint with the on-page surface (for nouns/
+   adj/etc.) or the kana dictionary form (for verbs). Kanji lemmas
+   are only kept if the corpus actually uses kanji in that position.
+2. **Regression test** `test_no_obscure_kanji_surface_in_vocab` in
+   `pipeline/tests/test_referential_integrity.py`: walks every vocab
+   entry's surface and asserts each kanji character appears at least
+   once somewhere in the corpus (any story title or sentence).
+   Failure mode and repair recipe documented in the test docstring.
+3. The three legacy entries (W00006/W00011/W00019) were rewritten
+   in-place to use their hiragana surfaces.
+
+If you ever DO want to introduce an obscure-kanji form (e.g. for an
+N1 advanced-vocab story), the corpus must show that kanji in actual
+sentence text first; the mint guard will then keep the kanji surface
+because the on-page form contains it.
+
 ---
 
 ## Notes

@@ -354,6 +354,82 @@ def test_audio_paths_in_shipped_stories_are_repo_relative(root, stories):
     )
 
 
+def test_no_obscure_kanji_surface_in_vocab(stories, vocab):
+    """Every kanji character in a vocab entry's `surface` field must
+    appear at least once in the actual corpus (story tokens / titles /
+    sentence text). Otherwise the vocab list, review screen, and word
+    popups display a kanji form the learner will literally never
+    encounter while reading — an obscure-kanji UX defect.
+
+    REGRESSION GUARD (added 2026-04-29). Three real cases triggered
+    this rule:
+      - W00019 (apple): minted with surface=林檎, but every story
+        actually writes りんご. 林檎 is rare/obscure JLPT-out-of-scope
+        kanji; the textbook convention is hiragana.
+      - W00006 (iru, exist for animates): minted with surface=居る,
+        but the corpus convention is ALWAYS いる (per AGENTS.md
+        "use hiragana for grammaticalized verbs").
+      - W00011 (aru, exist for inanimates): minted with surface=有る,
+        same convention violation.
+
+    Root cause: `pipeline/text_to_story.py::_ensure_word` used the
+    UniDic *lemma* (which prefers kanji canonical forms) as the
+    minted surface, even when the on-page surface was pure hiragana.
+    The mint logic now prefers the on-page surface when it has no
+    kanji; this test pins the invariant.
+
+    Repair recipe when this test fails:
+      1. Inspect the corpus: `grep -rn '<surface>' stories/` — does
+         the kanji form ever appear?
+      2. If never: rewrite the vocab entry's `surface` to the
+         hiragana form actually used in the corpus.
+      3. If sometimes (mixed): add the kanji-form to the corpus
+         where it should appear, OR normalise the corpus to a
+         single form (the project convention is hiragana for
+         grammaticalized verbs and obscure-kanji nouns).
+    """
+    KANJI_RANGE = (0x4E00, 0x9FFF)
+
+    def _kanji_set(s: str) -> set[str]:
+        return {c for c in (s or "") if KANJI_RANGE[0] <= ord(c) <= KANJI_RANGE[1]}
+
+    # Collect every kanji character appearing in any token surface or
+    # any title/sentence text across the corpus.
+    corpus_kanji: set[str] = set()
+    for story in stories:
+        title = (story.get("title") or {})
+        if isinstance(title, dict):
+            corpus_kanji |= _kanji_set(title.get("jp", ""))
+            for tok in title.get("tokens", []) or []:
+                corpus_kanji |= _kanji_set(tok.get("t", ""))
+        for sent in story.get("sentences", []):
+            corpus_kanji |= _kanji_set(sent.get("jp", ""))
+            for tok in sent.get("tokens", []) or []:
+                corpus_kanji |= _kanji_set(tok.get("t", ""))
+
+    bad: list[str] = []
+    for wid, w in vocab.get("words", {}).items():
+        surf = w.get("surface", "")
+        surf_kanji = _kanji_set(surf)
+        if not surf_kanji:
+            continue
+        unused = surf_kanji - corpus_kanji
+        if unused:
+            bad.append(
+                f"{wid}: vocab surface {surf!r} contains kanji "
+                f"{sorted(unused)} that NEVER appear in any story. "
+                f"Likely an obscure-kanji mint (e.g. 林檎/居る/有る "
+                f"for りんご/いる/ある). Rewrite the vocab surface "
+                f"to the form the corpus actually uses (kana={w.get('kana')!r})."
+            )
+    assert not bad, (
+        "Vocab surfaces must not contain kanji unused anywhere in the "
+        "corpus (the review screen and word popups display this field "
+        "to learners — see test docstring for repair recipe):\n  "
+        + "\n  ".join(bad)
+    )
+
+
 def test_audio_no_zero_byte_files(root, stories):
     """Every shipped audio file must be > 0 bytes. Catches ship failures
     where the TTS call returned an error but the empty file was still
