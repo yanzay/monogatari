@@ -1,0 +1,533 @@
+{
+  "story_id": 1,
+  "title": {
+    "jp": "明るい朝",
+    "en": "A Bright Morning",
+    "tokens": [
+      {
+        "t": "明るい",
+        "role": "content",
+        "word_id": "W00001",
+        "r": "あかるい",
+        "grammar_id": "G022_i_adj"
+      },
+      {
+        "t": "朝",
+        "role": "content",
+        "word_id": "W00002",
+        "r": "あさ"
+      }
+    ]
+  },
+  "new_words": [
+    "W00001",
+    "W00002",
+    "W00003",
+    "W00004",
+    "W00005",
+    "W00006",
+    "W00007",
+    "W00008",
+    "W00009",
+    "W00010",
+    "W00011",
+    "W00012",
+    "W00013",
+    "W00014",
+    "W00015",
+    "W00016",
+    "W00017",
+    "W00018"
+  ],
+  "new_grammar": [
+    "G022_i_adj",
+    "G015_no_possessive",
+    "G001_wa_topic",
+    "G003_desu",
+    "G004_ni_location",
+    "G021_aru_iru",
+    "G002_ga_subject",
+    "G009_mo_also",
+    "G050_he_direction",
+    "G026_masu_nonpast",
+    "G005_wo_object"
+  ],
+  "all_words_used": [
+    "W00001",
+    "W00002",
+    "W00003",
+    "W00004",
+    "W00005",
+    "W00006",
+    "W00007",
+    "W00008",
+    "W00009",
+    "W00010",
+    "W00011",
+    "W00012",
+    "W00013",
+    "W00014",
+    "W00015",
+    "W00016",
+    "W00017",
+    "W00018"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あさ",
+          "is_new": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "いえ",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive",
+          "is_new_grammar": true
+        },
+        {
+          "t": "台所",
+          "role": "content",
+          "word_id": "W00004",
+          "r": "だいどころ",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic",
+          "is_new_grammar": true
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu",
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the morning, the kitchen of the house is bright.",
+      "audio": "/Users/ograchov/projects/japanese-reading/audio/story_1/s0.mp3",
+      "audio_hash": "cee95084407f"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "台所",
+          "role": "content",
+          "word_id": "W00004",
+          "r": "だいどころ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location",
+          "is_new_grammar": true
+        },
+        {
+          "t": "います",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "います",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G021_aru_iru",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Mother is in the kitchen.",
+      "audio": "/Users/ograchov/projects/japanese-reading/audio/story_1/s1.mp3",
+      "audio_hash": "3fc5e5ec1a03"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "窓",
+          "role": "content",
+          "word_id": "W00007",
+          "r": "まど",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "ところ",
+          "role": "content",
+          "word_id": "W00008",
+          "r": "ところ",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00009",
+          "r": "ちいさい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "茶",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "ちゃ",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject",
+          "is_new_grammar": true
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "By the window there is a small (cup of) tea.",
+      "audio": "/Users/ograchov/projects/japanese-reading/audio/story_1/s2.mp3",
+      "audio_hash": "256a3b1af519"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "大きい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "おおきい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "パン",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "ぱん",
+          "is_new": true
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "G009_mo_also",
+          "is_new_grammar": true
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There is big bread too.",
+      "audio": "/Users/ograchov/projects/japanese-reading/audio/story_1/s3.mp3",
+      "audio_hash": "a0d44bc17ed5"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたくし",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "台所",
+          "role": "content",
+          "word_id": "W00004",
+          "r": "だいどころ"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "G050_he_direction",
+          "is_new_grammar": true
+        },
+        {
+          "t": "歩きます",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あるきます",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I walk to the kitchen.",
+      "audio": "/Users/ograchov/projects/japanese-reading/audio/story_1/s4.mp3",
+      "audio_hash": "d696fcc15456"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたくし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object",
+          "is_new_grammar": true
+        },
+        {
+          "t": "見ます",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "みます",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I look at mother.",
+      "audio": "/Users/ograchov/projects/japanese-reading/audio/story_1/s5.mp3",
+      "audio_hash": "1abda785685e"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "茶",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "ちゃ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "暖かい",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The tea is warm.",
+      "audio": "/Users/ograchov/projects/japanese-reading/audio/story_1/s6.mp3",
+      "audio_hash": "bff42a15361c"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたくし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "茶",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "ちゃ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "持ちます",
+          "role": "content",
+          "word_id": "W00018",
+          "r": "もちます",
+          "inflection": {
+            "base": "持つ",
+            "base_r": "もつ",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I hold the tea.",
+      "audio": "/Users/ograchov/projects/japanese-reading/audio/story_1/s7.mp3",
+      "audio_hash": "9290dd2e2a50"
+    }
+  ],
+  "word_audio": {
+    "W00001": "/Users/ograchov/projects/japanese-reading/audio/words/W00001.mp3",
+    "W00002": "/Users/ograchov/projects/japanese-reading/audio/words/W00002.mp3",
+    "W00003": "/Users/ograchov/projects/japanese-reading/audio/words/W00003.mp3",
+    "W00004": "/Users/ograchov/projects/japanese-reading/audio/words/W00004.mp3",
+    "W00005": "/Users/ograchov/projects/japanese-reading/audio/words/W00005.mp3",
+    "W00006": "/Users/ograchov/projects/japanese-reading/audio/words/W00006.mp3",
+    "W00007": "/Users/ograchov/projects/japanese-reading/audio/words/W00007.mp3",
+    "W00008": "/Users/ograchov/projects/japanese-reading/audio/words/W00008.mp3",
+    "W00009": "/Users/ograchov/projects/japanese-reading/audio/words/W00009.mp3",
+    "W00010": "/Users/ograchov/projects/japanese-reading/audio/words/W00010.mp3",
+    "W00011": "/Users/ograchov/projects/japanese-reading/audio/words/W00011.mp3",
+    "W00012": "/Users/ograchov/projects/japanese-reading/audio/words/W00012.mp3",
+    "W00013": "/Users/ograchov/projects/japanese-reading/audio/words/W00013.mp3",
+    "W00014": "/Users/ograchov/projects/japanese-reading/audio/words/W00014.mp3",
+    "W00015": "/Users/ograchov/projects/japanese-reading/audio/words/W00015.mp3",
+    "W00016": "/Users/ograchov/projects/japanese-reading/audio/words/W00016.mp3",
+    "W00017": "/Users/ograchov/projects/japanese-reading/audio/words/W00017.mp3",
+    "W00018": "/Users/ograchov/projects/japanese-reading/audio/words/W00018.mp3"
+  },
+  "word_audio_hash": {
+    "W00001": "27bee3131d9d",
+    "W00002": "1ba626dd871e",
+    "W00003": "cef7e4b1dd35",
+    "W00004": "07c9b03fac27",
+    "W00005": "27fc5e9108a2",
+    "W00006": "da884372835a",
+    "W00007": "3affb05ae07a",
+    "W00008": "b22cdbd6dd5c",
+    "W00009": "31f7cf1485ef",
+    "W00010": "40567f336c59",
+    "W00011": "82b6cc40ee9a",
+    "W00012": "569e083bc189",
+    "W00013": "984d9e3133d6",
+    "W00014": "613b845a89b3",
+    "W00015": "47cdfab9c721",
+    "W00016": "adc57a7c6309",
+    "W00017": "377c51458a0e",
+    "W00018": "757be4f5ed17"
+  }
+}

@@ -66,9 +66,15 @@ def test_plain_form_of_polite_vocab_tags_g055(vocab, grammar):
     under test; the W-id is incidental.
     """
     vocab = json.loads(json.dumps(vocab))  # deep copy — don't mutate fixture
-    # Use a high-numbered W##### so we don't collide with the fresh
-    # corpus's mint sequence and so next_word_id arithmetic doesn't
-    # choke on a non-numeric suffix.
+    # The test exercises the "polite-form-vocab seen in plain form"
+    # path. We need 見ます (polite) in vocab AND we need 見る (plain)
+    # to NOT be a separate vocab entry — otherwise the resolver
+    # short-circuits to the plain entry and never enters the
+    # polite-pair path. Drop any pre-existing 見る entry from the
+    # copy, then mint 見ます under a high-numbered test-only id.
+    for wid in list(vocab.get("words", {})):
+        if vocab["words"][wid].get("surface") == "見る":
+            del vocab["words"][wid]
     vocab.setdefault("words", {})["W99910"] = {
         "id":          "W99910",
         "surface":     "見ます",

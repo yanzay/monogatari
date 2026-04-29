@@ -1,0 +1,18 @@
+{
+  "story_id": 1,
+  "title": {"jp": "明るい朝", "en": "A Bright Morning"},
+  "intent": "PREMISE CONTRACT (story 1, v2.5 cold start)\n  one_sentence_event: A child wakes to a bright kitchen, walks to the table where mother has set out a small cup of tea and bread, and picks up the warm cup.\n  change_of_state: at s0 the child is offstage and the tea sits untouched by the window; at the closer the child is at the kitchen and the tea is in the child's hand. X (untouched / distant) ≠ Y (held / near).\n  scene_novelty_claim: N/A — story 1 cold start; forbid.py confirms no forbidden zones (corpus is empty).\n  anchor_novelty_claim: anchor is the cup of tea (`茶`). Never used before (corpus is empty).\n  closer_shape_claim: closer is an ACTION (subject-object-transitive verb). NOT a noun-pile (lint 11.7), NOT a 「Nは Adj です」 mirror. There is no prior story to mirror anyway.\n  why_not_filler:\n    - 母 (mother) earns her slot: she has set out the tea and bread before the child arrives; she is offstage but causally responsible for what is on the table. Two characters, satisfying characters_min=2.\n    - 私 (the child) is the actor whose state changes (offstage → kitchen → holding the tea).\n    - the cup of tea (anchor) earns its slot: passes the object-causality test by changing location (table → hand) and by triggering the closer action.\n    - the bread, the window, the kitchen all earn their slots: the bread is co-located with the tea and motivates the も-also reflection; the window establishes the morning brightness that is the wake-up trigger; the kitchen is the destination of the walk.\n  obligations_absorbed:\n    - must_reinforce: 0 items (cold start).\n    - must_introduce: ladder grammar_min=8, max=10 (after 2026-04-29 amendment). Plan to land 10 of N5: は・が・を・の・に・へ・も・です・ます・i_adj.\n    - must_mint: ladder vocab_min=14, max=18. Plan to land 16-17 of the seed plan's 17 lemmas.\n    - All obligations are NATIVE FITS (Step C.3 path a) — the kitchen scene generates the grammar+vocab inventory naturally, no grammar-bait insertions.\n  FORBIDDEN ZONES (forbid.py for story 1, 2026-04-29):\n    - scene_class:  (none — cold start)\n    - anchor_object: (none — cold start)\n    - opening_seqs: (none — cold start)\n    - closer_shape: (none — cold start)\n  AMENDMENTS DOCUMENTED (this story's authoring forced these mid-flight; see data/v2_5_seed_plan.json::_amendments_log):\n    - Story 1 grammar_seed: ADDED の/へ/も; DROPPED で (deferred to story 2).\n    - Story 1 vocab_seed: DROPPED お茶 (honorific tokenization is a Phase 4.1 issue); ADDED 茶 + 持ちます (manipulation verb).\n    - Story 1 ladder: grammar_max bumped 8→10, grammar_min bumped 6→8.\n    - These are documented permanent amendments to the plan, not §G overrides.",
+  "scene_class": "home_morning",
+  "anchor_object": "tea_cup",
+  "characters": ["私", "母"],
+  "sentences": [
+    {"jp": "朝、家の台所は明るいです。", "en": "In the morning, the kitchen of the house is bright.", "role": "setting"},
+    {"jp": "母は台所にいます。", "en": "Mother is in the kitchen.", "role": "setting"},
+    {"jp": "窓のところに小さい茶があります。", "en": "By the window there is a small (cup of) tea.", "role": "setting"},
+    {"jp": "大きいパンもあります。", "en": "There is big bread too.", "role": "setting"},
+    {"jp": "私は台所へ歩きます。", "en": "I walk to the kitchen.", "role": "action"},
+    {"jp": "私は母を見ます。", "en": "I look at mother.", "role": "action"},
+    {"jp": "茶は暖かいです。", "en": "The tea is warm.", "role": "reflection"},
+    {"jp": "私は茶を持ちます。", "en": "I hold the tea.", "role": "closer"}
+  ]
+}

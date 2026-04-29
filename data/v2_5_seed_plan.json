@@ -19,7 +19,8 @@
         {"lemma": "朝",     "pos": "noun",        "meaning": "morning"},
         {"lemma": "家",     "pos": "noun",        "meaning": "house/home"},
         {"lemma": "台所",   "pos": "noun",        "meaning": "kitchen"},
-        {"lemma": "お茶",   "pos": "noun",        "meaning": "tea"},
+        {"lemma": "茶",     "pos": "noun",        "meaning": "tea (use 茶 for now; honorific お-prefix tokenization is a Phase 4.1 follow-up — see seed plan amendment 2026-04-29)"},
+        {"lemma": "持ちます","pos": "verb",       "meaning": "hold/carry (manipulation verb; without it the slot has no transitive action)"},
         {"lemma": "パン",   "pos": "noun",        "meaning": "bread"},
         {"lemma": "窓",     "pos": "noun",        "meaning": "window"},
         {"lemma": "見ます", "pos": "verb",        "meaning": "see"},
@@ -34,10 +35,19 @@
       "grammar_seed": [
         "N5_wa_topic", "N5_ga_subject", "N5_wo_object",
         "N5_desu", "N5_masu_nonpast",
-        "N5_ni_location", "N5_de_means",
-        "N5_i_adj"
+        "N5_ni_location", "N5_no_possessive", "N5_he_direction",
+        "N5_mo_also", "N5_i_adj"
       ],
+      "grammar_seed_amendment_2026-04-29": "ADDED の(possessive)/へ(direction)/も(also). DROPPED で(means/instrument) — story 1 doesn't naturally need it; deferred to story 2 where the buying scene needs 「お金で」.",
       "rationale": "Story 1 is the cold start. Loads home + kitchen scene, two characters (私 + 母), four sensory adjectives (warm/bright/big/small) so future stories can describe instead of equate, and the foundational particle/copula/adjective scaffolding. Concrete-color adjectives are deferred to story 3 when colors are diegetically motivated."
+    },
+    "_amendments_log": {
+      "2026-04-29": [
+        "Story 1 grammar_seed: ADDED N5_no_possessive, N5_he_direction, N5_mo_also; DROPPED N5_de_means (deferred to story 2). Reason: first author cycle proved that any natural opening sentence in JP requires possessive-の and direction-へ, which the original 8-point seed plan undercounted.",
+        "Story 1 vocab_seed: DROPPED お茶, ADDED 茶 + 持ちます. Reasons: (a) honorific お-prefix tokenization needs a Phase 4.1 fix (the empty-corpus tokenizer splits お+茶); (b) the original seed had only perception verbs (見ます) and existence verbs (あります/います), giving the narrator nothing to DO — 持ちます is the minimum viable manipulation verb.",
+        "Story 1 ladder: grammar_max 8→10, grammar_min 6→8 to accommodate the 3-point grammar additions.",
+        "Story 2 should now consume N5_de_means (お金でりんごを買います) as part of its buying scene, in addition to its prior seed."
+      ]
     },
     "2": {
       "scene_class": "walk_to_shop",
@@ -55,9 +65,10 @@
         {"lemma": "一緒に",   "pos": "adverb","meaning": "together"}
       ],
       "grammar_seed": [
-        "N5_to_and", "N5_no_possessive", "N5_kara_from", "N5_e_direction"
+        "N5_to_and", "N5_kara_from", "N5_de_means"
       ],
-      "rationale": "Departure → walk → shop. Introduces direction (へ), accompaniment (と), motion verbs and the first transaction lexicon. Reinforces 私+母+歩きます from story 1."
+      "grammar_seed_amendment_2026-04-29": "DROPPED N5_no_possessive (now in story 1) and N5_e_direction (now in story 1 as N5_he_direction). ADDED N5_de_means (deferred from story 1) — naturally fits the buying scene as 「お金で」.",
+      "rationale": "Departure → walk → shop. Introduces accompaniment (と), origin (から), and means (で 'with [money]'). Reinforces 私+母+歩きます+の+へ from story 1."
     },
     "3": {
       "scene_class": "kitchen",
