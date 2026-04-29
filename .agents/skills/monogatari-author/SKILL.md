@@ -52,19 +52,23 @@ is exactly:
 10. **§E.6** — read the EN glosses of stories N, N-1, N-2 only; write
     the one-sentence "what is materially different about EVENTS"
     answer; check for escape-hatch language. **REQUIRED.**
-11. **§E.7** — delegate the fresh-eyes subagent review to a fresh
-    Explore subagent. SHIP / REWRITE-SENTENCE / REWRITE-STORY.
+11. **§E.7** — delegate the fresh-eyes literary subagent review to a
+    fresh Explore subagent. SHIP / REWRITE-SENTENCE / REWRITE-STORY.
     **REQUIRED.**
-12. **§E.8** — round-trip cap: max 3 §E↔§E.5/E.6/E.7 loops; escalate
-    on the 4th.
-13. **§F** — live ship (`author_loop.py author N`). Pytest sweep.
-14. **§F.3** — auto-commit and push (per standing user directive).
-15. **§F.4** — verify spec/artifact drift; fast-follow commit if drift.
-16. **§G** — final report; record `overrides_used: <count>/1`.
+12. **§E.7.5** — delegate the **NATIVE-NATURALNESS subagent** review
+    to a fresh Explore subagent prompted as a hostile L1 Japanese
+    speaker / editor. Per-sentence verdict on idiomatic naturalness.
+    SHIP / REWRITE-SENTENCE(list) / REWRITE-STORY. **REQUIRED.**
+13. **§E.8** — round-trip cap: max 3 §E↔§E.5/E.6/E.7/E.7.5 loops;
+    escalate on the 4th.
+14. **§F** — live ship (`author_loop.py author N`). Pytest sweep.
+15. **§F.3** — auto-commit and push (per standing user directive).
+16. **§F.4** — verify spec/artifact drift; fast-follow commit if drift.
+17. **§G** — final report; record `overrides_used: <count>/1`.
 
-**If you skipped any of §B.0, §B.1, §E.5, §E.6, §E.7 on a ship, you
-violated the discipline. Backfill the missing artifacts (write the
-prosecution table post-hoc, run the subagent post-hoc, etc.) and log
+**If you skipped any of §B.0, §B.1, §E.5, §E.6, §E.7, §E.7.5 on a ship,
+you violated the discipline. Backfill the missing artifacts (write the
+prosecution table post-hoc, run the subagents post-hoc, etc.) and log
 the procedural lapse in `.author-scratch/prosecution_N.md` so the
 audit trail is honest.**
 
@@ -561,14 +565,17 @@ that the rewrites silently introduced.
 **Once `VERDICT: would_ship`, proceed to §E.5.** Do NOT skip to §F.
 
 > ⛔ **STOP — DO NOT RUN `author_loop.py author N` (live ship) NEXT.**
-> The next steps are §E.5, §E.6, §E.7. They are REQUIRED, not optional.
-> The gauntlet's `would_ship` verdict is a *correctness* verdict, not a
-> *literary* verdict. The literary contract (§B.0) is checked here, by
-> hand, in `.author-scratch/prosecution_N.md`, and by a fresh-eyes
-> subagent (§E.7). Skipping §E.5/E.6/E.7 ships convergence defects that
-> the gauntlet is structurally incapable of catching. If you ever find
-> yourself reading "Step F" right after this line without having first
-> created `.author-scratch/prosecution_N.md`, you've slipped — go back.
+> The next steps are §E.5, §E.6, §E.7, §E.7.5. They are REQUIRED, not
+> optional. The gauntlet's `would_ship` verdict is a *correctness*
+> verdict, not a *literary* verdict and not a *naturalness* verdict.
+> The literary contract (§B.0) is checked here by hand in
+> `.author-scratch/prosecution_N.md`, by a fresh-eyes literary subagent
+> (§E.7), AND by a hostile native-Japanese-reader subagent (§E.7.5).
+> Skipping §E.5/E.6/E.7/E.7.5 ships convergence defects AND broken
+> Japanese that the gauntlet is structurally incapable of catching. If
+> you ever find yourself reading "Step F" right after this line without
+> having first created `.author-scratch/prosecution_N.md` AND run BOTH
+> subagent reviews, you've slipped — go back.
 
 ### Step E.5 — Prosecutor pass (ONLY after §E is green; re-run after every gauntlet iteration)
 
@@ -812,6 +819,156 @@ loop.
 Cost: ~1 tool call, ~10–15 seconds. Still cheap relative to a
 shipped defect.
 
+### Step E.7.5 — Native-naturalness review (1 tool call; the L1 reader gate)
+
+**Why this exists.** A user audit on 2026-04-29 found that stories
+1–5 contained sentences that passed every machine lint AND the §E.7
+literary review yet read as obviously unnatural Japanese to a
+native L1 reader. Specifically: 「窓のところに小さいお茶があります」
+(mass-noun liquid + size adjective without container), 「母はお金で
+りんごを買います」 (pedagogically-redundant means-particle), 「母は
+袋から皿を出しました」 mis-rendered as 「袋から皿を持ちました」 (持つ
+≠ take/remove), 「私の前で傘を持っています」 (で activity-particle
+with stative te-iru — should be に), 「私は『待ってください』。」
+(bare quoted line with no verb-of-saying frame), 「女の人は私から
+傘を持ちました」 (持ちました for "took" — wrong verb; native uses
+受け取る). All of these passed §E.7 because the literary reviewer
+was briefed to hunt narrative defects (pedagogy bolt-ons, weak
+closers, sameness) — NOT particle-verb compatibility, idiomatic
+verb selection, or speech-framing requirements.
+
+§E.7 catches story-shape defects. §E.7.5 catches sentence-shape
+defects at the L1-fluency level. Both are required because they
+hunt different failure modes.
+
+**Why a separate subagent (vs. extending §E.7).** A single reviewer
+told to "find narrative AND linguistic defects" tends to anchor on
+whichever defect class they encounter first and gloss over the
+other. Two subagents with disjoint mandates produce more signal.
+Cost is one extra tool call per ship — negligible compared to a
+post-ship sentence rewrite + cascade.
+
+**Freshness rule (same as §E.5/E.6/E.7):** §E.7.5 runs ONLY after
+§E is green AND §E.5, §E.6, §E.7 returned SHIP. The subagent reads
+the spec file directly. Any subsequent sentence edit invalidates
+the prior §E.7.5 verdict — re-run.
+
+Delegate to an `Explore` subagent with this **exact** task (do not
+soften the framing — the hostility is load-bearing):
+
+> "You are a HOSTILE NATIVE JAPANESE READER (L1, professional
+> editor of Japanese learner materials). Your job is to find every
+> sentence in this draft that a native speaker would NOT write or
+> say. The default verdict is REWRITE; SHIP is only earned when
+> EVERY sentence reads as something a native author would actually
+> write for a graded-reader audience.
+>
+> READ ONLY:
+>   - `pipeline/inputs/story_N.bilingual.json` (the candidate)
+> Do NOT read AGENTS.md, the SKILL, the brief, the corpus, or any
+> other story. Judge ONLY the Japanese on the page in front of you.
+>
+> Your audience is a JLPT N5 learner in week 4 of self-study. The
+> Japanese must be SIMPLE (so they understand it) AND NATURAL (so
+> they don't internalize broken patterns). Pedagogically-driven
+> awkwardness ('お金で買う' to demonstrate で-means; '台所へ歩く'
+> to demonstrate へ-direction) is exactly what this gate exists to
+> reject. A graded reader is not a particle drill.
+>
+> For EACH sentence (s0..sN), produce a row in this exact table:
+>
+> | sid | jp surface | natural? Y/N | if N, the natural rewrite | failure tag |
+>
+> Failure tags (use one per N row, multiple OK):
+>   - WRONG-VERB         (持つ used for 取る/受け取る/出す; 見る on
+>                        people without action context; 歩く when 行く
+>                        is meant; etc.)
+>   - WRONG-PARTICLE     (で with stative-持っています where に is
+>                        correct; を on a non-direct-object; に vs へ
+>                        misuse for direction-vs-arrival)
+>   - REDUNDANT-PEDAGOGY (お金で買う; 自分で〜する without contrast;
+>                        any particle that is grammatically correct
+>                        but semantically empty given the verb's
+>                        default frame)
+>   - SIZE-ON-MASS       (小さい/大きい on uncountable liquid/food
+>                        without explicit container; 'small tea',
+>                        'big rice', 'long water')
+>   - WRONG-FORM         (持ちません where 持っていません is meant
+>                        for 'no longer holding'; 〜ます where the
+>                        scene needs 〜ました; bare 〜てください as
+>                        a sentence with no addressee/frame)
+>   - DANGLING-QUOTE     (「…」 inside a sentence with no verb-of-
+>                        saying like 言う/呼ぶ/聞く/答える)
+>   - UNNATURAL-CONTENT  (the Japanese is grammatical but the
+>                        described event is implausible — 'she
+>                        deliberately set the umbrella on the road
+>                        and walked away')
+>   - STIFF              (grammatically OK but reads as textbook
+>                        rather than prose; e.g. 私は私の母を見ます
+>                        when 母を見ます is more natural)
+>
+> A row's 'natural? Y/N' MUST be N if any failure tag applies.
+> 'mostly natural' / 'understandable' / 'a learner could parse it'
+> are ALL N — the gate is native-fluency, not learner-parseability.
+>
+> After the table, produce:
+>
+> A. NATURALNESS SCORE: (count of Y rows) / (total rows). Anything
+>    less than total/total is REWRITE.
+>
+> B. ROOT-CAUSE NOTES: if 2+ rows share a failure tag, name the
+>    root cause in one line ('the spec leaned on 持つ to do the
+>    work of three different verbs', 'the spec used で as a
+>    universal location particle').
+>
+> C. VERDICT (one of three; the default is REWRITE):
+>   - SHIP — only if NATURALNESS SCORE = total/total AND every
+>     sentence would survive a JP editor's red pen.
+>   - REWRITE-SENTENCE — list the sids that need rewrites and the
+>     suggested natural rewrites. Use this when the story shape is
+>     fine but specific sentences need surgical fixes.
+>   - REWRITE-STORY — the spec's vocabulary/grammar choices have
+>     forced unnatural constructions throughout (e.g. the bootstrap
+>     palette is being asked to express transfer events without
+>     transfer verbs). Recommend a different verb set or a different
+>     premise direction in one sentence.
+>
+> If you find yourself wanting to write 'mostly natural' or 'a
+> learner would understand' or 'technically OK Japanese' — that is
+> a REWRITE verdict wearing a polite mask. Strip the mask. The
+> corpus is small; one shipped unnatural sentence becomes a pattern
+> the next story author will copy."
+
+If the subagent says SHIP → proceed to Step F.
+If REWRITE-SENTENCE → fix the named sentences, BOUNCE BACK to §E
+(re-run the gauntlet — the edits may have broken correctness OR
+introduced new mints), and re-run §E.5/E.6/E.7/E.7.5 on the new
+text.
+If REWRITE-STORY → the bootstrap palette is being asked to do
+something it cannot do naturally. Two paths:
+  (a) Pick a different premise that the palette CAN express
+      naturally (preferred for bootstrap stories — the seed plan
+      has flexibility on scene/anchor; consult `data/v2_5_seed_plan.json`
+      for slot alternatives).
+  (b) Spend a §G override to add 1–2 above-tier verbs that make
+      the natural construction possible (e.g. 受け取る for transfer
+      events). Document the override in the spec's `intent`.
+The "do nothing and ship anyway" path is NOT available for §E.7.5
+REWRITE-STORY — overriding a native-fluency rejection ships broken
+Japanese into the corpus, which is the precise failure this gate
+exists to prevent.
+
+**Calibration check (every 5th story, in lockstep with §E.7).** If
+the last 5 §E.7.5 verdicts were all SHIP without any REWRITE-SENTENCE
+fixes, suspect the prompt has been internalized as a formality.
+Re-deploy with a paraphrase that asks the subagent to ARGUE FOR
+REWRITE explicitly first. The user audit on 2026-04-29 caught
+defects the subagent SHOULD have caught had this gate existed —
+do not let it become decorative.
+
+Cost: ~1 tool call, ~10–15 seconds. Cheap relative to a shipped
+unnatural sentence.
+
 ### Step E.8 — Round-trip cap and the trivial-edit carryover
 
 **Why this exists.** The §E ↔ §E.5/E.6/E.7 loop can in principle
@@ -821,10 +978,11 @@ closer fails lint X," etc. Without a cap, this loop can burn an entire
 session. With a too-cheap cap, real defects get suppressed by
 escalation fatigue.
 
-**The cap:** at most **3 round-trips** through §E ↔ §E.5/E.6/E.7
-per story. A round-trip is "gauntlet went green → literary review
-forced an edit → gauntlet had to be re-run." After the third
-round-trip, **stop and escalate to the user.** Surface in ≤5 lines:
+**The cap:** at most **3 round-trips** through §E ↔ §E.5/E.6/E.7/E.7.5
+per story. A round-trip is "gauntlet went green → literary OR
+naturalness review forced an edit → gauntlet had to be re-run."
+After the third round-trip, **stop and escalate to the user.**
+Surface in ≤5 lines:
 what each round-trip changed, what the current blocker is, and one
 proposed simplification (usually: pick a different anchor, or pick a
 different grammar floor pick that makes the must-reinforce easier).
@@ -832,8 +990,12 @@ different grammar floor pick that makes the must-reinforce easier).
 **The trivial-edit carryover.** A "round-trip" only counts when the
 edit changed at least one full sentence. Pure punctuation fixes,
 single-particle swaps within the same sentence, or whitespace fixes do
-NOT invalidate the prior §E.5/E.6/E.7 verdicts and do NOT consume a
-round-trip slot. The threshold is sentence-level: if `git diff
+NOT invalidate the prior §E.5/E.6/E.7/E.7.5 verdicts and do NOT
+consume a round-trip slot. Note: §E.7.5 will frequently produce
+single-particle or single-verb swaps; these are exactly the edits
+that the trivial-edit carryover was designed for. Apply them, re-run
+the gauntlet (cheap), and re-run §E.7.5 against the patched text
+without invalidating the prior §E.5/E.6/E.7 verdicts. The threshold is sentence-level: if `git diff
 pipeline/inputs/story_N.bilingual.json` shows changes to a `jp` field
 that altered the sentence's surface lemmas or its predicate, it's a
 real edit; smaller deltas carry over.
@@ -846,16 +1008,19 @@ green — the corpus does not need a story whose every sentence is the
 result of a forced compromise. Better to defer and re-tune the seed
 plan or the ladder for that slot.
 
-### Step F — Ship (only when §E, §E.5, §E.6, §E.7 are ALL green on the SAME text)
+### Step F — Ship (only when §E, §E.5, §E.6, §E.7, §E.7.5 are ALL green on the SAME text)
 
 > ⛔ **GATE.** Before running the live ship command below, confirm:
 > - `.author-scratch/prosecution_N.md` exists, all contract rows = Y. (§E.5)
 > - You have written down the §E.6 "materially different EVENTS" sentence
 >   and it does NOT use any escape-hatch phrase.
-> - The §E.7 fresh-eyes subagent returned `SHIP`.
+> - The §E.7 fresh-eyes literary subagent returned `SHIP`.
+> - The §E.7.5 native-naturalness subagent returned `SHIP` with
+>   NATURALNESS SCORE = total/total.
 >
 > If any of those is false, do NOT run the live ship. Either complete
-> the missing gate, or — if the gate FAILS — discard and restart §B.
+> the missing gate, or — if the gate FAILS — fix the named sentences
+> and re-loop, or discard and restart §B.
 
 ```bash
 source .venv/bin/activate && python3 pipeline/author_loop.py author N
@@ -975,10 +1140,11 @@ Procedure:
 **The ONLY conditions that block auto-commit:**
 
 - §E.5 prosecutor pass / §E.6 EN-only re-read / §E.7 fresh-eyes
-  subagent flagged a contract violation or REWRITE verdict. **The
-  discard path runs BEFORE the ship** so this should never block at
-  commit time — but if for any reason a story made it past §E.5–E.7
-  with an unresolved REWRITE flag, do NOT commit.
+  subagent / §E.7.5 native-naturalness subagent flagged a contract
+  violation or REWRITE verdict. **The discard path runs BEFORE the
+  ship** so this should never block at commit time — but if for any
+  reason a story made it past §E.5–E.7.5 with an unresolved REWRITE
+  flag, do NOT commit.
 - `git status` shows unexpected files modified (e.g. unrelated edits in
   `src/`, `pipeline/`). In that case, stage ONLY the story-related files
   listed above, commit those, push, and flag the stray changes to the
@@ -1274,8 +1440,15 @@ An override is consumed when:
   always means restart Step B).
 - §E.6 EN-only difference sentence required an escape hatch and
   the story ships anyway.
-- §E.7 fresh-eyes subagent returned REWRITE-STORY and the story
-  ships anyway.
+- §E.7 fresh-eyes literary subagent returned REWRITE-STORY and the
+  story ships anyway.
+- §E.7.5 native-naturalness subagent returned REWRITE-STORY and
+  the story ships anyway. **STRONGLY DISCOURAGED** — overriding a
+  native-fluency rejection ships unnatural Japanese into the corpus,
+  which is the precise failure this gate exists to prevent. Prefer
+  spending the override on a §G lexical addition (1–2 above-tier
+  verbs that unlock the natural construction) rather than on
+  shipping the broken sentence.
 
 **The second override in a session forces escalation:** stop, do NOT
 ship, surface to the user with ≤5 lines describing what each override
