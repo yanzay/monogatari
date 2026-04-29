@@ -50,10 +50,19 @@ def test_vocab_word_ids_match_field(vocab):
 
 
 def test_vocab_next_word_id_monotonic(vocab):
-    """next_word_id must be > max existing wid."""
+    """next_word_id must be > max existing wid.
+
+    Empty-corpus safe (v2.5 reload, 2026-04-29): when no words have
+    been minted yet, next_word_id should be exactly W00001.
+    """
     next_id = vocab["next_word_id"]
-    max_existing = max(int(w[1:]) for w in vocab["words"].keys())
     next_n = int(next_id[1:])
+    if not vocab["words"]:
+        assert next_n == 1, (
+            f"empty vocab should have next_word_id=W00001 (got {next_id})"
+        )
+        return
+    max_existing = max(int(w[1:]) for w in vocab["words"].keys())
     assert next_n > max_existing, (
         f"next_word_id={next_id} (n={next_n}) but max existing word_id is W{max_existing:05d}"
     )

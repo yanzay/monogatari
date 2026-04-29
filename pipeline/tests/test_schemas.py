@@ -66,7 +66,7 @@ GRAMMAR_SCHEMA = {
                         "bunpro_ref":     {"type": "string"},
                         "jlpt_sensei_ref":{"type": "string"},
                         "prerequisites":  {"type": "array", "items": {"type": "string"}},
-                        "first_story":    {"type": "string"},
+                        "first_story":    {"type": ["string", "null"]},
                         "notes":          {"type": "string"},
                     },
                     "additionalProperties": True,

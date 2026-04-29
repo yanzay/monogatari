@@ -510,8 +510,14 @@ def _prune_orphan_vocab(vocab: dict, used_wids: set[str]) -> tuple[list[str], bo
 
 
 def _refresh_next_word_id(vocab: dict) -> None:
-    """Set vocab['next_word_id'] = 'W{max+1:05d}' over current keys."""
-    max_n = max(int(k[1:]) for k in vocab["words"] if k.startswith("W"))
+    """Set vocab['next_word_id'] = 'W{max+1:05d}' over current keys.
+
+    Empty-vocab safe: returns 'W00001' when no words have been minted yet
+    (the v2.5 reload state). The legacy implementation crashed with
+    `ValueError: max() iterable argument is empty` on an empty corpus.
+    """
+    nums = [int(k[1:]) for k in vocab.get("words", {}) if k.startswith("W")]
+    max_n = max(nums) if nums else 0
     vocab["next_word_id"] = f"W{max_n + 1:05d}"
 
 

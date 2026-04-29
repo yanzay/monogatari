@@ -55,9 +55,31 @@ def _verb_token(built: dict, surface: str) -> dict | None:
 
 
 def test_plain_form_of_polite_vocab_tags_g055(vocab, grammar):
-    """見る (plain form of polite-form vocab 見ます W00010) must carry
+    """見る (plain form of polite-form vocab 見ます) must carry
     grammar_id G055_plain_nonpast_pair AND inflection.form='plain_nonpast'.
+
+    Self-seeding: this test used to depend on the live vocab state
+    containing 見ます (W00010 in the v2.0 corpus). After the v2.5
+    reload (2026-04-29) the corpus starts empty, so we mint a local
+    copy of the vocab with 見ます manually inserted under the
+    test-only id WTEST10. The grammar_id attribution path is what's
+    under test; the W-id is incidental.
     """
+    vocab = json.loads(json.dumps(vocab))  # deep copy — don't mutate fixture
+    # Use a high-numbered W##### so we don't collide with the fresh
+    # corpus's mint sequence and so next_word_id arithmetic doesn't
+    # choke on a non-numeric suffix.
+    vocab.setdefault("words", {})["W99910"] = {
+        "id":          "W99910",
+        "surface":     "見ます",
+        "kana":        "みます",
+        "reading":     "mimasu",
+        "pos":         "verb",
+        "verb_class":  "ichidan",
+        "meanings":    ["see", "look"],
+        "occurrences": 1,
+        "first_story": "story_1",
+    }
     built, _ = _build(
         [{"jp": "私は月を見る。", "en": "I see the moon."}],
         vocab, grammar,
