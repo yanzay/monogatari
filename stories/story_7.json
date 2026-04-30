@@ -1,0 +1,425 @@
+{
+  "story_id": 7,
+  "title": {
+    "jp": "雨と店の人",
+    "en": "The Rain and the Shopkeeper",
+    "tokens": [
+      {
+        "t": "雨",
+        "role": "content",
+        "word_id": "W00055",
+        "r": "あめ"
+      },
+      {
+        "t": "と",
+        "role": "particle",
+        "grammar_id": "G010_to_and"
+      },
+      {
+        "t": "店",
+        "role": "content",
+        "word_id": "W00021",
+        "r": "みせ"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
+      },
+      {
+        "t": "人",
+        "role": "content",
+        "word_id": "W00046",
+        "r": "ひと"
+      }
+    ]
+  },
+  "new_words": [
+    "W00055",
+    "W00056",
+    "W00057",
+    "W00058",
+    "W00059",
+    "W00060"
+  ],
+  "new_grammar": [
+    "G055_plain_nonpast_pair",
+    "G059_dakara",
+    "G029_kute"
+  ],
+  "all_words_used": [
+    "W00055",
+    "W00021",
+    "W00046",
+    "W00056",
+    "W00057",
+    "W00006",
+    "W00058",
+    "W00059",
+    "W00060",
+    "W00039",
+    "W00009",
+    "W00054",
+    "W00047"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "降る",
+          "role": "content",
+          "word_id": "W00056",
+          "r": "ふる",
+          "inflection": {
+            "base": "降る",
+            "base_r": "ふる",
+            "form": "dictionary",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G055_plain_nonpast_pair",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00055",
+          "r": "あめ",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "冷たい",
+          "role": "content",
+          "word_id": "W00057",
+          "r": "つめたい",
+          "grammar_id": "G022_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The falling rain is cold.",
+      "audio": "audio/story_7/s0.mp3",
+      "audio_hash": "6239e6ca5f6a"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00055",
+          "r": "あめ"
+        },
+        {
+          "t": "だから",
+          "role": "particle",
+          "grammar_id": "G059_dakara",
+          "is_new_grammar": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00021",
+          "r": "みせ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "います",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "います",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Because of the rain, I am at a shop.",
+      "audio": "audio/story_7/s1.mp3",
+      "audio_hash": "98c97030786c"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "靴",
+          "role": "content",
+          "word_id": "W00058",
+          "r": "くつ",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "冷たくて",
+          "role": "content",
+          "word_id": "W00057",
+          "r": "つめたくて",
+          "inflection": {
+            "form": "i_adj_te"
+          },
+          "grammar_id": "G029_kute",
+          "is_new_grammar": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "濡れて",
+          "role": "content",
+          "word_id": "W00059",
+          "r": "ぬれて",
+          "inflection": {
+            "base": "濡れる",
+            "base_r": "ぬれる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G007_te_form",
+          "is_new": true
+        },
+        {
+          "t": "います",
+          "role": "aux",
+          "grammar_id": "G008_te_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My shoes are cold and wet.",
+      "audio": "audio/story_7/s2.mp3",
+      "audio_hash": "397e817f8899"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00021",
+          "r": "みせ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "タオル",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "たおる",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "持って",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "もって",
+          "inflection": {
+            "base": "持つ",
+            "base_r": "もつ",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "います",
+          "role": "aux",
+          "grammar_id": "G008_te_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The shopkeeper is holding a towel.",
+      "audio": "audio/story_7/s3.mp3",
+      "audio_hash": "e0b079ed67ec"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "タオル",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "たおる"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "温かい",
+          "role": "content",
+          "word_id": "W00009",
+          "r": "あたたかい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The towel is warm.",
+      "audio": "audio/story_7/s4.mp3",
+      "audio_hash": "509d42e2e49e"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "その",
+          "role": "content",
+          "word_id": "W00054",
+          "r": "その",
+          "grammar_id": "G043_kosoado_pre_nominal"
+        },
+        {
+          "t": "タオル",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "たおる"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "取ります",
+          "role": "content",
+          "word_id": "W00047",
+          "r": "とります",
+          "inflection": {
+            "base": "取る",
+            "base_r": "とる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G049_ga_but"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "靴",
+          "role": "content",
+          "word_id": "W00058",
+          "r": "くつ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "濡れて",
+          "role": "content",
+          "word_id": "W00059",
+          "r": "ぬれて",
+          "inflection": {
+            "base": "濡れる",
+            "base_r": "ぬれる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "います",
+          "role": "aux",
+          "grammar_id": "G008_te_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I take that towel, but my shoes are still wet.",
+      "audio": "audio/story_7/s5.mp3",
+      "audio_hash": "15fc3b2c672f"
+    }
+  ],
+  "word_audio": {
+    "W00055": "audio/words/W00055.mp3",
+    "W00056": "audio/words/W00056.mp3",
+    "W00057": "audio/words/W00057.mp3",
+    "W00058": "audio/words/W00058.mp3",
+    "W00059": "audio/words/W00059.mp3",
+    "W00060": "audio/words/W00060.mp3"
+  },
+  "word_audio_hash": {
+    "W00055": "559f2ae38222",
+    "W00056": "eeff74de1cef",
+    "W00057": "86823fc46ce9",
+    "W00058": "cbbf6cd9fc67",
+    "W00059": "8bb1e074c436",
+    "W00060": "5c50d52594d5"
+  }
+}
