@@ -181,50 +181,51 @@
     playOnce(sentenceAudioSrc);
   }
 
-  function reveal() {
-    revealed = true;
-    if (learner.state.prefs.audio_on_review_reveal && card && word) {
-      playCardAudio();
-    }
-  }
-
   /**
-   * Should the post-grade ECHO (variant B) fire on this card?
+   * Should the per-sentence audio play when the back of a reading card
+   * is revealed?
    *
-   *   - Only after Good (1) or Easy (2) — never Again. The echo is a
-   *     reward for recognition, not a do-over.
    *   - Only on READING cards. Listening cards already played the
-   *     sentence audio as their prompt; replaying after grading would
-   *     just be noise.
+   *     sentence audio as their prompt; replaying it on reveal would
+   *     be redundant noise.
    *   - Only when sentence audio actually exists (cardAudioSrc is the
-   *     per-word path; we use sentenceAudioSrc for the echo so the
-   *     learner gets prosody, not isolated word audio).
-   *   - Policy `'never'` always returns false; `'always'` always returns
-   *     true (subject to the other gates); `'mature_only'` requires the
-   *     PRE-grade card status to be `young` or `mature` so brand-new
-   *     and learning cards don't get distracted by sentence audio
-   *     whose meaning the user just looked up.
+   *     per-word path; we use sentenceAudioSrc here so the learner
+   *     gets prosody, not just the isolated word).
+   *   - Policy `'never'` always returns false; `'always'` always
+   *     returns true (subject to the other gates); `'mature_only'`
+   *     requires the card status to be `young` or `mature` so a
+   *     brand-new word's first reveal isn't drowned by full-sentence
+   *     audio before the learner has anchored the word itself.
    */
-  function shouldEchoAfterGrade(c: Card, g: Grade): boolean {
-    if (g === GRADES.AGAIN) return false;
+  function shouldPlaySentenceOnReveal(c: Card): boolean {
     if (cardKind(c) === 'listening') return false;
     if (!sentenceAudioSrc) return false;
-    const policy = learner.state.prefs.audio_echo_on_grade ?? 'mature_only';
+    const policy = learner.state.prefs.audio_sentence_on_reveal ?? 'mature_only';
     if (policy === 'never') return false;
     if (policy === 'always') return true;
-    // 'mature_only': only echo on cards that have already graduated.
+    // 'mature_only': only on cards that have already graduated.
     return c.status === 'young' || c.status === 'mature';
+  }
+
+  function reveal() {
+    revealed = true;
+    if (!card) return;
+    // Per-word audio first (cheap recognition cue), then the
+    // sentence audio so the learner hears the word in context BEFORE
+    // they grade. Tiny stagger so the two audio sources don't talk
+    // over each other; playOnce calls stopCurrent internally so
+    // pressing a grade key mid-sentence cleanly interrupts.
+    if (learner.state.prefs.audio_on_review_reveal && word) {
+      playCardAudio();
+    }
+    if (shouldPlaySentenceOnReveal(card)) {
+      const src = sentenceAudioSrc!;
+      setTimeout(() => playOnce(src), 350);
+    }
   }
 
   function grade(g: Grade) {
     if (!card) return;
-    // Capture the echo decision against the PRE-grade card snapshot —
-    // applyGrade may flip the status (e.g. mature → relearning on
-    // Again, which is moot since Again skips echo, or new → learning
-    // on Good, which we explicitly want to NOT echo on). Reading the
-    // post-grade status would defeat the point of `mature_only`.
-    const echo = shouldEchoAfterGrade(card, g);
-    const echoSrc = sentenceAudioSrc;
     const gradedStory = contextStory; // captured for tick below
     const result = applyGrade(card, g, new Date(), learner.state.prefs.target_retention);
     learner.state.srs[card.word_id] = result.card;
@@ -242,19 +243,6 @@
     queue = queue.slice(1);
     if (queue.length === 0) rebuildQueue();
     lastUndoable = true;
-    // Echo the sentence audio AFTER state mutation but with a tiny
-    // delay so the new card's loadCurrent autoplay (listening cards)
-    // doesn't race against ours. The echo is interruptible — pressing
-    // grade on the next card calls stopCurrent via playOnce / playCardAudio.
-    if (echo && echoSrc) {
-      setTimeout(() => {
-        // Only fire if the user hasn't already triggered fresh audio
-        // (e.g. by landing on a listening card whose autoplay started).
-        // playOnce calls stopCurrent internally so worst case is a
-        // sub-second overlap; the explicit guard keeps it cleaner.
-        playOnce(echoSrc);
-      }, 60);
-    }
   }
 
   function undo() {

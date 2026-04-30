@@ -56,10 +56,19 @@ export type EchoPolicy = 'never' | 'mature_only' | 'always';
 export interface Prefs {
   show_gloss_by_default: boolean;
   audio_on_review_reveal: boolean;
-  /** See EchoPolicy. Default `'mature_only'`. Replaces the retired
-   *  `audio_listen_first` boolean (legacy import maps `true` → 'mature_only',
-   *  `false` → 'never'). */
-  audio_echo_on_grade: EchoPolicy;
+  /** Sentence-prosody audio policy on reading-card REVEAL. Default
+   *  `'mature_only'`. Plays the per-sentence audio when the back of the
+   *  card is shown, so the learner hears the word in context at the
+   *  exact moment they're about to grade — not after they've moved on.
+   *
+   *  History:
+   *    - was `audio_listen_first: boolean` (retired 2026-04-29; mapped
+   *      true → 'mature_only', false → 'never').
+   *    - was `audio_echo_on_grade: EchoPolicy` (retired 2026-04-30;
+   *      same policy values, but fired AFTER grade — wasted because the
+   *      learner was already looking at the next card. Same enum is
+   *      preserved on import.). */
+  audio_sentence_on_reveal: EchoPolicy;
   theme?: 'auto' | 'light' | 'dark';
   target_retention: number;
   /**
@@ -109,10 +118,10 @@ function defaultPrefs(): Prefs {
   return {
     show_gloss_by_default: false,
     audio_on_review_reveal: true,
-    // Replaces the retired `audio_listen_first` toggle. Default
-    // `'mature_only'` so new learners see the feature working on words
-    // they already know without it being intrusive on first sight.
-    audio_echo_on_grade: 'mature_only',
+    // Default `'mature_only'` so new learners see the feature working on
+    // words they already know without it being intrusive when they're
+    // still building first-recognition of a brand-new word.
+    audio_sentence_on_reveal: 'mature_only',
     theme: 'auto',
     target_retention: DEFAULT_TARGET_RETENTION,
     // Default: no cap. See Prefs.daily_max_reviews docstring for rationale.
@@ -203,20 +212,30 @@ export function sanitizeImported(raw: unknown): LearnerState {
       }
       case 'prefs': {
         const p = value as Record<string, unknown>;
-        // Migration: the retired boolean `audio_listen_first` maps to
-        // the new EchoPolicy. Old true → 'mature_only' (the safe new
-        // default that DOES introduce sentence audio without hijacking
-        // recognition); old false → 'never'. If the new pref is
-        // already present in the import payload, it wins.
-        let echoPolicy: 'never' | 'mature_only' | 'always' = 'mature_only';
+        // Migration chain (newest first wins):
+        //   1. New name `audio_sentence_on_reveal` (since 2026-04-30).
+        //   2. Prior name `audio_echo_on_grade` (2026-04-29 → 2026-04-30).
+        //      Same enum, different timing; user's chosen policy carries
+        //      over verbatim — semantics shift from "after grading" to
+        //      "on reveal" but the never/mature_only/always intent
+        //      transfers cleanly.
+        //   3. Original boolean `audio_listen_first` (pre-2026-04-29).
+        //      true → 'mature_only', false → 'never'.
+        let policy: 'never' | 'mature_only' | 'always' = 'mature_only';
         if (
+          p.audio_sentence_on_reveal === 'never' ||
+          p.audio_sentence_on_reveal === 'mature_only' ||
+          p.audio_sentence_on_reveal === 'always'
+        ) {
+          policy = p.audio_sentence_on_reveal;
+        } else if (
           p.audio_echo_on_grade === 'never' ||
           p.audio_echo_on_grade === 'mature_only' ||
           p.audio_echo_on_grade === 'always'
         ) {
-          echoPolicy = p.audio_echo_on_grade;
+          policy = p.audio_echo_on_grade;
         } else if (typeof p.audio_listen_first === 'boolean') {
-          echoPolicy = p.audio_listen_first ? 'mature_only' : 'never';
+          policy = p.audio_listen_first ? 'mature_only' : 'never';
         }
         // listening_per_review was a short-lived pref (2026-04-29 only)
         // that was removed when listening became a separate tab. Drop it
@@ -226,7 +245,7 @@ export function sanitizeImported(raw: unknown): LearnerState {
           show_gloss_by_default: !!p.show_gloss_by_default,
           audio_on_review_reveal:
             typeof p.audio_on_review_reveal === 'boolean' ? p.audio_on_review_reveal : true,
-          audio_echo_on_grade: echoPolicy,
+          audio_sentence_on_reveal: policy,
           theme:
             p.theme === 'light' || p.theme === 'dark' || p.theme === 'auto'
               ? p.theme

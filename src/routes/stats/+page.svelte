@@ -27,10 +27,10 @@
   /** Bind the EchoPolicy select. The pref is a string union — we
    *  defend against arbitrary input by ignoring anything off the
    *  whitelist (which can only happen if a user hand-edits the DOM). */
-  function bindEchoPolicy(e: Event) {
+  function bindSentenceOnRevealPolicy(e: Event) {
     const v = (e.target as HTMLSelectElement).value;
     if (v === 'never' || v === 'mature_only' || v === 'always') {
-      learner.state.prefs.audio_echo_on_grade = v;
+      learner.state.prefs.audio_sentence_on_reveal = v;
       learner.save();
     }
   }
@@ -166,22 +166,23 @@
       </label>
       <label class="settings-row">
         <span>
-          Sentence audio echo on grade
+          Play sentence audio on reveal
           <small class="settings-hint">
-            After grading a reading card Good or Easy, optionally
-            replay the sentence audio. Reinforces sentence prosody on
-            words you've just shown you can recognize. Never fires on
-            Again grades or on listening cards (where audio was the
-            prompt). Default: only on already-graduated cards.
+            When the back of a reading card is shown, play the full
+            sentence audio so you hear the word in context BEFORE you
+            grade. Never fires on listening cards (where the sentence
+            was already the prompt). Default: only on already-graduated
+            cards, so brand-new words aren't drowned by full-sentence
+            audio before you've anchored the word itself.
           </small>
         </span>
         <select
-          value={prefs.audio_echo_on_grade}
-          onchange={bindEchoPolicy}
+          value={prefs.audio_sentence_on_reveal}
+          onchange={bindSentenceOnRevealPolicy}
         >
           <option value="never">Never</option>
           <option value="mature_only">Only on graduated cards</option>
-          <option value="always">After every Good / Easy</option>
+          <option value="always">On every reveal</option>
         </select>
       </label>
     </div>

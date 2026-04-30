@@ -343,51 +343,72 @@ describe('sanitizeImported', () => {
       expect(out.prefs.audio_on_review_reveal).toBe(true);
     });
 
-    describe('audio_echo_on_grade (replaces retired audio_listen_first)', () => {
+    describe('audio_sentence_on_reveal (replaces audio_echo_on_grade and audio_listen_first)', () => {
       it('defaults to "mature_only" when absent', () => {
         const out = sanitizeImported({ prefs: {} });
-        expect(out.prefs.audio_echo_on_grade).toBe('mature_only');
+        expect(out.prefs.audio_sentence_on_reveal).toBe('mature_only');
       });
 
       it.each(['never', 'mature_only', 'always'] as const)(
         'preserves explicit %s',
         (policy) => {
-          const out = sanitizeImported({ prefs: { audio_echo_on_grade: policy } });
-          expect(out.prefs.audio_echo_on_grade).toBe(policy);
+          const out = sanitizeImported({ prefs: { audio_sentence_on_reveal: policy } });
+          expect(out.prefs.audio_sentence_on_reveal).toBe(policy);
         },
       );
 
       it('rejects unknown policy strings (defaults to mature_only)', () => {
-        const out = sanitizeImported({ prefs: { audio_echo_on_grade: 'often' } });
-        expect(out.prefs.audio_echo_on_grade).toBe('mature_only');
+        const out = sanitizeImported({ prefs: { audio_sentence_on_reveal: 'often' } });
+        expect(out.prefs.audio_sentence_on_reveal).toBe('mature_only');
       });
+
+      it.each(['never', 'mature_only', 'always'] as const)(
+        'migrates prior pref audio_echo_on_grade=%s verbatim',
+        (policy) => {
+          // Same enum, different timing — the user's choice carries
+          // over: never stays never, always stays always, etc. Only
+          // semantics change (after-grade → on-reveal).
+          const out = sanitizeImported({ prefs: { audio_echo_on_grade: policy } });
+          expect(out.prefs.audio_sentence_on_reveal).toBe(policy);
+        },
+      );
 
       it('migrates legacy audio_listen_first=true → "mature_only"', () => {
         // The retired toggle's spirit was "I want some sentence audio
         // exposure"; mature_only is the safe modernization.
         const out = sanitizeImported({ prefs: { audio_listen_first: true } });
-        expect(out.prefs.audio_echo_on_grade).toBe('mature_only');
+        expect(out.prefs.audio_sentence_on_reveal).toBe('mature_only');
       });
 
       it('migrates legacy audio_listen_first=false → "never"', () => {
         const out = sanitizeImported({ prefs: { audio_listen_first: false } });
-        expect(out.prefs.audio_echo_on_grade).toBe('never');
+        expect(out.prefs.audio_sentence_on_reveal).toBe('never');
       });
 
-      it('explicit new pref wins over legacy bool when both are present', () => {
+      it('newest pref wins: audio_sentence_on_reveal beats audio_echo_on_grade', () => {
+        const out = sanitizeImported({
+          prefs: {
+            audio_sentence_on_reveal: 'always',
+            audio_echo_on_grade: 'never',
+          },
+        });
+        expect(out.prefs.audio_sentence_on_reveal).toBe('always');
+      });
+
+      it('audio_echo_on_grade beats audio_listen_first when audio_sentence_on_reveal is absent', () => {
         const out = sanitizeImported({
           prefs: { audio_listen_first: true, audio_echo_on_grade: 'never' },
         });
-        expect(out.prefs.audio_echo_on_grade).toBe('never');
+        expect(out.prefs.audio_sentence_on_reveal).toBe('never');
       });
 
-      it('silently drops the legacy audio_listen_first field on import', () => {
-        // The new pref is audio_echo_on_grade; the boolean should not
-        // survive a sanitize pass.
-        const out = sanitizeImported({ prefs: { audio_listen_first: true } });
-        expect(
-          (out.prefs as unknown as Record<string, unknown>).audio_listen_first,
-        ).toBeUndefined();
+      it('silently drops legacy audio_listen_first and audio_echo_on_grade fields on import', () => {
+        const out = sanitizeImported({
+          prefs: { audio_listen_first: true, audio_echo_on_grade: 'always' },
+        });
+        const p = out.prefs as unknown as Record<string, unknown>;
+        expect(p.audio_listen_first).toBeUndefined();
+        expect(p.audio_echo_on_grade).toBeUndefined();
       });
     });
 
@@ -508,10 +529,12 @@ describe('sanitizeImported', () => {
       expect(out.prefs).toEqual({
         show_gloss_by_default: false,
         audio_on_review_reveal: true,
-        // audio_listen_first retired → audio_echo_on_grade (2026-04-29).
+        // audio_listen_first (pre-2026-04-29) → audio_echo_on_grade
+        // (2026-04-29) → audio_sentence_on_reveal (2026-04-30; same enum,
+        // sentence audio fires on reveal instead of after grade).
         // listening_per_review removed: listening is now a separate tab,
         // not an interleave rate.
-        audio_echo_on_grade: 'mature_only',
+        audio_sentence_on_reveal: 'mature_only',
         theme: 'auto',
         target_retention: DEFAULT_TARGET_RETENTION,
         // daily_max_new removed 2026-04-29; default review cap is null (no cap).

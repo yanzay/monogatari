@@ -69,9 +69,11 @@ beforeEach(() => {
     prefs: {
       show_gloss_by_default: false,
       audio_on_review_reveal: true,
-      // audio_listen_first retired → audio_echo_on_grade (2026-04-29).
+      // audio_listen_first (pre-2026-04-29) → audio_echo_on_grade
+      // (2026-04-29) → audio_sentence_on_reveal (2026-04-30; same enum,
+      // sentence audio fires on reveal instead of after grade).
       // listening_per_review removed: listening is now a separate tab.
-      audio_echo_on_grade: 'mature_only',
+      audio_sentence_on_reveal: 'mature_only',
       theme: 'auto',
       target_retention: 0.9,
       // daily_max_new removed 2026-04-29; daily_max_reviews defaults to null (no cap).
