@@ -143,7 +143,7 @@ def update_state(
 
     # ── 2. Add new grammar points ─────────────────────────────────────────────
     #
-    # Two distinct cases:
+    # Three distinct cases:
     #   (a) gid is brand-new to grammar_state — build a fresh entry from the
     #       plan's new_grammar_definitions block (requires title/short/long).
     #   (b) gid already exists in grammar_state but has no `intro_in_story`
@@ -151,6 +151,12 @@ def update_state(
     #       and `first_story` so coverage tracking works going forward.
     #       This is the common path right now — most G0XX points were
     #       loaded with metadata but no story attribution.
+    #   (c) gid is reinforced (already attributed in a prior story).
+    #       We bump `last_seen_story` to the current story_id so coverage
+    #       diagnostics and any future spaced-repetition logic can see when
+    #       a grammar point last appeared. Handled in the §2b sweep below
+    #       so it covers BOTH `story.new_grammar` (case a/b) AND every gid
+    #       that surfaces in any token (the reinforcement set).
     added_grammar = []
     plan_grammar_defs = (plan or {}).get("new_grammar_definitions", {})
     for gid in story_new_grammar:
@@ -201,6 +207,38 @@ def update_state(
         new_grammar["points"][gid] = entry
         added_grammar.append(gid)
 
+    # ── 2b. Bump last_seen_story for every grammar point used in this story ──
+    #
+    # Walk every token (title + sentences) and collect grammar IDs from both
+    # `tok["grammar_id"]` (token-level paradigm tag like G055) and
+    # `tok["inflection"]["grammar_id"]` (legacy paradigm path some older
+    # tokens use). Set `last_seen_story = story_id` on each known point.
+    # Brand-new points (added in §2 above) ALSO get the bump so the field
+    # is never `None` once a point has appeared at least once.
+    used_gids: set[str] = set()
+    for sec_name in ("title",):
+        for tok in (story.get(sec_name) or {}).get("tokens", []):
+            gid = tok.get("grammar_id")
+            if gid:
+                used_gids.add(gid)
+            infl_gid = (tok.get("inflection") or {}).get("grammar_id")
+            if infl_gid:
+                used_gids.add(infl_gid)
+    for sent in story.get("sentences", []):
+        for tok in sent.get("tokens", []):
+            gid = tok.get("grammar_id")
+            if gid:
+                used_gids.add(gid)
+            infl_gid = (tok.get("inflection") or {}).get("grammar_id")
+            if infl_gid:
+                used_gids.add(infl_gid)
+    grammar_reinforced: list[str] = []
+    for gid in used_gids:
+        if gid in new_grammar["points"]:
+            new_grammar["points"][gid]["last_seen_story"] = story_id
+            if gid not in story_new_grammar:
+                grammar_reinforced.append(gid)
+
     # ── 3. Update metadata ────────────────────────────────────────────────────
     now = datetime.now(timezone.utc).isoformat()
     new_vocab["last_story_id"] = story_id
@@ -210,11 +248,12 @@ def update_state(
     new_grammar["version"] = grammar.get("version", 1)
 
     summary = {
-        "story_id":      story_id,
-        "words_added":   added_words,
-        "words_updated": updated_words,
-        "grammar_added": added_grammar,
-        "updated_at":    now,
+        "story_id":           story_id,
+        "words_added":        added_words,
+        "words_updated":      updated_words,
+        "grammar_added":      added_grammar,
+        "grammar_reinforced": grammar_reinforced,
+        "updated_at":         now,
     }
     return new_vocab, new_grammar, summary
 

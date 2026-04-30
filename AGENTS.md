@@ -60,6 +60,16 @@ A second `state_updater` call does NOT clear attributions made by the first. If 
 
 `audio_builder.py` writes per-sentence audio to `audio/story_<N>/s<idx>.mp3` and per-word audio to flat `audio/words/<wid>.mp3`. If a re-ship changes word IDs (slot reuse at different position), stale `audio/words/W*.mp3` files become orphans → `test_audio_word_files_only_for_known_words` fails. Hand-delete stale files whose IDs are no longer in `data/vocab_state.json`.
 
+### Conjunction vocab + grammar last_seen bookkeeping (since 2026-04-30)
+
+Two pre-existing pipeline gaps fixed in one pass:
+
+1. **Conjunctions now mint as vocab.** Surfaces in `text_to_story.CONJUNCTION_VOCAB` (だから, ですから, でも, そして, について) used to be tagged as pure grammar particles with no `word_id`, leaving the reading-app's lookup popup with nothing to resolve when the learner tapped them. They now mint **function-class** vocab records (pos=`conjunction`, _minted_by=`conjunction_registry`) on first use; the token gets BOTH `word_id` AND `grammar_id`. Function mints flow through a SEPARATE bucket — `report["new_function_words"]` — so they do NOT count against `step_mint_budget`. To add a new conjunction-class surface, add an entry to `CONJUNCTION_VOCAB` with kana/reading/pos/meanings (and optionally jlpt). Pure case-particles (は/が/を/に/から-as-source/etc.) deliberately stay wid-less. Test: `test_conjunction_surfaces_carry_word_id` in `test_state_integrity.py`.
+
+2. **Grammar `last_seen_story` now updates on every ship.** Previously only vocab `last_seen_story` was bumped; grammar's was never written. `state_updater.py` now has a §2b sweep that walks all story tokens (title + sentences) and sets `last_seen_story = story_id` on every `grammar_id` referenced (own field or `inflection.grammar_id`). Backfill via the corpus-walk script that landed alongside the patch — sets last_seen to the highest story_id where each gid appears. Two regression tests: `test_grammar_last_seen_story_set_for_introduced_points` and `test_grammar_last_seen_story_matches_corpus_max_use` in `test_state_integrity.py`.
+
+State chain consequence: after this patch, `data/grammar_state.json::points[gid]["last_seen_story"]` is the load-bearing field for "when did this grammar point last appear" (mirroring vocab semantics). Reinforcement debt analysis (e.g. G009_mo_also last seen story 3, G050_he_direction last seen story 2) becomes diagnosable from state alone.
+
 ### Audio layout (since 2026-04-29)
 
 - `audio/story_<N>/s<idx>.mp3` — per-sentence, story-scoped.

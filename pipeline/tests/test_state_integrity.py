@@ -478,3 +478,108 @@ def test_no_orphan_grammar_points(stories, grammar):
         f"(if a gid is genuinely context-sensitive and intentionally untagged, "
         f"add it to DEFERRED_CONTEXT_GIDS with a comment.)"
     )
+
+
+# ── Grammar last_seen_story bookkeeping (added 2026-04-30) ────────────────────
+
+
+def test_grammar_last_seen_story_set_for_introduced_points(grammar, stories):
+    """Every grammar point with `intro_in_story` set must also have
+    `last_seen_story` set to a value >= intro_in_story.
+
+    Pre-2026-04-30 the field was never written. Patched in state_updater
+    §2b so that any token carrying a known gid bumps its `last_seen_story`.
+    The backfill walks all shipped stories. This test guards against a
+    future regression where state_updater drops the §2b sweep or where
+    a gid is introduced in a story but its tokens are never tagged
+    (which would leave last_seen None even after intro)."""
+    bad = []
+    for gid, p in grammar["points"].items():
+        intro = p.get("intro_in_story")
+        last_seen = p.get("last_seen_story")
+        if intro is None:
+            continue  # not yet attributed; not subject to this invariant
+        if last_seen is None:
+            bad.append(f"{gid}: intro_in_story={intro} but last_seen_story=None")
+            continue
+        try:
+            ls_int = int(last_seen) if not isinstance(last_seen, int) else last_seen
+            in_int = int(intro) if not isinstance(intro, int) else intro
+        except (ValueError, TypeError):
+            bad.append(f"{gid}: non-numeric intro/last_seen ({intro!r}/{last_seen!r})")
+            continue
+        if ls_int < in_int:
+            bad.append(f"{gid}: last_seen_story={ls_int} < intro_in_story={in_int}")
+    assert not bad, "Grammar last_seen_story bookkeeping failed:\n  " + "\n  ".join(bad)
+
+
+def test_grammar_last_seen_story_matches_corpus_max_use(grammar, stories):
+    """`last_seen_story` for each grammar point must equal the largest
+    story_id in which any token carries that gid (own field or inflection.grammar_id).
+
+    This is the contract state_updater §2b enforces on every ship; the
+    test guards against drift if state_updater is bypassed or a story is
+    removed without re-running the bookkeeping pass."""
+    from collections import defaultdict
+    last_use_in_corpus: dict[str, int] = defaultdict(int)
+    for story in stories:
+        sid = story["story_id"] if isinstance(story.get("story_id"), int) else int(str(story.get("_id","")).split("_")[1])
+        for sec_name in ("title",):
+            for tok in (story.get(sec_name) or {}).get("tokens", []):
+                for g in (tok.get("grammar_id"), (tok.get("inflection") or {}).get("grammar_id")):
+                    if g and sid > last_use_in_corpus[g]:
+                        last_use_in_corpus[g] = sid
+        for sent in story.get("sentences", []):
+            for tok in sent.get("tokens", []):
+                for g in (tok.get("grammar_id"), (tok.get("inflection") or {}).get("grammar_id")):
+                    if g and sid > last_use_in_corpus[g]:
+                        last_use_in_corpus[g] = sid
+    drifted = []
+    for gid, expected in last_use_in_corpus.items():
+        if gid not in grammar["points"]:
+            continue  # tagged but not yet in state — separate invariant
+        actual = grammar["points"][gid].get("last_seen_story")
+        try:
+            actual_int = int(actual) if actual is not None else None
+        except (ValueError, TypeError):
+            actual_int = None
+        if actual_int != expected:
+            drifted.append(f"{gid}: state.last_seen={actual!r} but corpus max-use={expected}")
+    assert not drifted, (
+        "Grammar last_seen_story drift vs corpus:\n  "
+        + "\n  ".join(drifted)
+    )
+
+
+# ── Conjunction vocab attribution (added 2026-04-30) ──────────────────────────
+
+
+def test_conjunction_surfaces_carry_word_id(stories, vocab):
+    """Tokens whose surface is a known conjunction (だから, でも, そして, etc.)
+    must carry both a grammar_id (existing behavior) AND a word_id pointing
+    to a conjunction-pos vocab entry. Without the word_id the reading-app
+    cannot resolve a lookup popup when the learner taps the surface."""
+    from text_to_story import CONJUNCTION_VOCAB
+    bad = []
+    for story in stories:
+        sid = story.get("_id") or story.get("story_id")
+        for sent_idx, sent in enumerate(story.get("sentences", [])):
+            for tok in sent.get("tokens", []):
+                t = tok.get("t")
+                if t not in CONJUNCTION_VOCAB:
+                    continue
+                if not tok.get("word_id"):
+                    bad.append(f"{sid} s{sent_idx} {t!r}: missing word_id")
+                    continue
+                wid = tok["word_id"]
+                w = vocab["words"].get(wid)
+                if w is None:
+                    bad.append(f"{sid} s{sent_idx} {t!r}: word_id {wid} not in vocab")
+                    continue
+                if w.get("pos") != "conjunction":
+                    pos_str = repr(w.get("pos"))
+                    bad.append(
+                        f"{sid} s{sent_idx} {t!r}: word_id {wid} pos={pos_str}, expected 'conjunction'"
+                    )
+    assert not bad, "Conjunction attribution failures:\n  " + "\n  ".join(bad)
+

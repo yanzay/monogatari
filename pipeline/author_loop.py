@@ -992,6 +992,7 @@ def _build_state_plan(build_report: dict | None) -> dict:
     plan: dict = {"new_word_definitions": {}, "new_grammar_definitions": {}}
     if not build_report:
         return plan
+    # Content-class mints (count toward mint budget).
     for rec in build_report.get("new_words", []) or []:
         wid = rec.get("id")
         if not wid:
@@ -1008,6 +1009,24 @@ def _build_state_plan(build_report: dict | None) -> dict:
         if rec.get("adj_class"):
             defn["adj_class"] = rec["adj_class"]
         plan["new_word_definitions"][wid] = defn
+
+    # Function-class mints (conjunctions like だから, でも, そして). These do
+    # NOT count toward mint budget (they're functional, not content-class)
+    # but DO need to be persisted as vocab so the reading-app's lookup
+    # popups can resolve them. They flow through the same
+    # state_updater.new_word_definitions channel — state_updater treats
+    # them identically to content vocab for state writeback.
+    for rec in build_report.get("new_function_words", []) or []:
+        wid = rec.get("id")
+        if not wid:
+            continue
+        plan["new_word_definitions"][wid] = {
+            "surface":  rec.get("surface", wid),
+            "kana":     rec.get("kana", ""),
+            "reading":  rec.get("reading", ""),
+            "pos":      rec.get("pos", "conjunction"),
+            "meanings": list(rec.get("meanings") or []),
+        }
 
     # Splice in any auto-tagged grammar definitions that the builder
     # surfaced as unknown to state. We deduplicate by gid because the

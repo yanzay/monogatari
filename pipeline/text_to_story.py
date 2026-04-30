@@ -93,6 +93,58 @@ GRAMMAR_ROLE: dict[str, str] = {
     "G032_demo":         "particle",
 }
 
+# ── Conjunction-class surfaces that ALSO get a vocab entry ───────────────────
+#
+# These are surfaces that linguistically are WORDS (JMdict carries them as
+# conjunction headwords; Tanos / Genki / Bunpro list them as N5 vocab) but
+# also map to a grammar point in SURFACE_TO_GRAMMAR. Without a vocab entry
+# the reading-app's word-lookup popup yields nothing when a learner taps
+# them — they'd see only an opaque grammar tag.
+#
+# Each entry mints a FUNCTION-CLASS vocab record on first use. Function-class
+# mints are NOT counted in `report["new_words"]` (they don't consume the
+# story's mint budget) and carry `pos="conjunction"` + `_minted_by=
+# "conjunction_registry"` so consumers can distinguish them from content
+# vocab. The token still receives its existing grammar_id; the change is
+# purely additive — `tok["word_id"]` is now also set.
+CONJUNCTION_VOCAB: dict[str, dict] = {
+    "だから": {
+        "kana": "だから",
+        "reading": "dakara",
+        "pos": "conjunction",
+        "meanings": ["so; therefore; consequently"],
+        "jlpt": 5,
+    },
+    "ですから": {
+        "kana": "ですから",
+        "reading": "desukara",
+        "pos": "conjunction",
+        "meanings": ["so; therefore (polite)"],
+        "jlpt": 5,
+    },
+    "でも": {
+        "kana": "でも",
+        "reading": "demo",
+        "pos": "conjunction",
+        "meanings": ["but; however; though"],
+        "jlpt": 5,
+    },
+    "そして": {
+        "kana": "そして",
+        "reading": "soshite",
+        "pos": "conjunction",
+        "meanings": ["and; and then; thus"],
+        "jlpt": 5,
+    },
+    "について": {
+        "kana": "について",
+        "reading": "nitsuite",
+        "pos": "conjunction",
+        "meanings": ["concerning; about; regarding"],
+        "jlpt": 4,
+    },
+}
+
 # ── Auto-tagged grammar IDs that may be brand-new to grammar_state ───────────
 #
 # When the tagger emits a grammar_id, `state_updater` needs a full state-entry
@@ -891,6 +943,49 @@ def _record_unknown_grammar(tok: dict, gid: str, st: BuildState) -> None:
         st.report["unknown_grammar"].append({"surface": tok.get("t"), "grammar_id": gid})
 
 
+def _ensure_conjunction_word(surface: str, st: BuildState) -> Optional[dict]:
+    """
+    Look up or mint a vocab record for a conjunction-class surface
+    (だから, でも, そして, について, …). Lives in CONJUNCTION_VOCAB.
+
+    Function-class mint: the record is added to vocab_state.words but NOT
+    appended to report["new_words"], so it does not consume the story's
+    mint budget. Distinguishable downstream by `pos == "conjunction"` and
+    `_minted_by == "conjunction_registry"`.
+
+    Returns None for surfaces not in CONJUNCTION_VOCAB.
+    """
+    spec = CONJUNCTION_VOCAB.get(surface)
+    if spec is None:
+        return None
+    # Already in this build's mint cache?
+    dedup_key = f"conjunction|{surface}"
+    if dedup_key in st.minted:
+        return st.minted[dedup_key]
+    # Already in vocab_state from a previous story?
+    word = st.vocab_index.lookup(surface)
+    if word and word.get("pos") == "conjunction":
+        return word
+    # Mint a fresh function-class record.
+    new_id = next_word_id(st.vocab_state, {r["id"] for r in st.minted.values()})
+    rec = {
+        "id": new_id,
+        "surface": surface,
+        "kana": spec["kana"],
+        "reading": spec["reading"],
+        "pos": spec["pos"],
+        "meanings": list(spec["meanings"]),
+        "_minted_by": "conjunction_registry",
+    }
+    if "jlpt" in spec:
+        rec["jlpt"] = spec["jlpt"]
+    st.minted[dedup_key] = rec
+    # Append to a SEPARATE bucket so author_loop / mint_budget can ignore it
+    # while state_updater can still pick it up for vocab_state writeback.
+    st.report.setdefault("new_function_words", []).append(rec)
+    return rec
+
+
 def _surface_reading(merged: dict, word: Optional[dict]) -> Optional[str]:
     """Pick the reading to put on a token's `r` field. Emitted for all content
     tokens (kanji or kana) — canonical includes `r` on most content tokens
@@ -948,6 +1043,12 @@ def merged_to_token_json(merged: dict, st: BuildState) -> dict:
         gid = SURFACE_TO_GRAMMAR[surface]
         tok = {"t": surface, "role": _grammar_role(gid), "grammar_id": gid}
         _record_unknown_grammar(tok, gid, st)
+        # Conjunction-class surfaces also get a vocab entry (UI lookup
+        # popups need a word_id to resolve). Pure case-particles (は, が,
+        # を, に, から-as-source, etc.) stay wid-less by design.
+        cw = _ensure_conjunction_word(surface, st)
+        if cw is not None:
+            tok["word_id"] = cw["id"]
         return tok
 
     # Content word (noun / verb / adjective / pronoun / adverb)
