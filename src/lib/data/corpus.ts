@@ -1,6 +1,7 @@
 import { base } from '$app/paths';
 import { LRU } from '$lib/util/lru';
 import type {
+  Sentence,
   Story,
   StoryManifestRoot,
   StoryManifestPagePayload,
@@ -193,6 +194,92 @@ export function loadStoryById(id: number): Promise<Story | null> {
   })();
   storyCache.set(id, p);
   return p;
+}
+
+/**
+ * Find a sentence in the corpus that contains `wordId`, preferring the
+ * caller-supplied (story, sentence) hint when it still resolves.
+ *
+ * The hint usually comes from an SRS card's `context_story` /
+ * `context_sentence_idx`, both written when the card was minted. If the
+ * corpus has been rewritten since the card was minted (e.g. a vocab
+ * renumber after a corpus reset, or a story rewrite that drops the
+ * word), the hint becomes stale and the naive lookup returns nothing —
+ * which historically meant the review UI silently fell back to showing
+ * an isolated word with no sentence context. This helper is the
+ * self-healing path: cheap when the hint is valid, exhaustive when it
+ * isn't.
+ *
+ * Lookup order:
+ *   1. The exact (story, sentence_idx) the hint points at.
+ *   2. Any other sentence in the hint story.
+ *   3. The vocab index's `first_story` for the word (canonical home).
+ *   4. A bounded linear walk over the corpus, starting at story 1.
+ *
+ * Returns null if the word is not found anywhere in the corpus —
+ * pathological but possible if the vocab row exists for a word that no
+ * story currently uses (e.g. a state-restore mid-rewrite).
+ */
+export async function findSentenceForWord(
+  wordId: string,
+  hintStoryId?: number | null,
+  hintSentenceIdx?: number | null,
+): Promise<{ story: Story; sentenceIdx: number; sentence: Sentence } | null> {
+  const tried = new Set<number>();
+
+  const tryStory = async (
+    sid: number,
+    preferredIdx?: number | null,
+  ): Promise<{ story: Story; sentenceIdx: number; sentence: Sentence } | null> => {
+    if (!sid || tried.has(sid)) return null;
+    tried.add(sid);
+    const story = await loadStoryById(sid);
+    if (!story) return null;
+    // Fast path: the hinted sentence still has the word.
+    if (
+      preferredIdx != null &&
+      preferredIdx >= 0 &&
+      preferredIdx < story.sentences.length &&
+      story.sentences[preferredIdx].tokens.some((t) => t.word_id === wordId)
+    ) {
+      return { story, sentenceIdx: preferredIdx, sentence: story.sentences[preferredIdx] };
+    }
+    // Slow path: scan the story's sentences.
+    for (let i = 0; i < story.sentences.length; i += 1) {
+      if (story.sentences[i].tokens.some((t) => t.word_id === wordId)) {
+        return { story, sentenceIdx: i, sentence: story.sentences[i] };
+      }
+    }
+    return null;
+  };
+
+  // 1 + 2: the hint story (preferring the hinted sentence).
+  if (hintStoryId) {
+    const found = await tryStory(hintStoryId, hintSentenceIdx);
+    if (found) return found;
+  }
+
+  // 3: canonical first_story from the vocab index.
+  const idx = await loadVocabIndex();
+  const row = idx.words.find((r) => r.id === wordId);
+  if (row?.first_story != null) {
+    const fs = typeof row.first_story === 'number'
+      ? row.first_story
+      : Number(String(row.first_story).replace(/^story_/, ''));
+    if (Number.isInteger(fs) && fs > 0) {
+      const found = await tryStory(fs);
+      if (found) return found;
+    }
+  }
+
+  // 4: bounded linear walk. Bounded by the manifest count so we don't
+  //    keep fetching past the end of the corpus.
+  const total = await manifestStoryCount();
+  for (let sid = 1; sid <= total; sid += 1) {
+    const found = await tryStory(sid);
+    if (found) return found;
+  }
+  return null;
 }
 
 /**

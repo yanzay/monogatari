@@ -535,3 +535,92 @@ describe('decorateWithAudioPaths (via loadStoryById)', () => {
     expect(Object.keys(s?.word_audio ?? {})).toEqual(['W00001']);
   });
 });
+
+/* ── findSentenceForWord (self-healing context lookup) ───────────── */
+
+describe('findSentenceForWord', () => {
+  function manifestWith(n: number) {
+    return { version: 2, n_stories: n, stories: [] };
+  }
+
+  it('returns the hinted sentence when the hint is still valid', async () => {
+    routes['/monogatari/stories/index.json'] = () => ok(manifestWith(3));
+    routes['/monogatari/data/vocab/index.json'] = () =>
+      ok(vocabIndex([{ id: 'W00001', shard: '00' }]));
+    routes['/monogatari/stories/story_3.json'] = () => ok(story(3));
+    const m = await loadCorpus();
+    const found = await m.findSentenceForWord('W00001', 3, 0);
+    expect(found?.story.story_id).toBe(3);
+    expect(found?.sentenceIdx).toBe(0);
+  });
+
+  it('falls back to a different sentence in the hint story when the hinted index is stale', async () => {
+    routes['/monogatari/stories/index.json'] = () => ok(manifestWith(3));
+    routes['/monogatari/data/vocab/index.json'] = () =>
+      ok(vocabIndex([{ id: 'W00001', shard: '00' }]));
+    // Story 3 has W00001 in BOTH sentences, but we point at index 5 (out of range).
+    routes['/monogatari/stories/story_3.json'] = () => ok(story(3));
+    const m = await loadCorpus();
+    const found = await m.findSentenceForWord('W00001', 3, 5);
+    expect(found?.story.story_id).toBe(3);
+    // Should fall through to the first matching sentence in the story.
+    expect(found?.sentenceIdx).toBe(0);
+  });
+
+  it('walks to the vocab `first_story` when the hint story has no matching sentence', async () => {
+    routes['/monogatari/stories/index.json'] = () => ok(manifestWith(5));
+    // Vocab index says the canonical home is story 2.
+    routes['/monogatari/data/vocab/index.json'] = () =>
+      ok({
+        ...vocabIndex([{ id: 'W00001', shard: '00' }]),
+        words: [
+          {
+            id: 'W00001',
+            shard: '00',
+            surface: '猫',
+            kana: 'ねこ',
+            reading: 'neko',
+            short_meaning: 'cat',
+            occurrences: 1,
+            first_story: 2,
+          },
+        ],
+      });
+    // Hint points at story 5 — but story 5 has no W00001 tokens.
+    routes['/monogatari/stories/story_5.json'] = () =>
+      ok({
+        ...story(5),
+        sentences: [
+          { idx: 0, tokens: [{ t: '犬', word_id: 'W00099', role: 'content' }], gloss_en: 'A dog.' },
+        ],
+      });
+    routes['/monogatari/stories/story_2.json'] = () => ok(story(2));
+    const m = await loadCorpus();
+    const found = await m.findSentenceForWord('W00001', 5, 0);
+    expect(found?.story.story_id).toBe(2);
+    expect(found?.sentenceIdx).toBe(0);
+  });
+
+  it('returns null when no story in the corpus contains the word', async () => {
+    routes['/monogatari/stories/index.json'] = () => ok(manifestWith(2));
+    routes['/monogatari/data/vocab/index.json'] = () =>
+      ok(vocabIndex([{ id: 'W00099', shard: '00' }]));
+    routes['/monogatari/stories/story_1.json'] = () =>
+      ok({
+        ...story(1),
+        sentences: [
+          { idx: 0, tokens: [{ t: '犬', word_id: 'W00098', role: 'content' }], gloss_en: 'A dog.' },
+        ],
+      });
+    routes['/monogatari/stories/story_2.json'] = () =>
+      ok({
+        ...story(2),
+        sentences: [
+          { idx: 0, tokens: [{ t: '犬', word_id: 'W00098', role: 'content' }], gloss_en: 'A dog.' },
+        ],
+      });
+    const m = await loadCorpus();
+    const found = await m.findSentenceForWord('W00099', undefined, undefined);
+    expect(found).toBeNull();
+  });
+});

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { learner } from '$lib/state/learner.svelte';
-  import { loadStoryById, getWord, loadVocabIndex } from '$lib/data/corpus';
+  import { loadStoryById, getWord, loadVocabIndex, findSentenceForWord } from '$lib/data/corpus';
   import { audioFor, playOnce } from '$lib/data/audio';
   import { applyGrade, buildQueue, GRADES, tickListeningMinting } from '$lib/state/srs';
   import { resolveReviewKey } from '$lib/util/review-keymap';
@@ -121,19 +121,45 @@
       return;
     }
 
-    // Reading card path (unchanged behavior except no listen-first
-    // hiding — that variant is retired in favor of the post-grade echo).
+    // Reading card path. The card stores a (story, sentence_idx) hint
+    // captured at mint time; usually the hint resolves directly. If it
+    // doesn't (e.g. the corpus was rewritten and the word was renumbered
+    // or moved between stories), `findSentenceForWord` walks the corpus
+    // to recover a valid (story, sentence) pair so the user never sees
+    // an isolated, contextless word card. Found locations that differ
+    // from the card's stored hint are written back so subsequent reviews
+    // skip the recovery walk.
     const w = await getWord(card.word_id);
     if (!w || card !== queue[0]) return;
     word = w;
-    const exact = story.sentences[card.context_sentence_idx];
-    if (exact && exact.tokens.some((t) => t.word_id === card.word_id)) {
-      contextSentence = exact;
+    const found = await findSentenceForWord(
+      card.word_id,
+      card.context_story,
+      card.context_sentence_idx,
+    );
+    if (card !== queue[0]) return;
+    if (found) {
+      contextStory = found.story;
+      contextSentence = found.sentence;
+      // Self-heal the SRS card if its hint pointed somewhere stale.
+      // This survives the next save() (which happens on every grade).
+      if (
+        found.story.story_id !== card.context_story ||
+        found.sentenceIdx !== card.context_sentence_idx
+      ) {
+        const stored = learner.state.srs[card.word_id];
+        if (stored) {
+          stored.context_story = found.story.story_id;
+          stored.context_sentence_idx = found.sentenceIdx;
+        }
+      }
     } else {
-      contextSentence =
-        story.sentences.find((s) => s.tokens.some((t) => t.word_id === card.word_id)) ?? null;
+      // No sentence anywhere in the corpus contains this word_id. Leave
+      // contextSentence null; the template renders a graceful fallback
+      // rather than silently lying about context.
+      contextSentence = null;
     }
-    cardAudioSrc = story.word_audio?.[card.word_id] ?? null;
+    cardAudioSrc = contextStory?.word_audio?.[card.word_id] ?? null;
     sentenceAudioSrc = contextSentence?.audio ?? null;
   }
 
@@ -385,7 +411,15 @@
                 {/if}
               {/each}
             {:else}
+              <!-- Fallback: no sentence in the corpus contains this
+                   word_id. This should never happen in a healthy corpus,
+                   but is possible if state and stories drift apart
+                   (e.g. mid-rewrite). Surface the situation honestly
+                   rather than pretending the bare word is the prompt. -->
               <span class="review-highlight">{word.surface}</span>
+              <div class="review-no-context-note">
+                No example sentence found in the current corpus for this card.
+              </div>
             {/if}
           </div>
           {#if contextSentence}
@@ -513,5 +547,15 @@
     background: var(--surface2);
     border: 1px solid var(--border);
     border-radius: 3px;
+  }
+  /* Surfaced when the corpus has no sentence containing this card's
+     word_id at all — distinct from the normal "show the word in its
+     sentence" path. Keeps the user oriented instead of leaving them
+     staring at a single character with no explanation. */
+  .review-no-context-note {
+    margin-top: 0.6rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
   }
 </style>
