@@ -22,7 +22,7 @@
       "notes": "Most fundamental particle. Always pronounced 'wa' here, never 'ha'. Authoring tip: pair every new noun with は in its first appearance to set the topic clearly.",
       "intro_in_story": 1,
       "first_story": "story_1",
-      "last_seen_story": 10
+      "last_seen_story": 9
     },
     "G002_ga_subject": {
       "id": "G002_ga_subject",
@@ -45,7 +45,7 @@
       "notes": "Authoring tip: introduce が only after は is established. The pedagogical point of が in beginner stories is the は↔が contrast — use が to introduce a NEW entity in the scene, then switch to は to keep talking about it.",
       "intro_in_story": 1,
       "first_story": "story_1",
-      "last_seen_story": 10
+      "last_seen_story": 8
     },
     "G003_desu": {
       "id": "G003_desu",
@@ -68,7 +68,7 @@
       "notes": "Most-used grammar in our library (40+ uses). Authoring tip: です attaches to nouns and na-adjectives directly; for i-adjectives, です follows the adjective (いいです). For past tense, use でした (G013), not い-adj past form.",
       "intro_in_story": 1,
       "first_story": "story_1",
-      "last_seen_story": 10
+      "last_seen_story": 9
     },
     "G004_ni_location": {
       "id": "G004_ni_location",
@@ -89,7 +89,7 @@
       "notes": "Re-anchored to story_9 where に-particle appears 4 times — gives the intro story the same-story redundancy needed for pattern recognition (formerly story_6 which only had 1 に).",
       "intro_in_story": 1,
       "first_story": "story_1",
-      "last_seen_story": 10
+      "last_seen_story": 9
     },
     "G005_wo_object": {
       "id": "G005_wo_object",
@@ -112,7 +112,7 @@
       "notes": "Authoring tip: pronounced 'o', not 'wo'. Always between the direct object and a transitive verb. Don't use with intransitive verbs (います, あります — those take が or に).",
       "intro_in_story": 1,
       "first_story": "story_1",
-      "last_seen_story": 10
+      "last_seen_story": 9
     },
     "G006_kara_from": {
       "id": "G006_kara_from",
@@ -225,7 +225,7 @@
       "notes": "Authoring tip: と is exhaustive ('A and B and only those'). Distinct from や (G011, non-exhaustive 'A, B, and so on'). Always between every pair: AとBとC. Don't use と to connect verbs or sentences (use て-form for that). と also functions as a quote particle (G014).",
       "intro_in_story": 2,
       "first_story": "story_2",
-      "last_seen_story": 10
+      "last_seen_story": 9
     },
     "G011_ya_partial": {
       "id": "G011_ya_partial",
@@ -337,7 +337,7 @@
       "notes": "Authoring tip: の chains are pure noun-phrase building. Don't introduce until the learner has at least two nouns to combine — i.e. story 1 onwards. We've been silently mis-tagging の as G001_wa_topic since story 1; this entry retroactively classifies all those uses correctly.",
       "intro_in_story": 1,
       "first_story": "story_1",
-      "last_seen_story": 10
+      "last_seen_story": 9
     },
     "G016_na_adjective": {
       "id": "G016_na_adjective",
@@ -359,7 +359,7 @@
       ],
       "notes": "Authoring tip: easy to confuse with the topic copula in predicate position. Tag な (between na-adj and noun) as G016, not G003. Stories 5/6/7/9/12 silently mis-tagged this — fixed retroactively.",
       "intro_in_story": 9,
-      "last_seen_story": 10,
+      "last_seen_story": 9,
       "first_story": "story_9"
     },
     "G017_de_means": {
@@ -383,7 +383,7 @@
       "notes": "Re-anchored to story_16 (was story_8) so the immediate reinforcement window contains real follow-up uses (で-particle in stories 17, 18, 20, 21).",
       "intro_in_story": 3,
       "first_story": "story_2",
-      "last_seen_story": 10
+      "last_seen_story": 9
     },
     "G021_aru_iru": {
       "id": "G021_aru_iru",
@@ -406,7 +406,7 @@
       "notes": "First explicitly introduced in story_7 although あります appears earlier — this is the dedicated focus story for the existence-verb pattern. Listed only G002_ga_subject as a prerequisite (the X が います pattern); に-location (G004) is co-occurring surface in story_7 but is not formally introduced until story_9, so is not a hard prerequisite — the existence-verb pattern is teachable from が alone (友達がいます = 'there is a friend / I have a friend').",
       "intro_in_story": 1,
       "first_story": "story_1",
-      "last_seen_story": 10
+      "last_seen_story": 8
     },
     "G022_i_adj": {
       "id": "G022_i_adj",
@@ -475,7 +475,7 @@
       "notes": "Late-anchored: ます has been used since story 1; story_28 dedicates focus to it.",
       "intro_in_story": 1,
       "first_story": "story_1",
-      "last_seen_story": 10
+      "last_seen_story": 9
     },
     "G018_toki_when": {
       "id": "G018_toki_when",
@@ -603,9 +603,8 @@
       "bunpro_ref": "https://bunpro.jp/grammar_points/たい",
       "jlpt_sensei_ref": "https://jlptsensei.com/learn-japanese-grammar/たい-tai/",
       "notes": "First-person desire only. Don't use for father/mother/friend wanting something. The romance arc starts here because 〜たい is the cleanest grammatical surface for *longing*: I want to see, I want to return, I want to know.",
-      "intro_in_story": 10,
-      "last_seen_story": 10,
-      "first_story": "story_10"
+      "intro_in_story": null,
+      "last_seen_story": null
     },
     "G032_demo": {
       "id": "G032_demo",
@@ -624,7 +623,7 @@
       "notes": "Sentence-initial only at this stage — clause-internal が-but is a separate later grammar. The romance arc needs でも because longing is fundamentally contrastive: I want X, but Y.",
       "intro_in_story": 9,
       "first_story": "story_9",
-      "last_seen_story": 10
+      "last_seen_story": 9
     },
     "G034_ne_confirm": {
       "id": "G034_ne_confirm",
@@ -687,7 +686,7 @@
       "genki_ref": "L4",
       "intro_in_story": 3,
       "first_story": "story_3",
-      "last_seen_story": 10
+      "last_seen_story": 8
     },
     "G036_masen": {
       "id": "G036_masen",
@@ -802,7 +801,7 @@
       "prerequisites": [],
       "genki_ref": "L2",
       "intro_in_story": 6,
-      "last_seen_story": 10,
+      "last_seen_story": 9,
       "first_story": "story_6"
     },
     "G044_te_kudasai": {
@@ -960,7 +959,7 @@
       "genki_ref": "Genki I L3",
       "bunpro_ref": "bunpro_n5",
       "jlpt_sensei_ref": "jlpt_sensei",
-      "last_seen_story": 10
+      "last_seen_story": 9
     }
   }
 }
