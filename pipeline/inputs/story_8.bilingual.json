@@ -1,0 +1,49 @@
+{
+  "story_id": 8,
+  "title": {
+    "jp": "本屋の本",
+    "en": "The Bookshop Book"
+  },
+  "intent": "PREMISE CONTRACT (story 8)\n  one_sentence_event:    At a bookshop, the child picks up a small yellow book, asks the shopkeeper its price, learns it costs five hundred yen, realizes they have no money, and resigns themselves to just looking at it without buying.\n  change_of_state:       s0 = child standing in a bookshop, book on a shelf. closer = same child holding that book and merely looking, having decided not to buy. Knowledge changes (price discovered), intent changes (purchase abandoned), book changes location (shelf → hand) and meaning (commodity → object of resignation).\n  scene_novelty_claim:   NOT a park, station, or rainy_doorway story. First shop_counter scene in v2.\n  anchor_novelty_claim:  Anchor is 本 (W00052). Surface appeared once in story 6 as an incidental display word ('origin'); never before as a physical book a character touches.\n  closer_shape_claim:    Closer shape: P:だから-noun-WA-noun-WO-見ます (resignation closer; child holds the book they cannot buy). Verb is 見ます, NOT a copula. NOT a noun-pile. NOT a 「Nは Adj です」 mirror of stories 5/6/7. NOT a と取りますが…います hybrid like story 7.\n  why_not_filler:        narrator = customer POV; shopkeeper = the price-naming agent in s3/s4 (a real Q&A address, not a teleport); 本 = anchor and object of every action sentence including the closer; 五百円 = the obstacle (price); お金 = the obstacle's manifestation (its absence motivates the resignation closer).\n  obligations_absorbed:  must_reinforce G055 plain_nonpast_pair landed in s1 ('私が見る本'), G029 kute landed in s1 ('小さくて、黄色いです'), G059 dakara landed in the closer (sentence-initial だから linking 'お金がありません' to '本を見ています' — the causal chain is clean: penniless → cannot buy → just browse). Seed verbs 聞く / 答える land in s3 / s4 as a real Q&A pair; counters (G025) and ka-question (G037) fall out organically from the price exchange. Closer changed mid-loop from 「見ます」 to 「見ています」 (te-iru aspect) per §E.7.5 r3 — bare non-past 見ます read as habitual, not state-resignation. Subject 私 elided in s3, s5, closer per §E.7.5 r2 native-fluency suggestion (over-marked topics in narration).\n\nFORBIDDEN THIS STORY:\n  scene_class    (last 3 stories): park_bench, rainy_doorway, station\n  anchor_object  (last 5 stories): egg, paper, pencil, towel, umbrella\n  closer_shape   (last 3 stories): noun-NO-noun-DESU-P:ね, noun-WA-noun-WO-noun, noun-noun-WO-noun-GA-noun-WA-noun-X:います\n  opening_seqs   (last 3 stories' first 3 content tokens): 私/母/駅 ; 公園/椅子/母 ; 降る/雨/冷たい\n\nNew vocab (6 mints, at max for budget 3-6/target 4): 本屋 (bookshop, anchor scene), 五百 (counter), 円 (counter unit), お金 (obstacle), 聞く (Q in Q&A), 答える (A in Q&A). Coherent neighborhood: shop transaction.\n\nNew grammar: G037_ka_question (s3) and G054_yo_emphasis (s4 「ですよ」) co-introduce — both N5, both required by the natural shop register of the price exchange. G025_counters auto-tags via 五百円 (s3, s4) but was already in grammar_state. Uses recommended seed grammar from N5_ka_question; defers N4_passive (above tier) and N5_na_adj (would force introducing 好き or 嫌い at the cost of a seed mint). HISTORICAL NOTE: G054 was not pre-planned — it auto-tagged from よ in 「五百円ですよ。」 added during the §E.7.5 round-3 naturalness pass (shop dialogue needed よ to read as a clerk's reassuring answer rather than a clinical statement). Live-ship initially halted at the `write` step because G054 had no grammar_state entry; resolved by adding it to text_to_story.KNOWN_AUTO_GRAMMAR_DEFINITIONS so state_updater could mint the new point cleanly.\n\nLexical cap (N5/nf06): 本屋, 円, お金, 聞く, 答える all clear. Override consumed: 五百 (W00063). Number lemmas have no JLPT signal in the data file even at N5 difficulty; the price exchange is the scene's pivot, so 五百 is genuinely load-bearing. Listed in lexical_overrides; cap allows up to 2 overrides per story.",
+  "scene_class": "shop_counter",
+  "anchor_object": "本",
+  "characters": ["narrator", "shopkeeper"],
+  "lexical_overrides": ["五百"],
+  "sentences": [
+    {
+      "jp": "私は本屋にいます。",
+      "en": "I am at a bookshop.",
+      "role": "setting"
+    },
+    {
+      "jp": "私が見る本は小さくて、黄色いです。",
+      "en": "The book I am looking at is small and yellow.",
+      "role": "action"
+    },
+    {
+      "jp": "私はその本を取ります。",
+      "en": "I pick up that book.",
+      "role": "action"
+    },
+    {
+      "jp": "「五百円ですか。」と店の人に聞きます。",
+      "en": "\"Is it five hundred yen?\" I ask the shopkeeper.",
+      "role": "dialogue"
+    },
+    {
+      "jp": "「五百円ですよ。」と店の人は答えます。",
+      "en": "\"Five hundred yen,\" the shopkeeper answers.",
+      "role": "dialogue"
+    },
+    {
+      "jp": "お金がありません。",
+      "en": "I do not have the money.",
+      "role": "reflection"
+    },
+    {
+      "jp": "だから、その本を見ています。",
+      "en": "So I am just looking at that book.",
+      "role": "closer"
+    }
+  ]
+}

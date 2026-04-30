@@ -1,0 +1,524 @@
+{
+  "story_id": 8,
+  "title": {
+    "jp": "本屋の本",
+    "en": "The Bookshop Book",
+    "tokens": [
+      {
+        "t": "本屋",
+        "role": "content",
+        "word_id": "W00062",
+        "r": "ほんや"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
+      },
+      {
+        "t": "本",
+        "role": "content",
+        "word_id": "W00052",
+        "r": "ほん"
+      }
+    ]
+  },
+  "new_words": [
+    "W00062",
+    "W00063",
+    "W00064",
+    "W00065",
+    "W00066",
+    "W00067"
+  ],
+  "new_grammar": [
+    "G037_ka_question",
+    "G054_yo_emphasis"
+  ],
+  "all_words_used": [
+    "W00062",
+    "W00052",
+    "W00014",
+    "W00006",
+    "W00016",
+    "W00012",
+    "W00025",
+    "W00054",
+    "W00047",
+    "W00063",
+    "W00064",
+    "W00021",
+    "W00046",
+    "W00065",
+    "W00066",
+    "W00067",
+    "W00011",
+    "W00061"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたくし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "本屋",
+          "role": "content",
+          "word_id": "W00062",
+          "r": "ほんや",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "います",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "います",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G021_aru_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I am at a bookshop.",
+      "audio": "audio/story_8/s0.mp3",
+      "audio_hash": "34d538409515"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたくし"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "見る",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "みる",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "dictionary",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G055_plain_nonpast_pair"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "ほん"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "小さくて",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "ちいさくて",
+          "inflection": {
+            "form": "i_adj_te"
+          },
+          "grammar_id": "G029_kute"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "黄色い",
+          "role": "content",
+          "word_id": "W00025",
+          "r": "きいろい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The book I am looking at is small and yellow.",
+      "audio": "audio/story_8/s1.mp3",
+      "audio_hash": "7b3d93265ecf"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたくし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "その",
+          "role": "content",
+          "word_id": "W00054",
+          "r": "その",
+          "grammar_id": "G043_kosoado_pre_nominal"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "ほん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "取ります",
+          "role": "content",
+          "word_id": "W00047",
+          "r": "とります",
+          "inflection": {
+            "base": "取る",
+            "base_r": "とる",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I pick up that book.",
+      "audio": "audio/story_8/s2.mp3",
+      "audio_hash": "e7bc99a85ac7"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "五百",
+          "role": "content",
+          "word_id": "W00063",
+          "r": "ごひゃく",
+          "is_new": true
+        },
+        {
+          "t": "円",
+          "role": "content",
+          "word_id": "W00064",
+          "r": "えん",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question",
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00021",
+          "r": "みせ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "聞きます",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ききます",
+          "inflection": {
+            "base": "聞く",
+            "base_r": "きく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Is it five hundred yen?\" I ask the shopkeeper.",
+      "audio": "audio/story_8/s3.mp3",
+      "audio_hash": "3510c2acee47"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "五百",
+          "role": "content",
+          "word_id": "W00063",
+          "r": "ごひゃく"
+        },
+        {
+          "t": "円",
+          "role": "content",
+          "word_id": "W00064",
+          "r": "えん"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "よ",
+          "role": "particle",
+          "grammar_id": "G054_yo_emphasis",
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00021",
+          "r": "みせ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "答えます",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "こたえます",
+          "inflection": {
+            "base": "答える",
+            "base_r": "こたえる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Five hundred yen,\" the shopkeeper answers.",
+      "audio": "audio/story_8/s4.mp3",
+      "audio_hash": "b8ff9c20b220"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "お金",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "おかね",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "G002_ga_subject"
+        },
+        {
+          "t": "ありません",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "ありません",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G035_arimasen"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I do not have the money.",
+      "audio": "audio/story_8/s5.mp3",
+      "audio_hash": "c94f31226668"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "だから",
+          "role": "particle",
+          "grammar_id": "G059_dakara",
+          "word_id": "W00061"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "その",
+          "role": "content",
+          "word_id": "W00054",
+          "r": "その",
+          "grammar_id": "G043_kosoado_pre_nominal"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "ほん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "見て",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "みて",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G007_te_form"
+        },
+        {
+          "t": "います",
+          "role": "aux",
+          "grammar_id": "G008_te_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "So I am just looking at that book.",
+      "audio": "audio/story_8/s6.mp3",
+      "audio_hash": "0491497d7c4f"
+    }
+  ],
+  "word_audio": {
+    "W00062": "audio/words/W00062.mp3",
+    "W00063": "audio/words/W00063.mp3",
+    "W00064": "audio/words/W00064.mp3",
+    "W00065": "audio/words/W00065.mp3",
+    "W00066": "audio/words/W00066.mp3",
+    "W00067": "audio/words/W00067.mp3"
+  },
+  "word_audio_hash": {
+    "W00062": "b2a3ba717e1a",
+    "W00063": "7eee369235f8",
+    "W00064": "c41917af7e10",
+    "W00065": "d710669994f2",
+    "W00066": "dbe90afffff1",
+    "W00067": "a2277461238f"
+  }
+}

@@ -164,6 +164,28 @@ CONJUNCTION_VOCAB: dict[str, dict] = {
 # `defn` block in `state_updater.update_state` — it expects title/short/long
 # at minimum, and accepts jlpt/catalog_id/prerequisites/genki_ref/etc.).
 KNOWN_AUTO_GRAMMAR_DEFINITIONS: dict[str, dict] = {
+    "G054_yo_emphasis": {
+        "title":         "〜よ — sentence-final assertion / new-information marker",
+        "short":         "Sentence-final particle よ. Marks information the speaker is asserting as new to or noteworthy for the listener.",
+        "long":          (
+            "The sentence-final particle よ adds an assertive or informative "
+            "nuance, signaling that the speaker is offering information they "
+            "believe the listener does not already share, or emphasizing a "
+            "personal opinion. Unlike ね (which seeks shared agreement), よ "
+            "pushes information outward. Common in spoken dialogue and "
+            "informal narration; in graded readers it most often appears in "
+            "shop / service exchanges (「五百円ですよ。」), gentle corrections, "
+            "and reassurance. May combine with ね as よね (assertion plus "
+            "confirmation-seek). Stacks after copula, です, plain verb, "
+            "i-adjective."
+        ),
+        "jlpt":          "N5",
+        "catalog_id":    "N5_yo_emphasis",
+        "prerequisites": [],
+        "genki_ref":     "Genki I L3",
+        "bunpro_ref":    "bunpro_n5",
+        "jlpt_sensei_ref": "jlpt_sensei",
+    },
     "G055_plain_nonpast_pair": {
         "title":         "〜る/う — plain non-past (dictionary form)",
         "short":         "Plain (dictionary) form of a verb. Casual present/future affirmative; also the form used for noun-modification, 〜こと clauses, and the plain paradigm.",
