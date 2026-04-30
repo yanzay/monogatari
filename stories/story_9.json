@@ -1,0 +1,500 @@
+{
+  "story_id": 9,
+  "title": {
+    "jp": "電話の声",
+    "en": "The Voice on the Phone",
+    "tokens": [
+      {
+        "t": "電話",
+        "role": "content",
+        "word_id": "W00068",
+        "r": "でんわ"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "G015_no_possessive"
+      },
+      {
+        "t": "声",
+        "role": "content",
+        "word_id": "W00069",
+        "r": "こえ"
+      }
+    ]
+  },
+  "new_words": [
+    "W00068",
+    "W00069",
+    "W00070",
+    "W00071",
+    "W00072",
+    "W00073"
+  ],
+  "new_grammar": [
+    "G016_na_adjective",
+    "G032_demo"
+  ],
+  "all_words_used": [
+    "W00068",
+    "W00069",
+    "W00070",
+    "W00033",
+    "W00035",
+    "W00006",
+    "W00061",
+    "W00071",
+    "W00072",
+    "W00065",
+    "W00066",
+    "W00054",
+    "W00001",
+    "W00073"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "今日",
+          "role": "content",
+          "word_id": "W00070",
+          "r": "きょう",
+          "is_new": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "学校",
+          "role": "content",
+          "word_id": "W00035",
+          "r": "がっこう"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "いません",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "いません",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "negative_polite",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G036_masen"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Today my friend is not at school.",
+      "audio": "audio/story_9/s0.mp3",
+      "audio_hash": "bdbaf18d6284"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "だから",
+          "role": "particle",
+          "grammar_id": "G059_dakara",
+          "word_id": "W00061"
+        },
+        {
+          "t": "電話",
+          "role": "content",
+          "word_id": "W00068",
+          "r": "でんわ",
+          "is_new": true
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "話します",
+          "role": "content",
+          "word_id": "W00071",
+          "r": "はなします",
+          "inflection": {
+            "base": "話す",
+            "base_r": "はなす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "So I talk with my friend by phone.",
+      "audio": "audio/story_9/s1.mp3",
+      "audio_hash": "3c9095a57c04"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "元気",
+          "role": "content",
+          "word_id": "W00072",
+          "r": "げんき",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "G037_ka_question"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "聞きます",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ききます",
+          "inflection": {
+            "base": "聞く",
+            "base_r": "きく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Are you well?\" I ask.",
+      "audio": "audio/story_9/s2.mp3",
+      "audio_hash": "4c306829b3bd"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "元気",
+          "role": "content",
+          "word_id": "W00072",
+          "r": "げんき"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "よ",
+          "role": "particle",
+          "grammar_id": "G054_yo_emphasis"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "G010_to_and"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "答えます",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "こたえます",
+          "inflection": {
+            "base": "答える",
+            "base_r": "こたえる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"I'm well,\" my friend answers.",
+      "audio": "audio/story_9/s3.mp3",
+      "audio_hash": "b7fa716ca1f9"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "電話",
+          "role": "content",
+          "word_id": "W00068",
+          "r": "でんわ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "G017_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "G015_no_possessive"
+        },
+        {
+          "t": "元気",
+          "role": "content",
+          "word_id": "W00072",
+          "r": "げんき"
+        },
+        {
+          "t": "な",
+          "role": "particle",
+          "grammar_id": "G016_na_adjective",
+          "is_new_grammar": true
+        },
+        {
+          "t": "声",
+          "role": "content",
+          "word_id": "W00069",
+          "r": "こえ",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "G005_wo_object"
+        },
+        {
+          "t": "聞きます",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ききます",
+          "inflection": {
+            "base": "聞く",
+            "base_r": "きく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "G026_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Through the phone, I hear my friend's lively voice.",
+      "audio": "audio/story_9/s4.mp3",
+      "audio_hash": "5e3721a7b2e1"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "その",
+          "role": "content",
+          "word_id": "W00054",
+          "r": "その",
+          "grammar_id": "G043_kosoado_pre_nominal"
+        },
+        {
+          "t": "元気",
+          "role": "content",
+          "word_id": "W00072",
+          "r": "げんき"
+        },
+        {
+          "t": "な",
+          "role": "particle",
+          "grammar_id": "G016_na_adjective"
+        },
+        {
+          "t": "声",
+          "role": "content",
+          "word_id": "W00069",
+          "r": "こえ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "明るい",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "あかるい",
+          "grammar_id": "G022_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "G003_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "That lively voice is bright.",
+      "audio": "audio/story_9/s5.mp3",
+      "audio_hash": "dd5f2cfffdc7"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "でも",
+          "role": "particle",
+          "grammar_id": "G032_demo",
+          "word_id": "W00073",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "G001_wa_topic"
+        },
+        {
+          "t": "学校",
+          "role": "content",
+          "word_id": "W00035",
+          "r": "がっこう"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "G004_ni_location"
+        },
+        {
+          "t": "いません",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "いません",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "negative_polite",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "G036_masen"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "But my friend is not at school.",
+      "audio": "audio/story_9/s6.mp3",
+      "audio_hash": "d8b3e9e675c5"
+    }
+  ],
+  "word_audio": {
+    "W00068": "audio/words/W00068.mp3",
+    "W00069": "audio/words/W00069.mp3",
+    "W00070": "audio/words/W00070.mp3",
+    "W00071": "audio/words/W00071.mp3",
+    "W00072": "audio/words/W00072.mp3",
+    "W00073": "audio/words/W00073.mp3"
+  },
+  "word_audio_hash": {
+    "W00068": "45b3fda8a817",
+    "W00069": "b9a6f33686a8",
+    "W00070": "131fb267428c",
+    "W00071": "0aca72824b89",
+    "W00072": "83460c5bb06b",
+    "W00073": "870b8730ba39"
+  }
+}

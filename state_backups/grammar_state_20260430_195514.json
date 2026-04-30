@@ -22,7 +22,7 @@
       "notes": "Most fundamental particle. Always pronounced 'wa' here, never 'ha'. Authoring tip: pair every new noun with は in its first appearance to set the topic clearly.",
       "intro_in_story": 1,
       "first_story": "story_1",
-      "last_seen_story": 9
+      "last_seen_story": 8
     },
     "G002_ga_subject": {
       "id": "G002_ga_subject",
@@ -68,7 +68,7 @@
       "notes": "Most-used grammar in our library (40+ uses). Authoring tip: です attaches to nouns and na-adjectives directly; for i-adjectives, です follows the adjective (いいです). For past tense, use でした (G013), not い-adj past form.",
       "intro_in_story": 1,
       "first_story": "story_1",
-      "last_seen_story": 9
+      "last_seen_story": 8
     },
     "G004_ni_location": {
       "id": "G004_ni_location",
@@ -89,7 +89,7 @@
       "notes": "Re-anchored to story_9 where に-particle appears 4 times — gives the intro story the same-story redundancy needed for pattern recognition (formerly story_6 which only had 1 に).",
       "intro_in_story": 1,
       "first_story": "story_1",
-      "last_seen_story": 9
+      "last_seen_story": 8
     },
     "G005_wo_object": {
       "id": "G005_wo_object",
@@ -112,7 +112,7 @@
       "notes": "Authoring tip: pronounced 'o', not 'wo'. Always between the direct object and a transitive verb. Don't use with intransitive verbs (います, あります — those take が or に).",
       "intro_in_story": 1,
       "first_story": "story_1",
-      "last_seen_story": 9
+      "last_seen_story": 8
     },
     "G006_kara_from": {
       "id": "G006_kara_from",
@@ -225,7 +225,7 @@
       "notes": "Authoring tip: と is exhaustive ('A and B and only those'). Distinct from や (G011, non-exhaustive 'A, B, and so on'). Always between every pair: AとBとC. Don't use と to connect verbs or sentences (use て-form for that). と also functions as a quote particle (G014).",
       "intro_in_story": 2,
       "first_story": "story_2",
-      "last_seen_story": 9
+      "last_seen_story": 8
     },
     "G011_ya_partial": {
       "id": "G011_ya_partial",
@@ -337,7 +337,7 @@
       "notes": "Authoring tip: の chains are pure noun-phrase building. Don't introduce until the learner has at least two nouns to combine — i.e. story 1 onwards. We've been silently mis-tagging の as G001_wa_topic since story 1; this entry retroactively classifies all those uses correctly.",
       "intro_in_story": 1,
       "first_story": "story_1",
-      "last_seen_story": 9
+      "last_seen_story": 8
     },
     "G016_na_adjective": {
       "id": "G016_na_adjective",
@@ -358,9 +358,8 @@
         "G003_desu"
       ],
       "notes": "Authoring tip: easy to confuse with the topic copula in predicate position. Tag な (between na-adj and noun) as G016, not G003. Stories 5/6/7/9/12 silently mis-tagged this — fixed retroactively.",
-      "intro_in_story": 9,
-      "last_seen_story": 9,
-      "first_story": "story_9"
+      "intro_in_story": null,
+      "last_seen_story": null
     },
     "G017_de_means": {
       "id": "G017_de_means",
@@ -383,7 +382,7 @@
       "notes": "Re-anchored to story_16 (was story_8) so the immediate reinforcement window contains real follow-up uses (で-particle in stories 17, 18, 20, 21).",
       "intro_in_story": 3,
       "first_story": "story_2",
-      "last_seen_story": 9
+      "last_seen_story": 4
     },
     "G021_aru_iru": {
       "id": "G021_aru_iru",
@@ -430,7 +429,7 @@
       "notes": "Re-anchored to story_18 where 小さい/嬉しい predicate uses anchor a reinforcement window with predicative i-adj in 19-22.",
       "intro_in_story": 1,
       "first_story": "story_1",
-      "last_seen_story": 9
+      "last_seen_story": 8
     },
     "G025_counters": {
       "id": "G025_counters",
@@ -475,7 +474,7 @@
       "notes": "Late-anchored: ます has been used since story 1; story_28 dedicates focus to it.",
       "intro_in_story": 1,
       "first_story": "story_1",
-      "last_seen_story": 9
+      "last_seen_story": 8
     },
     "G018_toki_when": {
       "id": "G018_toki_when",
@@ -621,9 +620,9 @@
       "bunpro_ref": "https://bunpro.jp/grammar_points/でも",
       "jlpt_sensei_ref": "https://jlptsensei.com/learn-japanese-grammar/でも-demo/",
       "notes": "Sentence-initial only at this stage — clause-internal が-but is a separate later grammar. The romance arc needs でも because longing is fundamentally contrastive: I want X, but Y.",
-      "intro_in_story": 9,
-      "first_story": "story_9",
-      "last_seen_story": 9
+      "intro_in_story": null,
+      "first_story": null,
+      "last_seen_story": null
     },
     "G034_ne_confirm": {
       "id": "G034_ne_confirm",
@@ -702,7 +701,7 @@
       "genki_ref": "L3",
       "intro_in_story": 4,
       "first_story": "story_4",
-      "last_seen_story": 9
+      "last_seen_story": 6
     },
     "G037_ka_question": {
       "id": "G037_ka_question",
@@ -717,7 +716,7 @@
       "genki_ref": "L1",
       "intro_in_story": 8,
       "first_story": "story_8",
-      "last_seen_story": 9
+      "last_seen_story": 8
     },
     "G038_kunai": {
       "id": "G038_kunai",
@@ -801,7 +800,7 @@
       "prerequisites": [],
       "genki_ref": "L2",
       "intro_in_story": 6,
-      "last_seen_story": 9,
+      "last_seen_story": 8,
       "first_story": "story_6"
     },
     "G044_te_kudasai": {
@@ -907,7 +906,7 @@
       ],
       "intro_in_story": 7,
       "first_story": "story_7",
-      "last_seen_story": 9
+      "last_seen_story": 8
     },
     "G052_made_until": {
       "id": "G052_made_until",
@@ -959,7 +958,7 @@
       "genki_ref": "Genki I L3",
       "bunpro_ref": "bunpro_n5",
       "jlpt_sensei_ref": "jlpt_sensei",
-      "last_seen_story": 9
+      "last_seen_story": 8
     }
   }
 }
