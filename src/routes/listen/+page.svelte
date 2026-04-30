@@ -97,21 +97,36 @@
   }
 
   function undo() {
-    if (!learner.state.history?.length) return;
-    learner.undo();
+    // popHistory pops the last review-log entry AND restores the prior
+    // card state inside the SRS map (single source of truth — see
+    // LearnerStore.popHistory). We just re-derive the queue.
+    const restored = learner.popHistory();
+    if (!restored) return;
+    learner.save();
     rebuildQueue();
-    lastUndoable = (learner.state.history?.length ?? 0) > 0;
   }
 
   function handleKeydown(e: KeyboardEvent) {
     if (!card) return;
-    const action = resolveReviewKey(e.key);
-    if (!action) return;
-    if (action === 'reveal' && !revealed) { e.preventDefault(); reveal(); return; }
-    if (!revealed) return;
-    if (action === 'again') { e.preventDefault(); grade(GRADES.AGAIN); }
-    if (action === 'good')  { e.preventDefault(); grade(GRADES.GOOD); }
-    if (action === 'easy')  { e.preventDefault(); grade(GRADES.EASY); }
+    const focusedTag = (e.target as HTMLElement | null)?.tagName;
+    const action = resolveReviewKey(e.key, revealed, focusedTag);
+    switch (action.kind) {
+      case 'ignore':
+        return;
+      case 'reveal':
+        if (action.preventDefault) e.preventDefault();
+        reveal();
+        return;
+      case 'grade':
+        if (action.preventDefault) e.preventDefault();
+        if (action.grade === 'again') grade(GRADES.AGAIN);
+        else if (action.grade === 'good') grade(GRADES.GOOD);
+        else if (action.grade === 'easy') grade(GRADES.EASY);
+        return;
+      case 'undo':
+        undo();
+        return;
+    }
   }
 </script>
 

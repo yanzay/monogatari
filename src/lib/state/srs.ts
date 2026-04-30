@@ -186,7 +186,12 @@ export function applyGrade(
   const fsrsCard = toFsrsCard(card);
   const recordLog = fsrs.repeat(fsrsCard, now);
   const rating = GRADE_TO_FSRS_RATING[grade];
-  const item = recordLog[rating];
+  // ts-fsrs's IPreview is keyed by their internal Grade enum (Again|Hard|
+  // Good|Easy = 1..4), narrower than Rating (which also has Manual=0).
+  // GRADE_TO_FSRS_RATING never produces Manual so the index is safe at
+  // runtime; we go through `unknown` to suppress the strict overlap
+  // check (TypeScript can't see that we never pass Manual through).
+  const item = (recordLog as unknown as Partial<Record<Rating, { card: FsrsCard }>>)[rating];
   if (!item) {
     throw new Error(`FSRS returned no item for grade ${grade}`);
   }

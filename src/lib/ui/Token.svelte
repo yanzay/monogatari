@@ -84,12 +84,15 @@
   }
   .token.clickable { cursor: pointer; }
 
-  span.token.clickable:hover,
-  button.token.clickable:hover {
+  /* Clickable tokens are ALWAYS rendered as <button> (see template
+   * above; the .clickable class only appears on the button branch).
+   * Earlier styles also targeted span.token.clickable:hover and
+   * ruby.token.clickable:hover defensively, but those selectors never
+   * matched anything and svelte-check flagged them. */
+  button.token.clickable:hover,
+  button.token.clickable:hover ruby {
     background: var(--surface2);
   }
-  ruby.token.clickable:hover { background: var(--surface2); }
-  button.token.clickable:hover ruby { background: var(--surface2); }
 
   /* Content tokens */
   .token[data-role='content'] { color: var(--text); }

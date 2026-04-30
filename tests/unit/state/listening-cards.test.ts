@@ -172,7 +172,13 @@ describe('sentenceListeningReady', () => {
 
   it('returns false for a sentence with no content word_ids (punctuation-only)', () => {
     const srs = { W1: matureCard('W1') };
-    const sent = { tokens: [{ t: '。' }, { t: '、' }] }; // no word_id
+    // Punctuation-only sentence: tokens have no word_id. The literal
+    // shape carries `t` for fidelity to real corpus data, but the
+    // function only inspects word_id, so we widen the type via the
+    // shared parameter shape.
+    const sent: { tokens: Array<{ word_id?: string; t?: string }> } = {
+      tokens: [{ t: '。' }, { t: '、' }],
+    };
     expect(sentenceListeningReady(sent, srs)).toBe(false);
   });
 
