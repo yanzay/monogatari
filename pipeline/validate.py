@@ -829,12 +829,23 @@ def validate(
                         )
                         # Compute effective intros for this story — both the
                         # already-declared `new_grammar` AND any token-level
-                        # grammar_id whose state entry has no intro yet.
+                        # grammar_id that hasn't appeared in any earlier story.
+                        #
+                        # Phase A derive-on-read (2026-05-01): "no intro yet"
+                        # is computed from the corpus, not from a stored
+                        # state field. derive_grammar_attributions() walks
+                        # all shipped stories; gids absent from the result
+                        # are genuinely new to the corpus from this story's
+                        # perspective.
+                        from derived_state import (
+                            derive_grammar_attributions as _derive_attr,
+                        )
+                        _attrs_now = _derive_attr()
                         declared_intros = set(intros_by_n.get(sid_for_tier, []))
                         effective_intros = set(declared_intros)
                         for gid in used_by_n.get(sid_for_tier, set()):
-                            gp = grammar_points.get(gid, {})
-                            if gp.get("intro_in_story") is None:
+                            attr = _attrs_now.get(gid) or {}
+                            if attr.get("intro_in_story") is None:
                                 effective_intros.add(gid)
                         story_intros_count = len(effective_intros)
                         if any_uncov and story_intros_count == 0:

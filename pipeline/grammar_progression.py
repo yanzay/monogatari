@@ -443,6 +443,7 @@ def _load_state_and_catalog() -> tuple[dict, dict]:
 def coverage_status(
     state: dict | None = None,
     catalog: dict | None = None,
+    attributions: dict | None = None,
 ) -> dict:
     """Return per-tier coverage of the catalog by the current state.
 
@@ -463,19 +464,34 @@ def coverage_status(
         # quick lookups by callers that already know what they're after.
         "covered_catalog_ids": {"N5_wa_topic": 1, ...},
       }
+
+    `attributions` is the {gid: {intro_in_story, last_seen_story}} map
+    produced by `derived_state.derive_grammar_attributions()`. If None,
+    it is computed from the on-disk corpus. Callers performing a
+    hypothetical "what if I shipped story N now" lookup should pass an
+    explicit map so derivation reflects the in-memory corpus.
     """
     if state is None or catalog is None:
         s, c = _load_state_and_catalog()
         state = state or s
         catalog = catalog or c
 
-    # Build catalog_id → intro_in_story from state (a state entry's
-    # `catalog_id` is the bridge; `intro_in_story` is what makes it covered).
+    # Phase A of derive-on-read refactor (2026-05-01): intro_in_story is
+    # NO LONGER stored on grammar_state.json::points. It is derived from
+    # corpus first-use via derived_state.derive_grammar_attributions().
+    # The state entry's `catalog_id` remains the bridge between the two
+    # grammar id namespaces.
+    if attributions is None:
+        from derived_state import derive_grammar_attributions  # local import
+        attributions = derive_grammar_attributions()
+
     covered_cid_to_intro: dict[str, int] = {}
-    for _gid, entry in (state.get("points") or {}).items():
+    for gid, entry in (state.get("points") or {}).items():
         cid = entry.get("catalog_id")
-        intro = entry.get("intro_in_story")
-        if not cid or intro is None:
+        if not cid:
+            continue
+        intro = (attributions.get(gid) or {}).get("intro_in_story")
+        if intro is None:
             continue
         # Earliest intro wins on duplicates (shouldn't happen, but be safe).
         if cid not in covered_cid_to_intro or covered_cid_to_intro[cid] > intro:

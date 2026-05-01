@@ -222,33 +222,34 @@ def build_palette(target_story: int) -> dict:
 # ── Grammar inclusion (optional) ─────────────────────────────────────────────
 
 def build_grammar_palette(target_story: int) -> list[dict]:
-    """All grammar points whose intro_in_story <= target_story."""
+    """All grammar points whose intro_in_story <= target_story.
+
+    Phase A derive-on-read (2026-05-01): intro_in_story and last_use are
+    both derived from corpus first/last appearance, not from stored
+    state fields. last_use here is identical to derive_grammar_attributions()
+    last_seen_story but kept as a separate name for output-schema stability.
+    """
+    import sys as _sys
+    from pathlib import Path as _Path
+    _sys.path.insert(0, str(_Path(__file__).resolve().parent.parent))
+    from derived_state import derive_grammar_attributions  # noqa: E402
+
     grammar = load_grammar()
-    stories = list(iter_stories())
-    # last_use for grammar
-    last_use: dict[str, int] = {}
-    for sid, story in stories:
-        for tok in iter_tokens(story):
-            gid = tok.get("grammar_id")
-            if gid:
-                last_use[gid] = max(last_use.get(gid, -1), sid)
+    attributions = derive_grammar_attributions()
 
     out = []
     for gid, p in grammar.get("points", {}).items():
-        intro_raw = p.get("intro_in_story") or p.get("first_story")
-        if intro_raw is None:
+        attr = attributions.get(gid)
+        if attr is None:
             continue
-        try:
-            intro = parse_id_arg(intro_raw)
-        except (TypeError, ValueError):
-            continue
-        if intro > target_story:
+        intro = attr["intro_in_story"]
+        if intro is None or intro > target_story:
             continue
         out.append({
             "grammar_id": gid,
             "label": p.get("label") or p.get("name"),
             "intro_in_story": intro,
-            "last_use": last_use.get(gid),
+            "last_use": attr["last_seen_story"],
         })
     out.sort(key=lambda e: (e["last_use"] or -1, e["grammar_id"]))
     return out
