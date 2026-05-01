@@ -263,20 +263,57 @@ describe('getWordSync', () => {
 /* ── Grammar ──────────────────────────────────────────────────────── */
 
 describe('loadGrammar', () => {
-  it('fetches grammar_state.json with base prefix', async () => {
+  /* Phase A derive-on-read (2026-05-01): loadGrammar() now fetches BOTH
+   * grammar_state.json AND grammar_attributions.json in parallel and
+   * joins them, so every test mocks both routes. */
+  it('joins state with derived attributions', async () => {
     routes['/monogatari/data/grammar_state.json'] = () =>
-      ok({ version: 1, points: { G001: { id: 'G001', title: 'wa', short: 's', long: 'l' } } });
+      ok({
+        version: 1,
+        points: {
+          G001: { id: 'G001', title: 'wa', short: 's', long: 'l' },
+          G002: { id: 'G002', title: 'ga', short: 's', long: 'l' },
+        },
+      });
+    routes['/monogatari/data/grammar_attributions.json'] = () =>
+      ok({
+        version: 1,
+        n_introduced: 1,
+        attributions: {
+          G001: { intro_in_story: 1, last_seen_story: 5 },
+          // G002 deliberately absent: not yet used in any story.
+        },
+      });
     const m = await loadCorpus();
     const g = await m.loadGrammar();
     expect(g.points.G001.title).toBe('wa');
+    expect(g.points.G001.intro_in_story).toBe(1);
+    expect(g.points.G001.last_seen_story).toBe(5);
+    // Unattributed point gets null/null, not undefined or stale data.
+    expect(g.points.G002.intro_in_story).toBeNull();
+    expect(g.points.G002.last_seen_story).toBeNull();
   });
 
-  it('caches across calls', async () => {
+  it('falls back to empty attributions when projection 404s', async () => {
+    routes['/monogatari/data/grammar_state.json'] = () =>
+      ok({ version: 1, points: { G001: { id: 'G001', title: 'wa', short: 's', long: 'l' } } });
+    routes['/monogatari/data/grammar_attributions.json'] = () => notFound();
+    const m = await loadCorpus();
+    const g = await m.loadGrammar();
+    // Reader stays alive even on a mid-deploy where the projection is missing.
+    expect(g.points.G001.intro_in_story).toBeNull();
+  });
+
+  it('caches across calls (one round-trip per source file)', async () => {
     routes['/monogatari/data/grammar_state.json'] = () => ok({ version: 1, points: {} });
+    routes['/monogatari/data/grammar_attributions.json'] = () =>
+      ok({ version: 1, n_introduced: 0, attributions: {} });
     const m = await loadCorpus();
     await m.loadGrammar();
     await m.loadGrammar();
-    expect(fetchCalls).toHaveLength(1);
+    // Two source files (state + attributions) are fetched once each on
+    // first call; second call hits the in-memory cache.
+    expect(fetchCalls).toHaveLength(2);
   });
 });
 

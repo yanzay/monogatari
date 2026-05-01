@@ -5,6 +5,7 @@ import type {
   Story,
   StoryManifestRoot,
   StoryManifestPagePayload,
+  GrammarAttributionsManifest,
   GrammarState,
   GrammarExamplesIndex,
   VocabIndex,
@@ -108,8 +109,53 @@ export function getWordSync(wordId: string): Word | null {
 
 /* ── Grammar ─────────────────────────────────────────────────────── */
 
+/**
+ * Load the grammar state, joined with the derived-attributions projection.
+ *
+ * Phase A of the derive-on-read refactor (2026-05-01): `intro_in_story`
+ * and `last_seen_story` are no longer stored on `grammar_state.json`.
+ * They are derived server-side by `pipeline/build_grammar_attributions.py`
+ * (which writes `static/data/grammar_attributions.json`) and rejoined
+ * here. Consumers see the same `GrammarPoint` shape as before — the
+ * fields appear on each point — so call sites like `isSeenGrammar`
+ * keep working unchanged.
+ *
+ * The two requests are issued in parallel; the join is in-memory and
+ * O(n) over the points map. Cached in `grammarPromise` so subsequent
+ * calls reuse the same merged result.
+ */
 export function loadGrammar(): Promise<GrammarState> {
-  if (!grammarPromise) grammarPromise = fetchJSON<GrammarState>('/data/grammar_state.json');
+  if (!grammarPromise) {
+    grammarPromise = (async () => {
+      const [state, attrs] = await Promise.all([
+        fetchJSON<GrammarState>('/data/grammar_state.json'),
+        // Attributions file is generated alongside the manifest. If a
+        // deployment is mid-migration and ships state without the
+        // projection, fall back to an empty map — every point will then
+        // appear "not yet introduced" rather than crashing the page.
+        fetchJSON<GrammarAttributionsManifest>('/data/grammar_attributions.json').catch(
+          (): GrammarAttributionsManifest => ({
+            version: 1,
+            n_introduced: 0,
+            attributions: {},
+          }),
+        ),
+      ]);
+      const merged: GrammarState = {
+        ...state,
+        points: { ...state.points },
+      };
+      for (const [gid, point] of Object.entries(merged.points)) {
+        const attr = attrs.attributions[gid];
+        merged.points[gid] = {
+          ...point,
+          intro_in_story:  attr ? attr.intro_in_story  : null,
+          last_seen_story: attr ? attr.last_seen_story : null,
+        };
+      }
+      return merged;
+    })();
+  }
   return grammarPromise;
 }
 

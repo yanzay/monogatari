@@ -143,37 +143,34 @@ def update_state(
 
     # ── 2. Add new grammar points ─────────────────────────────────────────────
     #
-    # Three distinct cases:
-    #   (a) gid is brand-new to grammar_state — build a fresh entry from the
-    #       plan's new_grammar_definitions block (requires title/short/long).
-    #   (b) gid already exists in grammar_state but has no `intro_in_story`
-    #       (legacy state from the bulk pre-load). We patch `intro_in_story`
-    #       and `first_story` so coverage tracking works going forward.
-    #       This is the common path right now — most G0XX points were
-    #       loaded with metadata but no story attribution.
-    #   (c) gid is reinforced (already attributed in a prior story).
-    #       We bump `last_seen_story` to the current story_id so coverage
-    #       diagnostics and any future spaced-repetition logic can see when
-    #       a grammar point last appeared. Handled in the §2b sweep below
-    #       so it covers BOTH `story.new_grammar` (case a/b) AND every gid
-    #       that surfaces in any token (the reinforcement set).
+    # Phase A derive-on-read (2026-05-01): `intro_in_story`,
+    # `first_story`, and `last_seen_story` are NO LONGER stored on
+    # grammar_state entries. They are derived from corpus first/last
+    # appearance by `pipeline/derived_state.py` and projected for the
+    # reader by `pipeline/build_grammar_attributions.py`. As a result
+    # this section has TWO cases (down from three):
+    #
+    #   (a) gid is brand-new to grammar_state — build a fresh entry
+    #       from the plan's new_grammar_definitions block (requires
+    #       title/short/long). Defining metadata only — NO attribution
+    #       fields.
+    #   (b) gid already exists in grammar_state — no-op. The fact that
+    #       it appears in `story.new_grammar` is incorporated into
+    #       derived attributions via the corpus walk; nothing to write.
+    #
+    # The §2b sweep that used to bump `last_seen_story` is also gone —
+    # the derivation reads it directly from token positions in the
+    # corpus, so any reader sees the post-ship value automatically once
+    # the manifest projection is rebuilt by regenerate_all_stories.
     added_grammar = []
     plan_grammar_defs = (plan or {}).get("new_grammar_definitions", {})
     for gid in story_new_grammar:
         if gid in new_grammar["points"]:
-            # Case (b): patch intro_in_story / first_story on the legacy
-            # entry. We only set them when not already set — re-shipping a
-            # story should not overwrite an earlier-shipped attribution.
-            entry = new_grammar["points"][gid]
-            patched = False
-            if entry.get("intro_in_story") is None:
-                entry["intro_in_story"] = story_id
-                patched = True
-            if not entry.get("first_story"):
-                entry["first_story"] = first_story_label
-                patched = True
-            if patched:
-                added_grammar.append(gid)
+            # Case (b): nothing to write. The point's intro_in_story
+            # will reflect this story automatically once the corpus is
+            # walked. Treat it as "added in this ship" for summary
+            # reporting only.
+            added_grammar.append(gid)
             continue
 
         # Case (a): brand-new gid — definition required.
@@ -193,8 +190,6 @@ def update_state(
             "long":            defn["long"],
             "jlpt":            defn.get("jlpt"),
             "catalog_id":      defn.get("catalog_id"),
-            "first_story":     first_story_label,
-            "intro_in_story":  story_id,
             "prerequisites":   list(defn.get("prerequisites", []) or []),
         }
         # Optional reference fields — only emit when present and non-null;
@@ -207,37 +202,26 @@ def update_state(
         new_grammar["points"][gid] = entry
         added_grammar.append(gid)
 
-    # ── 2b. Bump last_seen_story for every grammar point used in this story ──
-    #
-    # Walk every token (title + sentences) and collect grammar IDs from both
-    # `tok["grammar_id"]` (token-level paradigm tag like G055) and
-    # `tok["inflection"]["grammar_id"]` (legacy paradigm path some older
-    # tokens use). Set `last_seen_story = story_id` on each known point.
-    # Brand-new points (added in §2 above) ALSO get the bump so the field
-    # is never `None` once a point has appeared at least once.
+    # ── 2b. (removed) `last_seen_story` is no longer stored ──────────────────
+    # The derivation in `pipeline/derived_state.py` computes it on demand
+    # from corpus token positions; the reader gets it via the manifest
+    # projection. This eliminates the bookkeeping bug class entirely.
+    grammar_reinforced: list[str] = []
+    # Compute reinforced gids for the summary only (informational, no writes).
     used_gids: set[str] = set()
     for sec_name in ("title",):
         for tok in (story.get(sec_name) or {}).get("tokens", []):
-            gid = tok.get("grammar_id")
-            if gid:
-                used_gids.add(gid)
-            infl_gid = (tok.get("inflection") or {}).get("grammar_id")
-            if infl_gid:
-                used_gids.add(infl_gid)
+            for g in (tok.get("grammar_id"), (tok.get("inflection") or {}).get("grammar_id")):
+                if g:
+                    used_gids.add(g)
     for sent in story.get("sentences", []):
         for tok in sent.get("tokens", []):
-            gid = tok.get("grammar_id")
-            if gid:
-                used_gids.add(gid)
-            infl_gid = (tok.get("inflection") or {}).get("grammar_id")
-            if infl_gid:
-                used_gids.add(infl_gid)
-    grammar_reinforced: list[str] = []
+            for g in (tok.get("grammar_id"), (tok.get("inflection") or {}).get("grammar_id")):
+                if g:
+                    used_gids.add(g)
     for gid in used_gids:
-        if gid in new_grammar["points"]:
-            new_grammar["points"][gid]["last_seen_story"] = story_id
-            if gid not in story_new_grammar:
-                grammar_reinforced.append(gid)
+        if gid in new_grammar["points"] and gid not in story_new_grammar:
+            grammar_reinforced.append(gid)
 
     # ── 3. Update metadata ────────────────────────────────────────────────────
     now = datetime.now(timezone.utc).isoformat()

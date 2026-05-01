@@ -1,5 +1,26 @@
 #!/usr/bin/env python3
-"""Reconcile `data/grammar_state.json::points[gid].intro_in_story` with corpus reality.
+"""DEPRECATED 2026-05-01 — Phase A derive-on-read removed the field this tool reconciles.
+
+`data/grammar_state.json::points[gid].intro_in_story` is no longer
+stored. It is derived from the corpus on every read by
+`pipeline/derived_state.derive_grammar_attributions()` and projected
+for the reader by `pipeline/build_grammar_attributions.py`. There is
+nothing left to reconcile because there is no longer any cached
+attribution that could disagree with the corpus.
+
+This file is preserved as a no-op against the current state schema
+for back-compat with external callers. Running it on a Phase-A state
+will report "already in sync" because the field is absent everywhere.
+
+To rebuild the manifest projection that took over this responsibility:
+    python3 pipeline/build_grammar_attributions.py
+
+To verify the projection is in sync with the corpus:
+    python3 -m pytest pipeline/tests/test_state_integrity.py::test_grammar_attribution_manifest_in_sync_with_corpus
+
+──────────────────── ORIGINAL DOCSTRING (for reference) ────────────────────
+
+Reconcile `data/grammar_state.json::points[gid].intro_in_story` with corpus reality.
 
 Why this exists
 ---------------

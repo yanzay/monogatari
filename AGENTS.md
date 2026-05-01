@@ -133,13 +133,24 @@ Introducing G055 in story 4–7 fails `test_introduced_grammar_is_reinforced` be
 
 **Rule:** Do NOT introduce G055 (or any auto-tagged grammar point with no downstream usage) until at least ONE story 5–10 already organically uses the construction. **General form:** before introducing grammar G in story N, grep `stories/story_{N+1..N+5}.json` for at least one token whose `grammar_id == G`. If none, defer.
 
-### grammar_state.intro_in_story drift (now auto-reconciled — 2026-05-01)
+### Grammar attributions are derived, not stored (Phase A — 2026-05-01)
 
-Historically, re-shipping a story whose spec edit shifted which story FIRST uses a grammar point left `intro_in_story` pointing at a story that no longer introduces it. Symptom: pytest reported story N "introduces 2 new grammar points" when only 1 was actually new.
+`intro_in_story`, `last_seen_story`, and `first_story` are no longer stored on `data/grammar_state.json::points[gid]`. They are derived from the corpus by `pipeline/derived_state.derive_grammar_attributions()` and projected for the reader by `pipeline/build_grammar_attributions.py` (writes `data/grammar_attributions.json` + `static/data/grammar_attributions.json`). The projection is rebuilt automatically by `regenerate_all_stories.py --apply`.
 
-**No longer a manual step.** `step_write` in `pipeline/author_loop.py` now calls `reconcile_grammar_intros.first_use_by_grammar()` + `reconcile()` after the second `regenerate_all_stories` pass; if anything moved, it backs up `grammar_state.json`, writes the reconciled state, and re-runs the regenerator a third time so per-story `new_grammar` arrays line up. Idempotent on a clean ship; cheap on a re-ship.
+This eliminates an entire bug class: drift becomes mathematically impossible because the field that used to drift no longer exists. Replaces:
+- the manual reconciliation runbook (deleted)
+- `state_updater`'s §2-patch and §2b-sweep writes (deleted)
+- `step_write`'s auto-reconcile pass (deleted)
+- `pipeline/tools/reconcile_grammar_intros.py` (now a back-compat no-op)
+- `test_grammar_intro_in_story_matches_corpus_first_use` and the two `test_grammar_last_seen_story_*` tests (deleted; the invariants they checked are now structural)
 
-The invariant is pinned by `test_grammar_intro_in_story_matches_corpus_first_use` in `pipeline/tests/test_state_integrity.py`. If that test ever fails, a non-ship code path mutated state out-of-band — fix with `python3 pipeline/tools/reconcile_grammar_intros.py --apply`.
+Two invariants pin the new contract:
+- `test_grammar_state_carries_no_attribution_fields` — guards against a future state_updater regression that re-introduces the writes.
+- `test_grammar_attribution_manifest_in_sync_with_corpus` — guards against the manifest going stale relative to the derivation.
+
+**Reader app integration:** `loadGrammar()` in `src/lib/data/corpus.ts` fetches both `grammar_state.json` AND `grammar_attributions.json` in parallel and joins them, so call sites like `isSeenGrammar(gp)` keep working unchanged. A 404 on the projection falls back to "nothing introduced" (rather than crashing) so a mid-deploy doesn't break the page.
+
+**Vocab fields (`first_story`, `last_seen_story` on words) are still stored** — Phase B will give them the same treatment.
 
 ### Closer cliché ladder needs ongoing curation
 

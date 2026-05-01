@@ -73,9 +73,39 @@ export interface GrammarPoint {
    * The story id where this grammar point is first introduced. `null`
    * (or missing) means the learner has not yet encountered it in the
    * corpus — useful for filtering the grammar tab to "seen so far".
+   *
+   * Phase A derive-on-read (2026-05-01): this field is NO LONGER stored
+   * on `data/grammar_state.json`. It is derived from corpus first-use
+   * by `pipeline/build_grammar_attributions.py` (writes
+   * `static/data/grammar_attributions.json`) and joined onto each point
+   * by `loadGrammar()` in `corpus.ts`. Consumers should keep reading it
+   * via `gp.intro_in_story` — the join is transparent.
    */
   intro_in_story?: number | null;
+  /**
+   * The most recent story id in which this grammar point appears.
+   * Same provenance as `intro_in_story`: derived from corpus, joined
+   * by `loadGrammar()`. Null/undefined for points never used.
+   */
+  last_seen_story?: number | null;
   _needs_review?: boolean;
+}
+
+/**
+ * Server-side projection of derived grammar attributions. Lives at
+ * `static/data/grammar_attributions.json` and is fetched by
+ * `loadGrammar()` to populate `intro_in_story` / `last_seen_story` on
+ * every grammar point. See `pipeline/build_grammar_attributions.py`
+ * for the producer side.
+ */
+export interface GrammarAttributionsManifest {
+  version: number;
+  generated_at?: string;
+  n_introduced: number;
+  attributions: Record<
+    string,
+    { intro_in_story: number | null; last_seen_story: number | null }
+  >;
 }
 
 export interface GrammarExamplesIndex {

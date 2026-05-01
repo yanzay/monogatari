@@ -1159,64 +1159,30 @@ def step_write(story_id: int, built_story: dict,
             details=traceback.format_exc(),
         )
 
-    # --- Reconcile grammar intro_in_story with corpus reality ----------
+    # --- Reconciliation no longer needed (Phase A derive-on-read) ------
     #
-    # `state_updater` step §2 only patches `intro_in_story` when the field
-    # is None — by design, to avoid stomping on an earlier-shipped
-    # attribution. But re-shipping a story whose spec edit shifts WHICH
-    # story first uses a grammar point can leave the field pointing at a
-    # story that no longer introduces it. That drift previously had to be
-    # repaired by hand via a copy-pasted Python script in AGENTS.md, then
-    # `regenerate_all_stories.py --apply` had to run a third time so
-    # `new_grammar` arrays matched the reconciled state.
+    # Pre-2026-05-01, this block called `reconcile_grammar_intros` to
+    # repair `intro_in_story` drift on `data/grammar_state.json`. After
+    # Phase A, that field is no longer stored — it is derived from the
+    # corpus by `derived_state.derive_grammar_attributions()` and
+    # projected for the reader by `regenerate_all_stories.py --apply`'s
+    # `build_grammar_attributions.write_attributions()` call. There is
+    # nothing to reconcile because there is no longer any cached value
+    # that could disagree with the corpus.
     #
-    # We now do the reconciliation in-process and re-regenerate ONLY when
-    # something actually changed. Idempotent on a clean ship, cheap on a
-    # re-ship, removes a hand-runbook step. Pinned by
-    # `test_grammar_intro_in_story_matches_corpus_first_use`.
-    reconcile_changes: list[tuple[str, int | None, int | None]] = []
-    try:
-        sys.path.insert(0, str(PIPELINE / "tools"))
-        from reconcile_grammar_intros import (  # noqa: E402
-            first_use_by_grammar, reconcile,
-        )
-        from _paths import GRAMMAR_STATE as _GS  # noqa: E402
-        gstate = json.loads(_GS.read_text(encoding="utf-8"))
-        first_use = first_use_by_grammar()
-        reconcile_changes = reconcile(gstate, first_use)
-        if reconcile_changes:
-            from state_updater import backup as _backup2
-            _backup2(_GS)
-            write_json(_GS, gstate)
-            # State changed → re-regenerate so per-story `new_grammar`
-            # arrays line up with the reconciled attributions.
-            err = _regen_one()
-            if err is not None:
-                return err
-    except Exception as e:
-        return StepResult(
-            "write", "fail",
-            f"grammar_state reconciliation failed after ship: {e}",
-            details=traceback.format_exc(),
-        )
-
-    suffix = ""
-    if reconcile_changes:
-        suffix = f" Reconciled {len(reconcile_changes)} grammar attribution(s)."
+    # Pinned by:
+    #   * test_grammar_state_carries_no_attribution_fields
+    #   * test_grammar_attribution_manifest_in_sync_with_corpus
 
     return StepResult(
         "write", "ok",
         f"Wrote {sp.name}, updated vocab/grammar state "
         f"({len(summary.get('words_added') or [])} new word(s), "
         f"{len(summary.get('grammar_added') or [])} new grammar point(s)), "
-        f"and refreshed is_new flags." + suffix,
+        f"and refreshed is_new flags + grammar attribution projection.",
         details={
-            "words_added":          summary.get("words_added"),
-            "grammar_added":        summary.get("grammar_added"),
-            "grammar_reconciled":   [
-                {"gid": gid, "from": old, "to": new}
-                for gid, old, new in reconcile_changes
-            ],
+            "words_added":   summary.get("words_added"),
+            "grammar_added": summary.get("grammar_added"),
         },
     )
 

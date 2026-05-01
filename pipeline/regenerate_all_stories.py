@@ -696,6 +696,16 @@ def main() -> int:
         n_pages = len(_root.get("pages", []))
         print(f"Refreshed stories/index.json + {n_pages} page(s) "
               f"({_root['n_stories']} stories)")
+        # Phase A derive-on-read (2026-05-01): write the grammar-attribution
+        # projection so the reader app gets fresh intro_in_story /
+        # last_seen_story values without walking every story JSON. Same
+        # rationale as the manifest refresh above — a stale projection
+        # would make the grammar tab show wrong "introduced" filters.
+        from build_grammar_attributions import write_attributions as _write_attrs
+        _attr_data, _attr_static = _write_attrs()
+        from derived_state import derive_grammar_attributions as _derive
+        n_attrs = len(_derive())
+        print(f"Refreshed grammar_attributions.json ({n_attrs} attributed gids)")
         # Honest library-wide first-occurrence pass for is_new / is_new_grammar
         # and per-story new_words / new_grammar arrays. Runs after every story
         # has been written so the walk sees the final shipped state.
