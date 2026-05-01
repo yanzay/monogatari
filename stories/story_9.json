@@ -13,7 +13,7 @@
       {
         "t": "の",
         "role": "particle",
-        "grammar_id": "G015_no_possessive"
+        "grammar_id": "N5_no_pos"
       },
       {
         "t": "声",
@@ -32,8 +32,8 @@
     "W00073"
   ],
   "new_grammar": [
-    "G016_na_adjective",
-    "G032_demo"
+    "N5_na_adj",
+    "N5_demo"
   ],
   "all_words_used": [
     "W00068",
@@ -75,7 +75,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "学校",
@@ -86,7 +86,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "N5_ni_location"
         },
         {
           "t": "いません",
@@ -99,7 +99,7 @@
             "form": "negative_polite",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G036_masen"
+          "grammar_id": "N5_masen"
         },
         {
           "t": "。",
@@ -116,7 +116,7 @@
         {
           "t": "だから",
           "role": "particle",
-          "grammar_id": "G059_dakara",
+          "grammar_id": "N5_dakara",
           "word_id": "W00061"
         },
         {
@@ -129,7 +129,7 @@
         {
           "t": "で",
           "role": "particle",
-          "grammar_id": "G017_de_means"
+          "grammar_id": "N5_de_means"
         },
         {
           "t": "友達",
@@ -140,7 +140,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "N5_to_and"
         },
         {
           "t": "話します",
@@ -153,7 +153,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast",
+          "grammar_id": "N5_masu_nonpast",
           "is_new": true
         },
         {
@@ -182,12 +182,12 @@
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu"
+          "grammar_id": "N5_desu"
         },
         {
           "t": "か",
           "role": "particle",
-          "grammar_id": "G037_ka_question"
+          "grammar_id": "N5_ka_question"
         },
         {
           "t": "。",
@@ -200,7 +200,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "N5_to_and"
         },
         {
           "t": "聞きます",
@@ -213,7 +213,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "N5_masu_nonpast"
         },
         {
           "t": "。",
@@ -240,12 +240,12 @@
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu"
+          "grammar_id": "N5_desu"
         },
         {
           "t": "よ",
           "role": "particle",
-          "grammar_id": "G054_yo_emphasis"
+          "grammar_id": "N5_yo_emphasis"
         },
         {
           "t": "。",
@@ -258,7 +258,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "N5_to_and"
         },
         {
           "t": "友達",
@@ -269,7 +269,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "答えます",
@@ -282,7 +282,7 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "N5_masu_nonpast"
         },
         {
           "t": "。",
@@ -305,7 +305,7 @@
         {
           "t": "で",
           "role": "particle",
-          "grammar_id": "G017_de_means"
+          "grammar_id": "N5_de_means"
         },
         {
           "t": "、",
@@ -320,7 +320,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "N5_no_pos"
         },
         {
           "t": "元気",
@@ -331,7 +331,7 @@
         {
           "t": "な",
           "role": "particle",
-          "grammar_id": "G016_na_adjective",
+          "grammar_id": "N5_na_adj",
           "is_new_grammar": true
         },
         {
@@ -344,7 +344,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "聞きます",
@@ -357,7 +357,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "N5_masu_nonpast"
         },
         {
           "t": "。",
@@ -376,7 +376,7 @@
           "role": "content",
           "word_id": "W00054",
           "r": "その",
-          "grammar_id": "G043_kosoado_pre_nominal"
+          "grammar_id": "N5_kosoado"
         },
         {
           "t": "元気",
@@ -387,7 +387,7 @@
         {
           "t": "な",
           "role": "particle",
-          "grammar_id": "G016_na_adjective"
+          "grammar_id": "N5_na_adj"
         },
         {
           "t": "声",
@@ -398,19 +398,19 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "明るい",
           "role": "content",
           "word_id": "W00001",
           "r": "あかるい",
-          "grammar_id": "G022_i_adj"
+          "grammar_id": "N5_i_adj"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu"
+          "grammar_id": "N5_desu"
         },
         {
           "t": "。",
@@ -427,7 +427,7 @@
         {
           "t": "でも",
           "role": "particle",
-          "grammar_id": "G032_demo",
+          "grammar_id": "N5_demo",
           "word_id": "W00073",
           "is_new": true,
           "is_new_grammar": true
@@ -445,7 +445,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "学校",
@@ -456,7 +456,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "N5_ni_location"
         },
         {
           "t": "いません",
@@ -469,7 +469,7 @@
             "form": "negative_polite",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G036_masen"
+          "grammar_id": "N5_masen"
         },
         {
           "t": "。",

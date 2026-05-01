@@ -112,12 +112,12 @@ SELF_KNOWN_FACT_NOUN_IDS: frozenset[str] = frozenset({
 })
 
 # Grammar IDs we recognise.
-GRAMMAR_TO_OMOIMASU = "G014_to_omoimasu"
-GRAMMAR_TE_OKU      = "G019_te_oku"
-GRAMMAR_NO          = "G015_no_possessive"
-GRAMMAR_WA          = "G001_wa_topic"
-GRAMMAR_DESU        = "G003_desu"
-GRAMMAR_MO          = "G009_mo_also"
+GRAMMAR_TO_OMOIMASU = "N4_to_omoimasu"
+GRAMMAR_TE_OKU      = "N4_te_oku"
+GRAMMAR_NO          = "N5_no_pos"
+GRAMMAR_WA          = "N5_wa_topic"
+GRAMMAR_DESU        = "N5_desu"
+GRAMMAR_MO          = "N5_mo_also"
 
 
 # ── Check 11: Semantic-sanity lint ────────────────────────────────────────────
@@ -537,8 +537,8 @@ def semantic_sanity_lint(story: dict, vocab: dict | None = None) -> list[Issue]:
     # only when there are ≥2 content nouns AND ≥1 list particle (や/と/、).
     #
     # Escape hatches:
-    #   - sentence carries G009_mo_also (も) → likely deliberate parallelism
-    #   - sentence carries G014_to_omoimasu → it's a quoted/inferential closer
+    #   - sentence carries N5_mo_also (も) → likely deliberate parallelism
+    #   - sentence carries N4_to_omoimasu → it's a quoted/inferential closer
     #     ("I think it's a beautiful evening") which is a different shape
     if sentence_views:
         closer = max(sentence_views, key=lambda v: v["idx"] if v["idx"] is not None else -1)

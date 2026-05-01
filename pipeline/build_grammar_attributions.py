@@ -17,8 +17,8 @@ Output shape (matches `derived_state.GrammarAttribution` per gid):
       "generated_at": "2026-05-01T12:00:00+00:00",
       "n_introduced": 31,
       "attributions": {
-        "G001_wa_topic":  {"intro_in_story": 1,  "last_seen_story": 10},
-        "G024_da":        {"intro_in_story": 5,  "last_seen_story": 9},
+        "N5_wa_topic":  {"intro_in_story": 1,  "last_seen_story": 10},
+        "N5_da":        {"intro_in_story": 5,  "last_seen_story": 9},
         ...
       }
     }

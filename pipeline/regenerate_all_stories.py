@@ -252,45 +252,16 @@ def _normalize_first_occurrence_flags(stories_dir: Path) -> None:
         )
 
 
-def _refresh_vocab_metadata(vocab: dict, stories_dir: Path) -> None:
-    """Recompute occurrences / first_story / last_seen_story for every word
-    by scanning all shipped stories. Mirrors state_updater semantics:
-    occurrences = number of stories the word appears in (not raw token count).
-    """
-    word_ids = set(vocab.get("words", {}).keys())
-    # `occurrences` mirrors state_updater semantics: one increment per story
-    # the word appears in, counting `sentences` only.
-    sent_seen_in: dict[str, list[str]] = {wid: [] for wid in word_ids}
-    # `first_story` / `last_seen_story` count ANY appearance (incl. title)
-    any_seen_in: dict[str, list[str]] = {wid: [] for wid in word_ids}
-    for path in sorted(stories_dir.glob("story_*.json"), key=lambda p: int(p.stem.split("_")[1])):
-        story = json.loads(path.read_text(encoding="utf-8"))
-        sid = path.stem
-        sent_used: set[str] = set()
-        any_used: set[str] = set()
-        for sn in story.get("sentences", []):
-            for t in sn.get("tokens", []):
-                wid = t.get("word_id")
-                if wid and wid in word_ids:
-                    sent_used.add(wid)
-                    any_used.add(wid)
-        for sect in ("title",):
-            for t in story.get(sect, {}).get("tokens", []):
-                wid = t.get("word_id")
-                if wid and wid in word_ids:
-                    any_used.add(wid)
-        for wid in sent_used:
-            sent_seen_in[wid].append(sid)
-        for wid in any_used:
-            any_seen_in[wid].append(sid)
-    for wid, w in vocab["words"].items():
-        sents = sent_seen_in.get(wid, [])
-        any_ = any_seen_in.get(wid, [])
-        if sents or any_:
-            w["occurrences"] = len(sents)
-            if any_:
-                w["first_story"] = any_[0]
-                w["last_seen_story"] = any_[-1]
+# `_refresh_vocab_metadata` removed 2026-05-01 (Phase B derive-on-read).
+#
+# This function used to write `occurrences`, `first_story`, and
+# `last_seen_story` directly onto vocab_state entries on every regen.
+# Phase B made these derived: `derive_vocab_attributions(corpus)` is the
+# single source of truth and `build_vocab_attributions` projects it to
+# `data/vocab_attributions.json` for the reader. The old function was
+# silently re-introducing the writes, leaving the corpus in a state
+# where `test_vocab_state_carries_no_attribution_fields` failed after
+# every `--apply`. Removed to honor the Phase B contract.
 
 
 def _all_section_tokens(story: dict) -> list[tuple[str, dict]]:
@@ -334,11 +305,11 @@ def regen_one(
     # Sentence-level post-pass for context-sensitive grammar tagging the
     # per-token converter cannot determine alone:
     #
-    #   * 何 / なに / なん → G045_nan_what (interrogative)
-    #   * あの / この / その / どの → G043_kosoado_pre_nominal (when role=content
+    #   * 何 / なに / なん → N5_nan_what (interrogative)
+    #   * あの / この / その / どの → N5_kosoado (when role=content
     #     and the underlying surface is one of these demonstratives)
     #   * The quotative ~と思います / ~と言います construction:
-    #       - retag と as G014_to_omoimasu / G028_to_iimasu (was G010_to_and)
+    #       - retag と as N4_to_omoimasu / N4_to_iimasu (was N5_to_and)
     #       - demote 思います / 言います to role=aux
     #     Triggers when 思います/言います appears anywhere later in the same
     #     sentence as a と (the topic 私は often intervenes between them).
@@ -348,24 +319,24 @@ def regen_one(
     NAN_SURFACES = {"何", "なに", "なん"}
     KOSOADO_SURFACES = {"あの", "この", "その", "どの"}
     INTERROGATIVE_GIDS = {
-        "だれ": "G039_dare_who", "誰":   "G039_dare_who",
-        "どこ": "G040_doko_where",
-        "いつ": "G042_itsu_when",
+        "だれ": "N5_dare_who", "誰":   "N5_dare_who",
+        "どこ": "N5_doko_where",
+        "いつ": "N5_itsu_when",
         "なぜ": "G053_naze_why",
     }
     COUNTER_SURFACES = {"一人", "二人", "三人", "四人", "五人", "ひとり", "ふたり"}
     ARU_IRU_BASES   = {"ある", "いる"}
     QUOTATIVE_VERBS = {
-        "思います": "G014_to_omoimasu",
-        "言います": "G028_to_iimasu",
+        "思います": "N4_to_omoimasu",
+        "言います": "N4_to_iimasu",
     }
     # Post-pass C surfaces: clause-level constructs detected by sentence shape.
-    # G030_kara_reason: clause-final から after a verb/adj/です stem (reason clause)
-    #   — distinguished from G006_kara_from (locative/temporal から after a noun).
-    # G036_masen: polite-negative verb ending ません (e.g. 来ません、待ちません).
+    # N5_kara_because: clause-final から after a verb/adj/です stem (reason clause)
+    #   — distinguished from N5_kara_from (locative/temporal から after a noun).
+    # N5_masen: polite-negative verb ending ません (e.g. 来ません、待ちません).
     #   — only tag the ません token; role must be content (not already aux).
-    # G041_masenka_invitation: ませんか sentence-final invitation.
-    # G049_ga_but: clause-conjunctive が meaning "but" — tag the が token that
+    # N5_masenka: ませんか sentence-final invitation.
+    # N5_ga_but: clause-conjunctive が meaning "but" — tag the が token that
     #   immediately follows a predicate (verb/adj/です stem) and precedes another clause.
     MASEN_SURFACE    = "ません"
     MASENKA_SURFACE  = "ませんか"
@@ -377,22 +348,22 @@ def regen_one(
             t = tok.get("t")
             # Interrogative content words
             if t in NAN_SURFACES:
-                tok["grammar_id"] = "G045_nan_what"
+                tok["grammar_id"] = "N5_nan_what"
             elif t in KOSOADO_SURFACES and tok.get("role") == "content":
-                tok["grammar_id"] = "G043_kosoado_pre_nominal"
+                tok["grammar_id"] = "N5_kosoado"
             elif t in INTERROGATIVE_GIDS:
                 tok["grammar_id"] = INTERROGATIVE_GIDS[t]
             elif t in COUNTER_SURFACES and tok.get("role") == "content":
-                tok["grammar_id"] = "G025_counters"
+                tok["grammar_id"] = "N5_counters"
             # ある/いる existence verbs (lexical, not the te-iru aux).
-            # Override the generic G026_masu_nonpast that the converter
+            # Override the generic N5_masu_nonpast that the converter
             # assigns by default, but preserve more specific tags such as
-            # G035_arimasen (negative-polite ありません).
+            # N5_ko_arimasen (negative-polite ありません).
             elif tok.get("role") == "content":
                 base = (tok.get("inflection") or {}).get("base")
                 cur_gid = tok.get("grammar_id")
-                if base in ARU_IRU_BASES and cur_gid in (None, "G026_masu_nonpast"):
-                    tok["grammar_id"] = "G021_aru_iru"
+                if base in ARU_IRU_BASES and cur_gid in (None, "N5_masu_nonpast"):
+                    tok["grammar_id"] = "N5_aru_iru"
         # Pass B: quotative と + 思います/言います construction.
         # Find the latest quotative verb in the sentence; then walk back to
         # the nearest preceding と and retag both.
@@ -409,36 +380,36 @@ def regen_one(
         # Pass C: clause-level constructs.
         for j, tok in enumerate(toks):
             t = tok.get("t", "")
-            # G041_masenka_invitation — ませんか (invitation)
+            # N5_masenka — ませんか (invitation)
             # Handles both fused single-token 「ませんか」 and the more common
             # two-token split 「ません」+「か」where か is sentence-final.
             if t == MASENKA_SURFACE:
-                tok["grammar_id"] = "G041_masenka_invitation"
+                tok["grammar_id"] = "N5_masenka"
             elif tok.get("role") == "content" and (
                     t == MASEN_SURFACE or t.endswith(MASEN_SURFACE)):
-                # G035_arimasen — negative existence: ありません (or compound あり
+                # N5_ko_arimasen — negative existence: ありません (or compound あり
                 # ません). Must not override an already-correct tag from Pass A.
                 base = (tok.get("inflection") or {}).get("base", "")
                 if t in {"ありません"} or base in {"ある", "有る"}:
                     # Only set if not already tagged more specifically by Pass A
                     cur = tok.get("grammar_id") or ""
-                    if cur in (None, "", "G026_masu_nonpast", "G036_masen"):
-                        tok["grammar_id"] = "G035_arimasen"
+                    if cur in (None, "", "N5_masu_nonpast", "N5_masen"):
+                        tok["grammar_id"] = "N5_ko_arimasen"
                 else:
                     # Check if the next token is sentence-final か (invitation)
                     nxt = toks[j + 1] if j + 1 < len(toks) else None
                     nxt2 = toks[j + 2] if j + 2 < len(toks) else None
-                    # 〜ません + か (sentence-final) = G041_masenka_invitation.
+                    # 〜ません + か (sentence-final) = N5_masenka.
                     # Tag only the verb token as G041; the particle か retains
-                    # its G037_ka_question tag (they co-occur legitimately).
+                    # its N5_ka_question tag (they co-occur legitimately).
                     if (nxt is not None and nxt.get("t") == KA_SURFACE
                             and (nxt2 is None or nxt2.get("t") in {"。", "？", "!"})):
-                        tok["grammar_id"] = "G041_masenka_invitation"
-                        # do NOT retag か — leave it as G037_ka_question
+                        tok["grammar_id"] = "N5_masenka"
+                        # do NOT retag か — leave it as N5_ka_question
                     else:
-                        # G036_masen — standalone polite negative (来ません, 待ちません…)
-                        tok["grammar_id"] = "G036_masen"
-            # G030_kara_reason — から after a predicate (not a plain noun)
+                        # N5_masen — standalone polite negative (来ません, 待ちません…)
+                        tok["grammar_id"] = "N5_masen"
+            # N5_kara_because — から after a predicate (not a plain noun)
             # Heuristic: the token immediately before から is not role=content
             # with a noun-like grammar_id (i.e. it is a verb/adj/copula surface).
             elif t == "から" and tok.get("role") == "particle":
@@ -457,12 +428,12 @@ def regen_one(
                         or prev_t.endswith("ません")  # negative predicate
                         or prev_t.endswith("した")   # past predicate
                         or prev_role in {"aux"}
-                        or (prev_role == "content" and prev_gid not in (None, "", "G006_kara_from")
+                        or (prev_role == "content" and prev_gid not in (None, "", "N5_kara_from")
                             and not prev_gid.startswith("G00"))  # noun/location gids tend to be low
                     )
                     if is_predicate:
-                        tok["grammar_id"] = "G030_kara_reason"
-            # G049_ga_but — clause-conjunctive が (follows predicate, precedes clause)
+                        tok["grammar_id"] = "N5_kara_because"
+            # N5_ga_but — clause-conjunctive が (follows predicate, precedes clause)
             elif t == "が" and tok.get("role") == "particle":
                 prev = toks[j - 1] if j > 0 else None
                 nxt  = toks[j + 1] if j + 1 < len(toks) else None
@@ -480,7 +451,7 @@ def regen_one(
                         or prev.get("role") == "aux"
                     )
                     if is_predicate:
-                        tok["grammar_id"] = "G049_ga_but"
+                        tok["grammar_id"] = "N5_ga_but"
     strip_audio(regen)
     return spec, regen, report
 
@@ -680,10 +651,12 @@ def main() -> int:
             # stories see them.
             for w in report.get("new_words", []):
                 if w["id"] not in vocab["words"]:
+                    # Phase B derive-on-read (2026-05-01): brand-new word
+                    # records carry definition metadata only. `first_story`,
+                    # `last_seen_story`, and `occurrences` are derived from
+                    # the corpus by `derived_state.derive_vocab_attributions`
+                    # and projected to `data/vocab_attributions.json`.
                     rec = {k: v for k, v in w.items() if not k.startswith("_")}
-                    rec["first_story"] = canon_path.stem
-                    rec["last_seen_story"] = canon_path.stem
-                    rec["occurrences"] = 1
                     vocab["words"][w["id"]] = rec
                     minted_records.append(rec)
 
@@ -743,7 +716,10 @@ def main() -> int:
             return 2
         if orphans:
             print(f"Dropped {len(orphans)} orphan vocab record(s): {', '.join(orphans)}")
-        _refresh_vocab_metadata(vocab, ROOT / "stories")
+        # _refresh_vocab_metadata removed 2026-05-01 (Phase B derive-on-read).
+        # The projection at static/data/vocab_attributions.json (rebuilt above)
+        # is the single source of truth; vocab_state.json no longer carries
+        # `occurrences`, `first_story`, or `last_seen_story`.
         _refresh_next_word_id(vocab)
         _clean_jmdict_meanings(vocab)
         vpath.write_text(

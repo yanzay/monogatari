@@ -83,8 +83,8 @@ Cumulative grammar inventory.
 {
   "version": 1,
   "points": {
-    "G001_wa_topic": {
-      "id":    "G001_wa_topic",
+    "N5_wa_topic": {
+      "id":    "N5_wa_topic",
       "title": "は — topic marker",
       "short": "Marks the topic of the sentence. Pronounced 'wa', not 'ha'.",
       "long":  "...",
@@ -108,7 +108,7 @@ Static reference catalog of all grammar points (built once from JLPT/Genki sourc
   "story_id": 12,
   "title":    {"tokens": [ /* token records */ ]},
   "new_words":      ["W00045", "W00046"],
-  "new_grammar":    ["G013_mashita_past"],
+  "new_grammar":    ["N5_mashita"],
   "all_words_used": ["W00001", "W00002", "..."],   // first-seen order across title→sentences
   "sentences": [
     {
@@ -128,7 +128,7 @@ Static reference catalog of all grammar points (built once from JLPT/Genki sourc
   "r":           "のみました",       // reading (hiragana). Required on kanji content tokens; optional on kana.
   "role":        "content",         // content | particle | aux
   "word_id":     "W00045",          // null/absent for pure-grammar tokens
-  "grammar_id":  "G013_mashita_past", // optional; on the token, not inside `inflection`
+  "grammar_id":  "N5_mashita", // optional; on the token, not inside `inflection`
   "is_new":      true,              // present + true on first occurrence in story; otherwise omitted
   "is_new_grammar": true,           // same convention for grammar
   "inflection": {                   // present for inflected verbs and select adjectives
@@ -152,9 +152,9 @@ SRS scheduler state, mastery tracking, and read-position bookmarks per device. N
 |---------------------|----------|------------------------------------|
 | `dictionary`        | 飲む       | Plain non-past (rarely tagged)     |
 | `polite_nonpast`    | 飲みます    | The default for content stories    |
-| `polite_past`       | 飲みました  | Tagged with `G013_mashita_past`    |
-| `negative_polite`   | 飲みません  | Tagged with `G036_masen`           |
-| `te`                | 飲んで     | Tagged with `G007_te_form`         |
+| `polite_past`       | 飲みました  | Tagged with `N5_mashita`    |
+| `negative_polite`   | 飲みません  | Tagged with `N5_masen`           |
+| `te`                | 飲んで     | Tagged with `N5_te_form`         |
 | `ta`                | 飲んだ     | Plain past                          |
 | `nai`               | 飲まない   | Plain negative                      |
 
@@ -168,7 +168,7 @@ The validator accepts `te_form` as an alias for `te`. The legacy v1/v3 names (`m
 
 ### 4.3 Grammar tagging
 
-`grammar_id` lives **on the token**, not inside `inflection`. Adjacent or compound forms (e.g. て + います) are split into two tokens — the verb in `te` form, and a separate `aux` token tagged `G008_te_iru`.
+`grammar_id` lives **on the token**, not inside `inflection`. Adjacent or compound forms (e.g. て + います) are split into two tokens — the verb in `te` form, and a separate `aux` token tagged `N5_te_iru`.
 
 ## 5. Validator (deterministic)
 

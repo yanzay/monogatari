@@ -23,10 +23,10 @@ Monogatari = graded-reader Japanese short-story corpus + reading-app + authoring
 - `vocab_state.json::words[wid]["first_story"]` is a STRING (`"story_1"`), not int. Use `parse_story_id()` to coerce. Same for `last_seen_story` and grammar `intro_in_story`.
 - "Lemma" of a word = `surface` field (kanji/kana display form), NOT a separate `lemma` key. `reading` is romaji.
 - Grammar state: `{"version": ..., "points": {gid: {...}}}`. `label`/`description`/`pattern` field names are inconsistently present.
-- **Two parallel grammar id namespaces — bridge via `catalog_id`.** `data/grammar_state.json` keys by `G001_wa_topic` etc. `data/grammar_catalog.json` keys by `N5_wa_topic` etc. Coverage analysis MUST join via `catalog_id`. Use `pipeline/grammar_progression.coverage_status()`.
+- **Single grammar id namespace (since 2026-05-01).** Both `data/grammar_state.json` and `data/grammar_catalog.json` key by the catalog form: `N5_wa_topic`, `N4_te_iku`, etc. The legacy `G###_slug` ids and `catalog_id` join field were retired in `pipeline/tools/rename_gids.py`. Coverage analysis just compares ids directly via `pipeline/grammar_progression.coverage_status()`.
 - **`grammar_state.json::points[gid]["intro_in_story"]`** is the load-bearing field for coverage tracking. `None` = not yet covered (Check 3.10/3.9, brief). `state_updater` sets it on every ship; `pipeline/tools/backfill_grammar_intros.py` repairs legacy entries.
 - A bilingual spec is AUTHORITATIVE. The shipped story is derived — do NOT hand-edit.
-- **Auto-tagged grammar IDs not yet in `grammar_state.json` are registered in `text_to_story.KNOWN_AUTO_GRAMMAR_DEFINITIONS`.** Some paradigm anchors (notably `G055_plain_nonpast_pair` / `N5_dictionary_form`) were never bulk-loaded. The registry carries the full state-entry definition (title/short/long/jlpt/catalog_id) so `state_updater` can attribute on first use without a hand-written plan. Three loci consult it: validator's plan (built by `step_validate` from build report's `unknown_grammar`), gauntlet's `step_coverage_floor` gid→catalog_id fallback, and `_build_state_plan`'s `new_grammar_definitions` splice. **To add a new auto-tagged paradigm anchor:** add a token-level `grammar_id` to `_classify_inflection` (or another tagger site) AND add a matching entry to `KNOWN_AUTO_GRAMMAR_DEFINITIONS`. Tests in `pipeline/tests/test_dictionary_form_attribution.py`.
+- **Auto-tagged grammar IDs not yet in `grammar_state.json` are registered in `text_to_story.KNOWN_AUTO_GRAMMAR_DEFINITIONS`.** Some paradigm anchors (notably `N5_dictionary_form`) were never bulk-loaded. The registry carries the full state-entry definition (title/short/long/jlpt/catalog_id) so `state_updater` can attribute on first use without a hand-written plan. Three loci consult it: validator's plan (built by `step_validate` from build report's `unknown_grammar`), gauntlet's `step_coverage_floor` gid→catalog_id fallback, and `_build_state_plan`'s `new_grammar_definitions` splice. **To add a new auto-tagged paradigm anchor:** add a token-level `grammar_id` to `_classify_inflection` (or another tagger site) AND add a matching entry to `KNOWN_AUTO_GRAMMAR_DEFINITIONS`. Tests in `pipeline/tests/test_dictionary_form_attribution.py`.
 
 ## Cascade rules
 
@@ -68,7 +68,7 @@ Two pre-existing pipeline gaps fixed in one pass:
 
 2. **Grammar `last_seen_story` now updates on every ship.** Previously only vocab `last_seen_story` was bumped; grammar's was never written. `state_updater.py` now has a §2b sweep that walks all story tokens (title + sentences) and sets `last_seen_story = story_id` on every `grammar_id` referenced (own field or `inflection.grammar_id`). Backfill via the corpus-walk script that landed alongside the patch — sets last_seen to the highest story_id where each gid appears. Two regression tests: `test_grammar_last_seen_story_set_for_introduced_points` and `test_grammar_last_seen_story_matches_corpus_max_use` in `test_state_integrity.py`.
 
-State chain consequence: after this patch, `data/grammar_state.json::points[gid]["last_seen_story"]` is the load-bearing field for "when did this grammar point last appear" (mirroring vocab semantics). Reinforcement debt analysis (e.g. G009_mo_also last seen story 3, G050_he_direction last seen story 2) becomes diagnosable from state alone.
+State chain consequence: after this patch, `data/grammar_state.json::points[gid]["last_seen_story"]` is the load-bearing field for "when did this grammar point last appear" (mirroring vocab semantics). Reinforcement debt analysis (e.g. N5_mo_also last seen story 3, N5_e_direction last seen story 2) becomes diagnosable from state alone.
 
 ### Audio layout (since 2026-04-29)
 
@@ -127,7 +127,7 @@ Documented in `docs/v2-strategy-2026-04-27.md` and `docs/phase3-tasks-2026-04-28
 
 ## Authoring lessons
 
-### G055_plain_nonpast_pair (relative-clause plain-form verbs) is a cascade trap
+### N5_dictionary_form (relative-clause plain-form verbs) is a cascade trap
 
 Introducing G055 in story 4–7 fails `test_introduced_grammar_is_reinforced` because no story 4–10 currently uses plain dictionary form. Adding a downstream relative clause to story N+1 then violates `test_grammar_introduction_cadence` (max 1 after bootstrap). Spirals into 3+ story edits per attempt.
 
@@ -221,7 +221,7 @@ Word PASSES if it satisfies EITHER signal. No-JLPT but `ichi1` tag (Ichimango ba
 
 **Backfilled legacy entries:**
 - W00026 袋 (story 2, N3) → `lexical_overrides=["袋"]`.
-- W00029 皿 + W00030 包丁 (story 3, N3 + N2) → `lexical_overrides=["皿","包丁"]` (instrument anchor for G017_de_means; ナイフ is wrong — means table/penknife in JP).
+- W00029 皿 + W00030 包丁 (story 3, N3 + N2) → `lexical_overrides=["皿","包丁"]` (instrument anchor for N5_de_means; ナイフ is wrong — means table/penknife in JP).
 
 After backfill: `step_vocab_difficulty` is HARD-BLOCK; `test_no_above_tier_vocab_without_override` runs without xfail.
 

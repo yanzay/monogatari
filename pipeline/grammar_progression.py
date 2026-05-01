@@ -194,13 +194,13 @@ BOOTSTRAP_LADDER: dict[int, dict] = {
     # holds — story 1 just carries 10 of the 54 N5 points instead of 8,
     # and the taper continues from there.
     # Story 1 grammar_max raised again 10 → 11 on 2026-04-29 (post-ship)
-    # because G021_aru_iru is auto-attributed on first use of あります OR
+    # because N5_aru_iru is auto-attributed on first use of あります OR
     # います AND counts as a corpus grammar intro even though it's a
     # paradigm pair, not a discrete grammar point. The seed plan didn't
     # list it explicitly because it's never an "intro" in the
     # learner-facing sense — it's the existence-verb pair you cannot
     # avoid touching whenever you write either あります or います. Treat
-    # G021_aru_iru as a free auto-tag (counted, but not budgeted).
+    # N5_aru_iru as a free auto-tag (counted, but not budgeted).
     1:  {"vocab_min": 14, "vocab_max": 18, "grammar_min":  8, "grammar_max": 11, "scene_class": "home_morning"},
     2:  {"vocab_min":  6, "vocab_max": 10, "grammar_min": 3, "grammar_max": 5, "scene_class": "walk_to_shop"},
     3:  {"vocab_min":  5, "vocab_max":  8, "grammar_min": 3, "grammar_max": 4, "scene_class": "kitchen"},

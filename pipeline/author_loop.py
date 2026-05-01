@@ -270,16 +270,16 @@ def _apply_post_pass_attributions(built_story: dict) -> None:
     NAN_SURFACES = {"何", "なに", "なん"}
     KOSOADO_SURFACES = {"あの", "この", "その", "どの"}
     INTERROGATIVE_GIDS = {
-        "だれ": "G039_dare_who", "誰":   "G039_dare_who",
-        "どこ": "G040_doko_where",
-        "いつ": "G042_itsu_when",
+        "だれ": "N5_dare_who", "誰":   "N5_dare_who",
+        "どこ": "N5_doko_where",
+        "いつ": "N5_itsu_when",
         "なぜ": "G053_naze_why",
     }
     COUNTER_SURFACES = {"一人", "二人", "三人", "四人", "五人", "ひとり", "ふたり"}
     ARU_IRU_BASES   = {"ある", "いる"}
     QUOTATIVE_VERBS = {
-        "思います": "G014_to_omoimasu",
-        "言います": "G028_to_iimasu",
+        "思います": "N4_to_omoimasu",
+        "言います": "N4_to_iimasu",
     }
 
     for sent in built_story.get("sentences", []):
@@ -288,18 +288,18 @@ def _apply_post_pass_attributions(built_story: dict) -> None:
         for tok in toks:
             t = tok.get("t", "")
             if t in NAN_SURFACES:
-                tok["grammar_id"] = "G045_nan_what"
+                tok["grammar_id"] = "N5_nan_what"
             elif t in KOSOADO_SURFACES and tok.get("role") == "content":
-                tok["grammar_id"] = "G043_kosoado_pre_nominal"
+                tok["grammar_id"] = "N5_kosoado"
             elif t in INTERROGATIVE_GIDS:
                 tok["grammar_id"] = INTERROGATIVE_GIDS[t]
             elif t in COUNTER_SURFACES and tok.get("role") == "content":
-                tok["grammar_id"] = "G025_counters"
+                tok["grammar_id"] = "N5_counters"
             elif tok.get("role") == "content":
                 base = (tok.get("inflection") or {}).get("base")
                 cur_gid = tok.get("grammar_id")
-                if base in ARU_IRU_BASES and cur_gid in (None, "G026_masu_nonpast"):
-                    tok["grammar_id"] = "G021_aru_iru"
+                if base in ARU_IRU_BASES and cur_gid in (None, "N5_masu_nonpast"):
+                    tok["grammar_id"] = "N5_aru_iru"
         # Pass B: quotative と + 思います/言います
         for j in range(len(toks) - 1, -1, -1):
             qv = toks[j].get("t")
@@ -311,7 +311,7 @@ def _apply_post_pass_attributions(built_story: dict) -> None:
                         toks[j]["role"] = "aux"
                         break
         # Pass C: clause-conjunctive が ("but") — mirrors regenerate_all_stories.
-        # Without this the gauntlet's coverage_floor undercounts G049_ga_but
+        # Without this the gauntlet's coverage_floor undercounts N5_ga_but
         # at dry-run time, even though the post-ship regen WILL tag it. See
         # AGENTS.md "auto-tagged grammar IDs" section for the broader context.
         for j, tok in enumerate(toks):
@@ -328,7 +328,7 @@ def _apply_post_pass_attributions(built_story: dict) -> None:
                         or prev.get("role") == "aux"
                     )
                     if is_predicate:
-                        tok["grammar_id"] = "G049_ga_but"
+                        tok["grammar_id"] = "N5_ga_but"
 
 
 def step_pedagogical_sanity(story_id: int, built_story: dict) -> StepResult:
@@ -356,8 +356,8 @@ def step_pedagogical_sanity(story_id: int, built_story: dict) -> StepResult:
         # Collect every grammar_id used in the would-build story.
         # IMPORTANT: text_to_story.build_story emits per-token grammar_ids,
         # but several context-sensitive points are attached only by the
-        # `regenerate_all_stories.regen_one` post-pass (e.g. G021_aru_iru,
-        # G014_to_omoimasu, G028_to_iimasu, G030_kara_reason, etc.). The
+        # `regenerate_all_stories.regen_one` post-pass (e.g. N5_aru_iru,
+        # N4_to_omoimasu, N4_to_iimasu, N5_kara_because, etc.). The
         # gauntlet runs before regenerate, so we re-apply the subset of
         # post-passes whose absence would cause false-positive failures
         # against the pedagogical-sanity test.
@@ -613,7 +613,7 @@ def step_coverage_floor(story_id: int, built_story: dict) -> StepResult:
                 #   2. KNOWN_AUTO_GRAMMAR_DEFINITIONS — the in-code
                 #      registry for auto-tagged paradigm anchors that
                 #      have never been bulk-loaded into state (e.g.
-                #      G055_plain_nonpast_pair, the first plain-form
+                #      N5_dictionary_form, the first plain-form
                 #      verb usage in the corpus). Without this fallback,
                 #      a gid the tagger emits but state doesn't know
                 #      yet would map to None and the intro would not
@@ -980,7 +980,7 @@ def _build_state_plan(build_report: dict | None) -> dict:
     eliminates the entire hand-written sidecar JSON step that bit story 8.
 
     Auto-tagged grammar gids that are NOT yet in grammar_state.json
-    (e.g. G055_plain_nonpast_pair on the first plain-form verb usage)
+    (e.g. N5_dictionary_form on the first plain-form verb usage)
     are surfaced via the build report's `unknown_grammar` list. For each
     such gid that has a registered definition in
     `text_to_story.KNOWN_AUTO_GRAMMAR_DEFINITIONS`, we splice the

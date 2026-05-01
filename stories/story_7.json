@@ -13,7 +13,7 @@
       {
         "t": "と",
         "role": "particle",
-        "grammar_id": "G010_to_and"
+        "grammar_id": "N5_to_and"
       },
       {
         "t": "店",
@@ -24,7 +24,7 @@
       {
         "t": "の",
         "role": "particle",
-        "grammar_id": "G015_no_possessive"
+        "grammar_id": "N5_no_pos"
       },
       {
         "t": "人",
@@ -44,9 +44,9 @@
     "W00060"
   ],
   "new_grammar": [
-    "G055_plain_nonpast_pair",
-    "G059_dakara",
-    "G029_kute"
+    "N5_dictionary_form",
+    "N5_dakara",
+    "N5_i_adj_te"
   ],
   "all_words_used": [
     "W00055",
@@ -79,7 +79,7 @@
             "form": "dictionary",
             "verb_class": "godan"
           },
-          "grammar_id": "G055_plain_nonpast_pair",
+          "grammar_id": "N5_dictionary_form",
           "is_new": true,
           "is_new_grammar": true
         },
@@ -93,20 +93,20 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "冷たい",
           "role": "content",
           "word_id": "W00057",
           "r": "つめたい",
-          "grammar_id": "G022_i_adj",
+          "grammar_id": "N5_i_adj",
           "is_new": true
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu"
+          "grammar_id": "N5_desu"
         },
         {
           "t": "。",
@@ -129,7 +129,7 @@
         {
           "t": "だから",
           "role": "particle",
-          "grammar_id": "G059_dakara",
+          "grammar_id": "N5_dakara",
           "word_id": "W00061",
           "is_new": true,
           "is_new_grammar": true
@@ -147,7 +147,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "N5_ni_location"
         },
         {
           "t": "います",
@@ -160,7 +160,7 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "N5_aru_iru"
         },
         {
           "t": "。",
@@ -184,7 +184,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "冷たくて",
@@ -194,7 +194,7 @@
           "inflection": {
             "form": "i_adj_te"
           },
-          "grammar_id": "G029_kute",
+          "grammar_id": "N5_i_adj_te",
           "is_new_grammar": true
         },
         {
@@ -212,13 +212,13 @@
             "form": "te",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G007_te_form",
+          "grammar_id": "N5_te_form",
           "is_new": true
         },
         {
           "t": "います",
           "role": "aux",
-          "grammar_id": "G008_te_iru"
+          "grammar_id": "N5_te_iru"
         },
         {
           "t": "。",
@@ -241,7 +241,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "N5_no_pos"
         },
         {
           "t": "人",
@@ -252,7 +252,7 @@
         {
           "t": "が",
           "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "N5_ga_subject"
         },
         {
           "t": "タオル",
@@ -264,7 +264,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "持って",
@@ -277,12 +277,12 @@
             "form": "te",
             "verb_class": "godan"
           },
-          "grammar_id": "G007_te_form"
+          "grammar_id": "N5_te_form"
         },
         {
           "t": "います",
           "role": "aux",
-          "grammar_id": "G008_te_iru"
+          "grammar_id": "N5_te_iru"
         },
         {
           "t": "。",
@@ -305,19 +305,19 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "温かい",
           "role": "content",
           "word_id": "W00009",
           "r": "あたたかい",
-          "grammar_id": "G022_i_adj"
+          "grammar_id": "N5_i_adj"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu"
+          "grammar_id": "N5_desu"
         },
         {
           "t": "。",
@@ -336,7 +336,7 @@
           "role": "content",
           "word_id": "W00054",
           "r": "その",
-          "grammar_id": "G043_kosoado_pre_nominal"
+          "grammar_id": "N5_kosoado"
         },
         {
           "t": "タオル",
@@ -347,7 +347,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "取ります",
@@ -360,12 +360,12 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "N5_masu_nonpast"
         },
         {
           "t": "が",
           "role": "particle",
-          "grammar_id": "G049_ga_but"
+          "grammar_id": "N5_ga_but"
         },
         {
           "t": "、",
@@ -380,7 +380,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "濡れて",
@@ -393,12 +393,12 @@
             "form": "te",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G007_te_form"
+          "grammar_id": "N5_te_form"
         },
         {
           "t": "います",
           "role": "aux",
-          "grammar_id": "G008_te_iru"
+          "grammar_id": "N5_te_iru"
         },
         {
           "t": "。",

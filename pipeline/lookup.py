@@ -19,7 +19,7 @@ Examples:
 
     # Dump full record by id
     python3 pipeline/lookup.py W00015
-    python3 pipeline/lookup.py G002_ga_subject
+    python3 pipeline/lookup.py N5_ga_subject
 
     # Find all words with occurrences < 5 (engagement reuse pool)
     python3 pipeline/lookup.py --low-occ

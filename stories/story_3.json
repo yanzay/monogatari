@@ -9,7 +9,7 @@
         "role": "content",
         "word_id": "W00025",
         "r": "きいろい",
-        "grammar_id": "G022_i_adj"
+        "grammar_id": "N5_i_adj"
       },
       {
         "t": "卵",
@@ -30,9 +30,9 @@
     "W00032"
   ],
   "new_grammar": [
-    "G017_de_means",
-    "G007_te_form",
-    "G035_arimasen"
+    "N5_de_means",
+    "N5_te_form",
+    "N5_ko_arimasen"
   ],
   "all_words_used": [
     "W00025",
@@ -73,7 +73,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "N5_ni_location"
         },
         {
           "t": "卵",
@@ -85,7 +85,7 @@
         {
           "t": "が",
           "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "N5_ga_subject"
         },
         {
           "t": "あります",
@@ -98,7 +98,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "N5_aru_iru"
         },
         {
           "t": "。",
@@ -121,7 +121,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "袋",
@@ -132,7 +132,7 @@
         {
           "t": "から",
           "role": "particle",
-          "grammar_id": "G006_kara_from"
+          "grammar_id": "N5_kara_from"
         },
         {
           "t": "皿",
@@ -144,7 +144,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "出しました",
@@ -157,7 +157,7 @@
             "form": "polite_past",
             "verb_class": "godan"
           },
-          "grammar_id": "G013_mashita_past",
+          "grammar_id": "N5_mashita",
           "is_new": true
         },
         {
@@ -181,7 +181,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "包丁",
@@ -193,7 +193,7 @@
         {
           "t": "で",
           "role": "particle",
-          "grammar_id": "G017_de_means",
+          "grammar_id": "N5_de_means",
           "is_new_grammar": true
         },
         {
@@ -205,7 +205,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "切りました",
@@ -218,7 +218,7 @@
             "form": "polite_past",
             "verb_class": "godan"
           },
-          "grammar_id": "G013_mashita_past",
+          "grammar_id": "N5_mashita",
           "is_new": true
         },
         {
@@ -242,14 +242,14 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "黄色い",
           "role": "content",
           "word_id": "W00025",
           "r": "きいろい",
-          "grammar_id": "G022_i_adj",
+          "grammar_id": "N5_i_adj",
           "is_new": true
         },
         {
@@ -261,7 +261,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "私",
@@ -272,7 +272,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "N5_ni_location"
         },
         {
           "t": "見せました",
@@ -285,7 +285,7 @@
             "form": "polite_past",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G013_mashita_past",
+          "grammar_id": "N5_mashita",
           "is_new": true
         },
         {
@@ -309,7 +309,7 @@
         {
           "t": "も",
           "role": "particle",
-          "grammar_id": "G009_mo_also"
+          "grammar_id": "N5_mo_also"
         },
         {
           "t": "卵",
@@ -320,7 +320,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "切って",
@@ -333,7 +333,7 @@
             "form": "te",
             "verb_class": "godan"
           },
-          "grammar_id": "G007_te_form",
+          "grammar_id": "N5_te_form",
           "is_new_grammar": true
         },
         {
@@ -351,7 +351,7 @@
             "form": "polite_past",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G013_mashita_past",
+          "grammar_id": "N5_mashita",
           "is_new": true
         },
         {
@@ -375,7 +375,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "母",
@@ -386,7 +386,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "N5_to_and"
         },
         {
           "t": "卵",
@@ -397,7 +397,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "食べました",
@@ -410,7 +410,7 @@
             "form": "polite_past",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G013_mashita_past"
+          "grammar_id": "N5_mashita"
         },
         {
           "t": "。",
@@ -433,7 +433,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "ありません",
@@ -446,7 +446,7 @@
             "form": "negative_polite",
             "verb_class": "godan"
           },
-          "grammar_id": "G035_arimasen",
+          "grammar_id": "N5_ko_arimasen",
           "is_new_grammar": true
         },
         {

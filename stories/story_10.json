@@ -13,7 +13,7 @@
       {
         "t": "の",
         "role": "particle",
-        "grammar_id": "G015_no_possessive"
+        "grammar_id": "N5_no_pos"
       },
       {
         "t": "屋根",
@@ -31,7 +31,7 @@
     "W00078"
   ],
   "new_grammar": [
-    "G031_tai"
+    "N5_tai"
   ],
   "all_words_used": [
     "W00074",
@@ -79,7 +79,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "N5_to_and"
         },
         {
           "t": "私",
@@ -90,7 +90,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "屋根",
@@ -102,7 +102,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "N5_ni_location"
         },
         {
           "t": "出ます",
@@ -115,16 +115,14 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "N5_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "In the evening, mother and I step out onto the roof.",
-      "audio": "audio/story_10/s0.mp3",
-      "audio_hash": "3043564e2185"
+      "gloss_en": "In the evening, mother and I step out onto the roof."
     },
     {
       "idx": 1,
@@ -139,12 +137,12 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "N5_ni_location"
         },
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "雲",
@@ -156,7 +154,7 @@
         {
           "t": "が",
           "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "N5_ga_subject"
         },
         {
           "t": "あります",
@@ -169,16 +167,14 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "N5_aru_iru"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "In the sky there is a cloud.",
-      "audio": "audio/story_10/s1.mp3",
-      "audio_hash": "e1e5294cebd0"
+      "gloss_en": "In the sky there is a cloud."
     },
     {
       "idx": 2,
@@ -192,14 +188,14 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "その",
           "role": "content",
           "word_id": "W00054",
           "r": "その",
-          "grammar_id": "G043_kosoado_pre_nominal"
+          "grammar_id": "N5_kosoado"
         },
         {
           "t": "雲",
@@ -210,7 +206,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "ゆっくり",
@@ -230,16 +226,14 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "N5_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I watch that cloud slowly.",
-      "audio": "audio/story_10/s2.mp3",
-      "audio_hash": "c1969f1586f3"
+      "gloss_en": "I watch that cloud slowly."
     },
     {
       "idx": 3,
@@ -253,7 +247,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "「",
@@ -264,7 +258,7 @@
           "role": "content",
           "word_id": "W00054",
           "r": "その",
-          "grammar_id": "G043_kosoado_pre_nominal"
+          "grammar_id": "N5_kosoado"
         },
         {
           "t": "雲",
@@ -275,7 +269,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "見たい",
@@ -288,13 +282,13 @@
             "form": "tai",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G031_tai",
+          "grammar_id": "N5_tai",
           "is_new_grammar": true
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu"
+          "grammar_id": "N5_desu"
         },
         {
           "t": "。",
@@ -307,7 +301,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "N5_to_and"
         },
         {
           "t": "母",
@@ -318,7 +312,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "N5_ni_location"
         },
         {
           "t": "話します",
@@ -331,16 +325,14 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "N5_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "I say to mother, \"I want to watch that cloud.\"",
-      "audio": "audio/story_10/s3.mp3",
-      "audio_hash": "b583b305128a"
+      "gloss_en": "I say to mother, \"I want to watch that cloud.\""
     },
     {
       "idx": 4,
@@ -354,7 +346,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "元気",
@@ -365,7 +357,7 @@
         {
           "t": "な",
           "role": "particle",
-          "grammar_id": "G016_na_adjective"
+          "grammar_id": "N5_na_adj"
         },
         {
           "t": "声",
@@ -376,7 +368,7 @@
         {
           "t": "で",
           "role": "particle",
-          "grammar_id": "G017_de_means"
+          "grammar_id": "N5_de_means"
         },
         {
           "t": "「",
@@ -387,7 +379,7 @@
           "role": "content",
           "word_id": "W00054",
           "r": "その",
-          "grammar_id": "G043_kosoado_pre_nominal"
+          "grammar_id": "N5_kosoado"
         },
         {
           "t": "雲",
@@ -398,7 +390,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "パン",
@@ -409,12 +401,12 @@
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu"
+          "grammar_id": "N5_desu"
         },
         {
           "t": "よ",
           "role": "particle",
-          "grammar_id": "G054_yo_emphasis"
+          "grammar_id": "N5_yo_emphasis"
         },
         {
           "t": "。",
@@ -427,7 +419,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "N5_to_and"
         },
         {
           "t": "答えます",
@@ -440,16 +432,14 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "N5_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "In a bright voice mother answers, \"That cloud is bread.\"",
-      "audio": "audio/story_10/s4.mp3",
-      "audio_hash": "52396392b847"
+      "gloss_en": "In a bright voice mother answers, \"That cloud is bread.\""
     },
     {
       "idx": 5,
@@ -457,7 +447,7 @@
         {
           "t": "でも",
           "role": "particle",
-          "grammar_id": "G032_demo",
+          "grammar_id": "N5_demo",
           "word_id": "W00073"
         },
         {
@@ -469,7 +459,7 @@
           "role": "content",
           "word_id": "W00054",
           "r": "その",
-          "grammar_id": "G043_kosoado_pre_nominal"
+          "grammar_id": "N5_kosoado"
         },
         {
           "t": "雲",
@@ -480,7 +470,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "パン",
@@ -491,12 +481,12 @@
         {
           "t": "で",
           "role": "particle",
-          "grammar_id": "G017_de_means"
+          "grammar_id": "N5_de_means"
         },
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "ありません",
@@ -509,16 +499,14 @@
             "form": "negative_polite",
             "verb_class": "godan"
           },
-          "grammar_id": "G035_arimasen"
+          "grammar_id": "N5_ko_arimasen"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "But that cloud is not bread.",
-      "audio": "audio/story_10/s5.mp3",
-      "audio_hash": "ef9963b1b0a4"
+      "gloss_en": "But that cloud is not bread."
     },
     {
       "idx": 6,
@@ -532,7 +520,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "N5_to_and"
         },
         {
           "t": "私",
@@ -543,7 +531,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "一緒",
@@ -554,7 +542,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "N5_ni_location"
         },
         {
           "t": "屋根",
@@ -565,7 +553,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "N5_no_pos"
         },
         {
           "t": "椅子",
@@ -576,7 +564,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "N5_ni_location"
         },
         {
           "t": "座ります",
@@ -589,30 +577,14 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "N5_masu_nonpast"
         },
         {
           "t": "。",
           "role": "punct"
         }
       ],
-      "gloss_en": "Mother and I sit down together on the chair on the roof.",
-      "audio": "audio/story_10/s6.mp3",
-      "audio_hash": "aeb394298ee0"
+      "gloss_en": "Mother and I sit down together on the chair on the roof."
     }
-  ],
-  "word_audio": {
-    "W00074": "audio/words/W00074.mp3",
-    "W00075": "audio/words/W00075.mp3",
-    "W00076": "audio/words/W00076.mp3",
-    "W00077": "audio/words/W00077.mp3",
-    "W00078": "audio/words/W00078.mp3"
-  },
-  "word_audio_hash": {
-    "W00074": "748568311439",
-    "W00075": "962ddaab76bd",
-    "W00076": "ac60cc015924",
-    "W00077": "a3a9ce69aa09",
-    "W00078": "da12b4a6e0d9"
-  }
+  ]
 }

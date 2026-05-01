@@ -9,7 +9,7 @@
         "role": "content",
         "word_id": "W00001",
         "r": "あかるい",
-        "grammar_id": "G022_i_adj"
+        "grammar_id": "N5_i_adj"
       },
       {
         "t": "朝",
@@ -39,17 +39,17 @@
     "W00017"
   ],
   "new_grammar": [
-    "G022_i_adj",
-    "G015_no_possessive",
-    "G001_wa_topic",
-    "G003_desu",
-    "G004_ni_location",
-    "G021_aru_iru",
-    "G002_ga_subject",
-    "G009_mo_also",
-    "G050_he_direction",
-    "G026_masu_nonpast",
-    "G005_wo_object"
+    "N5_i_adj",
+    "N5_no_pos",
+    "N5_wa_topic",
+    "N5_desu",
+    "N5_ni_location",
+    "N5_aru_iru",
+    "N5_ga_subject",
+    "N5_mo_also",
+    "N5_e_direction",
+    "N5_masu_nonpast",
+    "N5_o_object"
   ],
   "all_words_used": [
     "W00001",
@@ -95,7 +95,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive",
+          "grammar_id": "N5_no_pos",
           "is_new_grammar": true
         },
         {
@@ -108,7 +108,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic",
+          "grammar_id": "N5_wa_topic",
           "is_new_grammar": true
         },
         {
@@ -116,14 +116,14 @@
           "role": "content",
           "word_id": "W00001",
           "r": "あかるい",
-          "grammar_id": "G022_i_adj",
+          "grammar_id": "N5_i_adj",
           "is_new": true,
           "is_new_grammar": true
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu",
+          "grammar_id": "N5_desu",
           "is_new_grammar": true
         },
         {
@@ -148,7 +148,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "台所",
@@ -159,7 +159,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location",
+          "grammar_id": "N5_ni_location",
           "is_new_grammar": true
         },
         {
@@ -173,7 +173,7 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G021_aru_iru",
+          "grammar_id": "N5_aru_iru",
           "is_new": true,
           "is_new_grammar": true
         },
@@ -199,7 +199,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "N5_no_pos"
         },
         {
           "t": "ところ",
@@ -211,14 +211,14 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "N5_ni_location"
         },
         {
           "t": "温かい",
           "role": "content",
           "word_id": "W00009",
           "r": "あたたかい",
-          "grammar_id": "G022_i_adj",
+          "grammar_id": "N5_i_adj",
           "is_new": true
         },
         {
@@ -231,7 +231,7 @@
         {
           "t": "が",
           "role": "particle",
-          "grammar_id": "G002_ga_subject",
+          "grammar_id": "N5_ga_subject",
           "is_new_grammar": true
         },
         {
@@ -245,7 +245,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G021_aru_iru",
+          "grammar_id": "N5_aru_iru",
           "is_new": true
         },
         {
@@ -265,7 +265,7 @@
           "role": "content",
           "word_id": "W00012",
           "r": "ちいさい",
-          "grammar_id": "G022_i_adj",
+          "grammar_id": "N5_i_adj",
           "is_new": true
         },
         {
@@ -278,7 +278,7 @@
         {
           "t": "も",
           "role": "particle",
-          "grammar_id": "G009_mo_also",
+          "grammar_id": "N5_mo_also",
           "is_new_grammar": true
         },
         {
@@ -292,7 +292,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "N5_aru_iru"
         },
         {
           "t": "。",
@@ -316,7 +316,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "台所",
@@ -327,7 +327,7 @@
         {
           "t": "へ",
           "role": "particle",
-          "grammar_id": "G050_he_direction",
+          "grammar_id": "N5_e_direction",
           "is_new_grammar": true
         },
         {
@@ -341,7 +341,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast",
+          "grammar_id": "N5_masu_nonpast",
           "is_new": true,
           "is_new_grammar": true
         },
@@ -366,7 +366,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "私",
@@ -377,7 +377,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object",
+          "grammar_id": "N5_o_object",
           "is_new_grammar": true
         },
         {
@@ -391,7 +391,7 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast",
+          "grammar_id": "N5_masu_nonpast",
           "is_new": true
         },
         {
@@ -415,19 +415,19 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "温かい",
           "role": "content",
           "word_id": "W00009",
           "r": "あたたかい",
-          "grammar_id": "G022_i_adj"
+          "grammar_id": "N5_i_adj"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu"
+          "grammar_id": "N5_desu"
         },
         {
           "t": "。",
@@ -450,7 +450,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "お茶",
@@ -461,7 +461,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "飲みます",
@@ -474,7 +474,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast",
+          "grammar_id": "N5_masu_nonpast",
           "is_new": true
         },
         {

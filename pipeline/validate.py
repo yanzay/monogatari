@@ -357,7 +357,7 @@ def _expand_grammar_closure(grammar_ids: set[str], grammar_points: dict) -> set[
     """Return the transitive closure of `grammar_ids` under the prerequisites
     relation. A grammar id whose own prerequisite chain includes G_X effectively
     means G_X is in play (e.g., using でした implies です is in play, since
-    G013_mashita_past lists G003_desu as a prerequisite). This avoids spurious
+    N5_mashita lists N5_desu as a prerequisite). This avoids spurious
     'missing prerequisite' errors for derived forms that don't surface the base
     form directly in the story."""
     closure: set[str] = set(grammar_ids)

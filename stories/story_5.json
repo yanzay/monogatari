@@ -13,7 +13,7 @@
       {
         "t": "の",
         "role": "particle",
-        "grammar_id": "G015_no_possessive"
+        "grammar_id": "N5_no_pos"
       },
       {
         "t": "傘",
@@ -33,8 +33,8 @@
     "W00047"
   ],
   "new_grammar": [
-    "G024_da",
-    "G034_ne_confirm"
+    "N5_da",
+    "N5_ne_confirm"
   ],
   "all_words_used": [
     "W00041",
@@ -63,7 +63,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "母",
@@ -74,7 +74,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "N5_to_and"
         },
         {
           "t": "駅",
@@ -86,7 +86,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "N5_ni_location"
         },
         {
           "t": "います",
@@ -99,7 +99,7 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "N5_aru_iru"
         },
         {
           "t": "。",
@@ -122,7 +122,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "母",
@@ -133,7 +133,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "N5_to_and"
         },
         {
           "t": "電車",
@@ -145,7 +145,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "待ちます",
@@ -158,7 +158,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast",
+          "grammar_id": "N5_masu_nonpast",
           "is_new": true
         },
         {
@@ -183,7 +183,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "N5_no_pos"
         },
         {
           "t": "人",
@@ -195,7 +195,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "傘",
@@ -207,7 +207,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "持って",
@@ -220,12 +220,12 @@
             "form": "te",
             "verb_class": "godan"
           },
-          "grammar_id": "G007_te_form"
+          "grammar_id": "N5_te_form"
         },
         {
           "t": "います",
           "role": "aux",
-          "grammar_id": "G008_te_iru"
+          "grammar_id": "N5_te_iru"
         },
         {
           "t": "。",
@@ -248,7 +248,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "N5_no_pos"
         },
         {
           "t": "人",
@@ -259,7 +259,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "歩きます",
@@ -272,7 +272,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "N5_masu_nonpast"
         },
         {
           "t": "。",
@@ -295,7 +295,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "N5_no_pos"
         },
         {
           "t": "人",
@@ -306,7 +306,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "いません",
@@ -319,7 +319,7 @@
             "form": "negative_polite",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G036_masen"
+          "grammar_id": "N5_masen"
         },
         {
           "t": "。",
@@ -342,7 +342,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "女",
@@ -353,7 +353,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "N5_no_pos"
         },
         {
           "t": "人",
@@ -364,18 +364,18 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "N5_no_pos"
         },
         {
           "t": "だ",
           "role": "aux",
-          "grammar_id": "G024_da",
+          "grammar_id": "N5_da",
           "is_new_grammar": true
         },
         {
           "t": "ね",
           "role": "particle",
-          "grammar_id": "G034_ne_confirm",
+          "grammar_id": "N5_ne_confirm",
           "is_new_grammar": true
         },
         {
@@ -399,7 +399,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "傘",
@@ -410,7 +410,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "取りました",
@@ -423,7 +423,7 @@
             "form": "polite_past",
             "verb_class": "godan"
           },
-          "grammar_id": "G013_mashita_past",
+          "grammar_id": "N5_mashita",
           "is_new": true
         },
         {

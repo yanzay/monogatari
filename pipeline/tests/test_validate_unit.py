@@ -46,12 +46,12 @@ VOCAB = {
 GRAMMAR = {
     "version": 1,
     "points": {
-        "G001_wa_topic":    {"id": "G001_wa_topic",    "title": "は", "short": "topic", "long": "...", "first_story": 1, "prerequisites": []},
-        "G002_ga_subject":  {"id": "G002_ga_subject",  "title": "が", "short": "subj",  "long": "...", "first_story": 1, "prerequisites": []},
-        "G005_wo_object":   {"id": "G005_wo_object",   "title": "を", "short": "obj",   "long": "...", "first_story": 1, "prerequisites": []},
-        "G006_kara_from":   {"id": "G006_kara_from",   "title": "から","short": "from",  "long": "...", "first_story": 1, "prerequisites": []},
-        "G007_te_form":     {"id": "G007_te_form",     "title": "て", "short": "te",    "long": "...", "first_story": 1, "prerequisites": []},
-        "G008_te_iru":      {"id": "G008_te_iru",      "title": "ている","short": "prog","long": "...", "first_story": 1, "prerequisites": []},
+        "N5_wa_topic":    {"id": "N5_wa_topic",    "title": "は", "short": "topic", "long": "...", "first_story": 1, "prerequisites": []},
+        "N5_ga_subject":  {"id": "N5_ga_subject",  "title": "が", "short": "subj",  "long": "...", "first_story": 1, "prerequisites": []},
+        "N5_o_object":   {"id": "N5_o_object",   "title": "を", "short": "obj",   "long": "...", "first_story": 1, "prerequisites": []},
+        "N5_kara_from":   {"id": "N5_kara_from",   "title": "から","short": "from",  "long": "...", "first_story": 1, "prerequisites": []},
+        "N5_te_form":     {"id": "N5_te_form",     "title": "て", "short": "te",    "long": "...", "first_story": 1, "prerequisites": []},
+        "N5_te_iru":      {"id": "N5_te_iru",      "title": "ている","short": "prog","long": "...", "first_story": 1, "prerequisites": []},
     }
 }
 
@@ -71,7 +71,7 @@ def make_valid_story():
         },
         "plan_ref": None,
         "new_words": ["W00001", "W00002", "W00003", "W00004", "W00005"],
-        "new_grammar": ["G006_kara_from"],
+        "new_grammar": ["N5_kara_from"],
         "all_words_used": ["W00002", "W00001", "W00003", "W00004", "W00005", "W00006"],
         # NB: 見ます is the masu form of 見る; we accept the dict surface in fixture for brevity
         "sentences": [
@@ -79,9 +79,9 @@ def make_valid_story():
                 "idx": 0,
                 "tokens": [
                     {"t": "今朝", "r": "けさ", "word_id": "W00001", "role": "content", "is_new": True},
-                    {"t": "は", "grammar_id": "G001_wa_topic", "role": "particle"},
+                    {"t": "は", "grammar_id": "N5_wa_topic", "role": "particle"},
                     {"t": "雨", "r": "あめ", "word_id": "W00002", "role": "content", "is_new": True},
-                    {"t": "です", "grammar_id": "G001_wa_topic", "role": "aux"},
+                    {"t": "です", "grammar_id": "N5_wa_topic", "role": "aux"},
                     {"t": "。", "role": "punct"},
                 ],
                 "gloss_en": "This morning, it is raining.",
@@ -91,11 +91,11 @@ def make_valid_story():
                 "idx": 1,
                 "tokens": [
                     {"t": "私", "r": "わたし", "word_id": "W00003", "role": "content", "is_new": True},
-                    {"t": "は", "grammar_id": "G001_wa_topic", "role": "particle"},
+                    {"t": "は", "grammar_id": "N5_wa_topic", "role": "particle"},
                     {"t": "窓", "r": "まど", "word_id": "W00004", "role": "content", "is_new": True},
-                    {"t": "から", "grammar_id": "G006_kara_from", "role": "particle", "is_new_grammar": True},
+                    {"t": "から", "grammar_id": "N5_kara_from", "role": "particle", "is_new_grammar": True},
                     {"t": "外", "r": "そと", "word_id": "W00005", "role": "content", "is_new": True},
-                    {"t": "を", "grammar_id": "G005_wo_object", "role": "particle"},
+                    {"t": "を", "grammar_id": "N5_o_object", "role": "particle"},
                     {"t": "見ます", "r": "みます", "word_id": "W00006", "role": "content"},
                     {"t": "。", "role": "punct"},
                 ],
@@ -106,9 +106,9 @@ def make_valid_story():
                 "idx": 2,
                 "tokens": [
                     {"t": "雨", "r": "あめ", "word_id": "W00002", "role": "content"},
-                    {"t": "は", "grammar_id": "G001_wa_topic", "role": "particle"},
+                    {"t": "は", "grammar_id": "N5_wa_topic", "role": "particle"},
                     {"t": "窓", "r": "まど", "word_id": "W00004", "role": "content"},
-                    {"t": "から", "grammar_id": "G006_kara_from", "role": "particle"},
+                    {"t": "から", "grammar_id": "N5_kara_from", "role": "particle"},
                     {"t": "見ます", "r": "みます", "word_id": "W00006", "role": "content"},
                     {"t": "。", "role": "punct"},
                 ],
@@ -119,9 +119,9 @@ def make_valid_story():
                 "idx": 3,
                 "tokens": [
                     {"t": "私", "r": "わたし", "word_id": "W00003", "role": "content"},
-                    {"t": "は", "grammar_id": "G001_wa_topic", "role": "particle"},
+                    {"t": "は", "grammar_id": "N5_wa_topic", "role": "particle"},
                     {"t": "外", "r": "そと", "word_id": "W00005", "role": "content"},
-                    {"t": "を", "grammar_id": "G005_wo_object", "role": "particle"},
+                    {"t": "を", "grammar_id": "N5_o_object", "role": "particle"},
                     {"t": "見ます", "r": "みます", "word_id": "W00006", "role": "content"},
                     {"t": "。", "role": "punct"},
                 ],
@@ -132,9 +132,9 @@ def make_valid_story():
                 "idx": 4,
                 "tokens": [
                     {"t": "今朝", "r": "けさ", "word_id": "W00001", "role": "content"},
-                    {"t": "は", "grammar_id": "G001_wa_topic", "role": "particle"},
+                    {"t": "は", "grammar_id": "N5_wa_topic", "role": "particle"},
                     {"t": "雨", "r": "あめ", "word_id": "W00002", "role": "content"},
-                    {"t": "です", "grammar_id": "G001_wa_topic", "role": "aux"},
+                    {"t": "です", "grammar_id": "N5_wa_topic", "role": "aux"},
                     {"t": "。", "role": "punct"},
                 ],
                 "gloss_en": "This morning is rainy too.",
@@ -648,11 +648,11 @@ def run_tests():
     # new grammar point is now legal at the per-story level — Check 4 must
     # NOT flag it.
     s = make_valid_story()
-    s["new_grammar"] = ["G006_kara_from"]
+    s["new_grammar"] = ["N5_kara_from"]
     s["sentences"] = s["sentences"][:5]
     for sent in s["sentences"]:
-        sent["tokens"] = [tok for tok in sent["tokens"] if tok.get("grammar_id") != "G006_kara_from"]
-    s["sentences"][0]["tokens"].insert(2, {"t": "から", "grammar_id": "G006_kara_from", "role": "particle", "is_new_grammar": True})
+        sent["tokens"] = [tok for tok in sent["tokens"] if tok.get("grammar_id") != "N5_kara_from"]
+    s["sentences"][0]["tokens"].insert(2, {"t": "から", "grammar_id": "N5_kara_from", "role": "particle", "is_new_grammar": True})
     r = validate(s, VOCAB, GRAMMAR)
     check("New grammar with single use → no check 4 error (v0.19 rule)", not errors_for_check(r, 4))
 
@@ -661,8 +661,8 @@ def run_tests():
     s = make_valid_story()
     s["sentences"][0]["tokens"] = [
         {"t": "濡れて", "r": "ぬれて", "word_id": "W00008", "role": "content",
-         "inflection": {"base": "ぬれる", "base_r": "ぬれる", "form": "te_form", "grammar_id": "G007_te_form"}},
-        {"t": "います",  "grammar_id": "G008_te_iru", "role": "aux"},
+         "inflection": {"base": "ぬれる", "base_r": "ぬれる", "form": "te_form", "grammar_id": "N5_te_form"}},
+        {"t": "います",  "grammar_id": "N5_te_iru", "role": "aux"},
         {"t": "。",      "role": "punct"},
     ]
     s["all_words_used"] = ["W00001","W00002","W00003","W00004","W00005","W00008"]
@@ -673,7 +673,7 @@ def run_tests():
     s = make_valid_story()
     s["sentences"][0]["tokens"] = [
         {"t": "ぬれた", "r": "ぬれた", "word_id": "W00008", "role": "content",
-         "inflection": {"base": "ぬれる", "base_r": "ぬれる", "form": "te_form", "grammar_id": "G007_te_form"}},
+         "inflection": {"base": "ぬれる", "base_r": "ぬれる", "form": "te_form", "grammar_id": "N5_te_form"}},
         {"t": "。",     "role": "punct"},
     ]
     s["all_words_used"] = ["W00001","W00002","W00003","W00004","W00005","W00008"]

@@ -58,12 +58,14 @@ GRAMMAR_SCHEMA = {
         "points": {
             "type": "object",
             "patternProperties": {
-                "^G\\d{3}_": {
+                "^N[1-5]_": {
                     "type": "object",
                     "required": ["id", "title", "short", "long", "jlpt", "prerequisites"],
                     "properties": {
-                        "id":             {"type": "string", "pattern": "^G\\d{3}_"},
-                        "catalog_id":     {"type": "string"},
+                        "id":             {"type": "string", "pattern": "^N[1-5]_"},
+                        # `catalog_id` field deleted 2026-05-01 — state and
+                        # catalog now share the same id namespace; the join
+                        # field became redundant.
                         "title":          {"type": "string", "minLength": 1},
                         "short":          {"type": "string", "minLength": 1},
                         "long":           {"type": "string", "minLength": 1},
@@ -110,7 +112,7 @@ TOKEN_SCHEMA = {
         "r":          {"type": "string"},
         "role":       {"type": "string", "enum": ["content", "particle", "aux", "punct"]},
         "word_id":    {"type": "string", "pattern": "^W\\d{5}$"},
-        "grammar_id": {"type": "string", "pattern": "^G\\d{3}_"},
+        "grammar_id": {"type": "string", "pattern": "^N[1-5]_"},
         "is_new":          {"type": "boolean"},
         "is_new_grammar":  {"type": "boolean"},
         "inflection": {
@@ -121,7 +123,7 @@ TOKEN_SCHEMA = {
                 "form":       {"type": "string"},
                 "verb_class": {"type": "string"},
                 "word_id":    {"type": "string", "pattern": "^W\\d{5}$"},
-                "grammar_id": {"type": "string", "pattern": "^G\\d{3}_"},
+                "grammar_id": {"type": "string", "pattern": "^N[1-5]_"},
             },
             "additionalProperties": True,
         },

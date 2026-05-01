@@ -13,7 +13,7 @@
       {
         "t": "の",
         "role": "particle",
-        "grammar_id": "G015_no_possessive"
+        "grammar_id": "N5_no_pos"
       },
       {
         "t": "下",
@@ -24,7 +24,7 @@
       {
         "t": "の",
         "role": "particle",
-        "grammar_id": "G015_no_possessive"
+        "grammar_id": "N5_no_pos"
       },
       {
         "t": "紙",
@@ -44,8 +44,8 @@
     "W00054"
   ],
   "new_grammar": [
-    "G049_ga_but",
-    "G043_kosoado_pre_nominal"
+    "N5_ga_but",
+    "N5_kosoado"
   ],
   "all_words_used": [
     "W00048",
@@ -79,7 +79,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "N5_no_pos"
         },
         {
           "t": "椅子",
@@ -91,7 +91,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "N5_ni_location"
         },
         {
           "t": "母",
@@ -102,7 +102,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "N5_to_and"
         },
         {
           "t": "私",
@@ -113,7 +113,7 @@
         {
           "t": "が",
           "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "N5_ga_subject"
         },
         {
           "t": "座ります",
@@ -126,7 +126,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast",
+          "grammar_id": "N5_masu_nonpast",
           "is_new": true
         },
         {
@@ -150,7 +150,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "本",
@@ -162,7 +162,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "読みます",
@@ -175,7 +175,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast",
+          "grammar_id": "N5_masu_nonpast",
           "is_new": true
         },
         {
@@ -199,7 +199,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "本",
@@ -210,7 +210,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "読みません",
@@ -223,12 +223,12 @@
             "form": "negative_polite",
             "verb_class": "godan"
           },
-          "grammar_id": "G036_masen"
+          "grammar_id": "N5_masen"
         },
         {
           "t": "が",
           "role": "particle",
-          "grammar_id": "G049_ga_but",
+          "grammar_id": "N5_ga_but",
           "is_new_grammar": true
         },
         {
@@ -244,7 +244,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "N5_no_pos"
         },
         {
           "t": "下",
@@ -256,7 +256,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "見ます",
@@ -269,7 +269,7 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "N5_masu_nonpast"
         },
         {
           "t": "。",
@@ -292,7 +292,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "N5_no_pos"
         },
         {
           "t": "下",
@@ -303,14 +303,14 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "N5_ni_location"
         },
         {
           "t": "小さい",
           "role": "content",
           "word_id": "W00012",
           "r": "ちいさい",
-          "grammar_id": "G022_i_adj"
+          "grammar_id": "N5_i_adj"
         },
         {
           "t": "紙",
@@ -321,7 +321,7 @@
         {
           "t": "が",
           "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "N5_ga_subject"
         },
         {
           "t": "あります",
@@ -334,7 +334,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "N5_aru_iru"
         },
         {
           "t": "。",
@@ -353,7 +353,7 @@
           "role": "content",
           "word_id": "W00054",
           "r": "その",
-          "grammar_id": "G043_kosoado_pre_nominal",
+          "grammar_id": "N5_kosoado",
           "is_new": true,
           "is_new_grammar": true
         },
@@ -366,7 +366,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "母",
@@ -377,7 +377,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "N5_ni_location"
         },
         {
           "t": "見せます",
@@ -390,7 +390,7 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "N5_masu_nonpast"
         },
         {
           "t": "。",
@@ -413,7 +413,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "N5_no_pos"
         },
         {
           "t": "名前",
@@ -424,12 +424,12 @@
         {
           "t": "だ",
           "role": "aux",
-          "grammar_id": "G024_da"
+          "grammar_id": "N5_da"
         },
         {
           "t": "ね",
           "role": "particle",
-          "grammar_id": "G034_ne_confirm"
+          "grammar_id": "N5_ne_confirm"
         },
         {
           "t": "。",

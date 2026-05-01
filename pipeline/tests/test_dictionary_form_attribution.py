@@ -15,7 +15,7 @@ Background — the bug this guards against:
       land the catalog entry.
 
   The fix wires `_classify_inflection` to return
-  `G055_plain_nonpast_pair` for pure dictionary form, and adds a
+  `N5_dictionary_form` for pure dictionary form, and adds a
   `KNOWN_AUTO_GRAMMAR_DEFINITIONS` registry consulted by
   `author_loop._build_state_plan` so the first plain-form usage in
   the corpus can be attributed by `state_updater` cleanly.
@@ -34,7 +34,7 @@ from text_to_story import (  # noqa: E402
 )
 
 
-PLAIN_NONPAST_GID = "G055_plain_nonpast_pair"
+PLAIN_NONPAST_GID = "N5_dictionary_form"
 
 
 def _build(spec_sentences: list[dict], vocab: dict, grammar: dict) -> tuple[dict, dict]:
@@ -107,7 +107,7 @@ def test_honorific_prefix_merges_into_single_noun(vocab, grammar):
 
 def test_plain_form_of_polite_vocab_tags_g055(vocab, grammar):
     """見る (plain form of polite-form vocab 見ます) must carry
-    grammar_id G055_plain_nonpast_pair AND inflection.form='plain_nonpast'.
+    grammar_id N5_dictionary_form AND inflection.form='plain_nonpast'.
 
     Self-seeding: this test used to depend on the live vocab state
     containing 見ます (W00010 in the v2.0 corpus). After the v2.5
@@ -156,7 +156,7 @@ def test_plain_form_of_polite_vocab_tags_g055(vocab, grammar):
 
 def test_pure_dictionary_form_vocab_tags_g055(vocab, grammar):
     """取る (vocab record IS already the dict form) must carry
-    grammar_id G055_plain_nonpast_pair AND inflection.form='dictionary'.
+    grammar_id N5_dictionary_form AND inflection.form='dictionary'.
     """
     built, _ = _build(
         [{"jp": "私は手紙を取る。", "en": "I take the letter."}],
@@ -173,21 +173,21 @@ def test_pure_dictionary_form_vocab_tags_g055(vocab, grammar):
 
 
 def test_polite_form_does_not_tag_g055(vocab, grammar):
-    """見ます (polite) must keep G026_masu_nonpast — no regression."""
+    """見ます (polite) must keep N5_masu_nonpast — no regression."""
     built, _ = _build(
         [{"jp": "私は月を見ます。", "en": "I see the moon."}],
         vocab, grammar,
     )
     tok = _verb_token(built, "見ます")
     assert tok is not None, "expected a content token for 見ます"
-    assert tok.get("grammar_id") == "G026_masu_nonpast", (
-        f"polite form should remain G026_masu_nonpast, got {tok.get('grammar_id')}"
+    assert tok.get("grammar_id") == "N5_masu_nonpast", (
+        f"polite form should remain N5_masu_nonpast, got {tok.get('grammar_id')}"
     )
     assert tok.get("grammar_id") != PLAIN_NONPAST_GID
 
 
 def test_te_form_does_not_tag_g055(vocab, grammar):
-    """取って (te-form) must remain G007_te_form — the dict-form fix
+    """取って (te-form) must remain N5_te_form — the dict-form fix
     must not bleed into other inflections.
     """
     built, _ = _build(
@@ -197,7 +197,7 @@ def test_te_form_does_not_tag_g055(vocab, grammar):
     )
     tok = _verb_token(built, "取って")
     assert tok is not None
-    assert tok.get("grammar_id") == "G007_te_form"
+    assert tok.get("grammar_id") == "N5_te_form"
 
 
 def test_unknown_grammar_report_includes_g055_when_unattributed(vocab, grammar):
@@ -205,7 +205,7 @@ def test_unknown_grammar_report_includes_g055_when_unattributed(vocab, grammar):
     report should surface it in `unknown_grammar` so the planner can
     splice in the registry definition.
     """
-    if "G055_plain_nonpast_pair" in (grammar.get("points") or {}):
+    if "N5_dictionary_form" in (grammar.get("points") or {}):
         pytest.skip("G055 already attributed — corpus is past first dict-form usage.")
     _, report = _build(
         [{"jp": "私は月を見る。", "en": "I see the moon."}],
@@ -256,7 +256,7 @@ def test_step_coverage_floor_counts_g055_via_registry(vocab, grammar, tmp_path, 
     "gp.get('intro_in_story') is None" check) but FAIL the gauntlet's
     coverage_floor (which used a stricter "gid must be in state" lookup).
     """
-    if "G055_plain_nonpast_pair" in (grammar.get("points") or {}):
+    if "N5_dictionary_form" in (grammar.get("points") or {}):
         pytest.skip("G055 already attributed — registry path no longer fires.")
 
     from author_loop import step_coverage_floor  # noqa: E402
@@ -290,10 +290,10 @@ def test_validator_accepts_g055_via_unknown_grammar_splice(vocab, grammar):
 
     This pins the third half of the fix: without the splice, the very
     first plain-dict story in the corpus would emit
-    `grammar_id 'G055_plain_nonpast_pair' not in grammar_state or plan`
+    `grammar_id 'N5_dictionary_form' not in grammar_state or plan`
     and the gauntlet would halt at validate.
     """
-    if "G055_plain_nonpast_pair" in (grammar.get("points") or {}):
+    if "N5_dictionary_form" in (grammar.get("points") or {}):
         pytest.skip("G055 already attributed — splice path no longer needed.")
 
     from validate import validate as run_validate  # noqa: E402
@@ -339,7 +339,7 @@ def test_build_state_plan_splices_g055_definition(vocab, grammar):
     proceed without raising "Cannot ship: new_grammar 'G055_…' has
     no complete definition in plan."
     """
-    if "G055_plain_nonpast_pair" in (grammar.get("points") or {}):
+    if "N5_dictionary_form" in (grammar.get("points") or {}):
         pytest.skip("G055 already attributed — registry path no longer fires.")
     from author_loop import _build_state_plan  # noqa: E402
 

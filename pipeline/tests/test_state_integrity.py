@@ -289,7 +289,7 @@ def test_grammar_jlpt_in_known_set(grammar):
 
 
 def test_grammar_no_placeholder_titles(grammar):
-    """Catches the G009_mo_also bug from earlier — title should never equal id."""
+    """Catches the N5_mo_also bug from earlier — title should never equal id."""
     bad = [(gid, p.get("title")) for gid, p in grammar["points"].items()
            if p.get("title") == gid]
     assert not bad, f"Placeholder titles (title == id): {bad}"
@@ -587,9 +587,9 @@ def test_no_orphan_grammar_points(stories, grammar):
     test just doesn't fail when they're not yet wired up.
     """
     DEFERRED_CONTEXT_GIDS = {
-        "G030_kara_reason",       # から as causal vs から as origin
-        "G041_masenka_invitation",# ませんか as invitation vs question
-        "G049_ga_but",            # が as `but` clause-conjunction vs subject
+        "N5_kara_because",       # から as causal vs から as origin
+        "N5_masenka",# ませんか as invitation vs question
+        "N5_ga_but",            # が as `but` clause-conjunction vs subject
     }
     # During v2 cold-start the catalog has 48 grammar points but only N5
     # essentials are wired into the first ~10 stories. The orphan invariant

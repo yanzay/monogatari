@@ -55,42 +55,42 @@ from jp import (  # type: ignore
 
 # ── Surface → grammar_id (particles / copulas / discourse markers) ──
 SURFACE_TO_GRAMMAR: dict[str, str] = {
-    "は":     "G001_wa_topic",
-    "が":     "G002_ga_subject",
-    "です":   "G003_desu",
-    "に":     "G004_ni_location",
-    "を":     "G005_wo_object",
-    "から":   "G006_kara_from",
-    "まで":   "G052_made_until",
-    "へ":     "G050_he_direction",
-    "も":     "G009_mo_also",
-    "と":     "G010_to_and",
-    "や":     "G011_ya_partial",
-    "そして": "G012_soshite_then",
-    "の":     "G015_no_possessive",
-    "な":     "G016_na_adjective",
-    "で":     "G017_de_means",
-    "ね":     "G034_ne_confirm",
-    "よ":     "G054_yo_emphasis",
-    "か":     "G037_ka_question",
-    "だ":     "G024_da",
-    "でも":   "G032_demo",
+    "は":     "N5_wa_topic",
+    "が":     "N5_ga_subject",
+    "です":   "N5_desu",
+    "に":     "N5_ni_location",
+    "を":     "N5_o_object",
+    "から":   "N5_kara_from",
+    "まで":   "N5_made_until",
+    "へ":     "N5_e_direction",
+    "も":     "N5_mo_also",
+    "と":     "N5_to_and",
+    "や":     "N5_ya_partial",
+    "そして": "N5_soshite",
+    "の":     "N5_no_pos",
+    "な":     "N5_na_adj",
+    "で":     "N5_de_means",
+    "ね":     "N5_ne_confirm",
+    "よ":     "N5_yo_emphasis",
+    "か":     "N5_ka_question",
+    "だ":     "N5_da",
+    "でも":   "N5_demo",
     "じゃ":   "G051_janai",
-    "とき":   "G018_toki_when",  # temporal subordinator (when written in kana)
+    "とき":   "N4_toki",  # temporal subordinator (when written in kana)
     # Compound particles (multi-token in UniDic)
-    "について": "G027_ni_tsuite",
-    "だから":   "G059_dakara",
-    "ですから": "G059_dakara",
+    "について": "N3_ni_tsuite",
+    "だから":   "N5_dakara",
+    "ですから": "N5_dakara",
 }
 
 GRAMMAR_ROLE: dict[str, str] = {
-    "G003_desu":         "aux",
-    "G013_mashita_past": "aux",
-    "G008_te_iru":       "aux",
-    "G024_da":           "aux",
-    "G016_na_adjective": "particle",
-    "G012_soshite_then": "particle",
-    "G032_demo":         "particle",
+    "N5_desu":         "aux",
+    "N5_mashita": "aux",
+    "N5_te_iru":       "aux",
+    "N5_da":           "aux",
+    "N5_na_adj": "particle",
+    "N5_soshite": "particle",
+    "N5_demo":         "particle",
 }
 
 # ── Conjunction-class surfaces that ALSO get a vocab entry ───────────────────
@@ -149,7 +149,7 @@ CONJUNCTION_VOCAB: dict[str, dict] = {
 #
 # When the tagger emits a grammar_id, `state_updater` needs a full state-entry
 # definition (title/short/long/jlpt/catalog_id/prerequisites) to attribute it
-# on ship. Pre-loaded points (e.g. G059_dakara) already exist in
+# on ship. Pre-loaded points (e.g. N5_dakara) already exist in
 # grammar_state.json and only need their `intro_in_story` patched. But some
 # auto-tagged paradigms — most notably the plain dictionary form — have
 # never been bulk-loaded. Without a registry, the first story to use a
@@ -164,7 +164,7 @@ CONJUNCTION_VOCAB: dict[str, dict] = {
 # `defn` block in `state_updater.update_state` — it expects title/short/long
 # at minimum, and accepts jlpt/catalog_id/prerequisites/genki_ref/etc.).
 KNOWN_AUTO_GRAMMAR_DEFINITIONS: dict[str, dict] = {
-    "G054_yo_emphasis": {
+    "N5_yo_emphasis": {
         "title":         "〜よ — sentence-final assertion / new-information marker",
         "short":         "Sentence-final particle よ. Marks information the speaker is asserting as new to or noteworthy for the listener.",
         "long":          (
@@ -186,7 +186,7 @@ KNOWN_AUTO_GRAMMAR_DEFINITIONS: dict[str, dict] = {
         "bunpro_ref":    "bunpro_n5",
         "jlpt_sensei_ref": "jlpt_sensei",
     },
-    "G055_plain_nonpast_pair": {
+    "N5_dictionary_form": {
         "title":         "〜る/う — plain non-past (dictionary form)",
         "short":         "Plain (dictionary) form of a verb. Casual present/future affirmative; also the form used for noun-modification, 〜こと clauses, and the plain paradigm.",
         "long":          (
@@ -223,12 +223,12 @@ VERB_SUFFIX_LEMMAS = {
 # Verbs that, when following a て-form, are pulled OUT into a separate aux token
 # (te-iru, te-aru, te-oku, te-shimau, te-miru). Keyed by the aux verb's lemma.
 TE_AUX_VERBS = {
-    "居る":   ("G008_te_iru",     "いる"),
+    "居る":   ("N5_te_iru",     "いる"),
     "有る":   ("G018_te_aru",     "ある"),
-    "置く":   ("G019_te_oku",     "おく"),
+    "置く":   ("N4_te_oku",     "おく"),
     "仕舞う": ("G020_te_shimau",  "しまう"),
     "見る":   ("G027_te_miru",    "みる"),
-    "下さる": ("G044_te_kudasai", "ください"),
+    "下さる": ("N5_te_kudasai", "ください"),
 }
 
 # Reading overrides: UniDic returns formal readings for some pronouns/words.
@@ -510,7 +510,7 @@ def merge_tokens(raw: list[Token], vocab: VocabIndex) -> list[dict]:
             m["surface"] = "でした"
             m["_aux"].append(raw[i + 1])
             m["_force_role"] = "aux"
-            m["_force_grammar_id"] = "G013_mashita_past"
+            m["_force_grammar_id"] = "N5_mashita"
             m["_lemma"] = "です"
             out.append(m)
             i += 2
@@ -731,39 +731,39 @@ def _classify_inflection(merged: dict) -> Optional[dict]:
     form: Optional[str] = None
     token_grammar_id: Optional[str] = None
     if full.endswith("ませんでした"):
-        form, token_grammar_id = "polite_past_negative", "G046_masen_deshita"
+        form, token_grammar_id = "polite_past_negative", "N5_masen_deshita"
     elif full.endswith("ましょう") or full.endswith("ましょうか"):
         form, token_grammar_id = "volitional_polite", "G048_masho"
     elif full.endswith("ました"):
-        form, token_grammar_id = "polite_past", "G013_mashita_past"
+        form, token_grammar_id = "polite_past", "N5_mashita"
     elif full.endswith("ません"):
-        # Special-case ありません → G035_arimasen (lexical existence-negation
-        # for inanimate things), not G036_masen.
+        # Special-case ありません → N5_ko_arimasen (lexical existence-negation
+        # for inanimate things), not N5_masen.
         if full == "ありません" or full.endswith("ありません"):
-            form, token_grammar_id = "negative_polite", "G035_arimasen"
+            form, token_grammar_id = "negative_polite", "N5_ko_arimasen"
         else:
-            form, token_grammar_id = "negative_polite", "G036_masen"
+            form, token_grammar_id = "negative_polite", "N5_masen"
     elif full.endswith("ます"):
-        form, token_grammar_id = "polite_nonpast", "G026_masu_nonpast"
+        form, token_grammar_id = "polite_nonpast", "N5_masu_nonpast"
     elif full.endswith("なかった"):
         form, token_grammar_id = "plain_past_negative", "G056_plain_past_pair"
     elif full.endswith("ながら"):
         form, token_grammar_id = "nagara", "G057_nagara"
     elif full.endswith("たい"):
-        form, token_grammar_id = "tai", "G031_tai"
+        form, token_grammar_id = "tai", "N5_tai"
     elif full.endswith("て") or full.endswith("で"):
-        form, token_grammar_id = "te", "G007_te_form"
+        form, token_grammar_id = "te", "N5_te_form"
     elif full.endswith("た") or full.endswith("だ"):
-        form, token_grammar_id = "past", "G013_mashita_past"
+        form, token_grammar_id = "past", "N5_mashita"
     elif full.endswith("ない"):
-        form, token_grammar_id = "negative", "G036_masen"
+        form, token_grammar_id = "negative", "N5_masen"
     else:
         # Plain dictionary form (no aux suffix). This is the canonical
         # introduction site for N5_dictionary_form. The companion
-        # G055_plain_nonpast_pair entry in KNOWN_AUTO_GRAMMAR_DEFINITIONS
+        # N5_dictionary_form entry in KNOWN_AUTO_GRAMMAR_DEFINITIONS
         # carries the state-entry definition so the first usage in the
         # corpus can ship cleanly via state_updater.
-        form, token_grammar_id = "dictionary", "G055_plain_nonpast_pair"
+        form, token_grammar_id = "dictionary", "N5_dictionary_form"
 
     # If we couldn't classify (no aux suffixes, dictionary form), still emit
     # an inflection block — canonical does this for explicit dictionary verbs
@@ -1045,7 +1045,7 @@ def merged_to_token_json(merged: dict, st: BuildState) -> dict:
         gid = merged["_force_grammar_id"]
         tok: dict = {"t": surface, "role": "aux", "grammar_id": gid}
         # でした gets an inflection block matching canonical
-        if gid == "G013_mashita_past" and merged["_lemma"] == "です":
+        if gid == "N5_mashita" and merged["_lemma"] == "です":
             tok["inflection"] = {
                 "base": "です",
                 "base_r": "です",
@@ -1100,7 +1100,7 @@ def merged_to_token_json(merged: dict, st: BuildState) -> dict:
         # (validators, semantic_lint) can distinguish "this is a deliberate
         # plain variant of a polite-form vocab record" from "this verb's
         # canonical lemma IS the dict form" (e.g. 取る W00017). Both paths
-        # carry the same grammar_id (G055_plain_nonpast_pair) because both
+        # carry the same grammar_id (N5_dictionary_form) because both
         # represent the same paradigm anchor — N5_dictionary_form.
         is_plain_form_of_polite_vocab = (
             infl["form"] == "dictionary"
@@ -1112,7 +1112,7 @@ def merged_to_token_json(merged: dict, st: BuildState) -> dict:
         # Pure dictionary-form path (vocab.surface IS the dict form, e.g.
         # 取る W00017): there's nothing to back-conjugate, but we still need
         # to attach the inflection block AND tag the grammar_id so the
-        # paradigm anchor (G055_plain_nonpast_pair / N5_dictionary_form)
+        # paradigm anchor (N5_dictionary_form / N5_dictionary_form)
         # gets attributed. Take the short-circuit path before the
         # masu-stem reconstruction block (which only fires for vocab
         # stored as 〜ます).
@@ -1183,19 +1183,19 @@ def merged_to_token_json(merged: dict, st: BuildState) -> dict:
         # Neg:     暑くない         (ends in くない)
         if surface.endswith("かった"):
             tok["inflection"] = {"form": "i_adj_past"}
-            tok["grammar_id"] = "G047_i_adj_past"
-            _record_unknown_grammar(tok, "G047_i_adj_past", st)
+            tok["grammar_id"] = "N5_i_adj_past"
+            _record_unknown_grammar(tok, "N5_i_adj_past", st)
         elif surface.endswith("くて"):
             tok["inflection"] = {"form": "i_adj_te"}
-            tok["grammar_id"] = "G029_kute"
-            _record_unknown_grammar(tok, "G029_kute", st)
+            tok["grammar_id"] = "N5_i_adj_te"
+            _record_unknown_grammar(tok, "N5_i_adj_te", st)
         elif surface.endswith("くない"):
             tok["inflection"] = {"form": "i_adj_negative"}
-            tok["grammar_id"] = "G038_kunai"
-            _record_unknown_grammar(tok, "G038_kunai", st)
+            tok["grammar_id"] = "N5_i_adj_neg"
+            _record_unknown_grammar(tok, "N5_i_adj_neg", st)
         elif surface.endswith("い"):
-            tok["grammar_id"] = "G022_i_adj"
-            _record_unknown_grammar(tok, "G022_i_adj", st)
+            tok["grammar_id"] = "N5_i_adj"
+            _record_unknown_grammar(tok, "N5_i_adj", st)
 
     return tok
 

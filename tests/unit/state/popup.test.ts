@@ -50,9 +50,9 @@ describe('popup controller', () => {
 
   describe('openGrammar', () => {
     it('opens a grammar popup', () => {
-      popup.openGrammar('G001_wa_topic');
+      popup.openGrammar('N5_wa_topic');
       expect(popup.current.kind).toBe('grammar');
-      expect(popup.current.grammarId).toBe('G001_wa_topic');
+      expect(popup.current.grammarId).toBe('N5_wa_topic');
     });
 
     it('clears any prior word context', () => {

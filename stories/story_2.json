@@ -9,7 +9,7 @@
         "role": "content",
         "word_id": "W00012",
         "r": "ちいさい",
-        "grammar_id": "G022_i_adj"
+        "grammar_id": "N5_i_adj"
       },
       {
         "t": "りんご",
@@ -29,9 +29,9 @@
     "W00024"
   ],
   "new_grammar": [
-    "G010_to_and",
-    "G006_kara_from",
-    "G013_mashita_past"
+    "N5_to_and",
+    "N5_kara_from",
+    "N5_mashita"
   ],
   "all_words_used": [
     "W00012",
@@ -74,7 +74,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and",
+          "grammar_id": "N5_to_and",
           "is_new_grammar": true
         },
         {
@@ -86,7 +86,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "一緒",
@@ -98,7 +98,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "N5_ni_location"
         },
         {
           "t": "家",
@@ -109,7 +109,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "出ます",
@@ -122,7 +122,7 @@
             "form": "polite_nonpast",
             "verb_class": "ichidan"
           },
-          "grammar_id": "G026_masu_nonpast",
+          "grammar_id": "N5_masu_nonpast",
           "is_new": true
         },
         {
@@ -146,7 +146,7 @@
         {
           "t": "と",
           "role": "particle",
-          "grammar_id": "G010_to_and"
+          "grammar_id": "N5_to_and"
         },
         {
           "t": "私",
@@ -157,7 +157,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "家",
@@ -168,7 +168,7 @@
         {
           "t": "から",
           "role": "particle",
-          "grammar_id": "G006_kara_from",
+          "grammar_id": "N5_kara_from",
           "is_new_grammar": true
         },
         {
@@ -181,7 +181,7 @@
         {
           "t": "へ",
           "role": "particle",
-          "grammar_id": "G050_he_direction"
+          "grammar_id": "N5_e_direction"
         },
         {
           "t": "歩きます",
@@ -194,7 +194,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G026_masu_nonpast"
+          "grammar_id": "N5_masu_nonpast"
         },
         {
           "t": "。",
@@ -218,19 +218,19 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "明るい",
           "role": "content",
           "word_id": "W00001",
           "r": "あかるい",
-          "grammar_id": "G022_i_adj"
+          "grammar_id": "N5_i_adj"
         },
         {
           "t": "です",
           "role": "aux",
-          "grammar_id": "G003_desu"
+          "grammar_id": "N5_desu"
         },
         {
           "t": "。",
@@ -253,14 +253,14 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "N5_ni_location"
         },
         {
           "t": "小さい",
           "role": "content",
           "word_id": "W00012",
           "r": "ちいさい",
-          "grammar_id": "G022_i_adj"
+          "grammar_id": "N5_i_adj"
         },
         {
           "t": "りんご",
@@ -272,7 +272,7 @@
         {
           "t": "が",
           "role": "particle",
-          "grammar_id": "G002_ga_subject"
+          "grammar_id": "N5_ga_subject"
         },
         {
           "t": "あります",
@@ -285,7 +285,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "N5_aru_iru"
         },
         {
           "t": "。",
@@ -308,7 +308,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "N5_ni_location"
         },
         {
           "t": "パン",
@@ -319,7 +319,7 @@
         {
           "t": "も",
           "role": "particle",
-          "grammar_id": "G009_mo_also"
+          "grammar_id": "N5_mo_also"
         },
         {
           "t": "あります",
@@ -332,7 +332,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "N5_aru_iru"
         },
         {
           "t": "。",
@@ -355,7 +355,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "りんご",
@@ -366,7 +366,7 @@
         {
           "t": "を",
           "role": "particle",
-          "grammar_id": "G005_wo_object"
+          "grammar_id": "N5_o_object"
         },
         {
           "t": "買いました",
@@ -379,7 +379,7 @@
             "form": "polite_past",
             "verb_class": "godan"
           },
-          "grammar_id": "G013_mashita_past",
+          "grammar_id": "N5_mashita",
           "is_new": true,
           "is_new_grammar": true
         },
@@ -404,7 +404,7 @@
         {
           "t": "は",
           "role": "particle",
-          "grammar_id": "G001_wa_topic"
+          "grammar_id": "N5_wa_topic"
         },
         {
           "t": "母",
@@ -415,7 +415,7 @@
         {
           "t": "の",
           "role": "particle",
-          "grammar_id": "G015_no_possessive"
+          "grammar_id": "N5_no_pos"
         },
         {
           "t": "袋",
@@ -427,7 +427,7 @@
         {
           "t": "に",
           "role": "particle",
-          "grammar_id": "G004_ni_location"
+          "grammar_id": "N5_ni_location"
         },
         {
           "t": "あります",
@@ -440,7 +440,7 @@
             "form": "polite_nonpast",
             "verb_class": "godan"
           },
-          "grammar_id": "G021_aru_iru"
+          "grammar_id": "N5_aru_iru"
         },
         {
           "t": "。",
