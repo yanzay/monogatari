@@ -1,0 +1,521 @@
+{
+  "story_id": 13,
+  "title": {
+    "jp": "友達の手紙",
+    "en": "My Friend's Letter",
+    "tokens": [
+      {
+        "t": "友達",
+        "role": "content",
+        "word_id": "W00033",
+        "r": "ともだち"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "N5_no_pos"
+      },
+      {
+        "t": "手紙",
+        "role": "content",
+        "word_id": "W00089",
+        "r": "てがみ"
+      }
+    ]
+  },
+  "new_words": [
+    "W00089",
+    "W00090",
+    "W00091"
+  ],
+  "new_grammar": [
+    "N5_te_kudasai"
+  ],
+  "all_words_used": [
+    "W00033",
+    "W00089",
+    "W00035",
+    "W00052",
+    "W00053",
+    "W00081",
+    "W00085",
+    "W00014",
+    "W00084",
+    "W00088",
+    "W00011",
+    "W00090",
+    "W00086",
+    "W00087",
+    "W00037",
+    "W00016",
+    "W00091"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "学校",
+          "role": "content",
+          "word_id": "W00035",
+          "r": "がっこう"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "ほん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "読みました",
+          "role": "content",
+          "word_id": "W00053",
+          "r": "よみました",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I was reading a book at school.",
+      "audio": "audio/story_13/s0.mp3",
+      "audio_hash": "0725df355bcd"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "来ました",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きました",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_past",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend came in.",
+      "audio": "audio/story_13/s1.mp3",
+      "audio_hash": "858cb78903ab"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "教室",
+          "role": "content",
+          "word_id": "W00085",
+          "r": "きょうしつ"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "N5_kara_from"
+        },
+        {
+          "t": "来ました",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きました",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_past",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend came from the classroom.",
+      "audio": "audio/story_13/s2.mp3",
+      "audio_hash": "f57bed51efcc"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "短い",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みじかい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "くれました",
+          "role": "content",
+          "word_id": "W00088",
+          "r": "くれました",
+          "inflection": {
+            "base": "呉れる",
+            "base_r": "くれる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend gave me a short letter.",
+      "audio": "audio/story_13/s3.mp3",
+      "audio_hash": "72b01cf6ec59"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "読んで",
+          "role": "content",
+          "word_id": "W00053",
+          "r": "よんで",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "ください",
+          "role": "aux",
+          "grammar_id": "N5_te_kudasai",
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "ありました",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "ありました",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "On the letter it said, \"Please read.\"",
+      "audio": "audio/story_13/s4.mp3",
+      "audio_hash": "4a1bd2a1405b"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00090",
+          "r": "しずか",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "読みました",
+          "role": "content",
+          "word_id": "W00053",
+          "r": "よみました",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I read the letter quietly.",
+      "audio": "audio/story_13/s5.mp3",
+      "audio_hash": "a5a19cb37b60"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "そして",
+          "role": "particle",
+          "grammar_id": "N5_soshite",
+          "word_id": "W00086"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "長い",
+          "role": "content",
+          "word_id": "W00087",
+          "r": "ながい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "書きました",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "かきました",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "And then I wrote a long letter.",
+      "audio": "audio/story_13/s6.mp3",
+      "audio_hash": "205e230d2aea"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "見て",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "みて",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "笑いました",
+          "role": "content",
+          "word_id": "W00091",
+          "r": "わらいました",
+          "inflection": {
+            "base": "笑う",
+            "base_r": "わらう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend looked at my letter and laughed.",
+      "audio": "audio/story_13/s7.mp3",
+      "audio_hash": "c4032d381783"
+    }
+  ],
+  "word_audio": {
+    "W00089": "audio/words/W00089.mp3",
+    "W00090": "audio/words/W00090.mp3",
+    "W00091": "audio/words/W00091.mp3"
+  },
+  "word_audio_hash": {
+    "W00089": "bf2954615953",
+    "W00090": "a31f6d27a25c",
+    "W00091": "034c78914b48"
+  }
+}
