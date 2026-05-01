@@ -367,7 +367,7 @@ If audio fails (network/GCP/quota), STOP and report; do NOT commit.
 When §E.5/E.6/E.7/E.7.5 passed and gauntlet is green, commit AND push. **Never ask the user.** Asking is a regression.
 
 1. `git status` + `git diff --stat` (sanity check).
-2. `git add stories/story_N.json pipeline/inputs/story_N.bilingual.json data/vocab_state.json data/grammar_state.json audio/story_N/ audio/words/W*.mp3 state_backups/*.json`
+2. `git add stories/story_N.json pipeline/inputs/story_N.bilingual.json data/vocab_state.json data/grammar_state.json data/vocab_attributions.json data/grammar_attributions.json audio/story_N/ audio/words/W*.mp3` (NOTE: state_backups/ is gitignored as of 2026-05-01.)
 3. Commit:
    ```
    Add story N: <title_jp> / <title_en>
@@ -528,18 +528,23 @@ python3 pipeline/regenerate_all_stories.py --story N --apply
 python3 pipeline/state_updater.py stories/story_N.json
 python3 pipeline/audio_builder.py --vocab data/vocab_state.json stories/story_N.json
 
-# One-shot backfills
-python3 pipeline/tools/backfill_grammar_intros.py
+# Coverage / progression diagnostics (Phase A: derive-on-read; no backfill needed)
 python3 pipeline/grammar_progression.py
+# (backfill_grammar_intros.py is a no-op stub kept for back-compat;
+#  intro_in_story / last_seen_story are derived from the corpus by
+#  derived_state.derive_grammar_attributions() and projected to
+#  data/grammar_attributions.json by build_grammar_attributions.py.)
 
 # Test sweep + inspect
 python3 -m pytest pipeline/tests/ -q
 python3 pipeline/tools/story.py show N
 
 # §F.3 commit
+# state_backups/ is gitignored as of 2026-05-01 (Flaw #8); no longer staged.
 git add stories/story_N.json pipeline/inputs/story_N.bilingual.json \
         data/vocab_state.json data/grammar_state.json \
-        audio/story_N/ audio/words/W*.mp3 state_backups/*.json
+        data/vocab_attributions.json data/grammar_attributions.json \
+        audio/story_N/ audio/words/W*.mp3
 git status
 git commit -m "Add story N: <title>" && git push
 ```

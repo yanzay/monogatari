@@ -94,8 +94,8 @@ The regenerator:
 2. Mints fresh `word_id`s for unrecognized vocabulary, appending them to `data/vocab_state.json`.
 3. Runs context-sensitive grammar tagging (interrogatives 何/誰/どこ/いつ/なぜ, kosoado あの/この/その/どの, the と思います/と言います quotative construction, ある/いる existence, counters 一人/二人).
 4. Walks the entire library in story-id order and rewrites `is_new`, `is_new_grammar`, story-level `new_words`, and story-level `new_grammar` deterministically — no heuristics, no hints.
-5. Refreshes per-word `occurrences`, `first_story`, `last_seen_story` in `data/vocab_state.json` by scanning the regenerated stories.
-6. Writes timestamped backups to `state_backups/regenerate_all_stories/`.
+5. Rebuilds the derive-on-read attribution projections at `data/{vocab,grammar}_attributions.json` (Phase A+B, 2026-05-01). These manifests carry `first_story` / `last_seen_story` / `occurrences` for vocab and `intro_in_story` / `last_seen_story` for grammar. The state files themselves carry definition metadata only.
+6. Writes timestamped backups to `state_backups/regenerate_all_stories/`. Auto-pruned to last 5 per stem on every successful ship via `step_write` (see SKILL.md §F).
 
 The script is idempotent: a second `--apply` produces no changes when nothing has been edited.
 

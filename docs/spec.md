@@ -47,14 +47,19 @@ All artifacts are JSON; audio is MP3.
 
 ### 3.1 `data/vocab_state.json`
 
-Cumulative vocabulary across all shipped stories.
+Cumulative vocabulary across all shipped stories. Carries **definition
+metadata only**; attribution fields (`first_story`, `last_seen_story`,
+`occurrences`) are derived from the corpus on-read by
+`pipeline/derived_state.derive_vocab_attributions()` and projected to
+`data/vocab_attributions.json` for the reader (Phase B, 2026-05-01).
+Use `pipeline/_paths.load_vocab_attributed()` to get the joined view.
 
 ```jsonc
 {
   "version": 1,
-  "updated_at": "2026-04-24T17:48:00Z",
-  "last_story_id": 55,
-  "next_word_id": "W00252",
+  "updated_at": "2026-05-01T16:48:00Z",
+  "last_story_id": "story_10",
+  "next_word_id": "W00079",
   "words": {
     "W00001": {
       "id": "W00001",
@@ -64,10 +69,11 @@ Cumulative vocabulary across all shipped stories.
       "pos":     "noun",                 // noun | verb | i_adj | na_adj | adverb | …
       "verb_class": "godan",             // verbs only
       "meanings":   ["this morning"],
-      "first_story":     "story_1",
-      "last_seen_story": "story_54",
-      "occurrences":     13,
+      "jlpt":       5,                   // optional difficulty cap signal
+      "_minted_by": "story_1",           // immutable; first-introduction trace
       "notes": "Special reading けさ (NOT いまあさ)…"
+      // NOTE: first_story / last_seen_story / occurrences live in
+      // data/vocab_attributions.json, not here. See §3.7.
     }
   }
 }
@@ -77,7 +83,14 @@ For verbs, `surface` is the **polite (masu) form**; `kana` is the polite-form re
 
 ### 3.2 `data/grammar_state.json`
 
-Cumulative grammar inventory.
+Cumulative grammar inventory. Same Phase A contract as vocab_state:
+**definition metadata only**; `intro_in_story` and `last_seen_story`
+are derived from the corpus by
+`derived_state.derive_grammar_attributions()` and projected to
+`data/grammar_attributions.json`. Single id namespace as of
+2026-05-01 — both state and catalog key by the catalog form
+(`N5_wa_topic`, `N4_te_iku`, etc.); the legacy `G###_slug` ids
+and the `catalog_id` join field were retired.
 
 ```jsonc
 {
@@ -88,10 +101,10 @@ Cumulative grammar inventory.
       "title": "は — topic marker",
       "short": "Marks the topic of the sentence. Pronounced 'wa', not 'ha'.",
       "long":  "...",
-      "genki_ref":     "L1",
-      "first_story":   "story_1",
-      "prerequisites": [],
-      "jlpt": "N5"
+      "jlpt":  "N5",
+      "prerequisites": []
+      // NOTE: intro_in_story / last_seen_story live in
+      // data/grammar_attributions.json, not here. See §3.7.
     }
   }
 }
@@ -143,6 +156,32 @@ Static reference catalog of all grammar points (built once from JLPT/Genki sourc
 ### 3.6 `learner_state.json` (browser localStorage)
 
 SRS scheduler state, mastery tracking, and read-position bookmarks per device. Not synced.
+
+### 3.7 `data/{vocab,grammar}_attributions.json` (derived projections)
+
+Two derive-on-read manifest files written by `pipeline/build_{vocab,grammar}_attributions.py` from the corpus. **Single source of truth** for "where was this word/grammar point introduced" and "where was it last seen." Rebuilt automatically by `regenerate_all_stories.py --apply` (which is called from `step_write` on every successful ship).
+
+```jsonc
+// data/vocab_attributions.json
+{
+  "version": 1,
+  "generated_at": "2026-05-01T16:48:00Z",
+  "attributions": {
+    "W00001": {
+      "first_story":     "story_1",  // string; coerce via parse_story_id()
+      "last_seen_story": "story_8",
+      "occurrences":     19           // number of stories the word appears in
+    }
+  }
+}
+
+// data/grammar_attributions.json — same shape, intro_in_story instead
+// of first_story; no occurrences field.
+```
+
+Reader joins these onto `vocab_state` / `grammar_state` at fetch time so call sites consuming `Word.first_story` see the joined view. Backend code uses `_paths.load_vocab_attributed()` (which overlays the projection) for the same convenience. Bypass paths (`_paths.load_vocab()`, raw `read_json(VOCAB)`) deliberately exist for state-write code that must NOT see the derived overlay.
+
+**Why derived, not stored:** before Phase A+B (2026-05-01) these fields lived on the state files and drifted on every re-ship. The pre-Phase-B `occurrences` field had drifted LOW by 1–16 on 49 of 78 words, silently shipping wrong frequency counts to learners. Eliminating the storage made the bug class structurally impossible.
 
 ## 4. Schema conventions (v2 canonical)
 
