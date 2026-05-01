@@ -1,0 +1,587 @@
+{
+  "story_id": 12,
+  "title": {
+    "jp": "先生の鉛筆",
+    "en": "The Teacher's Pencil",
+    "tokens": [
+      {
+        "t": "先生",
+        "role": "content",
+        "word_id": "W00036",
+        "r": "せんせい"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "N5_no_pos"
+      },
+      {
+        "t": "鉛筆",
+        "role": "content",
+        "word_id": "W00038",
+        "r": "えんぴつ"
+      }
+    ]
+  },
+  "new_words": [
+    "W00084",
+    "W00085",
+    "W00086",
+    "W00087",
+    "W00088"
+  ],
+  "new_grammar": [
+    "N5_soshite"
+  ],
+  "all_words_used": [
+    "W00036",
+    "W00038",
+    "W00014",
+    "W00084",
+    "W00085",
+    "W00006",
+    "W00008",
+    "W00081",
+    "W00016",
+    "W00086",
+    "W00087",
+    "W00088",
+    "W00054",
+    "W00009",
+    "W00078",
+    "W00003",
+    "W00079",
+    "W00052",
+    "W00080",
+    "W00005",
+    "W00010",
+    "W00083",
+    "W00082"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "鉛筆",
+          "role": "content",
+          "word_id": "W00038",
+          "r": "えんぴつ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "短かった",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みじかかった",
+          "inflection": {
+            "form": "i_adj_past"
+          },
+          "grammar_id": "N5_i_adj_past",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My pencil was short.",
+      "audio": "audio/story_12/s0.mp3",
+      "audio_hash": "a37a1215c5b7"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "教室",
+          "role": "content",
+          "word_id": "W00085",
+          "r": "きょうしつ",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "先生",
+          "role": "content",
+          "word_id": "W00036",
+          "r": "せんせい"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "いました",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "いました",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There was a teacher in the classroom.",
+      "audio": "audio/story_12/s1.mp3",
+      "audio_hash": "2a4dd10c4295"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "先生",
+          "role": "content",
+          "word_id": "W00036",
+          "r": "せんせい"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "ところ",
+          "role": "content",
+          "word_id": "W00008",
+          "r": "ところ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "来て",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きて",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "te",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "鉛筆",
+          "role": "content",
+          "word_id": "W00038",
+          "r": "えんぴつ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "見ました",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "みました",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The teacher came over to me, and looked at my pencil.",
+      "audio": "audio/story_12/s2.mp3",
+      "audio_hash": "f00e03025968"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "そして",
+          "role": "particle",
+          "grammar_id": "N5_soshite",
+          "word_id": "W00086",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "先生",
+          "role": "content",
+          "word_id": "W00036",
+          "r": "せんせい"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "長い",
+          "role": "content",
+          "word_id": "W00087",
+          "r": "ながい",
+          "grammar_id": "N5_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "鉛筆",
+          "role": "content",
+          "word_id": "W00038",
+          "r": "えんぴつ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "くれました",
+          "role": "content",
+          "word_id": "W00088",
+          "r": "くれました",
+          "inflection": {
+            "base": "呉れる",
+            "base_r": "くれる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "And then the teacher gave me a long pencil.",
+      "audio": "audio/story_12/s3.mp3",
+      "audio_hash": "e5385f70cded"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "その",
+          "role": "content",
+          "word_id": "W00054",
+          "r": "その",
+          "grammar_id": "N5_kosoado"
+        },
+        {
+          "t": "鉛筆",
+          "role": "content",
+          "word_id": "W00038",
+          "r": "えんぴつ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "先生",
+          "role": "content",
+          "word_id": "W00036",
+          "r": "せんせい"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "N5_mashita",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "That pencil was the teacher's own.",
+      "audio": "audio/story_12/s4.mp3",
+      "audio_hash": "aaa7f3ef2b31"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "鉛筆",
+          "role": "content",
+          "word_id": "W00038",
+          "r": "えんぴつ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "温かかった",
+          "role": "content",
+          "word_id": "W00009",
+          "r": "あたたかかった",
+          "inflection": {
+            "form": "i_adj_past"
+          },
+          "grammar_id": "N5_i_adj_past"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The pencil was warm.",
+      "audio": "audio/story_12/s5.mp3",
+      "audio_hash": "2352f3e7dabc"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "ゆっくり",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "ゆっくり"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "いえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "行って",
+          "role": "content",
+          "word_id": "W00079",
+          "r": "いって",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "鉛筆",
+          "role": "content",
+          "word_id": "W00038",
+          "r": "えんぴつ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "ほん"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "置いて",
+          "role": "content",
+          "word_id": "W00080",
+          "r": "おいて",
+          "inflection": {
+            "base": "置く",
+            "base_r": "おく",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "おちゃ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "あげました",
+          "role": "content",
+          "word_id": "W00083",
+          "r": "あげました",
+          "inflection": {
+            "base": "上げる",
+            "base_r": "あげる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I walked home slowly, placed the pencil on a book, and gave Mother some tea.",
+      "audio": "audio/story_12/s6.mp3",
+      "audio_hash": "bc03e400ac46"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "おちゃ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "おいしかった",
+          "role": "content",
+          "word_id": "W00082",
+          "r": "おいしい",
+          "inflection": {
+            "form": "i_adj_past"
+          },
+          "grammar_id": "N5_i_adj_past"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The tea was delicious.",
+      "audio": "audio/story_12/s7.mp3",
+      "audio_hash": "4c71ebdb8d20"
+    }
+  ],
+  "word_audio": {
+    "W00084": "audio/words/W00084.mp3",
+    "W00085": "audio/words/W00085.mp3",
+    "W00086": "audio/words/W00086.mp3",
+    "W00087": "audio/words/W00087.mp3",
+    "W00088": "audio/words/W00088.mp3"
+  },
+  "word_audio_hash": {
+    "W00084": "7c7b1a92d9f5",
+    "W00085": "02cf51ac5e88",
+    "W00086": "b4d8abea0514",
+    "W00087": "ce34f733565d",
+    "W00088": "24fa68d81123"
+  }
+}
