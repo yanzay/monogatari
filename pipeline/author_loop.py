@@ -1159,6 +1159,32 @@ def step_write(story_id: int, built_story: dict,
             details=traceback.format_exc(),
         )
 
+    # --- Backup hygiene (auto-prune old state_backups) -----------------
+    #
+    # Each ship writes a fresh backup to `state_backups/{vocab,grammar}_state_*.json`
+    # plus N more under `state_backups/regenerate_all_stories/`. Without
+    # pruning, the directory grows ~3-10 files per ship and 19MB had
+    # accumulated by 2026-05-01 — half of which were also tracked in
+    # git history (.gitignore exempted only sub-directories).
+    #
+    # Policy: keep last 5 backups per stem, and anything <1 day old.
+    # Honest tradeoff: 5 backups is enough for "undo my last attempt or
+    # two"; recovery from older states should come from git, not from
+    # state_backups/.
+    try:
+        import subprocess as _subprocess
+        for _subdir in ("", "regenerate_all_stories"):
+            _args = [
+                "python3", "pipeline/tools/cleanup_state_backups.py",
+                "--keep", "5", "--days", "1", "--apply",
+            ]
+            if _subdir:
+                _args.extend(["--subdir", _subdir])
+            _subprocess.run(_args, check=False, capture_output=True, cwd=ROOT)
+    except Exception:
+        # Cleanup is hygiene, not correctness — never let it break a ship.
+        pass
+
     # --- Reconciliation no longer needed (Phase A derive-on-read) ------
     #
     # Pre-2026-05-01, this block called `reconcile_grammar_intros` to

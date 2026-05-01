@@ -20,11 +20,11 @@ Monogatari = graded-reader Japanese short-story corpus + reading-app + authoring
 
 ## Vocab/grammar schema gotchas
 
-- `vocab_state.json::words[wid]["first_story"]` is a STRING (`"story_1"`), not int. Use `parse_story_id()` to coerce. Same for `last_seen_story` and grammar `intro_in_story`.
+- `vocab_state.json::words[wid]` carries definition metadata only (kana, reading, pos, meanings, jlpt, _minted_by). The attribution fields `first_story`, `last_seen_story`, and `occurrences` are derived from the corpus on-read and projected to `data/vocab_attributions.json`. **Never expect them on `vocab_state.json` itself** — that field set was retired 2026-05-01 (Phase B). Use `_paths.load_vocab_attributed()` to get the joined view, or `derived_state.derive_vocab_attributions(corpus)` for the source of truth. Coerce story-id strings via `parse_story_id()`.
 - "Lemma" of a word = `surface` field (kanji/kana display form), NOT a separate `lemma` key. `reading` is romaji.
 - Grammar state: `{"version": ..., "points": {gid: {...}}}`. `label`/`description`/`pattern` field names are inconsistently present.
 - **Single grammar id namespace (since 2026-05-01).** Both `data/grammar_state.json` and `data/grammar_catalog.json` key by the catalog form: `N5_wa_topic`, `N4_te_iku`, etc. The legacy `G###_slug` ids and `catalog_id` join field were retired in `pipeline/tools/rename_gids.py`. Coverage analysis just compares ids directly via `pipeline/grammar_progression.coverage_status()`.
-- **`grammar_state.json::points[gid]["intro_in_story"]`** is the load-bearing field for coverage tracking. `None` = not yet covered (Check 3.10/3.9, brief). `state_updater` sets it on every ship; `pipeline/tools/backfill_grammar_intros.py` repairs legacy entries.
+- **`grammar_state.json::points[gid]`** carries definition metadata only (title/short/long/jlpt/marker/category/sources). Attribution fields `intro_in_story` + `last_seen_story` are derived from the corpus on-read and projected to `data/grammar_attributions.json` (Phase A, retired 2026-05-01). Coverage tracking reads from the projection: `None` / missing = not yet covered (Check 3.10/3.9, brief). The legacy `pipeline/tools/backfill_grammar_intros.py` is a back-compat no-op.
 - A bilingual spec is AUTHORITATIVE. The shipped story is derived — do NOT hand-edit.
 - **Auto-tagged grammar IDs not yet in `grammar_state.json` are registered in `text_to_story.KNOWN_AUTO_GRAMMAR_DEFINITIONS`.** Some paradigm anchors (notably `N5_dictionary_form`) were never bulk-loaded. The registry carries the full state-entry definition (title/short/long/jlpt/catalog_id) so `state_updater` can attribute on first use without a hand-written plan. Three loci consult it: validator's plan (built by `step_validate` from build report's `unknown_grammar`), gauntlet's `step_coverage_floor` gid→catalog_id fallback, and `_build_state_plan`'s `new_grammar_definitions` splice. **To add a new auto-tagged paradigm anchor:** add a token-level `grammar_id` to `_classify_inflection` (or another tagger site) AND add a matching entry to `KNOWN_AUTO_GRAMMAR_DEFINITIONS`. Tests in `pipeline/tests/test_dictionary_form_attribution.py`.
 
@@ -50,25 +50,23 @@ Failure → exits non-zero with `halted_at: <step>`; `state_backups/` retains pr
 
 ## Re-shipping discipline
 
-### After failed attempt: state-backup restore
+### After failed attempt: state-backup restore (mostly obsolete since 2026-05-01)
 
-A second `state_updater` call does NOT clear attributions made by the first. If attempt 1 introduced G_A and attempt 2 introduces G_B, BOTH end up with `intro_in_story=N` in `grammar_state.json`. The dry-run will say "1 new grammar point" (G_B), but `test_grammar_introduction_cadence` will count BOTH and fail.
+After Phase A+B (derive-on-read), state files carry definition data only — no attribution fields. So the classic "second state_updater call double-counts attributions" bug **can't happen anymore**: there is no cached attribution that could disagree with the corpus.
 
-**Recovery:** restore `data/{vocab,grammar}_state.json` from a pre-attempt state backup in `state_backups/` BEFORE re-shipping. The backup taken immediately before the very first `state_updater` of the session is the safe restore point.
+What CAN still need a backup-restore: a re-ship that minted a new word with the wrong surface/reading/pos. Vocab definition fields ARE stored, ARE mutable, and ARE attribution-bearing (`_minted_by`). Restore from the most recent `state_backups/vocab_state_*.json` BEFORE the failed attempt, fix the spec, re-ship.
+
+`step_write` auto-prunes `state_backups/` on every successful ship: keep last 5 per stem, anything <1 day. For older state recovery use `git log -- data/vocab_state.json`, not `state_backups/`.
 
 ### After ID-changing re-ship: clean stale audio
 
 `audio_builder.py` writes per-sentence audio to `audio/story_<N>/s<idx>.mp3` and per-word audio to flat `audio/words/<wid>.mp3`. If a re-ship changes word IDs (slot reuse at different position), stale `audio/words/W*.mp3` files become orphans → `test_audio_word_files_only_for_known_words` fails. Hand-delete stale files whose IDs are no longer in `data/vocab_state.json`.
 
-### Conjunction vocab + grammar last_seen bookkeeping (since 2026-04-30)
+### Conjunction vocab registry
 
-Two pre-existing pipeline gaps fixed in one pass:
+Surfaces in `text_to_story.CONJUNCTION_VOCAB` (だから, ですから, でも, そして, について) mint as **function-class** vocab records (pos=`conjunction`, _minted_by=`conjunction_registry`) on first use; the token gets BOTH `word_id` AND `grammar_id`. Function mints flow through `report["new_function_words"]` so they do NOT count against `step_mint_budget`. To add a new conjunction-class surface, add an entry to `CONJUNCTION_VOCAB` with kana/reading/pos/meanings (optionally jlpt). Pure case-particles (は/が/を/に/から-as-source/etc.) deliberately stay wid-less. Test: `test_conjunction_surfaces_carry_word_id` in `test_state_integrity.py`.
 
-1. **Conjunctions now mint as vocab.** Surfaces in `text_to_story.CONJUNCTION_VOCAB` (だから, ですから, でも, そして, について) used to be tagged as pure grammar particles with no `word_id`, leaving the reading-app's lookup popup with nothing to resolve when the learner tapped them. They now mint **function-class** vocab records (pos=`conjunction`, _minted_by=`conjunction_registry`) on first use; the token gets BOTH `word_id` AND `grammar_id`. Function mints flow through a SEPARATE bucket — `report["new_function_words"]` — so they do NOT count against `step_mint_budget`. To add a new conjunction-class surface, add an entry to `CONJUNCTION_VOCAB` with kana/reading/pos/meanings (and optionally jlpt). Pure case-particles (は/が/を/に/から-as-source/etc.) deliberately stay wid-less. Test: `test_conjunction_surfaces_carry_word_id` in `test_state_integrity.py`. **Note for future authors:** clause-initial conjunctions NOT yet in the registry (しかし, けれども, ところが, すると, それで, だが) currently fall through to the content-word path and either mint as `<TODO>` or split incorrectly (`けれど + も`). Before using one in a story, add (a) an entry to `CONJUNCTION_VOCAB`, (b) a grammar point to `data/grammar_catalog.json` + `data/grammar_state.json`, (c) the surface→gid mapping to `SURFACE_TO_GRAMMAR`. Audit script (one-liner): `grep '<TODO>' would-mint output for any conjunction candidate`.
-
-2. **Grammar `last_seen_story` now updates on every ship.** Previously only vocab `last_seen_story` was bumped; grammar's was never written. `state_updater.py` now has a §2b sweep that walks all story tokens (title + sentences) and sets `last_seen_story = story_id` on every `grammar_id` referenced (own field or `inflection.grammar_id`). Backfill via the corpus-walk script that landed alongside the patch — sets last_seen to the highest story_id where each gid appears. Two regression tests: `test_grammar_last_seen_story_set_for_introduced_points` and `test_grammar_last_seen_story_matches_corpus_max_use` in `test_state_integrity.py`.
-
-State chain consequence: after this patch, `data/grammar_state.json::points[gid]["last_seen_story"]` is the load-bearing field for "when did this grammar point last appear" (mirroring vocab semantics). Reinforcement debt analysis (e.g. N5_mo_also last seen story 3, N5_e_direction last seen story 2) becomes diagnosable from state alone.
+**Open registry gap (2026-04-30, still real):** clause-initial conjunctions NOT yet in the registry (しかし, けれども, ところが, すると, それで, だが) currently fall through to the content-word path and either mint as `<TODO>` or split incorrectly (`けれど + も`). Before using one in a story, add (a) an entry to `CONJUNCTION_VOCAB`, (b) a grammar point to `data/grammar_catalog.json` + `data/grammar_state.json`, (c) the surface→gid mapping to `SURFACE_TO_GRAMMAR`. Audit one-liner: `grep '<TODO>' would-mint output for any conjunction candidate`.
 
 ### Audio layout (since 2026-04-29)
 
@@ -166,7 +164,7 @@ Fresh patterns become clichés after 2–3 stories. Sub-templates emerging:
 1. Restore `data/{vocab,grammar}_state.json` from pre-attempt backup in `state_backups/` or `/tmp/`.
 2. Hand-delete stale `audio/story_N/w_W*.mp3` for IDs no longer in vocab_state.
 3. Hand-delete stale `audio/story_N/sX.mp3` where X exceeds new sentence count.
-4. Re-ship the revised story (`author_loop.py author N` — reconciliation now happens automatically inside `step_write`; no manual reconciliation script needed).
+4. Re-ship the revised story (`author_loop.py author N`). After Phase A+B there is no reconciliation step — attributions are derived from the corpus on every read.
 5. `audio_builder.py` for stories whose sentence text changed.
 6. Full pytest sweep.
 
@@ -257,10 +255,9 @@ g = json.load(open('data/grammar_state.json'))
 v['words'] = {}
 v['next_word_id'] = 'W00001'
 v['last_story_id'] = None
-for p in g['points'].values():
-    p['intro_in_story'] = None
-    p['last_seen_story'] = None
 g['last_story_id'] = None
+# NOTE (2026-05-01): grammar points no longer carry intro_in_story or
+# last_seen_story (Phase A derive-on-read). Definition fields stay.
 json.dump(v, open('data/vocab_state.json','w'), indent=2, ensure_ascii=False)
 json.dump(g, open('data/grammar_state.json','w'), indent=2, ensure_ascii=False)
 "

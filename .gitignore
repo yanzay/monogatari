@@ -16,9 +16,11 @@ pipeline/plan.json
 pipeline/review.json
 pipeline/review.md
 
-# Pipeline backups
-state_backups/normalize_to_v2/
-state_backups/regenerate_all_stories/
+# Pipeline backups — derived from data/{vocab,grammar}_state.json on every ship.
+# Tracked-in-git backups silently bloat the repo: 77 files / 19MB accumulated
+# before this rule was widened on 2026-05-01.
+state_backups/
+!state_backups/.gitkeep
 
 *.log
 
