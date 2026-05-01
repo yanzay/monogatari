@@ -133,35 +133,13 @@ Introducing G055 in story 4–7 fails `test_introduced_grammar_is_reinforced` be
 
 **Rule:** Do NOT introduce G055 (or any auto-tagged grammar point with no downstream usage) until at least ONE story 5–10 already organically uses the construction. **General form:** before introducing grammar G in story N, grep `stories/story_{N+1..N+5}.json` for at least one token whose `grammar_id == G`. If none, defer.
 
-### grammar_state.intro_in_story drifts from corpus first-use after rewrites
+### grammar_state.intro_in_story drift (now auto-reconciled — 2026-05-01)
 
-Re-shipping (especially after spec edits to s0 or early sentences) can drift `intro_in_story` from actual corpus first-occurrence. Symptom: pytest reports story N "introduces 2 new grammar points" when a rewrite shifted one intro from N+k back to N.
+Historically, re-shipping a story whose spec edit shifted which story FIRST uses a grammar point left `intro_in_story` pointing at a story that no longer introduces it. Symptom: pytest reported story N "introduces 2 new grammar points" when only 1 was actually new.
 
-**Reconciliation script** (run AFTER `regenerate_all_stories.py --apply` and BEFORE final pytest, then run regenerate ONCE MORE):
+**No longer a manual step.** `step_write` in `pipeline/author_loop.py` now calls `reconcile_grammar_intros.first_use_by_grammar()` + `reconcile()` after the second `regenerate_all_stories` pass; if anything moved, it backs up `grammar_state.json`, writes the reconciled state, and re-runs the regenerator a third time so per-story `new_grammar` arrays line up. Idempotent on a clean ship; cheap on a re-ship.
 
-```python
-import json
-g = json.load(open('data/grammar_state.json'))
-first_use = {}
-for n in range(1, 11):
-    s = json.load(open(f'stories/story_{n}.json'))
-    for sec_name in ['title']:
-        for tok in (s.get(sec_name) or {}).get('tokens', []):
-            for gid in [tok.get('grammar_id'), (tok.get('inflection') or {}).get('grammar_id')]:
-                if gid and gid not in first_use: first_use[gid] = n
-    for sent in s.get('sentences', []):
-        for tok in sent.get('tokens', []):
-            for gid in [tok.get('grammar_id'), (tok.get('inflection') or {}).get('grammar_id')]:
-                if gid and gid not in first_use: first_use[gid] = n
-for gid in list(g['points'].keys()):
-    if gid not in first_use and g['points'][gid].get('intro_in_story') is not None:
-        g['points'][gid]['intro_in_story'] = None
-for gid, n in first_use.items():
-    if gid in g['points']: g['points'][gid]['intro_in_story'] = n
-json.dump(g, open('data/grammar_state.json','w'), indent=2, ensure_ascii=False)
-```
-
-TODO: fold into `pipeline/tools/reconcile_grammar_state.py`.
+The invariant is pinned by `test_grammar_intro_in_story_matches_corpus_first_use` in `pipeline/tests/test_state_integrity.py`. If that test ever fails, a non-ship code path mutated state out-of-band — fix with `python3 pipeline/tools/reconcile_grammar_intros.py --apply`.
 
 ### Closer cliché ladder needs ongoing curation
 
@@ -177,11 +155,9 @@ Fresh patterns become clichés after 2–3 stories. Sub-templates emerging:
 1. Restore `data/{vocab,grammar}_state.json` from pre-attempt backup in `state_backups/` or `/tmp/`.
 2. Hand-delete stale `audio/story_N/w_W*.mp3` for IDs no longer in vocab_state.
 3. Hand-delete stale `audio/story_N/sX.mp3` where X exceeds new sentence count.
-4. Re-ship the revised story.
-5. Run reconciliation script above.
-6. `regenerate_all_stories.py --apply`.
-7. `audio_builder.py` for stories whose sentence text changed.
-8. Full pytest sweep.
+4. Re-ship the revised story (`author_loop.py author N` — reconciliation now happens automatically inside `step_write`; no manual reconciliation script needed).
+5. `audio_builder.py` for stories whose sentence text changed.
+6. Full pytest sweep.
 
 ### Orthographic consistency: hiragana for grammaticalized verbs
 

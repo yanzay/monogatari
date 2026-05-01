@@ -437,6 +437,67 @@ def test_no_orphan_vocab_words(stories, vocab):
     assert not orphans, f"Vocab words never used in any story: {orphans}"
 
 
+def test_grammar_intro_in_story_matches_corpus_first_use(stories, grammar):
+    """grammar_state.points[gid].intro_in_story must equal the lowest story_N
+    in which `gid` actually appears in any token (own field or inflection).
+
+    Why this exists
+    ---------------
+    `intro_in_story` is the load-bearing field for Check 3.10 (per-story
+    grammar floor), the gauntlet's `coverage_floor` step, and
+    `test_grammar_introduction_cadence`. Re-shipping a story (especially
+    after a spec edit that shifts which story first uses a particle) used
+    to leave this field stale, producing false-positive cadence failures
+    that AGENTS.md dealt with via a copy-pasted reconciliation script.
+
+    The reconciliation now happens automatically inside `state_updater`
+    after every ship; this test pins the invariant so any future
+    regression fails CI loudly instead of becoming another runbook step.
+
+    Equivalence:
+      intro_in_story == min{story_id | gid appears in story_id's tokens}
+
+    Points never used anywhere in the corpus must have intro_in_story=None
+    (an attribution to a non-existent occurrence is the original drift bug).
+    """
+    first_seen: dict[str, int] = {}
+    for story in sorted(stories, key=lambda s: int(s["_id"].split("_")[1])):
+        sid = int(story["_id"].split("_")[1])
+        for sec, sent_idx, tok_idx, tok in iter_tokens(story):
+            for gid in (
+                tok.get("grammar_id"),
+                (tok.get("inflection") or {}).get("grammar_id"),
+            ):
+                if gid and gid not in first_seen:
+                    first_seen[gid] = sid
+
+    bad: list[str] = []
+    for gid, point in grammar.get("points", {}).items():
+        declared = point.get("intro_in_story")
+        observed = first_seen.get(gid)
+        if observed is None:
+            # Point not used in the corpus; intro_in_story must be None.
+            if declared is not None:
+                bad.append(
+                    f"{gid}: declared intro_in_story={declared} but the "
+                    f"point does not appear in any shipped story."
+                )
+            continue
+        if declared != observed:
+            bad.append(
+                f"{gid}: declared intro_in_story={declared}, "
+                f"actually first appears in story_{observed}."
+            )
+    assert not bad, (
+        "grammar_state.intro_in_story drift detected:\n  "
+        + "\n  ".join(bad)
+        + "\n\nFix: `python3 pipeline/tools/reconcile_grammar_intros.py --apply`"
+        " then re-run tests. (state_updater now reconciles automatically on"
+        " every ship; if this test fails, a non-ship code path mutated state"
+        " out-of-band.)"
+    )
+
+
 def test_no_orphan_grammar_points(stories, grammar):
     """Every grammar point should be used in at least one story.
 
