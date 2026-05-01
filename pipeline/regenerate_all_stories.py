@@ -701,11 +701,23 @@ def main() -> int:
         # last_seen_story values without walking every story JSON. Same
         # rationale as the manifest refresh above — a stale projection
         # would make the grammar tab show wrong "introduced" filters.
-        from build_grammar_attributions import write_attributions as _write_attrs
-        _attr_data, _attr_static = _write_attrs()
-        from derived_state import derive_grammar_attributions as _derive
-        n_attrs = len(_derive())
-        print(f"Refreshed grammar_attributions.json ({n_attrs} attributed gids)")
+        from build_grammar_attributions import write_attributions as _write_g_attrs
+        _write_g_attrs()
+        from derived_state import (
+            derive_grammar_attributions as _derive_g,
+            derive_vocab_attributions   as _derive_v,
+        )
+        print(f"Refreshed grammar_attributions.json ({len(_derive_g())} attributed gids)")
+        # Phase B derive-on-read (2026-05-01): same treatment for vocab
+        # first_story / last_seen_story / occurrences. The pre-Phase-B
+        # state had `occurrences` drifting low by 5-15+ per word
+        # because state_updater only counted tokens *new to this ship*
+        # rather than re-counting from corpus. WordPopup and the vocab
+        # route consume the projection; reader code joins it onto each
+        # word in `loadVocabIndex()`.
+        from build_vocab_attributions import write_attributions as _write_v_attrs
+        _write_v_attrs()
+        print(f"Refreshed vocab_attributions.json ({len(_derive_v())} attributed wids)")
         # Honest library-wide first-occurrence pass for is_new / is_new_grammar
         # and per-story new_words / new_grammar arrays. Runs after every story
         # has been written so the walk sees the final shipped state.

@@ -150,7 +150,7 @@ Two invariants pin the new contract:
 
 **Reader app integration:** `loadGrammar()` in `src/lib/data/corpus.ts` fetches both `grammar_state.json` AND `grammar_attributions.json` in parallel and joins them, so call sites like `isSeenGrammar(gp)` keep working unchanged. A 404 on the projection falls back to "nothing introduced" (rather than crashing) so a mid-deploy doesn't break the page.
 
-**Vocab fields (`first_story`, `last_seen_story` on words) are still stored** — Phase B will give them the same treatment.
+**Phase B (vocab fields — landed 2026-05-01):** `first_story`, `last_seen_story`, and `occurrences` per word got the same treatment. Same architecture: `derived_state.derive_vocab_attributions()` is the single source of truth; `build_vocab_attributions.py` writes the manifest at `data/vocab_attributions.json` + `static/data/vocab_attributions.json`; `loadVocabIndex()` in `corpus.ts` joins it onto each word + index row at fetch time. The pre-Phase-B `occurrences` field was systematically drifting LOW by 1-15+ per word (e.g. 母 stored as 6, actually 19) — that bug is now mathematically impossible. State_updater no longer writes any of the three fields; brand-new word records carry definition metadata only. Pinned by `test_vocab_state_carries_no_attribution_fields` and `test_vocab_attribution_manifest_in_sync_with_corpus`. Pipeline read-side ergonomics: `_paths.load_vocab_attributed()` overlays the derivation onto a fresh `vocab_state.json` read so existing read sites need only swap their loader (palette, agent_brief, lookup, vocab CLI, build_vocab_shards). State-write sites (state_updater, text_to_story) keep raw `load_vocab()`.
 
 ### Closer cliché ladder needs ongoing curation
 

@@ -52,7 +52,7 @@ from _common import (  # noqa: E402
     iter_stories,
     iter_tokens,
     load_grammar,
-    load_vocab,
+    load_vocab_attributed,
     parse_id_arg,
 )
 
@@ -157,7 +157,7 @@ def build_palette(target_story: int) -> dict:
     grouped by `_LEMMA_CATEGORIES`. Each entry has the lemma, word id,
     pos, last_use story (or null), and reinforcement-debt star.
     """
-    vocab = load_vocab()
+    vocab = load_vocab_attributed()
     stories = list(iter_stories())
     last_use = _last_use_by_wid(stories)
 

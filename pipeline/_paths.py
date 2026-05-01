@@ -79,7 +79,55 @@ def write_json(path: Path | str, data: dict, *, sort_keys: bool = False) -> None
 # ── State / catalog loaders ──────────────────────────────────────────────────
 
 def load_vocab() -> dict:
+    """Load `data/vocab_state.json` raw — no derived overlay.
+
+    Use this when you need the schema-pure on-disk representation
+    (state_updater write path, schema validators). Read-side callers
+    that want `first_story` / `last_seen_story` / `occurrences` on
+    each word should use `load_vocab_attributed()` instead — those
+    fields are derived from the corpus, not stored.
+    """
     return read_json(VOCAB_STATE)
+
+
+def load_vocab_attributed() -> dict:
+    """Load `data/vocab_state.json` with derived attributions overlaid.
+
+    Phase B derive-on-read (2026-05-01): `first_story`,
+    `last_seen_story`, and `occurrences` per word are computed from
+    corpus first/last appearance + true occurrence count by
+    `pipeline/derived_state.derive_vocab_attributions()`. They are
+    overlaid onto each `words[wid]` entry here so the rest of the
+    pipeline keeps reading them at the same JSON path.
+
+    Words present in `vocab_state.json` but not yet used in any shipped
+    story get explicit `first_story=None`, `last_seen_story=None`,
+    `occurrences=0` so callers can rely on the keys existing.
+
+    Cost is one corpus walk per call. Cache at the call site if you're
+    invoking this in a hot loop; the pipeline's CLIs all run
+    once-per-process so we don't memoize here.
+    """
+    # Local import: derived_state imports from this module, so a
+    # top-level import would create a cycle.
+    import sys as _sys
+    from pathlib import Path as _Path
+    _sys.path.insert(0, str(_Path(__file__).resolve().parent))
+    from derived_state import derive_vocab_attributions  # noqa: E402
+
+    state = read_json(VOCAB_STATE)
+    attrs = derive_vocab_attributions()
+    for wid, w in (state.get("words") or {}).items():
+        attr = attrs.get(wid)
+        if attr is None:
+            w["first_story"]     = None
+            w["last_seen_story"] = None
+            w["occurrences"]     = 0
+        else:
+            w["first_story"]     = attr["first_story"]
+            w["last_seen_story"] = attr["last_seen_story"]
+            w["occurrences"]     = attr["occurrences"]
+    return state
 
 
 def load_grammar() -> dict:

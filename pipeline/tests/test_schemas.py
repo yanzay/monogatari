@@ -21,7 +21,12 @@ VOCAB_SCHEMA = {
             "patternProperties": {
                 "^W\\d{5}$": {
                     "type": "object",
-                    "required": ["id", "surface", "kana", "pos", "meanings", "occurrences", "first_story"],
+                    # Phase B derive-on-read (2026-05-01): `first_story`,
+                    # `last_seen_story`, and `occurrences` are no longer
+                    # stored on vocab_state entries — they are derived
+                    # from the corpus by `derived_state.derive_vocab_attributions`.
+                    # Schema only requires definition fields now.
+                    "required": ["id", "surface", "kana", "pos", "meanings"],
                     "properties": {
                         "id":           {"type": "string", "pattern": "^W\\d{5}$"},
                         "surface":      {"type": "string", "minLength": 1},
@@ -30,10 +35,12 @@ VOCAB_SCHEMA = {
                         "pos":          {"type": "string"},
                         "verb_class":   {"type": "string"},
                         "meanings":     {"type": "array", "items": {"type": "string"}, "minItems": 1},
-                        "occurrences":  {"type": "integer", "minimum": 0},
-                        "first_story":  {"type": "string", "pattern": "^story_\\d+$"},
                         "notes":        {"type": "string"},
                     },
+                    # `additionalProperties: True` already allows the
+                    # forbidden fields to leak in. The structural test
+                    # `test_vocab_state_carries_no_attribution_fields`
+                    # in test_state_integrity.py guards against that.
                     "additionalProperties": True,
                 },
             },

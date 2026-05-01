@@ -13,6 +13,12 @@ export interface VocabIndex {
   words: VocabIndexRow[];
 }
 
+/**
+ * Lightweight index row consumed by the vocab page and `loadVocabIndex`.
+ * Phase B derive-on-read (2026-05-01): `first_story` and `occurrences`
+ * are joined from the attributions manifest at load time; the row's
+ * own values are used only as a mid-deploy fallback.
+ */
 export interface VocabIndexRow {
   id: string;
   shard: string;
@@ -20,8 +26,8 @@ export interface VocabIndexRow {
   kana: string;
   reading: string;
   short_meaning: string;
-  first_story?: number | string;
-  occurrences: number;
+  first_story?: number | string | null;
+  occurrences?: number;
 }
 
 export interface VocabShard {
@@ -37,10 +43,31 @@ export interface Word {
   reading: string;
   pos: string;
   meanings: string[];
-  first_story?: number | string;
+  /**
+   * The story id where this word is first introduced. Format: string
+   * `"story_<N>"` (matches the historical vocab_state convention).
+   *
+   * Phase B derive-on-read (2026-05-01): NO LONGER stored on
+   * `data/vocab_state.json`. Derived from corpus first-use by
+   * `pipeline/build_vocab_attributions.py` and joined onto each Word
+   * record by `loadVocabIndex()` in `corpus.ts`. `null` (or missing)
+   * means the word is in the lexicon but not yet used in any shipped
+   * story; `undefined` means the projection was unavailable at load
+   * time (mid-deploy fallback).
+   */
+  first_story?: number | string | null;
+  /**
+   * Total count of occurrences across the entire corpus. Same
+   * provenance as `first_story` (derived, joined). Pre-Phase-B this
+   * was a stored value that drifted low by 1-15+ per word.
+   */
   occurrences?: number;
   notes?: string;
-  last_seen_story?: number | string;
+  /**
+   * The most recent story id in which this word appears. Same
+   * provenance as `first_story` (derived, joined).
+   */
+  last_seen_story?: number | string | null;
   verb_class?: string;
   adj_class?: string;
   grammar_tags?: string[];
@@ -105,6 +132,37 @@ export interface GrammarAttributionsManifest {
   attributions: Record<
     string,
     { intro_in_story: number | null; last_seen_story: number | null }
+  >;
+}
+
+/**
+ * Server-side projection of derived vocab attributions. Lives at
+ * `static/data/vocab_attributions.json` and is fetched by
+ * `loadVocabIndex()` to populate `first_story`, `last_seen_story`,
+ * and `occurrences` on every word. See
+ * `pipeline/build_vocab_attributions.py` for the producer side.
+ *
+ * Phase B derive-on-read (2026-05-01): pre-Phase-B, the stored
+ * `occurrences` was drifting low by 1-15+ per word. Joining the
+ * derived projection at the loader fixes that for every consumer
+ * (WordPopup, vocab route, getWord).
+ *
+ * Schema note: `first_story` / `last_seen_story` are strings of the
+ * form `"story_<N>"`, matching the historical vocab_state convention.
+ * Reader code already handles both `string` and `number` defensively
+ * (see `VocabIndexRow.first_story`).
+ */
+export interface VocabAttributionsManifest {
+  version: number;
+  generated_at?: string;
+  n_words: number;
+  attributions: Record<
+    string,
+    {
+      first_story:     string | null;
+      last_seen_story: string | null;
+      occurrences:     number;
+    }
   >;
 }
 

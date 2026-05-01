@@ -40,7 +40,7 @@ import json
 import sys
 from typing import Any
 
-from _common import iter_stories, load_grammar, load_vocab, parse_id_arg  # noqa: E402
+from _common import iter_stories, load_grammar, load_vocab_attributed, parse_id_arg  # noqa: E402
 
 # Import sibling tool modules.
 import palette as _palette  # noqa: E402
@@ -342,7 +342,7 @@ def _vocab_reinforcement_debt(target_story: int) -> dict:
                 used_in.setdefault(wid, set()).add(sid)
 
     try:
-        vocab = load_vocab().get("words") or {}
+        vocab = load_vocab_attributed().get("words") or {}
     except Exception:
         vocab = {}
     for wid, w in vocab.items():
@@ -1045,9 +1045,9 @@ def _lexical_difficulty_constraints(target_story: int) -> dict:
     # onto them. In practice this is mostly an informational warning;
     # the cap only fires on NEW mints.
     try:
-        from _paths import load_vocab  # noqa: E402
+        from _paths import load_vocab_attributed  # noqa: E402
 
-        vocab = load_vocab()
+        vocab = load_vocab_attributed()
     except Exception:
         return out
     above_cap_existing = []

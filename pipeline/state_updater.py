@@ -47,24 +47,32 @@ def update_state(
         plan_word_defs = plan.get("new_word_definitions", {})
 
     # ── 1. Add / update words ─────────────────────────────────────────────────
+    #
+    # Phase B derive-on-read (2026-05-01): `first_story`,
+    # `last_seen_story`, and `occurrences` are NO LONGER stored on
+    # vocab_state entries. They are derived from corpus first/last
+    # appearance + true occurrence count by
+    # `pipeline/derived_state.derive_vocab_attributions()` and projected
+    # for the reader by `pipeline/build_vocab_attributions.py`. As a
+    # result this section now:
+    #
+    #   * Mints brand-new word records with definition metadata only
+    #     (surface, kana, reading, pos, meanings, optional verb/adj class).
+    #     No attribution fields written.
+    #   * Existing-word records are not mutated. The corpus walk picks
+    #     up that the word reappears in this story and the projection
+    #     reflects it next time `regenerate_all_stories --apply` runs.
+    #
+    # The pre-Phase-B occurrence counter logic was the source of a
+    # systematic drift bug: stored `occurrences` was lower than corpus
+    # reality by 1-15+ per word because the bump path missed shared-
+    # mint cases and ran only at ship time (skipping rebuilds). Killing
+    # the storage kills the drift class entirely.
     added_words   = []
     updated_words = []
 
-    # Collect all word_ids used in this story.
-    #
-    # `first_story` and `last_seen_story` are computed from title +
-    # sentences (a word that debuts in the title genuinely debuts there, and
-    # the same for "last seen" — a learner reads the title when revisiting
-    # a story).
-    #
-    # `occurrences` (the lifetime practice counter) is computed from
-    # **sentences only**. The repo's permanent integrity test
-    # (`test_lifetime_occurrences_match_state_updater_semantics`) defines this
-    # as the contract — title is a header, not body beats, and
-    # counting them inflated the per-word practice count for words that
-    # appeared as headline-only motifs (this drift was caught after story 27,
-    # which used to live in a subtitle field, now removed). See v0.16 in
-    # docs/authoring.md for the full rationale.
+    # Collect all word_ids used in this story (still useful for the
+    # summary report, even though we no longer write attribution fields).
     header_word_ids = {
         tok["word_id"]
         for sec_name in ("title",)
@@ -79,24 +87,11 @@ def update_state(
     }
     all_word_ids = header_word_ids | body_word_ids
 
-    # The repo convention is `first_story = "story_<N>"` (string), while
-    # `last_seen_story = <N>` (int). State_updater used to emit the int for
-    # both, which the integrity tests rejected on the next ship — see
-    # docs/authoring.md § "v0.11" and pipeline/NOTES_FOR_FUTURE_AGENTS.md.
-    first_story_label = f"story_{story_id}"
-
     for wid in all_word_ids:
-        # Practice counter only counts sentence-level appearances; headers
-        # (title) are tracked for first_story/last_seen_story but
-        # don't bump occurrences.
-        in_body = wid in body_word_ids
         if wid in story_new_words:
-            # Brand-new word — add to vocab
+            # Brand-new word — add to vocab with definition metadata only.
             if wid in new_vocab["words"]:
                 # Already present (shouldn't happen in normal flow, but safe)
-                if in_body:
-                    new_vocab["words"][wid]["occurrences"] += 1
-                new_vocab["words"][wid]["last_seen_story"] = story_id
                 updated_words.append(wid)
             else:
                 # Build entry from plan definitions or minimal scaffold.
@@ -107,6 +102,9 @@ def update_state(
                 #  - `reading` is normalised to a single-token romaji string
                 #    (no spaces). Spaces in romaji break the
                 #    test_vocab_reading_is_ascii_no_spaces invariant.
+                #  - No `first_story`, `last_seen_story`, or `occurrences`
+                #    is written. They are derived per
+                #    `pipeline/derived_state.derive_vocab_attributions`.
                 defn = plan_word_defs.get(wid, {})
                 reading = (defn.get("reading", "") or "").replace(" ", "")
                 entry = {
@@ -116,9 +114,6 @@ def update_state(
                     "reading":         reading,
                     "pos":             defn.get("pos", "noun"),
                     "meanings":        defn.get("meanings", []),
-                    "first_story":     first_story_label,
-                    "occurrences":     1 if in_body else 0,
-                    "last_seen_story": story_id,
                 }
                 if defn.get("verb_class"):
                     entry["verb_class"] = defn["verb_class"]
@@ -127,11 +122,8 @@ def update_state(
                 new_vocab["words"][wid] = entry
                 added_words.append(wid)
         else:
-            # Existing word — increment occurrence counter (sentences only)
+            # Existing word — no mutation; the corpus walk picks up reappearance.
             if wid in new_vocab["words"]:
-                if in_body:
-                    new_vocab["words"][wid]["occurrences"] += 1
-                new_vocab["words"][wid]["last_seen_story"] = story_id
                 updated_words.append(wid)
 
     # ── 1b. Bump next_word_id past every word now in vocab ───────────────────

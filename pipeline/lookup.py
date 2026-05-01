@@ -38,7 +38,18 @@ STORIES = ROOT / "stories"
 
 
 def load_state() -> tuple[dict, dict]:
-    return json.loads(VOCAB.read_text(encoding="utf-8")), json.loads(GRAMMAR.read_text(encoding="utf-8"))
+    """Load vocab + grammar state for the lookup CLI.
+
+    Vocab uses `load_vocab_attributed()` so `first_story`,
+    `last_seen_story`, and `occurrences` reflect corpus reality
+    rather than the (now-stripped) cached fields. Phase B
+    derive-on-read (2026-05-01).
+    """
+    import sys as _sys
+    from pathlib import Path as _Path
+    _sys.path.insert(0, str(_Path(__file__).resolve().parent))
+    from _paths import load_vocab_attributed as _load_v_attr  # noqa: E402
+    return _load_v_attr(), json.loads(GRAMMAR.read_text(encoding="utf-8"))
 
 
 def fmt_word(w: dict) -> str:

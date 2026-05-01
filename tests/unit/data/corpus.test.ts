@@ -93,21 +93,49 @@ function vocabIndex(rows: Array<{ id: string; shard: string }> = []) {
 /* ── Vocab ────────────────────────────────────────────────────────── */
 
 describe('loadVocabIndex', () => {
-  it('fetches the sharded index from /data/vocab/index.json (with base prefix)', async () => {
+  /* Phase B derive-on-read (2026-05-01): loadVocabIndex() now fetches
+   * BOTH the index/state AND vocab_attributions.json in parallel and
+   * overlays first_story / occurrences from the projection. Mock both
+   * routes in every test. */
+  it('fetches the sharded index and overlays attributions', async () => {
     routes['/monogatari/data/vocab/index.json'] = () => ok(vocabIndex([{ id: 'W00001', shard: '00' }]));
+    routes['/monogatari/data/vocab_attributions.json'] = () =>
+      ok({
+        version: 1,
+        n_words: 1,
+        attributions: {
+          W00001: { first_story: 'story_3', last_seen_story: 'story_7', occurrences: 19 },
+        },
+      });
     const m = await loadCorpus();
     const idx = await m.loadVocabIndex();
     expect(idx.n_words).toBe(1);
-    expect(fetchCalls).toEqual(['/monogatari/data/vocab/index.json']);
+    // Stale stored values overwritten by the derived projection.
+    expect(idx.words[0].first_story).toBe('story_3');
+    expect(idx.words[0].occurrences).toBe(19);
   });
 
-  it('caches across calls — second call does not hit fetch', async () => {
+  it('caches across calls (one round-trip per source file)', async () => {
     routes['/monogatari/data/vocab/index.json'] = () => ok(vocabIndex([{ id: 'W00001', shard: '00' }]));
+    routes['/monogatari/data/vocab_attributions.json'] = () =>
+      ok({ version: 1, n_words: 0, attributions: {} });
     const m = await loadCorpus();
     await m.loadVocabIndex();
     await m.loadVocabIndex();
     await m.loadVocabIndex();
-    expect(fetchCalls).toHaveLength(1);
+    // Two source files (index + attributions) fetched once each on
+    // first call; second + third calls hit the in-memory cache.
+    expect(fetchCalls).toHaveLength(2);
+  });
+
+  it('keeps stored values when attributions projection 404s', async () => {
+    routes['/monogatari/data/vocab/index.json'] = () => ok(vocabIndex([{ id: 'W00001', shard: '00' }]));
+    routes['/monogatari/data/vocab_attributions.json'] = () => notFound();
+    const m = await loadCorpus();
+    const idx = await m.loadVocabIndex();
+    // Mid-deploy fallback: row.first_story is undefined (vocabIndex
+    // helper doesn't set it), occurrences keeps stored value.
+    expect(idx.words[0].occurrences).toBe(1);
   });
 
   it('falls back to legacy monolithic vocab_state.json when index.json is missing', async () => {

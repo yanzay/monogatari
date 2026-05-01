@@ -7,6 +7,7 @@ import type {
   StoryManifestPagePayload,
   GrammarAttributionsManifest,
   GrammarState,
+  VocabAttributionsManifest,
   GrammarExamplesIndex,
   VocabIndex,
   VocabIndexRow,
@@ -35,25 +36,94 @@ async function fetchJSON<T>(path: string): Promise<T> {
  * is unavailable we fall back to the legacy monolithic data/vocab_state.json
  * and synthesize an in-memory index — preserves old deploys during rollout.
  */
+/**
+ * Load the vocab index, with derived attributions overlaid.
+ *
+ * Phase B of the derive-on-read refactor (2026-05-01): `first_story`,
+ * `last_seen_story`, and `occurrences` per word are NO LONGER stored
+ * on `data/vocab_state.json`. They are derived server-side by
+ * `pipeline/build_vocab_attributions.py` (writes
+ * `static/data/vocab_attributions.json`) and joined onto each row /
+ * full word record here. Pre-Phase-B, the stored `occurrences` was
+ * drifting low by 1-15+ per word — the reader was showing wrong
+ * "First seen: Story N" and frequency hints to learners.
+ *
+ * Two source files (state + attributions) fetched in parallel; the
+ * join is in-memory and O(n) over the words map. Cached in
+ * `vocabIndexPromise` so subsequent calls reuse the merged result.
+ */
 export function loadVocabIndex(): Promise<VocabIndex> {
   if (vocabIndexPromise) return vocabIndexPromise;
   vocabIndexPromise = (async () => {
+    // Attributions file: empty fallback if missing (mid-deploy).
+    // Same defensive pattern as loadGrammar from Phase A.
+    const attrsPromise = fetchJSON<VocabAttributionsManifest>(
+      '/data/vocab_attributions.json',
+    ).catch(
+      (): VocabAttributionsManifest => ({
+        version: 1,
+        n_words: 0,
+        attributions: {},
+      }),
+    );
+
     try {
-      return await fetchJSON<VocabIndex>('/data/vocab/index.json');
+      const [shardedIdx, attrs] = await Promise.all([
+        fetchJSON<VocabIndex>('/data/vocab/index.json'),
+        attrsPromise,
+      ]);
+      // Overlay onto sharded rows so the popup + vocab page see fresh
+      // attributions even when the shard pipeline hasn't been re-run.
+      const merged: VocabIndex = {
+        ...shardedIdx,
+        words: shardedIdx.words.map((row) => {
+          const a = attrs.attributions[row.id];
+          if (!a) return row;
+          return {
+            ...row,
+            first_story: a.first_story ?? row.first_story,
+            occurrences: a.occurrences ?? row.occurrences,
+          };
+        }),
+      };
+      return merged;
     } catch {
-      const legacy = await fetchJSON<VocabStateLegacy>('/data/vocab_state.json');
-      const rows: VocabIndexRow[] = Object.values(legacy.words).map((w) => ({
-        id: w.id,
-        shard: '__legacy__',
-        surface: w.surface,
-        kana: w.kana,
-        reading: w.reading,
-        short_meaning: w.meanings?.[0] ?? '',
-        first_story: w.first_story,
-        occurrences: w.occurrences ?? 0,
-      }));
-      // Stash full records so getWord() can serve them.
-      legacyWordsCache = legacy.words;
+      // Legacy path: no shard index — overlay attributions directly
+      // onto the rows we synthesize from vocab_state.json.
+      const [legacy, attrs] = await Promise.all([
+        fetchJSON<VocabStateLegacy>('/data/vocab_state.json'),
+        attrsPromise,
+      ]);
+      const rows: VocabIndexRow[] = Object.values(legacy.words).map((w) => {
+        const a = attrs.attributions[w.id];
+        return {
+          id: w.id,
+          shard: '__legacy__',
+          surface: w.surface,
+          kana: w.kana,
+          reading: w.reading,
+          short_meaning: w.meanings?.[0] ?? '',
+          first_story: a ? a.first_story : w.first_story,
+          occurrences: a ? a.occurrences : (w.occurrences ?? 0),
+        };
+      });
+      // Stash full records so getWord() can serve them, with derived
+      // attributions overlaid so popups show correct values.
+      const enrichedWords: Record<string, Word> = {};
+      for (const [wid, w] of Object.entries(legacy.words)) {
+        const a = attrs.attributions[wid];
+        if (a) {
+          enrichedWords[wid] = {
+            ...w,
+            first_story: a.first_story,
+            last_seen_story: a.last_seen_story,
+            occurrences: a.occurrences,
+          };
+        } else {
+          enrichedWords[wid] = w;
+        }
+      }
+      legacyWordsCache = enrichedWords;
       return {
         version: legacy.version,
         generated_at: legacy.updated_at,

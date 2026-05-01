@@ -15,14 +15,14 @@ import argparse
 import sys
 
 from _common import (
-    build, load_vocab, load_grammar, iter_stories, list_word_occurrences,
+    build, load_vocab, load_vocab_attributed, load_grammar, iter_stories, list_word_occurrences,
     color,
 )
 from _token_walk import iter_tokens
 
 
 def cmd_search(args):
-    vocab = load_vocab()
+    vocab = load_vocab_attributed()
     needle = args.query
     hits = []
     for wid, w in vocab["words"].items():
@@ -41,7 +41,7 @@ def cmd_search(args):
 
 
 def cmd_info(args):
-    vocab = load_vocab()
+    vocab = load_vocab_attributed()
     wid = args.word_id.upper()
     w = vocab["words"].get(wid)
     if not w:
@@ -58,7 +58,7 @@ def cmd_info(args):
 
 
 def cmd_orphans(args):
-    vocab = load_vocab()
+    vocab = load_vocab_attributed()
     occ_by_wid: dict[str, list[tuple[int, str]]] = {wid: [] for wid in vocab["words"]}
     for sid, story in iter_stories():
         for tok in iter_tokens(story):
@@ -96,7 +96,7 @@ def cmd_would_mint(args):
     """Tokenize a JP surface using the converter and report which tokens would mint."""
     spec = {"story_id": 999, "title": {"jp": args.text, "en": "preview"},
             "sentences": [{"jp": args.text, "en": "preview"}]}
-    vocab = load_vocab()
+    vocab = load_vocab_attributed()
     grammar = load_grammar()
     story, report = build(spec, vocab, grammar)
     # The converter mutates `vocab` in-place when it mints; the report's
@@ -123,7 +123,7 @@ def cmd_would_mint(args):
 
 
 def cmd_range(args):
-    vocab = load_vocab()
+    vocab = load_vocab_attributed()
     lo = int(args.start.upper().lstrip("W"))
     hi = int(args.end.upper().lstrip("W"))
     for n in range(lo, hi + 1):

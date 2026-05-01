@@ -80,8 +80,16 @@ def test_vocab_word_id_format(vocab):
 
 
 def test_vocab_required_fields(vocab):
-    """Every word must have surface, kana, pos, meanings, occurrences, first_story."""
-    required = {"id", "surface", "kana", "pos", "meanings", "occurrences", "first_story"}
+    """Every word must have id/surface/kana/pos/meanings (definition fields).
+
+    Phase B derive-on-read (2026-05-01): `first_story`, `last_seen_story`,
+    and `occurrences` were removed from the required set because they
+    are no longer stored — they are derived from the corpus by
+    `derived_state.derive_vocab_attributions`. Definition fields stay
+    required because they are the only thing state_updater writes for
+    a brand-new word.
+    """
+    required = {"id", "surface", "kana", "pos", "meanings"}
     bad = []
     for wid, w in vocab["words"].items():
         missing = required - set(w.keys())
@@ -247,10 +255,14 @@ def test_vocab_no_dead_grammar_tags_field(vocab):
     assert not bad, f"grammar_tags field reintroduced on: {bad}"
 
 
-def test_vocab_occurrences_non_negative(vocab):
-    bad = [(wid, w["occurrences"]) for wid, w in vocab["words"].items()
-           if w.get("occurrences", 0) < 0]
-    assert not bad, f"Negative occurrences: {bad}"
+# test_vocab_occurrences_non_negative — REMOVED 2026-05-01.
+#
+# Phase B derive-on-read killed the stored `occurrences` field; it is
+# now derived as `len([1 for tok in story.tokens if tok.word_id == wid])`
+# in `derived_state.derive_vocab_attributions`. By construction the
+# derived count is a non-negative integer (Python `Counter` of token
+# walks); negative values are not representable. The invariant is
+# structural rather than testable.
 
 
 # ── Grammar integrity ──────────────────────────────────────────────────
@@ -373,49 +385,89 @@ def test_every_story_grammar_id_exists_in_grammar_state(stories, grammar):
     assert not bad, "Unknown grammar_ids in stories:\n  " + "\n  ".join(bad)
 
 
-def test_lifetime_occurrences_match_state_updater_semantics(stories, vocab):
-    """vocab.words[wid].occurrences should equal the number of STORIES that use the word.
+def test_vocab_state_carries_no_attribution_fields(vocab):
+    """Phase B derive-on-read (2026-05-01) — `first_story`,
+    `last_seen_story`, and `occurrences` must NOT appear on any
+    vocab_state entry. They are derived from the corpus by
+    `pipeline/derived_state.derive_vocab_attributions()` and projected
+    for the reader by `pipeline/build_vocab_attributions.py`.
 
-    This matches state_updater.py's semantics (one increment per story, regardless
-    of how many tokens reference the word, and only counting `sentences`, not
-    title). Catches state drift after post-ship edits.
+    The pre-Phase-B stored `occurrences` was drifting low by 1-15+
+    per word. Killing the storage kills the drift class entirely.
+    Mirrors `test_grammar_state_carries_no_attribution_fields` (Phase A).
     """
-    expected: Counter[str] = Counter()
-    for story in stories:
-        wids_in_this_story: set[str] = set()
-        for sent in story.get("sentences", []):
-            for tok in sent.get("tokens", []):
-                wid = tok.get("word_id")
-                if wid:
-                    wids_in_this_story.add(wid)
-        for wid in wids_in_this_story:
-            expected[wid] += 1
-
-    bad = []
-    for wid, w in vocab["words"].items():
-        declared = w.get("occurrences", 0)
-        observed = expected.get(wid, 0)
-        if declared != observed:
-            bad.append(f"{wid} ({w.get('surface','?')}): declared={declared}, expected={observed}")
-    assert not bad, "Lifetime occurrence drift (state_updater semantics):\n  " + "\n  ".join(bad)
+    forbidden = ("first_story", "last_seen_story", "occurrences")
+    leaked: list[str] = []
+    for wid, w in (vocab.get("words") or {}).items():
+        for f in forbidden:
+            if f in w:
+                leaked.append(f"{wid}.{f}={w[f]!r}")
+    assert not leaked, (
+        "vocab_state.json must not store derived attribution fields:\n  "
+        + "\n  ".join(leaked)
+        + "\n\nThese fields are now derived. Fix: "
+        "`python3 pipeline/build_vocab_attributions.py` rebuilds the "
+        "projection; check state_updater isn't re-introducing the writes."
+    )
 
 
-def test_first_story_is_actually_first(stories, vocab):
-    """vocab.first_story should be the earliest story_N.json that uses the word."""
-    first_seen: dict[str, str] = {}
-    for story in sorted(stories, key=lambda s: int(s["_id"].split("_")[1])):
-        for sec, sent_idx, tok_idx, tok in iter_tokens(story):
-            wid = tok.get("word_id")
-            if wid and wid not in first_seen:
-                first_seen[wid] = story["_id"]
+def test_vocab_attribution_manifest_in_sync_with_corpus(stories):
+    """The vocab manifest projection at `static/data/vocab_attributions.json`
+    (and its mirror at `data/vocab_attributions.json`) must equal the
+    derive_vocab_attributions() result over the current corpus.
 
-    bad = []
-    for wid, w in vocab["words"].items():
-        declared = w.get("first_story")
-        observed = first_seen.get(wid)
-        if observed and declared != observed:
-            bad.append(f"{wid} ({w.get('surface','?')}): declared first_story={declared}, actually first appears in {observed}")
-    assert not bad, "first_story drift:\n  " + "\n  ".join(bad)
+    The reader's WordPopup and vocab route consume the manifest at
+    page-load; a stale manifest would show wrong "First seen: Story N"
+    and frequency to the learner. The
+    `regenerate_all_stories.py --apply` post-pass rebuilds the manifest
+    on every ship, so any failure here means a non-ship code path
+    changed the corpus without re-running the projection.
+
+    Mirrors `test_grammar_attribution_manifest_in_sync_with_corpus`
+    (Phase A) but for vocab.
+    """
+    import json
+    from _paths import ROOT
+    import sys
+    sys.path.insert(0, str(ROOT / "pipeline"))
+    from derived_state import derive_vocab_attributions
+
+    derived = derive_vocab_attributions()
+
+    static_path = ROOT / "static" / "data" / "vocab_attributions.json"
+    data_path   = ROOT / "data"   / "vocab_attributions.json"
+    assert static_path.exists(), (
+        f"manifest projection missing at {static_path}; "
+        "run `python3 pipeline/build_vocab_attributions.py`"
+    )
+    assert data_path.exists(), (
+        f"manifest projection missing at {data_path}; "
+        "run `python3 pipeline/build_vocab_attributions.py`"
+    )
+
+    static_payload = json.loads(static_path.read_text())
+    data_payload   = json.loads(data_path.read_text())
+
+    assert static_payload["attributions"] == data_payload["attributions"], (
+        "data/vocab_attributions.json and static/data/vocab_attributions.json "
+        "diverge — one was edited out-of-band. Run "
+        "`python3 pipeline/build_vocab_attributions.py` to resync."
+    )
+
+    expected = {
+        wid: {
+            "first_story":     attr["first_story"],
+            "last_seen_story": attr["last_seen_story"],
+            "occurrences":     attr["occurrences"],
+        }
+        for wid, attr in derived.items()
+    }
+    actual = static_payload["attributions"]
+    assert actual == expected, (
+        "Vocab manifest projection is stale vs derive_vocab_attributions(corpus). "
+        "Run `python3 pipeline/build_vocab_attributions.py` to refresh.\n"
+        f"  expected n_words={len(expected)}, actual n_words={len(actual)}"
+    )
 
 
 def test_no_orphan_vocab_words(stories, vocab):

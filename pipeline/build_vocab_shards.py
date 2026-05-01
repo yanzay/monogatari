@@ -94,7 +94,17 @@ def main() -> None:
         print(f"ERROR: {src} not found", file=sys.stderr)
         sys.exit(1)
 
-    vocab = json.loads(src.read_text(encoding="utf-8"))
+    # Phase B derive-on-read (2026-05-01): the shard `first_story` and
+    # `occurrences` MUST reflect corpus reality. Pre-Phase-B, the
+    # stored `occurrences` in vocab_state.json was systematically low
+    # by 1-15+ per word, which leaked through the shard build into the
+    # reader's vocab page. Use load_vocab_attributed() so the overlay
+    # is applied before sharding.
+    import sys as _sys
+    from pathlib import Path as _Path
+    _sys.path.insert(0, str(_Path(__file__).resolve().parent))
+    from _paths import load_vocab_attributed as _load_v_attr  # noqa: E402
+    vocab = _load_v_attr()
     index, shards = build(vocab)
 
     out_dir = Path("data/vocab")

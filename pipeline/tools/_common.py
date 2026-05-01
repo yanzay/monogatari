@@ -23,6 +23,7 @@ from _paths import (  # noqa: E402,F401  (re-exported for back-compat)
     DATA,
     parse_story_id as parse_id_arg,
     load_vocab,
+    load_vocab_attributed,
     load_grammar,
     load_grammar_catalog,
     load_spec,

@@ -133,3 +133,100 @@ def is_introduced(
 ) -> bool:
     """True iff the grammar point has appeared in at least one shipped story."""
     return grammar_attribution_for(gid, attributions)["intro_in_story"] is not None
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Vocab attributions (Phase B — 2026-05-01)
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+class VocabAttribution(TypedDict):
+    # NOTE: vocab uses STRING form ("story_N") historically, while
+    # grammar uses int. Phase B preserves the string form so existing
+    # consumers (WordPopup display, vocab route filter) continue to
+    # work without per-call coercion. Reader code already handles both
+    # `number` and `string` types defensively (see VocabIndexRow).
+    first_story:     str | None
+    last_seen_story: str | None
+    occurrences:     int
+
+
+def _walk_word_ids(story: dict) -> Iterable[str]:
+    """Yield every word_id referenced by any token in a story.
+
+    Walks both title and sentence tokens. A word_id can appear once per
+    occurrence; callers that want occurrence counts should not dedupe.
+    Function-class mints (conjunctions) appear with both word_id and
+    grammar_id on the same token; both walks emit them.
+    """
+    title = story.get("title")
+    if isinstance(title, dict):
+        for tok in title.get("tokens") or []:
+            wid = tok.get("word_id")
+            if wid:
+                yield wid
+    for sent in story.get("sentences") or []:
+        for tok in sent.get("tokens") or []:
+            wid = tok.get("word_id")
+            if wid:
+                yield wid
+
+
+def derive_vocab_attributions(
+    stories: Iterable[tuple[int, dict]] | None = None,
+) -> dict[str, VocabAttribution]:
+    """Return {wid: {first_story, last_seen_story, occurrences}} from corpus.
+
+    Schema mirrors `derive_grammar_attributions` but with vocab-specific
+    semantics:
+      first_story:     "story_<min N where wid appears>" (str, matches
+                       the historical vocab_state convention).
+      last_seen_story: "story_<max N where wid appears>" (str, same).
+      occurrences:     total count across all stories. Unlike the
+                       grammar derivation, this carries pedagogical
+                       weight (drives reinforcement debt analysis) and
+                       must NOT dedupe per story.
+
+    Args:
+      stories: optional iterable of (story_id, story_dict). If None,
+        walks `stories/` via `_paths.iter_stories()`.
+
+    Returns:
+      Dict keyed by word_id. Words that never appear in the corpus are
+      NOT in the result; callers wanting an "all known words" view must
+      left-join against `data/vocab_state.json::words`.
+    """
+    if stories is None:
+        stories = iter_stories()
+
+    first: dict[str, int] = {}
+    last:  dict[str, int] = {}
+    counts: dict[str, int] = {}
+    for sid, story in sorted(stories, key=lambda x: x[0]):
+        for wid in _walk_word_ids(story):
+            if wid not in first:
+                first[wid] = sid
+            last[wid] = sid
+            counts[wid] = counts.get(wid, 0) + 1
+
+    return {
+        wid: VocabAttribution(
+            first_story=f"story_{first[wid]}",
+            last_seen_story=f"story_{last[wid]}",
+            occurrences=counts[wid],
+        )
+        for wid in first
+    }
+
+
+def vocab_attribution_for(
+    wid: str,
+    attributions: dict[str, VocabAttribution] | None = None,
+) -> VocabAttribution:
+    """Convenience: look up one wid, returning a None/None/0 record if absent."""
+    if attributions is None:
+        attributions = derive_vocab_attributions()
+    return attributions.get(
+        wid,
+        VocabAttribution(first_story=None, last_seen_story=None, occurrences=0),
+    )
