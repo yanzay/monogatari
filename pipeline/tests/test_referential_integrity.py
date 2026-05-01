@@ -517,3 +517,70 @@ def test_word_audio_hash_matches_vocab(stories, vocab):
                     f"(TTS input now '{text}') — regenerate audio with --force"
                 )
     assert not drifted, "Word audio drift detected:\n  " + "\n  ".join(drifted)
+
+
+def test_no_todo_word_id_in_corpus(stories):
+    """Pin: shipped stories must NEVER contain a literal '<TODO>' word_id.
+
+    Pre-2026-05-01 the content-word path in `text_to_story.py` silently
+    emitted `word_id="<TODO>"` whenever `_ensure_word()` returned None
+    (typically because UniDic mistagged a content word as a particle, or
+    because a conjunction wasn't in CONJUNCTION_VOCAB). Stories shipped
+    with the literal placeholder string as a word ID; downstream
+    consumers would then crash or show garbage when the learner tapped
+    the token. The placeholder was even filtered out of `all_words_used`
+    (text_to_story.py line ~1370), masking the bug from any "every wid
+    has a vocab entry" check.
+
+    Flaw #5 fail-loud (commit ahead): `_ensure_word` returning None now
+    raises ValueError with a diagnostic identifying the surface and
+    sentence. This test pins that contract from the data side: even if
+    a future regression slips a `<TODO>` past the build path, this
+    structural test will catch it before the corpus ships.
+
+    Same idea for the meaning placeholder `<TODO meaning>` that the
+    mint path used to drop into vocab records when jamdict had no
+    gloss and the spec didn't provide one — this test scans both sites.
+    """
+    offenders: list[str] = []
+    for story in stories:
+        sid = story.get("_id") or story.get("story_id")
+        for sect_name in ("title",) + tuple(f"sentences[{i}]" for i in range(len(story.get("sentences", [])))):
+            if sect_name == "title":
+                tokens = story.get("title", {}).get("tokens", [])
+            else:
+                idx = int(sect_name.split("[")[1].rstrip("]"))
+                tokens = story["sentences"][idx].get("tokens", [])
+            for tok in tokens:
+                wid = tok.get("word_id")
+                if wid and "TODO" in str(wid):
+                    offenders.append(
+                        f"{sid}:{sect_name} surface={tok.get('t')!r} "
+                        f"word_id={wid!r}"
+                    )
+    assert not offenders, (
+        "Found `<TODO>` word_id placeholders in shipped corpus — text_to_story "
+        "fail-loud regressed. Offenders:\n  " + "\n  ".join(offenders)
+    )
+
+
+def test_no_todo_meaning_in_vocab_state(vocab):
+    """Pin: every minted word must have a real English meaning at ship time.
+
+    Pre-2026-05-01 the mint path emitted `"meanings": ["<TODO meaning>"]`
+    whenever jamdict had no gloss AND the spec's `new_word_meanings`
+    didn't cover the surface/lemma. The reader's WordPopup would then
+    show literally `<TODO meaning>` to the learner. Flaw #5 fail-loud
+    raises in `_no_meaning_error` instead. This test pins the data side.
+    """
+    offenders: list[str] = []
+    for wid, w in (vocab.get("words") or {}).items():
+        for m in (w.get("meanings") or []):
+            if m and "TODO" in str(m):
+                offenders.append(
+                    f"{wid} surface={w.get('surface')!r} meaning={m!r}"
+                )
+    assert not offenders, (
+        "Found `<TODO meaning>` placeholders in vocab_state — text_to_story "
+        "mint fail-loud regressed. Offenders:\n  " + "\n  ".join(offenders)
+    )

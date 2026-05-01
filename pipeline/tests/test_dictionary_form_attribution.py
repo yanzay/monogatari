@@ -37,12 +37,14 @@ from text_to_story import (  # noqa: E402
 PLAIN_NONPAST_GID = "N5_dictionary_form"
 
 
-def _build(spec_sentences: list[dict], vocab: dict, grammar: dict) -> tuple[dict, dict]:
+def _build(spec_sentences: list[dict], vocab: dict, grammar: dict, *, new_word_meanings: dict | None = None) -> tuple[dict, dict]:
     spec = {
         "story_id": 999,
         "title": {"jp": "テスト", "en": "Test"},
         "sentences": spec_sentences,
     }
+    if new_word_meanings:
+        spec["new_word_meanings"] = new_word_meanings
     return build_story(spec, vocab, grammar)
 
 
@@ -75,8 +77,22 @@ def test_honorific_prefix_merges_into_single_noun(vocab, grammar):
         ("お金で買います。",       "お金",   "おかね"),
         ("ご家族と話します。",     "ご家族", "ごかぞく"),
     ]
+    # Provide explicit meanings so the post-Flaw-#5 fail-loud mint path
+    # doesn't error on words jamdict can't gloss (e.g. ご家族, お皿).
+    # The honorific-merge logic under test is unaffected by the meaning
+    # field; we just need _ensure_word to not abort.
+    spec_meanings = {
+        "お茶": "tea (polite)",
+        "お皿": "plate (polite)",
+        "お金": "money (polite)",
+        "ご家族": "family (honorific)",
+    }
     for jp, expected_surface, expected_kana in samples:
-        built, report = _build([{"jp": jp, "en": ""}], vocab, grammar)
+        built, report = _build(
+            [{"jp": jp, "en": ""}],
+            vocab, grammar,
+            new_word_meanings=spec_meanings,
+        )
         content = [
             t for t in built["sentences"][0]["tokens"]
             if t.get("role") == "content"

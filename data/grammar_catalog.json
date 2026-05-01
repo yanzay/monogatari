@@ -2391,6 +2391,109 @@
       "source_count": 2,
       "prerequisites": [],
       "disputed": false
+    },
+    {
+      "id": "N4_shikashi",
+      "marker": "しかし",
+      "jlpt": "N4",
+      "category": "connector",
+      "title": "しかし — however / but (formal)",
+      "short": "formal/written sentence-initial contrast connector",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro"
+      ],
+      "source_count": 2,
+      "prerequisites": [
+        "N5_demo"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_keredomo",
+      "marker": "けれども",
+      "jlpt": "N4",
+      "category": "connector",
+      "title": "けれども — but / however (polite)",
+      "short": "polite contrast connector; sentence-initial or clause-final",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro"
+      ],
+      "source_count": 2,
+      "prerequisites": [
+        "N5_demo"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N3_tokoroga",
+      "marker": "ところが",
+      "jlpt": "N3",
+      "category": "connector",
+      "title": "ところが — however / unexpectedly",
+      "short": "contrastive connector signalling speaker surprise",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro"
+      ],
+      "source_count": 2,
+      "prerequisites": [
+        "N4_shikashi"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_suruto",
+      "marker": "すると",
+      "jlpt": "N4",
+      "category": "connector",
+      "title": "すると — thereupon / then",
+      "short": "narrative consequence connector ('and then …')",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro"
+      ],
+      "source_count": 2,
+      "prerequisites": [
+        "N5_soshite"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N4_sorede",
+      "marker": "それで",
+      "jlpt": "N4",
+      "category": "connector",
+      "title": "それで — and so / therefore",
+      "short": "consequence connector linking back to a stated reason",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro"
+      ],
+      "source_count": 2,
+      "prerequisites": [
+        "N5_dakara"
+      ],
+      "disputed": false
+    },
+    {
+      "id": "N3_daga",
+      "marker": "だが",
+      "jlpt": "N3",
+      "category": "connector",
+      "title": "だが — but / however (literary)",
+      "short": "literary/plain-register sentence-initial contrast connector",
+      "sources": [
+        "jlpt_sensei",
+        "bunpro"
+      ],
+      "source_count": 2,
+      "prerequisites": [
+        "N5_demo",
+        "N4_shikashi"
+      ],
+      "disputed": false
     }
   ]
 }

@@ -778,6 +778,67 @@
       "genki_ref": "Genki I L3",
       "bunpro_ref": "bunpro_n5",
       "jlpt_sensei_ref": "jlpt_sensei"
+    },
+    "N4_shikashi": {
+      "id": "N4_shikashi",
+      "title": "しかし — however / but (formal)",
+      "short": "formal/written sentence-initial contrast connector",
+      "long": "しかし stands at the start of a sentence to introduce a contrast with the previous statement, equivalent to formal English 'however' or 'but'. Compared to でも (conversational) and けれども (polite-conversational), しかし is the most formal of the trio and is the default for written prose, news, essays, and academic writing. The clause it introduces stays in whichever register the surrounding text uses (です/ます or plain). Example: 雨が降りました。しかし、私は出かけました。 — It rained. However, I went out.",
+      "jlpt": "N4",
+      "prerequisites": [
+        "N5_demo"
+      ]
+    },
+    "N4_keredomo": {
+      "id": "N4_keredomo",
+      "title": "けれども — but / however (polite)",
+      "short": "polite contrast connector; sentence-initial or clause-final",
+      "long": "けれども is the full polite form of けど (and the politer cousin of でも at sentence-initial position). It can connect two clauses inside one sentence ('Aけれども、B') or stand at the start of a follow-up sentence to mean 'however, …'. Register sits between でも (casual conversational) and しかし (formal/written): polite spoken, polite written correspondence, formal speech. The shorter けれど and けど are progressively more casual.",
+      "jlpt": "N4",
+      "prerequisites": [
+        "N5_demo"
+      ]
+    },
+    "N3_tokoroga": {
+      "id": "N3_tokoroga",
+      "title": "ところが — however / unexpectedly",
+      "short": "contrastive connector signalling speaker surprise",
+      "long": "ところが introduces a clause whose content contradicts the speaker's expectation set up by the previous statement. Translates as 'however' but with a strong nuance of surprise — the unexpected reversal is the point. Distinct from しかし (neutral contrast) and でも (general but): use ところが only when the second clause genuinely upends what the listener would have predicted. Example: 雨が降ると思いました。ところが、晴れました。 — I thought it would rain. But (to my surprise), it cleared up.",
+      "jlpt": "N3",
+      "prerequisites": [
+        "N4_shikashi"
+      ]
+    },
+    "N4_suruto": {
+      "id": "N4_suruto",
+      "title": "すると — thereupon / then",
+      "short": "narrative consequence connector ('and then …')",
+      "long": "すると stands at the start of a sentence to mean 'thereupon / and then / whereupon', linking a triggering action in the previous sentence to its (often unexpected) consequence in the new one. Common in storytelling and procedural descriptions. Differs from そして (simple sequencing) by emphasizing the cause→effect relationship; differs from だから (logical conclusion) by foregrounding the temporal/narrative flow rather than the speaker's reasoning. Example: ドアを開けました。すると、犬が走って来ました。 — I opened the door. Then a dog came running.",
+      "jlpt": "N4",
+      "prerequisites": [
+        "N5_soshite"
+      ]
+    },
+    "N4_sorede": {
+      "id": "N4_sorede",
+      "title": "それで — and so / therefore",
+      "short": "consequence connector linking back to a stated reason",
+      "long": "それで begins a sentence to mean 'and so' / 'because of that', presenting the second sentence as a result of what was just said. Lighter than だから (which asserts a logical conclusion the speaker stands behind) and softer than the formal したがって. Often used in conversation to invite the listener to continue ('それで?' = 'and then?'). The clause that follows usually states an outcome, decision, or action the speaker took.",
+      "jlpt": "N4",
+      "prerequisites": [
+        "N5_dakara"
+      ]
+    },
+    "N3_daga": {
+      "id": "N3_daga",
+      "title": "だが — but / however (literary)",
+      "short": "literary/plain-register sentence-initial contrast connector",
+      "long": "だが introduces a contrastive sentence in literary, narrative, or formal-plain register. Functionally equivalent to しかし but plain (not polite-formal); common in fiction, editorials, and assertive/declarative prose. Avoid in polite spoken Japanese — でも or けれども are the conversational equivalents. Often paired with assertive plain-form copulas (だ / である) and tends to appear after an assertion the writer is about to qualify or reverse.",
+      "jlpt": "N3",
+      "prerequisites": [
+        "N5_demo",
+        "N4_shikashi"
+      ]
     }
   }
 }

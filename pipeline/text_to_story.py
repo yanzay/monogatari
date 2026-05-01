@@ -81,6 +81,16 @@ SURFACE_TO_GRAMMAR: dict[str, str] = {
     "について": "N3_ni_tsuite",
     "だから":   "N5_dakara",
     "ですから": "N5_dakara",
+    # Discourse-initial conjunctions (registered 2026-05-01, Flaw #5).
+    # Each ALSO has an entry in CONJUNCTION_VOCAB so the reader's lookup
+    # popup resolves them, plus a grammar-state/catalog point for
+    # coverage tracking. See grammar_catalog.json for register notes.
+    "しかし":   "N4_shikashi",
+    "けれども": "N4_keredomo",
+    "ところが": "N3_tokoroga",
+    "すると":   "N4_suruto",
+    "それで":   "N4_sorede",
+    "だが":     "N3_daga",
 }
 
 GRAMMAR_ROLE: dict[str, str] = {
@@ -142,6 +152,53 @@ CONJUNCTION_VOCAB: dict[str, dict] = {
         "pos": "conjunction",
         "meanings": ["concerning; about; regarding"],
         "jlpt": 4,
+    },
+    # Discourse-initial conjunctions (added 2026-05-01, Flaw #5).
+    # Previously fell through to the content-word path and minted as
+    # `<TODO>` or split incorrectly (け+れ+ど+も). Each is paired with
+    # a grammar point in grammar_state.json + grammar_catalog.json and
+    # the surface→gid mapping in SURFACE_TO_GRAMMAR above.
+    "しかし": {
+        "kana": "しかし",
+        "reading": "shikashi",
+        "pos": "conjunction",
+        "meanings": ["however; but (formal/written)"],
+        "jlpt": 4,
+    },
+    "けれども": {
+        "kana": "けれども",
+        "reading": "keredomo",
+        "pos": "conjunction",
+        "meanings": ["but; however; nevertheless (politer than けど)"],
+        "jlpt": 4,
+    },
+    "ところが": {
+        "kana": "ところが",
+        "reading": "tokoroga",
+        "pos": "conjunction",
+        "meanings": ["however; unexpectedly (contrastive surprise)"],
+        "jlpt": 3,
+    },
+    "すると": {
+        "kana": "すると",
+        "reading": "suruto",
+        "pos": "conjunction",
+        "meanings": ["thereupon; then; and (narrative consequence)"],
+        "jlpt": 4,
+    },
+    "それで": {
+        "kana": "それで",
+        "reading": "sorede",
+        "pos": "conjunction",
+        "meanings": ["and so; therefore; because of that"],
+        "jlpt": 4,
+    },
+    "だが": {
+        "kana": "だが",
+        "reading": "daga",
+        "pos": "conjunction",
+        "meanings": ["but; however (literary/written; plain register)"],
+        "jlpt": 3,
     },
 }
 
@@ -926,7 +983,11 @@ def _ensure_word(merged: dict, st: BuildState) -> Optional[dict]:
         "kana": clean_kana or kana,
         "reading": kana_to_romaji(clean_kana or kana),
         "pos": pos,
-        "meanings": [meaning or "<TODO meaning>"],
+        # Fail-loud (Flaw #5, 2026-05-01): no silent "<TODO meaning>"
+        # placeholder. If jamdict has no gloss AND the author didn't
+        # provide `new_word_meanings[surface]`, halt — every minted word
+        # MUST have a real English meaning at ship time.
+        "meanings": [meaning] if meaning else _no_meaning_error(surface, lemma, st),
         "_minted_by": "text_to_story",
     }
     # Lexical-difficulty enrichment (added 2026-04-29). Cache the JLPT
@@ -956,6 +1017,22 @@ def _ensure_word(merged: dict, st: BuildState) -> Optional[dict]:
     st.minted[dedup_key] = rec
     st.report["new_words"].append(rec)
     return rec
+
+
+def _no_meaning_error(surface: str, lemma: str, st: BuildState) -> list:
+    """Halt-and-explain helper for the mint path: raised when jamdict has no
+    gloss AND the spec didn't provide one. Replaces the silent
+    `<TODO meaning>` placeholder (Flaw #5, 2026-05-01)."""
+    sentence_jp = st.report.get("_current_sentence", "<unknown sentence>")
+    raise ValueError(
+        f"text_to_story: cannot mint word '{surface}' (lemma={lemma!r}) — "
+        f"no English meaning available.\n"
+        f"  Tried: spec.new_word_meanings[{surface!r}], "
+        f"spec.new_word_meanings[{lemma!r}], jamdict lookup.\n"
+        f"  In sentence: {sentence_jp!r}\n"
+        f"  Fix: add an entry to the spec's `new_word_meanings` dict, e.g.:\n"
+        f"    \"new_word_meanings\": {{ {surface!r}: \"english gloss here\" }}"
+    )
 
 
 def _record_unknown_grammar(tok: dict, gid: str, st: BuildState) -> None:
@@ -1076,8 +1153,39 @@ def merged_to_token_json(merged: dict, st: BuildState) -> dict:
     # Content word (noun / verb / adjective / pronoun / adverb)
     word = _ensure_word(merged, st)
     if word is None:
-        st.report["unresolved"].append({"surface": surface, "pos1": merged["_pos1"]})
-        return {"t": surface, "role": "content", "word_id": "<TODO>"}
+        # Fail-loud (Flaw #5, 2026-05-01): previously this silently emitted
+        # word_id="<TODO>" and pushed the surface onto report["unresolved"],
+        # letting the story ship with a literal "<TODO>" string as a word
+        # ID. Downstream tests didn't catch it because all_words_used
+        # filters TODOs out (line 1309). The reader would then crash or
+        # show garbage when the learner tapped that token.
+        #
+        # `_ensure_word` returns None at the call site only when the
+        # token's UniDic POS is not in the content-word set
+        # {名詞, 動詞, 形容詞, 形状詞, 副詞, 代名詞, 連体詞} — which means
+        # the tokenizer either misclassified the surface or there's a
+        # gap in the grammar/conjunction registry that should have
+        # caught it earlier. Either way it's a real bug, not a benign
+        # edge case the author can route around. Halt and surface a
+        # diagnostic that names the surface, the POS, the failing
+        # sentence, and the recommended fix paths.
+        sentence_jp = st.report.get("_current_sentence", "<unknown sentence>")
+        raise ValueError(
+            f"text_to_story: cannot resolve word for surface '{surface}' "
+            f"(UniDic pos1={merged['_pos1']}, lemma={merged.get('_lemma')!r}) "
+            f"in sentence: {sentence_jp!r}\n"
+            f"  This token reached the content-word path but `_ensure_word` "
+            f"returned None — most likely because UniDic classified it as "
+            f"something other than a content word (e.g. 助詞/助動詞/接続詞).\n"
+            f"  Recommended fixes:\n"
+            f"    (1) If the surface is a CONJUNCTION (しかし, それで, etc.), "
+            f"add it to CONJUNCTION_VOCAB + SURFACE_TO_GRAMMAR + "
+            f"grammar_catalog.json + grammar_state.json.\n"
+            f"    (2) If the surface is a PARTICLE the validator should "
+            f"recognize, add it to SURFACE_TO_GRAMMAR.\n"
+            f"    (3) If the surface IS a content word UniDic mistagged, "
+            f"add a LEMMA_OVERRIDES or READING_OVERRIDES entry."
+        )
 
     tok = {"t": surface, "role": "content", "word_id": word["id"]}
     r = _surface_reading(merged, word)
@@ -1201,6 +1309,11 @@ def merged_to_token_json(merged: dict, st: BuildState) -> dict:
 
 
 def tokens_for_text(jp_text: str, st: BuildState) -> list[dict]:
+    # Record the current sentence on the build state so that fail-loud
+    # error paths inside merged_to_token_json / _ensure_word /
+    # _no_meaning_error can name it in their diagnostic message.
+    # (Flaw #5 fail-loud, 2026-05-01.)
+    st.report["_current_sentence"] = jp_text
     raw = tokenize(jp_text)
     merged = merge_tokens(raw, st.vocab_index)
     return [merged_to_token_json(m, st) for m in merged]
@@ -1249,6 +1362,10 @@ def build_story(
     for section in [title, *sentences]:
         for t in section["tokens"]:
             wid = t.get("word_id")
+            # `<TODO>` ws is no longer reachable as of 2026-05-01 (Flaw #5
+            # fail-loud); kept the inequality as a sanity check rather
+            # than just `if wid and wid not in seen:` to make any
+            # future regression visible immediately.
             if wid and wid != "<TODO>" and wid not in seen:
                 all_word_ids.append(wid)
                 seen.add(wid)
