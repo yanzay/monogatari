@@ -56,11 +56,59 @@ JLPT_TO_TIER: dict[str, int] = {
 
 
 def active_tier(story_id: int) -> int:
-    """Return the tier number (1..4) a story_id falls into."""
+    """Return the tier number (1..4) a story_id falls into.
+
+    The TIER_WINDOWS table is the *aspirational* schedule (e.g. story 11
+    enters N4). The realised tier is gated by coverage: we cannot leave a
+    tier whose catalog still has uncovered points, otherwise Check 3.9
+    would block every subsequent story permanently. So we walk from the
+    schedule's tier downward and stay in the lowest tier whose prior
+    tiers are not yet fully covered (and whose own coverage is in
+    progress). This keeps the corpus in N5 until every N5 catalog point
+    has been introduced, then promotes to N4, and so on. Tier-1 is the
+    floor.
+
+    The coverage lookup is best-effort and silently falls back to the
+    schedule when the catalog/state cannot be loaded — keeping early
+    bootstrap and unit-test isolation safe.
+    """
+    scheduled = 1
     for tier, lo, hi, _ in TIER_WINDOWS:
         if story_id >= lo and (hi is None or story_id <= hi):
-            return tier
-    return 1  # safety fallback
+            scheduled = tier
+            break
+
+    if scheduled == 1:
+        return 1
+
+    try:
+        cov = coverage_status()
+    except Exception:
+        return scheduled
+
+    # Walk tiers in order; the realised tier is the lowest tier T such
+    # that every tier strictly below T has zero remaining coverage.
+    realised = 1
+    for tier, _, _, jlpt in TIER_WINDOWS:
+        if tier > scheduled:
+            break
+        if tier == 1:
+            realised = 1
+            continue
+        prior_jlpt = next(
+            (j for t, _, _, j in TIER_WINDOWS if t == tier - 1),
+            None,
+        )
+        prior_remaining = (
+            cov.get("by_jlpt", {}).get(prior_jlpt, {}).get("remaining", 0)
+            if prior_jlpt
+            else 0
+        )
+        if prior_remaining == 0:
+            realised = tier
+        else:
+            break
+    return realised
 
 
 def active_jlpt(story_id: int) -> str:
@@ -487,7 +535,11 @@ def coverage_status(
 
     covered_cid_to_intro: dict[str, int] = {}
     for gid, entry in (state.get("points") or {}).items():
-        cid = entry.get("catalog_id")
+        # Single grammar id namespace (since 2026-05-01): gid IS the catalog
+        # id. The legacy `catalog_id` join field was retired in
+        # `pipeline/tools/rename_gids.py`. Fall back to the gid when the
+        # legacy field is absent (which is the steady-state case).
+        cid = entry.get("catalog_id") or gid
         if not cid:
             continue
         intro = (attributions.get(gid) or {}).get("intro_in_story")

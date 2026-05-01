@@ -1,0 +1,17 @@
+{
+  "story_id": 11,
+  "title": {"jp": "朝の卵", "en": "The Morning Egg"},
+  "intent": "Morning in the kitchen: narrator takes one egg out of a bag and places it on a plate, then mother walks in and asks (in past tense) whether her morning tea was delicious. The narrator answers it was very delicious, and decides to give the egg on the plate to mother. Anchor (egg) changes location twice — bag → plate at s2, then promised to mother at s6. The new grammar (〜かった past i-adjective) is earned by mother asking about a real prior event (her tea) rather than a contrived past statement; the narrator answers in the same form. The 〜たい reinforcement (re-introduced last story) lands in the closer as a real wish that ties the egg's transfer to mother's earlier kindness.\n\nPREMISE CONTRACT (story 11)\n  one_sentence_event:    The narrator takes an egg from a bag, places it on a plate, then decides to give it to mother because her morning tea was delicious.\n  change_of_state:       at s0 mother is offstage and the egg is in the bag; at the closer mother is in the kitchen and the narrator is choosing to give her the egg on the plate.\n  scene_novelty_claim:   I am NOT writing a phone_call / rooftop / shop_counter story; this is a kitchen scene (last kitchen was story 3).\n  anchor_novelty_claim:  Anchor is 卵. Last appeared in story 3 (and not in stories 6–10).\n  closer_shape_claim:    Closer shape: action/wish — 「私は皿の卵を母にあげたいです。」 NOT a noun-pile, NOT 「だから〜ています」 (s8), NOT 「でも〜にいません」 (s9), NOT 「〜と〜は〜の〜に座ります」 (s10).\n  why_not_filler:        narrator (anchor mover); mother (gets a real entrance at s3, then licenses the past i-adj at s4 by asking about her tea); 卵 (anchor that changes location and is promised); 袋・皿 (the two locations the anchor moves between); お茶 (the past event mother asks about — the natural license for 〜かった).\n  obligations_absorbed:  must-introduce N5_i_adj_past via mother's past-tense question 「お茶はおいしかったですか。」 and narrator's matching answer (real exchange, not a drill); must-reinforce N5_tai via the closer 「卵を出したいです」 (organic, ties to the anchor's transfer); mother's mid-story appearance is licensed by an explicit entrance sentence at s3 (no teleport).\n\nFORBIDDEN THIS STORY:\n  scene_class    (last 3): phone_call, rooftop, shop_counter\n  anchor_object  (last 5): paper, towel, 本, 雲, 電話\n  closer_shape   (last 3): P:だから-noun-noun-WO-noun-X:います, P:でも-noun-WA-noun-NI-noun, noun-TO-noun-WA-noun-NI-noun-NO-noun-NI-noun\n  opening_seqs   (last 3): 私/本屋/います, 今日/友達/学校, 夕方/母/私",
+  "scene_class": "kitchen",
+  "anchor_object": "卵",
+  "characters": ["私", "母"],
+  "sentences": [
+    {"jp": "朝、台所に行きます。", "en": "In the morning, I go to the kitchen.", "role": "setting"},
+    {"jp": "袋から卵を出します。", "en": "I take an egg out of a bag.", "role": "action"},
+    {"jp": "卵を皿に置きます。", "en": "I place the egg on a plate.", "role": "action"},
+    {"jp": "母が台所に来ます。", "en": "Mother comes into the kitchen.", "role": "action"},
+    {"jp": "母は「お茶はおいしかったですか。」と聞きます。", "en": "Mother asks, \"Was the tea delicious?\"", "role": "dialogue"},
+    {"jp": "「おいしかったです。」と答えます。", "en": "I answer, \"It was delicious.\"", "role": "dialogue"},
+    {"jp": "皿の卵を母にあげたいです。", "en": "I want to give the egg on the plate to mother.", "role": "closer"}
+  ]
+}

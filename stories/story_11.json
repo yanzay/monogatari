@@ -1,0 +1,466 @@
+{
+  "story_id": 11,
+  "title": {
+    "jp": "朝の卵",
+    "en": "The Morning Egg",
+    "tokens": [
+      {
+        "t": "朝",
+        "role": "content",
+        "word_id": "W00002",
+        "r": "あさ"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "N5_no_pos"
+      },
+      {
+        "t": "卵",
+        "role": "content",
+        "word_id": "W00026",
+        "r": "たまご"
+      }
+    ]
+  },
+  "new_words": [
+    "W00079",
+    "W00080",
+    "W00081",
+    "W00082",
+    "W00083"
+  ],
+  "new_grammar": [
+    "N5_i_adj_past"
+  ],
+  "all_words_used": [
+    "W00002",
+    "W00026",
+    "W00004",
+    "W00079",
+    "W00024",
+    "W00028",
+    "W00027",
+    "W00080",
+    "W00005",
+    "W00081",
+    "W00010",
+    "W00082",
+    "W00065",
+    "W00066",
+    "W00083"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あさ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "台所",
+          "role": "content",
+          "word_id": "W00004",
+          "r": "だいどころ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "行きます",
+          "role": "content",
+          "word_id": "W00079",
+          "r": "いきます",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the morning, I go to the kitchen.",
+      "audio": "audio/story_11/s0.mp3",
+      "audio_hash": "93579bb85867"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "袋",
+          "role": "content",
+          "word_id": "W00024",
+          "r": "ふくろ"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "N5_kara_from"
+        },
+        {
+          "t": "卵",
+          "role": "content",
+          "word_id": "W00026",
+          "r": "たまご"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "出します",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "だします",
+          "inflection": {
+            "base": "出す",
+            "base_r": "だす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I take an egg out of a bag.",
+      "audio": "audio/story_11/s1.mp3",
+      "audio_hash": "3a64ac54e695"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "卵",
+          "role": "content",
+          "word_id": "W00026",
+          "r": "たまご"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "皿",
+          "role": "content",
+          "word_id": "W00027",
+          "r": "さら"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "置きます",
+          "role": "content",
+          "word_id": "W00080",
+          "r": "おきます",
+          "inflection": {
+            "base": "置く",
+            "base_r": "おく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I place the egg on a plate.",
+      "audio": "audio/story_11/s2.mp3",
+      "audio_hash": "e15e34e36f7b"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "台所",
+          "role": "content",
+          "word_id": "W00004",
+          "r": "だいどころ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "来ます",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きます",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_nonpast",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_masu_nonpast",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Mother comes into the kitchen.",
+      "audio": "audio/story_11/s3.mp3",
+      "audio_hash": "0438ffeec2e6"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "おちゃ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "おいしかった",
+          "role": "content",
+          "word_id": "W00082",
+          "r": "おいしい",
+          "inflection": {
+            "form": "i_adj_past"
+          },
+          "grammar_id": "N5_i_adj_past",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "N5_ka_question"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "聞きます",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ききます",
+          "inflection": {
+            "base": "聞く",
+            "base_r": "きく",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Mother asks, \"Was the tea delicious?\"",
+      "audio": "audio/story_11/s4.mp3",
+      "audio_hash": "de8076db2be3"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "おいしかった",
+          "role": "content",
+          "word_id": "W00082",
+          "r": "おいしい",
+          "inflection": {
+            "form": "i_adj_past"
+          },
+          "grammar_id": "N5_i_adj_past"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "答えます",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "こたえます",
+          "inflection": {
+            "base": "答える",
+            "base_r": "こたえる",
+            "form": "polite_nonpast",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_masu_nonpast"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I answer, \"It was delicious.\"",
+      "audio": "audio/story_11/s5.mp3",
+      "audio_hash": "6f8a9ec4e7c1"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "皿",
+          "role": "content",
+          "word_id": "W00027",
+          "r": "さら"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "卵",
+          "role": "content",
+          "word_id": "W00026",
+          "r": "たまご"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "あげたい",
+          "role": "content",
+          "word_id": "W00083",
+          "r": "あげたい",
+          "inflection": {
+            "base": "上げる",
+            "base_r": "あげる",
+            "form": "tai",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_tai",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I want to give the egg on the plate to mother.",
+      "audio": "audio/story_11/s6.mp3",
+      "audio_hash": "bdaf1d60312a"
+    }
+  ],
+  "word_audio": {
+    "W00079": "audio/words/W00079.mp3",
+    "W00080": "audio/words/W00080.mp3",
+    "W00081": "audio/words/W00081.mp3",
+    "W00082": "audio/words/W00082.mp3",
+    "W00083": "audio/words/W00083.mp3"
+  },
+  "word_audio_hash": {
+    "W00079": "bd56adfc2fd4",
+    "W00080": "74f94e7a2081",
+    "W00081": "e7637f6e20f6",
+    "W00082": "55094920afdd",
+    "W00083": "eee8b9c95721"
+  }
+}

@@ -625,16 +625,20 @@ def step_coverage_floor(story_id: int, built_story: dict) -> StepResult:
                 import json as _json
                 from _paths import DATA as _DATA
                 gstate = _json.loads((_DATA / "grammar_state.json").read_text())
+                # Single grammar id namespace (since 2026-05-01): the gid
+                # IS the catalog id. Fall back to the gid when the legacy
+                # `catalog_id` join field is absent (steady-state case
+                # after `pipeline/tools/rename_gids.py`).
                 gid_to_cid = {
-                    gid: e.get("catalog_id")
+                    gid: e.get("catalog_id") or gid
                     for gid, e in (gstate.get("points") or {}).items()
                 }
                 # Registry entries take effect ONLY when the gid is not
                 # already in state (state is the source of truth once
                 # ship attribution has happened).
                 for gid, defn in _AUTO_DEFS.items():
-                    if gid not in gid_to_cid and defn.get("catalog_id"):
-                        gid_to_cid[gid] = defn["catalog_id"]
+                    if gid not in gid_to_cid:
+                        gid_to_cid[gid] = defn.get("catalog_id") or gid
                 used_gids: set[str] = set()
                 for sent in built_story.get("sentences", []):
                     for tok in sent.get("tokens", []):

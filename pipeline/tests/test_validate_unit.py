@@ -822,15 +822,29 @@ def run_tests():
     check("story 5 introducing N4 grammar → check 3.5 error (cross-tier blocked)",
           errors_for_check(r, "3.5"))
 
-    # Story 11 (Tier 2, N4) introducing an N4 point → legal
+    # Story 11 introducing an N4 point — legality depends on whether the
+    # realised tier (coverage-gated since 2026-05-01 in
+    # `pipeline/grammar_progression.active_tier`) has actually advanced
+    # past N5. With the on-disk corpus having any N5 catalog gaps, the
+    # realised tier stays at 1 and N4 introductions are blocked.
+    # `tier_for_story_11` queries the live coverage so this assertion
+    # adapts to the corpus rather than baking in the old fixed schedule.
+    from grammar_progression import active_tier as _active_tier
     s = make_valid_story()
     s["story_id"] = 11
     s["new_grammar"] = ["G_N4_test"]
     r = validate(s, VOCAB, GRAMMAR_TIERED)
-    check("story 11 introducing N4 grammar → no check 3.5 error",
-          not errors_for_check(r, "3.5"))
+    tier_for_story_11 = _active_tier(11)
+    if tier_for_story_11 >= 2:
+        check("story 11 introducing N4 grammar → no check 3.5 error (realised tier ≥ 2)",
+              not errors_for_check(r, "3.5"))
+    else:
+        check("story 11 introducing N4 grammar → check 3.5 error (realised tier still 1; N5 uncovered)",
+              errors_for_check(r, "3.5"))
 
-    # Story 11 (Tier 2) introducing an N3 point → BLOCKED
+    # Story 11 introducing an N3 point — always BLOCKED, since N3 is
+    # always at least one tier above story 11's realised tier (which is
+    # at most 2 even when N5 coverage is complete).
     s = make_valid_story()
     s["story_id"] = 11
     s["new_grammar"] = ["G_N3_test"]
