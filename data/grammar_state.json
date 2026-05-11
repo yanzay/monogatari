@@ -839,6 +839,73 @@
         "N5_demo",
         "N4_shikashi"
       ]
+    },
+    "N4_te_aru": {
+      "id": "N4_te_aru",
+      "title": "〜てある — result state (deliberate)",
+      "short": "te-form + ある: result of deliberate action",
+      "long": "Indicates a result state from a deliberate action by someone. E.g. 窓が開けてある (the window has been opened [and left open]). Contrasts with ている which describes ongoing/incidental state.",
+      "jlpt": "N4",
+      "prerequisites": [
+        "N5_te_iru",
+        "N5_aru_iru"
+      ]
+    },
+    "N5_masho": {
+      "id": "N5_masho",
+      "title": "〜ましょう — let’s / shall we",
+      "short": "Polite volitional: invitation or suggestion to do something together.",
+      "long": "The polite volitional form (〜ましょう) expresses a suggestion or invitation: 行きましょう = Let’s go. With か (〜ましょうか) it becomes a polite offer: 手伝いましょうか = Shall I help?",
+      "jlpt": "N5",
+      "prerequisites": [
+        "N5_masu_nonpast"
+      ]
+    },
+    "N5_na_adj_neg": {
+      "id": "N5_na_adj_neg",
+      "title": "〜じゃない — na-adj/noun negative",
+      "short": "Negative form of だ for na-adjectives and nouns.",
+      "long": "Negates na-adjectives and nouns: 元気じゃない (not energetic), 学生じゃない (not a student). Plain: じゃない; polite: じゃないです / ではありません.",
+      "jlpt": "N5",
+      "prerequisites": [
+        "N5_na_adj"
+      ]
+    },
+    "N5_nai_form": {
+      "id": "N5_nai_form",
+      "title": "〜ない — plain negative",
+      "short": "Plain negative form of verbs. Informal equivalent of 〜ません.",
+      "long": "The plain negative form (e.g. 食べない, 行かない). Used in casual speech, inner monologue, and embedded clauses. Base for 〜なかった and 〜なくて.",
+      "jlpt": "N5",
+      "prerequisites": []
+    },
+    "N5_nakatta": {
+      "id": "N5_nakatta",
+      "title": "〜なかった — plain past negative",
+      "short": "Plain past negative form of verbs.",
+      "long": "The plain past negative form (e.g. 食べなかった, 行かなかった). Combines plain negative stem with past suffix 〜かった.",
+      "jlpt": "N5",
+      "prerequisites": [
+        "N5_nai_form"
+      ]
+    },
+    "N5_ta_form": {
+      "id": "N5_ta_form",
+      "title": "〜た — plain past",
+      "short": "Plain past tense of verbs. Informal/inner-thought equivalent of 〜ました.",
+      "long": "The plain past form (e.g. 食べた, 行った, 見た). Used in casual speech, inner monologue, relative clauses, and after conjunctions.",
+      "jlpt": "N5",
+      "prerequisites": []
+    },
+    "N4_nagara": {
+      "id": "N4_nagara",
+      "title": "〜ながら — while (simultaneous actions)",
+      "short": "Doing A while simultaneously doing B (same subject).",
+      "long": "Attached to the masu-stem of a verb to indicate two simultaneous actions by the same subject. E.g. 音楽を聴きながら勉強する (study while listening to music).",
+      "jlpt": "N4",
+      "prerequisites": [
+        "N5_masu_nonpast"
+      ]
     }
   }
 }
