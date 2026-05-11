@@ -75,7 +75,7 @@ SURFACE_TO_GRAMMAR: dict[str, str] = {
     "か":     "N5_ka_question",
     "だ":     "N5_da",
     "でも":   "N5_demo",
-    "じゃ":   "G051_janai",
+    "じゃ":   "N5_na_adj_neg",
     "とき":   "N4_toki",  # temporal subordinator (when written in kana)
     # Compound particles (multi-token in UniDic)
     "について": "N3_ni_tsuite",
@@ -535,7 +535,7 @@ def merge_tokens(raw: list[Token], vocab: VocabIndex) -> list[dict]:
             continue
 
         # Rule 0b: じゃ + ない (+ です) → じゃない / じゃないです
-        # (G051_janai). Glue 2 or 3 tokens into one aux.
+        # (N5_na_adj_neg). Glue 2 or 3 tokens into one aux.
         if (
             t.surface == "じゃ" and t.lemma == "だ"
             and i + 1 < n and raw[i + 1].surface == "ない"
@@ -544,7 +544,7 @@ def merge_tokens(raw: list[Token], vocab: VocabIndex) -> list[dict]:
             m["surface"] = "じゃない"
             m["_aux"].append(raw[i + 1])
             m["_force_role"] = "aux"
-            m["_force_grammar_id"] = "G051_janai"
+            m["_force_grammar_id"] = "N5_na_adj_neg"
             m["_lemma"] = "じゃない"
             j = i + 2
             if j < n and raw[j].surface == "です":
@@ -790,7 +790,7 @@ def _classify_inflection(merged: dict) -> Optional[dict]:
     if full.endswith("ませんでした"):
         form, token_grammar_id = "polite_past_negative", "N5_masen_deshita"
     elif full.endswith("ましょう") or full.endswith("ましょうか"):
-        form, token_grammar_id = "volitional_polite", "G048_masho"
+        form, token_grammar_id = "volitional_polite", "N5_masho"
     elif full.endswith("ました"):
         form, token_grammar_id = "polite_past", "N5_mashita"
     elif full.endswith("ません"):
@@ -803,17 +803,17 @@ def _classify_inflection(merged: dict) -> Optional[dict]:
     elif full.endswith("ます"):
         form, token_grammar_id = "polite_nonpast", "N5_masu_nonpast"
     elif full.endswith("なかった"):
-        form, token_grammar_id = "plain_past_negative", "G056_plain_past_pair"
+        form, token_grammar_id = "plain_past_negative", "N5_nakatta"
     elif full.endswith("ながら"):
-        form, token_grammar_id = "nagara", "G057_nagara"
+        form, token_grammar_id = "nagara", "N4_nagara"
     elif full.endswith("たい"):
         form, token_grammar_id = "tai", "N5_tai"
     elif full.endswith("て") or full.endswith("で"):
         form, token_grammar_id = "te", "N5_te_form"
     elif full.endswith("た") or full.endswith("だ"):
-        form, token_grammar_id = "past", "N5_mashita"
+        form, token_grammar_id = "past", "N5_ta_form"
     elif full.endswith("ない"):
-        form, token_grammar_id = "negative", "N5_masen"
+        form, token_grammar_id = "negative", "N5_nai_form"
     else:
         # Plain dictionary form (no aux suffix). This is the canonical
         # introduction site for N5_dictionary_form. The companion
