@@ -1,0 +1,570 @@
+{
+  "story_id": 14,
+  "title": {
+    "jp": "公園の傘",
+    "en": "The Umbrella in the Park",
+    "tokens": [
+      {
+        "t": "公園",
+        "role": "content",
+        "word_id": "W00050",
+        "r": "こうえん"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "N5_no_pos"
+      },
+      {
+        "t": "傘",
+        "role": "content",
+        "word_id": "W00042",
+        "r": "かさ"
+      }
+    ]
+  },
+  "new_words": [
+    "W00092",
+    "W00093",
+    "W00094",
+    "W00095"
+  ],
+  "new_grammar": [
+    "N5_made_until"
+  ],
+  "all_words_used": [
+    "W00050",
+    "W00042",
+    "W00090",
+    "W00055",
+    "W00056",
+    "W00081",
+    "W00045",
+    "W00046",
+    "W00089",
+    "W00039",
+    "W00059",
+    "W00092",
+    "W00093",
+    "W00094",
+    "W00095",
+    "W00091",
+    "W00041",
+    "W00015"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00050",
+          "r": "こうえん"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00090",
+          "r": "しずか"
+        },
+        {
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "N5_mashita",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The park was quiet.",
+      "audio": "audio/story_14/s0.mp3",
+      "audio_hash": "3346957a1b33"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "雨",
+          "role": "content",
+          "word_id": "W00055",
+          "r": "あめ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "降って",
+          "role": "content",
+          "word_id": "W00056",
+          "r": "ふって",
+          "inflection": {
+            "base": "降る",
+            "base_r": "ふる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "きました",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きました",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_past",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Rain began to fall.",
+      "audio": "audio/story_14/s1.mp3",
+      "audio_hash": "582ad0bbcfe3"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "女",
+          "role": "content",
+          "word_id": "W00045",
+          "r": "おんな"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00050",
+          "r": "こうえん"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "来ました",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きました",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_past",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A woman came to the park.",
+      "audio": "audio/story_14/s2.mp3",
+      "audio_hash": "4eb4dbef04fd"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "女",
+          "role": "content",
+          "word_id": "W00045",
+          "r": "おんな"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "持って",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "もって",
+          "inflection": {
+            "base": "持つ",
+            "base_r": "もつ",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "いました",
+          "role": "aux",
+          "grammar_id": "N5_te_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The woman was holding a letter.",
+      "audio": "audio/story_14/s3.mp3",
+      "audio_hash": "e21c89dab0dc"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "女",
+          "role": "content",
+          "word_id": "W00045",
+          "r": "おんな"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "濡れて",
+          "role": "content",
+          "word_id": "W00059",
+          "r": "ぬれて",
+          "inflection": {
+            "base": "濡れる",
+            "base_r": "ぬれる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "いました",
+          "role": "aux",
+          "grammar_id": "N5_te_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The woman was getting wet.",
+      "audio": "audio/story_14/s4.mp3",
+      "audio_hash": "b1182e072dcc"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "この",
+          "role": "content",
+          "word_id": "W00092",
+          "r": "この",
+          "grammar_id": "N5_kosoado",
+          "is_new": true
+        },
+        {
+          "t": "傘",
+          "role": "content",
+          "word_id": "W00042",
+          "r": "かさ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "使って",
+          "role": "content",
+          "word_id": "W00093",
+          "r": "つかって",
+          "inflection": {
+            "base": "使う",
+            "base_r": "つかう",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form",
+          "is_new": true
+        },
+        {
+          "t": "ください",
+          "role": "aux",
+          "grammar_id": "N5_te_kudasai"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Please use this umbrella,\" I said.",
+      "audio": "audio/story_14/s5.mp3",
+      "audio_hash": "149197b3c80a"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "女",
+          "role": "content",
+          "word_id": "W00045",
+          "r": "おんな"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "傘",
+          "role": "content",
+          "word_id": "W00042",
+          "r": "かさ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "渡しました",
+          "role": "content",
+          "word_id": "W00095",
+          "r": "わたしました",
+          "inflection": {
+            "base": "渡す",
+            "base_r": "わたす",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I handed the umbrella to the woman.",
+      "audio": "audio/story_14/s6.mp3",
+      "audio_hash": "a5fc2d3475f7"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "女",
+          "role": "content",
+          "word_id": "W00045",
+          "r": "おんな"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "笑って",
+          "role": "content",
+          "word_id": "W00091",
+          "r": "わらって",
+          "inflection": {
+            "base": "笑う",
+            "base_r": "わらう",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "傘",
+          "role": "content",
+          "word_id": "W00042",
+          "r": "かさ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "持って",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "もって",
+          "inflection": {
+            "base": "持つ",
+            "base_r": "もつ",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "駅",
+          "role": "content",
+          "word_id": "W00041",
+          "r": "えき"
+        },
+        {
+          "t": "まで",
+          "role": "particle",
+          "grammar_id": "N5_made_until",
+          "is_new_grammar": true
+        },
+        {
+          "t": "歩きました",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あるきました",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The woman smiled and walked to the station, holding the umbrella.",
+      "audio": "audio/story_14/s7.mp3",
+      "audio_hash": "fe3d8060c244"
+    }
+  ],
+  "word_audio": {
+    "W00092": "audio/words/W00092.mp3",
+    "W00093": "audio/words/W00093.mp3",
+    "W00094": "audio/words/W00094.mp3",
+    "W00095": "audio/words/W00095.mp3"
+  },
+  "word_audio_hash": {
+    "W00092": "fad04fc93bda",
+    "W00093": "6db94b0e7048",
+    "W00094": "05846b43e20a",
+    "W00095": "c63a8613eff4"
+  }
+}

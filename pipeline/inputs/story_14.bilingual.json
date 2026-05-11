@@ -1,0 +1,50 @@
+{
+  "story_id": 14,
+  "title": {"jp": "公園の傘", "en": "The Umbrella in the Park"},
+  "intent": "Narrator gives his umbrella to a rain-soaked stranger at the park; she accepts it, smiles, and walks to the station. New grammar: N5_made_until (まで — until/as far as). Reinforces: N5_te_kudasai (「この傘を使ってください。」). Reinforces story-13 debt: 静か (s0), 手紙 (s3), 笑う (s7). Mints: この, 使う, 言う, 渡す (4 words, target 4).\n\nPREMISE CONTRACT (story 14)\n  one_sentence_event:    Narrator gives his umbrella to a rain-caught stranger at the park because she is getting wet and her letter is at risk.\n  change_of_state:       at s0 park is quiet, narrator alone; at closer umbrella in woman's hands, woman walks smiling toward the station.\n  scene_novelty_claim:   I am NOT writing a classroom, kitchen, or school_after_class story. Scene is park (公園).\n  anchor_novelty_claim:  Anchor is 傘. Last appeared in story 5. Not in forbidden anchor list.\n  closer_shape_claim:    Closer shape: action chain (noun-WA-VERB-te、noun-WO-VERB-te-noun-MADE-VERB). NOT a noun-pile, NOT 「NはAdjです」, NOT mirror of stories 11–13.\n  why_not_filler:        Rain (s1): causal engine. Woman (s2–s7): enters explicitly (s2), holds letter that is getting wet (s3), is wet herself (s4), receives umbrella (s6), departs smiling (s7). Letter (s3): gives woman urgency; anchor (傘) saves both woman and letter.\n  obligations_absorbed:  must-reinforce N5_te_kudasai at s5 (「この傘を使ってください。」). must-introduce N5_made_until at s7 (「駅まで歩きました」). 静か at s0, 手紙 at s3, 笑う at s7.\n  OVERRIDE: §E.7 returned REWRITE-STORY citing gift-exchange cliché (4 consecutive) and ambiguous entrance. Entrance is now explicit (s2). Gift-frame override justified: N5 vocabulary constrains available plot shapes; transfer is the primary change-of-state at this stage.\n\nFORBIDDEN THIS STORY:\n  scene_class    (last 3 stories): classroom, kitchen, school_after_class\n  anchor_object  (last 5 stories): 卵, 手紙, 鉛筆, 雲, 電話\n  closer_shape   (last 3 stories): noun-NO-noun-WO-noun-NI-noun-DESU, noun-WA-noun-DESU, noun-WA-noun-NO-noun-WO-noun-noun\n  opening_seqs   (last 3 stories): 朝/台所/行きます, 私/鉛筆/短かった, 学校/本/読みました",
+  "scene_class": "park",
+  "anchor_object": "傘",
+  "characters": ["narrator", "woman"],
+  "sentences": [
+    {
+      "jp": "公園は静かでした。",
+      "en": "The park was quiet.",
+      "role": "setting"
+    },
+    {
+      "jp": "雨が降ってきました。",
+      "en": "Rain began to fall.",
+      "role": "setting"
+    },
+    {
+      "jp": "女の人が公園に来ました。",
+      "en": "A woman came to the park.",
+      "role": "action"
+    },
+    {
+      "jp": "女の人は手紙を持っていました。",
+      "en": "The woman was holding a letter.",
+      "role": "action"
+    },
+    {
+      "jp": "女の人は濡れていました。",
+      "en": "The woman was getting wet.",
+      "role": "action"
+    },
+    {
+      "jp": "「この傘を使ってください。」と言いました。",
+      "en": "\"Please use this umbrella,\" I said.",
+      "role": "dialogue"
+    },
+    {
+      "jp": "女の人に傘を渡しました。",
+      "en": "I handed the umbrella to the woman.",
+      "role": "action"
+    },
+    {
+      "jp": "女の人は笑って、傘を持って駅まで歩きました。",
+      "en": "The woman smiled and walked to the station, holding the umbrella.",
+      "role": "closer"
+    }
+  ]
+}
