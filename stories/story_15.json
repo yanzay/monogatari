@@ -1,0 +1,497 @@
+{
+  "story_id": 15,
+  "title": {
+    "jp": "冷たい朝の窓",
+    "en": "The Window on a Cold Morning",
+    "tokens": [
+      {
+        "t": "冷たい",
+        "role": "content",
+        "word_id": "W00057",
+        "r": "つめたい",
+        "grammar_id": "N5_i_adj"
+      },
+      {
+        "t": "朝",
+        "role": "content",
+        "word_id": "W00002",
+        "r": "あさ"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "N5_no_pos"
+      },
+      {
+        "t": "窓",
+        "role": "content",
+        "word_id": "W00007",
+        "r": "まど"
+      }
+    ]
+  },
+  "new_words": [
+    "W00096",
+    "W00097",
+    "W00098"
+  ],
+  "new_grammar": [
+    "N5_ya_partial"
+  ],
+  "all_words_used": [
+    "W00057",
+    "W00002",
+    "W00007",
+    "W00049",
+    "W00060",
+    "W00040",
+    "W00011",
+    "W00044",
+    "W00005",
+    "W00096",
+    "W00097",
+    "W00081",
+    "W00098",
+    "W00092",
+    "W00093",
+    "W00094",
+    "W00095",
+    "W00047"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "冷たい",
+          "role": "content",
+          "word_id": "W00057",
+          "r": "つめたい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あさ"
+        },
+        {
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "N5_mashita",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It was a cold morning.",
+      "audio": "audio/story_15/s0.mp3",
+      "audio_hash": "46a51f4ad8f6"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "窓",
+          "role": "content",
+          "word_id": "W00007",
+          "r": "まど"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "下",
+          "role": "content",
+          "word_id": "W00049",
+          "r": "した"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "タオル",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "たおる"
+        },
+        {
+          "t": "や",
+          "role": "particle",
+          "grammar_id": "N5_ya_partial",
+          "is_new_grammar": true
+        },
+        {
+          "t": "紙",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "かみ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "ありました",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "ありました",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Below the window, there was a towel and some paper.",
+      "audio": "audio/story_15/s1.mp3",
+      "audio_hash": "911f206bfe9a"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あさ"
+        },
+        {
+          "t": "まで",
+          "role": "particle",
+          "grammar_id": "N5_made_until"
+        },
+        {
+          "t": "待って",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "まって",
+          "inflection": {
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "いました",
+          "role": "aux",
+          "grammar_id": "N5_te_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I had been waiting until morning.",
+      "audio": "audio/story_15/s2.mp3",
+      "audio_hash": "49a14c037fef"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "部屋",
+          "role": "content",
+          "word_id": "W00096",
+          "r": "へや",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "入って",
+          "role": "content",
+          "word_id": "W00097",
+          "r": "はいって",
+          "inflection": {
+            "base": "入る",
+            "base_r": "はいる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form",
+          "is_new": true
+        },
+        {
+          "t": "きました",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きました",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_past",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My mother came into the room.",
+      "audio": "audio/story_15/s3.mp3",
+      "audio_hash": "2e5de013733f"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "窓",
+          "role": "content",
+          "word_id": "W00007",
+          "r": "まど"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "開けました",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "あけました",
+          "inflection": {
+            "base": "開ける",
+            "base_r": "あける",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Mother opened the window.",
+      "audio": "audio/story_15/s4.mp3",
+      "audio_hash": "0dbaafe90f8f"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "この",
+          "role": "content",
+          "word_id": "W00092",
+          "r": "この",
+          "grammar_id": "N5_kosoado"
+        },
+        {
+          "t": "タオル",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "たおる"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "使って",
+          "role": "content",
+          "word_id": "W00093",
+          "r": "つかって",
+          "inflection": {
+            "base": "使う",
+            "base_r": "つかう",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "ください",
+          "role": "aux",
+          "grammar_id": "N5_te_kudasai"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Mother said, \"Please use this towel.\"",
+      "audio": "audio/story_15/s5.mp3",
+      "audio_hash": "dd33235cbae6"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "タオル",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "たおる"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "渡しました",
+          "role": "content",
+          "word_id": "W00095",
+          "r": "わたしました",
+          "inflection": {
+            "base": "渡す",
+            "base_r": "わたす",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Mother handed over the towel.",
+      "audio": "audio/story_15/s6.mp3",
+      "audio_hash": "507108282a88"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "タオル",
+          "role": "content",
+          "word_id": "W00060",
+          "r": "たおる"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "取りました",
+          "role": "content",
+          "word_id": "W00047",
+          "r": "とりました",
+          "inflection": {
+            "base": "取る",
+            "base_r": "とる",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I took the towel.",
+      "audio": "audio/story_15/s7.mp3",
+      "audio_hash": "7cd833901cbd"
+    }
+  ],
+  "word_audio": {
+    "W00096": "audio/words/W00096.mp3",
+    "W00097": "audio/words/W00097.mp3",
+    "W00098": "audio/words/W00098.mp3"
+  },
+  "word_audio_hash": {
+    "W00096": "52aaa0191830",
+    "W00097": "4da187fb43d6",
+    "W00098": "701469cc8e9c"
+  }
+}

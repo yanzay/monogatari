@@ -1,0 +1,50 @@
+{
+  "story_id": 15,
+  "title": {"jp": "冷たい朝の窓", "en": "The Window on a Cold Morning"},
+  "intent": "On a cold morning, mother enters the narrator's dark room and opens the window. The narrator discovers a towel and paper already placed below the window and picks up the towel — change of state from lying awake waiting to rising and taking the towel. This is a DISCOVERY story, not a gift-transfer: narrator acts on their own in the closer. Mint budget: 4 (部屋, 入る, 開ける, 誰). N5_dare_who introduced via 「誰ですか」(narrator asks who entered). N5_ya_partial introduced via タオルや紙がありました. N5_made_until reinforced via 朝まで. Debt words hit: 窓 (W00007 ★), 冷たい (W00057 ★), タオル (W00060 ★), 下 (W00049 ★), 待つ (W00044 ★), 紙 (W00040 ★). Closer shape: narrator self-action (取る) — narrator picks up towel. NOT gift-transfer, NOT departure-walk, NOT noun-pile, NOT noun-WA-noun-DESU.\n\nPREMISE CONTRACT (story 15)\n  one_sentence_event:    母が部屋に入り窓を開けたとき、ナレーターは窓の下のタオルを取る。\n  change_of_state:       at s0: cold morning, narrator lying awake in dark; at closer: narrator picks up the towel — ready to begin the day.\n  scene_novelty_claim:   I am NOT writing a classroom/park/school_after_class story. Scene is home_morning.\n  anchor_novelty_claim:  Anchor is 窓 (window). Last appeared in story 1.\n  closer_shape_claim:    Closer shape: narrator self-action (取る). NOT a gift-transfer (unlike stories 12-14), NOT noun-pile, NOT noun-WA-noun-DESU, NOT departure-walk.\n  why_not_filler:        母 — her arrival triggers the narrator's question and the window opening; without her the anchor does nothing. 窓 — state change closed→open; the scene's physical pivot. タオルや紙 — already-placed objects that explain why narrator rises; towel = the object narrator takes in closer. 朝まで — narrator has been awake waiting; this explains why mother comes to wake them.\n  obligations_absorbed:  must-reinforce N5_made_until via 朝まで待っていました (s5, narrator was lying awake); must-introduce N5_dare_who + N5_ya_partial both organically (s2 誰 from darkness/surprise; s1 や from listing of placed items).\n\nFORBIDDEN THIS STORY:\n  scene_class    (last 3 stories): classroom, park, school_after_class\n  anchor_object  (last 5 stories): 傘, 卵, 手紙, 鉛筆, 雲\n  closer_shape   (last 3 stories): noun-NO-noun-WA-noun-noun-WO-noun-noun-P:まで-noun, noun-WA-noun-DESU, noun-WA-noun-NO-noun-WO-noun-noun\n  opening_seqs   (last 3 stories): 私/鉛筆/短かった, 学校/本/読みました, 公園/静か",
+  "scene_class": "home_morning",
+  "anchor_object": "窓",
+  "characters": ["narrator", "母"],
+  "sentences": [
+    {
+      "jp": "冷たい朝でした。",
+      "en": "It was a cold morning.",
+      "role": "setting"
+    },
+    {
+      "jp": "窓の下にタオルや紙がありました。",
+      "en": "Below the window, there was a towel and some paper.",
+      "role": "setting"
+    },
+    {
+      "jp": "朝まで待っていました。",
+      "en": "I had been waiting until morning.",
+      "role": "reflection"
+    },
+    {
+      "jp": "母が部屋に入ってきました。",
+      "en": "My mother came into the room.",
+      "role": "action"
+    },
+    {
+      "jp": "母は窓を開けました。",
+      "en": "Mother opened the window.",
+      "role": "action"
+    },
+    {
+      "jp": "母は「このタオルを使ってください」と言いました。",
+      "en": "Mother said, \"Please use this towel.\"",
+      "role": "dialogue"
+    },
+    {
+      "jp": "母はタオルを渡しました。",
+      "en": "Mother handed over the towel.",
+      "role": "action"
+    },
+    {
+      "jp": "タオルを取りました。",
+      "en": "I took the towel.",
+      "role": "closer"
+    }
+  ]
+}
