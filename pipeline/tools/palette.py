@@ -8,7 +8,7 @@ flagged by reinforcement debt. The agent reads the JSON; humans can ask for
 
 Why this exists
 ---------------
-The 2026-04-27 audit (`docs/audit-2026-04-27.md`) showed defective stories
+The 2026-04-27 audit (`docs/archive/audit-2026-04-27.md`) showed defective stories
 clustered where the author had no concrete language for the scene they wanted
 to write. Authors default to top-of-mind nouns (rain, cat, window, letter)
 and grammatical filler (静か, 思います) when nothing concrete is in budget.

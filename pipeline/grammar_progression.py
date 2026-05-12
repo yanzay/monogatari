@@ -211,7 +211,7 @@ ENCOUNTERS_TO_PROCEDURALISE = 80
 ## Why a ladder, not a single constant: the v2.0 corpus (10 stories
 ## under the legacy 1-grammar / ~5-vocab policy) convergence-failed on
 ## the same defect the v1 audit identified — a tight palette can only
-## express tight stories. See `docs/phase4-bootstrap-reload-2026-04-29.md`
+## express tight stories. See `docs/archive/phase4-bootstrap-reload-2026-04-29.md`
 ## §3 for the derivation. The ladder is paired with `data/v2_5_seed_plan.json`
 ## which prescribes WHICH words/grammar each slot mints, so the wider
 ## caps go to planned diversity, not opportunistic adjacency.

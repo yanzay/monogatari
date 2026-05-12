@@ -39,7 +39,7 @@ Files touched
 - data/grammar_state.json (special: also rename the dict KEY, not
   just substring values)
 - data/grammar_attributions.json (special: rename dict KEY)
-- AGENTS.md, docs/spec.md, docs/v2-strategy-2026-04-27.md
+- AGENTS.md, docs/spec.md, docs/archive/v2-strategy-2026-04-27.md
 - static/{stories,data}/* — symlinks to the above; auto-mirrored
 
 NOT touched
@@ -90,7 +90,7 @@ TARGET_GLOBS = [
     "tests/unit/util/grammar.test.ts",
     "tests/unit/state/popup.test.ts",
     "docs/spec.md",
-    "docs/v2-strategy-2026-04-27.md",
+    "docs/archive/v2-strategy-2026-04-27.md",
     "AGENTS.md",
 ]
 

@@ -2,7 +2,7 @@
 """Single JSON payload of everything the LLM author agent needs.
 
 This is the load-bearing tool of the v2 agentic-author architecture (per
-`docs/v2-strategy-2026-04-27.md` §B3.7 and `docs/phase3-tasks-2026-04-28.md`
+`docs/archive/v2-strategy-2026-04-27.md` §B3.7 and `docs/archive/phase3-tasks-2026-04-28.md`
 Task 1.9). The agent has no episodic memory between sessions; the brief IS
 its memory. Without this tool the agent reasons from scratch every prompt
 and the corpus drifts.
@@ -169,7 +169,7 @@ def _scene_coverage_stub(target_story: int) -> dict:
 
 
 def _north_stars_stub(target_story: int) -> list[dict]:
-    """Returns the v1 north-stars hand-drafted in v2-strategy-2026-04-27.md
+    """Returns the v1 north-stars hand-drafted in docs/archive/v2-strategy-2026-04-27.md
     §1.5. When `data/north_stars.json` exists, replace this with a real load."""
     drafts = [
         (1, "「窓の外で、雨が木を濡らします。」",
@@ -316,7 +316,7 @@ def _vocab_reinforcement_debt(target_story: int) -> dict:
     (story 1 minted 18 words → story 2 was required to use all 18 or
     fail to ship). Relaxed to "last slot in the R1 window" + bootstrap
     exemption, matching R1's actual contract. See AGENTS.md and
-    docs/phase4-bootstrap-reload-2026-04-29.md for the discussion.
+    docs/archive/phase4-bootstrap-reload-2026-04-29.md for the discussion.
     """
     try:
         from grammar_progression import (  # noqa: E402
@@ -778,7 +778,7 @@ def _mint_budget_for(target_story: int) -> dict:
     has explicit per-story (vocab_min, vocab_max) bounds for stories
     1..BOOTSTRAP_END (= 10) tapering from a wide front-load to the
     steady-state policy by story 11. See
-    `docs/phase4-bootstrap-reload-2026-04-29.md` §3 for the table.
+    `docs/archive/phase4-bootstrap-reload-2026-04-29.md` §3 for the table.
     """
     try:
         from grammar_progression import ladder_for  # noqa: E402

@@ -112,7 +112,7 @@ v1 corpus moved to `legacy/v1-stories/`. `V1_INCOMPATIBLE_WITH_V2_LINTS` xfail s
 
 ## v2 architectural commitments
 
-Documented in `docs/v2-strategy-2026-04-27.md` and `docs/phase3-tasks-2026-04-28.md`:
+Documented in `docs/archive/v2-strategy-2026-04-27.md` and `docs/archive/phase3-tasks-2026-04-28.md`:
 
 - **Author = LLM agent.** No hand-authoring. Agent drafts spec, runs `author_loop.py author N`.
 - **Deterministic lints are HARD BLOCK.** Validate (1–11), mint_budget, pedagogical_sanity all hard-fail. Only LLM literary reviewer is best-effort.

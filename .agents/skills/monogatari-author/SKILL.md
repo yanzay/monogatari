@@ -40,7 +40,7 @@ Skipping §B.0, §B.1, or any of §E.5–§E.7.5 is a discipline violation. Back
 
 ### 0.1 Stories 1–10
 
-`docs/phase4-bootstrap-reload-2026-04-29.md` is the contract. Brief surfaces `hard_limits.ladder`, `must_hit.seed_plan`, `must_hit.scene_affordances`. Stories 11+: steady state (1 grammar / 3–5 vocab; no scene constraint).
+`docs/archive/phase4-bootstrap-reload-2026-04-29.md` is the contract. Brief surfaces `hard_limits.ladder`, `must_hit.seed_plan`, `must_hit.scene_affordances`. Stories 11+: steady state (1 grammar / 3–5 vocab; no scene constraint).
 
 ## 1. Hard invariants
 
@@ -491,11 +491,11 @@ Surface the blocker in ≤5 lines and propose 1–2 options.
 
 ## 8. Reference docs
 
-- `docs/phase4-bootstrap-reload-2026-04-29.md` — current authoring contract (stories 1–10).
+- `docs/archive/phase4-bootstrap-reload-2026-04-29.md` — current authoring contract (stories 1–10).
 - `data/v2_5_seed_plan.json` — per-slot prescriptive plan.
 - `data/scene_affordances.json` — per-scene noun/character/action palette.
-- `docs/audit-2026-04-27.md` — v1 literary audit; defect inventory.
-- `docs/v2-strategy-2026-04-27.md` — v2 architecture.
+- `docs/archive/audit-2026-04-27.md` — v1 literary audit; defect inventory.
+- `docs/archive/v2-strategy-2026-04-27.md` — v2 architecture.
 - `AGENTS.md` (workspace root) — schema gotchas, cascade rules, shell quirks.
 - `pipeline/semantic_lint.py` — the rules (only if you need to know WHY a rule fired).
 

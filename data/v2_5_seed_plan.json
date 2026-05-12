@@ -1,6 +1,6 @@
 {
   "schema_version": "2026-04-29-v2.5",
-  "description": "Phase 4 reload prescriptive seed plan. For each bootstrap slot 1..10, lists the lemmas + grammar catalog ids that the slot MUST seed. Counts must satisfy BOOTSTRAP_LADDER's (vocab_min..vocab_max, grammar_min..grammar_max) bounds. The agent reads this from the brief's must_hit.seed_plan field; the gauntlet's mint_budget + coverage_floor steps enforce the count bounds; lemma identity is enforced softly (warning, not block). See docs/phase4-bootstrap-reload-2026-04-29.md.",
+  "description": "Phase 4 reload prescriptive seed plan. For each bootstrap slot 1..10, lists the lemmas + grammar catalog ids that the slot MUST seed. Counts must satisfy BOOTSTRAP_LADDER's (vocab_min..vocab_max, grammar_min..grammar_max) bounds. The agent reads this from the brief's must_hit.seed_plan field; the gauntlet's mint_budget + coverage_floor steps enforce the count bounds; lemma identity is enforced softly (warning, not block). See docs/archive/phase4-bootstrap-reload-2026-04-29.md.",
   "policy": {
     "lemma_enforcement": "soft (warn on substitution, document in spec.intent)",
     "count_enforcement": "hard (gauntlet mint_budget + coverage_floor)",
@@ -11,32 +11,110 @@
     "1": {
       "scene_class": "home_morning",
       "intent_seed": "A child wakes up; mother is already in the kitchen. The child sees something concrete (e.g. tea on the table) and walks to it.",
-      "anchor_object_candidates": ["tea_cup", "bread", "window"],
+      "anchor_object_candidates": [
+        "tea_cup",
+        "bread",
+        "window"
+      ],
       "characters_min": 2,
       "vocab_seed": [
-        {"lemma": "私",     "pos": "pronoun",     "meaning": "I/me"},
-        {"lemma": "母",     "pos": "noun",        "meaning": "mother"},
-        {"lemma": "朝",     "pos": "noun",        "meaning": "morning"},
-        {"lemma": "家",     "pos": "noun",        "meaning": "house/home"},
-        {"lemma": "台所",   "pos": "noun",        "meaning": "kitchen"},
-        {"lemma": "お茶",   "pos": "noun",        "meaning": "tea (Phase 4.1 honorific-prefix tokenization landed 2026-04-29 — お茶 is now correctly tokenized as a single noun)"},
-        {"lemma": "持ちます","pos": "verb",       "meaning": "hold/carry (manipulation verb; without it the slot has no transitive action)"},
-        {"lemma": "パン",   "pos": "noun",        "meaning": "bread"},
-        {"lemma": "窓",     "pos": "noun",        "meaning": "window"},
-        {"lemma": "見ます", "pos": "verb",        "meaning": "see"},
-        {"lemma": "歩きます","pos": "verb",       "meaning": "walk"},
-        {"lemma": "あります","pos": "verb",       "meaning": "exist (inanimate)"},
-        {"lemma": "います",  "pos": "verb",       "meaning": "exist (animate)"},
-        {"lemma": "温かい",  "pos": "adjective_i","meaning": "warm"},
-        {"lemma": "明るい",  "pos": "adjective_i","meaning": "bright"},
-        {"lemma": "大きい",  "pos": "adjective_i","meaning": "big"},
-        {"lemma": "小さい",  "pos": "adjective_i","meaning": "small"}
+        {
+          "lemma": "私",
+          "pos": "pronoun",
+          "meaning": "I/me"
+        },
+        {
+          "lemma": "母",
+          "pos": "noun",
+          "meaning": "mother"
+        },
+        {
+          "lemma": "朝",
+          "pos": "noun",
+          "meaning": "morning"
+        },
+        {
+          "lemma": "家",
+          "pos": "noun",
+          "meaning": "house/home"
+        },
+        {
+          "lemma": "台所",
+          "pos": "noun",
+          "meaning": "kitchen"
+        },
+        {
+          "lemma": "お茶",
+          "pos": "noun",
+          "meaning": "tea (Phase 4.1 honorific-prefix tokenization landed 2026-04-29 — お茶 is now correctly tokenized as a single noun)"
+        },
+        {
+          "lemma": "持ちます",
+          "pos": "verb",
+          "meaning": "hold/carry (manipulation verb; without it the slot has no transitive action)"
+        },
+        {
+          "lemma": "パン",
+          "pos": "noun",
+          "meaning": "bread"
+        },
+        {
+          "lemma": "窓",
+          "pos": "noun",
+          "meaning": "window"
+        },
+        {
+          "lemma": "見ます",
+          "pos": "verb",
+          "meaning": "see"
+        },
+        {
+          "lemma": "歩きます",
+          "pos": "verb",
+          "meaning": "walk"
+        },
+        {
+          "lemma": "あります",
+          "pos": "verb",
+          "meaning": "exist (inanimate)"
+        },
+        {
+          "lemma": "います",
+          "pos": "verb",
+          "meaning": "exist (animate)"
+        },
+        {
+          "lemma": "温かい",
+          "pos": "adjective_i",
+          "meaning": "warm"
+        },
+        {
+          "lemma": "明るい",
+          "pos": "adjective_i",
+          "meaning": "bright"
+        },
+        {
+          "lemma": "大きい",
+          "pos": "adjective_i",
+          "meaning": "big"
+        },
+        {
+          "lemma": "小さい",
+          "pos": "adjective_i",
+          "meaning": "small"
+        }
       ],
       "grammar_seed": [
-        "N5_wa_topic", "N5_ga_subject", "N5_wo_object",
-        "N5_desu", "N5_masu_nonpast",
-        "N5_ni_location", "N5_no_possessive", "N5_he_direction",
-        "N5_mo_also", "N5_i_adj"
+        "N5_wa_topic",
+        "N5_ga_subject",
+        "N5_wo_object",
+        "N5_desu",
+        "N5_masu_nonpast",
+        "N5_ni_location",
+        "N5_no_possessive",
+        "N5_he_direction",
+        "N5_mo_also",
+        "N5_i_adj"
       ],
       "grammar_seed_amendment_2026-04-29": "ADDED の(possessive)/へ(direction)/も(also). DROPPED で(means/instrument) — story 1 doesn't naturally need it; deferred to story 2 where the buying scene needs 「お金で」.",
       "rationale": "Story 1 is the cold start. Loads home + kitchen scene, two characters (私 + 母), four sensory adjectives (warm/bright/big/small) so future stories can describe instead of equate, and the foundational particle/copula/adjective scaffolding. Concrete-color adjectives are deferred to story 3 when colors are diegetically motivated."
@@ -53,20 +131,58 @@
     "2": {
       "scene_class": "walk_to_shop",
       "intent_seed": "After breakfast the child walks to the corner shop with mother to buy bread (or fruit). The errand introduces directionality and a transaction without a counter scene.",
-      "anchor_object_candidates": ["money", "bread_bag", "fruit"],
+      "anchor_object_candidates": [
+        "money",
+        "bread_bag",
+        "fruit"
+      ],
       "characters_min": 2,
       "vocab_seed": [
-        {"lemma": "店",       "pos": "noun",  "meaning": "shop"},
-        {"lemma": "道",       "pos": "noun",  "meaning": "road/way"},
-        {"lemma": "お金",     "pos": "noun",  "meaning": "money"},
-        {"lemma": "りんご",   "pos": "noun",  "meaning": "apple"},
-        {"lemma": "買います", "pos": "verb",  "meaning": "buy"},
-        {"lemma": "行きます", "pos": "verb",  "meaning": "go"},
-        {"lemma": "出ます",   "pos": "verb",  "meaning": "leave/exit"},
-        {"lemma": "一緒に",   "pos": "adverb","meaning": "together"}
+        {
+          "lemma": "店",
+          "pos": "noun",
+          "meaning": "shop"
+        },
+        {
+          "lemma": "道",
+          "pos": "noun",
+          "meaning": "road/way"
+        },
+        {
+          "lemma": "お金",
+          "pos": "noun",
+          "meaning": "money"
+        },
+        {
+          "lemma": "りんご",
+          "pos": "noun",
+          "meaning": "apple"
+        },
+        {
+          "lemma": "買います",
+          "pos": "verb",
+          "meaning": "buy"
+        },
+        {
+          "lemma": "行きます",
+          "pos": "verb",
+          "meaning": "go"
+        },
+        {
+          "lemma": "出ます",
+          "pos": "verb",
+          "meaning": "leave/exit"
+        },
+        {
+          "lemma": "一緒に",
+          "pos": "adverb",
+          "meaning": "together"
+        }
       ],
       "grammar_seed": [
-        "N5_to_and", "N5_kara_from", "N5_de_means"
+        "N5_to_and",
+        "N5_kara_from",
+        "N5_de_means"
       ],
       "grammar_seed_amendment_2026-04-29": "DROPPED N5_no_possessive (now in story 1) and N5_e_direction (now in story 1 as N5_he_direction). ADDED N5_de_means (deferred from story 1) — naturally fits the buying scene as 「お金で」.",
       "rationale": "Departure → walk → shop. Introduces accompaniment (と), origin (から), and means (で 'with [money]'). Reinforces 私+母+歩きます+の+へ from story 1."
@@ -74,146 +190,391 @@
     "3": {
       "scene_class": "kitchen",
       "intent_seed": "Mother shows the child how to crack an egg; the child watches the yellow yolk on the white plate. Concrete colors are diegetically motivated (the food has them).",
-      "anchor_object_candidates": ["egg", "plate", "knife"],
+      "anchor_object_candidates": [
+        "egg",
+        "plate",
+        "knife"
+      ],
       "characters_min": 2,
       "vocab_seed": [
-        {"lemma": "卵",      "pos": "noun",       "meaning": "egg"},
-        {"lemma": "皿",      "pos": "noun",       "meaning": "plate"},
-        {"lemma": "包丁",    "pos": "noun",       "meaning": "kitchen knife"},
-        {"lemma": "白い",    "pos": "adjective_i","meaning": "white"},
-        {"lemma": "黄色い",  "pos": "adjective_i","meaning": "yellow"},
-        {"lemma": "切ります","pos": "verb",       "meaning": "cut"},
-        {"lemma": "見せます","pos": "verb",       "meaning": "show"}
+        {
+          "lemma": "卵",
+          "pos": "noun",
+          "meaning": "egg"
+        },
+        {
+          "lemma": "皿",
+          "pos": "noun",
+          "meaning": "plate"
+        },
+        {
+          "lemma": "包丁",
+          "pos": "noun",
+          "meaning": "kitchen knife"
+        },
+        {
+          "lemma": "白い",
+          "pos": "adjective_i",
+          "meaning": "white"
+        },
+        {
+          "lemma": "黄色い",
+          "pos": "adjective_i",
+          "meaning": "yellow"
+        },
+        {
+          "lemma": "切ります",
+          "pos": "verb",
+          "meaning": "cut"
+        },
+        {
+          "lemma": "見せます",
+          "pos": "verb",
+          "meaning": "show"
+        }
       ],
       "grammar_seed": [
-        "N5_te_form", "N5_mashita", "N5_mo_also"
+        "N5_te_form",
+        "N5_mashita",
+        "N5_mo_also"
       ],
       "rationale": "Past tense lands here so subsequent stories can reflect on what just happened. Te-form unlocks te-iru/te-kudasai downstream. Concrete colors (白い/黄色い) appear ON food so they're never floating poetry."
     },
     "4": {
       "scene_class": "classroom",
       "intent_seed": "First day: the child is at school; teacher writes name on the board; another student waves. A bounded social scene with a third character.",
-      "anchor_object_candidates": ["pencil", "notebook", "blackboard"],
+      "anchor_object_candidates": [
+        "pencil",
+        "notebook",
+        "blackboard"
+      ],
       "characters_min": 3,
       "vocab_seed": [
-        {"lemma": "学校",     "pos": "noun",  "meaning": "school"},
-        {"lemma": "先生",     "pos": "noun",  "meaning": "teacher"},
-        {"lemma": "鉛筆",     "pos": "noun",  "meaning": "pencil"},
-        {"lemma": "名前",     "pos": "noun",  "meaning": "name"},
-        {"lemma": "書きます", "pos": "verb",  "meaning": "write"},
-        {"lemma": "前",       "pos": "noun",  "meaning": "front/before"},
-        {"lemma": "後ろ",     "pos": "noun",  "meaning": "behind"}
+        {
+          "lemma": "学校",
+          "pos": "noun",
+          "meaning": "school"
+        },
+        {
+          "lemma": "先生",
+          "pos": "noun",
+          "meaning": "teacher"
+        },
+        {
+          "lemma": "鉛筆",
+          "pos": "noun",
+          "meaning": "pencil"
+        },
+        {
+          "lemma": "名前",
+          "pos": "noun",
+          "meaning": "name"
+        },
+        {
+          "lemma": "書きます",
+          "pos": "verb",
+          "meaning": "write"
+        },
+        {
+          "lemma": "前",
+          "pos": "noun",
+          "meaning": "front/before"
+        },
+        {
+          "lemma": "後ろ",
+          "pos": "noun",
+          "meaning": "behind"
+        }
       ],
       "grammar_seed": [
-        "N5_masen", "N5_te_imasu", "N5_ni_target"
+        "N5_masen",
+        "N5_te_imasu",
+        "N5_ni_target"
       ],
       "rationale": "Negation (masen) lands here — every subsequent story can use 'didn't / isn't.' Te-imasu state lets stories show ongoing actions ('teacher is writing'). Spatial 前/後ろ unlock positional storytelling."
     },
     "5": {
       "scene_class": "station",
       "intent_seed": "The child waits with mother for the train; an old woman drops something; the child picks it up and gives it back. Dialogue happens.",
-      "anchor_object_candidates": ["umbrella", "ticket", "handkerchief"],
+      "anchor_object_candidates": [
+        "umbrella",
+        "ticket",
+        "handkerchief"
+      ],
       "characters_min": 3,
       "vocab_seed": [
-        {"lemma": "駅",       "pos": "noun", "meaning": "station"},
-        {"lemma": "電車",     "pos": "noun", "meaning": "train"},
-        {"lemma": "傘",       "pos": "noun", "meaning": "umbrella"},
-        {"lemma": "言います", "pos": "verb", "meaning": "say"},
-        {"lemma": "待ちます", "pos": "verb", "meaning": "wait"},
-        {"lemma": "立ちます", "pos": "verb", "meaning": "stand"},
-        {"lemma": "ありがとう","pos":"interjection","meaning": "thank you"}
+        {
+          "lemma": "駅",
+          "pos": "noun",
+          "meaning": "station"
+        },
+        {
+          "lemma": "電車",
+          "pos": "noun",
+          "meaning": "train"
+        },
+        {
+          "lemma": "傘",
+          "pos": "noun",
+          "meaning": "umbrella"
+        },
+        {
+          "lemma": "言います",
+          "pos": "verb",
+          "meaning": "say"
+        },
+        {
+          "lemma": "待ちます",
+          "pos": "verb",
+          "meaning": "wait"
+        },
+        {
+          "lemma": "立ちます",
+          "pos": "verb",
+          "meaning": "stand"
+        },
+        {
+          "lemma": "ありがとう",
+          "pos": "interjection",
+          "meaning": "thank you"
+        }
       ],
       "grammar_seed": [
-        "N5_te_kudasai", "N5_kara_because", "N5_arimasu_imasu"
+        "N5_te_kudasai",
+        "N5_kara_because",
+        "N5_arimasu_imasu"
       ],
       "rationale": "Te-kudasai (request) plus 言います make actual dialogue possible — story 5 is the first with quoted speech. Kara-because lets stories have reasons. Wait/stand verbs unlock pacing in subsequent stories."
     },
     "6": {
       "scene_class": "park_bench",
       "intent_seed": "Sitting on a park bench with grandmother; she reads a book; the child notices something under the bench. Plain forms make relative clauses possible.",
-      "anchor_object_candidates": ["book", "leaf", "bird"],
+      "anchor_object_candidates": [
+        "book",
+        "leaf",
+        "bird"
+      ],
       "characters_min": 2,
       "vocab_seed": [
-        {"lemma": "公園",     "pos": "noun",       "meaning": "park"},
-        {"lemma": "椅子",     "pos": "noun",       "meaning": "chair/bench"},
-        {"lemma": "祖母",     "pos": "noun",       "meaning": "grandmother"},
-        {"lemma": "下",       "pos": "noun",       "meaning": "below/under"},
-        {"lemma": "そば",     "pos": "noun",       "meaning": "beside"},
-        {"lemma": "座ります", "pos": "verb",       "meaning": "sit"},
-        {"lemma": "読みます", "pos": "verb",       "meaning": "read"}
+        {
+          "lemma": "公園",
+          "pos": "noun",
+          "meaning": "park"
+        },
+        {
+          "lemma": "椅子",
+          "pos": "noun",
+          "meaning": "chair/bench"
+        },
+        {
+          "lemma": "祖母",
+          "pos": "noun",
+          "meaning": "grandmother"
+        },
+        {
+          "lemma": "下",
+          "pos": "noun",
+          "meaning": "below/under"
+        },
+        {
+          "lemma": "そば",
+          "pos": "noun",
+          "meaning": "beside"
+        },
+        {
+          "lemma": "座ります",
+          "pos": "verb",
+          "meaning": "sit"
+        },
+        {
+          "lemma": "読みます",
+          "pos": "verb",
+          "meaning": "read"
+        }
       ],
       "grammar_seed": [
-        "N5_dictionary_form", "N5_ga_but", "N5_demo"
+        "N5_dictionary_form",
+        "N5_ga_but",
+        "N5_demo"
       ],
       "rationale": "Plain forms (G055/N5_dictionary_form) finally enter the corpus, with downstream stories already planned to reuse them in relative-clause constructions. Spatial 下/そば unlock 'under the bench'-style positioning. が-but and でも provide the contrast/concession patterns."
     },
     "7": {
       "scene_class": "rainy_doorway",
       "intent_seed": "Caught in the rain at the doorway of a building; a stranger offers a towel. Sensory + small kindness, no anchor handover.",
-      "anchor_object_candidates": ["towel", "raincoat", "shoes"],
+      "anchor_object_candidates": [
+        "towel",
+        "raincoat",
+        "shoes"
+      ],
       "characters_min": 2,
       "vocab_seed": [
-        {"lemma": "雨",       "pos": "noun",       "meaning": "rain"},
-        {"lemma": "靴",       "pos": "noun",       "meaning": "shoes"},
-        {"lemma": "タオル",   "pos": "noun",       "meaning": "towel"},
-        {"lemma": "冷たい",   "pos": "adjective_i","meaning": "cold (touch)"},
-        {"lemma": "濡れます", "pos": "verb",       "meaning": "get wet"},
-        {"lemma": "ありがとうございます","pos":"interjection","meaning":"thank you (formal)"}
+        {
+          "lemma": "雨",
+          "pos": "noun",
+          "meaning": "rain"
+        },
+        {
+          "lemma": "靴",
+          "pos": "noun",
+          "meaning": "shoes"
+        },
+        {
+          "lemma": "タオル",
+          "pos": "noun",
+          "meaning": "towel"
+        },
+        {
+          "lemma": "冷たい",
+          "pos": "adjective_i",
+          "meaning": "cold (touch)"
+        },
+        {
+          "lemma": "濡れます",
+          "pos": "verb",
+          "meaning": "get wet"
+        },
+        {
+          "lemma": "ありがとうございます",
+          "pos": "interjection",
+          "meaning": "thank you (formal)"
+        }
       ],
       "grammar_seed": [
-        "N5_da", "N5_na_adj", "N5_te_iru"
+        "N5_da",
+        "N5_na_adj",
+        "N5_te_iru"
       ],
       "rationale": "Plain copula (だ) and na-adjectives complete the predicate paradigm. Te-iru as a separate intro from the verb te-form gives state predicates."
     },
     "8": {
       "scene_class": "shop_counter",
       "intent_seed": "At the bookshop; the child wants to buy a small book but doesn't have enough money. The shopkeeper smiles and asks a question.",
-      "anchor_object_candidates": ["book", "coin", "bag"],
+      "anchor_object_candidates": [
+        "book",
+        "coin",
+        "bag"
+      ],
       "characters_min": 2,
       "vocab_seed": [
-        {"lemma": "本屋",     "pos": "noun", "meaning": "bookshop"},
-        {"lemma": "本",       "pos": "noun", "meaning": "book"},
-        {"lemma": "袋",       "pos": "noun", "meaning": "bag"},
-        {"lemma": "嬉しい",   "pos": "adjective_i","meaning":"happy"},
-        {"lemma": "聞きます", "pos": "verb", "meaning": "ask/listen"},
-        {"lemma": "答えます", "pos": "verb", "meaning": "answer"}
+        {
+          "lemma": "本屋",
+          "pos": "noun",
+          "meaning": "bookshop"
+        },
+        {
+          "lemma": "本",
+          "pos": "noun",
+          "meaning": "book"
+        },
+        {
+          "lemma": "袋",
+          "pos": "noun",
+          "meaning": "bag"
+        },
+        {
+          "lemma": "嬉しい",
+          "pos": "adjective_i",
+          "meaning": "happy"
+        },
+        {
+          "lemma": "聞きます",
+          "pos": "verb",
+          "meaning": "ask/listen"
+        },
+        {
+          "lemma": "答えます",
+          "pos": "verb",
+          "meaning": "answer"
+        }
       ],
       "grammar_seed": [
-        "N5_ka_question", "N5_dare_who", "N5_counters"
+        "N5_ka_question",
+        "N5_dare_who",
+        "N5_counters"
       ],
       "rationale": "Question particle ends the corpus's hedge-による-思います cycle. Counters land here so the next stories can quantify naturally."
     },
     "9": {
       "scene_class": "phone_call",
       "intent_seed": "The child calls their friend who couldn't come to school; reports something that happened. Pure dialogue scene; no anchor object.",
-      "anchor_object_candidates": ["phone", null],
+      "anchor_object_candidates": [
+        "phone",
+        null
+      ],
       "characters_min": 2,
       "vocab_seed": [
-        {"lemma": "電話",   "pos": "noun", "meaning": "phone"},
-        {"lemma": "友達",   "pos": "noun", "meaning": "friend"},
-        {"lemma": "声",     "pos": "noun", "meaning": "voice"},
-        {"lemma": "話します","pos": "verb","meaning":"speak/talk"},
-        {"lemma": "今日",   "pos": "noun", "meaning": "today"}
+        {
+          "lemma": "電話",
+          "pos": "noun",
+          "meaning": "phone"
+        },
+        {
+          "lemma": "友達",
+          "pos": "noun",
+          "meaning": "friend"
+        },
+        {
+          "lemma": "声",
+          "pos": "noun",
+          "meaning": "voice"
+        },
+        {
+          "lemma": "話します",
+          "pos": "verb",
+          "meaning": "speak/talk"
+        },
+        {
+          "lemma": "今日",
+          "pos": "noun",
+          "meaning": "today"
+        }
       ],
       "grammar_seed": [
-        "N5_to_quote", "N5_itsu_when"
+        "N5_to_quote",
+        "N5_itsu_when"
       ],
       "rationale": "Quotative-と enables real reported speech, distinct from the 言います-only pattern story 5 used. いつ for time questions."
     },
     "10": {
       "scene_class": "rooftop",
       "intent_seed": "Evening: the child stands on the roof of the apartment building; clouds. A reflective bookend to the bootstrap. Optional second character.",
-      "anchor_object_candidates": ["sky", "cloud", "star"],
+      "anchor_object_candidates": [
+        "sky",
+        "cloud",
+        "star"
+      ],
       "characters_min": 1,
       "vocab_seed": [
-        {"lemma": "屋根",   "pos": "noun", "meaning": "roof"},
-        {"lemma": "空",     "pos": "noun", "meaning": "sky"},
-        {"lemma": "雲",     "pos": "noun", "meaning": "cloud"},
-        {"lemma": "夕方",   "pos": "noun", "meaning": "evening"},
-        {"lemma": "ゆっくり","pos":"adverb","meaning":"slowly"}
+        {
+          "lemma": "屋根",
+          "pos": "noun",
+          "meaning": "roof"
+        },
+        {
+          "lemma": "空",
+          "pos": "noun",
+          "meaning": "sky"
+        },
+        {
+          "lemma": "雲",
+          "pos": "noun",
+          "meaning": "cloud"
+        },
+        {
+          "lemma": "夕方",
+          "pos": "noun",
+          "meaning": "evening"
+        },
+        {
+          "lemma": "ゆっくり",
+          "pos": "adverb",
+          "meaning": "slowly"
+        }
       ],
       "grammar_seed": [
-        "N5_yo_emphasis", "N5_ne_confirm"
+        "N5_yo_emphasis",
+        "N5_ne_confirm"
       ],
       "rationale": "Sentence-final particles complete the conversational paradigm. Time-of-day 夕方 + adverb ゆっくり let stories pace themselves. Lightest slot in the ladder; closes the bootstrap."
     }

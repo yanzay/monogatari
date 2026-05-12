@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """The v2 author-loop orchestrator — the only sanctioned way to add a story.
 
-Per `docs/phase3-tasks-2026-04-28.md` Task 1.11 + §B2.1 of the strategy doc.
+Per `docs/archive/phase3-tasks-2026-04-28.md` Task 1.11 + §B2.1 of the strategy doc.
 The agent never edits `stories/*.json` directly; it writes a bilingual spec
 to `pipeline/inputs/story_N.bilingual.json` and runs this orchestrator. The
 orchestrator runs the full deterministic gauntlet:
