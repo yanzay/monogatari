@@ -1,0 +1,745 @@
+{
+  "story_id": 24,
+  "title": {
+    "jp": "弟と本",
+    "en": "My Brother and the Book",
+    "tokens": [
+      {
+        "t": "弟",
+        "role": "content",
+        "word_id": "W00129",
+        "r": "おとうと"
+      },
+      {
+        "t": "と",
+        "role": "particle",
+        "grammar_id": "N5_to_and"
+      },
+      {
+        "t": "本",
+        "role": "content",
+        "word_id": "W00052",
+        "r": "ほん"
+      }
+    ]
+  },
+  "new_words": [
+    "W00129",
+    "W00130",
+    "W00131",
+    "W00132"
+  ],
+  "new_grammar": [
+    "N5_nan_what"
+  ],
+  "all_words_used": [
+    "W00129",
+    "W00052",
+    "W00074",
+    "W00004",
+    "W00098",
+    "W00081",
+    "W00126",
+    "W00130",
+    "W00065",
+    "W00124",
+    "W00028",
+    "W00117",
+    "W00131",
+    "W00080",
+    "W00047",
+    "W00120",
+    "W00125",
+    "W00127",
+    "W00073",
+    "W00128",
+    "W00066",
+    "W00122",
+    "W00019",
+    "W00132"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "夕方",
+          "role": "content",
+          "word_id": "W00074",
+          "r": "ゆうがた"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "台所",
+          "role": "content",
+          "word_id": "W00004",
+          "r": "だいどころ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "ほん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "開けました",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "あけました",
+          "inflection": {
+            "base": "開ける",
+            "base_r": "あける",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the evening, I opened the book in the kitchen.",
+      "audio": "audio/story_24/s0.mp3",
+      "audio_hash": "196bf26d7d61"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00129",
+          "r": "おとうと",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "台所",
+          "role": "content",
+          "word_id": "W00004",
+          "r": "だいどころ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "来ました",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きました",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_past",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My younger brother came into the kitchen.",
+      "audio": "audio/story_24/s1.mp3",
+      "audio_hash": "15371e8db7bb"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00129",
+          "r": "おとうと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "これ",
+          "role": "content",
+          "word_id": "W00126",
+          "r": "これ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "何",
+          "role": "content",
+          "word_id": "W00130",
+          "r": "なん",
+          "grammar_id": "N5_nan_what",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "?",
+          "role": "punct"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "聞きました",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ききました",
+          "inflection": {
+            "base": "聞く",
+            "base_r": "きく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My brother asked, \"What is this?\"",
+      "audio": "audio/story_24/s2.mp3",
+      "audio_hash": "d52dd6fb3914"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "ほん"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "N5_kara_from"
+        },
+        {
+          "t": "石",
+          "role": "content",
+          "word_id": "W00124",
+          "r": "いし"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "出して",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "だして",
+          "inflection": {
+            "base": "出す",
+            "base_r": "だす",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "机",
+          "role": "content",
+          "word_id": "W00117",
+          "r": "つくえ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "上",
+          "role": "content",
+          "word_id": "W00131",
+          "r": "うえ",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "置きました",
+          "role": "content",
+          "word_id": "W00080",
+          "r": "おきました",
+          "inflection": {
+            "base": "置く",
+            "base_r": "おく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I took the stone out of the book and set it on the table.",
+      "audio": "audio/story_24/s3.mp3",
+      "audio_hash": "f8274a3af331"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00129",
+          "r": "おとうと"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "石",
+          "role": "content",
+          "word_id": "W00124",
+          "r": "いし"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "取る",
+          "role": "content",
+          "word_id": "W00047",
+          "r": "とる",
+          "inflection": {
+            "base": "取る",
+            "base_r": "とる",
+            "form": "dictionary",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_dictionary_form"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "石",
+          "role": "content",
+          "word_id": "W00124",
+          "r": "いし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "机",
+          "role": "content",
+          "word_id": "W00117",
+          "r": "つくえ"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "N5_kara_from"
+        },
+        {
+          "t": "落ちました",
+          "role": "content",
+          "word_id": "W00120",
+          "r": "おちました",
+          "inflection": {
+            "base": "落ちる",
+            "base_r": "おちる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "When my brother took the stone, it fell off the table.",
+      "audio": "audio/story_24/s4.mp3",
+      "audio_hash": "700e5c104989"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00129",
+          "r": "おとうと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "石",
+          "role": "content",
+          "word_id": "W00124",
+          "r": "いし"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "拾いました",
+          "role": "content",
+          "word_id": "W00125",
+          "r": "ひろいました",
+          "inflection": {
+            "base": "拾う",
+            "base_r": "ひろう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My brother picked the stone up.",
+      "audio": "audio/story_24/s5.mp3",
+      "audio_hash": "81dfcb3de2b8"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00129",
+          "r": "おとうと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "これ",
+          "role": "content",
+          "word_id": "W00126",
+          "r": "これ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "誰",
+          "role": "content",
+          "word_id": "W00127",
+          "r": "だれ",
+          "grammar_id": "N5_dare_who"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "石",
+          "role": "content",
+          "word_id": "W00124",
+          "r": "いし"
+        },
+        {
+          "t": "?",
+          "role": "punct"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "聞きました",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ききました",
+          "inflection": {
+            "base": "聞く",
+            "base_r": "きく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My brother asked, \"Whose stone is this?\"",
+      "audio": "audio/story_24/s6.mp3",
+      "audio_hash": "657dabe984cc"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "誰",
+          "role": "content",
+          "word_id": "W00127",
+          "r": "だれ",
+          "grammar_id": "N5_dare_who"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "でも",
+          "role": "particle",
+          "grammar_id": "N5_demo",
+          "word_id": "W00073"
+        },
+        {
+          "t": "ない",
+          "role": "content",
+          "word_id": "W00128",
+          "r": "ない",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "よ",
+          "role": "particle",
+          "grammar_id": "N5_yo_emphasis"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "答えました",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "こたえました",
+          "inflection": {
+            "base": "答える",
+            "base_r": "こたえる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I answered, \"It belongs to no one.\"",
+      "audio": "audio/story_24/s7.mp3",
+      "audio_hash": "146e348e56e2"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00129",
+          "r": "おとうと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "石",
+          "role": "content",
+          "word_id": "W00124",
+          "r": "いし"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "ほん"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "入れました",
+          "role": "content",
+          "word_id": "W00122",
+          "r": "いれました",
+          "inflection": {
+            "base": "入れる",
+            "base_r": "いれる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My brother put the stone back into the book.",
+      "audio": "audio/story_24/s8.mp3",
+      "audio_hash": "4163e1a7f2c1"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00129",
+          "r": "おとうと"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "一緒",
+          "role": "content",
+          "word_id": "W00019",
+          "r": "いっしょ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "ほん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "閉めました",
+          "role": "content",
+          "word_id": "W00132",
+          "r": "しめました",
+          "inflection": {
+            "base": "締める",
+            "base_r": "しめる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Together with my brother, I closed the book.",
+      "audio": "audio/story_24/s9.mp3",
+      "audio_hash": "550155e604ce"
+    }
+  ],
+  "word_audio": {
+    "W00129": "audio/words/W00129.mp3",
+    "W00130": "audio/words/W00130.mp3",
+    "W00131": "audio/words/W00131.mp3",
+    "W00132": "audio/words/W00132.mp3"
+  },
+  "word_audio_hash": {
+    "W00129": "0d013d916db9",
+    "W00130": "916cafe9495c",
+    "W00131": "ac56868522bb",
+    "W00132": "89c850057813"
+  }
+}
