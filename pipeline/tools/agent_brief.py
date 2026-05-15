@@ -499,6 +499,29 @@ def _r1_strict_required(target_story: int) -> dict:
     word_lemma: dict[str, str] = {wid: (w.get("surface") or wid)
                                   for wid, w in vocab.items()}
 
+    # Per-source-story sentence cache: sid → list of (sentence_index,
+    # surface_jp, set_of_word_ids_in_sentence). Built lazily so the brief
+    # stays cheap when no R1 carry is required.
+    sentence_cache: dict[int, list[tuple[int, str, set[str]]]] = {}
+
+    def _sentences_of(sid: int) -> list[tuple[int, str, set[str]]]:
+        if sid in sentence_cache:
+            return sentence_cache[sid]
+        try:
+            from _paths import load_story  # noqa: E402
+            s = load_story(sid)
+        except Exception:
+            sentence_cache[sid] = []
+            return []
+        out: list[tuple[int, str, set[str]]] = []
+        for idx, sent in enumerate(s.get("sentences") or []):
+            wids = {tok.get("word_id") for tok in sent.get("tokens", [])
+                    if tok.get("word_id")}
+            surface = "".join(tok.get("t", "") for tok in sent.get("tokens", []))
+            out.append((idx, surface, wids))
+        sentence_cache[sid] = out
+        return out
+
     items: list[dict] = []
     # For each prior post-bootstrap story whose R1 window still includes
     # `target_story`, evaluate R1 as the test would after this ship.
@@ -528,12 +551,25 @@ def _r1_strict_required(target_story: int) -> dict:
                                if wid in used_in.get(i, set()))
             if shipped_hits >= required:
                 continue            # already satisfied by earlier ship(s)
+            # Find the FIRST source sentence using this word — the natural
+            # collocation the author can mirror or paraphrase. Saves the
+            # author from grepping the corpus to discover what the word
+            # naturally appears alongside.
+            source_surface = ""
+            source_index = None
+            for idx, surface, wids in _sentences_of(n):
+                if wid in wids:
+                    source_index = idx
+                    source_surface = surface
+                    break
             # This story MUST be one of the missing hits, otherwise R1
             # post-ship sees `len(hits) < required` and fails.
             items.append({
                 "word_id":                       wid,
                 "lemma":                         word_lemma.get(wid, wid),
                 "intro_in_story":                n,
+                "source_sentence_index":         source_index,
+                "source_sentence_surface":       source_surface,
                 "shipped_followups_count":       len(shipped_followup_ids),
                 "shipped_hits":                  shipped_hits,
                 "required_hits_after_this_ship": required,
@@ -547,11 +583,61 @@ def _r1_strict_required(target_story: int) -> dict:
 
     # Sort: oldest intro first (most at-risk in window), then by lemma.
     items.sort(key=lambda i: (i["intro_in_story"], i["lemma"]))
+
+    # Co-occurrence carrier templates: for each source story, find
+    # sentences that contain MULTIPLE required words. The author can
+    # absorb several R1 obligations in one paraphrase. This is the
+    # single biggest authoring time-saver — it eliminates the
+    # "discover at dry-run, retrofit a sentence" loop because the
+    # ready-made carrier is in the brief BEFORE drafting.
+    required_wids = {it["word_id"] for it in items}
+    carrier_templates: list[dict] = []
+    if required_wids:
+        # Group required wids by source story for cluster discovery.
+        by_source: dict[int, set[str]] = {}
+        for it in items:
+            by_source.setdefault(it["intro_in_story"], set()).add(it["word_id"])
+        for sid, wids_needed in by_source.items():
+            if len(wids_needed) < 2:
+                continue            # single-word obligations need no template
+            for idx, surface, wids in _sentences_of(sid):
+                covered = wids_needed & wids
+                if len(covered) >= 2:
+                    carrier_templates.append({
+                        "source_story":   sid,
+                        "source_index":   idx,
+                        "source_surface": surface,
+                        "covers_wids":    sorted(covered),
+                        "covers_lemmas":  [word_lemma.get(w, w)
+                                           for w in sorted(covered)],
+                        "hint": (
+                            f"Paraphrase or reuse this {len(covered)}-word "
+                            f"cluster from story {sid} to absorb multiple "
+                            f"R1 obligations in a single sentence."
+                        ),
+                    })
+        # Best templates first: cover the most R1 wids; shorter source
+        # surfaces second (easier to paraphrase); deterministic on ties.
+        carrier_templates.sort(
+            key=lambda t: (-len(t["covers_wids"]), len(t["source_surface"]),
+                           t["source_story"], t["source_index"]),
+        )
+
     return {
         "rule":     "R1",
         "window":   VOCAB_REINFORCE_WINDOW,
         "min_uses": VOCAB_REINFORCE_MIN_USES,
         "items":    items,
+        # Top-level summary the author should read FIRST. Empty when
+        # there's nothing to carry; non-empty means this is a load-
+        # bearing constraint that drives sentence design.
+        "banner": (
+            f"R1 strict: {len(items)} word(s) MUST appear in story "
+            f"{target_story} or `test_vocab_words_are_reinforced` "
+            f"will fail post-ship. "
+            f"{len(carrier_templates)} carrier template(s) suggested."
+        ) if items else "",
+        "carrier_templates": carrier_templates,
     }
 
 

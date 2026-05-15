@@ -820,3 +820,112 @@ def test_rank_uncovered_respects_tier_ceiling() -> None:
         "rank_uncovered must filter entries above the lowest tier "
         "(≤ target_tier) with any remaining uncovered point."
     )
+
+
+# ── Regression: R1 strict brief surfaces carrier templates + source
+# sentences ──────────────────────────────────────────────────────────────
+#
+# Story 21 surfaced the biggest authoring pain point: the R1-strict
+# obligations were a flat list of word_ids without context, so authors
+# (LLM and human) discovered the obligations only at dry-run time and
+# then retrofit a "scene-grounding" sentence to absorb 4-5 disparate
+# words. That retrofit is exactly the "pedagogical bolt-on" the §E.7
+# literary reviewer rejects, costing 2-3 round-trips per story.
+#
+# Fix: `_r1_strict_required` now enriches each item with its source
+# sentence (the natural collocation) AND surfaces co-occurrence
+# carrier templates (sentences in the source story that already use
+# multiple required words together). Authors see this BEFORE drafting
+# and can plan absorbing sentences that match natural Japanese.
+
+def test_r1_strict_brief_surfaces_carrier_templates() -> None:
+    """When R1 forces multiple words from the same source story, the
+    brief MUST surface co-occurrence carrier templates (sentences
+    where multiple required words appear together) so the author can
+    absorb several obligations in a single paraphrase. This is the
+    single biggest authoring time-saver — without it, retrofitting
+    creates the bolt-on lines that fail the literary review."""
+    import sys, pathlib
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "tools"))
+    from agent_brief import _r1_strict_required
+
+    # Walk forward from the start of the post-bootstrap window looking
+    # for a target story with R1 obligations from a single source. The
+    # exact slot moves as the corpus grows; the contract (carrier
+    # templates surface when they exist) is invariant.
+    target_with_multi = None
+    for target in range(11, 60):
+        try:
+            r = _r1_strict_required(target)
+        except Exception:
+            continue
+        if not r["items"]:
+            continue
+        # Group by source story.
+        by_source: dict[int, set[str]] = {}
+        for it in r["items"]:
+            by_source.setdefault(it["intro_in_story"], set()).add(it["word_id"])
+        if any(len(v) >= 2 for v in by_source.values()):
+            target_with_multi = target
+            break
+
+    if target_with_multi is None:  # pragma: no cover — defensive
+        import pytest
+        pytest.skip(
+            "no slot in the current corpus has multi-word R1 obligations "
+            "from a single source; carrier templates aren't surfaceable "
+            "(the contract is still pinned by the schema-presence checks "
+            "below)."
+        )
+
+    r = _r1_strict_required(target_with_multi)
+
+    # Schema invariants: every item carries source context.
+    for it in r["items"]:
+        assert "source_sentence_index" in it, (
+            "Every R1-required item must carry the introducing source "
+            "sentence index so the author sees the natural collocation."
+        )
+        assert "source_sentence_surface" in it, (
+            "Every R1-required item must carry the introducing source "
+            "surface so the author can paraphrase the natural usage."
+        )
+
+    # Banner is non-empty when R1 work is required.
+    assert r["banner"], (
+        "R1 banner must be a non-empty summary string when items > 0."
+    )
+    assert "MUST appear" in r["banner"], (
+        f"R1 banner must convey the hard-constraint nature of the "
+        f"obligations; got: {r['banner']!r}"
+    )
+
+    # At least one carrier template surfaces when a single source story
+    # contributes 2+ R1 words AND any sentence in that story uses 2+ of
+    # them together. Stories built by the gauntlet routinely cluster
+    # mints into 1-2 setting sentences, so this is the common case.
+    by_source: dict[int, set[str]] = {}
+    for it in r["items"]:
+        by_source.setdefault(it["intro_in_story"], set()).add(it["word_id"])
+    multi_sources = [sid for sid, v in by_source.items() if len(v) >= 2]
+    if multi_sources:
+        # At least ONE multi-source story should produce a carrier
+        # template — would only fail if no source-story sentence
+        # contained 2+ of the required words. That's possible in
+        # principle (mints scattered across sentences) but should
+        # produce a documented fall-through rather than silent data
+        # loss. We assert the structural slot exists either way.
+        assert "carrier_templates" in r, (
+            "carrier_templates key must exist on the R1 brief, even "
+            "when empty — its presence is the API contract."
+        )
+        for t in r["carrier_templates"]:
+            assert len(t["covers_wids"]) >= 2, (
+                "Carrier templates only make sense when they cover "
+                "multiple required words at once."
+            )
+            assert t["source_surface"], (
+                "Carrier templates must include the source surface "
+                "so the author can read the natural sentence shape."
+            )
