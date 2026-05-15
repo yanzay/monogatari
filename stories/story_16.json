@@ -1,0 +1,596 @@
+{
+  "story_id": 16,
+  "title": {
+    "jp": "黄色いノート",
+    "en": "The Yellow Notebook",
+    "tokens": [
+      {
+        "t": "黄色い",
+        "role": "content",
+        "word_id": "W00025",
+        "r": "きいろい",
+        "grammar_id": "N5_i_adj"
+      },
+      {
+        "t": "ノート",
+        "role": "content",
+        "word_id": "W00099",
+        "r": "のーと"
+      }
+    ]
+  },
+  "new_words": [
+    "W00099",
+    "W00100",
+    "W00101"
+  ],
+  "new_grammar": [
+    "N5_masen_deshita"
+  ],
+  "all_words_used": [
+    "W00025",
+    "W00099",
+    "W00022",
+    "W00012",
+    "W00062",
+    "W00011",
+    "W00052",
+    "W00038",
+    "W00100",
+    "W00070",
+    "W00014",
+    "W00092",
+    "W00081",
+    "W00097",
+    "W00046",
+    "W00065",
+    "W00021",
+    "W00031",
+    "W00088",
+    "W00067",
+    "W00101",
+    "W00023",
+    "W00096",
+    "W00098",
+    "W00034",
+    "W00037"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "道",
+          "role": "content",
+          "word_id": "W00022",
+          "r": "みち"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "ちいさい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "本屋",
+          "role": "content",
+          "word_id": "W00062",
+          "r": "ほんや"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "ありました",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "ありました",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "On the road there was a small bookstore.",
+      "audio": "audio/story_16/s0.mp3",
+      "audio_hash": "7721f7686959"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "ほん"
+        },
+        {
+          "t": "や",
+          "role": "particle",
+          "grammar_id": "N5_ya_partial"
+        },
+        {
+          "t": "鉛筆",
+          "role": "content",
+          "word_id": "W00038",
+          "r": "えんぴつ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "たくさん",
+          "role": "content",
+          "word_id": "W00100",
+          "r": "たくさん",
+          "is_new": true
+        },
+        {
+          "t": "ありました",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "ありました",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There were many books and pencils.",
+      "audio": "audio/story_16/s1.mp3",
+      "audio_hash": "a3e6942dd496"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "今日",
+          "role": "content",
+          "word_id": "W00070",
+          "r": "きょう"
+        },
+        {
+          "t": "まで",
+          "role": "particle",
+          "grammar_id": "N5_made_until"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "この",
+          "role": "content",
+          "word_id": "W00092",
+          "r": "この",
+          "grammar_id": "N5_kosoado"
+        },
+        {
+          "t": "本屋",
+          "role": "content",
+          "word_id": "W00062",
+          "r": "ほんや"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "来ませんでした",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きませんでした",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_past_negative",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_masen_deshita",
+          "is_new_grammar": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Until today, I had never come to this bookstore.",
+      "audio": "audio/story_16/s2.mp3",
+      "audio_hash": "1e04a3b429fd"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "本屋",
+          "role": "content",
+          "word_id": "W00062",
+          "r": "ほんや"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "入りました",
+          "role": "content",
+          "word_id": "W00097",
+          "r": "はいりました",
+          "inflection": {
+            "base": "入る",
+            "base_r": "はいる",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I went into the bookstore.",
+      "audio": "audio/story_16/s3.mp3",
+      "audio_hash": "c5c39ce7b8e8"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "本屋",
+          "role": "content",
+          "word_id": "W00062",
+          "r": "ほんや"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "黄色い",
+          "role": "content",
+          "word_id": "W00025",
+          "r": "きいろい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "ノート",
+          "role": "content",
+          "word_id": "W00099",
+          "r": "のーと",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_aru_iru"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "N5_ka_question"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "聞きました",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ききました",
+          "inflection": {
+            "base": "聞く",
+            "base_r": "きく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I asked the shopkeeper, \"Do you have yellow notebooks?\"",
+      "audio": "audio/story_16/s4.mp3",
+      "audio_hash": "9ad2cd438d48"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00021",
+          "r": "みせ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "ノート",
+          "role": "content",
+          "word_id": "W00099",
+          "r": "のーと"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "見せて",
+          "role": "content",
+          "word_id": "W00031",
+          "r": "みせて",
+          "inflection": {
+            "base": "見せる",
+            "base_r": "みせる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "くれました",
+          "role": "content",
+          "word_id": "W00088",
+          "r": "くれました",
+          "inflection": {
+            "base": "呉れる",
+            "base_r": "くれる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The shopkeeper showed me a notebook.",
+      "audio": "audio/story_16/s5.mp3",
+      "audio_hash": "f011e21d0dcb"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "お金",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "おかね"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "払って",
+          "role": "content",
+          "word_id": "W00101",
+          "r": "はらって",
+          "inflection": {
+            "base": "払う",
+            "base_r": "はらう",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form",
+          "is_new": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "ノート",
+          "role": "content",
+          "word_id": "W00099",
+          "r": "のーと"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "買いました",
+          "role": "content",
+          "word_id": "W00023",
+          "r": "かいました",
+          "inflection": {
+            "base": "買う",
+            "base_r": "かう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I paid the money and bought the notebook.",
+      "audio": "audio/story_16/s6.mp3",
+      "audio_hash": "abcf6c310884"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "部屋",
+          "role": "content",
+          "word_id": "W00096",
+          "r": "へや"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "ノート",
+          "role": "content",
+          "word_id": "W00099",
+          "r": "のーと"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "開けて",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "あけて",
+          "inflection": {
+            "base": "開ける",
+            "base_r": "あける",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "名前",
+          "role": "content",
+          "word_id": "W00034",
+          "r": "なまえ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "書きました",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "かきました",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In my room, I opened the notebook and wrote my name.",
+      "audio": "audio/story_16/s7.mp3",
+      "audio_hash": "647f63513f1d"
+    }
+  ],
+  "word_audio": {
+    "W00099": "audio/words/W00099.mp3",
+    "W00100": "audio/words/W00100.mp3",
+    "W00101": "audio/words/W00101.mp3"
+  },
+  "word_audio_hash": {
+    "W00099": "11e6eb526066",
+    "W00100": "b169f0eb5e43",
+    "W00101": "420e3d754c96"
+  }
+}
