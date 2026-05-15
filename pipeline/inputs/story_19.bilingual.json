@@ -1,0 +1,17 @@
+{
+  "story_id": 19,
+  "title": {"jp": "公園のパン", "en": "Bread at the Park"},
+  "intent": "PREMISE CONTRACT (story 19)\n  one_sentence_event:    The narrator and the friend ride one stop further on the train, walk to a small park, sit down, and the narrator takes bread out of a bag to give to a bird that arrives — the bird eats and flies away, leaving the friend looking up and asking where it went.\n  change_of_state:       at s0 the bread is sealed inside a bag on a moving train; by the closer the bread has passed from the narrator to the bird, the bird has flown into the sky, and the friend is left asking after it — possession, location, and the bird itself have all moved.\n  scene_novelty_claim:   I am writing a park story. Last 3 stories: bookstore, entryway, station. Park has not been a scene_class.\n  anchor_novelty_claim:  Anchor is パン (bread). Last appeared in story 10 (debt ★). Stories 14–18 anchored on 傘 / 窓 / ノート / 靴 / 電車; パン is fresh in this window.\n  closer_shape_claim:    Closer is friend-looks-up + dialogue framed by と言いました — 「友達は空を見て、『鳥はどこへ行きましたか』と言いました。」. NOT a noun-pile, NOT a 「Nは Adj です」 mirror; previous 3 closers were action chains and one intransitive — mine is the first dialogue-closer in this window.\n  why_not_filler:        narrator carries the bag and transfers the bread (the anchor's load-bearing motion); friend completes the closing dialogue and notices the bird's departure; bird forces the transfer and is the recipient that makes the bread move; bag (★ debt) is the vessel; どこ is the question that the bird's flight earns.\n  obligations_absorbed:  reuses W00105 次 + W00106 二人 + W00107 乗る in s0 (R1 strict for story 18 mints); reinforces N5_counters via 二人 (s0, s2); introduces N5_doko_where via the closer's natural wh-question 「鳥はどこへ行きましたか」 — the question is earned by the bird's exit in s5, not bolted on.\n\nHISTORICAL NOTE (post-§E.7.5): three round-trips of native-naturalness review pushed the closer through 笑いました → どこですか + 言いました → どこへ行きましたか + 言いました. Round-3 reviewer suggested the past-tense form that the original draft had used; restored. Also dropped 「私は」 in s3 and dropped 「少し」 in s4 per same review (REDUNDANT-PEDAGOGY); changed s5 「空に → 空へ」 (WRONG-PARTICLE on direction-of-flight).\n\nFORBIDDEN THIS STORY:\n  scene_class    (last 3): bookstore, entryway, station\n  anchor_object  (last 5): ノート, 傘, 窓, 電車, 靴\n  closer_shape   (last 3): noun-DE-noun-WO-noun-noun-WO-noun, noun-GA-noun-NI-noun-KARA-noun, noun-TO-noun-WA-noun-WO-noun-noun-E-noun\n  opening_seqs   (last 3): 道/小さい/本屋, 今日/私/家, 次/朝/玄関",
+  "scene_class": "park",
+  "anchor_object": "パン",
+  "characters": ["narrator", "友達", "鳥"],
+  "sentences": [
+    {"jp": "次の駅まで二人で電車に乗りました。", "en": "We rode one more stop together on the train.", "role": "setting"},
+    {"jp": "駅から公園まで歩きました。", "en": "From the station we walked to the park.", "role": "action"},
+    {"jp": "二人で公園に入って、座りました。", "en": "The two of us went into the park and sat down.", "role": "action"},
+    {"jp": "袋からパンを出しました。", "en": "I took bread out of a bag.", "role": "action"},
+    {"jp": "鳥が来て、パンをあげました。", "en": "A bird came, and I gave it some bread.", "role": "action"},
+    {"jp": "鳥はパンを食べて、空へ飛びました。", "en": "The bird ate the bread and flew up into the sky.", "role": "inflection"},
+    {"jp": "友達は空を見て、「鳥はどこへ行きましたか」と言いました。", "en": "My friend looked at the sky and said, \"Where did the bird go?\"", "role": "closer"}
+  ]
+}

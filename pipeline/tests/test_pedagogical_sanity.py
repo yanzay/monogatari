@@ -680,13 +680,20 @@ def test_step_validate_pulls_post_pass_retag_forward(root):
     build time. Story 17 lost N5_doko_where this way and was forced to a
     clunkier grammar choice.
 
-    Contract: a built story whose ONLY new grammar is N5_doko_where (a
-    post-pass-only tag) must NOT trip Check 3.10's "introduces 0 new
-    grammar" error — the validator should see the retag and credit the
-    intro. Conversely, the same story with the post-pass STRIPPED OUT
-    must trip that error. Differential test pins the asymmetry by
-    inspecting the validator output directly (bypassing step_validate's
-    error grouping which short-circuits on Check 1 schema fails).
+    Contract: a built story whose ONLY new grammar is a post-pass-only
+    interrogative tag (N5_dare_who via 誰) must NOT trip Check 3.10's
+    "introduces 0 new grammar" error — the validator should see the
+    retag and credit the intro. Conversely, the same story with the
+    post-pass STRIPPED OUT must trip that error. Differential test pins
+    the asymmetry by inspecting the validator output directly (bypassing
+    step_validate's error grouping which short-circuits on Check 1
+    schema fails).
+
+    NOTE: the probe interrogative MUST be one that is still uncovered in
+    the corpus (otherwise Check 3.10 would fail even WITH the retag, since
+    a `corpus-already-covered` point isn't "new"). N5_doko_where was the
+    original probe but story 19 introduced it; the probe was migrated to
+    N5_dare_who (誰 → N5_dare_who via the same INTERROGATIVE_GIDS pre-pass).
     """
     sys.path.insert(0, str(root / "pipeline"))
     sys.path.insert(0, str(root / "pipeline" / "tools"))
@@ -699,7 +706,7 @@ def test_step_validate_pulls_post_pass_retag_forward(root):
     # Build a real story via the converter so the schema is complete.
     # The lone wh-question gives us an unambiguous probe: the only path
     # to a non-empty `new_grammar` for this story is the post-pass retag
-    # of どこ → N5_doko_where.
+    # of 誰 → N5_dare_who.
     spec = {
         "story_id":      9999,    # synthetic, never on disk
         "title":         {"jp": "本", "en": "Book"},
@@ -714,10 +721,10 @@ def test_step_validate_pulls_post_pass_retag_forward(root):
              "en": "There was a book on the desk.", "role": "setting"},
             {"jp": "友達が来ました。",
              "en": "My friend came.", "role": "action"},
-            {"jp": "友達は「本はどこですか」と聞きました。",
-             "en": "My friend asked, \"Where is the book?\"", "role": "dialogue"},
-            {"jp": "私は「机にあります」と答えました。",
-             "en": "I answered, \"On the desk.\"", "role": "dialogue"},
+            {"jp": "友達は「誰の本ですか」と聞きました。",
+             "en": "My friend asked, \"Whose book is this?\"", "role": "dialogue"},
+            {"jp": "私は「私の本です」と答えました。",
+             "en": "I answered, \"It's my book.\"", "role": "dialogue"},
             {"jp": "私は本を取りました。",
              "en": "I picked up the book.", "role": "action"},
             {"jp": "友達と私は本を見ました。",
@@ -743,12 +750,12 @@ def test_step_validate_pulls_post_pass_retag_forward(root):
 
     assert not _has_check_310(res_with), (
         "Pre-pass-applied validate should NOT trip Check 3.10 — the wh-question "
-        "should credit N5_doko_where as a new intro. "
+        "should credit N5_dare_who as a new intro. "
         f"Errors: {[(e.check, e.message) for e in res_with.errors if str(e.check) == '3.10']}"
     )
     assert _has_check_310(res_without), (
         "Pre-pass-disabled validate MUST trip Check 3.10 on this story (no "
-        "other path emits N5_doko_where). If this assertion fails, the "
+        "other path emits N5_dare_who). If this assertion fails, the "
         "pre-pass is no longer the load-bearing path — the contract has "
         "drifted and the story-17 trap can return."
     )

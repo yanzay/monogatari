@@ -1,0 +1,561 @@
+{
+  "story_id": 19,
+  "title": {
+    "jp": "公園のパン",
+    "en": "Bread at the Park",
+    "tokens": [
+      {
+        "t": "公園",
+        "role": "content",
+        "word_id": "W00050",
+        "r": "こうえん"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "N5_no_pos"
+      },
+      {
+        "t": "パン",
+        "role": "content",
+        "word_id": "W00013",
+        "r": "ぱん"
+      }
+    ]
+  },
+  "new_words": [
+    "W00108",
+    "W00109",
+    "W00110"
+  ],
+  "new_grammar": [
+    "N5_doko_where"
+  ],
+  "all_words_used": [
+    "W00050",
+    "W00013",
+    "W00105",
+    "W00041",
+    "W00106",
+    "W00043",
+    "W00107",
+    "W00015",
+    "W00097",
+    "W00051",
+    "W00024",
+    "W00028",
+    "W00108",
+    "W00081",
+    "W00083",
+    "W00032",
+    "W00076",
+    "W00109",
+    "W00033",
+    "W00016",
+    "W00110",
+    "W00079",
+    "W00094"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "次",
+          "role": "content",
+          "word_id": "W00105",
+          "r": "つぎ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "駅",
+          "role": "content",
+          "word_id": "W00041",
+          "r": "えき"
+        },
+        {
+          "t": "まで",
+          "role": "particle",
+          "grammar_id": "N5_made_until"
+        },
+        {
+          "t": "二人",
+          "role": "content",
+          "word_id": "W00106",
+          "r": "ふたり",
+          "grammar_id": "N5_counters"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "電車",
+          "role": "content",
+          "word_id": "W00043",
+          "r": "でんしゃ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "乗りました",
+          "role": "content",
+          "word_id": "W00107",
+          "r": "のりました",
+          "inflection": {
+            "base": "乗る",
+            "base_r": "のる",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "We rode one more stop together on the train.",
+      "audio": "audio/story_19/s0.mp3",
+      "audio_hash": "0837bbd38e84"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "駅",
+          "role": "content",
+          "word_id": "W00041",
+          "r": "えき"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "N5_kara_from"
+        },
+        {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00050",
+          "r": "こうえん"
+        },
+        {
+          "t": "まで",
+          "role": "particle",
+          "grammar_id": "N5_made_until"
+        },
+        {
+          "t": "歩きました",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あるきました",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "From the station we walked to the park.",
+      "audio": "audio/story_19/s1.mp3",
+      "audio_hash": "9339594e16e9"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "二人",
+          "role": "content",
+          "word_id": "W00106",
+          "r": "ふたり",
+          "grammar_id": "N5_counters"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00050",
+          "r": "こうえん"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "入って",
+          "role": "content",
+          "word_id": "W00097",
+          "r": "はいって",
+          "inflection": {
+            "base": "入る",
+            "base_r": "はいる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "座りました",
+          "role": "content",
+          "word_id": "W00051",
+          "r": "すわりました",
+          "inflection": {
+            "base": "座る",
+            "base_r": "すわる",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The two of us went into the park and sat down.",
+      "audio": "audio/story_19/s2.mp3",
+      "audio_hash": "f41c9853a3ad"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "袋",
+          "role": "content",
+          "word_id": "W00024",
+          "r": "ふくろ"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "N5_kara_from"
+        },
+        {
+          "t": "パン",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "ぱん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "出しました",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "だしました",
+          "inflection": {
+            "base": "出す",
+            "base_r": "だす",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I took bread out of a bag.",
+      "audio": "audio/story_19/s3.mp3",
+      "audio_hash": "2ffc2200747d"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "鳥",
+          "role": "content",
+          "word_id": "W00108",
+          "r": "とり",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "来て",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きて",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "te",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "パン",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "ぱん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "あげました",
+          "role": "content",
+          "word_id": "W00083",
+          "r": "あげました",
+          "inflection": {
+            "base": "上げる",
+            "base_r": "あげる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A bird came, and I gave it some bread.",
+      "audio": "audio/story_19/s4.mp3",
+      "audio_hash": "2967b442d4f6"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "鳥",
+          "role": "content",
+          "word_id": "W00108",
+          "r": "とり"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "パン",
+          "role": "content",
+          "word_id": "W00013",
+          "r": "ぱん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "食べて",
+          "role": "content",
+          "word_id": "W00032",
+          "r": "たべて",
+          "inflection": {
+            "base": "食べる",
+            "base_r": "たべる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "空",
+          "role": "content",
+          "word_id": "W00076",
+          "r": "そら"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "N5_e_direction"
+        },
+        {
+          "t": "飛びました",
+          "role": "content",
+          "word_id": "W00109",
+          "r": "とびました",
+          "inflection": {
+            "base": "飛ぶ",
+            "base_r": "とぶ",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The bird ate the bread and flew up into the sky.",
+      "audio": "audio/story_19/s5.mp3",
+      "audio_hash": "c3c64d4cbce5"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "空",
+          "role": "content",
+          "word_id": "W00076",
+          "r": "そら"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "見て",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "みて",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "鳥",
+          "role": "content",
+          "word_id": "W00108",
+          "r": "とり"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "どこ",
+          "role": "content",
+          "word_id": "W00110",
+          "r": "どこ",
+          "grammar_id": "N5_doko_where",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "N5_e_direction"
+        },
+        {
+          "t": "行きました",
+          "role": "content",
+          "word_id": "W00079",
+          "r": "いきました",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "N5_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend looked at the sky and said, \"Where did the bird go?\"",
+      "audio": "audio/story_19/s6.mp3",
+      "audio_hash": "3709ae78dd13"
+    }
+  ],
+  "word_audio": {
+    "W00108": "audio/words/W00108.mp3",
+    "W00109": "audio/words/W00109.mp3",
+    "W00110": "audio/words/W00110.mp3"
+  },
+  "word_audio_hash": {
+    "W00108": "b12ce0e4bdb7",
+    "W00109": "a46d5b12b60b",
+    "W00110": "90cd87d00682"
+  }
+}
