@@ -1,0 +1,717 @@
+{
+  "story_id": 23,
+  "title": {
+    "jp": "庭の石",
+    "en": "The Stone in the Garden",
+    "tokens": [
+      {
+        "t": "庭",
+        "role": "content",
+        "word_id": "W00115",
+        "r": "にわ"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "N5_no_pos"
+      },
+      {
+        "t": "石",
+        "role": "content",
+        "word_id": "W00124",
+        "r": "いし"
+      }
+    ]
+  },
+  "new_words": [
+    "W00124",
+    "W00125",
+    "W00126",
+    "W00127",
+    "W00128"
+  ],
+  "new_grammar": [
+    "N5_dare_who"
+  ],
+  "all_words_used": [
+    "W00115",
+    "W00124",
+    "W00105",
+    "W00002",
+    "W00014",
+    "W00020",
+    "W00118",
+    "W00049",
+    "W00012",
+    "W00011",
+    "W00125",
+    "W00009",
+    "W00003",
+    "W00039",
+    "W00079",
+    "W00005",
+    "W00006",
+    "W00126",
+    "W00127",
+    "W00065",
+    "W00073",
+    "W00128",
+    "W00066",
+    "W00052",
+    "W00122",
+    "W00121",
+    "W00123"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "次",
+          "role": "content",
+          "word_id": "W00105",
+          "r": "つぎ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あさ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "庭",
+          "role": "content",
+          "word_id": "W00115",
+          "r": "にわ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "出ました",
+          "role": "content",
+          "word_id": "W00020",
+          "r": "でました",
+          "inflection": {
+            "base": "出る",
+            "base_r": "でる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The next morning, I went out into the garden.",
+      "audio": "audio/story_23/s0.mp3",
+      "audio_hash": "b594a0f7f8cf"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "木",
+          "role": "content",
+          "word_id": "W00118",
+          "r": "き"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "下",
+          "role": "content",
+          "word_id": "W00049",
+          "r": "した"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "ちいさい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "石",
+          "role": "content",
+          "word_id": "W00124",
+          "r": "いし",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "ありました",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "ありました",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Under the tree there was a small stone.",
+      "audio": "audio/story_23/s1.mp3",
+      "audio_hash": "e50c620a7391"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "石",
+          "role": "content",
+          "word_id": "W00124",
+          "r": "いし"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "拾いました",
+          "role": "content",
+          "word_id": "W00125",
+          "r": "ひろいました",
+          "inflection": {
+            "base": "拾う",
+            "base_r": "ひろう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I picked up the stone.",
+      "audio": "audio/story_23/s2.mp3",
+      "audio_hash": "9d68be37848e"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "拾った",
+          "role": "content",
+          "word_id": "W00125",
+          "r": "ひろった",
+          "inflection": {
+            "base": "拾う",
+            "base_r": "ひろう",
+            "form": "past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_ta_form"
+        },
+        {
+          "t": "石",
+          "role": "content",
+          "word_id": "W00124",
+          "r": "いし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "あたたかかった",
+          "role": "content",
+          "word_id": "W00009",
+          "r": "あたたかかった",
+          "inflection": {
+            "form": "i_adj_past"
+          },
+          "grammar_id": "N5_i_adj_past"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The stone I had picked up was warm.",
+      "audio": "audio/story_23/s3.mp3",
+      "audio_hash": "3ad385cb67f1"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "石",
+          "role": "content",
+          "word_id": "W00124",
+          "r": "いし"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "いえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "持って",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "もって",
+          "inflection": {
+            "base": "持つ",
+            "base_r": "もつ",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "行きました",
+          "role": "content",
+          "word_id": "W00079",
+          "r": "いきました",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I took the stone home.",
+      "audio": "audio/story_23/s4.mp3",
+      "audio_hash": "6c3a5bbc39db"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "いえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "いました",
+          "role": "content",
+          "word_id": "W00006",
+          "r": "いました",
+          "inflection": {
+            "base": "いる",
+            "base_r": "いる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Mother was at home.",
+      "audio": "audio/story_23/s5.mp3",
+      "audio_hash": "608701ceb1e5"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "これ",
+          "role": "content",
+          "word_id": "W00126",
+          "r": "これ",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "誰",
+          "role": "content",
+          "word_id": "W00127",
+          "r": "だれ",
+          "grammar_id": "N5_dare_who",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "石",
+          "role": "content",
+          "word_id": "W00124",
+          "r": "いし"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "N5_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "聞きました",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ききました",
+          "inflection": {
+            "base": "聞く",
+            "base_r": "きく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Whose stone is this?\" I asked.",
+      "audio": "audio/story_23/s6.mp3",
+      "audio_hash": "8966ae25777d"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "誰",
+          "role": "content",
+          "word_id": "W00127",
+          "r": "だれ",
+          "grammar_id": "N5_dare_who"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "でも",
+          "role": "particle",
+          "grammar_id": "N5_demo",
+          "word_id": "W00073"
+        },
+        {
+          "t": "ない",
+          "role": "content",
+          "word_id": "W00128",
+          "r": "ない",
+          "grammar_id": "N5_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "よ",
+          "role": "particle",
+          "grammar_id": "N5_yo_emphasis"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "答えました",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "こたえました",
+          "inflection": {
+            "base": "答える",
+            "base_r": "こたえる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Mother answered, \"It belongs to no one.\"",
+      "audio": "audio/story_23/s7.mp3",
+      "audio_hash": "f7a60f2192d7"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "石",
+          "role": "content",
+          "word_id": "W00124",
+          "r": "いし"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "ほん"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "入れました",
+          "role": "content",
+          "word_id": "W00122",
+          "r": "いれました",
+          "inflection": {
+            "base": "入れる",
+            "base_r": "いれる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I put the stone into my book.",
+      "audio": "audio/story_23/s8.mp3",
+      "audio_hash": "a7ec27b73877"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "葉",
+          "role": "content",
+          "word_id": "W00121",
+          "r": "は"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "N5_mo_also"
+        },
+        {
+          "t": "石",
+          "role": "content",
+          "word_id": "W00124",
+          "r": "いし"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "N5_mo_also"
+        },
+        {
+          "t": "捨てませんでした",
+          "role": "content",
+          "word_id": "W00123",
+          "r": "すてませんでした",
+          "inflection": {
+            "base": "捨てる",
+            "base_r": "すてる",
+            "form": "polite_past_negative",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_masen_deshita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I did not throw away the leaf or the stone.",
+      "audio": "audio/story_23/s9.mp3",
+      "audio_hash": "948d005c3f14"
+    }
+  ],
+  "word_audio": {
+    "W00124": "audio/words/W00124.mp3",
+    "W00125": "audio/words/W00125.mp3",
+    "W00126": "audio/words/W00126.mp3",
+    "W00127": "audio/words/W00127.mp3",
+    "W00128": "audio/words/W00128.mp3"
+  },
+  "word_audio_hash": {
+    "W00124": "2607c779016e",
+    "W00125": "fcba734efee5",
+    "W00126": "f0b5ecd06b9a",
+    "W00127": "2f18e8ff87dd",
+    "W00128": "599114ccbe64"
+  }
+}

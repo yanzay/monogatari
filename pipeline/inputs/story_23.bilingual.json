@@ -1,0 +1,63 @@
+{
+  "story_id": 23,
+  "title": {
+    "jp": "庭の石",
+    "en": "The Stone in the Garden"
+  },
+  "intent": "PREMISE CONTRACT (story 23; v3 — round-trip 2 of 3)\n  one_sentence_event:    On the morning after the leaf came inside, the narrator goes out to the garden, finds and picks up a small warm stone under the tree, carries it home where her mother is waiting, asks her mother whose stone it is, places it in the same book that holds yesterday's leaf when her mother answers that it belongs to no one, and decides she will not throw the stone or the leaf away.\n  change_of_state:       at s0 the narrator is alone in the garden and the stone belongs to the ground; at the closer the stone (and yesterday's leaf) belong to the narrator's book, and the narrator has chosen — out loud, by negation — to keep both. Owner-of-stone has shifted from no one → narrator-as-keeper.\n  scene_novelty_claim:   I am NOT writing a kitchen / room / study story. Scene_class is `garden` — a small backyard with one tree, in early morning. The closer moves indoors, but the discovery scene IS the garden.\n  anchor_novelty_claim:  Anchor is 石 (stone). Not in the last 5 anchors (パン, 手紙, 葉, 電車, 鳥). 石 is a brand-new mint that earns 8 of 10 sentences (s1–s4, s6–s9) and is the object of every causal verb (found → picked up → carried → asked-about → named → placed → kept).\n  closer_shape_claim:    Closer shape: SINGLE-character past-negative on a coordinated noun pair (`私は noun-MO noun-MO V-MASEN-DESHITA`). NOT a 「Nは Adj です」 mirror, NOT a 「N と N は…」 mirror of story 21, NOT a quoted-pact mirror of story 22 (which was `mother-WA noun-WO V-te,「捨てないね」と言いました`). Same anti-discard *theme* as story 22, but the ACT is the narrator's solo past-tense decision, not a two-person verbal pact.\n  why_not_filler:        narrator (goes out s0 → finds s1 → picks up s2 → notes warmth s3 → carries home s4 → speaks to mother s6 → places in book s8 → decides closer); 母 (s5 entrance — already in the house when the narrator returns; s6 addressee; s7 speaker who confirms the stone has no prior owner, releasing the narrator's claim); 石 (anchor every action sentence orbits — found, picked, warm, carried, named, placed, kept); 木 (origin marker, sets the discovery point); 本 (vehicle, and quiet bridge to story 22 — the leaf is still inside it). No grammar-bait friend.\n  obligations_absorbed:  must-introduce N5_dare_who via 「これは誰の石ですか」 in s6 — the natural learner question for an unowned object; the post-pass retag attributes the gid. Must-reinforce N5_ta_form (intro story 22) via 拾った in s3 (plain past attributive: `拾った石は、あたたかかったです`) — the masu-past forms in s0/s2/s4/s6–s9 are tagged N5_mashita, so the plain ta-form must show explicitly. R1-strict obligations all absorbed: 葉 (s9 closer), 入れる (s8), 捨てる (s9). Due-debt 温かい (W00009) lands in s3.\n\n§E.7 v1 verdict: REWRITE-SENTENCE — mother teleported at s6. Fix: added s5 entrance `家には母がいました。` so she is on-stage before being addressed.\n§E.7.5 v1 verdict: REWRITE-SENTENCE — s3 needed comma; s4 had pedagogically-empty manner-te (collapsed `持って、家に行きました` → `家に持って行きました` so 持って is the lexical verb of the take-action, not a stranded gerund); s6 had 母に before the quote (clinical); s7 had `母は石を見て、` stage-direction (clinical). All four fixes applied.\n§E.7 v2 verdict: REWRITE-SENTENCE — s7 mother's answer 「庭の石ですよ」 didn't directly address the 「誰の石ですか」 question, making s6 read as a worksheet prompt with a non-sequitur reply. Fix: s7 → `母は「誰のでもないよ」と答えました。` — mother now directly answers the ownership question (no one's), making the s6→s7 exchange a real micro-dialogue. Mints `ない` as a 5th vocab item (at cap of 5; one slot inside ladder window).\n§E.7.5 v2 verdict: SHIP 10/10.\n\nFORBIDDEN THIS STORY:\n  scene_class    (last 3): kitchen, room, study\n  anchor_object  (last 5): パン, 手紙, 葉, 電車, 鳥\n  closer_shape   (last 3): noun-NO-noun-DESU-TO-noun-GA-noun, noun-TO-noun-WA-noun-WO-noun-noun, noun-WA-noun-WO-noun-noun-P:ね-TO-noun\n  opening_seqs   (last 3): 夕方/母/私, 夕方/私/部屋, もう/朝\n  (Opening here is 次/朝/私 — fully fresh.)",
+  "scene_class": "garden",
+  "anchor_object": "石",
+  "characters": ["narrator", "mother"],
+  "sentences": [
+    {
+      "jp": "次の朝、私は庭に出ました。",
+      "en": "The next morning, I went out into the garden.",
+      "role": "setting"
+    },
+    {
+      "jp": "木の下に小さい石がありました。",
+      "en": "Under the tree there was a small stone.",
+      "role": "action"
+    },
+    {
+      "jp": "私は石を拾いました。",
+      "en": "I picked up the stone.",
+      "role": "action"
+    },
+    {
+      "jp": "拾った石は、あたたかかったです。",
+      "en": "The stone I had picked up was warm.",
+      "role": "reflection"
+    },
+    {
+      "jp": "私は石を家に持って行きました。",
+      "en": "I took the stone home.",
+      "role": "action"
+    },
+    {
+      "jp": "家には母がいました。",
+      "en": "Mother was at home.",
+      "role": "setting"
+    },
+    {
+      "jp": "「これは誰の石ですか」と聞きました。",
+      "en": "\"Whose stone is this?\" I asked.",
+      "role": "dialogue"
+    },
+    {
+      "jp": "母は「誰のでもないよ」と答えました。",
+      "en": "Mother answered, \"It belongs to no one.\"",
+      "role": "dialogue"
+    },
+    {
+      "jp": "私は石を本に入れました。",
+      "en": "I put the stone into my book.",
+      "role": "action"
+    },
+    {
+      "jp": "私は葉も石も捨てませんでした。",
+      "en": "I did not throw away the leaf or the stone.",
+      "role": "closer"
+    }
+  ]
+}
