@@ -411,7 +411,7 @@ def regen_one(
                     # Tag only the verb token as G041; the particle か retains
                     # its N5_ka_question tag (they co-occur legitimately).
                     if (nxt is not None and nxt.get("t") == KA_SURFACE
-                            and (nxt2 is None or nxt2.get("t") in {"。", "？", "!"})):
+                            and (nxt2 is None or nxt2.get("t") in {"。", "？", "!", "」", "』"})):
                         tok["grammar_id"] = "N5_masenka"
                         # do NOT retag か — leave it as N5_ka_question
                     else:

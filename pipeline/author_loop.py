@@ -381,9 +381,38 @@ def _apply_post_pass_attributions(built_story: dict) -> None:
         # at dry-run time, even though the post-ship regen WILL tag them.
         # See AGENTS.md "auto-tagged grammar IDs" section for the broader
         # context. Currently mirrored: N5_ga_but (clause-conjunctive が),
-        # N5_kara_because (clause-final から after a predicate).
+        # N5_kara_because (clause-final から after a predicate),
+        # N5_masenka (ませんか sentence-final invitation).
+        MASENKA_SURFACE = "ませんか"
+        MASEN_SURFACE   = "ません"
+        KA_SURFACE      = "か"
         for j, tok in enumerate(toks):
             t = tok.get("t", "")
+            # N5_masenka — fused single-token 「ませんか」 OR the more common
+            # two-token split 「ません」+「か」 where か is sentence-final.
+            # Mirrors regenerate_all_stories.regen_one Pass C exactly. Author
+            # adds story-31 coverage of N5_masenka — without this mirror the
+            # gauntlet's coverage_floor would not credit it at dry-run time
+            # (the converter does not emit a build-time grammar_id for the
+            # invitation; the post-ship regen WILL stamp it via the same
+            # logic, so this is a pure parity fix, not a behavior change).
+            if t == MASENKA_SURFACE:
+                tok["grammar_id"] = "N5_masenka"
+                continue
+            if (tok.get("role") == "content"
+                    and (t == MASEN_SURFACE or t.endswith(MASEN_SURFACE))):
+                base = (tok.get("inflection") or {}).get("base", "")
+                # Skip the ありません branch — that's N5_ko_arimasen, which
+                # the coverage_floor doesn't depend on for story 31. The
+                # invitation pattern requires a non-ある stem.
+                if t not in {"ありません"} and base not in {"ある", "有る"}:
+                    nxt  = toks[j + 1] if j + 1 < len(toks) else None
+                    nxt2 = toks[j + 2] if j + 2 < len(toks) else None
+                    if (nxt is not None and nxt.get("t") == KA_SURFACE
+                            and (nxt2 is None
+                                 or nxt2.get("t") in {"。", "？", "!", "」", "』"})):
+                        tok["grammar_id"] = "N5_masenka"
+                        continue
             if t == "が" and tok.get("role") == "particle":
                 prev = toks[j - 1] if j > 0 else None
                 nxt  = toks[j + 1] if j + 1 < len(toks) else None

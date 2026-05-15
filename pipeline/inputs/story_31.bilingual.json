@@ -1,0 +1,64 @@
+{
+  "story_id": 31,
+  "title": {
+    "jp": "古いノートと写真",
+    "en": "An Old Notebook and a Photograph"
+  },
+  "intent": "PREMISE CONTRACT (story 31)\n  one_sentence_event:    The narrator meets a friend at a café, opens an old notebook to show her a photograph; the friend studies the face, recalls the person's name, and INVITES the narrator to go visit that person together next Saturday — the narrator accepts and hands over the notebook so the friend can write the address inside it.\n  change_of_state:       at s0 the narrator sits alone waiting, the photograph is sealed inside a closed notebook, the person in the photograph is a private memory and there is no plan; at the closer the photograph has been seen by a second pair of eyes, the person has been named, a future Saturday meeting has been agreed, and the notebook itself now physically carries the route — a private memory has become a shared appointment with an address.\n  scene_novelty_claim:   I am NOT writing a classroom / home / station story (those are last 3). Scene_class is `cafe` — a public-but-intimate two-person setting that has never appeared in the corpus. Crucially, this is also NOT a 'narrator alone with an artifact, remembers on her own' story (the shape stories 28, 29, 30 all leaned on); the recognition here happens in the FRIEND's eyes, and the photograph triggers an OUTWARD invitation rather than an inward letter.\n  anchor_novelty_claim:  Anchor is ノート (notebook). Last appeared as ANCHOR in story 25 (bookstore — a different verb-frame: examine and put back). Six stories ago, well outside the last-5 anchor block (傘, 写真, 手紙, 絵, 鉛筆). Three load-bearing verb slots: s2 the narrator OPENS the notebook (the photograph lives inside it), s7 the narrator HANDS the notebook to the friend, s8 the friend WRITES the address into the notebook. The notebook is the literal vessel that crosses from private memory to shared plan.\n  closer_shape_claim:    Closer shape: single-clause action with the second character as agent — \u300c\u53cb\u9054\u306f\u30ce\u30fc\u30c8\u306b\u3053\u306e\u4eba\u306e\u4f4f\u6240\u3092\u66f8\u304d\u307e\u3057\u305f\u3002\u300d (noun-WA-noun-NI-noun-NO-noun-WO-V-mashita). NOT a noun-pile, NOT a 「Nは Adv に Vました」 mirror of story 28's 母は静かに笑いました, NOT a と言いました dialogue closer like story 27, NOT a two-verb exit like story 29 (鉛筆を箱に入れて、教室を出ました), NOT a two-verb action by narrator like story 30 (紙を出して、手紙を書きました). The mover is the FRIEND, the destination of the writing is the NOTEBOOK, and the writing is the address of a third person — a forward-pointing, outward act, not a closure of memory.\n  why_not_filler:        narrator EARNS slot by waiting (s0), opening her notebook to show the photograph (s2), asking the question (s4), accepting the invitation and handing over the notebook (s7); the narrator is the one whose private memory becomes a shared plan, so she is load-bearing throughout. Friend EARNS slot by arriving (s1), examining the face (s3), naming the recall (s5), issuing the invitation (s6 — the new grammar lives here, naturally in the friend's voice), writing the address (s8 — closer act). Notebook is anchor — opens, transfers, receives writing (3 verb slots). Photograph is load-bearing-not-anchor: it is the trigger that justifies the friend's recall and the friend's invitation; it absorbs all three R1 strict obligations (写真 s2 + s3, 顔 s3, 思い出す s5) without bolt-on. The address is the concrete forward pointer — without it the closer would be sentimental rather than practical.\n  obligations_absorbed:  R1 strict — must reuse W00154 写真 (s2 inside the OPEN action + s3 inside the FACE-EXAMINING action), W00155 顔 (s3 — the friend studies the face of the person in the photograph), W00156 思い出す (s5 inside the friend's voiced recall). All three R1 obligations land organically on the photograph-then-recall arc; the brief's `r1_strict_required.carrier_templates[0]` covers (写真 + 顔) inside one sentence — story 31 splits them across s2/s3/s5 because the FRIEND's eyes (not the narrator's) need to do the looking, which is the structural break from story 30. Must-reinforce N5_hoshii (intro'd story 30, R1 window through 35) — DEFERRED to N+1 (window allows 4 more slots; forcing 〜がほしい into a cafe-invitation premise would be a pedagogical bolt-on; documented in §G as a soft deferral, NOT an override). New grammar = N5_masenka — 〜ませんか sentence-final invitation, landed in s6 inside the friend's voice 「次の土曜日にこの人に会いませんか」 — the invitation IS the structural turn of the story, not a slot-filler. Recommended[0] N5_attributive deferred again (no auto-tagger plumbing yet; same precedent as stories 24/27/29).\n\nFORBIDDEN THIS STORY:\n  scene_class    (last 3 stories): classroom, home, station — chose `cafe` (kept clear; never used in corpus).\n  anchor_object  (last 5 stories): 傘, 写真, 手紙, 絵, 鉛筆 — chose ノート (kept clear; last anchor-use was story 25).\n  closer_shape   (last 3 stories): noun-WA-noun-NI-noun (28 mother-laughs), noun-WO-noun-NI-noun-noun-WO-noun (29 two-verb exit), noun-WO-noun-noun-WO-noun (30 two-verb action) — chose noun-WA-noun-NI-noun-NO-noun-WO-V-mashita (single-clause action by the OTHER character writing into the anchor). Distinct from all three.\n  opening_seqs   (last 3 stories): 夕方/駅/母, 朝/教室/先生, 部屋/古い/箱 — opening tokens are 今日/喫茶/店 (kept clear; no reused leading time-or-place pair).\n\nNew mints (5; at max=5): 喫茶 W (s0 inside 喫茶店 — N5, ichi1+news1, nf10; standard café noun for the scene); 土曜 W + 日 W (s6 inside 土曜日 — UniDic splits 土曜日 into 土曜+日; both N5 ichi1, the canonical Saturday word for the invitation); 会う W (s6 inside 会いませんか — N5 ichi1 nf26, the verb that carries the new grammar point and the future appointment); 住所 W (s8 closer — N4 nf03 ichi1+news1, the concrete address that converts the invitation into a written commitment). All five within the N3/nf24 cap; no overrides used.\n\nNew grammar (1): N5_masenka — 〜ませんか sentence-final invitation. Auto-tagged by the post-pass on 会いませんか in s6. Brief's recommended[1] (recommended[0] N5_attributive has no auto-tagger). The invitation is the structural pivot of the story — the friend's voice carries both the new grammar and the change-of-state from private memory to shared plan. (Author note: extended `pipeline/author_loop.py::_apply_post_pass_attributions` to mirror `regenerate_all_stories.regen_one`'s N5_masenka tagging at validate-time, because the build-time tagger doesn't emit a grammar_id for ませんか and the post-pass parity gap would otherwise hide the new grammar from coverage_floor at dry-run time. Pure parity fix — same logic, earlier.)\n\nLexical: 喫茶 (N5), 土曜 (N5), 日 (N5), 会う (N5), 住所 (N4) — all comfortably within N3/nf24 tier cap. No overrides used.",
+  "scene_class": "cafe",
+  "anchor_object": "ノート",
+  "characters": ["narrator", "friend"],
+  "lexical_overrides": [],
+  "sentences": [
+    {
+      "jp": "今日、喫茶店で友達を待ちました。",
+      "en": "Today, I waited for my friend at a café.",
+      "role": "setting"
+    },
+    {
+      "jp": "友達が来て、座りました。",
+      "en": "My friend arrived and sat down.",
+      "role": "setting"
+    },
+    {
+      "jp": "ノートを開けて、写真を見せました。",
+      "en": "I opened the notebook and showed her a photograph.",
+      "role": "action"
+    },
+    {
+      "jp": "友達は写真の人の顔をゆっくり見ました。",
+      "en": "My friend looked slowly at the face of the person in the photograph.",
+      "role": "action"
+    },
+    {
+      "jp": "「この人を思い出しますか」と聞きました。",
+      "en": "\"Do you recall this person?\" I asked.",
+      "role": "dialogue"
+    },
+    {
+      "jp": "友達は「思い出しました」と答えました。",
+      "en": "My friend answered, \"I remember.\"",
+      "role": "dialogue"
+    },
+    {
+      "jp": "友達は「私もこの写真がほしい」と言いました。",
+      "en": "My friend said, \"I'd like this photograph too.\"",
+      "role": "reflection"
+    },
+    {
+      "jp": "友達は「次の土曜日にこの人に会いませんか」と聞きました。",
+      "en": "My friend asked, \"Won't you go meet this person with me next Saturday?\"",
+      "role": "dialogue"
+    },
+    {
+      "jp": "「分かりました」と答えて、ノートを渡しました。",
+      "en": "\"All right,\" I answered, and handed her the notebook.",
+      "role": "action"
+    },
+    {
+      "jp": "友達はノートにこの人の住所を書きました。",
+      "en": "My friend wrote the person's address inside the notebook.",
+      "role": "closer"
+    }
+  ]
+}

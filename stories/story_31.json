@@ -1,0 +1,842 @@
+{
+  "story_id": 31,
+  "title": {
+    "jp": "古いノートと写真",
+    "en": "An Old Notebook and a Photograph",
+    "tokens": [
+      {
+        "t": "古い",
+        "role": "content",
+        "word_id": "W00137",
+        "r": "ふるい",
+        "grammar_id": "N5_i_adj"
+      },
+      {
+        "t": "ノート",
+        "role": "content",
+        "word_id": "W00099",
+        "r": "のーと"
+      },
+      {
+        "t": "と",
+        "role": "particle",
+        "grammar_id": "N5_to_and"
+      },
+      {
+        "t": "写真",
+        "role": "content",
+        "word_id": "W00154",
+        "r": "しゃしん"
+      }
+    ]
+  },
+  "new_words": [
+    "W00157",
+    "W00158",
+    "W00159",
+    "W00160",
+    "W00161"
+  ],
+  "new_grammar": [
+    "N5_masenka"
+  ],
+  "all_words_used": [
+    "W00137",
+    "W00099",
+    "W00154",
+    "W00070",
+    "W00157",
+    "W00021",
+    "W00033",
+    "W00044",
+    "W00081",
+    "W00051",
+    "W00098",
+    "W00031",
+    "W00046",
+    "W00155",
+    "W00078",
+    "W00016",
+    "W00092",
+    "W00156",
+    "W00065",
+    "W00066",
+    "W00014",
+    "W00135",
+    "W00094",
+    "W00105",
+    "W00158",
+    "W00159",
+    "W00160",
+    "W00142",
+    "W00095",
+    "W00161",
+    "W00037"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "今日",
+          "role": "content",
+          "word_id": "W00070",
+          "r": "きょう"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "喫茶",
+          "role": "content",
+          "word_id": "W00157",
+          "r": "きっさ",
+          "is_new": true
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00021",
+          "r": "みせ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "待ちました",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "まちました",
+          "inflection": {
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Today, I waited for my friend at a café.",
+      "audio": "audio/story_31/s0.mp3",
+      "audio_hash": "76ecb08c5619"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "来て",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きて",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "te",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "座りました",
+          "role": "content",
+          "word_id": "W00051",
+          "r": "すわりました",
+          "inflection": {
+            "base": "座る",
+            "base_r": "すわる",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend arrived and sat down.",
+      "audio": "audio/story_31/s1.mp3",
+      "audio_hash": "afb25c6646bc"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "ノート",
+          "role": "content",
+          "word_id": "W00099",
+          "r": "のーと"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "開けて",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "あけて",
+          "inflection": {
+            "base": "開ける",
+            "base_r": "あける",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "写真",
+          "role": "content",
+          "word_id": "W00154",
+          "r": "しゃしん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "見せました",
+          "role": "content",
+          "word_id": "W00031",
+          "r": "みせました",
+          "inflection": {
+            "base": "見せる",
+            "base_r": "みせる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I opened the notebook and showed her a photograph.",
+      "audio": "audio/story_31/s2.mp3",
+      "audio_hash": "fb575fbbae04"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "写真",
+          "role": "content",
+          "word_id": "W00154",
+          "r": "しゃしん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "顔",
+          "role": "content",
+          "word_id": "W00155",
+          "r": "かお"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "ゆっくり",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "ゆっくり"
+        },
+        {
+          "t": "見ました",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "みました",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend looked slowly at the face of the person in the photograph.",
+      "audio": "audio/story_31/s3.mp3",
+      "audio_hash": "90d9b5b2e02b"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "この",
+          "role": "content",
+          "word_id": "W00092",
+          "r": "この",
+          "grammar_id": "N5_kosoado"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "思い出します",
+          "role": "content",
+          "word_id": "W00156",
+          "r": "おもいだします",
+          "inflection": {
+            "base": "思い出す",
+            "base_r": "おもいだす",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_masu_nonpast"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "N5_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "聞きました",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ききました",
+          "inflection": {
+            "base": "聞く",
+            "base_r": "きく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Do you recall this person?\" I asked.",
+      "audio": "audio/story_31/s4.mp3",
+      "audio_hash": "ef0f230ed8ab"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "思い出しました",
+          "role": "content",
+          "word_id": "W00156",
+          "r": "おもいだしました",
+          "inflection": {
+            "base": "思い出す",
+            "base_r": "おもいだす",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "答えました",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "こたえました",
+          "inflection": {
+            "base": "答える",
+            "base_r": "こたえる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend answered, \"I remember.\"",
+      "audio": "audio/story_31/s5.mp3",
+      "audio_hash": "4d448d3073e0"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "N5_mo_also"
+        },
+        {
+          "t": "この",
+          "role": "content",
+          "word_id": "W00092",
+          "r": "この",
+          "grammar_id": "N5_kosoado"
+        },
+        {
+          "t": "写真",
+          "role": "content",
+          "word_id": "W00154",
+          "r": "しゃしん"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "ほしい",
+          "role": "content",
+          "word_id": "W00135",
+          "r": "ほしい",
+          "grammar_id": "N5_hoshii"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend said, \"I'd like this photograph too.\"",
+      "audio": "audio/story_31/s6.mp3",
+      "audio_hash": "e2efb182da9e"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "次",
+          "role": "content",
+          "word_id": "W00105",
+          "r": "つぎ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "土曜",
+          "role": "content",
+          "word_id": "W00158",
+          "r": "どよう",
+          "is_new": true
+        },
+        {
+          "t": "日",
+          "role": "content",
+          "word_id": "W00159",
+          "r": "ひ",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "この",
+          "role": "content",
+          "word_id": "W00092",
+          "r": "この",
+          "grammar_id": "N5_kosoado"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "会いません",
+          "role": "content",
+          "word_id": "W00160",
+          "r": "あいません",
+          "inflection": {
+            "base": "会う",
+            "base_r": "あう",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_masenka",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "N5_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "聞きました",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ききました",
+          "inflection": {
+            "base": "聞く",
+            "base_r": "きく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend asked, \"Won't you go meet this person with me next Saturday?\"",
+      "audio": "audio/story_31/s7.mp3",
+      "audio_hash": "6ff85af20266"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "分かりました",
+          "role": "content",
+          "word_id": "W00142",
+          "r": "わかりました",
+          "inflection": {
+            "base": "分かる",
+            "base_r": "わかる",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "答えて",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "こたえて",
+          "inflection": {
+            "base": "答える",
+            "base_r": "こたえる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "ノート",
+          "role": "content",
+          "word_id": "W00099",
+          "r": "のーと"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "渡しました",
+          "role": "content",
+          "word_id": "W00095",
+          "r": "わたしました",
+          "inflection": {
+            "base": "渡す",
+            "base_r": "わたす",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"All right,\" I answered, and handed her the notebook.",
+      "audio": "audio/story_31/s8.mp3",
+      "audio_hash": "391e600c20ba"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "ノート",
+          "role": "content",
+          "word_id": "W00099",
+          "r": "のーと"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "この",
+          "role": "content",
+          "word_id": "W00092",
+          "r": "この",
+          "grammar_id": "N5_kosoado"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "住所",
+          "role": "content",
+          "word_id": "W00161",
+          "r": "じゅうしょ",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "書きました",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "かきました",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend wrote the person's address inside the notebook.",
+      "audio": "audio/story_31/s9.mp3",
+      "audio_hash": "06aed207e4b3"
+    }
+  ],
+  "word_audio": {
+    "W00157": "audio/words/W00157.mp3",
+    "W00158": "audio/words/W00158.mp3",
+    "W00159": "audio/words/W00159.mp3",
+    "W00160": "audio/words/W00160.mp3",
+    "W00161": "audio/words/W00161.mp3"
+  },
+  "word_audio_hash": {
+    "W00157": "e50ecb0b04e3",
+    "W00158": "1a7ff6584527",
+    "W00159": "ac2c2fe2a77e",
+    "W00160": "edbfc19a61aa",
+    "W00161": "71603f6852a5"
+  }
+}
