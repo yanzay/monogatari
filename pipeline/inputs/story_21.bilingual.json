@@ -1,0 +1,58 @@
+{
+  "story_id": 21,
+  "title": {
+    "jp": "手紙はどこ",
+    "en": "Where Is the Letter"
+  },
+  "intent": "PREMISE CONTRACT (story 21)\n  one_sentence_event:    The narrator searches her room for a missing letter, almost gives up, and finds it under a chair after her mother explains the open window.\n  change_of_state:       at s0 the letter is missing and the narrator is alone, resigned; at closer the letter is recovered and she and her mother are laughing together. Possession of the object is restored; the narrator's mood flips from defeat to relief.\n  scene_novelty_claim:   I am NOT writing a kitchen / park / station story. Scene_class is `room` (a private bedroom interior).\n  anchor_novelty_claim:  Anchor is 手紙. Not in the last 5 anchors (ノート, 靴, 電車, パン, 鳥).\n  closer_shape_claim:    Closer shape: shared-action — `noun-TO-noun-WA-noun-WO-V-te, V-mashita`. NOT a noun-pile, NOT a quoted-line closer (stories 19, 20), NOT a movement-from-place closer (story 18).\n  why_not_filler:        narrator (searches → almost gives up → finds); mother (entrance forces the causal explanation that reinforces N5_kara_because and points to the chair); letter (the missing object every sentence orbits — WHY of the search, WHAT of the closer); 椅子 (the hiding place — a known palette word reused as the reveal); off-stage 黒い鳥 (R1 scene-grounding from story 20: it perched on the garden tree and called, plausibly drawing the narrator's earlier gaze to the window — which she opened, which is why mother's KARA explanation works).\n  obligations_absorbed:  must-introduce N5_nai_form via plain-form quoted speech 「もう探さない」 in the inflection slot (s3) — the narrator's almost-give-up beat, not bolted on. Must-reinforce N5_kara_because via mother's explanatory line in s5 「窓が開いていたから、手紙が落ちましたよ」 — the because-clause IS the resolution, so it earns its slot. R1-strict obligations (W00115 庭, W00113 止まる, W00114 鳴く, W00112 黒い from story 20) absorbed by s2: 「庭の木に黒い鳥が止まって、鳴いていました。」 — a single off-stage scene-grounding line that motivates the open window.\n\nFORBIDDEN THIS STORY:\n  scene_class    (last 3): kitchen, park, station\n  anchor_object  (last 5): ノート, パン, 電車, 靴, 鳥\n  closer_shape   (last 3): noun-GA-noun-NI-noun-KARA-noun, noun-NO-noun-DESU-TO-noun-GA-noun, noun-WA-noun-WO-noun-noun-WA-noun-E-noun-P:か-TO-noun\n  opening_seqs   (last 3): 次/朝/玄関, 次/駅/二人, 夕方/母/私\n  (Opening here uses 夕方/部屋/手紙 — 夕方 overlaps with story 20's first content token but the next two tokens differ; not an override.)",
+  "scene_class": "room",
+  "anchor_object": "手紙",
+  "characters": ["narrator", "mother"],
+  "sentences": [
+    {
+      "jp": "夕方、私は部屋で手紙を探しました。",
+      "en": "In the evening, I searched my room for a letter.",
+      "role": "setting"
+    },
+    {
+      "jp": "机に手紙がありませんでした。",
+      "en": "There was no letter on the desk.",
+      "role": "setting"
+    },
+    {
+      "jp": "窓の外で、黒い鳥が庭の木に止まって、鳴いていました。",
+      "en": "Outside the window, a black bird was perched in a garden tree, singing.",
+      "role": "setting"
+    },
+    {
+      "jp": "「もう探さない」と、小さい声で言いました。",
+      "en": "\"I won't look anymore,\" I said in a small voice.",
+      "role": "inflection"
+    },
+    {
+      "jp": "母が部屋に入って来ました。",
+      "en": "My mother came into the room.",
+      "role": "action"
+    },
+    {
+      "jp": "母は「窓が開いていたから、手紙が落ちましたよ」と言いました。",
+      "en": "Mother said, \"Because the window was open, the letter must have fallen.\"",
+      "role": "dialogue"
+    },
+    {
+      "jp": "私は椅子の下を見ました。",
+      "en": "I looked under the chair.",
+      "role": "action"
+    },
+    {
+      "jp": "椅子の下に手紙がありました。",
+      "en": "The letter was under the chair.",
+      "role": "action"
+    },
+    {
+      "jp": "母と私は手紙を見て、笑いました。",
+      "en": "My mother and I looked at the letter and laughed.",
+      "role": "closer"
+    }
+  ]
+}

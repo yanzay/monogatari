@@ -719,9 +719,31 @@ def rank_uncovered(
         for prereq in entry.get("prerequisites") or []:
             dependents.setdefault(prereq, []).append(entry["id"])
 
-    # Determine target story's tier (used for earlier-tier bonus).
+    # Determine target story's tier (used for earlier-tier bonus + the
+    # tier-ceiling filter below).
     target_jlpt = active_jlpt(target_story) if target_story is not None else None
     target_tier = JLPT_TO_TIER.get(target_jlpt, 99) if target_jlpt else 99
+
+    # Tier ceiling: Check 3.9 forbids a story from advancing past the
+    # lowest tier with uncovered points, so a recommendation that the
+    # validator would reject is misleading. Find the LOWEST tier with
+    # any remaining uncovered point ≤ target_tier — that's the highest
+    # tier from which an entry can legally be picked. Entries from
+    # higher tiers are filtered out (they can't ship until the ceiling
+    # tier is fully covered). Without this guard the brief surfaces N4
+    # paradigm anchors while N5 is still uncovered, only for the
+    # validator to hard-block the ship downstream. (Story 21 trap.)
+    ceiling_tier = target_tier
+    if target_tier < 99:
+        for tier, _, _, jlpt in TIER_WINDOWS:
+            if tier > target_tier:
+                continue
+            remaining = (
+                cov.get("by_jlpt", {}).get(jlpt, {}).get("remaining", 0)
+            )
+            if remaining > 0:
+                ceiling_tier = tier
+                break
 
     ranked: list[dict] = []
     for entry in catalog.get("entries", []):
@@ -732,14 +754,17 @@ def rank_uncovered(
         if not all(p in covered_cids for p in prereqs):
             continue  # not prereq-ready
 
+        entry_jlpt = entry.get("jlpt")
+        entry_tier = JLPT_TO_TIER.get(entry_jlpt, 99) if entry_jlpt else 99
+        if target_tier < 99 and entry_tier > ceiling_tier:
+            continue  # would be hard-blocked by Check 3.9 — do not surface
+
         unlocks = sorted(dependents.get(cid, []))
         direct_unlocks = len(unlocks)
 
         is_paradigm = cid in PARADIGM_ANCHORS
         paradigm_pts = PARADIGM_BONUS_POINTS if is_paradigm else 0
 
-        entry_jlpt = entry.get("jlpt")
-        entry_tier = JLPT_TO_TIER.get(entry_jlpt, 99) if entry_jlpt else 99
         is_earlier_tier = (target_tier < 99 and entry_tier < target_tier)
         earlier_pts = EARLIER_TIER_BONUS if is_earlier_tier else 0
 

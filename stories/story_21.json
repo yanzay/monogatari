@@ -1,0 +1,763 @@
+{
+  "story_id": 21,
+  "title": {
+    "jp": "手紙はどこ",
+    "en": "Where Is the Letter",
+    "tokens": [
+      {
+        "t": "手紙",
+        "role": "content",
+        "word_id": "W00089",
+        "r": "てがみ"
+      },
+      {
+        "t": "は",
+        "role": "particle",
+        "grammar_id": "N5_wa_topic"
+      },
+      {
+        "t": "どこ",
+        "role": "content",
+        "word_id": "W00110",
+        "r": "どこ"
+      }
+    ]
+  },
+  "new_words": [
+    "W00116",
+    "W00117",
+    "W00118",
+    "W00119",
+    "W00120"
+  ],
+  "new_grammar": [
+    "N5_nai_form"
+  ],
+  "all_words_used": [
+    "W00089",
+    "W00110",
+    "W00074",
+    "W00014",
+    "W00096",
+    "W00116",
+    "W00117",
+    "W00011",
+    "W00007",
+    "W00103",
+    "W00112",
+    "W00108",
+    "W00115",
+    "W00118",
+    "W00113",
+    "W00114",
+    "W00119",
+    "W00012",
+    "W00069",
+    "W00094",
+    "W00005",
+    "W00097",
+    "W00081",
+    "W00111",
+    "W00120",
+    "W00048",
+    "W00049",
+    "W00016",
+    "W00091"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "夕方",
+          "role": "content",
+          "word_id": "W00074",
+          "r": "ゆうがた"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "部屋",
+          "role": "content",
+          "word_id": "W00096",
+          "r": "へや"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "探しました",
+          "role": "content",
+          "word_id": "W00116",
+          "r": "さがしました",
+          "inflection": {
+            "base": "探す",
+            "base_r": "さがす",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the evening, I searched my room for a letter.",
+      "audio": "audio/story_21/s0.mp3",
+      "audio_hash": "1532427d55ad"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "机",
+          "role": "content",
+          "word_id": "W00117",
+          "r": "つくえ",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "ありませんでした",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "ありませんでした",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_past_negative",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_masen_deshita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There was no letter on the desk.",
+      "audio": "audio/story_21/s1.mp3",
+      "audio_hash": "0c6be648034f"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "窓",
+          "role": "content",
+          "word_id": "W00007",
+          "r": "まど"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "外",
+          "role": "content",
+          "word_id": "W00103",
+          "r": "そと"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "黒い",
+          "role": "content",
+          "word_id": "W00112",
+          "r": "くろい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "鳥",
+          "role": "content",
+          "word_id": "W00108",
+          "r": "とり"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "庭",
+          "role": "content",
+          "word_id": "W00115",
+          "r": "にわ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "木",
+          "role": "content",
+          "word_id": "W00118",
+          "r": "き",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "止まって",
+          "role": "content",
+          "word_id": "W00113",
+          "r": "とまって",
+          "inflection": {
+            "base": "止まる",
+            "base_r": "とまる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "鳴いて",
+          "role": "content",
+          "word_id": "W00114",
+          "r": "ないて",
+          "inflection": {
+            "base": "鳴く",
+            "base_r": "なく",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "いました",
+          "role": "aux",
+          "grammar_id": "N5_te_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Outside the window, a black bird was perched in a garden tree, singing.",
+      "audio": "audio/story_21/s2.mp3",
+      "audio_hash": "b600bb60f5b2"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "もう",
+          "role": "content",
+          "word_id": "W00119",
+          "r": "もう",
+          "is_new": true
+        },
+        {
+          "t": "探さない",
+          "role": "content",
+          "word_id": "W00116",
+          "r": "さがさない",
+          "inflection": {
+            "base": "探す",
+            "base_r": "さがす",
+            "form": "negative",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_nai_form",
+          "is_new_grammar": true
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "ちいさい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "声",
+          "role": "content",
+          "word_id": "W00069",
+          "r": "こえ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"I won't look anymore,\" I said in a small voice.",
+      "audio": "audio/story_21/s3.mp3",
+      "audio_hash": "30ee4728c1a6"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "部屋",
+          "role": "content",
+          "word_id": "W00096",
+          "r": "へや"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "入って",
+          "role": "content",
+          "word_id": "W00097",
+          "r": "はいって",
+          "inflection": {
+            "base": "入る",
+            "base_r": "はいる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "来ました",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きました",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_past",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My mother came into the room.",
+      "audio": "audio/story_21/s4.mp3",
+      "audio_hash": "82cd16906066"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "窓",
+          "role": "content",
+          "word_id": "W00007",
+          "r": "まど"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "開いて",
+          "role": "content",
+          "word_id": "W00111",
+          "r": "ひらいて",
+          "inflection": {
+            "base": "開く",
+            "base_r": "ひらく",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "いた",
+          "role": "aux",
+          "grammar_id": "N5_te_iru"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "N5_kara_because"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "落ちました",
+          "role": "content",
+          "word_id": "W00120",
+          "r": "おちました",
+          "inflection": {
+            "base": "落ちる",
+            "base_r": "おちる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita",
+          "is_new": true
+        },
+        {
+          "t": "よ",
+          "role": "particle",
+          "grammar_id": "N5_yo_emphasis"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Mother said, \"Because the window was open, the letter must have fallen.\"",
+      "audio": "audio/story_21/s5.mp3",
+      "audio_hash": "13ba48471389"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "椅子",
+          "role": "content",
+          "word_id": "W00048",
+          "r": "いす"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "下",
+          "role": "content",
+          "word_id": "W00049",
+          "r": "した"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "見ました",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "みました",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I looked under the chair.",
+      "audio": "audio/story_21/s6.mp3",
+      "audio_hash": "321d54348886"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "椅子",
+          "role": "content",
+          "word_id": "W00048",
+          "r": "いす"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "下",
+          "role": "content",
+          "word_id": "W00049",
+          "r": "した"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "ありました",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "ありました",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The letter was under the chair.",
+      "audio": "audio/story_21/s7.mp3",
+      "audio_hash": "d9cf6fa75c6a"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "見て",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "みて",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "笑いました",
+          "role": "content",
+          "word_id": "W00091",
+          "r": "わらいました",
+          "inflection": {
+            "base": "笑う",
+            "base_r": "わらう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My mother and I looked at the letter and laughed.",
+      "audio": "audio/story_21/s8.mp3",
+      "audio_hash": "a20f0d1c37fb"
+    }
+  ],
+  "word_audio": {
+    "W00116": "audio/words/W00116.mp3",
+    "W00117": "audio/words/W00117.mp3",
+    "W00118": "audio/words/W00118.mp3",
+    "W00119": "audio/words/W00119.mp3",
+    "W00120": "audio/words/W00120.mp3"
+  },
+  "word_audio_hash": {
+    "W00116": "c9dcb8880dd7",
+    "W00117": "12291c63390d",
+    "W00118": "614459aa7586",
+    "W00119": "325983163ae7",
+    "W00120": "7019ae631d47"
+  }
+}

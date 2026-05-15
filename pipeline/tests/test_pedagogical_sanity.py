@@ -761,3 +761,62 @@ def test_step_validate_pulls_post_pass_retag_forward(root):
     )
 
 
+
+
+# ── Regression: rank_uncovered MUST NOT surface higher-tier picks while
+# the current tier still has uncovered points ──────────────────────────
+#
+# Story 21 trap (2026-05-15): the brief recommended N4_passive and
+# N4_potential as the top picks while N5 still had 13 uncovered points.
+# Picking either would have hard-blocked at Check 3.9 (tier-coverage
+# gate) downstream. The fix: rank_uncovered now filters out entries
+# whose tier exceeds the LOWEST tier ≤ target_tier with any remaining
+# uncovered point. This test pins that contract.
+
+def test_rank_uncovered_respects_tier_ceiling() -> None:
+    """While the current tier still has uncovered points, the recommender
+    MUST NOT surface higher-tier entries — Check 3.9 would hard-block any
+    such pick at validate-time. This test pins the contract using the
+    LIVE corpus state at the time it was added (story 21, 13 N5 points
+    still uncovered): no N4 (or higher) entry may appear in the ranking.
+    """
+    import sys, pathlib
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+    from grammar_progression import (
+        rank_uncovered,
+        coverage_status,
+        active_jlpt,
+        JLPT_TO_TIER,
+    )
+
+    # Find a target story whose tier still has uncovered points (any
+    # post-bootstrap story while N5 has remaining will do; we pick the
+    # next-to-author slot dynamically so the test stays valid as the
+    # corpus grows).
+    cov = coverage_status()
+    n5_remaining = cov["by_jlpt"].get("N5", {}).get("remaining", 0)
+
+    # Pick a target story in the current N5 window. 11 is the first
+    # post-bootstrap story; story 21 is the slot that surfaced the bug.
+    for target in (11, 21, 25):
+        if active_jlpt(target) == "N5":
+            break
+    else:  # pragma: no cover — only fires if we ever leave N5
+        import pytest
+        pytest.skip("corpus has advanced past N5; rewrite this test for new tier")
+
+    ranked = rank_uncovered(target_story=target)
+    if n5_remaining == 0:
+        # Tier already complete — N4 entries are legitimately surfaceable.
+        # The ceiling guard is a no-op in this state, so nothing to assert.
+        return
+
+    target_tier = JLPT_TO_TIER[active_jlpt(target)]
+    bad = [r["id"] for r in ranked
+           if JLPT_TO_TIER.get(r.get("jlpt"), 99) > target_tier]
+    assert not bad, (
+        f"While N5 has {n5_remaining} uncovered points, the recommender "
+        f"surfaced higher-tier entries that Check 3.9 would block: {bad}. "
+        "rank_uncovered must filter entries above the lowest tier "
+        "(≤ target_tier) with any remaining uncovered point."
+    )

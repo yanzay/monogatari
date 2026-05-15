@@ -225,6 +225,21 @@ def step_validate(built_story: dict, build_report: dict | None = None) -> StepRe
                 "new_words": minted_word_ids,
                 "new_grammar": minted_grammar,
             }
+            # Populate `max_sentences` from the progression curve so that
+            # Check 7's secondary "exceeds plan max" guard agrees with
+            # the curve. Without this the gauntlet falls back to the
+            # historic absolute SENTENCE_MAX=8 and rejects post-bootstrap
+            # stories whose progression band legitimately allows more.
+            # (Story 21 hit this: 9-sentence story is inside [3, 13] per
+            # progression but rejected as "exceeds plan max 8".)
+            try:
+                from progression import sentence_band as _sent_band  # noqa: E402
+                sid = built_story.get("story_id")
+                if isinstance(sid, int) and sid > 0:
+                    _, _smax = _sent_band(sid)
+                    plan["max_sentences"] = _smax
+            except Exception:  # pragma: no cover — defensive
+                pass
             # Check 4 compares story["new_words"] against plan["new_words"] AND
             # requires is_new: true on first-occurrence tokens. Both are normally
             # stamped by regenerate_all_stories *after* shipping. Pre-populate
