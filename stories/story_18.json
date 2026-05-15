@@ -1,0 +1,509 @@
+{
+  "story_id": 18,
+  "title": {
+    "jp": "電車の朝",
+    "en": "Morning Train",
+    "tokens": [
+      {
+        "t": "電車",
+        "role": "content",
+        "word_id": "W00043",
+        "r": "でんしゃ"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "N5_no_pos"
+      },
+      {
+        "t": "朝",
+        "role": "content",
+        "word_id": "W00002",
+        "r": "あさ"
+      }
+    ]
+  },
+  "new_words": [
+    "W00105",
+    "W00106",
+    "W00107"
+  ],
+  "new_grammar": [
+    "N5_counters"
+  ],
+  "all_words_used": [
+    "W00043",
+    "W00002",
+    "W00105",
+    "W00102",
+    "W00058",
+    "W00104",
+    "W00103",
+    "W00020",
+    "W00041",
+    "W00015",
+    "W00033",
+    "W00014",
+    "W00044",
+    "W00106",
+    "W00107",
+    "W00094",
+    "W00081",
+    "W00090"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "次",
+          "role": "content",
+          "word_id": "W00105",
+          "r": "つぎ",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あさ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "玄関",
+          "role": "content",
+          "word_id": "W00102",
+          "r": "げんかん"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "靴",
+          "role": "content",
+          "word_id": "W00058",
+          "r": "くつ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "履いて",
+          "role": "content",
+          "word_id": "W00104",
+          "r": "はいて",
+          "inflection": {
+            "base": "履く",
+            "base_r": "はく",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "外",
+          "role": "content",
+          "word_id": "W00103",
+          "r": "そと"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "N5_e_direction"
+        },
+        {
+          "t": "出ました",
+          "role": "content",
+          "word_id": "W00020",
+          "r": "でました",
+          "inflection": {
+            "base": "出る",
+            "base_r": "でる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The next morning, I put on my shoes at the entryway and stepped outside.",
+      "audio": "audio/story_18/s0.mp3",
+      "audio_hash": "d916e85d36db"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "駅",
+          "role": "content",
+          "word_id": "W00041",
+          "r": "えき"
+        },
+        {
+          "t": "まで",
+          "role": "particle",
+          "grammar_id": "N5_made_until"
+        },
+        {
+          "t": "歩きました",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あるきました",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I walked all the way to the station.",
+      "audio": "audio/story_18/s1.mp3",
+      "audio_hash": "b13240c4ab21"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "駅",
+          "role": "content",
+          "word_id": "W00041",
+          "r": "えき"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "待って",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "まって",
+          "inflection": {
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "いました",
+          "role": "aux",
+          "grammar_id": "N5_te_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "At the station, my friend was waiting for me.",
+      "audio": "audio/story_18/s2.mp3",
+      "audio_hash": "35570ea7591c"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "二人",
+          "role": "content",
+          "word_id": "W00106",
+          "r": "ふたり",
+          "grammar_id": "N5_counters",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "電車",
+          "role": "content",
+          "word_id": "W00043",
+          "r": "でんしゃ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "待ちました",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "まちました",
+          "inflection": {
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The two of us waited for the train.",
+      "audio": "audio/story_18/s3.mp3",
+      "audio_hash": "3b9712a3678a"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "電車",
+          "role": "content",
+          "word_id": "W00043",
+          "r": "でんしゃ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "乗りましょう",
+          "role": "content",
+          "word_id": "W00107",
+          "r": "のりましょう",
+          "inflection": {
+            "base": "乗る",
+            "base_r": "のる",
+            "form": "volitional_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_masho",
+          "is_new": true
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend said, \"Let's get on the train.\"",
+      "audio": "audio/story_18/s4.mp3",
+      "audio_hash": "3b233b410507"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "電車",
+          "role": "content",
+          "word_id": "W00043",
+          "r": "でんしゃ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "来て",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きて",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "te",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "二人",
+          "role": "content",
+          "word_id": "W00106",
+          "r": "ふたり",
+          "grammar_id": "N5_counters"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "乗りました",
+          "role": "content",
+          "word_id": "W00107",
+          "r": "のりました",
+          "inflection": {
+            "base": "乗る",
+            "base_r": "のる",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The train came, and the two of us boarded.",
+      "audio": "audio/story_18/s5.mp3",
+      "audio_hash": "ca9e2458f27d"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "電車",
+          "role": "content",
+          "word_id": "W00043",
+          "r": "でんしゃ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00090",
+          "r": "しずか"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "駅",
+          "role": "content",
+          "word_id": "W00041",
+          "r": "えき"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "N5_kara_from"
+        },
+        {
+          "t": "出ました",
+          "role": "content",
+          "word_id": "W00020",
+          "r": "でました",
+          "inflection": {
+            "base": "出る",
+            "base_r": "でる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The train quietly pulled out of the station.",
+      "audio": "audio/story_18/s6.mp3",
+      "audio_hash": "367262c82daa"
+    }
+  ],
+  "word_audio": {
+    "W00105": "audio/words/W00105.mp3",
+    "W00106": "audio/words/W00106.mp3",
+    "W00107": "audio/words/W00107.mp3"
+  },
+  "word_audio_hash": {
+    "W00105": "21b1f8343f2e",
+    "W00106": "b36f468b1752",
+    "W00107": "80f9e193b92d"
+  }
+}
