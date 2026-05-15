@@ -1,0 +1,54 @@
+{
+  "story_id": 26,
+  "title": {
+    "jp": "古い絵",
+    "en": "The Old Picture"
+  },
+  "intent": "PREMISE CONTRACT (story 26)\n  one_sentence_event:    A friend visits the narrator, asks when the narrator painted an old red picture on the shelf, says she wants it despite its faded color, and the narrator gives it to her — leaving the shelf empty.\n  change_of_state:       at s0 the picture sits on the narrator's shelf, made by the narrator long ago; at the closer the picture is gone, transferred to the friend, and the shelf is empty.\n  scene_novelty_claim:   I am NOT writing a bookstore/garden/kitchen story; this is the narrator's own home receiving a visitor — and the giving direction is INVERTED from story 25 (narrator gives, doesn't receive).\n  anchor_novelty_claim:  Anchor is 絵 (picture). Did not appear as anchor in stories 21-25 (those were 手紙, 葉, 石, 本, ノート). This is the narrator's own picture — origin is interior, not bought / not found.\n  closer_shape_claim:    Closer shape: empty-shelf sensory absence ('棚に絵はもうありません') with もう + ありません. NOT a noun-pile, NOT a placement-on-surface, NOT mirroring stories 23-25 closer shapes (none used absence + もう).\n  why_not_filler:        narrator = the maker who must answer when AND must decide to give; friend = the visitor whose desire triggers the gift. The picture causes the question, the answer, the desire (motivated by the faded color), and the gift. Color observation is no longer a bolt-on — it is the friend's reason for wanting an old, faded picture, joined by でも.\n  obligations_absorbed:  R1 must-reinforce W00133 棚 (s1 + closer), W00134 赤い (s1), W00135 ほしい (s4 inside でも-clause), W00136 絵 (s1, s2, s5, s6, closer); reinforce N5_i_adj_neg in s4 ('明るくない') as the friend's reason; introduce N5_itsu_when in s2 ('いつ書きましたか'). All organic — the color is causally tied to the desire via でも.\n\nFORBIDDEN THIS STORY:\n  scene_class    (last 3 stories): bookstore, garden, kitchen\n  anchor_object  (last 5 stories): ノート, 手紙, 本, 石, 葉\n  closer_shape   (last 3 stories): noun-TO-noun-NI-noun-WO-noun, noun-WA-noun-MO-noun-MO-noun, noun-WA-noun-WO-noun-noun-NO-noun-NI-noun\n  opening_seqs   (last 3 stories' first 3 content tokens):\n    - 次 / 朝 / 私\n    - 夕方 / 台所 / 本\n    - 弟 / 本屋 / 行きました\n\nDifferentiation from story 25: opener is 'friend comes to my house' (visitor arrives) vs story 25's 'I went to the bookstore' (narrator travels); transfer direction is narrator→friend (gift) vs story 25's store→brother (purchase + draw); closer is empty-shelf absence (もう…ありません) vs story 25's placement-on-desk.\n\n§E.7.5 round-2 fixes: dropped これは from s2 question (dangling-quote — friend was already pointing at the picture by 見て); collapsed prior s4 (color reflection) + s5 (desire) into ONE sentence with でも so the color motivates the desire rather than reading as a bolt-on; added s5 narrator's '笑って、いいですよ' assent beat so the gift is a CHOICE, not an automatic transfer.\n\nNew mints (5): 古い W (s1); いつ W (s2); 頃 W (s3, N3 — within tier cap; native collocation for 'childhood era'); 色 W (s4); いい W (s5).\n\n§E.7.5 round-3 fixes: 'small time' (小さい時) → 'small era' (小さい頃) — native collocation for retrospective age reference. Quoted desire 'ほしい' → 'ほしいです' — register consistency with friend's polite frame in same utterance.\nNew grammar (1): N5_itsu_when (post-pass attribution from いつ in s2).\n\nLexical: 古い/いつ/色/いい are N5-common; 頃 is N3 (well within tier cap of N3/nf24). No overrides used.",
+  "scene_class": "narrator_home",
+  "anchor_object": "絵",
+  "characters": ["narrator", "friend"],
+  "lexical_overrides": [],
+  "sentences": [
+    {
+      "jp": "友達が家に来ました。",
+      "en": "My friend came over to my house.",
+      "role": "setting"
+    },
+    {
+      "jp": "棚に古い赤い絵がありました。",
+      "en": "On the shelf there was an old red picture.",
+      "role": "setting"
+    },
+    {
+      "jp": "友達は絵を見て、「いつ書きましたか」と聞きました。",
+      "en": "My friend looked at the picture and asked, \"When did you paint it?\"",
+      "role": "dialogue"
+    },
+    {
+      "jp": "「小さい頃に書きました」と答えました。",
+      "en": "\"I painted it when I was small,\" I answered.",
+      "role": "dialogue"
+    },
+    {
+      "jp": "友達は「色は明るくないですね。でも、ほしいです」と言いました。",
+      "en": "My friend said, \"Its color isn't bright, is it. But I want it.\"",
+      "role": "action"
+    },
+    {
+      "jp": "笑って、「いいですよ」と言いました。",
+      "en": "I smiled and said, \"It's all right.\"",
+      "role": "dialogue"
+    },
+    {
+      "jp": "私は絵を取って、友達にあげました。",
+      "en": "I took the picture and gave it to my friend.",
+      "role": "action"
+    },
+    {
+      "jp": "棚に絵はもうありません。",
+      "en": "The picture is no longer on the shelf.",
+      "role": "closer"
+    }
+  ]
+}

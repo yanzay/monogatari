@@ -1,0 +1,667 @@
+{
+  "story_id": 26,
+  "title": {
+    "jp": "古い絵",
+    "en": "The Old Picture",
+    "tokens": [
+      {
+        "t": "古い",
+        "role": "content",
+        "word_id": "W00137",
+        "r": "ふるい",
+        "grammar_id": "N5_i_adj"
+      },
+      {
+        "t": "絵",
+        "role": "content",
+        "word_id": "W00136",
+        "r": "え"
+      }
+    ]
+  },
+  "new_words": [
+    "W00137",
+    "W00138",
+    "W00139",
+    "W00140",
+    "W00141"
+  ],
+  "new_grammar": [
+    "N5_itsu_when"
+  ],
+  "all_words_used": [
+    "W00137",
+    "W00136",
+    "W00033",
+    "W00003",
+    "W00081",
+    "W00133",
+    "W00134",
+    "W00011",
+    "W00016",
+    "W00138",
+    "W00037",
+    "W00065",
+    "W00012",
+    "W00139",
+    "W00066",
+    "W00140",
+    "W00001",
+    "W00073",
+    "W00135",
+    "W00094",
+    "W00091",
+    "W00141",
+    "W00014",
+    "W00047",
+    "W00083",
+    "W00119"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "いえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "来ました",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きました",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_past",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend came over to my house.",
+      "audio": "audio/story_26/s0.mp3",
+      "audio_hash": "178e5f200c47"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "棚",
+          "role": "content",
+          "word_id": "W00133",
+          "r": "たな"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "ふるい",
+          "grammar_id": "N5_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "赤い",
+          "role": "content",
+          "word_id": "W00134",
+          "r": "あかい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "絵",
+          "role": "content",
+          "word_id": "W00136",
+          "r": "え"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "ありました",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "ありました",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "On the shelf there was an old red picture.",
+      "audio": "audio/story_26/s1.mp3",
+      "audio_hash": "b1dcc57568bb"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "絵",
+          "role": "content",
+          "word_id": "W00136",
+          "r": "え"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "見て",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "みて",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "いつ",
+          "role": "content",
+          "word_id": "W00138",
+          "r": "なんじ",
+          "grammar_id": "N5_itsu_when",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "書きました",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "かきました",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "N5_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "聞きました",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ききました",
+          "inflection": {
+            "base": "聞く",
+            "base_r": "きく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend looked at the picture and asked, \"When did you paint it?\"",
+      "audio": "audio/story_26/s2.mp3",
+      "audio_hash": "a0db30c6799d"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "ちいさい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "頃",
+          "role": "content",
+          "word_id": "W00139",
+          "r": "ころ",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "書きました",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "かきました",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "答えました",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "こたえました",
+          "inflection": {
+            "base": "答える",
+            "base_r": "こたえる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"I painted it when I was small,\" I answered.",
+      "audio": "audio/story_26/s3.mp3",
+      "audio_hash": "a3fc45873f4c"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "色",
+          "role": "content",
+          "word_id": "W00140",
+          "r": "いろ",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "明るくない",
+          "role": "content",
+          "word_id": "W00001",
+          "r": "あかるくない",
+          "inflection": {
+            "form": "i_adj_negative"
+          },
+          "grammar_id": "N5_i_adj_neg"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "ね",
+          "role": "particle",
+          "grammar_id": "N5_ne_confirm"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "でも",
+          "role": "particle",
+          "grammar_id": "N5_demo",
+          "word_id": "W00073"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "ほしい",
+          "role": "content",
+          "word_id": "W00135",
+          "r": "ほしい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend said, \"Its color isn't bright, is it. But I want it.\"",
+      "audio": "audio/story_26/s4.mp3",
+      "audio_hash": "a1366bdbc060"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "笑って",
+          "role": "content",
+          "word_id": "W00091",
+          "r": "わらって",
+          "inflection": {
+            "base": "笑う",
+            "base_r": "わらう",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "いい",
+          "role": "content",
+          "word_id": "W00141",
+          "r": "よい",
+          "grammar_id": "N5_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "よ",
+          "role": "particle",
+          "grammar_id": "N5_yo_emphasis"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I smiled and said, \"It's all right.\"",
+      "audio": "audio/story_26/s5.mp3",
+      "audio_hash": "3d3903d0667b"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "絵",
+          "role": "content",
+          "word_id": "W00136",
+          "r": "え"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "取って",
+          "role": "content",
+          "word_id": "W00047",
+          "r": "とって",
+          "inflection": {
+            "base": "取る",
+            "base_r": "とる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "あげました",
+          "role": "content",
+          "word_id": "W00083",
+          "r": "あげました",
+          "inflection": {
+            "base": "上げる",
+            "base_r": "あげる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I took the picture and gave it to my friend.",
+      "audio": "audio/story_26/s6.mp3",
+      "audio_hash": "14635fe979f3"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "棚",
+          "role": "content",
+          "word_id": "W00133",
+          "r": "たな"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "絵",
+          "role": "content",
+          "word_id": "W00136",
+          "r": "え"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "もう",
+          "role": "content",
+          "word_id": "W00119",
+          "r": "もう"
+        },
+        {
+          "t": "ありません",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "ありません",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_ko_arimasen"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The picture is no longer on the shelf.",
+      "audio": "audio/story_26/s7.mp3",
+      "audio_hash": "f40ee5f01d95"
+    }
+  ],
+  "word_audio": {
+    "W00137": "audio/words/W00137.mp3",
+    "W00138": "audio/words/W00138.mp3",
+    "W00139": "audio/words/W00139.mp3",
+    "W00140": "audio/words/W00140.mp3",
+    "W00141": "audio/words/W00141.mp3"
+  },
+  "word_audio_hash": {
+    "W00137": "c4a3e740d89a",
+    "W00138": "5b14a15891a3",
+    "W00139": "a2c9771751e3",
+    "W00140": "33439ddb0f66",
+    "W00141": "cd2c62f5ab5d"
+  }
+}
