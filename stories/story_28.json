@@ -1,0 +1,779 @@
+{
+  "story_id": 28,
+  "title": {
+    "jp": "古い手紙",
+    "en": "The Old Letter",
+    "tokens": [
+      {
+        "t": "古い",
+        "role": "content",
+        "word_id": "W00137",
+        "r": "ふるい",
+        "grammar_id": "N5_i_adj"
+      },
+      {
+        "t": "手紙",
+        "role": "content",
+        "word_id": "W00089",
+        "r": "てがみ"
+      }
+    ]
+  },
+  "new_words": [
+    "W00145",
+    "W00146",
+    "W00147",
+    "W00148",
+    "W00149"
+  ],
+  "new_grammar": [
+    "N5_na_adj_neg"
+  ],
+  "all_words_used": [
+    "W00137",
+    "W00089",
+    "W00074",
+    "W00041",
+    "W00005",
+    "W00044",
+    "W00014",
+    "W00012",
+    "W00095",
+    "W00126",
+    "W00130",
+    "W00065",
+    "W00145",
+    "W00037",
+    "W00066",
+    "W00098",
+    "W00078",
+    "W00053",
+    "W00146",
+    "W00147",
+    "W00143",
+    "W00142",
+    "W00148",
+    "W00149",
+    "W00011",
+    "W00139",
+    "W00094",
+    "W00119",
+    "W00144",
+    "W00090",
+    "W00091"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "夕方",
+          "role": "content",
+          "word_id": "W00074",
+          "r": "ゆうがた"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "駅",
+          "role": "content",
+          "word_id": "W00041",
+          "r": "えき"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "待ちました",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "まちました",
+          "inflection": {
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the evening, I waited for my mother at the station.",
+      "audio": "audio/story_28/s0.mp3",
+      "audio_hash": "81f2c6249e00"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "ちいさい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "ふるい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "渡しました",
+          "role": "content",
+          "word_id": "W00095",
+          "r": "わたしました",
+          "inflection": {
+            "base": "渡す",
+            "base_r": "わたす",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My mother handed me a small old letter.",
+      "audio": "audio/story_28/s1.mp3",
+      "audio_hash": "c982f228d389"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "これ",
+          "role": "content",
+          "word_id": "W00126",
+          "r": "これ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "何",
+          "role": "content",
+          "word_id": "W00130",
+          "r": "なん",
+          "grammar_id": "N5_nan_what"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "N5_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "聞きました",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ききました",
+          "inflection": {
+            "base": "聞く",
+            "base_r": "きく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"What is this?\" I asked.",
+      "audio": "audio/story_28/s2.mp3",
+      "audio_hash": "52fea1b8bb73"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "あなた",
+          "role": "content",
+          "word_id": "W00145",
+          "r": "あなた",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "書いた",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "かいた",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_ta_form"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "よ",
+          "role": "particle",
+          "grammar_id": "N5_yo_emphasis"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "答えました",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "こたえました",
+          "inflection": {
+            "base": "答える",
+            "base_r": "こたえる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My mother answered, \"It's a letter you wrote.\"",
+      "audio": "audio/story_28/s3.mp3",
+      "audio_hash": "7226bb40a402"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "開けて",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "あけて",
+          "inflection": {
+            "base": "開ける",
+            "base_r": "あける",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "ゆっくり",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "ゆっくり"
+        },
+        {
+          "t": "読みました",
+          "role": "content",
+          "word_id": "W00053",
+          "r": "よみました",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I opened the letter and read it slowly.",
+      "audio": "audio/story_28/s4.mp3",
+      "audio_hash": "eafd5de1a43a"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "字",
+          "role": "content",
+          "word_id": "W00146",
+          "r": "じ",
+          "is_new": true
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "字",
+          "role": "content",
+          "word_id": "W00146",
+          "r": "じ"
+        },
+        {
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "N5_mashita",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_but"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "言葉",
+          "role": "content",
+          "word_id": "W00147",
+          "r": "ことば",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "まだ",
+          "role": "content",
+          "word_id": "W00143",
+          "r": "いまだ"
+        },
+        {
+          "t": "分からなかった",
+          "role": "content",
+          "word_id": "W00142",
+          "r": "わからなかった",
+          "inflection": {
+            "base": "分かる",
+            "base_r": "わかる",
+            "form": "plain_past_negative",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_nakatta"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "思いました",
+          "role": "content",
+          "word_id": "W00148",
+          "r": "おもいました",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The handwriting was mine, but I thought, \"I still didn't understand the words.\"",
+      "audio": "audio/story_28/s5.mp3",
+      "audio_hash": "553da2eb8422"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "新しい",
+          "role": "content",
+          "word_id": "W00149",
+          "r": "あたらしい",
+          "grammar_id": "N5_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ"
+        },
+        {
+          "t": "じゃ",
+          "role": "particle",
+          "grammar_id": "N5_na_adj_neg",
+          "is_new_grammar": true
+        },
+        {
+          "t": "ありません",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "ありません",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_ko_arimasen"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "ちいさい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "頃",
+          "role": "content",
+          "word_id": "W00139",
+          "r": "ころ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My mother said, \"It isn't a new letter. It's a letter from when you were small.\"",
+      "audio": "audio/story_28/s6.mp3",
+      "audio_hash": "2d1efa4f3392"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "分かりました",
+          "role": "content",
+          "word_id": "W00142",
+          "r": "わかりました",
+          "inflection": {
+            "base": "分かる",
+            "base_r": "わかる",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "もう",
+          "role": "content",
+          "word_id": "W00119",
+          "r": "もう"
+        },
+        {
+          "t": "忘れません",
+          "role": "content",
+          "word_id": "W00144",
+          "r": "わすれません",
+          "inflection": {
+            "base": "忘れる",
+            "base_r": "わすれる",
+            "form": "negative_polite",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_masen"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"I understand. I won't forget again,\" I said.",
+      "audio": "audio/story_28/s7.mp3",
+      "audio_hash": "03a95ce77a7c"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "静か",
+          "role": "content",
+          "word_id": "W00090",
+          "r": "しずか"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "笑いました",
+          "role": "content",
+          "word_id": "W00091",
+          "r": "わらいました",
+          "inflection": {
+            "base": "笑う",
+            "base_r": "わらう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My mother laughed softly.",
+      "audio": "audio/story_28/s8.mp3",
+      "audio_hash": "92161c3ad249"
+    }
+  ],
+  "word_audio": {
+    "W00145": "audio/words/W00145.mp3",
+    "W00146": "audio/words/W00146.mp3",
+    "W00147": "audio/words/W00147.mp3",
+    "W00148": "audio/words/W00148.mp3",
+    "W00149": "audio/words/W00149.mp3"
+  },
+  "word_audio_hash": {
+    "W00145": "e640f55e0224",
+    "W00146": "bfb06973c307",
+    "W00147": "ed1e4d5231c8",
+    "W00148": "eb466b8604c1",
+    "W00149": "1d3644aa565c"
+  }
+}

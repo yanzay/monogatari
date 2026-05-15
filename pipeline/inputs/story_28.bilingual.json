@@ -1,0 +1,59 @@
+{
+  "story_id": 28,
+  "title": {
+    "jp": "古い手紙",
+    "en": "The Old Letter"
+  },
+  "intent": "PREMISE CONTRACT (story 28)\n  one_sentence_event:    The narrator meets mother at the station; mother hands over a small old letter the narrator wrote as a child and had forgotten; the narrator opens it, recognizes their own handwriting but cannot understand the words, until mother explains it is not a new letter but one from long ago — the narrator finally understands and promises not to forget, and mother laughs softly.\n  change_of_state:       at s0 the narrator stands waiting and knows nothing of the letter; at the closer the letter has changed owners (mother → narrator), the narrator has recognized their own past handwriting, the words have become legible through mother's explanation, and mother has laughed quietly in acknowledgement.\n  scene_novelty_claim:   I am NOT writing a bookstore / narrator_home / park story. Scene is the station (駅).\n  anchor_novelty_claim:  Anchor is 手紙 (letter). Last appeared as ANCHOR: never — it was a passing object once, never the carried piece.\n  closer_shape_claim:    Closer shape: action — \"母は静かに笑いました。\" (noun-WA-adv-NI-verb-mashita). NOT a noun-pile, NOT a 「Nは Adj です」 mirror, NOT a と言いました mirror of story 27.\n  why_not_filler:        mother — gives the letter, explains it, reacts to the narrator's apology; narrator — asks, opens, reads, recognizes, apologizes; letter — gift then puzzle then recognition then resolution. Every character/object earns multiple slots through verb-driven turns.\n  obligations_absorbed:  must-reinforce W00142 分かる (s5 quoted 分からなかった, s7 plain 分かりました), W00143 まだ (s5 inside the quoted thought), W00144 忘れる (s7 もう忘れません); must-reinforce-grammar N5_nakatta via 「言葉がまだ分からなかった」と思いました (s5 inner thought, plain past negative), naturally absorbing the R1 grammar window; must-introduce N5_na_adj_neg via 「新しい手紙じゃありません」 in s6, absorbed inside mother's explanation — not bolted on.\n\nFORBIDDEN THIS STORY:\n  scene_class    (last 3 stories): bookstore, narrator_home, park\n  anchor_object  (last 5 stories): ノート, 傘, 本, 石, 絵\n  closer_shape   (last 3 stories): noun-NI-noun-WA-noun-noun, noun-WA-noun-WO-noun-noun-NO-noun-NI-noun, noun-WA-noun-noun-TO-noun\n  opening_seqs   (last 3 stories' first 3 content tokens):\n    - 弟 / 本屋 / 行きました\n    - 友達 / 家 / 来ました\n    - 友達 / 二人 / 公園\n  (All four zones honored — see opening 夕方/駅/待ちました, anchor 手紙, station scene, closer 母は静かに笑いました.)",
+  "scene_class": "station",
+  "anchor_object": "手紙",
+  "characters": ["narrator", "mother"],
+  "lexical_overrides": [],
+  "sentences": [
+    {
+      "jp": "夕方、駅で母を待ちました。",
+      "en": "In the evening, I waited for my mother at the station.",
+      "role": "setting"
+    },
+    {
+      "jp": "母は私に小さい古い手紙を渡しました。",
+      "en": "My mother handed me a small old letter.",
+      "role": "action"
+    },
+    {
+      "jp": "「これは何ですか」と聞きました。",
+      "en": "\"What is this?\" I asked.",
+      "role": "dialogue"
+    },
+    {
+      "jp": "母は「あなたが書いた手紙ですよ」と答えました。",
+      "en": "My mother answered, \"It's a letter you wrote.\"",
+      "role": "dialogue"
+    },
+    {
+      "jp": "手紙を開けて、ゆっくり読みました。",
+      "en": "I opened the letter and read it slowly.",
+      "role": "action"
+    },
+    {
+      "jp": "字は私の字でしたが、「言葉がまだ分からなかった」と思いました。",
+      "en": "The handwriting was mine, but I thought, \"I still didn't understand the words.\"",
+      "role": "reflection"
+    },
+    {
+      "jp": "母は「新しい手紙じゃありません。小さい頃の手紙です」と言いました。",
+      "en": "My mother said, \"It isn't a new letter. It's a letter from when you were small.\"",
+      "role": "dialogue"
+    },
+    {
+      "jp": "「分かりました。もう忘れません」と言いました。",
+      "en": "\"I understand. I won't forget again,\" I said.",
+      "role": "dialogue"
+    },
+    {
+      "jp": "母は静かに笑いました。",
+      "en": "My mother laughed softly.",
+      "role": "closer"
+    }
+  ]
+}
