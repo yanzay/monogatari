@@ -619,3 +619,53 @@ def test_no_vocab_word_abandoned(stories, root):
     return
 
 
+def test_step_r1_strict_mirrors_r1_test(root, stories):
+    """The gauntlet's `step_r1_strict` MUST be a faithful in-process mirror
+    of `test_vocab_words_are_reinforced` (R1).
+
+    Contract: for any (story_id, built_story) where R1 would fail post-ship,
+    `step_r1_strict` returns status="fail". Conversely, when R1 would pass,
+    it returns status="ok".
+
+    Why pinned: this guarantee is what eliminates the "dry-run green ⇒
+    pytest red" trap (story 17). If the two implementations drift, the
+    trap returns silently. Mock the corpus by passing a synthetic
+    built_story whose tokens omit prior-story mints, then verify the step
+    fails.
+    """
+    sys.path.insert(0, str(root / "pipeline"))
+    sys.path.insert(0, str(root / "pipeline" / "tools"))
+    from author_loop import step_r1_strict
+    from agent_brief import _r1_strict_required
+
+    # Simulate the next story (max+1). Brief is computed against the
+    # currently-shipped corpus.
+    shipped_ids = [int(s["_id"].split("_")[1]) for s in stories]
+    next_story = max(shipped_ids, default=0) + 1
+    forced = (_r1_strict_required(next_story).get("items") or [])
+
+    # Case 1: built story carries NONE of the forced words → fail.
+    if forced:
+        empty_built = {"title": {"tokens": []}, "sentences": []}
+        r_fail = step_r1_strict(next_story, empty_built)
+        assert r_fail.status == "fail", (
+            f"step_r1_strict should fail when {len(forced)} R1-required "
+            f"word(s) are missing; got {r_fail.status}: {r_fail.summary}"
+        )
+        missing_ids = set((r_fail.details or {}).get("r1_missing", []))
+        forced_ids = {it["word_id"] for it in forced}
+        assert forced_ids <= missing_ids, (
+            f"step_r1_strict missed forced ids: "
+            f"forced={forced_ids}, reported={missing_ids}"
+        )
+
+    # Case 2: built story carries ALL forced words → ok.
+    sentences = [{"tokens": [{"word_id": it["word_id"]} for it in forced]}] if forced else []
+    full_built = {"title": {"tokens": []}, "sentences": sentences}
+    r_ok = step_r1_strict(next_story, full_built)
+    assert r_ok.status == "ok", (
+        f"step_r1_strict should pass when all {len(forced)} R1-required "
+        f"word(s) are carried; got {r_ok.status}: {r_ok.summary}"
+    )
+
+

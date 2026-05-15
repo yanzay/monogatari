@@ -559,6 +559,94 @@ def step_vocab_reinforcement(story_id: int, built_story: dict) -> StepResult:
         )
 
 
+def step_r1_strict(story_id: int, built_story: dict) -> StepResult:
+    """HARD BLOCK: mirror `test_vocab_words_are_reinforced` (R1) exactly.
+
+    The brief's `vocab_reinforcement_debt` is intentionally permissive
+    (only flags `must_reinforce` at the LAST R1 slot). That can let a
+    PRIOR story's brand-new mints sneak through unreused, and pytest
+    catches them post-ship — forcing a state-restore + audio cleanup +
+    spec rewrite + re-ship cycle (the story-17 trap).
+
+    This step closes the gap by mirroring the test verbatim:
+
+      For each prior post-bootstrap story `n` with `new_words`,
+      compute the count of followups (n+1..n+W) that exist in the corpus
+      AS-IF this story ships. If `len(followups_after_ship) >= MIN_USES`
+      and the existing shipped reuses < required, the missing words MUST
+      appear in the built story's tokens.
+
+    Source of truth: `agent_brief._r1_strict_required`. The test in
+    `pipeline/tests/test_pedagogical_sanity.py` remains the post-ship
+    backstop; this step makes a green dry-run guarantee a green pytest
+    for R1.
+
+    Why a NEW step instead of tightening `step_vocab_reinforcement`?
+    The existing step's brief contract (`must_reinforce` only at the
+    last slot) is correct for many cases — relaxing it again would
+    re-introduce the bootstrap-bottleneck bug it was created to fix.
+    A separate strict mirror keeps both behaviors clean.
+    """
+    try:
+        brief = agent_brief.build_brief(story_id)
+        forced = (brief.get("r1_strict_required") or {}).get("items") or []
+        if not forced:
+            return StepResult(
+                "r1_strict", "ok",
+                "No prior-story mints require carrying in this story.",
+            )
+
+        used: set[str] = set()
+        for sec in (built_story.get("title") or {},):
+            for tok in sec.get("tokens", []) or []:
+                if tok.get("word_id"):
+                    used.add(tok["word_id"])
+        for sent in built_story.get("sentences", []):
+            for tok in sent.get("tokens", []):
+                if tok.get("word_id"):
+                    used.add(tok["word_id"])
+
+        missing: list[dict] = []
+        carried: list[str] = []
+        for item in forced:
+            wid = item["word_id"]
+            if wid in used:
+                carried.append(wid)
+            else:
+                missing.append(item)
+
+        if missing:
+            lines = [
+                f"  - {it['word_id']} ({it['lemma']}): intro'd in story "
+                f"{it['intro_in_story']}, no shipped follow-up has reused it; "
+                f"R1 will fail post-ship unless this story carries it."
+                for it in missing
+            ]
+            return StepResult(
+                "r1_strict", "fail",
+                f"R1 strict: {len(missing)} prior-story mint(s) must appear "
+                f"in this story (mirrors test_vocab_words_are_reinforced). "
+                f"Add a sentence using each.",
+                details={
+                    "r1_missing":   [it["word_id"] for it in missing],
+                    "r1_carried":   carried,
+                    "explanation":  "\n".join(lines),
+                },
+            )
+        return StepResult(
+            "r1_strict", "ok",
+            f"All {len(carried)} R1-required word(s) carried: "
+            f"{', '.join(carried[:8])}{'…' if len(carried) > 8 else ''}.",
+            details={"r1_carried": carried},
+        )
+    except Exception as e:
+        return StepResult(
+            "r1_strict", "fail",
+            f"r1_strict crashed: {e}",
+            details=traceback.format_exc(),
+        )
+
+
 def step_coverage_floor(story_id: int, built_story: dict) -> StepResult:
     """Hard-block step: does this story introduce ≥1 new grammar point
     while the current tier still has uncovered catalog entries?
@@ -1279,6 +1367,17 @@ def run_gauntlet(story_id: int, *, dry_run: bool) -> dict:
     steps.append(s_vocab)
     if s_vocab.status == "fail":
         return _make_verdict(story_id, steps, dry_run, halted_at="vocab_reinforcement")
+
+    # Step 5.66: R1 STRICT (HARD BLOCK; added 2026-05-15 after story-17 trap).
+    # The brief's `vocab_reinforcement_debt` only flags `must_reinforce` at
+    # the LAST R1 slot, but pytest evaluates R1 with the corpus AS-OF-NOW —
+    # so prior story's brand-new mints can be silently demanded by R1
+    # immediately. This step mirrors `test_vocab_words_are_reinforced`
+    # verbatim so a green dry-run guarantees a green pytest for R1.
+    s_r1 = step_r1_strict(story_id, built)
+    steps.append(s_r1)
+    if s_r1.status == "fail":
+        return _make_verdict(story_id, steps, dry_run, halted_at="r1_strict")
 
     # Step 5.7: coverage floor (HARD BLOCK). Every post-bootstrap story
     # must introduce ≥1 new grammar point until the current JLPT tier

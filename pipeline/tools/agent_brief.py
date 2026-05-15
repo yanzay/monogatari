@@ -413,6 +413,148 @@ def _vocab_reinforcement_debt(target_story: int) -> dict:
     }
 
 
+def _r1_strict_required(target_story: int) -> dict:
+    """Words this story is FORCED to carry to keep `test_vocab_words_are_reinforced`
+    (Rule R1) green after live ship.
+
+    The pytest evaluates R1 with the corpus AS-OF-NOW. For each prior
+    post-bootstrap story `n` whose mints have fewer than
+    `min(MIN_USES, len(followups))` shipped reuses, this story (which will
+    become a new followup of every prior story whose intro fell within
+    the last VOCAB_REINFORCE_WINDOW stories) MUST carry the missing word
+    or the test fails immediately after ship.
+
+    The existing `_vocab_reinforcement_debt` is intentionally permissive
+    (only flags `must_reinforce` at the LAST R1 slot); that worked for
+    the bootstrap front-load logic but allowed a subtle gap: when a
+    PRIOR story's mints have only this story as their first available
+    followup, the test counts `min(1, 1) = 1` and demands a hit — yet
+    the brief said `must_reinforce: false` because we weren't at the
+    last slot. Story 17 hit this trap (3 mints from story 16 needed
+    by R1 immediately, brief said no, gauntlet shipped, pytest failed).
+    This function closes the gap: it surfaces the test-equivalent
+    "you MUST carry these or pytest will go red" set.
+
+    Output schema:
+      {
+        "rule": "R1",
+        "window": 10,
+        "min_uses": 1,
+        "items": [
+          {
+            "word_id": "W00099",
+            "lemma": "ノート",
+            "intro_in_story": 16,
+            "shipped_followups_count": 0,   # before this story
+            "shipped_hits": 0,
+            "required_hits_after_this_ship": 1,
+            "reason": "...",
+          }, ...
+        ],
+      }
+
+    The list is empty when nothing is forced; the gauntlet's
+    `step_r1_strict` walks `items[].word_id` and hard-blocks any not
+    present in the built story's tokens.
+    """
+    try:
+        from grammar_progression import (  # noqa: E402
+            VOCAB_REINFORCE_WINDOW,
+            VOCAB_REINFORCE_MIN_USES,
+            BOOTSTRAP_END,
+        )
+    except Exception:
+        VOCAB_REINFORCE_WINDOW = 10
+        VOCAB_REINFORCE_MIN_USES = 1
+        BOOTSTRAP_END = 10
+
+    # Build per-story usage map (already-shipped corpus only).
+    used_in: dict[int, set[str]] = {}
+    intros_by_story: dict[int, list[str]] = {}
+    for sid, s in iter_stories():
+        if sid >= target_story:
+            continue
+        used: set[str] = set()
+        for sec in ("title",):
+            for tok in (s.get(sec) or {}).get("tokens", []):
+                wid = tok.get("word_id")
+                if wid:
+                    used.add(wid)
+        for sent in s.get("sentences", []):
+            for tok in sent.get("tokens", []):
+                wid = tok.get("word_id")
+                if wid:
+                    used.add(wid)
+        used_in[sid] = used
+        # new_words on the shipped story drives intros (canonical source).
+        ids = [w if isinstance(w, str) else w.get("id") or w.get("word_id", "")
+               for w in (s.get("new_words") or [])]
+        intros_by_story[sid] = [i for i in ids if i]
+
+    # Walk lemma map for human-readable output.
+    try:
+        vocab = load_vocab_attributed().get("words") or {}
+    except Exception:
+        vocab = {}
+    word_lemma: dict[str, str] = {wid: (w.get("surface") or wid)
+                                  for wid, w in vocab.items()}
+
+    items: list[dict] = []
+    # For each prior post-bootstrap story whose R1 window still includes
+    # `target_story`, evaluate R1 as the test would after this ship.
+    for n, ids in intros_by_story.items():
+        if n <= BOOTSTRAP_END:
+            continue                # R1 exempts bootstrap intros
+        if not ids:
+            continue
+        # The R1 followup window for story n is (n+1)..(n+W). target_story
+        # is in this window iff n < target_story <= n+W. Outside the
+        # window R1 doesn't care anyway.
+        if target_story <= n or target_story > n + VOCAB_REINFORCE_WINDOW:
+            continue
+
+        # `followups_count_after_ship` = how many of (n+1..n+W) will exist
+        # in the corpus once this story ships. Only stories already shipped
+        # PLUS this one count.
+        shipped_followup_ids = [i for i in range(n + 1, n + 1 + VOCAB_REINFORCE_WINDOW)
+                                if i < target_story and i in used_in]
+        followups_count_after_ship = len(shipped_followup_ids) + 1  # +1 for this story
+        if followups_count_after_ship < VOCAB_REINFORCE_MIN_USES:
+            continue                # window not yet judgable
+        required = min(VOCAB_REINFORCE_MIN_USES, followups_count_after_ship)
+
+        for wid in ids:
+            shipped_hits = sum(1 for i in shipped_followup_ids
+                               if wid in used_in.get(i, set()))
+            if shipped_hits >= required:
+                continue            # already satisfied by earlier ship(s)
+            # This story MUST be one of the missing hits, otherwise R1
+            # post-ship sees `len(hits) < required` and fails.
+            items.append({
+                "word_id":                       wid,
+                "lemma":                         word_lemma.get(wid, wid),
+                "intro_in_story":                n,
+                "shipped_followups_count":       len(shipped_followup_ids),
+                "shipped_hits":                  shipped_hits,
+                "required_hits_after_this_ship": required,
+                "reason":                        (
+                    f"Story {n} mint {wid} has {shipped_hits} shipped "
+                    f"reuse(s); after this ship the followup window will "
+                    f"hold {followups_count_after_ship} stories, R1 needs "
+                    f"≥{required}. Story {target_story} must carry it."
+                ),
+            })
+
+    # Sort: oldest intro first (most at-risk in window), then by lemma.
+    items.sort(key=lambda i: (i["intro_in_story"], i["lemma"]))
+    return {
+        "rule":     "R1",
+        "window":   VOCAB_REINFORCE_WINDOW,
+        "min_uses": VOCAB_REINFORCE_MIN_USES,
+        "items":    items,
+    }
+
+
 def _grammar_reinforcement_debt(target_story: int) -> dict:
     """The single most load-bearing field for "ship in one go".
 
@@ -1133,6 +1275,7 @@ def build_brief(target_story: int) -> dict[str, Any]:
         "echo_warnings": _echo_warnings_stub(target_story),
         "reinforcement_debt": _reinforcement_debt_from_palette(palette_json),
         "vocab_reinforcement_debt": _vocab_reinforcement_debt(target_story),
+        "r1_strict_required": _r1_strict_required(target_story),
         "lexical_difficulty_constraints": _lexical_difficulty_constraints(target_story),
         "lint_rules_active": _LINT_RULES_ACTIVE,
         "anti_patterns_to_avoid": _ANTI_PATTERNS,
@@ -1183,6 +1326,11 @@ def build_author_brief(target_story: int) -> dict[str, Any]:
             "word_reinforcement": _compact_vocab_reinforcement(
                 full["vocab_reinforcement_debt"]
             ),
+            # R1-strict: words this story is FORCED to carry or
+            # `test_vocab_words_are_reinforced` will go red after ship.
+            # Mirrors the test logic exactly; gauntlet's `step_r1_strict`
+            # hard-blocks any wid in `items` not present in built tokens.
+            "r1_strict_required": full["r1_strict_required"],
             # Long-tail palette-star debt (words unused for ≥8 stories) is
             # informational, not load-bearing for the next ship.
             "word_palette_debt": full["reinforcement_debt"],

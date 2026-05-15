@@ -96,15 +96,25 @@ Post-ship test `test_vocab_words_are_reinforced` (R1) is unchanged. Authoring: 3
 
 DO NOT re-tighten without also relaxing R1 itself.
 
+## R1 strict gauntlet step (since 2026-05-15)
+
+The "last-slot only" rule above used to leave a gap: when only THIS story is currently a followup of the previous story, R1 evaluates `min(MIN_USES, len(followups))=1` and demands a hit, but the brief said `must_reinforce=false` (we weren't at the LAST slot). Story 17 hit the trap: dry-run green, pytest red, full state-restore + audio cleanup + spec rewrite + re-ship cycle. Closed by `step_r1_strict` in `pipeline/author_loop.py` (HARD BLOCK between `vocab_reinforcement` and `coverage_floor`):
+
+- Mirrors `test_vocab_words_are_reinforced` exactly: for each prior post-bootstrap story `n`, computes `len(followups)` AS-IF this story ships, finds words with `shipped_hits < required`, and demands they appear in the built story's tokens.
+- Surfaces in brief at `r1_strict_required.items[]` with `{word_id, lemma, intro_in_story, shipped_followups_count, shipped_hits, required_hits_after_this_ship, reason}`. Compact author brief exposes it as `must_hit.r1_strict_required`.
+- Source-of-truth contract pinned by `test_step_r1_strict_mirrors_r1_test` in `test_pedagogical_sanity.py` — drift between gauntlet and pytest is now structurally caught.
+- Existing soft `step_vocab_reinforcement` (last-slot only) is unchanged; the strict step is a separate, additive guard.
+
+Authoring impact: read `must_hit.r1_strict_required` in the brief BEFORE drafting. If non-empty, plan sentences that organically use those words. The trap is now caught at dry-run time, not post-ship.
+
 ## Dry-run green ≠ corpus tests green
 
-Gauntlet pulls some checks forward (`pedagogical_sanity`, `coverage_floor`, `mint_budget`), but corpus-wide rules only fire under `pytest pipeline/tests/`:
+Gauntlet pulls most checks forward (`pedagogical_sanity`, `coverage_floor`, `mint_budget`, `r1_strict`), but a few corpus-wide rules still only fire under `pytest pipeline/tests/`:
 - `test_vocabulary_introduction_cadence` (per-story min new words)
-- `test_vocab_words_are_reinforced` (per-word reinforcement window)
 - `test_grammar_introduction_cadence` (per-story max new grammar)
 - `test_audio_word_files_only_for_known_words` (audio orphans)
 
-Always run `pytest pipeline/tests/ -q` after the post-ship chain.
+R1 (`test_vocab_words_are_reinforced`) is now mirrored by `step_r1_strict` and should never be the first to flag a defect. Always run `pytest pipeline/tests/ -q` after the post-ship chain anyway.
 
 ## v1 is RETIRED
 

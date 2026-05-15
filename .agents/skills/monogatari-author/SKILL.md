@@ -69,7 +69,8 @@ Read fully. Key fields:
 - `grammar_introduction_debt` — `must_introduce`, `current_jlpt`, `coverage_summary`, `recommended_for_this_story` (sorted alphabetically — scan full `uncovered_in_current_tier`), `earlier_uncovered` (address first; Check 3.9 blocks tier advancement).
 - `grammar_reinforcement_debt` — `must_reinforce: true` items MUST appear; each ships with `example.surface`.
 - `must_hit.grammar_introduction.recommended[0]` — default pick (leverage-ranked). Use it unless premise demands otherwise; document deferral. Don't pick low-leverage leaves (誰, いつ) just because they're easy.
-- `must_hit.word_reinforcement` — words from prev story; `must_reinforce: true` MUST appear (R1).
+- `must_hit.word_reinforcement` — words from prev story; `must_reinforce: true` MUST appear (R1, last-slot).
+- `must_hit.r1_strict_required.items[]` — **HARD floor (since 2026-05-15):** every word here MUST appear in the built story or `step_r1_strict` (gauntlet) AND `test_vocab_words_are_reinforced` (pytest) will fail. Mirror of the post-ship test; closes the "dry-run green ⇒ pytest red" trap that bit story 17. Read each `reason` field for the exact word_id + intro_in_story; weave them into your draft from the start, do NOT bolt them on at the end.
 - `north_stars`, `previous_3_stories`, `previous_closers`, `lint_rules_active`, `anti_patterns_to_avoid`.
 
 Internalize `must_introduce`, `must_reinforce`, north_stars, anti_patterns BEFORE drafting.
@@ -409,6 +410,7 @@ Drift → rewrite `intent` to match what shipped. Plan changed for a documented 
 | `mint_budget` | Trim or raise budget (legit when new words form coherent neighborhood). |
 | `coverage_floor` / Check 3.10 | 0 new grammar but tier has uncovered points. Pick from `recommended_for_this_story`; cross-check full `uncovered_in_current_tier`. Cheap N5: `N5_desu`, `N5_ka_question`, `N5_mashita_past`, `N5_masen`/`N5_arimasen`, `N5_dare_who`/`N5_doko_where`. Rewrite/add ONE sentence; `would-mint` confirm; re-run. `earlier_uncovered` non-empty → address those FIRST (Check 3.9 blocks tier advancement). |
 | `vocab_reinforcement` | Non-bootstrap word from ~10 stories ago has zero follow-up; this is its last R1 chance. Add ONE sentence per named word_id (already in palette). |
+| `r1_strict` | Prior story's mint(s) need a hit in THIS story or post-ship pytest's R1 will fail. Read `details.r1_missing` for the word_ids; the brief's `must_hit.r1_strict_required.items[]` carries `lemma` + `intro_in_story` + `reason`. Add ONE organic sentence per missing wid (NOT a contrived noun-pile). Avoidable upfront by reading r1_strict_required BEFORE drafting. |
 | `pedagogical_sanity` | Missing `must_reinforce: true` grammar. Read `example.surface`; add ONE sentence with same construction. |
 | `literary_review` | CANNOT HAPPEN (retired). Pull latest. |
 | Dry-run passed, live ship FAILED | Pre/post-ship state divergence (Check 3.5, mint_budget). State auto-resets; `git status stories/ data/`; revert. |
