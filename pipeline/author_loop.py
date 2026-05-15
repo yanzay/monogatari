@@ -177,7 +177,25 @@ def step_build(story_id: int) -> tuple[StepResult, dict | None, dict | None]:
 
 
 def step_validate(built_story: dict, build_report: dict | None = None) -> StepResult:
-    """Run the full validator (Checks 1–11) including the v2 lints."""
+    """Run the full validator (Checks 1–11) including the v2 lints.
+
+    Pre-applies `_apply_post_pass_attributions` to a deepcopy of the
+    built story BEFORE invoking the validator (since 2026-05-15). The
+    post-pass tags surface- and base-driven grammar that the converter
+    cannot tag at build time: wh-questions (どこ/誰/いつ/何/なぜ),
+    counters (一人/二人/...), kosoado as content, ある/いる aspectual
+    reuse, quotative-と + 思います/言います, and clause-conjunctive が.
+
+    Without this pre-pass, an author whose story PREMISE naturally calls
+    for one of those constructions (e.g. dialogue with a where-question)
+    cannot use it to satisfy the per-story grammar floor — Check 3.10
+    sees `0 new grammar` because the retag only happens later (post-
+    pedagogical_sanity in the gauntlet, or post-ship via
+    regenerate_all_stories). Result: forced switch to a clunkier
+    build-time-tagged grammar point (story-17 lost N5_doko_where this
+    way). The pre-pass closes the gap by running the same code path
+    earlier; behavior is mechanically identical to post-ship state.
+    """
     try:
         vocab = load_vocab()
         grammar = load_grammar()
@@ -192,6 +210,9 @@ def step_validate(built_story: dict, build_report: dict | None = None) -> StepRe
         # in grammar_state or plan") would block a story that the rest of
         # the gauntlet considers clean.
         plan: dict | None = None
+        # Always deepcopy so we can safely mutate (post-pass retag + is_new).
+        import copy as _copy
+        built_story = _copy.deepcopy(built_story)  # don't mutate caller's copy
         if build_report:
             minted_word_ids = [w["id"] for w in (build_report.get("new_words") or [])]
             minted_grammar  = list(build_report.get("new_grammar") or [])
@@ -208,8 +229,6 @@ def step_validate(built_story: dict, build_report: dict | None = None) -> StepRe
             # requires is_new: true on first-occurrence tokens. Both are normally
             # stamped by regenerate_all_stories *after* shipping. Pre-populate
             # them here so the gauntlet validator sees a consistent picture.
-            import copy as _copy
-            built_story = _copy.deepcopy(built_story)  # don't mutate caller's copy
             if not built_story.get("new_words"):
                 built_story["new_words"] = minted_word_ids
             # Stamp is_new: true on the first occurrence of each minted word.
@@ -227,6 +246,10 @@ def step_validate(built_story: dict, build_report: dict | None = None) -> StepRe
                     if wid and wid in minted_set and wid not in seen:
                         tok["is_new"] = True
                         seen.add(wid)
+        # Pull the post-pass forward so wh-questions / counters /
+        # kosoado / quotative-と count toward Check 3.10's grammar floor.
+        # The pass mutates only token grammar_id / role; safe on the deepcopy.
+        _apply_post_pass_attributions(built_story)
         result = run_validate(built_story, vocab, grammar, plan=plan)
         if result.valid:
             warn_count = len(result.warnings) if hasattr(result, "warnings") else 0

@@ -669,3 +669,88 @@ def test_step_r1_strict_mirrors_r1_test(root, stories):
     )
 
 
+def test_step_validate_pulls_post_pass_retag_forward(root):
+    """`step_validate` MUST apply `_apply_post_pass_attributions` to its
+    deepcopy BEFORE invoking the validator (since 2026-05-15).
+
+    Why pinned: without this pre-pass an author cannot satisfy Check 3.10
+    via wh-questions, counters, kosoado-as-content, ある/いる aspectual
+    reuse, quotative-と + 思います/言います, or clause-conjunctive が —
+    all surface- or base-driven retags that the converter cannot emit at
+    build time. Story 17 lost N5_doko_where this way and was forced to a
+    clunkier grammar choice.
+
+    Contract: a built story whose ONLY new grammar is N5_doko_where (a
+    post-pass-only tag) must NOT trip Check 3.10's "introduces 0 new
+    grammar" error — the validator should see the retag and credit the
+    intro. Conversely, the same story with the post-pass STRIPPED OUT
+    must trip that error. Differential test pins the asymmetry by
+    inspecting the validator output directly (bypassing step_validate's
+    error grouping which short-circuits on Check 1 schema fails).
+    """
+    sys.path.insert(0, str(root / "pipeline"))
+    sys.path.insert(0, str(root / "pipeline" / "tools"))
+    from author_loop import _apply_post_pass_attributions
+    from text_to_story import build_story
+    from validate import validate as run_validate
+    from _paths import load_vocab, load_grammar
+    import copy as _copy
+
+    # Build a real story via the converter so the schema is complete.
+    # The lone wh-question gives us an unambiguous probe: the only path
+    # to a non-empty `new_grammar` for this story is the post-pass retag
+    # of どこ → N5_doko_where.
+    spec = {
+        "story_id":      9999,    # synthetic, never on disk
+        "title":         {"jp": "本", "en": "Book"},
+        "intent":        "synthetic test fixture",
+        "scene_class":   "test",
+        "anchor_object": "本",
+        "characters":    ["narrator", "friend"],
+        "sentences": [
+            {"jp": "夕方、家は静かでした。",
+             "en": "In the evening, the house was quiet.", "role": "setting"},
+            {"jp": "机に本がありました。",
+             "en": "There was a book on the desk.", "role": "setting"},
+            {"jp": "友達が来ました。",
+             "en": "My friend came.", "role": "action"},
+            {"jp": "友達は「本はどこですか」と聞きました。",
+             "en": "My friend asked, \"Where is the book?\"", "role": "dialogue"},
+            {"jp": "私は「机にあります」と答えました。",
+             "en": "I answered, \"On the desk.\"", "role": "dialogue"},
+            {"jp": "私は本を取りました。",
+             "en": "I picked up the book.", "role": "action"},
+            {"jp": "友達と私は本を見ました。",
+             "en": "My friend and I looked at the book.", "role": "closer"},
+        ],
+    }
+
+    vocab = load_vocab()
+    grammar = load_grammar()
+    built, _report = build_story(spec, vocab, grammar)
+
+    def _run(apply_post_pass: bool):
+        story = _copy.deepcopy(built)
+        if apply_post_pass:
+            _apply_post_pass_attributions(story)
+        return run_validate(story, vocab, grammar, plan=None)
+
+    res_with    = _run(apply_post_pass=True)
+    res_without = _run(apply_post_pass=False)
+
+    def _has_check_310(result):
+        return any(str(e.check) == "3.10" for e in result.errors)
+
+    assert not _has_check_310(res_with), (
+        "Pre-pass-applied validate should NOT trip Check 3.10 — the wh-question "
+        "should credit N5_doko_where as a new intro. "
+        f"Errors: {[(e.check, e.message) for e in res_with.errors if str(e.check) == '3.10']}"
+    )
+    assert _has_check_310(res_without), (
+        "Pre-pass-disabled validate MUST trip Check 3.10 on this story (no "
+        "other path emits N5_doko_where). If this assertion fails, the "
+        "pre-pass is no longer the load-bearing path — the contract has "
+        "drifted and the story-17 trap can return."
+    )
+
+

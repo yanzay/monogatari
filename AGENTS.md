@@ -107,6 +107,20 @@ The "last-slot only" rule above used to leave a gap: when only THIS story is cur
 
 Authoring impact: read `must_hit.r1_strict_required` in the brief BEFORE drafting. If non-empty, plan sentences that organically use those words. The trap is now caught at dry-run time, not post-ship.
 
+## step_validate runs the post-pass retag pre-validate (since 2026-05-15)
+
+`step_validate` in `pipeline/author_loop.py` now applies `_apply_post_pass_attributions` to its deepcopy BEFORE calling `validate()`. This pulls forward the surface- and base-driven grammar tagging that the converter cannot do at build time:
+- wh-questions: どこ → `N5_doko_where`, 誰 → `N5_dare_who`, いつ → `N5_itsu_when`, 何 → `N5_nan_what`, なぜ → `G053_naze_why`
+- counters: 一人/二人/三人/四人/五人/ひとり/ふたり → `N5_counters`
+- kosoado as content: あの/この/その/どの → `N5_kosoado`
+- ある/いる aspectual reuse → `N5_aru_iru`
+- quotative-と + 思います/言います → `N4_to_omoimasu` / `N4_to_iimasu` (and re-roles 思います/言います to aux)
+- clause-conjunctive が ("but") → `N5_ga_but`
+
+**Why this matters for authoring:** before this fix, an author whose story PREMISE naturally called for one of these constructions could not satisfy Check 3.10's grammar floor with it — the validator saw "0 new grammar" because the retag only ran later (post-pedagogical_sanity in the gauntlet, post-ship via `regenerate_all_stories`). Story 17 lost `N5_doko_where` this way and was forced to a clunkier build-time-tagged grammar choice (`N5_masho` via volitional inflection). Now wh-question and counter intros work cleanly.
+
+The pre-pass mutates only the validate-deepcopy. It is mechanically identical to the post-ship state — same code path, just earlier. No new tagger, no new rules. Pinned by `test_step_validate_pulls_post_pass_retag_forward` in `test_pedagogical_sanity.py` (differential test: validates that disabling the pre-pass DOES re-trip Check 3.10 on a synthetic wh-question story, proving the pre-pass is the load-bearing path).
+
 ## Dry-run green ≠ corpus tests green
 
 Gauntlet pulls most checks forward (`pedagogical_sanity`, `coverage_floor`, `mint_budget`, `r1_strict`), but a few corpus-wide rules still only fire under `pytest pipeline/tests/`:
