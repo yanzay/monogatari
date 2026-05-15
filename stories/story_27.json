@@ -1,0 +1,732 @@
+{
+  "story_id": 27,
+  "title": {
+    "jp": "黄色い傘",
+    "en": "The Yellow Umbrella",
+    "tokens": [
+      {
+        "t": "黄色い",
+        "role": "content",
+        "word_id": "W00025",
+        "r": "きいろい",
+        "grammar_id": "N5_i_adj"
+      },
+      {
+        "t": "傘",
+        "role": "content",
+        "word_id": "W00042",
+        "r": "かさ"
+      }
+    ]
+  },
+  "new_words": [
+    "W00142",
+    "W00143",
+    "W00144"
+  ],
+  "new_grammar": [
+    "N5_nakatta"
+  ],
+  "all_words_used": [
+    "W00025",
+    "W00042",
+    "W00033",
+    "W00106",
+    "W00050",
+    "W00079",
+    "W00137",
+    "W00011",
+    "W00054",
+    "W00047",
+    "W00014",
+    "W00012",
+    "W00139",
+    "W00023",
+    "W00094",
+    "W00138",
+    "W00080",
+    "W00065",
+    "W00142",
+    "W00091",
+    "W00016",
+    "W00140",
+    "W00143",
+    "W00141",
+    "W00039",
+    "W00003",
+    "W00119",
+    "W00144"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "二人",
+          "role": "content",
+          "word_id": "W00106",
+          "r": "ふたり",
+          "grammar_id": "N5_counters"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00050",
+          "r": "こうえん"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "N5_e_direction"
+        },
+        {
+          "t": "行きました",
+          "role": "content",
+          "word_id": "W00079",
+          "r": "いきました",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend and I went to the park together.",
+      "audio": "audio/story_27/s0.mp3",
+      "audio_hash": "0df771f98b82"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00050",
+          "r": "こうえん"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "ふるい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "黄色い",
+          "role": "content",
+          "word_id": "W00025",
+          "r": "きいろい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "傘",
+          "role": "content",
+          "word_id": "W00042",
+          "r": "かさ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "ありました",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "ありました",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There was an old yellow umbrella in the park.",
+      "audio": "audio/story_27/s1.mp3",
+      "audio_hash": "e6e49318ffe8"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "その",
+          "role": "content",
+          "word_id": "W00054",
+          "r": "その",
+          "grammar_id": "N5_kosoado"
+        },
+        {
+          "t": "傘",
+          "role": "content",
+          "word_id": "W00042",
+          "r": "かさ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "取りました",
+          "role": "content",
+          "word_id": "W00047",
+          "r": "とりました",
+          "inflection": {
+            "base": "取る",
+            "base_r": "とる",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend picked up the umbrella.",
+      "audio": "audio/story_27/s2.mp3",
+      "audio_hash": "7971a6027922"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "ちいさい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "頃",
+          "role": "content",
+          "word_id": "W00139",
+          "r": "ころ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "買った",
+          "role": "content",
+          "word_id": "W00023",
+          "r": "かった",
+          "inflection": {
+            "base": "買う",
+            "base_r": "かう",
+            "form": "past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_ta_form"
+        },
+        {
+          "t": "傘",
+          "role": "content",
+          "word_id": "W00042",
+          "r": "かさ"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"This is an umbrella I bought when I was small,\" my friend said.",
+      "audio": "audio/story_27/s3.mp3",
+      "audio_hash": "940c9e24b500"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "いつ",
+          "role": "content",
+          "word_id": "W00138",
+          "r": "なんじ",
+          "grammar_id": "N5_itsu_when"
+        },
+        {
+          "t": "公園",
+          "role": "content",
+          "word_id": "W00050",
+          "r": "こうえん"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "置きました",
+          "role": "content",
+          "word_id": "W00080",
+          "r": "おきました",
+          "inflection": {
+            "base": "置く",
+            "base_r": "おく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "N5_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "聞きました",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ききました",
+          "inflection": {
+            "base": "聞く",
+            "base_r": "きく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"When did you leave it in the park?\" I asked.",
+      "audio": "audio/story_27/s4.mp3",
+      "audio_hash": "ccf1f93efe2c"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "分からなかった",
+          "role": "content",
+          "word_id": "W00142",
+          "r": "わからなかった",
+          "inflection": {
+            "base": "分かる",
+            "base_r": "わかる",
+            "form": "plain_past_negative",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_nakatta",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "笑いました",
+          "role": "content",
+          "word_id": "W00091",
+          "r": "わらいました",
+          "inflection": {
+            "base": "笑う",
+            "base_r": "わらう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend laughed and said, \"I didn't know.\"",
+      "audio": "audio/story_27/s5.mp3",
+      "audio_hash": "132486957f24"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "傘",
+          "role": "content",
+          "word_id": "W00042",
+          "r": "かさ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "見て",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "みて",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "色",
+          "role": "content",
+          "word_id": "W00140",
+          "r": "いろ"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "N5_mo_also"
+        },
+        {
+          "t": "まだ",
+          "role": "content",
+          "word_id": "W00143",
+          "r": "いまだ",
+          "is_new": true
+        },
+        {
+          "t": "いい",
+          "role": "content",
+          "word_id": "W00141",
+          "r": "よい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "よ",
+          "role": "particle",
+          "grammar_id": "N5_yo_emphasis"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Looking at the umbrella, I said, \"The color is still good too, you know.\"",
+      "audio": "audio/story_27/s6.mp3",
+      "audio_hash": "4252d8874a75"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "二人",
+          "role": "content",
+          "word_id": "W00106",
+          "r": "ふたり",
+          "grammar_id": "N5_counters"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "傘",
+          "role": "content",
+          "word_id": "W00042",
+          "r": "かさ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "持って",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "もって",
+          "inflection": {
+            "base": "持つ",
+            "base_r": "もつ",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "いえ"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "N5_e_direction"
+        },
+        {
+          "t": "行きました",
+          "role": "content",
+          "word_id": "W00079",
+          "r": "いきました",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The two of us carried the umbrella and went home.",
+      "audio": "audio/story_27/s7.mp3",
+      "audio_hash": "26e2fa88b953"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "もう",
+          "role": "content",
+          "word_id": "W00119",
+          "r": "もう"
+        },
+        {
+          "t": "忘れません",
+          "role": "content",
+          "word_id": "W00144",
+          "r": "わすれません",
+          "inflection": {
+            "base": "忘れる",
+            "base_r": "わすれる",
+            "form": "negative_polite",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_masen",
+          "is_new": true
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend said, \"I won't forget it again.\"",
+      "audio": "audio/story_27/s8.mp3",
+      "audio_hash": "57dd29a0e330"
+    }
+  ],
+  "word_audio": {
+    "W00142": "audio/words/W00142.mp3",
+    "W00143": "audio/words/W00143.mp3",
+    "W00144": "audio/words/W00144.mp3"
+  },
+  "word_audio_hash": {
+    "W00142": "5f771341efb3",
+    "W00143": "adef54f8b359",
+    "W00144": "596452ba16a5"
+  }
+}

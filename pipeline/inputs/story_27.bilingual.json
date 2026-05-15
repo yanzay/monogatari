@@ -1,0 +1,59 @@
+{
+  "story_id": 27,
+  "title": {
+    "jp": "黄色い傘",
+    "en": "The Yellow Umbrella"
+  },
+  "intent": "PREMISE CONTRACT (story 27)\n  one_sentence_event:    The narrator and a friend walk to the park, find an old yellow umbrella the friend lost there, the friend recognizes it as one she bought when she was small, and the two carry it home — restoring an object the park was holding back to its owner.\n  change_of_state:       at s0 the umbrella sits abandoned on the ground in the park, owner unknown to the narrator; at the closer the friend has reclaimed it, has admitted she does not even remember when she left it, and has resolved aloud not to forget it again — the park has given the object back, and the friend's relationship to it has been spoken into the open.\n  scene_novelty_claim:   I am NOT writing a kitchen / bookstore / narrator_home story. Scene_class is `park` (outdoors, public, walking). Last 3 are all interior scenes; this is a fresh outdoor walk.\n  anchor_novelty_claim:  Anchor is 傘 (umbrella). Last appeared in story 18 as a held-while-walking-home object; never as the orbit of every causal verb. Not in last-5-anchor block (ノート, 本, 石, 絵, 葉). The umbrella here is found, identified, claimed, carried — five sentences out of nine touch it.\n  closer_shape_claim:    Closer shape: dialogue — 「友達は『もう忘れません』と言いました。」 (subject-WA-quoted-pact-TO-言いました), where the quoted clause is a future-resolve negation (もう…ません). NOT a noun-pile. NOT a placement-on-surface (story 25). NOT an absence-from-surface (story 26). NOT a co-actor-closing-an-object (story 24). The verb pair (忘れる + 言う) carries the resolve.\n  why_not_filler:        narrator EARNS slot by initiating the walk (s0), observing the umbrella (s1), asking about timing (s4 — the いつ R1 obligation comes through her mouth, not bolted on), commenting on the still-good color (s6), and walking the friend home (s7). Friend EARNS slot by being the object's true owner — picks it up (s2), claims it via attributive memory (s3), admits ignorance with a laugh (s5), and makes the closing resolution (s8). The umbrella is load-bearing — not decoration; it is the reason for every dialogue beat. 二人 is plural-marker, not a count-as-decoration: it foregrounds the joint walking out at s0 and the joint walking home at s7.\n  obligations_absorbed:  R1 strict — must reuse W00137 古い (s1, used as attributive on the found umbrella), W00138 いつ (s4, narrator's question), W00139 頃 (s3, friend's childhood-era memory), W00140 色 (s6, narrator's still-good observation), W00141 いい (s6, paired with 色). All five appear in distinct, organic positions across four sentences (s1, s3, s4, s6) — no carrier sentence is doing double duty. Must-reinforce N5_itsu_when — landed in s4 question with 置く. New grammar = N5_nakatta — landed in s5 「分からなかった」 (plain past negative of 分かる, friend's casual quoted admission). Recommended[0] N5_attributive deferred (no auto-tagger; same precedent as story 24's deferral); the attributive shape 「私が小さい頃に買った傘」 still appears organically in s3 as good Japanese, but is NOT what unlocks coverage. N5_nakatta is the next-cheapest auto-tagged uncovered N5 point and lands in a single token swap on the friend's voice line.\n\nFORBIDDEN THIS STORY:\n  scene_class    (last 3): bookstore, kitchen, narrator_home\n  anchor_object  (last 5): ノート, 本, 石, 絵, 葉\n  closer_shape   (last 3): noun-NI-noun-WA-noun-noun, noun-TO-noun-NI-noun-WO-noun, noun-WA-noun-WO-noun-noun-NO-noun-NI-noun\n  opening_seqs   (last 3 first 3 content tokens):\n    - 夕方 / 台所 / 本\n    - 弟 / 本屋 / 行きました\n    - 友達 / 家 / 来ました\n  Differentiation from story 26: story 26 is interior (narrator's home) with the narrator as the maker giving away her own picture; story 27 is exterior (park) with the friend as the owner of an object she lost — the recognition comes from the friend, not the narrator, and the transfer is restoration (park → friend) rather than gift (narrator → friend). The 頃 line is in the friend's voice answering nothing the narrator asked — it appears BEFORE the narrator's いつ question, so 頃 motivates the question rather than answering it (inverse of story 26's question-then-頃-answer ordering). Closer is a quoted resolve (no と思います, no 棚-NI absence echo). Opening is a walking-out beat (友達 / 二人 / 公園) which shares the first token 友達 with story 26 but tokens 2-3 differ; not an override.\n\nNew mints (3): 分かる W (s5, friend's admission); まだ W (s6, narrator's still-good observation — adverb of continuation); 忘れる W (s8, friend's closing resolve). All N5-common; no overrides used.\n\nNew grammar (1): N5_nakatta (auto-tag from 「分からなかった」 in s5 — plain past negative).\n\nLexical: 分かる, まだ, 忘れる are all N5-common. No overrides.\n\n§E.7.5 round-1 fixes: s6 dropped 私は (over-marked subject in dialogue flow); changed 色は → 色も (additive — links narrator's persuasion to the friend's prior recognition); changed ね → よ (gentler urging register, consistent with the persuasion role of the line). Quote-frame verb 言いました retained.\n\n§E.7 round-1 verdict: REWRITE-STORY (sameness with story 26 + 'pedagogical bolt-ons' on s4 いつ + s6 色いい). §G OVERRIDE INVOKED (1/1 budget). Concrete reasoning errors in reviewer: (a) s4 (いつ) and s6 (色/いい) are R1-strict mandated reuses, not authorial choices — the reviewer was not given R1 context and misread mandatory reinforcement as 'bolt-on'. The narrator asking 'when did you leave it' immediately after the friend says 'I bought this when I was small' is the most natural conversational response; calling it pedagogical conflates structure with intent. (b) Story 26 = creator→admirer GIFT (narrator made object, narrator gives it). Story 27 = lost-object → original-owner RESTORATION with memory-failure beat (object pre-owned, retrieved from public space). The transfer DIRECTION is inverted (26: narrator→friend; 27: park→friend) and the friend's emotional arc — admitting she does not remember WHEN she lost an object she made-as-a-child — is its own beat, not a recycle of 26's bright-color-want. (c) Closer shape (quoted future-resolve negation 「もう忘れません」) is structurally fresh — not in the last-3 closer-shape forbidden zone. Reviewer flagged 'closure pattern' generically without naming the template overlap. The s6 §E.7.5 fix (drop 私は, よ-register) also concretely addresses the 'reflection feels like worksheet' concern by making s6 a persuasion beat rather than a passive observation. Override logged per SKILL §G; not re-running §E.7 to avoid round-trip 4 cap on a critique whose two main premises are factually wrong (R1 obligations + structurally distinct premise).",
+  "scene_class": "park",
+  "anchor_object": "傘",
+  "characters": ["narrator", "friend"],
+  "lexical_overrides": [],
+  "sentences": [
+    {
+      "jp": "友達と二人で公園へ行きました。",
+      "en": "My friend and I went to the park together.",
+      "role": "setting"
+    },
+    {
+      "jp": "公園に古い黄色い傘がありました。",
+      "en": "There was an old yellow umbrella in the park.",
+      "role": "setting"
+    },
+    {
+      "jp": "友達はその傘を取りました。",
+      "en": "My friend picked up the umbrella.",
+      "role": "action"
+    },
+    {
+      "jp": "「私が小さい頃に買った傘です」と友達が言いました。",
+      "en": "\"This is an umbrella I bought when I was small,\" my friend said.",
+      "role": "dialogue"
+    },
+    {
+      "jp": "「いつ公園に置きましたか」と聞きました。",
+      "en": "\"When did you leave it in the park?\" I asked.",
+      "role": "dialogue"
+    },
+    {
+      "jp": "友達は「分からなかった」と笑いました。",
+      "en": "My friend laughed and said, \"I didn't know.\"",
+      "role": "dialogue"
+    },
+    {
+      "jp": "傘を見て、「色もまだいいですよ」と言いました。",
+      "en": "Looking at the umbrella, I said, \"The color is still good too, you know.\"",
+      "role": "reflection"
+    },
+    {
+      "jp": "二人は傘を持って、家へ行きました。",
+      "en": "The two of us carried the umbrella and went home.",
+      "role": "action"
+    },
+    {
+      "jp": "友達は「もう忘れません」と言いました。",
+      "en": "My friend said, \"I won't forget it again.\"",
+      "role": "closer"
+    }
+  ]
+}
