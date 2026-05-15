@@ -929,3 +929,245 @@ def test_r1_strict_brief_surfaces_carrier_templates() -> None:
                 "Carrier templates must include the source surface "
                 "so the author can read the natural sentence shape."
             )
+
+
+# ─────────────────────────────────────────────────────────────────────
+# Spine-classifier brief refinement (added 2026-05-15 after story 22
+# burned 3 §E.7 round-trips on a structural duplicate of story 21).
+# ─────────────────────────────────────────────────────────────────────
+
+_VALID_SPINE_LABELS = frozenset({
+    "search-fail-find-relief",
+    "arrival-explanation",
+    "transfer-and-share",
+    "dialogue-question-closer",
+    "solitary-reflection",
+    "unclassified",
+})
+
+
+def test_previous_3_stories_carry_spine_label() -> None:
+    """The brief's `previous_3_stories` MUST surface an `event_spine`
+    block on every entry. The label must be one of the closed enum
+    values; key_beats must be a list of {sentence_index, beat_kind}.
+
+    Why pinned: the brief consumer (author) reads `previous_3_stories`
+    early; if the spine label drifts (silent removal, typo, schema
+    rename), the author loses the structural-shape signal entirely
+    and we're back to story-22-style duplicate spines.
+    """
+    import sys, pathlib
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "tools"))
+    from agent_brief import _previous_3_stories_summary
+
+    # Use the next-to-author slot so we exercise live corpus state.
+    from _paths import iter_stories
+    last_id = max((sid for sid, _ in iter_stories()), default=0)
+    target = last_id + 1
+    summary = _previous_3_stories_summary(target)
+    assert len(summary) == 3, (
+        f"Expected 3 prior-story entries; got {len(summary)}."
+    )
+    for entry in summary:
+        assert "event_spine" in entry, (
+            f"Story {entry.get('story_id')} entry missing event_spine: {entry}"
+        )
+        spine = entry["event_spine"]
+        assert "label" in spine, f"event_spine missing label: {spine}"
+        assert spine["label"] in _VALID_SPINE_LABELS, (
+            f"Invalid spine label {spine['label']!r} for story "
+            f"{entry['story_id']}; must be one of {sorted(_VALID_SPINE_LABELS)}"
+        )
+        assert "key_beats" in spine, f"event_spine missing key_beats: {spine}"
+        assert isinstance(spine["key_beats"], list), (
+            f"key_beats must be a list; got {type(spine['key_beats'])}"
+        )
+        for beat in spine["key_beats"]:
+            assert "sentence_index" in beat and "beat_kind" in beat, (
+                f"Each key_beat must carry sentence_index + beat_kind; "
+                f"got {beat}"
+            )
+            assert isinstance(beat["sentence_index"], int), (
+                f"sentence_index must be int; got {beat}"
+            )
+
+
+def test_carrier_template_carries_spine_replica_risk() -> None:
+    """Every carrier_template in the R1-strict block MUST carry a
+    `spine_replica_risk` field (high/medium/low). When any template
+    is `high`, the banner MUST mention spine replication.
+
+    Why pinned: this is the load-bearing signal that closes the
+    story-22 trap. Without it, the brief recommends paraphrasing a
+    template that IS the previous spine's beat, and the author
+    discovers the duplication only at §E.7 (3 round-trips).
+    """
+    import sys, pathlib
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "tools"))
+    from agent_brief import _r1_strict_required
+    from _paths import iter_stories
+
+    # Walk the corpus to find a slot with at least one carrier template.
+    target_with_template = None
+    for target in range(11, 60):
+        try:
+            r = _r1_strict_required(target)
+        except Exception:
+            continue
+        if r.get("carrier_templates"):
+            target_with_template = target
+            break
+
+    if target_with_template is None:
+        import pytest
+        pytest.skip(
+            "no slot in the current corpus produces a carrier template; "
+            "the schema invariant below is still trivially satisfied "
+            "(no templates → no risk-tags missing)."
+        )
+
+    r = _r1_strict_required(target_with_template)
+    assert "previous_spine_warning" in r, (
+        "previous_spine_warning block must exist on the R1 brief."
+    )
+    valid_risks = {"high", "medium", "low"}
+    high_count = 0
+    for tmpl in r["carrier_templates"]:
+        assert "spine_replica_risk" in tmpl, (
+            f"Carrier template missing spine_replica_risk field: {tmpl}"
+        )
+        assert tmpl["spine_replica_risk"] in valid_risks, (
+            f"Invalid spine_replica_risk {tmpl['spine_replica_risk']!r}; "
+            f"must be one of {sorted(valid_risks)}"
+        )
+        if tmpl["spine_replica_risk"] == "high":
+            high_count += 1
+            assert "spine_beat_kind" in tmpl, (
+                f"high-risk template must name the matched beat_kind; "
+                f"got {tmpl}"
+            )
+
+    if high_count > 0:
+        assert "spine_replica_risk" in r["banner"] or "spine" in r["banner"], (
+            f"When {high_count} template(s) are flagged high-risk, the "
+            f"banner MUST mention spine replication so the author sees "
+            f"the warning at the top of the R1 block. Got banner: "
+            f"{r['banner']!r}"
+        )
+        warn = r["previous_spine_warning"]
+        assert warn["high_risk_template_count"] == high_count, (
+            f"previous_spine_warning.high_risk_template_count must match "
+            f"the actual count of high-risk templates: "
+            f"{warn['high_risk_template_count']} vs {high_count}"
+        )
+
+
+def test_story_21_classifies_as_search_fail_find_relief() -> None:
+    """Pin the spine classifier against the canonical search-find-
+    relief example (story 21). This story is the one whose spine
+    trapped story 22 v1; if the classifier ever fails to recognize
+    it, the spine-replica warning silently degrades to no-op and
+    the trap returns.
+
+    The contract is asymmetric: we require the EXACT label (no false
+    negatives) AND the give_up beat at sentence_index 3 (which is
+    the carrier-template sentence the brief recommends paraphrasing).
+    """
+    import sys, pathlib
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "tools"))
+    from agent_brief import _classify_spine
+    from _paths import load_story
+
+    try:
+        story_21 = load_story(21)
+    except Exception:
+        import pytest
+        pytest.skip("story 21 not in corpus")
+
+    spine = _classify_spine(story_21)
+    assert spine["label"] == "search-fail-find-relief", (
+        f"Story 21 must classify as search-fail-find-relief; got "
+        f"{spine['label']!r}. If the corpus has been restructured, "
+        f"update the test rather than dropping the contract — the "
+        f"spine label is the load-bearing signal for the warning."
+    )
+    beat_kinds = {b["beat_kind"] for b in spine["key_beats"]}
+    assert "give_up" in beat_kinds, (
+        f"Story 21 must surface a `give_up` beat (the 「もう探さない」 "
+        f"sentence at index 3) for the carrier-template flagger to "
+        f"work. Got beats: {spine['key_beats']}"
+    )
+    # The give_up beat must sit at sentence_index 3 — that is the
+    # exact sentence the carrier-template logic surfaces.
+    give_up_idx = next(
+        (b["sentence_index"] for b in spine["key_beats"]
+         if b["beat_kind"] == "give_up"),
+        None,
+    )
+    assert give_up_idx == 3, (
+        f"Story 21's give_up beat must be at sentence_index 3 to "
+        f"line up with the carrier template the brief surfaces. "
+        f"Got index {give_up_idx}."
+    )
+
+
+def test_story_22_brief_would_have_warned_against_story_21_spine() -> None:
+    """Regression: had the spine warning existed when story 22 was
+    being authored, the brief WOULD have flagged the carrier template
+    from story 21 as `spine_replica_risk: high` and the banner WOULD
+    have mentioned spine replication.
+
+    This test simulates the pre-ship brief by invoking
+    `_r1_strict_required(22)` — the function naturally excludes
+    `sid >= target_story` from its corpus walk, so even with story 22
+    already shipped, the brief output is identical to what the author
+    would have seen before drafting v1.
+
+    If this test ever fails, either: (a) story 21 was modified out of
+    the search-fail-find-relief shape, or (b) the spine-detection
+    wiring was removed. Either is a regression that re-opens the
+    story-22 trap.
+    """
+    import sys, pathlib
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "tools"))
+    from agent_brief import _r1_strict_required
+    from _paths import load_story
+
+    try:
+        load_story(21)
+    except Exception:
+        import pytest
+        pytest.skip("story 21 not in corpus")
+
+    r = _r1_strict_required(22)
+    if not r.get("items"):
+        import pytest
+        pytest.skip(
+            "story 22 brief has no R1-strict items in current corpus "
+            "state — the regression scenario isn't reproducible. The "
+            "spine label is still pinned by "
+            "test_story_21_classifies_as_search_fail_find_relief."
+        )
+    warn = r["previous_spine_warning"]
+    assert warn["prev_story_id"] == 21, (
+        f"previous_spine_warning.prev_story_id must be 21 for target=22; "
+        f"got {warn['prev_story_id']}"
+    )
+    assert warn["prev_spine"] == "search-fail-find-relief", (
+        f"Story 22's previous_spine_warning must identify story 21's "
+        f"spine as search-fail-find-relief; got {warn['prev_spine']!r}"
+    )
+    assert warn["high_risk_template_count"] >= 1, (
+        f"Story 22's brief MUST flag at least one carrier template as "
+        f"high-risk for spine replication. Got "
+        f"high_risk_template_count={warn['high_risk_template_count']}. "
+        f"Templates: {r['carrier_templates']}"
+    )
+    assert "spine" in r["banner"], (
+        f"Story 22's banner MUST mention spine replication when high-risk "
+        f"templates exist. Got banner: {r['banner']!r}"
+    )

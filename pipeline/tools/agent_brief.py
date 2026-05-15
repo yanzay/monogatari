@@ -218,8 +218,226 @@ def _size_band_for(story_id: int) -> dict:
     return {"sentences": [9, 16], "content_tokens": [36, 70], "target": 48}
 
 
+def _classify_spine(story: dict) -> dict:
+    """Heuristic classifier for a story's event spine.
+
+    Walks sentence tokens and detects which of a small closed set of
+    archetypal narrative shapes the story instantiates. The label is
+    paired with `key_beats` — the sentence indices of the beats that
+    DEFINE the spine. The R1-strict carrier-template logic uses these
+    beats to flag templates that, if paraphrased verbatim, would
+    replicate the prior story's spine in the next ship.
+
+    Detection is deterministic and conservative — when signals are
+    ambiguous the classifier returns `unclassified` rather than risk
+    a false positive that would nudge the author to over-rotate.
+
+    Returned shape:
+      {
+        "label": <one of LABELS>,
+        "key_beats": [{"sentence_index": int, "beat_kind": str}, ...],
+      }
+
+    LABELS:
+      - search-fail-find-relief : 探す/見つける/ある-imasen baseline + a
+        give-up beat (もう ... nai/masen) + a recovery (ありました /
+        見つけました with anchor) and/or shared-relief closer (笑う / 笑い).
+      - arrival-explanation     : motion verb of inanimate-or-animal
+        subject (来る/飛ぶ/落ちる) + a quoted explanation line later
+        (...から... と言いました / ...と答えました).
+      - transfer-and-share      : narrator-moves-object verb (持つ/あげる/
+        入れる/出す/運ぶ) + closer co-subject (Nと私 ... ました or 母は ...
+        と言いました paired with narrator's earlier action).
+      - dialogue-question-closer: closer sentence is a wh-question with か
+        framed by 言いました/聞きました (どこ/誰/何/いつ/何 ですか).
+      - solitary-reflection     : single character throughout AND closer
+        is 思いました with a quoted thought; no on-stage second character.
+      - unclassified            : signals don't converge.
+    """
+    sents = story.get("sentences") or []
+    if not sents:
+        return {"label": "unclassified", "key_beats": []}
+
+    # ── Per-sentence feature extraction ──────────────────────────────
+    feats: list[dict] = []
+    for idx, sent in enumerate(sents):
+        bases: list[str] = []
+        surfaces: list[str] = []
+        grammar_ids: set[str] = set()
+        has_quote = False
+        has_ka_question = False
+        wh_words: set[str] = set()
+        for tok in sent.get("tokens", []):
+            t = tok.get("t", "")
+            surfaces.append(t)
+            if t in ("「", "」"):
+                has_quote = True
+            if t == "か" and tok.get("role") == "particle":
+                has_ka_question = True
+            if t in ("どこ", "誰", "だれ", "何", "なに", "なん", "いつ", "なぜ"):
+                wh_words.add(t)
+            gid = tok.get("grammar_id")
+            if gid:
+                grammar_ids.add(gid)
+            infl = tok.get("inflection") or {}
+            base = infl.get("base") or (
+                tok.get("t") if tok.get("role") == "content" else None
+            )
+            if base:
+                bases.append(base)
+        feats.append({
+            "idx":              idx,
+            "bases":            bases,
+            "surfaces":         surfaces,
+            "grammar_ids":      grammar_ids,
+            "has_quote":        has_quote,
+            "has_ka_question":  has_ka_question,
+            "wh_words":         wh_words,
+            "role":             sent.get("role"),
+            "jp":               sent.get("jp", ""),
+        })
+
+    last_idx = len(feats) - 1
+    closer = feats[last_idx]
+
+    # Helper: does sentence have any of these bases?
+    def _has_base(f: dict, *bases: str) -> bool:
+        return any(b in f["bases"] for b in bases)
+
+    # ── Closed-form characters: tally distinct on-stage humans ─────
+    chars_set = set(story.get("characters") or [])
+    second_character_present = len(chars_set) >= 2 and any(
+        c not in ("narrator",) for c in chars_set
+    )
+
+    # ── Pattern: search-fail-find-relief ────────────────────────────
+    # Need: a search verb anywhere, a give-up beat with もう+nai-form
+    # (or 探さない), and either (a) a find/exist beat with anchor or
+    # (b) a 笑う closer.
+    search_idx = next(
+        (f["idx"] for f in feats if _has_base(f, "探す", "見つける", "見付ける")),
+        None,
+    )
+    give_up_idx = next(
+        (f["idx"] for f in feats
+         if "もう" in f["bases"]
+         and ("N5_nai_form" in f["grammar_ids"] or "探さない" in f["surfaces"])
+         and f["has_quote"]),
+        None,
+    )
+    find_idx = next(
+        (f["idx"] for f in feats
+         if f["idx"] != search_idx
+         and (_has_base(f, "見つける", "見付ける")
+              or ("ありました" in f["surfaces"] and "下" in f["bases"])
+              or ("ありました" in f["surfaces"] and f["idx"] >= last_idx - 2))),
+        None,
+    )
+    laugh_closer = (
+        closer["idx"] == last_idx
+        and ("笑う" in closer["bases"] or "笑いました" in closer["surfaces"])
+    )
+    if (search_idx is not None
+            and give_up_idx is not None
+            and (find_idx is not None or laugh_closer)):
+        beats = []
+        beats.append({"sentence_index": search_idx, "beat_kind": "search"})
+        beats.append({"sentence_index": give_up_idx, "beat_kind": "give_up"})
+        if find_idx is not None and find_idx != search_idx:
+            beats.append({"sentence_index": find_idx, "beat_kind": "recovery"})
+        if laugh_closer:
+            beats.append({"sentence_index": last_idx, "beat_kind": "shared_relief"})
+        return {"label": "search-fail-find-relief", "key_beats": beats}
+
+    # ── Pattern: arrival-explanation ────────────────────────────────
+    # Inanimate/animal subject motion (来る/飛ぶ/落ちる) PLUS a later
+    # quoted explanation ('...から... と言いました' / と答えました).
+    arrival_idx = next(
+        (f["idx"] for f in feats
+         if _has_base(f, "来る", "飛ぶ", "落ちる")
+         and not _has_base(f, "行く")),
+        None,
+    )
+    explain_idx = next(
+        (f["idx"] for f in feats
+         if f["has_quote"]
+         and (_has_base(f, "言う", "答える"))
+         and ("N5_kara_because" in f["grammar_ids"]
+              or "から" in f["surfaces"])),
+        None,
+    )
+    if (arrival_idx is not None
+            and explain_idx is not None
+            and explain_idx > arrival_idx):
+        beats = [
+            {"sentence_index": arrival_idx, "beat_kind": "arrival"},
+            {"sentence_index": explain_idx, "beat_kind": "explanation"},
+        ]
+        return {"label": "arrival-explanation", "key_beats": beats}
+
+    # ── Pattern: dialogue-question-closer ───────────────────────────
+    # Closer carries a wh-question with か, framed by speech verb.
+    if (closer["has_quote"]
+            and closer["has_ka_question"]
+            and closer["wh_words"]
+            and _has_base(closer, "言う", "聞く", "答える", "問う")):
+        return {
+            "label": "dialogue-question-closer",
+            "key_beats": [{"sentence_index": last_idx, "beat_kind": "wh_question"}],
+        }
+
+    # ── Pattern: transfer-and-share ─────────────────────────────────
+    # Narrator-moves-object verb plus a closer with second-character
+    # involvement (joint subject Nと私 OR mother speaks to narrator).
+    transfer_idx = next(
+        (f["idx"] for f in feats
+         if _has_base(f, "持つ", "あげる", "入れる", "出す", "運ぶ", "見せる")),
+        None,
+    )
+    joint_closer = (
+        second_character_present
+        and (
+            "と" in closer["surfaces"]                # Nと私 joint subject
+            or (closer["has_quote"]
+                and _has_base(closer, "言う", "答える")
+                and any(c in (closer["bases"] or [])
+                        for c in ("母", "父", "友達", "兄", "姉", "妹", "弟")))
+        )
+    )
+    if transfer_idx is not None and joint_closer:
+        beats = [
+            {"sentence_index": transfer_idx, "beat_kind": "transfer"},
+            {"sentence_index": last_idx, "beat_kind": "shared_closer"},
+        ]
+        return {"label": "transfer-and-share", "key_beats": beats}
+
+    # ── Pattern: solitary-reflection ────────────────────────────────
+    # Only narrator on-stage AND closer is quoted thought (思う framing).
+    has_other_speaker = any(
+        f["has_quote"] and _has_base(f, "言う", "答える", "聞く")
+        for f in feats
+    )
+    if (not second_character_present
+            and not has_other_speaker
+            and closer["has_quote"]
+            and _has_base(closer, "思う")):
+        return {
+            "label": "solitary-reflection",
+            "key_beats": [{"sentence_index": last_idx, "beat_kind": "thought"}],
+        }
+
+    return {"label": "unclassified", "key_beats": []}
+
+
 def _previous_3_stories_summary(target_story: int) -> list[dict]:
-    """One-line summary of the last 3 shipped stories before target_story."""
+    """One-line summary of the last 3 shipped stories before target_story.
+
+    Each entry carries an `event_spine` block produced by
+    `_classify_spine` so the author sees the structural shape of recent
+    stories AT A GLANCE, before drafting. The R1-strict block uses the
+    PREVIOUS story's spine to flag carrier templates that would
+    replicate it.
+    """
     out = []
     all_stories = [(sid, st) for sid, st in iter_stories() if sid < target_story]
     for sid, story in all_stories[-3:]:
@@ -234,11 +452,12 @@ def _previous_3_stories_summary(target_story: int) -> list[dict]:
         )
         anchor = nouns.most_common(1)[0][0] if nouns else None
         out.append({
-            "story_id": sid,
-            "title_jp": title_jp,
-            "title_en": title_en,
-            "anchor_object": anchor,
+            "story_id":       sid,
+            "title_jp":       title_jp,
+            "title_en":       title_en,
+            "anchor_object":  anchor,
             "sentence_count": len(story.get("sentences") or []),
+            "event_spine":    _classify_spine(story),
         })
     return out
 
@@ -623,21 +842,101 @@ def _r1_strict_required(target_story: int) -> dict:
                            t["source_story"], t["source_index"]),
         )
 
-    return {
-        "rule":     "R1",
-        "window":   VOCAB_REINFORCE_WINDOW,
-        "min_uses": VOCAB_REINFORCE_MIN_USES,
-        "items":    items,
-        # Top-level summary the author should read FIRST. Empty when
-        # there's nothing to carry; non-empty means this is a load-
-        # bearing constraint that drives sentence design.
-        "banner": (
+    # ── Spine-replica risk on carrier templates ─────────────────────
+    # Story 22 burned 3 §E.7 round-trips because the recommended
+    # carrier template (story 21's give-up beat) WAS the spine's load-
+    # bearing sentence — paraphrasing it reproduced the spine. The
+    # brief now classifies the previous story's spine and tags each
+    # template with the risk that paraphrasing it would replicate
+    # that spine in the next ship.
+    prev_story_id = target_story - 1
+    prev_spine: dict = {"label": "unclassified", "key_beats": []}
+    if prev_story_id >= 1:
+        try:
+            from _paths import load_story  # noqa: E402
+            prev_story = load_story(prev_story_id)
+            prev_spine = _classify_spine(prev_story)
+        except Exception:
+            pass
+    prev_beat_indices = {
+        b["sentence_index"]: b["beat_kind"]
+        for b in prev_spine.get("key_beats", [])
+    }
+    high_risk_count = 0
+    for tmpl in carrier_templates:
+        risk = "low"
+        beat_kind = None
+        if (tmpl["source_story"] == prev_story_id
+                and tmpl["source_index"] in prev_beat_indices):
+            risk = "high"
+            beat_kind = prev_beat_indices[tmpl["source_index"]]
+            high_risk_count += 1
+        elif tmpl["source_story"] == prev_story_id and prev_beat_indices:
+            # Same source story but not a key beat — soft signal that
+            # the source story is structurally distinctive and any
+            # template from it carries some echo risk.
+            risk = "medium"
+        tmpl["spine_replica_risk"] = risk
+        if beat_kind:
+            tmpl["spine_beat_kind"] = beat_kind
+            tmpl["hint"] = (
+                tmpl["hint"]
+                + f" ⚠ This sentence is the {beat_kind} beat of story "
+                f"{prev_story_id}'s {prev_spine['label']} spine — "
+                f"reusing it verbatim will replicate the spine. "
+                f"Re-shape (different verbs, different actor agency), "
+                f"do not paraphrase."
+            )
+
+    # Top-level previous-spine block for fast scanning.
+    prev_warning = {
+        "prev_story_id":             prev_story_id if prev_story_id >= 1 else None,
+        "prev_spine":                prev_spine["label"],
+        "prev_key_beats":            prev_spine.get("key_beats", []),
+        "high_risk_template_count":  high_risk_count,
+        "advice": (
+            f"Story {prev_story_id}'s spine is `{prev_spine['label']}`. "
+            f"{high_risk_count} carrier template(s) above are flagged "
+            f"`spine_replica_risk: high` because they ARE load-bearing "
+            f"beats of that spine. Reusing them as-written will "
+            f"reproduce story {prev_story_id}'s shape. Use the R1 "
+            f"words but in a structurally DIFFERENT sentence."
+        ) if high_risk_count > 0 else (
+            f"Story {prev_story_id}'s spine is `{prev_spine['label']}`. "
+            f"No carrier templates flagged as high-risk for spine "
+            f"replication. Author still owns shape choice."
+            if prev_story_id >= 1 and prev_spine["label"] != "unclassified"
+            else ""
+        ),
+    }
+
+    banner = ""
+    if items:
+        banner = (
             f"R1 strict: {len(items)} word(s) MUST appear in story "
             f"{target_story} or `test_vocab_words_are_reinforced` "
             f"will fail post-ship. "
             f"{len(carrier_templates)} carrier template(s) suggested."
-        ) if items else "",
-        "carrier_templates": carrier_templates,
+        )
+        if high_risk_count > 0:
+            banner += (
+                f" ⚠ {high_risk_count} template(s) at `spine_replica_risk: "
+                f"high` — paraphrasing them reproduces story "
+                f"{prev_story_id}'s `{prev_spine['label']}` spine. "
+                f"See `previous_spine_warning`."
+            )
+
+    return {
+        "rule":                     "R1",
+        "window":                   VOCAB_REINFORCE_WINDOW,
+        "min_uses":                 VOCAB_REINFORCE_MIN_USES,
+        "items":                    items,
+        # Top-level summary the author should read FIRST. Empty when
+        # there's nothing to carry; non-empty means this is a load-
+        # bearing constraint that drives sentence design.
+        "banner":                   banner,
+        "carrier_templates":        carrier_templates,
+        "previous_spine_warning":   prev_warning,
     }
 
 
