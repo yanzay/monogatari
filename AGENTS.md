@@ -107,6 +107,14 @@ The "last-slot only" rule above used to leave a gap: when only THIS story is cur
 
 Authoring impact: read `must_hit.r1_strict_required` in the brief BEFORE drafting. If non-empty, plan sentences that organically use those words. The trap is now caught at dry-run time, not post-ship.
 
+## Brief recommendations respect tier ceiling (since 2026-05-15)
+
+`pipeline/grammar_progression.rank_uncovered` was suggesting N4 paradigm anchors (e.g. `N4_passive`, `N4_potential`) as top picks while N5 still had 13 uncovered points. The brief surfaced these as `recommended[0]`, but Check 3.9 (tier-coverage gate) would hard-block any such pick at validate-time — leading to a wasted authoring round-trip. Story 21 was the slot that surfaced the bug.
+
+Fix: `rank_uncovered` now computes a `ceiling_tier` = lowest tier (≤ target_tier) with any remaining uncovered point. Entries from tiers > ceiling_tier are filtered out of the ranking entirely. Without this guard, the N4 paradigm-anchor bonus (+5) outranked legitimate N5 picks like `N5_nai_form` (+4 from direct unlocks) even though N4 was unreachable. Pinned by `test_rank_uncovered_respects_tier_ceiling` in `pipeline/tests/test_pedagogical_sanity.py` (skips itself once N5 is fully covered).
+
+Also fixed in the same session: `step_validate` now populates `plan["max_sentences"]` from `progression.sentence_band(story_id)`. Without it, the validator's secondary check fell back to the historic absolute `SENTENCE_MAX = 8` and rejected post-bootstrap stories whose progression band legitimately allows up to 13 sentences. Story 21 (9 sentences, well inside [3, 13]) was rejected as "exceeds plan max 8" before the fix.
+
 ## step_validate runs the post-pass retag pre-validate (since 2026-05-15)
 
 `step_validate` in `pipeline/author_loop.py` now applies `_apply_post_pass_attributions` to its deepcopy BEFORE calling `validate()`. This pulls forward the surface- and base-driven grammar tagging that the converter cannot do at build time:
