@@ -322,7 +322,8 @@ def regen_one(
         "だれ": "N5_dare_who", "誰":   "N5_dare_who",
         "どこ": "N5_doko_where",
         "いつ": "N5_itsu_when",
-        "なぜ": "G053_naze_why",
+        "なぜ": "N5_naze_doshite",
+        "どうして": "N5_naze_doshite",
     }
     COUNTER_SURFACES = {"一人", "二人", "三人", "四人", "五人", "ひとり", "ふたり"}
     ARU_IRU_BASES   = {"ある", "いる"}

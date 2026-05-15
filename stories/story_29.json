@@ -1,0 +1,883 @@
+{
+  "story_id": 29,
+  "title": {
+    "jp": "昔の鉛筆",
+    "en": "The Pencil from Long Ago",
+    "tokens": [
+      {
+        "t": "昔",
+        "role": "content",
+        "word_id": "W00150",
+        "r": "むかし"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "N5_no_pos"
+      },
+      {
+        "t": "鉛筆",
+        "role": "content",
+        "word_id": "W00038",
+        "r": "えんぴつ"
+      }
+    ]
+  },
+  "new_words": [
+    "W00150",
+    "W00151",
+    "W00152",
+    "W00153"
+  ],
+  "new_grammar": [
+    "N5_naze_doshite"
+  ],
+  "all_words_used": [
+    "W00150",
+    "W00038",
+    "W00002",
+    "W00085",
+    "W00036",
+    "W00044",
+    "W00117",
+    "W00131",
+    "W00012",
+    "W00151",
+    "W00011",
+    "W00098",
+    "W00014",
+    "W00137",
+    "W00031",
+    "W00152",
+    "W00092",
+    "W00065",
+    "W00145",
+    "W00037",
+    "W00146",
+    "W00066",
+    "W00147",
+    "W00153",
+    "W00148",
+    "W00149",
+    "W00094",
+    "W00047",
+    "W00040",
+    "W00034",
+    "W00122",
+    "W00020"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あさ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "教室",
+          "role": "content",
+          "word_id": "W00085",
+          "r": "きょうしつ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "先生",
+          "role": "content",
+          "word_id": "W00036",
+          "r": "せんせい"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "待ちました",
+          "role": "content",
+          "word_id": "W00044",
+          "r": "まちました",
+          "inflection": {
+            "base": "待つ",
+            "base_r": "まつ",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the morning, I waited for the teacher in the classroom.",
+      "audio": "audio/story_29/s0.mp3",
+      "audio_hash": "6128c59ab896"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "机",
+          "role": "content",
+          "word_id": "W00117",
+          "r": "つくえ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "上",
+          "role": "content",
+          "word_id": "W00131",
+          "r": "うえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "ちいさい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "箱",
+          "role": "content",
+          "word_id": "W00151",
+          "r": "ばこ",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "ありました",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "ありました",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "On the desk there was a small box.",
+      "audio": "audio/story_29/s1.mp3",
+      "audio_hash": "6813925894e2"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "先生",
+          "role": "content",
+          "word_id": "W00036",
+          "r": "せんせい"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "箱",
+          "role": "content",
+          "word_id": "W00151",
+          "r": "ばこ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "開けて",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "あけて",
+          "inflection": {
+            "base": "開ける",
+            "base_r": "あける",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "ふるい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "鉛筆",
+          "role": "content",
+          "word_id": "W00038",
+          "r": "えんぴつ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "見せました",
+          "role": "content",
+          "word_id": "W00031",
+          "r": "みせました",
+          "inflection": {
+            "base": "見せる",
+            "base_r": "みせる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The teacher opened the box and showed me an old pencil.",
+      "audio": "audio/story_29/s2.mp3",
+      "audio_hash": "8042ca68130b"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "なぜ",
+          "role": "content",
+          "word_id": "W00152",
+          "r": "なぜ",
+          "grammar_id": "N5_naze_doshite",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "机",
+          "role": "content",
+          "word_id": "W00117",
+          "r": "つくえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "この",
+          "role": "content",
+          "word_id": "W00092",
+          "r": "この",
+          "grammar_id": "N5_kosoado"
+        },
+        {
+          "t": "鉛筆",
+          "role": "content",
+          "word_id": "W00038",
+          "r": "えんぴつ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_aru_iru"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "N5_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "聞きました",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ききました",
+          "inflection": {
+            "base": "聞く",
+            "base_r": "きく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Why is this pencil on my desk?\" I asked.",
+      "audio": "audio/story_29/s3.mp3",
+      "audio_hash": "fa50ba2037c2"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "先生",
+          "role": "content",
+          "word_id": "W00036",
+          "r": "せんせい"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "あなた",
+          "role": "content",
+          "word_id": "W00145",
+          "r": "あなた"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "書いた",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "かいた",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_ta_form"
+        },
+        {
+          "t": "字",
+          "role": "content",
+          "word_id": "W00146",
+          "r": "じ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "あります",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "あります",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_nonpast",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_aru_iru"
+        },
+        {
+          "t": "よ",
+          "role": "particle",
+          "grammar_id": "N5_yo_emphasis"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "答えました",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "こたえました",
+          "inflection": {
+            "base": "答える",
+            "base_r": "こたえる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The teacher answered, \"There's handwriting that you wrote.\"",
+      "audio": "audio/story_29/s4.mp3",
+      "audio_hash": "d380629c3194"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "字",
+          "role": "content",
+          "word_id": "W00146",
+          "r": "じ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "字",
+          "role": "content",
+          "word_id": "W00146",
+          "r": "じ"
+        },
+        {
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "N5_mashita",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_but"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "言葉",
+          "role": "content",
+          "word_id": "W00147",
+          "r": "ことば"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "覚えて",
+          "role": "content",
+          "word_id": "W00153",
+          "r": "おぼえて",
+          "inflection": {
+            "base": "覚える",
+            "base_r": "おぼえる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_te_form",
+          "is_new": true
+        },
+        {
+          "t": "いない",
+          "role": "aux",
+          "grammar_id": "N5_te_iru"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "思いました",
+          "role": "content",
+          "word_id": "W00148",
+          "r": "おもいました",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The handwriting was mine, but I thought, \"I don't remember the words.\"",
+      "audio": "audio/story_29/s5.mp3",
+      "audio_hash": "af732ef37b97"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "先生",
+          "role": "content",
+          "word_id": "W00036",
+          "r": "せんせい"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "新しい",
+          "role": "content",
+          "word_id": "W00149",
+          "r": "あたらしい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "言葉",
+          "role": "content",
+          "word_id": "W00147",
+          "r": "ことば"
+        },
+        {
+          "t": "じゃ",
+          "role": "particle",
+          "grammar_id": "N5_na_adj_neg"
+        },
+        {
+          "t": "ありません",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "ありません",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_ko_arimasen"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        },
+        {
+          "t": "昔",
+          "role": "content",
+          "word_id": "W00150",
+          "r": "むかし",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "字",
+          "role": "content",
+          "word_id": "W00146",
+          "r": "じ"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "よ",
+          "role": "particle",
+          "grammar_id": "N5_yo_emphasis"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The teacher said, \"They aren't new words. They're handwriting from long ago.\"",
+      "audio": "audio/story_29/s6.mp3",
+      "audio_hash": "b515ee4cff95"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "鉛筆",
+          "role": "content",
+          "word_id": "W00038",
+          "r": "えんぴつ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "取って",
+          "role": "content",
+          "word_id": "W00047",
+          "r": "とって",
+          "inflection": {
+            "base": "取る",
+            "base_r": "とる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "紙",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "かみ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "名前",
+          "role": "content",
+          "word_id": "W00034",
+          "r": "なまえ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "書きました",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "かきました",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I picked up the pencil and wrote my name on the paper.",
+      "audio": "audio/story_29/s7.mp3",
+      "audio_hash": "fc2e7a13a522"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "鉛筆",
+          "role": "content",
+          "word_id": "W00038",
+          "r": "えんぴつ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "箱",
+          "role": "content",
+          "word_id": "W00151",
+          "r": "ばこ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "入れて",
+          "role": "content",
+          "word_id": "W00122",
+          "r": "いれて",
+          "inflection": {
+            "base": "入れる",
+            "base_r": "いれる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "教室",
+          "role": "content",
+          "word_id": "W00085",
+          "r": "きょうしつ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "出ました",
+          "role": "content",
+          "word_id": "W00020",
+          "r": "でました",
+          "inflection": {
+            "base": "出る",
+            "base_r": "でる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I put the pencil back in the box and left the classroom.",
+      "audio": "audio/story_29/s8.mp3",
+      "audio_hash": "5e97670af1b4"
+    }
+  ],
+  "word_audio": {
+    "W00150": "audio/words/W00150.mp3",
+    "W00151": "audio/words/W00151.mp3",
+    "W00152": "audio/words/W00152.mp3",
+    "W00153": "audio/words/W00153.mp3"
+  },
+  "word_audio_hash": {
+    "W00150": "010f6f14b678",
+    "W00151": "43df32e29192",
+    "W00152": "6d6111fba948",
+    "W00153": "3fbee361cec4"
+  }
+}

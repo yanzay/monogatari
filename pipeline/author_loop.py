@@ -265,6 +265,22 @@ def step_validate(built_story: dict, build_report: dict | None = None) -> StepRe
         # kosoado / quotative-と count toward Check 3.10's grammar floor.
         # The pass mutates only token grammar_id / role; safe on the deepcopy.
         _apply_post_pass_attributions(built_story)
+        # Splice any grammar_ids the post-pass introduced (and that aren't
+        # already covered in grammar_state) into plan["new_grammar"]. Without
+        # this, a story whose grammar floor is satisfied ONLY by a post-pass
+        # tag (e.g. なぜ → N5_naze_doshite) trips Check 3 ("grammar_id not
+        # in grammar_state or plan") even though the post-ship state will
+        # carry the same tag. Mirrors the same defensive splice the build
+        # report's `unknown_grammar` path already does for build-time tags.
+        if plan is not None:
+            covered_gids = set((grammar.get("points") or {}).keys())
+            existing = set(plan.get("new_grammar") or [])
+            for sent in built_story.get("sentences", []):
+                for tok in sent.get("tokens", []):
+                    gid = tok.get("grammar_id")
+                    if gid and gid not in covered_gids and gid not in existing:
+                        plan.setdefault("new_grammar", []).append(gid)
+                        existing.add(gid)
         result = run_validate(built_story, vocab, grammar, plan=plan)
         if result.valid:
             warn_count = len(result.warnings) if hasattr(result, "warnings") else 0
@@ -311,7 +327,8 @@ def _apply_post_pass_attributions(built_story: dict) -> None:
         "だれ": "N5_dare_who", "誰":   "N5_dare_who",
         "どこ": "N5_doko_where",
         "いつ": "N5_itsu_when",
-        "なぜ": "G053_naze_why",
+        "なぜ": "N5_naze_doshite",
+        "どうして": "N5_naze_doshite",
     }
     COUNTER_SURFACES = {"一人", "二人", "三人", "四人", "五人", "ひとり", "ふたり"}
     ARU_IRU_BASES   = {"ある", "いる"}
@@ -1285,6 +1302,27 @@ def step_write(story_id: int, built_story: dict,
         # new_words / new_grammar arrays the regenerator populated.
         story_for_state = json.loads(sp.read_text(encoding="utf-8"))
         plan = _build_state_plan(build_report)
+        # The regenerator's post-pass attributes context-driven grammar
+        # ids (e.g. なぜ → N5_naze_doshite) that the per-token converter
+        # cannot tag at build time. These show up in the regenerated
+        # story's `new_grammar` but NOT in `build_report.unknown_grammar`.
+        # Splice their definitions in from KNOWN_AUTO_GRAMMAR_DEFINITIONS
+        # so state_updater can attribute them cleanly. Without this hop,
+        # the first story to use one of these post-pass-only gids
+        # (e.g. story 29 introducing N5_naze_doshite) crashes with
+        # "Cannot ship: new_grammar 'X' has no complete definition in plan."
+        from text_to_story import (  # noqa: E402
+            KNOWN_AUTO_GRAMMAR_DEFINITIONS as _AUTO_DEFS_W,
+        )
+        existing_defs = plan.get("new_grammar_definitions") or {}
+        for gid in (story_for_state.get("new_grammar") or []):
+            if gid in existing_defs:
+                continue
+            if gid in (grammar.get("points") or {}):
+                continue  # already in state — no definition needed
+            defn = _AUTO_DEFS_W.get(gid)
+            if defn:
+                plan.setdefault("new_grammar_definitions", {})[gid] = dict(defn)
 
         new_vocab, new_grammar, summary = update_state(
             story_for_state, vocab, grammar, plan,
@@ -1446,7 +1484,17 @@ def run_gauntlet(story_id: int, *, dry_run: bool) -> dict:
     # must introduce ≥1 new grammar point until the current JLPT tier
     # is fully covered. Mirrors validator's Check 3.10 with a clearer
     # pick list pulled from the brief.
-    s_cov = step_coverage_floor(story_id, built)
+    #
+    # Apply the post-pass attribution pass on a deepcopy so coverage_floor
+    # can see grammar_ids that the converter cannot tag at build time
+    # (e.g. なぜ → N5_naze_doshite, kosoado, counters, quotative-と). The
+    # post-ship state will carry these tags via regenerate_all_stories;
+    # without this pre-pass the gauntlet would mistakenly report 0 new
+    # grammar even though the post-ship file would correctly carry one.
+    import copy as _copy
+    _built_for_cov = _copy.deepcopy(built)
+    _apply_post_pass_attributions(_built_for_cov)
+    s_cov = step_coverage_floor(story_id, _built_for_cov)
     steps.append(s_cov)
     if s_cov.status == "fail":
         return _make_verdict(story_id, steps, dry_run, halted_at="coverage_floor")

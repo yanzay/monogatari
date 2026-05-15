@@ -1,0 +1,59 @@
+{
+  "story_id": 29,
+  "title": {
+    "jp": "昔の鉛筆",
+    "en": "The Pencil from Long Ago"
+  },
+  "intent": "PREMISE CONTRACT (story 29)\n  one_sentence_event:    The narrator returns to her old classroom in the morning, finds a small box on the desk, and the teacher opens it to show her an old pencil; the narrator asks why it is there, the teacher explains the pencil carries words the narrator herself wrote long ago; the narrator reads her own handwriting but cannot remember the words, the teacher says they are not new but old; the narrator picks up the pencil, writes her name on a sheet of paper, returns the pencil to the box, and leaves the classroom.\n  change_of_state:       at s0 the narrator is alone in the classroom waiting and knows nothing of the box; at the closer the box has been opened, the pencil has been identified as her own from long ago, she has used it to write her name on paper, has returned it to its box, and has carried that knowledge out of the classroom — the room has handed her back a piece of her past.\n  scene_novelty_claim:   I am NOT writing a narrator_home / park / station story. Scene_class is `classroom` (interior, public-institutional, never used in last 5 — last classroom story was much earlier as a single-mention place, never a scene_class).\n  anchor_novelty_claim:  Anchor is 鉛筆 (pencil). Did NOT appear in the last-5-anchor block (ノート, 傘, 手紙, 本, 絵). Pencil last appeared as a passing tool in story 16; never as the orbit of every causal verb. Five sentences out of nine touch the pencil (s2 shown, s4 referent of attributive 字, s5 referent of 字, s7 picked up + used, s8 returned to box).\n  closer_shape_claim:    Closer shape: serial action — 「鉛筆を箱に入れて、教室を出ました。」 (noun-WO-noun-NI-verb-TE, noun-WO-verb-mashita) — a TWO-VERB exit beat that returns the anchor to its container and the narrator to the threshold. NOT a noun-pile, NOT a 「Nは Adv に Verb-mashita」 mirror of story 28's 「母は静かに笑いました」, NOT a quoted-resolve mirror of story 27's 「もう忘れません」, NOT an absence mirror of story 26's 「棚に絵はもうありません」.\n  why_not_filler:        narrator EARNS slot by waiting (s0), seeing the box (s1), asking why (s3), reading and silently failing to remember (s5), picking up the pencil and writing her name (s7), and leaving with the pencil restored to its box (s8). Teacher EARNS slot by opening the box and showing the pencil (s2), explaining whose handwriting it is (s4), and gently correcting the perceived novelty (s6). The pencil is load-bearing — the cause of the question, the carrier of the writing, the thing returned. The box is not decoration: it is the closed thing that gets opened in s2 AND the thing that receives the pencil back in s8 — a frame around the whole event. Paper + name aren't grammar bait; they're how the narrator confirms the pencil still works and that her hand still writes the same字.\n  obligations_absorbed:  R1 strict — must reuse W00145 あなた (s4 inside teacher's voice line, naturally addressing the narrator), W00146 字 (s4 + s5 + s5 — three positions), W00147 言葉 (s5 inside narrator's quoted thought + s6 inside teacher's correction), W00148 思う (s5 reflection verb), W00149 新しい (s6 inside teacher's correction). All five appear organically across four sentences (s4 s5 s6); the s5 sentence absorbs the brief's suggested 3-word carrier (字 + 言葉 + 思う) per `r1_strict_required.carrier_templates[0]`. Must-reinforce N5_na_adj_neg landed in s6 「新しい言葉じゃありません」 — same construction as story 28's introducing sentence, intentional callback. New grammar = N5_naze_doshite — landed in s3 narrator's question 「なぜ私の机にこの鉛筆がありますか」 (auto-tag from なぜ; same tier as recommended[0] which is deferred per the no-auto-tagger precedent in stories 24 and 27). Recommended[0] N5_attributive deferred again (no auto-tagger); the attributive shape 「あなたが書いた字」 still appears organically in s4 as good Japanese, but is NOT what unlocks coverage. なぜ is in the brief's recommended list (recommended[3] in spirit) and is the cheapest auto-tagged uncovered N5 point on the residual N5 list of four (N5_attributive, N5_hoshii, N5_naze_doshite, N5_te_mo_ii — only naze has any post-pass tagging plumbing).\n\n  HISTORICAL NOTE: The post-pass surface→grammar_id mapping for なぜ was a stale legacy id 「G053_naze_why」 (predating the 2026-05-01 single-namespace migration); both `pipeline/author_loop.py::_apply_post_pass_attributions` and `pipeline/regenerate_all_stories.py::regen_one` have been updated to the canonical `N5_naze_doshite` (catalog id), and `どうして` added as a synonym surface. This is a mechanical repair, not a behavioral change — no story currently uses なぜ; story 29 is the first.\n\nFORBIDDEN THIS STORY:\n  scene_class    (last 3 stories): narrator_home, park, station\n  anchor_object  (last 5 stories): ノート, 傘, 手紙, 本, 絵\n  closer_shape   (last 3 stories): noun-NI-noun-WA-noun-noun, noun-WA-noun-NI-noun, noun-WA-noun-noun-TO-noun\n  opening_seqs   (last 3 stories' first 3 content tokens):\n    - 友達 / 家 / 来ました\n    - 友達 / 二人 / 公園\n    - 夕方 / 駅 / 母\n  (All four zones honored — opening 朝/教室/先生 is fresh, anchor 鉛筆 not in last-5, scene `classroom` not in last 3, closer is a two-verb exit beat with no と / 静か / もう…ません echo.)\n\nNew mints (4): 箱 W (s1, s2, s8 — the container that frames the event; N5, JLPT5, common N5 noun); 覚える W (s5 inside narrator's quoted memory failure; N5, JLPT5, the canonical 'memorize/remember' verb in the standard 〜ていない construction); 昔 W (s6 inside teacher's correction; N4, well within tier cap; native collocation for 'long ago' that lets us avoid yet another 「小さい頃」 echo of stories 26/27/28); なぜ W (s3 inside narrator's question; N5, JLPT5, the interrogative 'why' that carries N5_naze_doshite).\n\nNew grammar (1): N5_naze_doshite (auto-tag from なぜ in s3 — interrogative 'why'). Cleared the previously-stale catalog binding (see HISTORICAL NOTE above).\n\nLexical: 箱 (N5), 覚える (N5), 昔 (N4), なぜ (N5) all comfortably within N3/nf24 tier cap. No overrides used.\n\nStructural differentiation from story 28: story 28 = mother → narrator GIFT at the station (transfer of a written object the narrator made as a child, with explanation); story 29 = teacher → narrator REVELATION at the classroom (showing of a written object the narrator made as a child — the writing instrument, not the writing itself). Story 28's anchor is the LETTER (the message); story 29's anchor is the PENCIL (the instrument that wrote the message). The narrator's response is symmetric (recognizes own handwriting, doesn't remember the words, accepts the explanation) but the act in s7 is different: in story 28 the narrator promises not to forget; in story 29 the narrator USES the pencil to write her name on paper (a present-tense act of confirmation, not a future-tense vow). The closer is also opposite-shaped: story 28 closes on the OTHER character's expression (mother laughs); story 29 closes on the NARRATOR's hands (returns pencil to box, exits room).",
+  "scene_class": "classroom",
+  "anchor_object": "鉛筆",
+  "characters": ["narrator", "teacher"],
+  "lexical_overrides": [],
+  "sentences": [
+    {
+      "jp": "朝、教室で先生を待ちました。",
+      "en": "In the morning, I waited for the teacher in the classroom.",
+      "role": "setting"
+    },
+    {
+      "jp": "机の上に小さい箱がありました。",
+      "en": "On the desk there was a small box.",
+      "role": "setting"
+    },
+    {
+      "jp": "先生は箱を開けて、私に古い鉛筆を見せました。",
+      "en": "The teacher opened the box and showed me an old pencil.",
+      "role": "action"
+    },
+    {
+      "jp": "「なぜ私の机にこの鉛筆がありますか」と聞きました。",
+      "en": "\"Why is this pencil on my desk?\" I asked.",
+      "role": "dialogue"
+    },
+    {
+      "jp": "先生は「あなたが書いた字がありますよ」と答えました。",
+      "en": "The teacher answered, \"There's handwriting that you wrote.\"",
+      "role": "dialogue"
+    },
+    {
+      "jp": "字は私の字でしたが、「言葉を覚えていない」と思いました。",
+      "en": "The handwriting was mine, but I thought, \"I don't remember the words.\"",
+      "role": "reflection"
+    },
+    {
+      "jp": "先生は「新しい言葉じゃありません。昔の字ですよ」と言いました。",
+      "en": "The teacher said, \"They aren't new words. They're handwriting from long ago.\"",
+      "role": "dialogue"
+    },
+    {
+      "jp": "鉛筆を取って、紙に名前を書きました。",
+      "en": "I picked up the pencil and wrote my name on the paper.",
+      "role": "action"
+    },
+    {
+      "jp": "鉛筆を箱に入れて、教室を出ました。",
+      "en": "I put the pencil back in the box and left the classroom.",
+      "role": "closer"
+    }
+  ]
+}
