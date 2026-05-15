@@ -1,0 +1,587 @@
+{
+  "story_id": 17,
+  "title": {
+    "jp": "玄関の靴",
+    "en": "The Shoes at the Entryway",
+    "tokens": [
+      {
+        "t": "玄関",
+        "role": "content",
+        "word_id": "W00102",
+        "r": "げんかん"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "N5_no_pos"
+      },
+      {
+        "t": "靴",
+        "role": "content",
+        "word_id": "W00058",
+        "r": "くつ"
+      }
+    ]
+  },
+  "new_words": [
+    "W00102",
+    "W00103",
+    "W00104"
+  ],
+  "new_grammar": [
+    "N5_masho"
+  ],
+  "all_words_used": [
+    "W00102",
+    "W00058",
+    "W00070",
+    "W00014",
+    "W00003",
+    "W00020",
+    "W00011",
+    "W00025",
+    "W00099",
+    "W00100",
+    "W00037",
+    "W00074",
+    "W00033",
+    "W00081",
+    "W00047",
+    "W00091",
+    "W00067",
+    "W00101",
+    "W00103",
+    "W00079",
+    "W00094",
+    "W00104"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "今日",
+          "role": "content",
+          "word_id": "W00070",
+          "r": "きょう"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "いえ"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "N5_kara_from"
+        },
+        {
+          "t": "出ませんでした",
+          "role": "content",
+          "word_id": "W00020",
+          "r": "でませんでした",
+          "inflection": {
+            "base": "出る",
+            "base_r": "でる",
+            "form": "polite_past_negative",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_masen_deshita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Today, I did not leave the house.",
+      "audio": "audio/story_17/s0.mp3",
+      "audio_hash": "f45ccc297677"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "玄関",
+          "role": "content",
+          "word_id": "W00102",
+          "r": "げんかん",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "靴",
+          "role": "content",
+          "word_id": "W00058",
+          "r": "くつ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "ありました",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "ありました",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There were shoes at the entryway.",
+      "audio": "audio/story_17/s1.mp3",
+      "audio_hash": "19e1cd04a444"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "黄色い",
+          "role": "content",
+          "word_id": "W00025",
+          "r": "きいろい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "ノート",
+          "role": "content",
+          "word_id": "W00099",
+          "r": "のーと"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "たくさん",
+          "role": "content",
+          "word_id": "W00100",
+          "r": "たくさん"
+        },
+        {
+          "t": "書きました",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "かきました",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I wrote a lot in the yellow notebook.",
+      "audio": "audio/story_17/s2.mp3",
+      "audio_hash": "e5ebc5899449"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "夕方",
+          "role": "content",
+          "word_id": "W00074",
+          "r": "ゆうがた"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "玄関",
+          "role": "content",
+          "word_id": "W00102",
+          "r": "げんかん"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "来ました",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きました",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_past",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the evening, my friend came to the entryway.",
+      "audio": "audio/story_17/s3.mp3",
+      "audio_hash": "b607fe60e5ad"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "靴",
+          "role": "content",
+          "word_id": "W00058",
+          "r": "くつ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "取って",
+          "role": "content",
+          "word_id": "W00047",
+          "r": "とって",
+          "inflection": {
+            "base": "取る",
+            "base_r": "とる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "笑いました",
+          "role": "content",
+          "word_id": "W00091",
+          "r": "わらいました",
+          "inflection": {
+            "base": "笑う",
+            "base_r": "わらう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend picked up my shoes and laughed.",
+      "audio": "audio/story_17/s4.mp3",
+      "audio_hash": "2803bd4fcbc8"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "お金",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "おかね"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "払いました",
+          "role": "content",
+          "word_id": "W00101",
+          "r": "はらいました",
+          "inflection": {
+            "base": "払う",
+            "base_r": "はらう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I paid my friend the money.",
+      "audio": "audio/story_17/s5.mp3",
+      "audio_hash": "a8e81604f6b9"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "外",
+          "role": "content",
+          "word_id": "W00103",
+          "r": "そと",
+          "is_new": true
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "N5_e_direction"
+        },
+        {
+          "t": "行きましょう",
+          "role": "content",
+          "word_id": "W00079",
+          "r": "いきましょう",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "volitional_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_masho",
+          "is_new_grammar": true
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend said, \"Let's go outside.\"",
+      "audio": "audio/story_17/s6.mp3",
+      "audio_hash": "6a93f35ed0ba"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "靴",
+          "role": "content",
+          "word_id": "W00058",
+          "r": "くつ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "履いて",
+          "role": "content",
+          "word_id": "W00104",
+          "r": "はいて",
+          "inflection": {
+            "base": "履く",
+            "base_r": "はく",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form",
+          "is_new": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "外",
+          "role": "content",
+          "word_id": "W00103",
+          "r": "そと"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "N5_e_direction"
+        },
+        {
+          "t": "出ました",
+          "role": "content",
+          "word_id": "W00020",
+          "r": "でました",
+          "inflection": {
+            "base": "出る",
+            "base_r": "でる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend and I put on the shoes and went outside.",
+      "audio": "audio/story_17/s7.mp3",
+      "audio_hash": "7b1af61d76b8"
+    }
+  ],
+  "word_audio": {
+    "W00102": "audio/words/W00102.mp3",
+    "W00103": "audio/words/W00103.mp3",
+    "W00104": "audio/words/W00104.mp3"
+  },
+  "word_audio_hash": {
+    "W00102": "32f134498b1c",
+    "W00103": "ef718bd274f0",
+    "W00104": "d5b7a5f93961"
+  }
+}
