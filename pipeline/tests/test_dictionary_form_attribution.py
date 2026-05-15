@@ -216,28 +216,6 @@ def test_te_form_does_not_tag_g055(vocab, grammar):
     assert tok.get("grammar_id") == "N5_te_form"
 
 
-def test_unknown_grammar_report_includes_g055_when_unattributed(vocab, grammar):
-    """When G055 is not yet attributed in grammar_state, the build
-    report should surface it in `unknown_grammar` so the planner can
-    splice in the registry definition.
-    """
-    if "N5_dictionary_form" in (grammar.get("points") or {}):
-        pytest.skip("G055 already attributed — corpus is past first dict-form usage.")
-    _, report = _build(
-        [{"jp": "私は月を見る。", "en": "I see the moon."}],
-        vocab, grammar,
-    )
-    surfaced = {
-        rec["grammar_id"]
-        for rec in report.get("unknown_grammar", []) or []
-        if isinstance(rec, dict) and rec.get("grammar_id")
-    }
-    assert PLAIN_NONPAST_GID in surfaced, (
-        f"build report should surface {PLAIN_NONPAST_GID} as unknown_grammar "
-        f"so the planner can attribute it (got: {sorted(surfaced)})"
-    )
-
-
 def test_known_auto_grammar_definitions_registry_is_complete():
     """The G055 entry in the registry must carry every field
     state_updater requires for a brand-new grammar point (case A in
@@ -261,116 +239,21 @@ def test_known_auto_grammar_definitions_registry_is_complete():
     assert defn.get("jlpt") == "N5"
 
 
-def test_step_coverage_floor_counts_g055_via_registry(vocab, grammar, tmp_path, monkeypatch):
-    """step_coverage_floor must consult KNOWN_AUTO_GRAMMAR_DEFINITIONS so a
-    plain-form-verb story (post-bootstrap, current tier uncovered) lands
-    its intro in the count even when G055 isn't yet in grammar_state.
-
-    This pins the second half of the fix: without the registry fallback in
-    step_coverage_floor's gid→catalog_id map, a plain-dict closer would
-    pass the validator's Check 3.10 (which uses a permissive
-    "gp.get('intro_in_story') is None" check) but FAIL the gauntlet's
-    coverage_floor (which used a stricter "gid must be in state" lookup).
-    """
-    if "N5_dictionary_form" in (grammar.get("points") or {}):
-        pytest.skip("G055 already attributed — registry path no longer fires.")
-
-    from author_loop import step_coverage_floor  # noqa: E402
-
-    built, _ = _build(
-        [
-            {"jp": "夜、月は明るいです。", "en": "Night, the moon is bright."},
-            {"jp": "私は月を見る。", "en": "I see the moon."},
-        ],
-        vocab, grammar,
-    )
-
-    # Pick a post-bootstrap story id (BOOTSTRAP_END is 3); at the current
-    # corpus state N5 still has uncovered points so the floor applies.
-    res = step_coverage_floor(11, built)
-    assert res.status == "ok", (
-        f"plain-dict closer should satisfy coverage_floor via the registry "
-        f"fallback; got status={res.status}, summary={res.summary!r}"
-    )
-    intros = (res.details or {}).get("intros") or []
-    assert PLAIN_NONPAST_GID in intros, (
-        f"coverage_floor should count {PLAIN_NONPAST_GID} as an intro "
-        f"(got intros={intros})"
-    )
-
-
-def test_validator_accepts_g055_via_unknown_grammar_splice(vocab, grammar):
-    """Validator Check 3 ("grammar_id X not in grammar_state or plan") must
-    NOT block a story that uses a plain-form verb when the gauntlet's
-    step_validate splices `unknown_grammar` records into the plan.
-
-    This pins the third half of the fix: without the splice, the very
-    first plain-dict story in the corpus would emit
-    `grammar_id 'N5_dictionary_form' not in grammar_state or plan`
-    and the gauntlet would halt at validate.
-    """
-    if "N5_dictionary_form" in (grammar.get("points") or {}):
-        pytest.skip("G055 already attributed — splice path no longer needed.")
-
-    from validate import validate as run_validate  # noqa: E402
-
-    built, report = _build(
-        [{"jp": "私は月を見る。", "en": "I see the moon."}],
-        vocab, grammar,
-    )
-
-    # Without splicing G055, validator Check 3 raises.
-    res_no_plan = run_validate(built, vocab, grammar, plan=None)
-    check3_errors = [
-        e for e in res_no_plan.errors
-        if str(e.check) == "3" and PLAIN_NONPAST_GID in e.message
-    ]
-    assert check3_errors, (
-        "expected validator to flag G055 as unknown without a plan splice"
-    )
-
-    # WITH splicing — replicates step_validate's logic.
-    minted_grammar = []
-    for rec in (report.get("unknown_grammar") or []):
-        if isinstance(rec, dict):
-            g = rec.get("grammar_id")
-            if g and g not in minted_grammar:
-                minted_grammar.append(g)
-    plan = {"new_words": [], "new_grammar": minted_grammar}
-    res_with_plan = run_validate(built, vocab, grammar, plan=plan)
-    check3_after = [
-        e for e in res_with_plan.errors
-        if str(e.check) == "3" and PLAIN_NONPAST_GID in e.message
-    ]
-    assert not check3_after, (
-        f"after splicing {PLAIN_NONPAST_GID} into plan.new_grammar, "
-        f"validator Check 3 should not fire on it; got: {check3_after}"
-    )
-
-
-def test_build_state_plan_splices_g055_definition(vocab, grammar):
-    """The author_loop helper must read G055 out of the build report's
-    unknown_grammar list and splice the registry definition into the
-    plan, so state_updater's "case (a)" branch (brand-new gid) can
-    proceed without raising "Cannot ship: new_grammar 'G055_…' has
-    no complete definition in plan."
-    """
-    if "N5_dictionary_form" in (grammar.get("points") or {}):
-        pytest.skip("G055 already attributed — registry path no longer fires.")
-    from author_loop import _build_state_plan  # noqa: E402
-
-    _, report = _build(
-        [{"jp": "私は月を見る。", "en": "I see the moon."}],
-        vocab, grammar,
-    )
-    plan = _build_state_plan(report)
-    grammar_defs = plan.get("new_grammar_definitions") or {}
-    assert PLAIN_NONPAST_GID in grammar_defs, (
-        f"_build_state_plan must populate new_grammar_definitions["
-        f"'{PLAIN_NONPAST_GID}'] from KNOWN_AUTO_GRAMMAR_DEFINITIONS "
-        f"(got: {sorted(grammar_defs.keys())})"
-    )
-    spliced = grammar_defs[PLAIN_NONPAST_GID]
-    # state_updater requires title/short/long to be present + truthy.
-    assert spliced.get("title") and spliced.get("short") and spliced.get("long")
-    assert spliced.get("catalog_id") == "N5_dictionary_form"
+# NOTE (removed 2026-05-15): four bootstrap-fallback tests used to live
+# below this line — they exercised the one-shot path that fired when
+# `N5_dictionary_form` was minted into grammar_state for the very first
+# plain-dict story in the corpus (story 7). They each guarded their body
+# with `if "N5_dictionary_form" in grammar.get("points"): pytest.skip(...)`,
+# which is now permanently true and will never flip back. The removed
+# tests were:
+#   - test_unknown_grammar_report_includes_g055_when_unattributed
+#   - test_step_coverage_floor_counts_g055_via_registry
+#   - test_validator_accepts_g055_via_unknown_grammar_splice
+#   - test_build_state_plan_splices_g055_definition
+#
+# The steady-state behavior they covered is still pinned by the surviving
+# tests in this module (test_plain_form_of_polite_vocab_tags_g055,
+# test_pure_dictionary_form_vocab_tags_g055, test_polite_form_does_not_tag_g055,
+# test_te_form_does_not_tag_g055, test_known_auto_grammar_definitions_registry_is_complete).
+# Recover from git history (commit prior to this removal) if a future
+# bootstrap-style fallback path is ever reintroduced.
