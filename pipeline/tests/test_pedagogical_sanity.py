@@ -691,9 +691,14 @@ def test_step_validate_pulls_post_pass_retag_forward(root):
 
     NOTE: the probe interrogative MUST be one that is still uncovered in
     the corpus (otherwise Check 3.10 would fail even WITH the retag, since
-    a `corpus-already-covered` point isn't "new"). N5_doko_where was the
-    original probe but story 19 introduced it; the probe was migrated to
-    N5_dare_who (誰 → N5_dare_who via the same INTERROGATIVE_GIDS pre-pass).
+    a `corpus-already-covered` point isn't "new"). The probe has been
+    migrated twice as the corpus grew:
+      - originally N5_doko_where (どこ); story 19 introduced it.
+      - then N5_dare_who (誰); story 23 introduced it.
+      - now N5_itsu_when (いつ); pick the next still-uncovered N5
+        post-pass-only retag if and when story N introduces this one.
+    All three gids share the same INTERROGATIVE_GIDS pre-pass code path,
+    so the test contract is preserved across the swap.
     """
     sys.path.insert(0, str(root / "pipeline"))
     sys.path.insert(0, str(root / "pipeline" / "tools"))
@@ -701,16 +706,50 @@ def test_step_validate_pulls_post_pass_retag_forward(root):
     from text_to_story import build_story
     from validate import validate as run_validate
     from _paths import load_vocab, load_grammar
+    from derived_state import derive_grammar_attributions
     import copy as _copy
+
+    # Probe-eligible candidates: post-pass-only INTERROGATIVE_GIDS retags
+    # at N5 tier. Listed in preferred-swap order; the first one with
+    # `intro_in_story is None` (genuinely uncovered) is the live probe.
+    # Each entry: (gid, surface_in_quote, sentence_jp, sentence_en).
+    PROBE_CANDIDATES = [
+        ("N5_itsu_when",  "いつ",
+         "友達は「いつ本を読みますか」と聞きました。",
+         "My friend asked, \"When do you read the book?\""),
+        ("N5_nan_what",   "何",
+         "友達は「何の本ですか」と聞きました。",
+         "My friend asked, \"What kind of book is it?\""),
+        ("N5_dare_who",   "誰",
+         "友達は「誰の本ですか」と聞きました。",
+         "My friend asked, \"Whose book is this?\""),
+        ("N5_doko_where", "どこ",
+         "友達は「どこの本ですか」と聞きました。",
+         "My friend asked, \"Where is the book from?\""),
+    ]
+    _attrs = derive_grammar_attributions()
+    probe = next(
+        (c for c in PROBE_CANDIDATES
+         if (_attrs.get(c[0]) or {}).get("intro_in_story") is None),
+        None,
+    )
+    if probe is None:
+        pytest.skip(
+            "All known post-pass-only INTERROGATIVE_GIDS retags are now "
+            "covered by the corpus; migrate this test to the next "
+            "uncovered post-pass retag (counters, kosoado, aru/iru, "
+            "to-omoimasu, to-iimasu, ga-but, naze-why)."
+        )
+    probe_gid, _probe_surface, dialogue_jp, dialogue_en = probe
 
     # Build a real story via the converter so the schema is complete.
     # The lone wh-question gives us an unambiguous probe: the only path
     # to a non-empty `new_grammar` for this story is the post-pass retag
-    # of 誰 → N5_dare_who.
+    # of the chosen interrogative → probe_gid.
     spec = {
         "story_id":      9999,    # synthetic, never on disk
         "title":         {"jp": "本", "en": "Book"},
-        "intent":        "synthetic test fixture",
+        "intent":        f"synthetic test fixture; probe={probe_gid}",
         "scene_class":   "test",
         "anchor_object": "本",
         "characters":    ["narrator", "friend"],
@@ -721,8 +760,7 @@ def test_step_validate_pulls_post_pass_retag_forward(root):
              "en": "There was a book on the desk.", "role": "setting"},
             {"jp": "友達が来ました。",
              "en": "My friend came.", "role": "action"},
-            {"jp": "友達は「誰の本ですか」と聞きました。",
-             "en": "My friend asked, \"Whose book is this?\"", "role": "dialogue"},
+            {"jp": dialogue_jp, "en": dialogue_en, "role": "dialogue"},
             {"jp": "私は「私の本です」と答えました。",
              "en": "I answered, \"It's my book.\"", "role": "dialogue"},
             {"jp": "私は本を取りました。",
