@@ -107,6 +107,13 @@ The "last-slot only" rule above used to leave a gap: when only THIS story is cur
 
 Authoring impact: read `must_hit.r1_strict_required` in the brief BEFORE drafting. If non-empty, plan sentences that organically use those words. The trap is now caught at dry-run time, not post-ship.
 
+**R1 brief surfaces carrier templates + source sentences (since 2026-05-15).** `must_hit.r1_strict_required` is now enriched with three fields the author should read FIRST:
+- `banner`: top-level "X words MUST appear" summary string.
+- per-item `source_sentence_index` + `source_sentence_surface`: the introducing sentence so the author sees the natural collocation.
+- `carrier_templates[]`: sentences in the source story that cluster 2+ required words together — paraphrasing or reusing one absorbs multiple R1 obligations in a single sentence.
+
+Without this enrichment, authors discovered R1 obligations only at dry-run and retrofit a "scene-grounding" sentence with 4-5 disparate words — exactly the "pedagogical bolt-on" pattern the §E.7 literary reviewer rejects, costing 2-3 round-trips per story (story 21 surfaced this). Now the absorbing sentence shape is in the brief BEFORE drafting. Pinned by `test_r1_strict_brief_surfaces_carrier_templates` in `test_pedagogical_sanity.py`.
+
 ## Brief recommendations respect tier ceiling (since 2026-05-15)
 
 `pipeline/grammar_progression.rank_uncovered` was suggesting N4 paradigm anchors (e.g. `N4_passive`, `N4_potential`) as top picks while N5 still had 13 uncovered points. The brief surfaced these as `recommended[0]`, but Check 3.9 (tier-coverage gate) would hard-block any such pick at validate-time — leading to a wasted authoring round-trip. Story 21 was the slot that surfaced the bug.
