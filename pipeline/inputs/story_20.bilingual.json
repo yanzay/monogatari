@@ -1,0 +1,20 @@
+{
+  "story_id": 20,
+  "title": {
+    "jp": "台所の鳥",
+    "en": "The Bird in the Kitchen"
+  },
+  "intent": "Mother and the narrator are drinking evening tea in the kitchen; the window is already open. A small black bird flies in, perches on a chair, and sings. Mother asks where it came from; the bird flies back out the same window; mother answers her own question by naming it a garden friend. Anchor is the bird: it enters (s2), perches and calls (s3), is questioned (s4), departs (s5), and is named (s6). Reinforces W00108 (鳥), W00109 (飛ぶ), W00110 (どこ) under R1; reinforces grammar N5_doko_where (intro story 19) inside the mother's question. Introduces grammar N5_kara_because in s2 (window open → bird entered) — a clause-level causal connector that opens up reasoned narration without leaving N5. Mints 開く (intransitive open, balances 開ける at s1 to depict a state), 黒い (color of bird), 鳴く (bird call), 庭 (garden, mother's interpretive answer in the closer). 4 mints; min 3, max 5; well within budget.\n\nPREMISE CONTRACT (story 20)\n  one_sentence_event:    A small black bird flies into the kitchen through the open window, sings on a chair, and the mother — opening the window wider so it can leave — names it a garden friend.\n  change_of_state:       at s0 mother and narrator are alone with tea; at closer the bird has come, sung, departed, and been named — narrator's understanding of the visitor changes from \"intruder\" to \"neighbor.\"\n  scene_novelty_claim:   I am NOT writing an entryway / park / station story. Scene is the kitchen at dusk.\n  anchor_novelty_claim:  Anchor is 鳥. Last appeared in story 19 as the question-object (where did the birds go); here it is the agent that enters and leaves the human space.\n  closer_shape_claim:    Closer shape: dialogue line — quote-TO-mother-WA-verb. NOT a noun-pile, NOT a 「Nは Adj です」 mirror, NOT a sky-question mirror of story 19's closer.\n  why_not_filler:        母 anchors the dialogue and acts (opens window, names bird) — without her the bird's entry is unwitnessed. 私 holds the narrator POV (drinks tea with mother in s0). 鳥 is the agent of every state change. 椅子 is the perch that lets the bird sing within reach. 窓 is the threshold the bird crosses twice. お茶 is the quiet baseline the bird disrupts.\n  obligations_absorbed:  must-reinforce W00108/W00109/W00110 absorbed naturally — bird is the protagonist; どこ is the mother's first reaction; 飛ぶ is how the bird enters/lands/leaves. must-introduce N5_kara_because absorbed in s2 (window-open → bird-entered) — the most natural causal pairing on the page.\n\nFORBIDDEN THIS STORY:\n  scene_class    (last 3): entryway, park, station\n  anchor_object  (last 5): ノート, パン, 窓, 電車, 靴\n  closer_shape   (last 3): noun-GA-noun-NI-noun-KARA-noun, noun-TO-noun-WA-noun-WO-noun-noun-E-noun, noun-WA-noun-WO-noun-noun-WA-noun-E-noun-P:か-TO-noun\n  opening_seqs   (last 3): 今日/私/家, 次/朝/玄関, 次/駅/二人",
+  "scene_class": "kitchen",
+  "anchor_object": "鳥",
+  "characters": ["narrator", "mother"],
+  "sentences": [
+    {"jp": "夕方、母と私は台所でお茶を飲みました。", "en": "In the evening, my mother and I drank tea in the kitchen.", "role": "setting"},
+    {"jp": "台所の窓は開いていました。", "en": "The kitchen window was open.", "role": "setting"},
+    {"jp": "窓が開いていたから、小さい黒い鳥が台所に飛んで来ました。", "en": "Because the window was open, a small black bird flew into the kitchen.", "role": "action"},
+    {"jp": "鳥は椅子に止まって、鳴きました。", "en": "The bird perched on a chair and sang.", "role": "action"},
+    {"jp": "母は「この鳥はどこから来ましたか」と言いました。", "en": "Mother said, \"Where did this bird come from?\"", "role": "dialogue"},
+    {"jp": "鳥は窓から飛んで行きました。", "en": "The bird flew away through the window.", "role": "action"},
+    {"jp": "「庭の友達です」と母が答えました。", "en": "\"A friend from the garden,\" mother answered.", "role": "closer"}
+  ]
+}

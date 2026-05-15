@@ -1,0 +1,618 @@
+{
+  "story_id": 20,
+  "title": {
+    "jp": "台所の鳥",
+    "en": "The Bird in the Kitchen",
+    "tokens": [
+      {
+        "t": "台所",
+        "role": "content",
+        "word_id": "W00004",
+        "r": "だいどころ"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "N5_no_pos"
+      },
+      {
+        "t": "鳥",
+        "role": "content",
+        "word_id": "W00108",
+        "r": "とり"
+      }
+    ]
+  },
+  "new_words": [
+    "W00111",
+    "W00112",
+    "W00113",
+    "W00114",
+    "W00115"
+  ],
+  "new_grammar": [
+    "N5_kara_because"
+  ],
+  "all_words_used": [
+    "W00004",
+    "W00108",
+    "W00074",
+    "W00005",
+    "W00014",
+    "W00010",
+    "W00017",
+    "W00007",
+    "W00111",
+    "W00012",
+    "W00112",
+    "W00109",
+    "W00081",
+    "W00048",
+    "W00113",
+    "W00114",
+    "W00092",
+    "W00110",
+    "W00094",
+    "W00079",
+    "W00115",
+    "W00033",
+    "W00066"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "夕方",
+          "role": "content",
+          "word_id": "W00074",
+          "r": "ゆうがた"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "台所",
+          "role": "content",
+          "word_id": "W00004",
+          "r": "だいどころ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "おちゃ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "飲みました",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "のみました",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the evening, my mother and I drank tea in the kitchen.",
+      "audio": "audio/story_20/s0.mp3",
+      "audio_hash": "a07f0a66f20e"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "台所",
+          "role": "content",
+          "word_id": "W00004",
+          "r": "だいどころ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "窓",
+          "role": "content",
+          "word_id": "W00007",
+          "r": "まど"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "開いて",
+          "role": "content",
+          "word_id": "W00111",
+          "r": "ひらいて",
+          "inflection": {
+            "base": "開く",
+            "base_r": "ひらく",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form",
+          "is_new": true
+        },
+        {
+          "t": "いました",
+          "role": "aux",
+          "grammar_id": "N5_te_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The kitchen window was open.",
+      "audio": "audio/story_20/s1.mp3",
+      "audio_hash": "3704cfa63369"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "窓",
+          "role": "content",
+          "word_id": "W00007",
+          "r": "まど"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "開いて",
+          "role": "content",
+          "word_id": "W00111",
+          "r": "ひらいて",
+          "inflection": {
+            "base": "開く",
+            "base_r": "ひらく",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "いた",
+          "role": "aux",
+          "grammar_id": "N5_te_iru"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "N5_kara_because",
+          "is_new_grammar": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "小さい",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "ちいさい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "黒い",
+          "role": "content",
+          "word_id": "W00112",
+          "r": "くろい",
+          "grammar_id": "N5_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "鳥",
+          "role": "content",
+          "word_id": "W00108",
+          "r": "とり"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "台所",
+          "role": "content",
+          "word_id": "W00004",
+          "r": "だいどころ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "飛んで",
+          "role": "content",
+          "word_id": "W00109",
+          "r": "とんで",
+          "inflection": {
+            "base": "飛ぶ",
+            "base_r": "とぶ",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "来ました",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きました",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_past",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Because the window was open, a small black bird flew into the kitchen.",
+      "audio": "audio/story_20/s2.mp3",
+      "audio_hash": "2450990c3cf9"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "鳥",
+          "role": "content",
+          "word_id": "W00108",
+          "r": "とり"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "椅子",
+          "role": "content",
+          "word_id": "W00048",
+          "r": "いす"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "止まって",
+          "role": "content",
+          "word_id": "W00113",
+          "r": "とまって",
+          "inflection": {
+            "base": "止まる",
+            "base_r": "とまる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form",
+          "is_new": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "鳴きました",
+          "role": "content",
+          "word_id": "W00114",
+          "r": "なきました",
+          "inflection": {
+            "base": "鳴く",
+            "base_r": "なく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The bird perched on a chair and sang.",
+      "audio": "audio/story_20/s3.mp3",
+      "audio_hash": "53d5a3f84078"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "この",
+          "role": "content",
+          "word_id": "W00092",
+          "r": "この",
+          "grammar_id": "N5_kosoado"
+        },
+        {
+          "t": "鳥",
+          "role": "content",
+          "word_id": "W00108",
+          "r": "とり"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "どこ",
+          "role": "content",
+          "word_id": "W00110",
+          "r": "どこ",
+          "grammar_id": "N5_doko_where"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "N5_kara_because"
+        },
+        {
+          "t": "来ました",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きました",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_past",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "N5_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Mother said, \"Where did this bird come from?\"",
+      "audio": "audio/story_20/s4.mp3",
+      "audio_hash": "aa85205eb4e5"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "鳥",
+          "role": "content",
+          "word_id": "W00108",
+          "r": "とり"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "窓",
+          "role": "content",
+          "word_id": "W00007",
+          "r": "まど"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "N5_kara_from"
+        },
+        {
+          "t": "飛んで",
+          "role": "content",
+          "word_id": "W00109",
+          "r": "とんで",
+          "inflection": {
+            "base": "飛ぶ",
+            "base_r": "とぶ",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "行きました",
+          "role": "content",
+          "word_id": "W00079",
+          "r": "いきました",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The bird flew away through the window.",
+      "audio": "audio/story_20/s5.mp3",
+      "audio_hash": "353630bb4456"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "庭",
+          "role": "content",
+          "word_id": "W00115",
+          "r": "にわ",
+          "is_new": true
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "答えました",
+          "role": "content",
+          "word_id": "W00066",
+          "r": "こたえました",
+          "inflection": {
+            "base": "答える",
+            "base_r": "こたえる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"A friend from the garden,\" mother answered.",
+      "audio": "audio/story_20/s6.mp3",
+      "audio_hash": "96447fb79a44"
+    }
+  ],
+  "word_audio": {
+    "W00111": "audio/words/W00111.mp3",
+    "W00112": "audio/words/W00112.mp3",
+    "W00113": "audio/words/W00113.mp3",
+    "W00114": "audio/words/W00114.mp3",
+    "W00115": "audio/words/W00115.mp3"
+  },
+  "word_audio_hash": {
+    "W00111": "cf67b939a526",
+    "W00112": "e4385eb68e06",
+    "W00113": "907a8e96bda4",
+    "W00114": "9600c6cb81a9",
+    "W00115": "74200b15f1fb"
+  }
+}

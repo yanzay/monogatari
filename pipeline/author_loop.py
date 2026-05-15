@@ -333,12 +333,15 @@ def _apply_post_pass_attributions(built_story: dict) -> None:
                         toks[k]["grammar_id"] = quot_gid
                         toks[j]["role"] = "aux"
                         break
-        # Pass C: clause-conjunctive が ("but") — mirrors regenerate_all_stories.
-        # Without this the gauntlet's coverage_floor undercounts N5_ga_but
-        # at dry-run time, even though the post-ship regen WILL tag it. See
-        # AGENTS.md "auto-tagged grammar IDs" section for the broader context.
+        # Pass C: clause-level constructs — mirrors regenerate_all_stories.
+        # Without these the gauntlet's coverage_floor undercounts grammar
+        # at dry-run time, even though the post-ship regen WILL tag them.
+        # See AGENTS.md "auto-tagged grammar IDs" section for the broader
+        # context. Currently mirrored: N5_ga_but (clause-conjunctive が),
+        # N5_kara_because (clause-final から after a predicate).
         for j, tok in enumerate(toks):
-            if tok.get("t") == "が" and tok.get("role") == "particle":
+            t = tok.get("t", "")
+            if t == "が" and tok.get("role") == "particle":
                 prev = toks[j - 1] if j > 0 else None
                 nxt  = toks[j + 1] if j + 1 < len(toks) else None
                 if prev is not None and nxt is not None:
@@ -352,6 +355,28 @@ def _apply_post_pass_attributions(built_story: dict) -> None:
                     )
                     if is_predicate:
                         tok["grammar_id"] = "N5_ga_but"
+            elif t == "から" and tok.get("role") == "particle":
+                # N5_kara_because — から after a predicate (verb / adj / です stem)
+                # is the reason connector; から after a plain noun is N5_kara_from
+                # (locative/temporal). Heuristic mirrors regenerate_all_stories:
+                # the previous token must be predicate-shaped.
+                prev = toks[j - 1] if j > 0 else None
+                if prev is not None:
+                    prev_role = prev.get("role", "")
+                    prev_gid  = prev.get("grammar_id") or ""
+                    prev_t    = prev.get("t", "")
+                    is_predicate = (
+                        prev_t in {"です", "だ", "ます"}
+                        or prev_t.endswith("ます")
+                        or prev_t.endswith("ません")
+                        or prev_t.endswith("した")
+                        or prev_role == "aux"
+                        or (prev_role == "content"
+                            and prev_gid not in (None, "", "N5_kara_from")
+                            and not prev_gid.startswith("G00"))
+                    )
+                    if is_predicate:
+                        tok["grammar_id"] = "N5_kara_because"
 
 
 def step_pedagogical_sanity(story_id: int, built_story: dict) -> StepResult:
