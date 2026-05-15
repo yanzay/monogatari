@@ -1,0 +1,677 @@
+{
+  "story_id": 25,
+  "title": {
+    "jp": "弟のノート",
+    "en": "My Brother's Notebook",
+    "tokens": [
+      {
+        "t": "弟",
+        "role": "content",
+        "word_id": "W00129",
+        "r": "おとうと"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "N5_no_pos"
+      },
+      {
+        "t": "ノート",
+        "role": "content",
+        "word_id": "W00099",
+        "r": "のーと"
+      }
+    ]
+  },
+  "new_words": [
+    "W00133",
+    "W00134",
+    "W00135",
+    "W00136"
+  ],
+  "new_grammar": [
+    "N5_i_adj_neg"
+  ],
+  "all_words_used": [
+    "W00129",
+    "W00099",
+    "W00062",
+    "W00079",
+    "W00133",
+    "W00100",
+    "W00011",
+    "W00134",
+    "W00047",
+    "W00126",
+    "W00135",
+    "W00094",
+    "W00012",
+    "W00014",
+    "W00067",
+    "W00101",
+    "W00095",
+    "W00003",
+    "W00098",
+    "W00136",
+    "W00037",
+    "W00130",
+    "W00065",
+    "W00132",
+    "W00117",
+    "W00131",
+    "W00080"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00129",
+          "r": "おとうと"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "本屋",
+          "role": "content",
+          "word_id": "W00062",
+          "r": "ほんや"
+        },
+        {
+          "t": "へ",
+          "role": "particle",
+          "grammar_id": "N5_e_direction"
+        },
+        {
+          "t": "行きました",
+          "role": "content",
+          "word_id": "W00079",
+          "r": "いきました",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I went to the bookstore with my younger brother.",
+      "audio": "audio/story_25/s0.mp3",
+      "audio_hash": "e4a436b3b63c"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "棚",
+          "role": "content",
+          "word_id": "W00133",
+          "r": "たな",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "ノート",
+          "role": "content",
+          "word_id": "W00099",
+          "r": "のーと"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "たくさん",
+          "role": "content",
+          "word_id": "W00100",
+          "r": "たくさん"
+        },
+        {
+          "t": "ありました",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "ありました",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "On the shelves there were many notebooks.",
+      "audio": "audio/story_25/s1.mp3",
+      "audio_hash": "f478ca8dafb2"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00129",
+          "r": "おとうと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "赤い",
+          "role": "content",
+          "word_id": "W00134",
+          "r": "あかい",
+          "grammar_id": "N5_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "ノート",
+          "role": "content",
+          "word_id": "W00099",
+          "r": "のーと"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "取って",
+          "role": "content",
+          "word_id": "W00047",
+          "r": "とって",
+          "inflection": {
+            "base": "取る",
+            "base_r": "とる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "これ",
+          "role": "content",
+          "word_id": "W00126",
+          "r": "これ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "ほしい",
+          "role": "content",
+          "word_id": "W00135",
+          "r": "ほしい",
+          "grammar_id": "N5_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My brother picked up a red notebook and said, \"I want this one.\"",
+      "audio": "audio/story_25/s2.mp3",
+      "audio_hash": "6665947d39d9"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "これ",
+          "role": "content",
+          "word_id": "W00126",
+          "r": "これ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "小さくない",
+          "role": "content",
+          "word_id": "W00012",
+          "r": "ちいさくない",
+          "inflection": {
+            "form": "i_adj_negative"
+          },
+          "grammar_id": "N5_i_adj_neg",
+          "is_new_grammar": true
+        },
+        {
+          "t": "ね",
+          "role": "particle",
+          "grammar_id": "N5_ne_confirm"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"This one — it isn't small, is it,\" I said.",
+      "audio": "audio/story_25/s3.mp3",
+      "audio_hash": "7e24c850d999"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "お金",
+          "role": "content",
+          "word_id": "W00067",
+          "r": "おかね"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "払って",
+          "role": "content",
+          "word_id": "W00101",
+          "r": "はらって",
+          "inflection": {
+            "base": "払う",
+            "base_r": "はらう",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "ノート",
+          "role": "content",
+          "word_id": "W00099",
+          "r": "のーと"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00129",
+          "r": "おとうと"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "渡しました",
+          "role": "content",
+          "word_id": "W00095",
+          "r": "わたしました",
+          "inflection": {
+            "base": "渡す",
+            "base_r": "わたす",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I paid the money and handed the notebook to my brother.",
+      "audio": "audio/story_25/s4.mp3",
+      "audio_hash": "14d583d493ed"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "いえ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00129",
+          "r": "おとうと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "ノート",
+          "role": "content",
+          "word_id": "W00099",
+          "r": "のーと"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "開けて",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "あけて",
+          "inflection": {
+            "base": "開ける",
+            "base_r": "あける",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "絵",
+          "role": "content",
+          "word_id": "W00136",
+          "r": "え",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "書きました",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "かきました",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "At home, my brother opened the notebook and drew a picture.",
+      "audio": "audio/story_25/s5.mp3",
+      "audio_hash": "80852757215f"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "これ",
+          "role": "content",
+          "word_id": "W00126",
+          "r": "これ"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "何",
+          "role": "content",
+          "word_id": "W00130",
+          "r": "なん",
+          "grammar_id": "N5_nan_what"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "絵",
+          "role": "content",
+          "word_id": "W00136",
+          "r": "え"
+        },
+        {
+          "t": "?",
+          "role": "punct"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "聞きました",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ききました",
+          "inflection": {
+            "base": "聞く",
+            "base_r": "きく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"What is this a picture of?\" I asked.",
+      "audio": "audio/story_25/s6.mp3",
+      "audio_hash": "ff94f6201204"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00129",
+          "r": "おとうと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "ノート",
+          "role": "content",
+          "word_id": "W00099",
+          "r": "のーと"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "閉めて",
+          "role": "content",
+          "word_id": "W00132",
+          "r": "しめて",
+          "inflection": {
+            "base": "締める",
+            "base_r": "しめる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "机",
+          "role": "content",
+          "word_id": "W00117",
+          "r": "つくえ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "上",
+          "role": "content",
+          "word_id": "W00131",
+          "r": "うえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "置きました",
+          "role": "content",
+          "word_id": "W00080",
+          "r": "おきました",
+          "inflection": {
+            "base": "置く",
+            "base_r": "おく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My brother closed the notebook and set it on the desk.",
+      "audio": "audio/story_25/s7.mp3",
+      "audio_hash": "9138de185f46"
+    }
+  ],
+  "word_audio": {
+    "W00133": "audio/words/W00133.mp3",
+    "W00134": "audio/words/W00134.mp3",
+    "W00135": "audio/words/W00135.mp3",
+    "W00136": "audio/words/W00136.mp3"
+  },
+  "word_audio_hash": {
+    "W00133": "ba112e5d20c1",
+    "W00134": "260ee821c758",
+    "W00135": "736a73d829ed",
+    "W00136": "3b0a65000129"
+  }
+}

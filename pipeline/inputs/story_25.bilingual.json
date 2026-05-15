@@ -1,0 +1,19 @@
+{
+  "story_id": 25,
+  "title": {"jp": "弟のノート", "en": "My Brother's Notebook"},
+  "intent": "PREMISE CONTRACT (story 25)\n  one_sentence_event:    The narrator buys a red notebook for the younger brother at the bookstore, and the brother makes it his own by drawing in it.\n  change_of_state:       at s0 the notebook is one of many on a shelf, owned by the store; at the closer it belongs to the brother and carries his drawing.\n  scene_novelty_claim:   I am NOT writing a kitchen/garden/study story; this is a bookstore (anchor: notebook).\n  anchor_novelty_claim:  Anchor is ノート. Last appeared in story 17. Not in the last-5-anchor block (手紙/本/石/葉/鳥).\n  closer_shape_claim:    Closer shape: action — 「弟はノートを閉めて、私に見せました」 (subject-OBJ-te-form, INDIRECT-verb). Distinct from prev 3 (no と-list, no も-も, no quoted-ね closer).\n  why_not_filler:        narrator EARNS slot by paying + receiving + asking; brother EARNS slot by choosing, drawing, showing; ノート is load-bearing (chosen on shelf, paid for, opened, drawn in, closed, shown). The shop is the change agent — possession transfers across the counter.\n  obligations_absorbed:  R1 must-reuse 弟(s0,s2,s4,s5,s7), 何(s6), 上(s1), 閉める(s7) — all natural. Must-reinforce N5_nan_what reuses 何 (s6). New grammar = N5_i_adj_neg via 「これは小さくないね」 (s3) — narrator gauges the notebook honestly. New mints (4): 棚, 赤い, ほしい, 絵.\n\nFORBIDDEN THIS STORY:\n  scene_class    (last 3): garden, kitchen, study\n  anchor_object  (last 5): 手紙, 本, 石, 葉, 鳥\n  closer_shape   (last 3): noun-TO-noun-NI-noun-WO-noun, noun-WA-noun-MO-noun-MO-noun, noun-WA-noun-WO-noun-noun-P:ね-TO-noun\n  opening_seqs   (last 3 first-3 content tokens): もう/朝, 次/朝/私, 夕方/台所/本",
+  "scene_class": "bookstore",
+  "anchor_object": "ノート",
+  "characters": ["narrator", "younger_brother"],
+  "lexical_overrides": [],
+  "sentences": [
+    {"jp": "弟と本屋へ行きました。", "en": "I went to the bookstore with my younger brother.", "role": "setting"},
+    {"jp": "棚にノートがたくさんありました。", "en": "On the shelves there were many notebooks.", "role": "setting"},
+    {"jp": "弟は赤いノートを取って、「これがほしい」と言いました。", "en": "My brother picked up a red notebook and said, \"I want this one.\"", "role": "action"},
+    {"jp": "「これ、小さくないね」と言いました。", "en": "\"This one — it isn't small, is it,\" I said.", "role": "dialogue"},
+    {"jp": "私はお金を払って、ノートを弟に渡しました。", "en": "I paid the money and handed the notebook to my brother.", "role": "action"},
+    {"jp": "家で弟はノートを開けて、絵を書きました。", "en": "At home, my brother opened the notebook and drew a picture.", "role": "action"},
+    {"jp": "「これは何の絵?」と聞きました。", "en": "\"What is this a picture of?\" I asked.", "role": "dialogue"},
+    {"jp": "弟はノートを閉めて、机の上に置きました。", "en": "My brother closed the notebook and set it on the desk.", "role": "closer"}
+  ]
+}
