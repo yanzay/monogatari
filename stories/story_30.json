@@ -1,0 +1,668 @@
+{
+  "story_id": 30,
+  "title": {
+    "jp": "古い写真",
+    "en": "An Old Photo",
+    "tokens": [
+      {
+        "t": "古い",
+        "role": "content",
+        "word_id": "W00137",
+        "r": "ふるい",
+        "grammar_id": "N5_i_adj"
+      },
+      {
+        "t": "写真",
+        "role": "content",
+        "word_id": "W00154",
+        "r": "しゃしん"
+      }
+    ]
+  },
+  "new_words": [
+    "W00154",
+    "W00155",
+    "W00156"
+  ],
+  "new_grammar": [
+    "N5_hoshii"
+  ],
+  "all_words_used": [
+    "W00137",
+    "W00154",
+    "W00096",
+    "W00151",
+    "W00098",
+    "W00011",
+    "W00046",
+    "W00155",
+    "W00016",
+    "W00034",
+    "W00153",
+    "W00152",
+    "W00092",
+    "W00143",
+    "W00039",
+    "W00148",
+    "W00078",
+    "W00054",
+    "W00156",
+    "W00150",
+    "W00033",
+    "W00089",
+    "W00135",
+    "W00040",
+    "W00028",
+    "W00037"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "部屋",
+          "role": "content",
+          "word_id": "W00096",
+          "r": "へや"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "ふるい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "箱",
+          "role": "content",
+          "word_id": "W00151",
+          "r": "ばこ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "開けました",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "あけました",
+          "inflection": {
+            "base": "開ける",
+            "base_r": "あける",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In my room, I opened an old box.",
+      "audio": "audio/story_30/s0.mp3",
+      "audio_hash": "cc0ca2d7289d"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "箱",
+          "role": "content",
+          "word_id": "W00151",
+          "r": "ばこ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "ふるい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "写真",
+          "role": "content",
+          "word_id": "W00154",
+          "r": "しゃしん",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "ありました",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "ありました",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Inside the box there was an old photograph.",
+      "audio": "audio/story_30/s1.mp3",
+      "audio_hash": "95ed4d051f66"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "写真",
+          "role": "content",
+          "word_id": "W00154",
+          "r": "しゃしん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "顔",
+          "role": "content",
+          "word_id": "W00155",
+          "r": "かお",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "見ました",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "みました",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_but"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "名前",
+          "role": "content",
+          "word_id": "W00034",
+          "r": "なまえ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "覚えて",
+          "role": "content",
+          "word_id": "W00153",
+          "r": "おぼえて",
+          "inflection": {
+            "base": "覚える",
+            "base_r": "おぼえる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "いませんでした",
+          "role": "aux",
+          "grammar_id": "N5_te_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I looked at the face of the person in the photograph, but I did not remember the name.",
+      "audio": "audio/story_30/s2.mp3",
+      "audio_hash": "50341a2ca9cf"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "なぜ",
+          "role": "content",
+          "word_id": "W00152",
+          "r": "なぜ",
+          "grammar_id": "N5_naze_doshite"
+        },
+        {
+          "t": "この",
+          "role": "content",
+          "word_id": "W00092",
+          "r": "この",
+          "grammar_id": "N5_kosoado"
+        },
+        {
+          "t": "写真",
+          "role": "content",
+          "word_id": "W00154",
+          "r": "しゃしん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "まだ",
+          "role": "content",
+          "word_id": "W00143",
+          "r": "いまだ"
+        },
+        {
+          "t": "持って",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "もって",
+          "inflection": {
+            "base": "持つ",
+            "base_r": "もつ",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "いる",
+          "role": "aux",
+          "grammar_id": "N5_te_iru"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "N5_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "思いました",
+          "role": "content",
+          "word_id": "W00148",
+          "r": "おもいました",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"Why am I still keeping this photograph?\" I thought.",
+      "audio": "audio/story_30/s3.mp3",
+      "audio_hash": "6ab75a3737b2"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "ゆっくり",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "ゆっくり"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "写真",
+          "role": "content",
+          "word_id": "W00154",
+          "r": "しゃしん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "見ました",
+          "role": "content",
+          "word_id": "W00016",
+          "r": "みました",
+          "inflection": {
+            "base": "見る",
+            "base_r": "みる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Slowly, I looked at the photograph.",
+      "audio": "audio/story_30/s4.mp3",
+      "audio_hash": "c8e08387da78"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "その",
+          "role": "content",
+          "word_id": "W00054",
+          "r": "その",
+          "grammar_id": "N5_kosoado"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "名前",
+          "role": "content",
+          "word_id": "W00034",
+          "r": "なまえ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "思い出しました",
+          "role": "content",
+          "word_id": "W00156",
+          "r": "おもいだしました",
+          "inflection": {
+            "base": "思い出す",
+            "base_r": "おもいだす",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I remembered the person's name.",
+      "audio": "audio/story_30/s5.mp3",
+      "audio_hash": "1854c035b67e"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "写真",
+          "role": "content",
+          "word_id": "W00154",
+          "r": "しゃしん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "昔",
+          "role": "content",
+          "word_id": "W00150",
+          "r": "むかし"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "N5_mashita",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The person in the photograph was a friend from long ago.",
+      "audio": "audio/story_30/s6.mp3",
+      "audio_hash": "958bbddc9cd7"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "N5_kara_from"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "ほしい",
+          "role": "content",
+          "word_id": "W00135",
+          "r": "ほしい",
+          "grammar_id": "N5_hoshii",
+          "is_new_grammar": true
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "思いました",
+          "role": "content",
+          "word_id": "W00148",
+          "r": "おもいました",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I wanted a letter from her, I thought.",
+      "audio": "audio/story_30/s7.mp3",
+      "audio_hash": "bc45e0cbc25a"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "紙",
+          "role": "content",
+          "word_id": "W00040",
+          "r": "かみ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "出して",
+          "role": "content",
+          "word_id": "W00028",
+          "r": "だして",
+          "inflection": {
+            "base": "出す",
+            "base_r": "だす",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "書きました",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "かきました",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I took out some paper and wrote her a letter.",
+      "audio": "audio/story_30/s8.mp3",
+      "audio_hash": "4a9a68d2d46d"
+    }
+  ],
+  "word_audio": {
+    "W00154": "audio/words/W00154.mp3",
+    "W00155": "audio/words/W00155.mp3",
+    "W00156": "audio/words/W00156.mp3"
+  },
+  "word_audio_hash": {
+    "W00154": "df30c30e910f",
+    "W00155": "a050ca136404",
+    "W00156": "82d17a112d3e"
+  }
+}

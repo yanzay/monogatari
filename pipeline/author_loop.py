@@ -336,6 +336,15 @@ def _apply_post_pass_attributions(built_story: dict) -> None:
         "思います": "N4_to_omoimasu",
         "言います": "N4_to_iimasu",
     }
+    # ほしい — N5_hoshii. The i-adjective ほしい takes the desired object
+    # with が and is a paradigm anchor for "want (a thing)". The build-time
+    # tagger sees only N5_i_adj; the surface-level tag is applied here so
+    # coverage_floor / Check 3.10 can credit a story whose grammar floor
+    # is satisfied by a 〜がほしい construction. Mirrored in
+    # regenerate_all_stories.regen_one and registered in
+    # KNOWN_AUTO_GRAMMAR_DEFINITIONS so state_updater can attribute on
+    # first use without a hand-written plan.
+    HOSHII_SURFACES = {"ほしい", "ほしかった", "ほしくない"}
 
     for sent in built_story.get("sentences", []):
         toks = sent.get("tokens", [])
@@ -350,6 +359,8 @@ def _apply_post_pass_attributions(built_story: dict) -> None:
                 tok["grammar_id"] = INTERROGATIVE_GIDS[t]
             elif t in COUNTER_SURFACES and tok.get("role") == "content":
                 tok["grammar_id"] = "N5_counters"
+            elif t in HOSHII_SURFACES and tok.get("role") == "content":
+                tok["grammar_id"] = "N5_hoshii"
             elif tok.get("role") == "content":
                 base = (tok.get("inflection") or {}).get("base")
                 cur_gid = tok.get("grammar_id")

@@ -331,6 +331,11 @@ def regen_one(
         "思います": "N4_to_omoimasu",
         "言います": "N4_to_iimasu",
     }
+    # ほしい — N5_hoshii (paradigm anchor for "want a thing"). Mirrored from
+    # author_loop._apply_post_pass_attributions; see that function for the
+    # rationale and KNOWN_AUTO_GRAMMAR_DEFINITIONS for the state-entry
+    # definition.
+    HOSHII_SURFACES = {"ほしい", "ほしかった", "ほしくない"}
     # Post-pass C surfaces: clause-level constructs detected by sentence shape.
     # N5_kara_because: clause-final から after a verb/adj/です stem (reason clause)
     #   — distinguished from N5_kara_from (locative/temporal から after a noun).
@@ -356,6 +361,8 @@ def regen_one(
                 tok["grammar_id"] = INTERROGATIVE_GIDS[t]
             elif t in COUNTER_SURFACES and tok.get("role") == "content":
                 tok["grammar_id"] = "N5_counters"
+            elif t in HOSHII_SURFACES and tok.get("role") == "content":
+                tok["grammar_id"] = "N5_hoshii"
             # ある/いる existence verbs (lexical, not the te-iru aux).
             # Override the generic N5_masu_nonpast that the converter
             # assigns by default, but preserve more specific tags such as

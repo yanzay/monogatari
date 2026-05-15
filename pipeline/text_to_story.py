@@ -333,6 +333,17 @@ KNOWN_AUTO_GRAMMAR_DEFINITIONS: dict[str, dict] = {
         "bunpro_ref":    "bunpro_n5",
         "jlpt_sensei_ref": "jlpt_sensei",
     },
+    "N5_hoshii": {
+        "title":         "〜がほしい — want (a thing)",
+        "short":         "Stative i-adjective ほしい expressing desire for an object: 〜がほしい.",
+        "long":          "ほしい is a stative i-adjective meaning 'wanted/desired'. It takes the desired object marked with が (not を): 「水がほしい」 = 'I want water'. Polite form: 〜がほしいです. The subject of desire is the speaker (or, in questions, the listener). Distinct from 〜たい (want to do — verb desire). First-person reference is implicit; do not add 私は unless contrastive.",
+        "jlpt":          "N5",
+        "catalog_id":    "N5_hoshii",
+        "prerequisites": ["N5_ga_subject"],
+        "genki_ref":     "Genki I L11",
+        "bunpro_ref":    "bunpro_n5",
+        "jlpt_sensei_ref": "jlpt_sensei",
+    },
     # ── N4 auto-tagged forms ───────────────────────────────────────────────
     "N4_nagara": {
         "title":         "〜ながら — while (simultaneous actions)",

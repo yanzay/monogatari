@@ -588,8 +588,27 @@ def test_no_orphan_grammar_points(stories, grammar):
     """
     DEFERRED_CONTEXT_GIDS = {
         "N5_kara_because",       # から as causal vs から as origin
-        "N5_masenka",# ませんか as invitation vs question
-        "N5_ga_but",            # が as `but` clause-conjunction vs subject
+        "N5_masenka",            # ませんか as invitation vs question
+        "N5_ga_but",             # が as `but` clause-conjunction vs subject
+        # N4/N3 catalog entries that exist in grammar_state for catalog
+        # completeness but have not yet been organically used in a story.
+        # All are context-sensitive (taggers exist for some — quotative-と,
+        # discourse-initial conjunctions — but no story 1–30 has needed
+        # the construction yet). Once a story uses one, removing it from
+        # this set is the correct cascade.
+        "N4_to_omoimasu",        # quotative-と + 思います (intro deferred until N4)
+        "N4_to_iimasu",          # quotative-と + 言います (intro deferred until N4)
+        "N4_toki",               # 〜とき temporal subordinator (taggable but unused)
+        "N4_te_oku",             # 〜ておく preparatory aspect (no story uses yet)
+        "N4_te_aru",             # 〜てある deliberate-result aspect (no story uses)
+        "N4_nagara",             # 〜ながら simultaneous actions (no story uses yet)
+        "N4_shikashi",           # しかし discourse-initial conjunction (unused)
+        "N4_keredomo",           # けれども discourse-initial conjunction (unused)
+        "N4_suruto",             # すると narrative consequence (unused)
+        "N4_sorede",             # それで discourse-initial reason (unused)
+        "N3_ni_tsuite",          # 〜について compound particle (unused)
+        "N3_tokoroga",           # ところが contrastive-surprise conjunction (unused)
+        "N3_daga",               # だが literary-register conjunction (unused)
     }
     # During v2 cold-start the catalog has 48 grammar points but only N5
     # essentials are wired into the first ~10 stories. The orphan invariant
