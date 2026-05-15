@@ -1,0 +1,53 @@
+{
+  "story_id": 22,
+  "title": {
+    "jp": "葉が来た朝",
+    "en": "The Morning a Leaf Came"
+  },
+  "intent": "PREMISE CONTRACT (story 22; v3 — round-trip 3 of 3)\n  one_sentence_event:    On an already-morning, while the narrator reads at her desk and her mother washes dishes in the kitchen, a leaf blows in through the window from the garden tree onto the desk; the narrator carries the book and the leaf into the kitchen, announces the leaf's arrival to her mother, and her mother — looking at the leaf — says she will not throw it away.\n  change_of_state:       at s0 the narrator and mother are in different rooms, both engaged in solo activities; at the closer they are in the same room, the leaf has been transferred from outside → desk → book → kitchen → mother's gaze, and a verbal pact has been made between them about it. The narrator's choice to CARRY THE LEAF TO HER MOTHER is what makes the story (active agency, not passive receipt).\n  scene_novelty_claim:   I am NOT writing a kitchen / park / room story. Scene_class is `study` — a small writing room with a desk by an open window. The closer moves into the kitchen, but the kitchen is the destination of the narrator's chosen action, not the scene's center.\n  anchor_novelty_claim:  Anchor is 葉 (leaf). Not in the last 5 anchors (パン, 手紙, 電車, 靴, 鳥). 葉 is a brand-new mint that earns 5 of 8 sentences (s4, s5, s6, s7, s8) and is the object of the closer's verbal pact.\n  closer_shape_claim:    Closer shape: TWO-character verbal exchange — narrator hands → mother sees + speaks (`mother-WA noun-WO V-te, quote-TO V-mashita` with embedded NAI-form). NOT a noun-pile, NOT a quoted-question (story 19, 20), NOT a `母と私は... V-te, V-mashita` mirror of story 21 (different particle structure, different verb sequence).\n  why_not_filler:        narrator (reads s2 → discovers s4-5 → decides to carry s6 → calls out s7 — every sentence advances her, including the chosen action of taking the leaf to mother); 母 (off-stage in s3 with a real domestic task = 探す + 皿; on-stage in s8 as the recipient who receives the gift and speaks the closing line — her presence is structurally necessary because the narrator's choice to bring the leaf TO her is the story); 葉 (anchor every action sentence orbits — arrives, lands, is carried, is shown, is verbally preserved); 机 (origin of the discovery); 本 (vehicle of the leaf's transfer). No grammar-bait friend.\n  obligations_absorbed:  must-introduce N5_ta_form via 「葉が来た」 in s7 — the narrator's announcement to her mother, the most natural plain-past slot in a graded reader. Must-reinforce N5_nai_form via mother's 「捨てない」 in s8 — a real verbal commitment, NOT a 「もう探さない」 echo. R1-strict obligations all absorbed: もう (s1, as `already`-sense — DIFFERENT from story 21's `anymore`-sense; learner sees both senses across the corpus), 探す (s3, mother's kitchen search), 木 (s5), 落ちる (s5), 机 (s2, s5). Critical-debt 皿 (W00027) lands in s3.\n\nROUND-1 LITERARY VERDICT: REWRITE-STORY (search-find-relief structurally identical to story 21).\nROUND-2 LITERARY VERDICT: REWRITE-STORY (passive receipt, sentimental closer not earned).\nROUND-3 FIX: closer is now a TWO-CHARACTER VERBAL PACT triggered by the narrator's CHOSEN ACTIVE TRANSFER. Mother is no longer off-stage at the closer; she becomes the recipient who speaks. The 「捨てない」 line is a real promise to a real person about a real object. The narrator earns the closer by physically carrying the leaf to a witness.\n\nFORBIDDEN THIS STORY:\n  scene_class    (last 3): kitchen, park, room\n  anchor_object  (last 5): パン, 手紙, 電車, 靴, 鳥\n  closer_shape   (last 3): noun-NO-noun-DESU-TO-noun-GA-noun, noun-TO-noun-WA-noun-WO-noun-noun, noun-WA-noun-WO-noun-noun-WA-noun-E-noun-P:か-TO-noun\n  opening_seqs   (last 3): 次/駅/二人, 夕方/母/私, 夕方/私/部屋\n  (Opening here is もう/朝/私 — fully fresh.)",
+  "scene_class": "study",
+  "anchor_object": "葉",
+  "characters": ["narrator", "mother"],
+  "sentences": [
+    {
+      "jp": "もう朝でした。",
+      "en": "It was already morning.",
+      "role": "setting"
+    },
+    {
+      "jp": "私は机で本を読みました。",
+      "en": "I read a book at my desk.",
+      "role": "setting"
+    },
+    {
+      "jp": "母は台所で皿を探していました。",
+      "en": "My mother was looking for a plate in the kitchen.",
+      "role": "setting"
+    },
+    {
+      "jp": "葉が窓から入って来ました。",
+      "en": "A leaf came in through the window.",
+      "role": "action"
+    },
+    {
+      "jp": "庭の木から葉が飛んで来て、机に落ちました。",
+      "en": "From the garden tree, the leaf flew in and fell onto the desk.",
+      "role": "action"
+    },
+    {
+      "jp": "私は葉を本に入れて、台所に行きました。",
+      "en": "I placed the leaf inside the book and went to the kitchen.",
+      "role": "action"
+    },
+    {
+      "jp": "私は母に「葉が来たよ」と言いました。",
+      "en": "I said to my mother, \"A leaf came!\"",
+      "role": "dialogue"
+    },
+    {
+      "jp": "母は葉を持って、「捨てないね」と言いました。",
+      "en": "Mother held the leaf and said, \"We won't throw it away, will we.\"",
+      "role": "closer"
+    }
+  ]
+}

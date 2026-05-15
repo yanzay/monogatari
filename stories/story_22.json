@@ -1,0 +1,672 @@
+{
+  "story_id": 22,
+  "title": {
+    "jp": "葉が来た朝",
+    "en": "The Morning a Leaf Came",
+    "tokens": [
+      {
+        "t": "葉",
+        "role": "content",
+        "word_id": "W00121",
+        "r": "は"
+      },
+      {
+        "t": "が",
+        "role": "particle",
+        "grammar_id": "N5_ga_subject"
+      },
+      {
+        "t": "来た",
+        "role": "content",
+        "word_id": "W00081",
+        "r": "きた",
+        "inflection": {
+          "base": "来る",
+          "base_r": "くる",
+          "form": "past",
+          "verb_class": "irregular_kuru"
+        },
+        "grammar_id": "N5_ta_form"
+      },
+      {
+        "t": "朝",
+        "role": "content",
+        "word_id": "W00002",
+        "r": "あさ"
+      }
+    ]
+  },
+  "new_words": [
+    "W00121",
+    "W00122",
+    "W00123"
+  ],
+  "new_grammar": [
+    "N5_ta_form"
+  ],
+  "all_words_used": [
+    "W00121",
+    "W00081",
+    "W00002",
+    "W00119",
+    "W00014",
+    "W00117",
+    "W00052",
+    "W00053",
+    "W00005",
+    "W00004",
+    "W00027",
+    "W00116",
+    "W00007",
+    "W00097",
+    "W00115",
+    "W00118",
+    "W00109",
+    "W00120",
+    "W00122",
+    "W00079",
+    "W00094",
+    "W00039",
+    "W00123"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "もう",
+          "role": "content",
+          "word_id": "W00119",
+          "r": "もう"
+        },
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あさ"
+        },
+        {
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "N5_mashita",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It was already morning.",
+      "audio": "audio/story_22/s0.mp3",
+      "audio_hash": "fa3d1121d52f"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "机",
+          "role": "content",
+          "word_id": "W00117",
+          "r": "つくえ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "ほん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "読みました",
+          "role": "content",
+          "word_id": "W00053",
+          "r": "よみました",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I read a book at my desk.",
+      "audio": "audio/story_22/s1.mp3",
+      "audio_hash": "0c3053210076"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "台所",
+          "role": "content",
+          "word_id": "W00004",
+          "r": "だいどころ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "皿",
+          "role": "content",
+          "word_id": "W00027",
+          "r": "さら"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "探して",
+          "role": "content",
+          "word_id": "W00116",
+          "r": "さがして",
+          "inflection": {
+            "base": "探す",
+            "base_r": "さがす",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "いました",
+          "role": "aux",
+          "grammar_id": "N5_te_iru"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My mother was looking for a plate in the kitchen.",
+      "audio": "audio/story_22/s2.mp3",
+      "audio_hash": "a43b221800af"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "葉",
+          "role": "content",
+          "word_id": "W00121",
+          "r": "は",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "窓",
+          "role": "content",
+          "word_id": "W00007",
+          "r": "まど"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "N5_kara_from"
+        },
+        {
+          "t": "入って",
+          "role": "content",
+          "word_id": "W00097",
+          "r": "はいって",
+          "inflection": {
+            "base": "入る",
+            "base_r": "はいる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "来ました",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きました",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "polite_past",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "A leaf came in through the window.",
+      "audio": "audio/story_22/s3.mp3",
+      "audio_hash": "983d7a1f975c"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "庭",
+          "role": "content",
+          "word_id": "W00115",
+          "r": "にわ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "木",
+          "role": "content",
+          "word_id": "W00118",
+          "r": "き"
+        },
+        {
+          "t": "から",
+          "role": "particle",
+          "grammar_id": "N5_kara_from"
+        },
+        {
+          "t": "葉",
+          "role": "content",
+          "word_id": "W00121",
+          "r": "は"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "飛んで",
+          "role": "content",
+          "word_id": "W00109",
+          "r": "とんで",
+          "inflection": {
+            "base": "飛ぶ",
+            "base_r": "とぶ",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "来て",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きて",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "te",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "机",
+          "role": "content",
+          "word_id": "W00117",
+          "r": "つくえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "落ちました",
+          "role": "content",
+          "word_id": "W00120",
+          "r": "おちました",
+          "inflection": {
+            "base": "落ちる",
+            "base_r": "おちる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "From the garden tree, the leaf flew in and fell onto the desk.",
+      "audio": "audio/story_22/s4.mp3",
+      "audio_hash": "e107dff8b958"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "葉",
+          "role": "content",
+          "word_id": "W00121",
+          "r": "は"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "ほん"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "入れて",
+          "role": "content",
+          "word_id": "W00122",
+          "r": "いれて",
+          "inflection": {
+            "base": "入れる",
+            "base_r": "いれる",
+            "form": "te",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_te_form",
+          "is_new": true
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "台所",
+          "role": "content",
+          "word_id": "W00004",
+          "r": "だいどころ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "行きました",
+          "role": "content",
+          "word_id": "W00079",
+          "r": "いきました",
+          "inflection": {
+            "base": "行く",
+            "base_r": "いく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I placed the leaf inside the book and went to the kitchen.",
+      "audio": "audio/story_22/s5.mp3",
+      "audio_hash": "25e59ce6d4ed"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "葉",
+          "role": "content",
+          "word_id": "W00121",
+          "r": "は"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "来た",
+          "role": "content",
+          "word_id": "W00081",
+          "r": "きた",
+          "inflection": {
+            "base": "来る",
+            "base_r": "くる",
+            "form": "past",
+            "verb_class": "irregular_kuru"
+          },
+          "grammar_id": "N5_ta_form",
+          "is_new_grammar": true
+        },
+        {
+          "t": "よ",
+          "role": "particle",
+          "grammar_id": "N5_yo_emphasis"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I said to my mother, \"A leaf came!\"",
+      "audio": "audio/story_22/s6.mp3",
+      "audio_hash": "325c0e087fea"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "葉",
+          "role": "content",
+          "word_id": "W00121",
+          "r": "は"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "持って",
+          "role": "content",
+          "word_id": "W00039",
+          "r": "もって",
+          "inflection": {
+            "base": "持つ",
+            "base_r": "もつ",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "捨てない",
+          "role": "content",
+          "word_id": "W00123",
+          "r": "すてない",
+          "inflection": {
+            "base": "捨てる",
+            "base_r": "すてる",
+            "form": "negative",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_nai_form",
+          "is_new": true
+        },
+        {
+          "t": "ね",
+          "role": "particle",
+          "grammar_id": "N5_ne_confirm"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Mother held the leaf and said, \"We won't throw it away, will we.\"",
+      "audio": "audio/story_22/s7.mp3",
+      "audio_hash": "e97f8baf96b3"
+    }
+  ],
+  "word_audio": {
+    "W00121": "audio/words/W00121.mp3",
+    "W00122": "audio/words/W00122.mp3",
+    "W00123": "audio/words/W00123.mp3"
+  },
+  "word_audio_hash": {
+    "W00121": "de77c92e7000",
+    "W00122": "e3d6030f48e7",
+    "W00123": "3ab914189171"
+  }
+}
