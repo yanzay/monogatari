@@ -478,6 +478,21 @@ def regen_one(
                     nxt_is_ii = nxt_t in {"いい", "良い", "よい"}
                     if prev_is_te and nxt_is_ii:
                         tok["grammar_id"] = "N5_te_mo_ii"
+        # Pass D: N5_attributive — verb-attributive (relative-clause noun
+        # modification). Pattern: plain-form content verb immediately followed
+        # by another content token (no particle between). Mirrors
+        # author_loop._apply_post_pass_attributions Pass D; see
+        # KNOWN_AUTO_GRAMMAR_DEFINITIONS for the state-entry definition.
+        _PLAIN_FORM_GIDS = {
+            "N5_ta_form", "N5_dictionary_form", "N5_nai_form", "N5_nakatta",
+        }
+        for j in range(len(toks) - 1):
+            tok = toks[j]
+            nxt = toks[j + 1]
+            if (tok.get("role") == "content"
+                    and tok.get("grammar_id") in _PLAIN_FORM_GIDS
+                    and nxt.get("role") == "content"):
+                tok["grammar_id"] = "N5_attributive"
     strip_audio(regen)
     return spec, regen, report
 

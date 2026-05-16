@@ -468,6 +468,24 @@ def _apply_post_pass_attributions(built_story: dict) -> None:
                     )
                     if is_predicate:
                         tok["grammar_id"] = "N5_kara_because"
+        # Pass D: N5_attributive — verb-attributive (relative-clause noun
+        # modification). Pattern: a content token in plain form (grammar_id
+        # in the plain-paradigm set) immediately followed (no intervening
+        # particle / aux / punct) by another content token. The verb gets
+        # retagged to N5_attributive (overriding its plain-form gid) so
+        # coverage_floor / Check 3.10 can credit the relative-clause
+        # construction as a fresh grammar introduction. Mirrors
+        # regenerate_all_stories.regen_one Pass D for post-ship parity.
+        _PLAIN_FORM_GIDS = {
+            "N5_ta_form", "N5_dictionary_form", "N5_nai_form", "N5_nakatta",
+        }
+        for j in range(len(toks) - 1):
+            tok = toks[j]
+            nxt = toks[j + 1]
+            if (tok.get("role") == "content"
+                    and tok.get("grammar_id") in _PLAIN_FORM_GIDS
+                    and nxt.get("role") == "content"):
+                tok["grammar_id"] = "N5_attributive"
 
 
 def step_pedagogical_sanity(story_id: int, built_story: dict) -> StepResult:

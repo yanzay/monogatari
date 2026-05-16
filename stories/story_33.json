@@ -1,0 +1,816 @@
+{
+  "story_id": 33,
+  "title": {
+    "jp": "弟からの荷物",
+    "en": "A Package from My Brother",
+    "tokens": [
+      {
+        "t": "弟",
+        "role": "content",
+        "word_id": "W00129",
+        "r": "おとうと"
+      },
+      {
+        "t": "から",
+        "role": "particle",
+        "grammar_id": "N5_kara_from"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "N5_no_pos"
+      },
+      {
+        "t": "荷物",
+        "role": "content",
+        "word_id": "W00167",
+        "r": "にもつ"
+      }
+    ]
+  },
+  "new_words": [
+    "W00167",
+    "W00168",
+    "W00169",
+    "W00170",
+    "W00171"
+  ],
+  "new_grammar": [
+    "N5_attributive"
+  ],
+  "all_words_used": [
+    "W00129",
+    "W00167",
+    "W00002",
+    "W00003",
+    "W00164",
+    "W00162",
+    "W00168",
+    "W00163",
+    "W00166",
+    "W00005",
+    "W00014",
+    "W00019",
+    "W00098",
+    "W00165",
+    "W00159",
+    "W00169",
+    "W00052",
+    "W00037",
+    "W00084",
+    "W00089",
+    "W00011",
+    "W00072",
+    "W00069",
+    "W00065",
+    "W00148",
+    "W00170",
+    "W00047",
+    "W00078",
+    "W00171",
+    "W00141",
+    "W00094"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "朝",
+          "role": "content",
+          "word_id": "W00002",
+          "r": "あさ"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "いえ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "ドア",
+          "role": "content",
+          "word_id": "W00164",
+          "r": "どあ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "前",
+          "role": "content",
+          "word_id": "W00162",
+          "r": "まえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "大きい",
+          "role": "content",
+          "word_id": "W00168",
+          "r": "おおきい",
+          "grammar_id": "N5_i_adj",
+          "is_new": true
+        },
+        {
+          "t": "荷物",
+          "role": "content",
+          "word_id": "W00167",
+          "r": "にもつ",
+          "is_new": true
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "着きました",
+          "role": "content",
+          "word_id": "W00163",
+          "r": "つきました",
+          "inflection": {
+            "base": "着く",
+            "base_r": "つく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "In the morning, a large package arrived in front of the door of my house.",
+      "audio": "audio/story_33/s0.mp3",
+      "audio_hash": "08bc66d9b4e2"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "やっと",
+          "role": "content",
+          "word_id": "W00166",
+          "r": "やっと"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "荷物",
+          "role": "content",
+          "word_id": "W00167",
+          "r": "にもつ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "一緒",
+          "role": "content",
+          "word_id": "W00019",
+          "r": "いっしょ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "開けました",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "あけました",
+          "inflection": {
+            "base": "開ける",
+            "base_r": "あける",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "At last, my mother and I opened the package together.",
+      "audio": "audio/story_33/s1.mp3",
+      "audio_hash": "bb6af08bc634"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00129",
+          "r": "おとうと"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "三",
+          "role": "content",
+          "word_id": "W00165",
+          "r": "さん"
+        },
+        {
+          "t": "日",
+          "role": "content",
+          "word_id": "W00159",
+          "r": "ひ"
+        },
+        {
+          "t": "前",
+          "role": "content",
+          "word_id": "W00162",
+          "r": "まえ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "送った",
+          "role": "content",
+          "word_id": "W00169",
+          "r": "おくった",
+          "inflection": {
+            "base": "送る",
+            "base_r": "おくる",
+            "form": "past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_attributive",
+          "is_new": true,
+          "is_new_grammar": true
+        },
+        {
+          "t": "荷物",
+          "role": "content",
+          "word_id": "W00167",
+          "r": "にもつ"
+        },
+        {
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "N5_mashita",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "It was the package my younger brother had sent three days ago.",
+      "audio": "audio/story_33/s2.mp3",
+      "audio_hash": "7d6619186a50"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "ほん"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00129",
+          "r": "おとうと"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "書いた",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "かいた",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_attributive"
+        },
+        {
+          "t": "短い",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みじかい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "ありました",
+          "role": "content",
+          "word_id": "W00011",
+          "r": "ありました",
+          "inflection": {
+            "base": "ある",
+            "base_r": "ある",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "There were some books, and a short letter my brother had written.",
+      "audio": "audio/story_33/s3.mp3",
+      "audio_hash": "ffa7113d73b5"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "元気",
+          "role": "content",
+          "word_id": "W00072",
+          "r": "げんき"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00129",
+          "r": "おとうと"
+        },
+        {
+          "t": "が",
+          "role": "particle",
+          "grammar_id": "N5_ga_subject"
+        },
+        {
+          "t": "手紙",
+          "role": "content",
+          "word_id": "W00089",
+          "r": "てがみ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "書きました",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "かきました",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "\"I am well,\" my brother wrote in the letter.",
+      "audio": "audio/story_33/s4.mp3",
+      "audio_hash": "dcd9f5bbc2e2"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "N5_mo_also"
+        },
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "N5_mo_also"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00129",
+          "r": "おとうと"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "声",
+          "role": "content",
+          "word_id": "W00069",
+          "r": "こえ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "聞いた",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "きいた",
+          "inflection": {
+            "base": "聞く",
+            "base_r": "きく",
+            "form": "past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_ta_form"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "思いました",
+          "role": "content",
+          "word_id": "W00148",
+          "r": "おもいました",
+          "inflection": {
+            "base": "思う",
+            "base_r": "おもう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "Both my mother and I felt we had heard my brother's voice.",
+      "audio": "audio/story_33/s5.mp3",
+      "audio_hash": "21ace66a7247"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "本",
+          "role": "content",
+          "word_id": "W00052",
+          "r": "ほん"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "手",
+          "role": "content",
+          "word_id": "W00170",
+          "r": "て",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "取って",
+          "role": "content",
+          "word_id": "W00047",
+          "r": "とって",
+          "inflection": {
+            "base": "取る",
+            "base_r": "とる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "ゆっくり",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "ゆっくり"
+        },
+        {
+          "t": "開けました",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "あけました",
+          "inflection": {
+            "base": "開ける",
+            "base_r": "あける",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My mother picked up a book and slowly opened it.",
+      "audio": "audio/story_33/s6.mp3",
+      "audio_hash": "b19953f8fd25"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "母",
+          "role": "content",
+          "word_id": "W00005",
+          "r": "はは"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "弟",
+          "role": "content",
+          "word_id": "W00129",
+          "r": "おとうと"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "返事",
+          "role": "content",
+          "word_id": "W00171",
+          "r": "へんじ",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "書いて",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "かいて",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "N5_te_mo_ii"
+        },
+        {
+          "t": "いい",
+          "role": "content",
+          "word_id": "W00141",
+          "r": "よい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "よ",
+          "role": "particle",
+          "grammar_id": "N5_yo_emphasis"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My mother said, \"You may write a reply to your brother.\"",
+      "audio": "audio/story_33/s7.mp3",
+      "audio_hash": "0e9359b42fc9"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "私",
+          "role": "content",
+          "word_id": "W00014",
+          "r": "わたし"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "短い",
+          "role": "content",
+          "word_id": "W00084",
+          "r": "みじかい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "返事",
+          "role": "content",
+          "word_id": "W00171",
+          "r": "へんじ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "書きました",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "かきました",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "I wrote a short reply.",
+      "audio": "audio/story_33/s8.mp3",
+      "audio_hash": "a462a4a2f2d5"
+    }
+  ],
+  "word_audio": {
+    "W00167": "audio/words/W00167.mp3",
+    "W00168": "audio/words/W00168.mp3",
+    "W00169": "audio/words/W00169.mp3",
+    "W00170": "audio/words/W00170.mp3",
+    "W00171": "audio/words/W00171.mp3"
+  },
+  "word_audio_hash": {
+    "W00167": "7bbffdc179f4",
+    "W00168": "569e083bc189",
+    "W00169": "3d95b96b7b1e",
+    "W00170": "afafbae591c1",
+    "W00171": "777a6d16d3dc"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "story_id": 33,
+  "title": {
+    "jp": "弟からの荷物",
+    "en": "A Package from My Brother"
+  },
+  "intent": "PREMISE CONTRACT (story 33; round-trip 3 of 3)\n  one_sentence_event:    A large package arrives at the narrator's own door in the morning; she and her mother finally open it together to find books and a short letter from her brother saying he is well, and after her mother quietly picks up one of the books and offers her permission to write a reply, the narrator writes a short reply herself — flipping from passive recipient to active correspondent.\n  change_of_state:       at s0 the package sits sealed on the doorstep and the narrator has not heard from her brother; by the closer the package is opened together with her mother, the brother's words have crossed the distance, her mother has handled a book and granted permission, and the narrator has WRITTEN a reply — not asked to, not waited for it, but written. Receiving has flipped to answering. X != Y.\n  scene_novelty_claim:   I am NOT writing a cafe / home (old-photo) / outing (visit-to-stranger) story; this is a delivery/at-the-door story at the narrator's OWN house. Scene_class = home_morning. Distinct from story 30 (opening a dusty box of one's own past) and story 32 (visiting somebody else's old house).\n  anchor_novelty_claim:  Anchor is the package (荷物). Last appeared: never. NOT a notebook/letter/photograph/pencil/address (last 5 anchors).\n  closer_shape_claim:    Closer shape: ACTION — narrator writes a short reply (first-person past verb, single clause, no V₁-て chain, no destination prep). NOT noun-pile, NOT a mirror of s.30's 紙を出して、手紙を書きました (two-verb chain, intermediate object), NOT s.31's third-person attributive sentence (友達はノートにこの人の住所を書きました), NOT s.32's third-person dialogue (女の人は…と言いました).\n  why_not_filler:        narrator earns her slot as receiver and active responder; mother earns hers as PHYSICAL CO-PARTICIPANT — she enters at s1 by opening the package WITH the narrator (not teleported in at the closer), shares the reflection at s5, picks up a book at s6, and at s7 unprompted grants permission. Brother (offstage) earns his slot as the sender whose letter delivers new information that flips intent. Package is load-bearing through s8: it arrives (s0), is opened together (s1), is identified as the brother's (s2), reveals books + letter (s3), the letter speaks (s4), the books are physically handled (s6), and the closer is the reply the package finally summons (s8).\n  obligations_absorbed:  must-reinforce N5_te_mo_ii absorbed at s7 (「弟に返事を書いてもいいよ」 — mother grants permission, more natural than a request shape). must-introduce N5_attributive absorbed at s2 (弟が…送った荷物) AND s3 (弟が書いた短い手紙) — both true verb-modifies-noun relative clauses. R1 obligations absorbed organically: ドア+前+着く in s0's single delivery image; やっと cluster-opens s1 (the joint opening that has long been awaited); 三+前 in s2's identification of the long-awaited shipment. No teleporting.\n\nSTORY 33 IS SELF-SUFFICIENT. It makes no reference to story 32's woman / old house / Saturday visit / tea. A reader picking up story 33 cold understands it without context. R1 reuse of ドア / 前 / 着く / やっと / 三 is LEXICAL recycling in a brand-new event (a delivery at one's own home, with one's own mother), not narrative continuation.\n\nROUND-TRIP 2 REVISIONS (addressing §E.7 and §E.7.5):\n  • §E.7 returned SHIP on round-trip 1's restructure (mother entrance, anchor causality, closer as action, no template mirror).\n  • §E.7.5 round 1: s4 STIFF (と弟は → と弟が) fixed; s6 REDUNDANT-PEDAGOGY (私は) eliminated by reassigning s6.\n  • §E.7.5 round 2: s0 COLLOCATION (大きい箱 reads as pedagogical insertion; 箱→荷物 doubles the same referent) → introduce 荷物 at s0 directly (drops 箱 from the corpus of this story); s2 WRONG-FORM (〜でした reads backwards after s0 arrival) → resolved by moving やっと to s1 (the joint opening) so s2 is pure attributive IDENTIFICATION (not a re-statement of arrival), and the でした is the natural copula for naming the package's origin; s6 COLLOCATION (本を取って ambiguous about quantity / grabbiness) → 本を手に取って (the natural fixed phrase for 'pick up' a single object with deliberate care, with 手 minted as a useful body-part word).\n\nFORBIDDEN THIS STORY:\n  scene_class    (last 3): cafe, home, outing — using home_morning (a delivery / threshold sub-class, distinct from s.30's box-in-room).\n  anchor_object  (last 5): ノート, 住所, 写真, 手紙, 鉛筆 — using 荷物 (package), fresh.\n  closer_shape   (last 3): noun-NO-noun-WA-noun-noun-P:ね-TO-noun, noun-WA-noun-NI-noun-noun-NO-noun-WO-noun, noun-WO-noun-noun-WO-noun — closer here is first-person past-action: pronoun-WA-adj-noun-WO-verb, single clause, distinct from s.30's two-verb chain.\n  opening_seqs   (last 3): 部屋/古い/箱, 今日/喫茶/店, 土曜日/喫茶 — opening is 朝/家/ドア, fresh first three content tokens.",
+  "scene_class": "home_morning",
+  "anchor_object": "荷物",
+  "characters": ["narrator", "mother"],
+  "lexical_overrides": [],
+  "sentences": [
+    {
+      "jp": "朝、家のドアの前に大きい荷物が着きました。",
+      "en": "In the morning, a large package arrived in front of the door of my house.",
+      "role": "setting"
+    },
+    {
+      "jp": "やっと、母と私は荷物を一緒に開けました。",
+      "en": "At last, my mother and I opened the package together.",
+      "role": "action"
+    },
+    {
+      "jp": "弟が三日前に送った荷物でした。",
+      "en": "It was the package my younger brother had sent three days ago.",
+      "role": "action"
+    },
+    {
+      "jp": "本と、弟が書いた短い手紙がありました。",
+      "en": "There were some books, and a short letter my brother had written.",
+      "role": "action"
+    },
+    {
+      "jp": "「元気です」と弟が手紙に書きました。",
+      "en": "\"I am well,\" my brother wrote in the letter.",
+      "role": "dialogue"
+    },
+    {
+      "jp": "母も私も、弟の声を聞いたと思いました。",
+      "en": "Both my mother and I felt we had heard my brother's voice.",
+      "role": "reflection"
+    },
+    {
+      "jp": "母は本を手に取って、ゆっくり開けました。",
+      "en": "My mother picked up a book and slowly opened it.",
+      "role": "action"
+    },
+    {
+      "jp": "母は「弟に返事を書いてもいいよ」と言いました。",
+      "en": "My mother said, \"You may write a reply to your brother.\"",
+      "role": "dialogue"
+    },
+    {
+      "jp": "私は短い返事を書きました。",
+      "en": "I wrote a short reply.",
+      "role": "closer"
+    }
+  ]
+}
