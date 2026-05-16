@@ -44,6 +44,14 @@ Skipping §B.0, §B.1, or any of §E.5–§E.7.5 is a discipline violation. Back
 
 ## 1. Hard invariants
 
+0. **EVERY STORY IS SELF-SUFFICIENT. NO STORY ARCS. NO MULTI-STORY CONTINUATIONS. NOT OVERRIDABLE.**
+   - A reader picking up story N at random must understand it WITHOUT having read N-1, N-2, or any other story.
+   - Forbidden framings (this is NOT an exhaustive list — the spirit of the rule binds): "the Saturday visit promised in story N-1", "fulfilling the invitation from N-1", "the address she wrote last week", "they finally meet", "the friend from before", "as we saw in N-1", "she remembered the photograph", any reference whose antecedent lives in another story file.
+   - Recurring characters/objects across stories are FINE if and only if story N introduces them as if for the first time within its own text. The narrator's "friend" in story N must read as "a friend" to a first-time reader, not "THAT friend with the unresolved promise".
+   - R1 vocab reinforcement (carrying word IDs from N-1 forward) is a LEXICAL obligation, not a NARRATIVE one. Re-use the surface; do NOT re-use the situation. If a word can only be reused inside a story-arc continuation, pick a different reuse context — invent a fresh scene that happens to want the same word.
+   - The §E.7 literary "sameness probe" includes ARC CONTINUATION as a defect, not a defense. "It's the natural sequel to N-1" is REWRITE-STORY, not SHIP. There is no §G override that purchases an arc continuation. The override budget cannot be spent here. Restart §B with a self-contained premise.
+   - Test: cover the title and story_id, hand the story to a stranger, ask "what happens?" — if the answer requires "well, you'd need to know that previously…", the story FAILS this invariant. Restart §B.
+
 1. **NEVER edit `stories/story_N.json` directly.** Only `pipeline/inputs/story_N.bilingual.json`.
 2. **NEVER bypass `pipeline/author_loop.py`.** Use `--dry-run` to test.
 3. **Vocabulary is derived, not declared.** Set a mint budget; `state_updater` mints on ship. (Story 1 declares the seed.)
@@ -99,12 +107,23 @@ PREMISE CONTRACT (story N)
   anchor_novelty_claim:  "Anchor is <X>. Last appeared in story <N or never>."
   closer_shape_claim:    "Closer shape: <action|dialogue|sensory>. NOT a noun-pile,
                          NOT a 「Nは Adj です」 mirror of stories <prev_3>."
+  self_sufficiency_test: "A reader who has read NO other story will understand this
+                         story completely. Specifically: every character is
+                         introduced in-text as if for the first time; every object's
+                         significance is established within these sentences; nothing
+                         depends on knowledge of N-1, N-2, or any other story.
+                         If I removed this story from a numbered corpus and put it
+                         in a random anthology, it would still read as a complete
+                         self-contained piece." — write this verbatim AND name any
+                         carry-forward surface (R1 reuse) and the FRESH context that
+                         re-introduces it without leaning on the prior story.
   why_not_filler:        per character/object, why does each EARN its slot?
   obligations_absorbed:  must-reinforce <wid…>, must-introduce <gid>; how absorbed
-                         (NOT bolted on at s4).
+                         (NOT bolted on at s4, NOT by reusing the prior story's
+                         situation).
 ```
 
-Cannot fill a field crisply → restart §B. No softening after drafting — §E.5 judges this exact text.
+Cannot fill a field crisply → restart §B. No softening after drafting — §E.5 judges this exact text. **`self_sufficiency_test` is non-overridable per Hard Invariant 0; if you cannot fill it honestly, the premise is wrong, not the field.**
 
 #### Step B.1 — Forbidden zones (REQUIRED)
 
@@ -230,13 +249,18 @@ Re-open and READ it. "Yeah but / technically Y" = **N**.
 
 ### Step E.6 — EN-only re-read
 
-Open `pipeline/inputs/story_{N,N-1,N-2}.bilingual.json`. Read `en` fields ONLY. Write one sentence: "What is materially different about the EVENTS of story N vs N-1 and N-2?"
+Open `pipeline/inputs/story_{N,N-1,N-2}.bilingual.json`. Read `en` fields ONLY. Write TWO sentences:
 
-Discard signals (escape hatches): "anchor is different object", "scene_class is different", "grammar point is different", "mood/tone is different".
+1. "What is materially different about the EVENTS of story N vs N-1 and N-2?"
+2. "If a stranger read story N's EN gloss alone (no N-1, no N-2), what would they understand happens? List every character + object reference that they would have to ask about." — if the answer to "what would they ask about" is non-empty, the story FAILS Hard Invariant 0; discard, restart §B.
 
-Acceptable verbs: discovers, transfers, refuses, chooses, fails, surprises, breaks, finishes, decides, declines, reveals.
+Discard signals (escape hatches) for sentence 1: "anchor is different object", "scene_class is different", "grammar point is different", "mood/tone is different".
 
-Cannot write the sentence without an escape hatch → discard.
+Discard signals (escape hatches) for sentence 2: any phrase like "they'd assume from context" — this gate is precisely about banning unnamed context. If the stranger would have to assume, story N has not introduced it.
+
+Acceptable verbs for sentence 1: discovers, transfers, refuses, chooses, fails, surprises, breaks, finishes, decides, declines, reveals.
+
+Cannot write either sentence cleanly → discard.
 
 ### Step E.7 — Fresh-eyes literary subagent (1 tool call)
 
@@ -246,21 +270,22 @@ Delegate to `Explore`. Use this **exact** prompt (hostility is load-bearing):
 >
 > READ ONLY: `pipeline/inputs/story_N.bilingual.json`, `pipeline/inputs/story_{N-1,N-2,N-3}.bilingual.json`. NOT AGENTS.md, the SKILL, the brief, the corpus.
 >
-> Read EN glosses first, then JP. In ≤250 words, answer ALL eight probes (be specific — quote sids; vague = N):
+> Read EN glosses first, then JP. In ≤280 words, answer ALL nine probes (be specific — quote sids; vague = N):
 >
 > 1. ONE-SENTENCE EVENT: write the story in one sentence using a verb of action/transfer/decision/refusal/discovery/revelation (NOT observes/is/notices). Observational only = REWRITE-STORY.
-> 2. CHARACTER ENTRANCES: name the entrance sentence for every non-narrator. Mid-story appearance with no entrance = TELEPORT = REWRITE-STORY.
+> 2. CHARACTER ENTRANCES: name the entrance sentence for every non-narrator. Mid-story appearance with no entrance = TELEPORT = REWRITE-STORY. NOTE: 'we already met them in story N-1' is NOT an entrance — story N must introduce every character in-text.
 > 3. WHY-IS-EACH-FACT-HERE: for each assertion, why would the story suffer if deleted? "To satisfy a grammar slot" = PEDAGOGICAL BOLT-ON. 2+ bolt-ons = REWRITE-STORY.
 > 4. ANCHOR CAUSALITY: does it (a) change owners, (b) change state, (c) change location meaningfully, (d) trigger character action? Else decoration = REWRITE-STORY.
 > 5. CLOSER WEIGHT: does it land? Mechanical "and then X" = REWRITE-SENTENCE.
 > 6. SAMENESS PROBE: vs N-1, N-2, N-3 — repetition of anchor TYPE / event SHAPE / sentence RHYTHM / closer TEMPLATE? 3+ sames = REWRITE-STORY.
-> 7. LEARNER TEST: JLPT N5 learner week 4 — (a) read a story, (b) did a grammar exercise, (c) confused? Only (a) is SHIP.
-> 8. WOULD-I-WRITE-THIS: would you accept this draft from a paid author? Send-back = REWRITE.
+> 7. SELF-SUFFICIENCY PROBE (HARD-BLOCK): cover the prior stories. Read story N alone. Does any sentence — particularly the opener and any reference to "the friend / the address / the photograph / the letter / the visit" — depend on knowledge from another story? Look for: definite reference without in-text introduction ("the address" before any address is named in N), pronouns/possessives whose antecedent is NOT in N, narrative beats that only resolve if you remember N-1's setup ("they finally met"; "as she had promised"; "the Saturday they planned"), characters who have unexplained relationships to each other. ANY such dependency = REWRITE-STORY. Continuation framings — "fulfilling story N-1's invitation", "the Saturday visit promised before", "they keep their word from last week" — are themselves the defect, NOT a defense. There is no override.
+> 8. LEARNER TEST: JLPT N5 learner week 4 — (a) read a story, (b) did a grammar exercise, (c) confused? Only (a) is SHIP.
+> 9. WOULD-I-WRITE-THIS: would you accept this draft from a paid author? Send-back = REWRITE.
 >
 > VERDICT (default REWRITE):
->   - SHIP — only if all 8 probes positive AND it's a story, not a worksheet.
+>   - SHIP — only if all 9 probes positive AND it's a story, not a worksheet. Probe 7 alone failing = REWRITE-STORY (no override).
 >   - REWRITE-SENTENCE — name sids + defects in one line each.
->   - REWRITE-STORY — premise is the problem.
+>   - REWRITE-STORY — premise is the problem (always the verdict for probe-7 failure).
 >
 > 'Mostly fine' / 'good enough' / 'technically valid' = REWRITE wearing a polite mask. Strip it."
 
@@ -468,12 +493,18 @@ Match the era's `north_stars` — one sentence should *feel like* one of them.
 
 Each session has **one (1) override token**. Consumed when:
 - §B.1 forbidden zone violated by deliberate exception.
-- §E.5 contract row = N and ship anyway (DISCOURAGED — usually means restart §B).
-- §E.6 difference sentence required an escape hatch.
-- §E.7 returned REWRITE-STORY.
+- §E.5 contract row = N (other than `self_sufficiency_test`) and ship anyway (DISCOURAGED — usually means restart §B).
+- §E.6 sentence-1 difference required an escape hatch.
+- §E.7 returned REWRITE-STORY for any reason OTHER than probe 7 (self-sufficiency).
 - §E.7.5 returned REWRITE-STORY (**STRONGLY DISCOURAGED** — prefer spending the override on a §G lexical addition that unlocks the natural construction).
 
-**Never override §E.7.5 REWRITE-SENTENCE or a NATURALNESS SCORE < total/total.** Fix the sentence; do not ship broken Japanese.
+**Never override:**
+- §E.7.5 REWRITE-SENTENCE or a NATURALNESS SCORE < total/total. Fix the sentence; do not ship broken Japanese.
+- **Hard Invariant 0 (self-sufficiency / no story arcs).** This is NOT a budgeted concern — it is structural. The override token cannot be spent on:
+  - §B.0 `self_sufficiency_test` filled dishonestly or skipped.
+  - §E.6 sentence-2 producing a non-empty "would have to ask about" list.
+  - §E.7 probe 7 returning REWRITE-STORY.
+  Any of these → restart §B with a self-contained premise. The token remains unspent.
 
 **Second override forces escalation.** Stop, do NOT ship; surface ≤5 lines.
 

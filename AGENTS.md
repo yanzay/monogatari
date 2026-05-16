@@ -4,6 +4,21 @@ Workspace-specific knowledge for future agent sessions. Concrete, factual, point
 
 ---
 
+## ⛔ HARD INVARIANT (non-overridable, since 2026-05-16): no story arcs
+
+**Every story is self-sufficient.** A reader who picks up story N at random must understand it without having read any other story. NO multi-story continuations. NO "natural sequel to N-1" framings. NO unresolved promises carried forward as the premise of the next story. R1 vocab reinforcement is a LEXICAL obligation, not a NARRATIVE one — re-use the surface in a fresh context, not the situation.
+
+This is enforced in the monogatari-author skill:
+- Hard Invariant 0 in §1
+- new `self_sufficiency_test` row in §B.0 PREMISE CONTRACT
+- §E.6 sentence-2 (stranger-test)
+- §E.7 probe 7 (self-sufficiency probe — REWRITE-STORY on any dependency)
+- §6.5 explicitly bars the override token from purchasing an arc continuation
+
+Story 32 (土曜日の住所, shipped 2026-05-16) was the violation that surfaced this rule — it framed itself as "the Saturday visit promised in story 31". Do NOT use it as a precedent. Treat it as a defect that the gates now catch.
+
+---
+
 ## Project shape
 
 Monogatari = graded-reader Japanese short-story corpus + reading-app + authoring pipeline. Stories live in `stories/story_N.json` (built artifact), authored from `pipeline/inputs/story_N.bilingual.json` (editable spec). Vocab/grammar progression in `data/vocab_state.json` and `data/grammar_state.json`. Pipeline (`pipeline/`) has deterministic validator, semantic-sanity lints, audio builder, and authoring tools at `pipeline/tools/`.
