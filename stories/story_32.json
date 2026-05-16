@@ -1,0 +1,872 @@
+{
+  "story_id": 32,
+  "title": {
+    "jp": "土曜日の住所",
+    "en": "The Saturday Address",
+    "tokens": [
+      {
+        "t": "土曜",
+        "role": "content",
+        "word_id": "W00158",
+        "r": "どよう"
+      },
+      {
+        "t": "日",
+        "role": "content",
+        "word_id": "W00159",
+        "r": "ひ"
+      },
+      {
+        "t": "の",
+        "role": "particle",
+        "grammar_id": "N5_no_pos"
+      },
+      {
+        "t": "住所",
+        "role": "content",
+        "word_id": "W00161",
+        "r": "じゅうしょ"
+      }
+    ]
+  },
+  "new_words": [
+    "W00162",
+    "W00163",
+    "W00164",
+    "W00165",
+    "W00166"
+  ],
+  "new_grammar": [
+    "N5_te_mo_ii"
+  ],
+  "all_words_used": [
+    "W00158",
+    "W00159",
+    "W00161",
+    "W00157",
+    "W00021",
+    "W00033",
+    "W00160",
+    "W00106",
+    "W00041",
+    "W00015",
+    "W00043",
+    "W00107",
+    "W00099",
+    "W00037",
+    "W00078",
+    "W00053",
+    "W00137",
+    "W00003",
+    "W00162",
+    "W00163",
+    "W00164",
+    "W00098",
+    "W00154",
+    "W00045",
+    "W00046",
+    "W00031",
+    "W00097",
+    "W00141",
+    "W00065",
+    "W00010",
+    "W00017",
+    "W00094",
+    "W00165",
+    "W00051",
+    "W00166"
+  ],
+  "sentences": [
+    {
+      "idx": 0,
+      "tokens": [
+        {
+          "t": "土曜",
+          "role": "content",
+          "word_id": "W00158",
+          "r": "どよう"
+        },
+        {
+          "t": "日",
+          "role": "content",
+          "word_id": "W00159",
+          "r": "ひ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "喫茶",
+          "role": "content",
+          "word_id": "W00157",
+          "r": "きっさ"
+        },
+        {
+          "t": "店",
+          "role": "content",
+          "word_id": "W00021",
+          "r": "みせ"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "会いました",
+          "role": "content",
+          "word_id": "W00160",
+          "r": "あいました",
+          "inflection": {
+            "base": "会う",
+            "base_r": "あう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "On Saturday, I met my friend at the café.",
+      "audio": "audio/story_32/s0.mp3",
+      "audio_hash": "969422de3bf1"
+    },
+    {
+      "idx": 1,
+      "tokens": [
+        {
+          "t": "二人",
+          "role": "content",
+          "word_id": "W00106",
+          "r": "ふたり",
+          "grammar_id": "N5_counters"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "駅",
+          "role": "content",
+          "word_id": "W00041",
+          "r": "えき"
+        },
+        {
+          "t": "まで",
+          "role": "particle",
+          "grammar_id": "N5_made_until"
+        },
+        {
+          "t": "歩いて",
+          "role": "content",
+          "word_id": "W00015",
+          "r": "あるいて",
+          "inflection": {
+            "base": "歩く",
+            "base_r": "あるく",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "電車",
+          "role": "content",
+          "word_id": "W00043",
+          "r": "でんしゃ"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "乗りました",
+          "role": "content",
+          "word_id": "W00107",
+          "r": "のりました",
+          "inflection": {
+            "base": "乗る",
+            "base_r": "のる",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The two of us walked to the station and boarded the train.",
+      "audio": "audio/story_32/s1.mp3",
+      "audio_hash": "1f78dbbec650"
+    },
+    {
+      "idx": 2,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "ノート",
+          "role": "content",
+          "word_id": "W00099",
+          "r": "のーと"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "書いた",
+          "role": "content",
+          "word_id": "W00037",
+          "r": "かいた",
+          "inflection": {
+            "base": "書く",
+            "base_r": "かく",
+            "form": "past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_ta_form"
+        },
+        {
+          "t": "住所",
+          "role": "content",
+          "word_id": "W00161",
+          "r": "じゅうしょ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "ゆっくり",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "ゆっくり"
+        },
+        {
+          "t": "読みました",
+          "role": "content",
+          "word_id": "W00053",
+          "r": "よみました",
+          "inflection": {
+            "base": "読む",
+            "base_r": "よむ",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend slowly read the address she had written in the notebook.",
+      "audio": "audio/story_32/s2.mp3",
+      "audio_hash": "aec598680573"
+    },
+    {
+      "idx": 3,
+      "tokens": [
+        {
+          "t": "古い",
+          "role": "content",
+          "word_id": "W00137",
+          "r": "ふるい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "家",
+          "role": "content",
+          "word_id": "W00003",
+          "r": "いえ"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "前",
+          "role": "content",
+          "word_id": "W00162",
+          "r": "まえ",
+          "is_new": true
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "着きました",
+          "role": "content",
+          "word_id": "W00163",
+          "r": "つきました",
+          "inflection": {
+            "base": "着く",
+            "base_r": "つく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita",
+          "is_new": true
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "We arrived in front of an old house.",
+      "audio": "audio/story_32/s3.mp3",
+      "audio_hash": "7823b847f961"
+    },
+    {
+      "idx": 4,
+      "tokens": [
+        {
+          "t": "ドア",
+          "role": "content",
+          "word_id": "W00164",
+          "r": "どあ",
+          "is_new": true
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "開けた",
+          "role": "content",
+          "word_id": "W00098",
+          "r": "あけた",
+          "inflection": {
+            "base": "開ける",
+            "base_r": "あける",
+            "form": "past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_ta_form"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "写真",
+          "role": "content",
+          "word_id": "W00154",
+          "r": "しゃしん"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "女",
+          "role": "content",
+          "word_id": "W00045",
+          "r": "おんな"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "でした",
+          "role": "aux",
+          "grammar_id": "N5_mashita",
+          "inflection": {
+            "base": "です",
+            "base_r": "です",
+            "form": "polite_past"
+          }
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The one who opened the door was the woman from the photograph.",
+      "audio": "audio/story_32/s4.mp3",
+      "audio_hash": "cda9750f437b"
+    },
+    {
+      "idx": 5,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "女",
+          "role": "content",
+          "word_id": "W00045",
+          "r": "おんな"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "に",
+          "role": "particle",
+          "grammar_id": "N5_ni_location"
+        },
+        {
+          "t": "住所",
+          "role": "content",
+          "word_id": "W00161",
+          "r": "じゅうしょ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "見せました",
+          "role": "content",
+          "word_id": "W00031",
+          "r": "みせました",
+          "inflection": {
+            "base": "見せる",
+            "base_r": "みせる",
+            "form": "polite_past",
+            "verb_class": "ichidan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend showed the woman the address.",
+      "audio": "audio/story_32/s5.mp3",
+      "audio_hash": "bf31419f660e"
+    },
+    {
+      "idx": 6,
+      "tokens": [
+        {
+          "t": "友達",
+          "role": "content",
+          "word_id": "W00033",
+          "r": "ともだち"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "入って",
+          "role": "content",
+          "word_id": "W00097",
+          "r": "はいって",
+          "inflection": {
+            "base": "入る",
+            "base_r": "はいる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "も",
+          "role": "particle",
+          "grammar_id": "N5_te_mo_ii",
+          "is_new_grammar": true
+        },
+        {
+          "t": "いい",
+          "role": "content",
+          "word_id": "W00141",
+          "r": "よい",
+          "grammar_id": "N5_i_adj"
+        },
+        {
+          "t": "です",
+          "role": "aux",
+          "grammar_id": "N5_desu"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "N5_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "聞きました",
+          "role": "content",
+          "word_id": "W00065",
+          "r": "ききました",
+          "inflection": {
+            "base": "聞く",
+            "base_r": "きく",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "My friend asked, \"May we come in?\"",
+      "audio": "audio/story_32/s6.mp3",
+      "audio_hash": "4bec8dcc45a3"
+    },
+    {
+      "idx": 7,
+      "tokens": [
+        {
+          "t": "女",
+          "role": "content",
+          "word_id": "W00045",
+          "r": "おんな"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "おちゃ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "飲みません",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "のみません",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "negative_polite",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_masenka"
+        },
+        {
+          "t": "か",
+          "role": "particle",
+          "grammar_id": "N5_ka_question"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The woman said, \"Won't you have some tea?\"",
+      "audio": "audio/story_32/s7.mp3",
+      "audio_hash": "a84e74f1d252"
+    },
+    {
+      "idx": 8,
+      "tokens": [
+        {
+          "t": "三",
+          "role": "content",
+          "word_id": "W00165",
+          "r": "さん",
+          "is_new": true
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "で",
+          "role": "particle",
+          "grammar_id": "N5_de_means"
+        },
+        {
+          "t": "座って",
+          "role": "content",
+          "word_id": "W00051",
+          "r": "すわって",
+          "inflection": {
+            "base": "座る",
+            "base_r": "すわる",
+            "form": "te",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_te_form"
+        },
+        {
+          "t": "、",
+          "role": "punct"
+        },
+        {
+          "t": "お茶",
+          "role": "content",
+          "word_id": "W00010",
+          "r": "おちゃ"
+        },
+        {
+          "t": "を",
+          "role": "particle",
+          "grammar_id": "N5_o_object"
+        },
+        {
+          "t": "ゆっくり",
+          "role": "content",
+          "word_id": "W00078",
+          "r": "ゆっくり"
+        },
+        {
+          "t": "飲みました",
+          "role": "content",
+          "word_id": "W00017",
+          "r": "のみました",
+          "inflection": {
+            "base": "飲む",
+            "base_r": "のむ",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The three of us sat down and drank tea slowly.",
+      "audio": "audio/story_32/s8.mp3",
+      "audio_hash": "3487aee0719f"
+    },
+    {
+      "idx": 9,
+      "tokens": [
+        {
+          "t": "女",
+          "role": "content",
+          "word_id": "W00045",
+          "r": "おんな"
+        },
+        {
+          "t": "の",
+          "role": "particle",
+          "grammar_id": "N5_no_pos"
+        },
+        {
+          "t": "人",
+          "role": "content",
+          "word_id": "W00046",
+          "r": "ひと"
+        },
+        {
+          "t": "は",
+          "role": "particle",
+          "grammar_id": "N5_wa_topic"
+        },
+        {
+          "t": "「",
+          "role": "punct"
+        },
+        {
+          "t": "やっと",
+          "role": "content",
+          "word_id": "W00166",
+          "r": "やっと",
+          "is_new": true
+        },
+        {
+          "t": "会いました",
+          "role": "content",
+          "word_id": "W00160",
+          "r": "あいました",
+          "inflection": {
+            "base": "会う",
+            "base_r": "あう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "ね",
+          "role": "particle",
+          "grammar_id": "N5_ne_confirm"
+        },
+        {
+          "t": "」",
+          "role": "punct"
+        },
+        {
+          "t": "と",
+          "role": "particle",
+          "grammar_id": "N5_to_and"
+        },
+        {
+          "t": "言いました",
+          "role": "content",
+          "word_id": "W00094",
+          "r": "いいました",
+          "inflection": {
+            "base": "言う",
+            "base_r": "いう",
+            "form": "polite_past",
+            "verb_class": "godan"
+          },
+          "grammar_id": "N5_mashita"
+        },
+        {
+          "t": "。",
+          "role": "punct"
+        }
+      ],
+      "gloss_en": "The woman said, \"We have finally met.\"",
+      "audio": "audio/story_32/s9.mp3",
+      "audio_hash": "8d5dd890b857"
+    }
+  ],
+  "word_audio": {
+    "W00162": "audio/words/W00162.mp3",
+    "W00163": "audio/words/W00163.mp3",
+    "W00164": "audio/words/W00164.mp3",
+    "W00165": "audio/words/W00165.mp3",
+    "W00166": "audio/words/W00166.mp3"
+  },
+  "word_audio_hash": {
+    "W00162": "d86aa031b0d9",
+    "W00163": "7d196893b1f4",
+    "W00164": "722a3a345e3d",
+    "W00165": "93663a351728",
+    "W00166": "e9f03fd24baf"
+  }
+}

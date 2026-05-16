@@ -460,6 +460,24 @@ def regen_one(
                     )
                     if is_predicate:
                         tok["grammar_id"] = "N5_ga_but"
+            # N5_te_mo_ii — 〜てもいい (permission). Pattern: te-form verb +
+            # も + いい(です)(か). Tag the も particle. Mirrors
+            # author_loop._apply_post_pass_attributions; see KNOWN_AUTO_GRAMMAR_DEFINITIONS
+            # for the state-entry definition.
+            elif t == "も" and tok.get("role") == "particle":
+                prev = toks[j - 1] if j > 0 else None
+                nxt  = toks[j + 1] if j + 1 < len(toks) else None
+                if prev is not None and nxt is not None:
+                    prev_gid = prev.get("grammar_id") or ""
+                    prev_form = (prev.get("inflection") or {}).get("form", "")
+                    prev_is_te = (
+                        prev_gid == "N5_te_form"
+                        or prev_form == "te"
+                    )
+                    nxt_t = nxt.get("t", "")
+                    nxt_is_ii = nxt_t in {"いい", "良い", "よい"}
+                    if prev_is_te and nxt_is_ii:
+                        tok["grammar_id"] = "N5_te_mo_ii"
     strip_audio(regen)
     return spec, regen, report
 

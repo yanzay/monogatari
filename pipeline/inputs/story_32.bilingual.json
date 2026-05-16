@@ -1,0 +1,64 @@
+{
+  "story_id": 32,
+  "title": {
+    "jp": "土曜日の住所",
+    "en": "The Saturday Address"
+  },
+  "intent": "PREMISE CONTRACT (story 32)\n  one_sentence_event:    On Saturday, the narrator and her friend take a train, follow the address written in the notebook to an old house, and the woman who opens the door is the person from the photograph — she invites them in, they sit and drink tea, and she says she is glad to finally meet them.\n  change_of_state:       at s0 the address is only ink on paper and the friend's invitation from story 31 is still unfulfilled; by the closer the address has been used up (door reached, person met, tea drunk) and the photograph has acquired a living counterpart who speaks.\n  scene_novelty_claim:   I am NOT writing a cafe / classroom / home story. The action takes place across a train and a stranger's doorway and entryway — an outing/visit scene class, new in the last 3 stories.\n  anchor_novelty_claim:  Anchor is 住所 (the written address). It is referenced in s0 (the Saturday plan), read aloud at s2, used as the test against the door at s3, and put away once the meeting begins. Last appeared as decoration at s9 of story 31; here it is the load-bearing object. Not in the last-5 anchor list (ノート, 傘, 写真, 手紙, 鉛筆).\n  closer_shape_claim:    Closer shape: dialogue. NOT a noun-WO-noun-NI-… pile, NOT a 「Nは Adj です」 mirror of stories 29–31 (which all closed on a verb-of-physical-handling: 出ました / 書きました / 書きました).\n  why_not_filler:        Narrator drives the journey (reads the address, decides to ring); friend is the inviter from story 31 carrying that promise forward and asks the door-question; woman is the photograph made flesh — without her the visit has no destination. Train, address, door each EARN their slot as the staged steps of arrival.\n  obligations_absorbed:  R1 strict carries 5 mints from story 31 organically: 土曜日 in s0 (the Saturday plan), 喫茶店 in s1 (where they meet to start the trip), 住所 in s2 + s3 (read, then matched), 会う via 会えて in the closer (the meeting earned). Grammar must-introduce: N5_attributive in s2 「ノートに書いた住所」 (verb modifying noun). Grammar must-reinforce: N5_masenka in s5 「お茶を飲みませんか」 (the woman's invitation in).\n\nFORBIDDEN THIS STORY:\n  scene_class    (last 3): cafe, classroom, home\n  anchor_object  (last 5): ノート, 傘, 写真, 手紙, 鉛筆\n  closer_shape   (last 3): noun-WA-noun-NI-…-WO-noun, noun-WO-noun-NI-…-WO-noun, noun-WO-noun-noun-WO-noun\n  opening_seqs   (last 3): 朝/教室/先生, 部屋/古い/箱, 今日/喫茶/店",
+  "scene_class": "outing",
+  "anchor_object": "住所",
+  "characters": ["narrator", "friend", "woman"],
+  "lexical_overrides": [],
+  "sentences": [
+    {
+      "jp": "土曜日に、喫茶店で友達と会いました。",
+      "en": "On Saturday, I met my friend at the café.",
+      "role": "setting"
+    },
+    {
+      "jp": "二人で駅まで歩いて、電車に乗りました。",
+      "en": "The two of us walked to the station and boarded the train.",
+      "role": "action"
+    },
+    {
+      "jp": "友達はノートに書いた住所をゆっくり読みました。",
+      "en": "My friend slowly read the address she had written in the notebook.",
+      "role": "action"
+    },
+    {
+      "jp": "古い家の前に着きました。",
+      "en": "We arrived in front of an old house.",
+      "role": "action"
+    },
+    {
+      "jp": "ドアを開けたのは、写真の女の人でした。",
+      "en": "The one who opened the door was the woman from the photograph.",
+      "role": "inflection"
+    },
+    {
+      "jp": "友達は女の人に住所を見せました。",
+      "en": "My friend showed the woman the address.",
+      "role": "action"
+    },
+    {
+      "jp": "友達は「入ってもいいですか」と聞きました。",
+      "en": "My friend asked, \"May we come in?\"",
+      "role": "dialogue"
+    },
+    {
+      "jp": "女の人は「お茶を飲みませんか」と言いました。",
+      "en": "The woman said, \"Won't you have some tea?\"",
+      "role": "dialogue"
+    },
+    {
+      "jp": "三人で座って、お茶をゆっくり飲みました。",
+      "en": "The three of us sat down and drank tea slowly.",
+      "role": "action"
+    },
+    {
+      "jp": "女の人は「やっと会いましたね」と言いました。",
+      "en": "The woman said, \"We have finally met.\"",
+      "role": "closer"
+    }
+  ]
+}

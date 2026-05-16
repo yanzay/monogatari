@@ -427,6 +427,25 @@ def _apply_post_pass_attributions(built_story: dict) -> None:
                     )
                     if is_predicate:
                         tok["grammar_id"] = "N5_ga_but"
+            # N5_te_mo_ii — 〜てもいい (permission). Pattern: te-form verb (role=content
+            # tagged N5_te_form, OR a content token ending in て/で whose inflection
+            # form is 'te'), followed within 1–3 tokens by も + いい(です)(か).
+            # The mo+ii cluster is what we tag (mo particle); the te-form keeps its
+            # N5_te_form so coverage_floor sees a fresh grammar credit on N5_te_mo_ii.
+            elif t == "も" and tok.get("role") == "particle":
+                prev = toks[j - 1] if j > 0 else None
+                nxt  = toks[j + 1] if j + 1 < len(toks) else None
+                if prev is not None and nxt is not None:
+                    prev_gid = prev.get("grammar_id") or ""
+                    prev_form = (prev.get("inflection") or {}).get("form", "")
+                    prev_is_te = (
+                        prev_gid == "N5_te_form"
+                        or prev_form == "te"
+                    )
+                    nxt_t = nxt.get("t", "")
+                    nxt_is_ii = nxt_t in {"いい", "良い", "よい"}
+                    if prev_is_te and nxt_is_ii:
+                        tok["grammar_id"] = "N5_te_mo_ii"
             elif t == "から" and tok.get("role") == "particle":
                 # N5_kara_because — から after a predicate (verb / adj / です stem)
                 # is the reason connector; から after a plain noun is N5_kara_from

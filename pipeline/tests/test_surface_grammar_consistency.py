@@ -33,7 +33,7 @@ EXPECTED_PAIRS: dict[tuple[str, str], str] = {
     ("particle", "は"): "N5_wa_topic",
     ("particle", "を"): "N5_o_object",
     ("particle", "に"): "N5_ni_location",
-    ("particle", "も"): "N5_mo_also",
+    # も is polysemous (N5_mo_also vs N5_te_mo_ii) — handled in POLYSEMOUS below
     ("particle", "や"): "N5_ya_partial",
     # と has TWO valid meanings (and-list G010, quote-particle G014) — handled separately
     # です/だ/でした collapse into N5_desu / N5_mashita — handled separately
@@ -46,6 +46,7 @@ POLYSEMOUS: dict[tuple[str, str], set[str]] = {
     ("particle", "と"): {"N5_to_and", "N4_to_omoimasu", "N4_to_iimasu"},  # and-list vs quote / says
     ("particle", "から"): {"N5_kara_from", "N5_kara_because"},  # noun-from vs clause-because
     ("particle", "が"): {"N5_ga_subject", "N5_ga_but"},  # subject marker vs clause-but (v0.22)
+    ("particle", "も"): {"N5_mo_also", "N5_te_mo_ii"},  # also-particle vs te-form-mo-ii permission (story 32+)
     ("aux", "です"): {"N5_desu"},
     ("aux", "だ"): {"N5_desu", "N5_da"},  # plain copula (G024 added v0.16)
     ("aux", "でした"): {"N5_desu", "N5_mashita"},  # past copula

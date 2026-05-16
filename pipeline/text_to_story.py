@@ -344,6 +344,17 @@ KNOWN_AUTO_GRAMMAR_DEFINITIONS: dict[str, dict] = {
         "bunpro_ref":    "bunpro_n5",
         "jlpt_sensei_ref": "jlpt_sensei",
     },
+    "N5_te_mo_ii": {
+        "title":         "〜てもいい — may / it's ok to",
+        "short":         "Permission: te-form of a verb + も + いい. 'It is ok to V' / 'You may V'.",
+        "long":          "Te-form + も + いい(です) grants or asks permission: 「入ってもいいです」 = 'It is fine to enter / you may come in'. With か as 「〜てもいいですか」 it asks permission. The subject is contextual; in dialogue typically the addressee. The negative counterpart is 〜なくてもいい ('don't have to'). First appears in dialogue at a doorway, doctor's office, or any threshold/permission context.",
+        "jlpt":          "N5",
+        "catalog_id":    "N5_te_mo_ii",
+        "prerequisites": ["N5_te_form"],
+        "genki_ref":     "Genki I L6",
+        "bunpro_ref":    "bunpro_n5",
+        "jlpt_sensei_ref": "jlpt_sensei",
+    },
     # ── N4 auto-tagged forms ───────────────────────────────────────────────
     "N4_nagara": {
         "title":         "〜ながら — while (simultaneous actions)",
